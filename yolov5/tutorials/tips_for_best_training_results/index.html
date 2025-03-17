@@ -22,13 +22,13 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Tips for Best Training Results" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 training, mAP, dataset best practices, model selection, training settings, YOLOv5 guide, YOLOv5 tutorial, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results" property="og:url"/><meta content="Tips for Best Training Results" property="og:title"/><meta content="Discover how to achieve optimal mAP and training results using YOLOv5. Learn essential dataset, model selection, and training settings best practices." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/coco-analysis.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results" property="twitter:url"/><meta content="Tips for Best Training Results" property="twitter:title"/><meta content="Discover how to achieve optimal mAP and training results using YOLOv5. Learn essential dataset, model selection, and training settings best practices." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/coco-analysis.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Tips for Best Training Results", "image": ["https://github.com/ultralytics/docs/releases/download/0/coco-analysis.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-01-03 01:16:18 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover how to achieve optimal mAP and training results using YOLOv5. Learn essential dataset, model selection, and training settings best practices."}</script></head>
+<meta content="Tips for Best Training Results" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 training, mAP, dataset best practices, model selection, training settings, YOLOv5 guide, YOLOv5 tutorial, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results" property="og:url"/><meta content="Tips for Best Training Results" property="og:title"/><meta content="Discover how to achieve optimal mAP and training results using YOLOv5. Learn essential dataset, model selection, and training settings best practices." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/coco-analysis.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/tips_for_best_training_results" property="twitter:url"/><meta content="Tips for Best Training Results" property="twitter:title"/><meta content="Discover how to achieve optimal mAP and training results using YOLOv5. Learn essential dataset, model selection, and training settings best practices." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/coco-analysis.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Tips for Best Training Results", "image": ["https://github.com/ultralytics/docs/releases/download/0/coco-analysis.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-17 21:52:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover how to achieve optimal mAP and training results using YOLOv5. Learn essential dataset, model selection, and training settings best practices.", "mainEntity": [{"@type": "Question", "name": "How do I know if my model is overfitting?", "acceptedAnswer": {"@type": "Answer", "text": "Your model may be overfitting if the training loss continues to decrease while validation loss starts to increase. Monitor the validation mAP - if it plateaus or decreases while training loss keeps improving, that's a sign of overfitting. Solutions include adding more training data, increasing data augmentation, or implementing regularization techniques."}}, {"@type": "Question", "name": "What's the optimal batch size for training YOLOv5?", "acceptedAnswer": {"@type": "Answer", "text": "The optimal batch size depends on your GPU memory. Larger batch sizes generally provide better batch normalization statistics and training stability. Use the largest batch size your hardware can handle without running out of memory. You can use --batch-size -1 to automatically determine the optimal batch size for your setup."}}, {"@type": "Question", "name": "How can I speed up YOLOv5 training?", "acceptedAnswer": {"@type": "Answer", "text": "To speed up training, try: enabling mixed precision training with --amp, using multiple GPUs with --device 0,1,2,3, caching your dataset with --cache, and optimizing your batch size. Also consider using a smaller model variant like YOLOv5s if absolute accuracy isn't critical."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#dataset">
+<a class="md-skip" href="#tips-for-best-yolov5-training-results">
           Skip to content
         </a>
 </div>
@@ -590,11 +590,50 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-optimization-techniques">
+<span class="md-ellipsis">
+      Advanced Optimization Techniques
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#further-reading">
 <span class="md-ellipsis">
       Further Reading
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-know-if-my-model-is-overfitting">
+<span class="md-ellipsis">
+      How do I know if my model is overfitting?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#whats-the-optimal-batch-size-for-training-yolov5">
+<span class="md-ellipsis">
+      What's the optimal batch size for training YOLOv5?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-speed-up-yolov5-training">
+<span class="md-ellipsis">
+      How can I speed up YOLOv5 training?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -767,11 +806,50 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#advanced-optimization-techniques">
+<span class="md-ellipsis">
+      Advanced Optimization Techniques
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#further-reading">
 <span class="md-ellipsis">
       Further Reading
     </span>
 </a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-know-if-my-model-is-overfitting">
+<span class="md-ellipsis">
+      How do I know if my model is overfitting?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#whats-the-optimal-batch-size-for-training-yolov5">
+<span class="md-ellipsis">
+      What's the optimal batch size for training YOLOv5?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-speed-up-yolov5-training">
+<span class="md-ellipsis">
+      How can I speed up YOLOv5 training?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 </ul>
 </nav>
@@ -783,7 +861,7 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/tutorials/tips_for_best_training_results.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1>Tips for Best Training Results</h1>
+<h1 id="tips-for-best-yolov5-training-results">Tips for Best YOLOv5 Training Results</h1>
 <p>📚 This guide explains how to produce the best mAP and training results with YOLOv5 🚀.</p>
 <p>Most of the time good results can be obtained with no changes to the models or training settings, <strong>provided your dataset is sufficiently large and well labelled</strong>. If at first you don't get good results, there are steps you might be able to take to improve, but we always recommend users <strong>first train with all default settings</strong> before considering any changes. This helps establish a performance baseline and spot areas for improvement.</p>
 <p>If you have questions about your training results <strong>we recommend you provide the maximum amount of information possible</strong> if you expect a helpful response, including results plots (train losses, val losses, P, R, mAP), PR curve, <a href="https://www.ultralytics.com/glossary/confusion-matrix">confusion matrix</a>, training mosaics, test results and dataset statistics images such as labels.png. All of these are located in your <code>project/name</code> directory, typically <code>yolov5/runs/train/exp</code>.</p>
@@ -824,27 +902,47 @@
 <ul>
 <li><strong><a href="https://www.ultralytics.com/glossary/epoch">Epochs</a>.</strong> Start with 300 epochs. If this overfits early then you can reduce epochs. If <a href="https://www.ultralytics.com/glossary/overfitting">overfitting</a> does not occur after 300 epochs, train longer, i.e. 600, 1200 etc. epochs.</li>
 <li><strong>Image size.</strong> COCO trains at native resolution of <code>--img 640</code>, though due to the high amount of small objects in the dataset it can benefit from training at higher resolutions such as <code>--img 1280</code>. If there are many small objects then custom datasets will benefit from training at native or higher resolution. Best inference results are obtained at the same <code>--img</code> as the training was run at, i.e. if you train at <code>--img 1280</code> you should also test and detect at <code>--img 1280</code>.</li>
-<li><strong><a href="https://www.ultralytics.com/glossary/batch-size">Batch size</a>.</strong> Use the largest <code>--batch-size</code> that your hardware allows for. Small batch sizes produce poor batchnorm statistics and should be avoided.</li>
+<li><strong><a href="https://www.ultralytics.com/glossary/batch-size">Batch size</a>.</strong> Use the largest <code>--batch-size</code> that your hardware allows for. Small batch sizes produce poor <a href="https://www.ultralytics.com/glossary/batch-normalization">batch normalization</a> statistics and should be avoided. You can use <code>--batch-size -1</code> to automatically select the optimal batch size for your GPU.</li>
+<li><strong><a href="https://www.ultralytics.com/glossary/learning-rate">Learning rate</a>.</strong> The default learning rate schedule works well in most cases. For faster convergence, you can try using the <code>--cos-lr</code> flag to enable cosine learning rate scheduling, which gradually reduces the learning rate following a cosine curve over epochs.</li>
+<li><strong><a href="https://www.ultralytics.com/glossary/data-augmentation">Data augmentation</a>.</strong> YOLOv5 includes various augmentation techniques like mosaic, which combines multiple training images. For the last few epochs, consider using <code>--close-mosaic 10</code> to disable mosaic augmentation, which can help stabilize training.</li>
 <li><strong>Hyperparameters.</strong> Default hyperparameters are in <a href="https://github.com/ultralytics/yolov5/blob/master/data/hyps/hyp.scratch-low.yaml">hyp.scratch-low.yaml</a>. We recommend you train with default hyperparameters first before thinking of modifying any. In general, increasing augmentation hyperparameters will reduce and delay overfitting, allowing for longer trainings and higher final mAP. Reduction in loss component gain hyperparameters like <code>hyp['obj']</code> will help reduce overfitting in those specific loss components. For an automated method of optimizing these hyperparameters, see our <a href="../hyperparameter_evolution/">Hyperparameter Evolution Tutorial</a>.</li>
+<li><strong><a href="https://www.ultralytics.com/glossary/mixed-precision">Mixed precision</a> training.</strong> Enable mixed precision training with <code>--amp</code> to speed up training and reduce memory usage without sacrificing model accuracy.</li>
+<li><strong>Multi-GPU training.</strong> If you have multiple GPUs, use <code>--device 0,1,2,3</code> to distribute training across them, which can significantly reduce training time.</li>
+<li><strong>Early stopping.</strong> Use <code>--patience 50</code> to stop training if validation metrics don't improve for 50 epochs, saving time and preventing overfitting.</li>
+</ul>
+<h2 id="advanced-optimization-techniques">Advanced Optimization Techniques</h2>
+<ul>
+<li><strong><a href="https://www.ultralytics.com/glossary/transfer-learning">Transfer learning</a>.</strong> For specialized datasets, start with pretrained weights and gradually unfreeze layers during training to adapt the model to your specific task.</li>
+<li><strong><a href="https://www.ultralytics.com/glossary/model-pruning">Model pruning</a>.</strong> After training, consider pruning your model to remove redundant weights and reduce model size without significant performance loss.</li>
+<li><strong><a href="https://www.ultralytics.com/glossary/model-ensemble">Model ensemble</a>.</strong> For critical applications, train multiple models with different configurations and combine their predictions for improved accuracy.</li>
+<li><strong><a href="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation/">Test-time augmentation</a>.</strong> Enable TTA during inference with <code>--augment</code> to improve prediction accuracy by averaging results from augmented versions of the input image.</li>
 </ul>
 <h2 id="further-reading">Further Reading</h2>
 <p>If you'd like to know more, a good place to start is Karpathy's 'Recipe for Training <a href="https://www.ultralytics.com/glossary/neural-network-nn">Neural Networks</a>', which has great ideas for training that apply broadly across all ML domains: <a href="https://karpathy.github.io/2019/04/25/recipe/">https://karpathy.github.io/2019/04/25/recipe/</a></p>
+<p>For more detailed information on training settings and configurations, refer to the <a href="https://docs.ultralytics.com/modes/train/">Ultralytics train settings documentation</a>, which provides comprehensive explanations of all available parameters.</p>
 <p>Good luck 🍀 and let us know if you have any other questions!</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="how-do-i-know-if-my-model-is-overfitting">How do I know if my model is overfitting?</h3>
+<p>Your model may be overfitting if the training loss continues to decrease while validation loss starts to increase. Monitor the validation mAP - if it plateaus or decreases while training loss keeps improving, that's a sign of overfitting. Solutions include adding more training data, increasing data augmentation, or implementing regularization techniques.</p>
+<h3 id="whats-the-optimal-batch-size-for-training-yolov5">What's the optimal batch size for training YOLOv5?</h3>
+<p>The optimal batch size depends on your GPU memory. Larger batch sizes generally provide better batch normalization statistics and training stability. Use the largest batch size your hardware can handle without running out of memory. You can use <code>--batch-size -1</code> to automatically determine the optimal batch size for your setup.</p>
+<h3 id="how-can-i-speed-up-yolov5-training">How can I speed up YOLOv5 training?</h3>
+<p>To speed up training, try: enabling mixed precision training with <code>--amp</code>, using multiple GPUs with <code>--device 0,1,2,3</code>, caching your dataset with <code>--cache</code>, and optimizing your batch size. Also consider using a smaller model variant like YOLOv5s if absolute accuracy isn't critical.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on January 03, 2025">
-<span class="hover-item">✏️</span> Updated 2 months ago
+<span class="date-item" title="This page was last updated on March 17, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (7 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (2 changes)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (6 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/Burhan-Q" title="Burhan-Q (1 change)">
 <img alt="Burhan-Q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62214284?v=4&amp;s=96"/>

@@ -645,6 +645,54 @@
 <td><code>(50, 50)</code></td>
 <td>The point where vision will track objects and draw paths using VisionEye Solution.</td>
 </tr>
+<tr>
+<td><code>tracker</code></td>
+<td><code>str</code></td>
+<td><code>'botsort.yaml'</code></td>
+<td>Specifies the tracking algorithm to use, e.g., <code>bytetrack.yaml</code> or <code>botsort.yaml</code>.</td>
+</tr>
+<tr>
+<td><code>conf</code></td>
+<td><code>float</code></td>
+<td><code>0.3</code></td>
+<td>Sets the confidence threshold for detections; lower values allow more objects to be tracked but may include false positives.</td>
+</tr>
+<tr>
+<td><code>iou</code></td>
+<td><code>float</code></td>
+<td><code>0.5</code></td>
+<td>Sets the Intersection over Union (IoU) threshold for filtering overlapping detections.</td>
+</tr>
+<tr>
+<td><code>classes</code></td>
+<td><code>list</code></td>
+<td><code>None</code></td>
+<td>Filters results by class index. For example, <code>classes=[0, 2, 3]</code> only tracks the specified classes.</td>
+</tr>
+<tr>
+<td><code>verbose</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Controls the display of tracking results, providing a visual output of tracked objects.</td>
+</tr>
+<tr>
+<td><code>device</code></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+<td>Specifies the device for inference (e.g., <code>cpu</code>, <code>cuda:0</code> or <code>0</code>). Allows users to select between CPU, a specific GPU, or other compute devices for model execution.</td>
+</tr>
+<tr>
+<td><code>show</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>If <code>True</code>, displays the annotated images or videos in a window. Useful for immediate visual feedback during development or testing.</td>
+</tr>
+<tr>
+<td><code>line_width</code></td>
+<td><code>None or int</code></td>
+<td><code>None</code></td>
+<td>Specifies the line width of bounding boxes. If <code>None</code>, the line width is automatically adjusted based on the image size. Provides visual customization for clarity.</td>
+</tr>
 </tbody>
 </table>
 <div class="admonition note">

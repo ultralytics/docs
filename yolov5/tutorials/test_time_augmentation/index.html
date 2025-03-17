@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Test-Time Augmentation (TTA)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Test-Time Augmentation, TTA, machine learning, deep learning, object detection, mAP, Recall, PyTorch" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation" property="og:url"/><meta content="Test-Time Augmentation (TTA)" property="og:title"/><meta content="Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation" property="twitter:url"/><meta content="Test-Time Augmentation (TTA)" property="twitter:title"/><meta content="Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Test-Time Augmentation (TTA)", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-10-19 18:20:57 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall."}</script></head>
+<meta content="Test-Time Augmentation (TTA)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Test-Time Augmentation, TTA, machine learning, deep learning, object detection, mAP, Recall, PyTorch" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation" property="og:url"/><meta content="Test-Time Augmentation (TTA)" property="og:title"/><meta content="Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation" property="twitter:url"/><meta content="Test-Time Augmentation (TTA)" property="twitter:title"/><meta content="Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Test-Time Augmentation (TTA)", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-17 21:52:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -643,6 +643,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#benefits-of-test-time-augmentation">
+<span class="md-ellipsis">
+      Benefits of Test-Time Augmentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#supported-environments">
 <span class="md-ellipsis">
       Supported Environments
@@ -824,6 +831,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#benefits-of-test-time-augmentation">
+<span class="md-ellipsis">
+      Benefits of Test-Time Augmentation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#supported-environments">
 <span class="md-ellipsis">
       Supported Environments
@@ -856,7 +870,7 @@
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
 </code></pre></div>
 <h2 id="test-normally">Test Normally</h2>
-<p>Before trying TTA we want to establish a baseline performance to compare to. This command tests YOLOv5x on COCO val2017 at image size 640 pixels. <code>yolov5x.pt</code> is the largest and most accurate model available. Other options are <code>yolov5s.pt</code>, <code>yolov5m.pt</code> and <code>yolov5l.pt</code>, or you own checkpoint from training a custom dataset <code>./weights/best.pt</code>. For details on all available models please see our README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a>.</p>
+<p>Before trying TTA we want to establish a baseline performance to compare to. This command tests YOLOv5x on COCO val2017 at image size 640 pixels. <code>yolov5x.pt</code> is the largest and most accurate model available. Other options are <code>yolov5s.pt</code>, <code>yolov5m.pt</code> and <code>yolov5l.pt</code>, or your own checkpoint from training a custom dataset <code>./weights/best.pt</code>. For details on all available models please see our <a href="https://docs.ultralytics.com/models/yolov5/">YOLOv5 documentation</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
@@ -888,7 +902,7 @@
 <a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="w"> </span>Average<span class="w"> </span>Recall<span class="w">     </span><span class="o">(</span>AR<span class="o">)</span><span class="w"> </span>@<span class="o">[</span><span class="w"> </span><span class="nv">IoU</span><span class="o">=</span><span class="m">0</span>.50:0.95<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">area</span><span class="o">=</span><span class="w"> </span>large<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">maxDets</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.826
 </code></pre></div>
 <h2 id="test-with-tta">Test with TTA</h2>
-<p>Append <code>--augment</code> to any existing <code>val.py</code> command to enable TTA, and increase the image size by about 30% for improved results. Note that inference with TTA enabled will typically take about 2-3X the time of normal inference as the images are being left-right flipped and processed at 3 different resolutions, with the outputs merged before NMS. Part of the speed decrease is simply due to larger image sizes (832 vs 640), while part is due to the actual TTA operations.</p>
+<p>Append <code>--augment</code> to any existing <code>val.py</code> command to enable TTA, and increase the image size by about 30% for improved results. Note that inference with TTA enabled will typically take about 2-3X the time of normal inference as the images are being left-right flipped and processed at 3 different resolutions, with the outputs merged before <a href="https://www.ultralytics.com/glossary/non-maximum-suppression-nms">NMS</a>. Part of the speed decrease is simply due to larger image sizes (832 vs 640), while part is due to the actual TTA operations.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">832</span><span class="w"> </span>--augment<span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
@@ -955,7 +969,16 @@
 <a href="#__codelineno-7-13" id="__codelineno-7-13" name="__codelineno-7-13"></a><span class="n">results</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>  <span class="c1"># or .show(), .save(), .crop(), .pandas(), etc.</span>
 </code></pre></div>
 <h3 id="customize">Customize</h3>
-<p>You can customize the TTA ops applied in the YOLOv5 <code>forward_augment()</code> method <a href="https://github.com/ultralytics/yolov5/blob/8c6f9e15bfc0000d18b976a95b9d7c17d407ec91/models/yolo.py#L125-L137">here</a>.</p>
+<p>You can customize the TTA operations applied in the YOLOv5 <code>forward_augment()</code> method <a href="https://github.com/ultralytics/yolov5/blob/8c6f9e15bfc0000d18b976a95b9d7c17d407ec91/models/yolo.py#L125-L137">here</a>.</p>
+<h2 id="benefits-of-test-time-augmentation">Benefits of Test-Time Augmentation</h2>
+<p>Test-Time Augmentation offers several key advantages for <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> tasks:</p>
+<ul>
+<li><strong>Improved Accuracy</strong>: As demonstrated in the results above, TTA increases mAP from 0.504 to 0.516 and mAR from 0.681 to 0.696.</li>
+<li><strong>Better Small Object Detection</strong>: TTA particularly enhances detection of small objects, with small area AP improving from 0.351 to 0.361.</li>
+<li><strong>Increased Robustness</strong>: By testing multiple variations of each image, TTA reduces the impact of viewing angle, lighting, and other environmental factors.</li>
+<li><strong>Simple Implementation</strong>: Requires only adding the <code>--augment</code> flag to existing commands.</li>
+</ul>
+<p>The tradeoff is increased inference time, making TTA more suitable for applications where accuracy is prioritized over speed.</p>
 <h2 id="supported-environments">Supported Environments</h2>
 <p>Ultralytics provides a range of ready-to-use environments, each pre-installed with essential dependencies such as <a href="https://developer.nvidia.com/cuda-zone">CUDA</a>, <a href="https://developer.nvidia.com/cudnn">CUDNN</a>, <a href="https://www.python.org/">Python</a>, and <a href="https://pytorch.org/">PyTorch</a>, to kickstart your projects.</p>
 <ul>
@@ -973,16 +996,16 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on October 19, 2024">
-<span class="hover-item">✏️</span> Updated 4 months ago
+<span class="date-item" title="This page was last updated on March 17, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (8 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (7 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>

@@ -22,13 +22,13 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Transfer learning with frozen layers" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, transfer learning, freeze layers, machine learning, deep learning, model training, PyTorch, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/transfer_learning_with_frozen_layers" property="og:url"/><meta content="Transfer learning with frozen layers" property="og:title"/><meta content="Learn to freeze YOLOv5 layers for efficient transfer learning, reducing resources and speeding up training while maintaining accuracy." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/freezing-training-map50-results.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/transfer_learning_with_frozen_layers" property="twitter:url"/><meta content="Transfer learning with frozen layers" property="twitter:title"/><meta content="Learn to freeze YOLOv5 layers for efficient transfer learning, reducing resources and speeding up training while maintaining accuracy." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/freezing-training-map50-results.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Transfer learning with frozen layers", "image": ["https://github.com/ultralytics/docs/releases/download/0/freezing-training-map50-results.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-10-19 18:20:57 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to freeze YOLOv5 layers for efficient transfer learning, reducing resources and speeding up training while maintaining accuracy."}</script></head>
+<meta content="Transfer learning with frozen layers" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, transfer learning, freeze layers, machine learning, deep learning, model training, PyTorch, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/transfer_learning_with_frozen_layers" property="og:url"/><meta content="Transfer learning with frozen layers" property="og:title"/><meta content="Learn to freeze YOLOv5 layers for efficient transfer learning, reducing resources and speeding up training while maintaining accuracy." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/freezing-training-map50-results.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/transfer_learning_with_frozen_layers" property="twitter:url"/><meta content="Transfer learning with frozen layers" property="twitter:title"/><meta content="Learn to freeze YOLOv5 layers for efficient transfer learning, reducing resources and speeding up training while maintaining accuracy." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/freezing-training-map50-results.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Transfer learning with frozen layers", "image": ["https://github.com/ultralytics/docs/releases/download/0/freezing-training-map50-results.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-17 21:52:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to freeze YOLOv5 layers for efficient transfer learning, reducing resources and speeding up training while maintaining accuracy."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#before-you-start">
+<a class="md-skip" href="#transfer-learning-with-frozen-layers-in-yolov5">
           Skip to content
         </a>
 </div>
@@ -632,43 +632,75 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#freeze-backbone">
+<a class="md-nav__link" href="#how-layer-freezing-works">
 <span class="md-ellipsis">
-      Freeze Backbone
+      How Layer Freezing Works
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#freeze-all-layers">
+<a class="md-nav__link" href="#exploring-model-architecture">
 <span class="md-ellipsis">
-      Freeze All Layers
+      Exploring Model Architecture
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#results">
+<a class="md-nav__link" href="#freezing-options">
 <span class="md-ellipsis">
-      Results
+      Freezing Options
     </span>
 </a>
-<nav aria-label="Results" class="md-nav">
+<nav aria-label="Freezing Options" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#accuracy-comparison">
+<a class="md-nav__link" href="#freeze-backbone-only">
 <span class="md-ellipsis">
-      Accuracy Comparison
+      Freeze Backbone Only
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#gpu-utilization-comparison">
+<a class="md-nav__link" href="#freeze-all-except-detection-layers">
 <span class="md-ellipsis">
-      GPU Utilization Comparison
+      Freeze All Except Detection Layers
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-comparison">
+<span class="md-ellipsis">
+      Performance Comparison
+    </span>
+</a>
+<nav aria-label="Performance Comparison" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accuracy-results">
+<span class="md-ellipsis">
+      Accuracy Results
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resource-utilization">
+<span class="md-ellipsis">
+      Resource Utilization
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#when-to-use-layer-freezing">
+<span class="md-ellipsis">
+      When to Use Layer Freezing
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#supported-environments">
@@ -785,43 +817,75 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#freeze-backbone">
+<a class="md-nav__link" href="#how-layer-freezing-works">
 <span class="md-ellipsis">
-      Freeze Backbone
+      How Layer Freezing Works
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#freeze-all-layers">
+<a class="md-nav__link" href="#exploring-model-architecture">
 <span class="md-ellipsis">
-      Freeze All Layers
+      Exploring Model Architecture
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#results">
+<a class="md-nav__link" href="#freezing-options">
 <span class="md-ellipsis">
-      Results
+      Freezing Options
     </span>
 </a>
-<nav aria-label="Results" class="md-nav">
+<nav aria-label="Freezing Options" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#accuracy-comparison">
+<a class="md-nav__link" href="#freeze-backbone-only">
 <span class="md-ellipsis">
-      Accuracy Comparison
+      Freeze Backbone Only
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#gpu-utilization-comparison">
+<a class="md-nav__link" href="#freeze-all-except-detection-layers">
 <span class="md-ellipsis">
-      GPU Utilization Comparison
+      Freeze All Except Detection Layers
     </span>
 </a>
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-comparison">
+<span class="md-ellipsis">
+      Performance Comparison
+    </span>
+</a>
+<nav aria-label="Performance Comparison" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#accuracy-results">
+<span class="md-ellipsis">
+      Accuracy Results
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#resource-utilization">
+<span class="md-ellipsis">
+      Resource Utilization
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#when-to-use-layer-freezing">
+<span class="md-ellipsis">
+      When to Use Layer Freezing
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#supported-environments">
@@ -847,16 +911,16 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/tutorials/transfer_learning_with_frozen_layers.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1>Transfer learning with frozen layers</h1>
-<p>📚 This guide explains how to <strong>freeze</strong> YOLOv5 🚀 layers when <strong><a href="https://www.ultralytics.com/glossary/transfer-learning">transfer learning</a></strong>. Transfer learning is a useful way to quickly retrain a model on new data without having to retrain the entire network. Instead, part of the initial weights are frozen in place, and the rest of the weights are used to compute loss and are updated by the optimizer. This requires less resources than normal training and allows for faster training times, though it may also result in reductions to final trained accuracy.</p>
+<h1 id="transfer-learning-with-frozen-layers-in-yolov5">Transfer Learning with Frozen Layers in YOLOv5</h1>
+<p>📚 This guide explains how to <strong>freeze</strong> YOLOv5 🚀 layers when implementing <a href="https://www.ultralytics.com/glossary/transfer-learning">transfer learning</a>. Transfer learning is a powerful technique that allows you to quickly retrain a model on new data without having to retrain the entire network. By freezing part of the initial weights and only updating the rest, you can significantly reduce computational resources and training time, though this approach may slightly impact final model accuracy.</p>
 <h2 id="before-you-start">Before You Start</h2>
-<p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
+<p>Clone the repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
 </code></pre></div>
-<h2 id="freeze-backbone">Freeze Backbone</h2>
-<p>All layers that match the train.py <code>freeze</code> list in train.py will be frozen by setting their gradients to zero before training starts.</p>
+<h2 id="how-layer-freezing-works">How Layer Freezing Works</h2>
+<p>When you freeze layers in a neural network, you're essentially setting their parameters to be non-trainable. The gradients for these layers are set to zero, preventing any weight updates during backpropagation. This is implemented in YOLOv5's training process as follows:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Freeze</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">freeze</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"model.</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">."</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">freeze</span><span class="p">)]</span>  <span class="c1"># layers to freeze</span>
 <a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
@@ -865,7 +929,8 @@
 <a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"freezing </span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span class="n">v</span><span class="o">.</span><span class="n">requires_grad</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div>
-<p>To see a list of module names:</p>
+<h2 id="exploring-model-architecture">Exploring Model Architecture</h2>
+<p>To effectively freeze specific parts of the model, it's helpful to understand the layer structure. You can view all module names with:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">named_parameters</span><span class="p">():</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
@@ -879,17 +944,9 @@
 <a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="sd">model.2.cv1.conv.weight</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a><span class="sd">model.2.cv1.bn.weight</span>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="sd">...</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="sd">model.23.m.0.cv2.bn.weight</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="sd">model.23.m.0.cv2.bn.bias</span>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="sd">model.24.m.0.weight</span>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="sd">model.24.m.0.bias</span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="sd">model.24.m.1.weight</span>
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="sd">model.24.m.1.bias</span>
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a><span class="sd">model.24.m.2.weight</span>
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a><span class="sd">model.24.m.2.bias</span>
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a><span class="sd">"""</span>
+<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="sd">"""</span>
 </code></pre></div>
-<p>Looking at the model architecture we can see that the model backbone is layers 0-9:</p>
+<p>The YOLOv5 architecture consists of a backbone (layers 0-9) and a head (remaining layers):</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># YOLOv5 v6.0 backbone</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nt">backbone</span><span class="p">:</span>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">    </span><span class="c1"># [from, number, module, args]</span>
@@ -910,42 +967,41 @@
 <a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">nn.Upsample</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">None</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"nearest"</span><span class="p p-Indicator">]]</span>
 <a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">6</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Concat</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># cat backbone P4</span>
 <a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">C3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">False</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># 13</span>
-<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>
-<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Conv</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">]]</span>
-<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">nn.Upsample</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">None</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="s">"nearest"</span><span class="p p-Indicator">]]</span>
-<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">4</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Concat</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># cat backbone P3</span>
-<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">C3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">False</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># 17 (P3/8-small)</span>
-<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a>
-<a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Conv</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">256</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">]]</span>
-<a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">14</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Concat</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># cat head P4</span>
-<a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">C3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">False</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># 20 (P4/16-medium)</span>
-<a href="#__codelineno-3-30" id="__codelineno-3-30" name="__codelineno-3-30"></a>
-<a href="#__codelineno-3-31" id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Conv</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">512</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">]]</span>
-<a href="#__codelineno-3-32" id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">10</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Concat</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># cat head P5</span>
-<a href="#__codelineno-3-33" id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">-1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">C3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">1024</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">False</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># 23 (P5/32-large)</span>
-<a href="#__codelineno-3-34" id="__codelineno-3-34" name="__codelineno-3-34"></a>
-<a href="#__codelineno-3-35" id="__codelineno-3-35" name="__codelineno-3-35"></a><span class="w">    </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="p p-Indicator">[[</span><span class="nv">17</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">20</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">23</span><span class="p p-Indicator">],</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">Detect</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">nc</span><span class="p p-Indicator">]]</span><span class="w"> </span><span class="c1"># Detect(P3, P4, P5)</span>
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a><span class="w">    </span><span class="c1"># ... remaining head layers</span>
 </code></pre></div>
-<p>so we can define the freeze list to contain all modules with 'model.0.' - 'model.9.' in their names:</p>
+<h2 id="freezing-options">Freezing Options</h2>
+<h3 id="freeze-backbone-only">Freeze Backbone Only</h3>
+<p>To freeze only the backbone (layers 0-9), which is useful for adapting the model to new classes while retaining learned feature extraction capabilities:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--freeze<span class="w"> </span><span class="m">10</span>
 </code></pre></div>
-<h2 id="freeze-all-layers">Freeze All Layers</h2>
-<p>To freeze the full model except for the final output convolution layers in Detect(), we set freeze list to contain all modules with 'model.0.' - 'model.23.' in their names:</p>
+<p>This approach is particularly effective when your new dataset shares similar low-level features with the original training data but has different classes or objects.</p>
+<h3 id="freeze-all-except-detection-layers">Freeze All Except Detection Layers</h3>
+<p>To freeze the entire model except for the final output convolution layers in the Detect module:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--freeze<span class="w"> </span><span class="m">24</span>
 </code></pre></div>
-<h2 id="results">Results</h2>
-<p>We train YOLOv5m on VOC on both of the above scenarios, along with a default model (no freezing), starting from the official COCO pretrained <code>--weights yolov5m.pt</code>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">48</span><span class="w"> </span>--weights<span class="w"> </span>yolov5m.pt<span class="w"> </span>--data<span class="w"> </span>voc.yaml<span class="w"> </span>--epochs<span class="w"> </span><span class="m">50</span><span class="w"> </span>--cache<span class="w"> </span>--img<span class="w"> </span><span class="m">512</span><span class="w"> </span>--hyp<span class="w"> </span>hyp.finetune.yaml
+<p>This approach is ideal when you want to maintain most of the model's learned features but need to adapt it to detect a different number of classes.</p>
+<h2 id="performance-comparison">Performance Comparison</h2>
+<p>We trained YOLOv5m on the VOC dataset using different freezing strategies, starting from the official COCO pretrained weights:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--batch<span class="w"> </span><span class="m">48</span><span class="w"> </span>--weights<span class="w"> </span>yolov5m.pt<span class="w"> </span>--data<span class="w"> </span>voc.yaml<span class="w"> </span>--epochs<span class="w"> </span><span class="m">50</span><span class="w"> </span>--cache<span class="w"> </span>--img<span class="w"> </span><span class="m">512</span><span class="w"> </span>--hyp<span class="w"> </span>hyp.finetune.yaml
 </code></pre></div>
-<h3 id="accuracy-comparison">Accuracy Comparison</h3>
-<p>The results show that freezing speeds up training, but reduces final <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> slightly.</p>
+<h3 id="accuracy-results">Accuracy Results</h3>
+<p>The results demonstrate that freezing layers accelerates training but slightly reduces final <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>:</p>
 <p><img alt="Freezing training mAP50 results" src="https://github.com/ultralytics/docs/releases/download/0/freezing-training-map50-results.avif"/></p>
 <p><img alt="Freezing training mAP50-95 results" src="https://github.com/ultralytics/docs/releases/download/0/freezing-training-map50-95-results.avif"/></p>
 <p><img alt="Table results" src="https://github.com/ultralytics/docs/releases/download/0/table-results.avif" width="922"/></p>
-<h3 id="gpu-utilization-comparison">GPU Utilization Comparison</h3>
-<p>Interestingly, the more modules are frozen the less GPU memory is required to train, and the lower GPU utilization. This indicates that larger models, or models trained at larger --image-size may benefit from freezing in order to train faster.</p>
+<h3 id="resource-utilization">Resource Utilization</h3>
+<p>Freezing more layers reduces GPU memory requirements and utilization, making this technique valuable for training larger models or using higher resolution images:</p>
 <p><img alt="Training GPU memory allocated percent" src="https://github.com/ultralytics/docs/releases/download/0/training-gpu-memory-allocated-percent.avif"/></p>
 <p><img alt="Training GPU memory utilization percent" src="https://github.com/ultralytics/docs/releases/download/0/training-gpu-memory-utilization-percent.avif"/></p>
+<h2 id="when-to-use-layer-freezing">When to Use Layer Freezing</h2>
+<p>Layer freezing in transfer learning is particularly beneficial in scenarios such as:</p>
+<ol>
+<li><strong>Limited computational resources</strong>: When GPU memory or processing power is constrained</li>
+<li><strong>Small datasets</strong>: When your new dataset is too small to train a full model without overfitting</li>
+<li><strong>Quick adaptation</strong>: When you need to rapidly adapt a model to a new domain</li>
+<li><strong>Fine-tuning for specific tasks</strong>: When adapting a general model to a specialized application</li>
+</ol>
+<p>For more information on transfer learning techniques and their applications, see the <a href="https://www.ultralytics.com/glossary/transfer-learning">transfer learning glossary entry</a>.</p>
 <h2 id="supported-environments">Supported Environments</h2>
 <p>Ultralytics provides a range of ready-to-use environments, each pre-installed with essential dependencies such as <a href="https://developer.nvidia.com/cuda-zone">CUDA</a>, <a href="https://developer.nvidia.com/cudnn">CUDNN</a>, <a href="https://www.python.org/">Python</a>, and <a href="https://pytorch.org/">PyTorch</a>, to kickstart your projects.</p>
 <ul>
@@ -963,16 +1019,16 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on October 19, 2024">
-<span class="hover-item">✏️</span> Updated 4 months ago
+<span class="date-item" title="This page was last updated on March 17, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (9 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (8 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>

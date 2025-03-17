@@ -22,13 +22,13 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Hyperparameter evolution" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, hyperparameter evolution, genetic algorithms, machine learning, optimization, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution" property="og:url"/><meta content="Hyperparameter evolution" property="og:title"/><meta content="Learn how to optimize YOLOv5 hyperparameters using genetic algorithms for improved training performance. Step-by-step instructions included." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/evolve.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution" property="twitter:url"/><meta content="Hyperparameter evolution" property="twitter:title"/><meta content="Learn how to optimize YOLOv5 hyperparameters using genetic algorithms for improved training performance. Step-by-step instructions included." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/evolve.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Hyperparameter evolution", "image": ["https://github.com/ultralytics/docs/releases/download/0/evolve.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-10-19 18:20:57 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to optimize YOLOv5 hyperparameters using genetic algorithms for improved training performance. Step-by-step instructions included."}</script></head>
+<meta content="Hyperparameter evolution" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, hyperparameter evolution, genetic algorithms, machine learning, optimization, Ultralytics, hyperparameter tuning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution" property="og:url"/><meta content="Hyperparameter evolution" property="og:title"/><meta content="Learn how to optimize YOLOv5 hyperparameters using genetic algorithms for improved training performance. Step-by-step instructions included." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/evolve.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/hyperparameter_evolution" property="twitter:url"/><meta content="Hyperparameter evolution" property="twitter:title"/><meta content="Learn how to optimize YOLOv5 hyperparameters using genetic algorithms for improved training performance. Step-by-step instructions included." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/evolve.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Hyperparameter evolution", "image": ["https://github.com/ultralytics/docs/releases/download/0/evolve.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-17 21:52:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to optimize YOLOv5 hyperparameters using genetic algorithms for improved training performance. Step-by-step instructions included."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#before-you-start">
+<a class="md-skip" href="#hyperparameter-evolution-for-yolov5">
           Skip to content
         </a>
 </div>
@@ -825,9 +825,15 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/tutorials/hyperparameter_evolution.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1>Hyperparameter evolution</h1>
+<h1 id="hyperparameter-evolution-for-yolov5">Hyperparameter Evolution for YOLOv5</h1>
 <p>📚 This guide explains <strong>hyperparameter evolution</strong> for YOLOv5 🚀. Hyperparameter evolution is a method of <a href="https://en.wikipedia.org/wiki/Hyperparameter_optimization">Hyperparameter Optimization</a> using a <a href="https://en.wikipedia.org/wiki/Genetic_algorithm">Genetic Algorithm</a> (GA) for optimization.</p>
-<p>Hyperparameters in ML control various aspects of training, and finding optimal values for them can be a challenge. Traditional methods like grid searches can quickly become intractable due to 1) the high dimensional search space 2) unknown correlations among the dimensions, and 3) expensive nature of evaluating the fitness at each point, making GA a suitable candidate for hyperparameter searches.</p>
+<p>Hyperparameters in <a href="https://www.ultralytics.com/glossary/machine-learning-ml">machine learning</a> control various aspects of training, and finding optimal values for them can be a challenge. Traditional methods like grid searches can quickly become intractable due to:</p>
+<ol>
+<li>The high dimensional search space</li>
+<li>Unknown correlations among the dimensions</li>
+<li>Expensive nature of evaluating the fitness at each point</li>
+</ol>
+<p>This makes genetic algorithms a suitable candidate for hyperparameter searches.</p>
 <h2 id="before-you-start">Before You Start</h2>
 <p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
@@ -879,7 +885,7 @@
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>    <span class="k">return</span> <span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="3-evolve">3. Evolve</h2>
-<p>Evolution is performed about a base scenario which we seek to improve upon. The base scenario in this example is <a href="https://www.ultralytics.com/glossary/fine-tuning">finetuning</a> COCO128 for 10 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> using pretrained YOLOv5s. The base scenario training command is:</p>
+<p>Evolution is performed about a base scenario which we seek to improve upon. The base scenario in this example is <a href="https://www.ultralytics.com/glossary/fine-tuning">fine-tuning</a> COCO128 for 10 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> using pretrained YOLOv5s. The base scenario training command is:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--epochs<span class="w"> </span><span class="m">10</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
 </code></pre></div>
 <p>To evolve hyperparameters <strong>specific to this scenario</strong>, starting from our initial values defined in <strong>Section 1.</strong>, and maximizing the fitness defined in <strong>Section 2.</strong>, append <code>--evolve</code>:</p>
@@ -959,16 +965,16 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on October 19, 2024">
-<span class="hover-item">✏️</span> Updated 4 months ago
+<span class="date-item" title="This page was last updated on March 17, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (7 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (6 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>

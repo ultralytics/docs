@@ -22,13 +22,13 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Pruning/Sparsity Tutorial" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 pruning, model pruning, YOLOv5 optimization, YOLOv5 guide, machine learning pruning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_pruning_and_sparsity" property="og:url"/><meta content="Pruning/Sparsity Tutorial" property="og:title"/><meta content="Learn how to prune YOLOv5 models for improved performance. Follow this step-by-step guide to optimize your YOLOv5 models effectively." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/sparsity-test-yolov5x-coco.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_pruning_and_sparsity" property="twitter:url"/><meta content="Pruning/Sparsity Tutorial" property="twitter:title"/><meta content="Learn how to prune YOLOv5 models for improved performance. Follow this step-by-step guide to optimize your YOLOv5 models effectively." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/sparsity-test-yolov5x-coco.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Pruning/Sparsity Tutorial", "image": ["https://github.com/ultralytics/docs/releases/download/0/sparsity-test-yolov5x-coco.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-10-19 18:20:57 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to prune YOLOv5 models for improved performance. Follow this step-by-step guide to optimize your YOLOv5 models effectively."}</script></head>
+<meta content="Pruning/Sparsity Tutorial" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 pruning, model pruning, YOLOv5 optimization, YOLOv5 guide, machine learning pruning, model sparsity, neural network optimization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_pruning_and_sparsity" property="og:url"/><meta content="Pruning/Sparsity Tutorial" property="og:title"/><meta content="Learn how to prune YOLOv5 models for improved performance. Follow this step-by-step guide to optimize your YOLOv5 models effectively." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/sparsity-test-yolov5x-coco.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_pruning_and_sparsity" property="twitter:url"/><meta content="Pruning/Sparsity Tutorial" property="twitter:title"/><meta content="Learn how to prune YOLOv5 models for improved performance. Follow this step-by-step guide to optimize your YOLOv5 models effectively." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/sparsity-test-yolov5x-coco.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Pruning/Sparsity Tutorial", "image": ["https://github.com/ultralytics/docs/releases/download/0/sparsity-test-yolov5x-coco.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-17 21:52:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to prune YOLOv5 models for improved performance. Follow this step-by-step guide to optimize your YOLOv5 models effectively."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#before-you-start">
+<a class="md-skip" href="#model-pruning-and-sparsity-in-yolov5">
           Skip to content
         </a>
 </div>
@@ -611,6 +611,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-model-pruning">
+<span class="md-ellipsis">
+      What is Model Pruning?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#before-you-start">
 <span class="md-ellipsis">
       Before You Start
@@ -618,16 +625,30 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#test-normally">
+<a class="md-nav__link" href="#test-baseline-performance">
 <span class="md-ellipsis">
-      Test Normally
+      Test Baseline Performance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#test-yolov5x-on-coco-030-sparsity">
+<a class="md-nav__link" href="#apply-pruning-to-yolov5x-30-sparsity">
 <span class="md-ellipsis">
-      Test YOLOv5x on COCO (0.30 sparsity)
+      Apply Pruning to YOLOv5x (30% Sparsity)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#results-analysis">
+<span class="md-ellipsis">
+      Results Analysis
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fine-tuning-pruned-models">
+<span class="md-ellipsis">
+      Fine-tuning Pruned Models
     </span>
 </a>
 </li>
@@ -753,6 +774,13 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-model-pruning">
+<span class="md-ellipsis">
+      What is Model Pruning?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#before-you-start">
 <span class="md-ellipsis">
       Before You Start
@@ -760,16 +788,30 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#test-normally">
+<a class="md-nav__link" href="#test-baseline-performance">
 <span class="md-ellipsis">
-      Test Normally
+      Test Baseline Performance
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#test-yolov5x-on-coco-030-sparsity">
+<a class="md-nav__link" href="#apply-pruning-to-yolov5x-30-sparsity">
 <span class="md-ellipsis">
-      Test YOLOv5x on COCO (0.30 sparsity)
+      Apply Pruning to YOLOv5x (30% Sparsity)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#results-analysis">
+<span class="md-ellipsis">
+      Results Analysis
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fine-tuning-pruned-models">
+<span class="md-ellipsis">
+      Fine-tuning Pruned Models
     </span>
 </a>
 </li>
@@ -797,16 +839,25 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/yolov5/tutorials/model_pruning_and_sparsity.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1>Pruning/Sparsity Tutorial</h1>
-<p>📚 This guide explains how to apply <strong>pruning</strong> to YOLOv5 🚀 models.</p>
+<h1 id="model-pruning-and-sparsity-in-yolov5">Model Pruning and Sparsity in YOLOv5</h1>
+<p>📚 This guide explains how to apply <strong>pruning</strong> to YOLOv5 🚀 models to create more efficient networks while maintaining performance.</p>
+<h2 id="what-is-model-pruning">What is Model Pruning?</h2>
+<p><a href="https://www.ultralytics.com/glossary/model-pruning">Model pruning</a> is a technique used to reduce the size and complexity of neural networks by removing less important parameters (weights and connections). This process creates a more efficient model with several benefits:</p>
+<ul>
+<li>Reduced model size for easier deployment on resource-constrained devices</li>
+<li>Faster inference speeds with minimal impact on accuracy</li>
+<li>Lower memory usage and energy consumption</li>
+<li>Improved overall efficiency for real-time applications</li>
+</ul>
+<p>Pruning works by identifying and removing parameters that contribute minimally to the model's performance, resulting in a more lightweight model with similar accuracy.</p>
 <h2 id="before-you-start">Before You Start</h2>
 <p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
 </code></pre></div>
-<h2 id="test-normally">Test Normally</h2>
-<p>Before pruning we want to establish a baseline performance to compare to. This command tests YOLOv5x on COCO val2017 at image size 640 pixels. <code>yolov5x.pt</code> is the largest and most accurate model available. Other options are <code>yolov5s.pt</code>, <code>yolov5m.pt</code> and <code>yolov5l.pt</code>, or you own checkpoint from training a custom dataset <code>./weights/best.pt</code>. For details on all available models please see our README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a>.</p>
+<h2 id="test-baseline-performance">Test Baseline Performance</h2>
+<p>Before pruning, establish a baseline performance to compare against. This command tests YOLOv5x on COCO val2017 at image size 640 pixels. <code>yolov5x.pt</code> is the largest and most accurate model available. Other options are <code>yolov5s.pt</code>, <code>yolov5m.pt</code> and <code>yolov5l.pt</code>, or your own checkpoint from training a custom dataset <code>./weights/best.pt</code>. For details on all available models, see the README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
@@ -836,9 +887,9 @@
 <a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="w"> </span>Average<span class="w"> </span>Recall<span class="w">     </span><span class="o">(</span>AR<span class="o">)</span><span class="w"> </span>@<span class="o">[</span><span class="w"> </span><span class="nv">IoU</span><span class="o">=</span><span class="m">0</span>.50:0.95<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">area</span><span class="o">=</span><span class="w"> </span>large<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">maxDets</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.829
 <a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a>Results<span class="w"> </span>saved<span class="w"> </span>to<span class="w"> </span>runs/val/exp
 </code></pre></div>
-<h2 id="test-yolov5x-on-coco-030-sparsity">Test YOLOv5x on COCO (0.30 sparsity)</h2>
-<p>We repeat the above test with a pruned model by using the <code>torch_utils.prune()</code> command. We update <code>val.py</code> to prune YOLOv5x to 0.3 sparsity:</p>
-<p><img alt="Screenshot 2022-02-02 at 22 54 18" src="https://github.com/ultralytics/docs/releases/download/0/sparsity-test-yolov5x-coco.avif" width="894"/></p>
+<h2 id="apply-pruning-to-yolov5x-30-sparsity">Apply Pruning to YOLOv5x (30% Sparsity)</h2>
+<p>We can apply pruning to the model using the <code>torch_utils.prune()</code> command. To test a pruned model, we update <code>val.py</code> to prune YOLOv5x to 0.3 sparsity (30% of weights set to zero):</p>
+<p><img alt="Screenshot showing code for pruning YOLOv5x to 30% sparsity" src="https://github.com/ultralytics/docs/releases/download/0/sparsity-test-yolov5x-coco.avif" width="894"/></p>
 <p>30% pruned output:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>val:<span class="w"> </span><span class="nv">data</span><span class="o">=</span>/content/yolov5/data/coco.yaml,<span class="w"> </span><span class="nv">weights</span><span class="o">=[</span><span class="s1">'yolov5x.pt'</span><span class="o">]</span>,<span class="w"> </span><span class="nv">batch_size</span><span class="o">=</span><span class="m">32</span>,<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>,<span class="w"> </span><span class="nv">conf_thres</span><span class="o">=</span><span class="m">0</span>.001,<span class="w"> </span><span class="nv">iou_thres</span><span class="o">=</span><span class="m">0</span>.65,<span class="w"> </span><span class="nv">task</span><span class="o">=</span>val,<span class="w"> </span><span class="nv">device</span><span class="o">=</span>,<span class="w"> </span><span class="nv">workers</span><span class="o">=</span><span class="m">8</span>,<span class="w"> </span><span class="nv">single_cls</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">augment</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">verbose</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">save_txt</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">save_hybrid</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">save_conf</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">save_json</span><span class="o">=</span>True,<span class="w"> </span><span class="nv">project</span><span class="o">=</span>runs/val,<span class="w"> </span><span class="nv">name</span><span class="o">=</span>exp,<span class="w"> </span><span class="nv">exist_ok</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">half</span><span class="o">=</span>True,<span class="w"> </span><span class="nv">dnn</span><span class="o">=</span>False
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>YOLOv5<span class="w"> </span>🚀<span class="w"> </span>v6.0-224-g4c40933<span class="w"> </span>torch<span class="w"> </span><span class="m">1</span>.10.0+cu111<span class="w"> </span>CUDA:0<span class="w"> </span><span class="o">(</span>Tesla<span class="w"> </span>V100-SXM2-16GB,<span class="w"> </span>16160MiB<span class="o">)</span>
@@ -849,7 +900,7 @@
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>val:<span class="w"> </span>Scanning<span class="w"> </span><span class="s1">'/content/datasets/coco/val2017.cache'</span><span class="w"> </span>images<span class="w"> </span>and<span class="w"> </span>labels...<span class="w"> </span><span class="m">4952</span><span class="w"> </span>found,<span class="w"> </span><span class="m">48</span><span class="w"> </span>missing,<span class="w"> </span><span class="m">0</span><span class="w"> </span>empty,<span class="w"> </span><span class="m">0</span><span class="w"> </span>corrupt:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="m">5000</span>/5000<span class="w"> </span><span class="o">[</span><span class="m">00</span>:00&lt;?,<span class="w"> </span>?it/s<span class="o">]</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">               </span>Class<span class="w">     </span>Images<span class="w">     </span>Labels<span class="w">          </span>P<span class="w">          </span>R<span class="w">     </span>mAP@.5<span class="w"> </span>mAP@.5:.95:<span class="w"> </span><span class="m">100</span>%<span class="w"> </span><span class="m">157</span>/157<span class="w"> </span><span class="o">[</span><span class="m">01</span>:11&lt;<span class="m">00</span>:00,<span class="w">  </span><span class="m">2</span>.19it/s<span class="o">]</span>
 <a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="w">                 </span>all<span class="w">       </span><span class="m">5000</span><span class="w">      </span><span class="m">36335</span><span class="w">      </span><span class="m">0</span>.724<span class="w">      </span><span class="m">0</span>.614<span class="w">      </span><span class="m">0</span>.671<span class="w">      </span><span class="m">0</span>.478
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>Speed:<span class="w"> </span><span class="m">0</span>.1ms<span class="w"> </span>pre-process,<span class="w"> </span><span class="m">5</span>.2ms<span class="w"> </span>inference,<span class="w"> </span><span class="m">1</span>.7ms<span class="w"> </span>NMS<span class="w"> </span>per<span class="w"> </span>image<span class="w"> </span>at<span class="w"> </span>shape<span class="w"> </span><span class="o">(</span><span class="m">32</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">640</span>,<span class="w"> </span><span class="m">640</span><span class="o">)</span><span class="w">  </span><span class="c1"># &lt;--- prune mAP</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>Speed:<span class="w"> </span><span class="m">0</span>.1ms<span class="w"> </span>pre-process,<span class="w"> </span><span class="m">5</span>.2ms<span class="w"> </span>inference,<span class="w"> </span><span class="m">1</span>.7ms<span class="w"> </span>NMS<span class="w"> </span>per<span class="w"> </span>image<span class="w"> </span>at<span class="w"> </span>shape<span class="w"> </span><span class="o">(</span><span class="m">32</span>,<span class="w"> </span><span class="m">3</span>,<span class="w"> </span><span class="m">640</span>,<span class="w"> </span><span class="m">640</span><span class="o">)</span><span class="w">  </span><span class="c1"># &lt;--- prune speed</span>
 <a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>
 <a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>Evaluating<span class="w"> </span>pycocotools<span class="w"> </span>mAP...<span class="w"> </span>saving<span class="w"> </span>runs/val/exp3/yolov5x_predictions.json...
 <a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>...
@@ -867,7 +918,23 @@
 <a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="w"> </span>Average<span class="w"> </span>Recall<span class="w">     </span><span class="o">(</span>AR<span class="o">)</span><span class="w"> </span>@<span class="o">[</span><span class="w"> </span><span class="nv">IoU</span><span class="o">=</span><span class="m">0</span>.50:0.95<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">area</span><span class="o">=</span><span class="w"> </span>large<span class="w"> </span><span class="p">|</span><span class="w"> </span><span class="nv">maxDets</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="o">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span>.803
 <a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a>Results<span class="w"> </span>saved<span class="w"> </span>to<span class="w"> </span>runs/val/exp3
 </code></pre></div>
-<p>In the results we can observe that we have achieved a <strong>sparsity of 30%</strong> in our model after pruning, which means that 30% of the model's weight parameters in <code>nn.Conv2d</code> layers are equal to 0. <strong>Inference time is essentially unchanged</strong>, while the model's <strong>AP and AR scores a slightly reduced</strong>.</p>
+<h2 id="results-analysis">Results Analysis</h2>
+<p>From the results, we can observe:</p>
+<ul>
+<li><strong>30% sparsity achieved</strong>: 30% of the model's weight parameters in <code>nn.Conv2d</code> layers are now zero</li>
+<li><strong>Inference time remains unchanged</strong>: Despite pruning, the processing speed is essentially the same</li>
+<li><strong>Minimal performance impact</strong>: mAP dropped slightly from 0.507 to 0.489 (only 3.6% reduction)</li>
+<li><strong>Model size reduction</strong>: The pruned model requires less memory for storage</li>
+</ul>
+<p>This demonstrates that pruning can significantly reduce model complexity with only a minor impact on performance, making it an effective optimization technique for deployment in resource-constrained environments.</p>
+<h2 id="fine-tuning-pruned-models">Fine-tuning Pruned Models</h2>
+<p>For best results, pruned models should be fine-tuned after pruning to recover accuracy. This can be done by:</p>
+<ol>
+<li>Applying pruning with a desired sparsity level</li>
+<li>Training the pruned model for a few epochs with a lower learning rate</li>
+<li>Evaluating the fine-tuned pruned model against the baseline</li>
+</ol>
+<p>This process helps the remaining parameters adapt to compensate for the removed connections, often recovering most or all of the original accuracy.</p>
 <h2 id="supported-environments">Supported Environments</h2>
 <p>Ultralytics provides a range of ready-to-use environments, each pre-installed with essential dependencies such as <a href="https://developer.nvidia.com/cuda-zone">CUDA</a>, <a href="https://developer.nvidia.com/cudnn">CUDNN</a>, <a href="https://www.python.org/">Python</a>, and <a href="https://pytorch.org/">PyTorch</a>, to kickstart your projects.</p>
 <ul>
@@ -885,19 +952,19 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on October 19, 2024">
-<span class="hover-item">✏️</span> Updated 4 months ago
+<span class="date-item" title="This page was last updated on March 17, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (4 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (3 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
 <button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/yolov5/tutorials/model_pruning_and_sparsity', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">

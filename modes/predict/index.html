@@ -1287,7 +1287,7 @@
 <td><code>source</code></td>
 <td><code>str</code></td>
 <td><code>'ultralytics/assets'</code></td>
-<td>Specifies the data source for inference. Can be an image path, video file, directory, URL, or device ID for live feeds. Supports a wide range of formats and sources, enabling flexible application across <a href="./#inference-sources">different types of input</a>.</td>
+<td>Specifies the data source for inference. Can be an image path, video file, directory, URL, or device ID for live feeds. Supports a wide range of formats and sources, enabling flexible application across <a href="https://docs.ultralytics.com/modes/predict/#inference-sources">different types of input</a>.</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
@@ -1323,7 +1323,7 @@
 <td><code>batch</code></td>
 <td><code>int</code></td>
 <td><code>1</code></td>
-<td>Specifies the batch size for inference (only works when the source is <a href="./#inference-sources">a directory, video file or <code>.txt</code> file</a>). A larger batch size can provide higher throughput, shortening the total amount of time required for inference.</td>
+<td>Specifies the batch size for inference (only works when the source is <a href="https://docs.ultralytics.com/modes/predict/#inference-sources">a directory, video file or <code>.txt</code> file</a>). A larger batch size can provide higher throughput, shortening the total amount of time required for inference.</td>
 </tr>
 <tr>
 <td><code>max_det</code></td>
@@ -1341,7 +1341,7 @@
 <td><code>stream_buffer</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Determines whether to queue incoming frames for video streams. If <code>False</code>, old frames get dropped to accommodate new frames (optimized for real-time applications). If `True', queues new frames in a buffer, ensuring no frames get skipped, but will cause latency if inference FPS is lower than stream FPS.</td>
+<td>Determines whether to queue incoming frames for video streams. If <code>False</code>, old frames get dropped to accommodate new frames (optimized for real-time applications). If <code>True</code>, queues new frames in a buffer, ensuring no frames get skipped, but will cause latency if inference FPS is lower than stream FPS.</td>
 </tr>
 <tr>
 <td><code>visualize</code></td>
@@ -1463,6 +1463,60 @@
 <td><code>None or int</code></td>
 <td><code>None</code></td>
 <td>Specifies the line width of bounding boxes. If <code>None</code>, the line width is automatically adjusted based on the image size. Provides visual customization for clarity.</td>
+</tr>
+<tr>
+<td><code>font_size</code></td>
+<td><code>float</code></td>
+<td><code>None</code></td>
+<td>Text font size for annotations. Scales automatically with image size if set to <code>None</code>.</td>
+</tr>
+<tr>
+<td><code>font</code></td>
+<td><code>str</code></td>
+<td><code>'Arial.ttf'</code></td>
+<td>Font name or path for text annotations in the visualization.</td>
+</tr>
+<tr>
+<td><code>pil</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Return image as a PIL Image object instead of numpy array.</td>
+</tr>
+<tr>
+<td><code>kpt_radius</code></td>
+<td><code>int</code></td>
+<td><code>5</code></td>
+<td>Radius of keypoints when visualizing pose estimation results.</td>
+</tr>
+<tr>
+<td><code>kpt_line</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Connect keypoints with lines when visualizing pose estimation.</td>
+</tr>
+<tr>
+<td><code>masks</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Display segmentation masks in the visualization output.</td>
+</tr>
+<tr>
+<td><code>probs</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Include classification probabilities in the visualization.</td>
+</tr>
+<tr>
+<td><code>filename</code></td>
+<td><code>str</code></td>
+<td><code>None</code></td>
+<td>Path and filename to save the annotated image when <code>save=True</code>.</td>
+</tr>
+<tr>
+<td><code>color_mode</code></td>
+<td><code>str</code></td>
+<td><code>'class'</code></td>
+<td>Specify the coloring mode for visualizations, e.g., 'instance' or 'class'.</td>
 </tr>
 </tbody>
 </table>
@@ -2399,7 +2453,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on March 11, 2025">
-<span class="hover-item">✏️</span> Updated 5 days ago
+<span class="hover-item">✏️</span> Updated 6 days ago
     </span>
 </div>
 <div class="authors-container">

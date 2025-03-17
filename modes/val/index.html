@@ -791,6 +791,36 @@
 <td><code>None</code></td>
 <td>Name of the validation run. Used for creating a subdirectory within the project folder, where validation logs and outputs are stored.</td>
 </tr>
+<tr>
+<td><code>verbose</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>If <code>True</code>, displays detailed information during the validation process, including per-class metrics and additional debugging information.</td>
+</tr>
+<tr>
+<td><code>save_txt</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>If <code>True</code>, saves detection results in text files, with one file per image, useful for further analysis or custom post-processing.</td>
+</tr>
+<tr>
+<td><code>save_conf</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>If <code>True</code>, includes confidence values in the saved text files when <code>save_txt</code> is enabled, providing more detailed output for analysis.</td>
+</tr>
+<tr>
+<td><code>save_crop</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>If <code>True</code>, saves cropped images of detected objects, which can be useful for creating focused datasets or visual verification.</td>
+</tr>
+<tr>
+<td><code>workers</code></td>
+<td><code>int</code></td>
+<td><code>8</code></td>
+<td>Number of worker threads for data loading. Setting to 0 uses main thread, which can be more stable in some environments but slower.</td>
+</tr>
 </tbody>
 </table>
 <p>Each of these settings plays a vital role in the validation process, allowing for a customizable and efficient evaluation of YOLO models. Adjusting these parameters according to your specific needs and resources can help achieve the best balance between accuracy and performance.</p>

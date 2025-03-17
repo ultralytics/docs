@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="TFLite, ONNX, CoreML, TensorRT Export" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 export, TFLite, ONNX, CoreML, TensorRT, model conversion, YOLOv5 tutorial, PyTorch export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_export" property="og:url"/><meta content="TFLite, ONNX, CoreML, TensorRT Export" property="og:title"/><meta content="Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_export" property="twitter:url"/><meta content="TFLite, ONNX, CoreML, TensorRT Export" property="twitter:title"/><meta content="Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TFLite, ONNX, CoreML, TensorRT Export", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2024-12-09 15:45:40 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide."}</script></head>
+<meta content="TFLite, ONNX, CoreML, TensorRT Export" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 export, TFLite, ONNX, CoreML, TensorRT, model conversion, YOLOv5 tutorial, PyTorch export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_export" property="og:url"/><meta content="TFLite, ONNX, CoreML, TensorRT Export" property="og:title"/><meta content="Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_export" property="twitter:url"/><meta content="TFLite, ONNX, CoreML, TensorRT Export" property="twitter:title"/><meta content="Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TFLite, ONNX, CoreML, TensorRT Export", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-17 21:52:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -597,9 +597,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#formats">
+<a class="md-nav__link" href="#supported-export-formats">
 <span class="md-ellipsis">
-      Formats
+      Supported Export Formats
     </span>
 </a>
 </li>
@@ -813,9 +813,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#formats">
+<a class="md-nav__link" href="#supported-export-formats">
 <span class="md-ellipsis">
-      Formats
+      Supported Export Formats
     </span>
 </a>
 </li>
@@ -904,7 +904,7 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="tflite-onnx-coreml-tensorrt-export">TFLite, ONNX, CoreML, TensorRT Export</h1>
-<p>📚 This guide explains how to export a trained YOLOv5 🚀 model from <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> to ONNX and TorchScript formats.</p>
+<p>📚 This guide explains how to export a trained YOLOv5 🚀 model from <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> to various deployment formats including ONNX, TensorRT, CoreML and more.</p>
 <h2 id="before-you-start">Before You Start</h2>
 <p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w">  </span><span class="c1"># clone</span>
@@ -912,9 +912,15 @@
 <a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w">  </span><span class="c1"># install</span>
 </code></pre></div>
 <p>For <a href="https://developer.nvidia.com/tensorrt">TensorRT</a> export example (requires GPU) see our Colab <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb#scrollTo=VTRwsvA9u7ln&amp;line=2&amp;uniqifier=1">notebook</a> appendix section. <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
-<h2 id="formats">Formats</h2>
-<p>YOLOv5 inference is officially supported in 11 formats:</p>
-<p>💡 ProTip: Export to ONNX or OpenVINO for up to 3x CPU speedup. See <a href="https://github.com/ultralytics/yolov5/pull/6613">CPU Benchmarks</a>. 💡 ProTip: Export to TensorRT for up to 5x GPU speedup. See <a href="https://github.com/ultralytics/yolov5/pull/6963">GPU Benchmarks</a>.</p>
+<h2 id="supported-export-formats">Supported Export Formats</h2>
+<p>YOLOv5 inference is officially supported in 12 formats:</p>
+<div class="admonition tip">
+<p class="admonition-title">Performance Tips</p>
+<ul>
+<li>Export to ONNX or OpenVINO for up to 3x CPU speedup. See <a href="https://github.com/ultralytics/yolov5/pull/6613">CPU Benchmarks</a>.</li>
+<li>Export to TensorRT for up to 5x GPU speedup. See <a href="https://github.com/ultralytics/yolov5/pull/6963">GPU Benchmarks</a>.</li>
+</ul>
+</div>
 <table>
 <thead>
 <tr>
@@ -1034,7 +1040,10 @@
 <p>This command exports a pretrained YOLOv5s model to TorchScript and ONNX formats. <code>yolov5s.pt</code> is the 'small' model, the second-smallest model available. Other options are <code>yolov5n.pt</code>, <code>yolov5m.pt</code>, <code>yolov5l.pt</code> and <code>yolov5x.pt</code>, along with their P6 counterparts i.e. <code>yolov5s6.pt</code> or you own custom training checkpoint i.e. <code>runs/exp/weights/best.pt</code>. For details on all available models please see our README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>torchscript<span class="w"> </span>onnx
 </code></pre></div>
-<p>💡 ProTip: Add <code>--half</code> to export models at FP16 half <a href="https://www.ultralytics.com/glossary/precision">precision</a> for smaller file sizes</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Add <code>--half</code> to export models at FP16 half <a href="https://www.ultralytics.com/glossary/precision">precision</a> for smaller file sizes</p>
+</div>
 <p>Output:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>export:<span class="w"> </span><span class="nv">data</span><span class="o">=</span>data/coco128.yaml,<span class="w"> </span><span class="nv">weights</span><span class="o">=[</span><span class="s1">'yolov5s.pt'</span><span class="o">]</span>,<span class="w"> </span><span class="nv">imgsz</span><span class="o">=[</span><span class="m">640</span>,<span class="w"> </span><span class="m">640</span><span class="o">]</span>,<span class="w"> </span><span class="nv">batch_size</span><span class="o">=</span><span class="m">1</span>,<span class="w"> </span><span class="nv">device</span><span class="o">=</span>cpu,<span class="w"> </span><span class="nv">half</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">inplace</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">train</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">keras</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">optimize</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">int8</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">dynamic</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">simplify</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">12</span>,<span class="w"> </span><span class="nv">verbose</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">workspace</span><span class="o">=</span><span class="m">4</span>,<span class="w"> </span><span class="nv">nms</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">agnostic_nms</span><span class="o">=</span>False,<span class="w"> </span><span class="nv">topk_per_class</span><span class="o">=</span><span class="m">100</span>,<span class="w"> </span><span class="nv">topk_all</span><span class="o">=</span><span class="m">100</span>,<span class="w"> </span><span class="nv">iou_thres</span><span class="o">=</span><span class="m">0</span>.45,<span class="w"> </span><span class="nv">conf_thres</span><span class="o">=</span><span class="m">0</span>.25,<span class="w"> </span><span class="nv">include</span><span class="o">=[</span><span class="s1">'torchscript'</span>,<span class="w"> </span><span class="s1">'onnx'</span><span class="o">]</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>YOLOv5<span class="w"> </span>🚀<span class="w"> </span>v6.2-104-ge3e5122<span class="w"> </span>Python-3.8.0<span class="w"> </span>torch-1.12.1+cu113<span class="w"> </span>CPU
@@ -1155,19 +1164,19 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on December 09, 2024">
-<span class="hover-item">✏️</span> Updated 3 months ago
+<span class="date-item" title="This page was last updated on March 17, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (10 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (3 changes)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (9 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
 <button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/yolov5/tutorials/model_export', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
