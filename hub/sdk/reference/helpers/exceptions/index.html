@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="exceptions" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, HUB-SDK, exception handling, suppress_exceptions, Python, documentation, GitHub, codebase" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/exceptions" property="og:url"/><meta content="exceptions" property="og:title"/><meta content="Learn about exception handling in Ultralytics HUB-SDK. Access the suppress_exceptions function to control exceptions globally. Contribute on GitHub." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/exceptions" property="twitter:url"/><meta content="exceptions" property="twitter:title"/><meta content="Learn about exception handling in Ultralytics HUB-SDK. Access the suppress_exceptions function to control exceptions globally. Contribute on GitHub." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "exceptions", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-03-17 21:01:29 +0000", "dateModified": "2025-02-05 21:01:29 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn about exception handling in Ultralytics HUB-SDK. Access the suppress_exceptions function to control exceptions globally. Contribute on GitHub."}</script></head>
+<meta content="exceptions" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, HUB-SDK, exception handling, suppress_exceptions, Python, documentation, GitHub, codebase" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/exceptions" property="og:url"/><meta content="exceptions" property="og:title"/><meta content="Learn about exception handling in Ultralytics HUB-SDK. Access the suppress_exceptions function to control exceptions globally. Contribute on GitHub." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/exceptions" property="twitter:url"/><meta content="exceptions" property="twitter:title"/><meta content="Learn about exception handling in Ultralytics HUB-SDK. Access the suppress_exceptions function to control exceptions globally. Contribute on GitHub." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "exceptions", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-03-17 23:15:57 +0000", "dateModified": "2025-02-05 23:15:57 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn about exception handling in Ultralytics HUB-SDK. Access the suppress_exceptions function to control exceptions globally. Contribute on GitHub."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -655,19 +655,20 @@
 <p>If the HUB_EXCEPTIONS flag is set to False, this function raises the caught exception,
 allowing it to propagate and be handled elsewhere. If the flag is set to True,
 the function suppresses the exception, effectively handling it locally.</p>
-<details class="example" open="">
-<summary>Example</summary>
+<p><span class="doc-section-title">Examples:</span></p>
 <h3 id="hub_sdk.helpers.exceptions.suppress_exceptions--set-the-hub_exceptions-constant-to-control-exception-handling-globally">Set the HUB_EXCEPTIONS constant to control exception handling globally</h3>
-<p>HUB_EXCEPTIONS = False</p>
-<p>try:
-    # Your code that may raise an exception
-except ValueError as e:
-    # The exception will be suppressed if HUB_EXCEPTIONS is True
-    suppress_exceptions()
-    # Exception handling continues here if HUB_EXCEPTIONS is False</p>
-</details>
-<details class="note" open="">
-<summary>Note</summary>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">HUB_EXCEPTIONS</span> <span class="o">=</span> <span class="kc">False</span>
+</code></pre></div>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">... </span>    <span class="c1"># Your code that may raise an exception</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">... </span>    <span class="k">pass</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">... </span><span class="k">except</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">... </span>    <span class="c1"># The exception will be suppressed if HUB_EXCEPTIONS is True</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gp">... </span>    <span class="n">suppress_exceptions</span><span class="p">()</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="gp">... </span>    <span class="c1"># Exception handling continues here if HUB_EXCEPTIONS is False</span>
+</code></pre></div>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>This function is designed to be used in conjunction with the global HUB_EXCEPTIONS constant
 to control exception handling behavior across multiple parts of the codebase.</p>
 </details>
@@ -697,7 +698,8 @@ to control exception handling behavior across multiple parts of the codebase.</p
 <span class="normal"><a href="#__codelineno-0-27">27</a></span>
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">suppress_exceptions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><a href="#__codelineno-0-30">30</a></span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">suppress_exceptions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="sd">    Suppress exceptions locally based on the global HUB_EXCEPTIONS flag.</span>
 <a id="__codelineno-0-9" name="__codelineno-0-9"></a>
@@ -705,23 +707,24 @@ to control exception handling behavior across multiple parts of the codebase.</p
 <a id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="sd">    allowing it to propagate and be handled elsewhere. If the flag is set to True,</span>
 <a id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="sd">    the function suppresses the exception, effectively handling it locally.</span>
 <a id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="sd">        # Set the HUB_EXCEPTIONS constant to control exception handling globally</span>
-<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">        HUB_EXCEPTIONS = False</span>
+<a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="sd">        &gt;&gt;&gt; HUB_EXCEPTIONS = False</span>
 <a id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        try:</span>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">            # Your code that may raise an exception</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        except ValueError as e:</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">            # The exception will be suppressed if HUB_EXCEPTIONS is True</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">            suppress_exceptions()</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">            # Exception handling continues here if HUB_EXCEPTIONS is False</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Note:</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        This function is designed to be used in conjunction with the global HUB_EXCEPTIONS constant</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        to control exception handling behavior across multiple parts of the codebase.</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    """</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">HUB_EXCEPTIONS</span><span class="p">:</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="k">raise</span>
+<a id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="sd">        &gt;&gt;&gt; try:</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">        ...     # Your code that may raise an exception</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">        ...     pass</span>
+<a id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="sd">        ... except ValueError as e:</span>
+<a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">        ...     # The exception will be suppressed if HUB_EXCEPTIONS is True</span>
+<a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        ...     suppress_exceptions()</span>
+<a id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="sd">        ...     # Exception handling continues here if HUB_EXCEPTIONS is False</span>
+<a id="__codelineno-0-25" name="__codelineno-0-25"></a>
+<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        This function is designed to be used in conjunction with the global HUB_EXCEPTIONS constant</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">        to control exception handling behavior across multiple parts of the codebase.</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    """</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">HUB_EXCEPTIONS</span><span class="p">:</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="k">raise</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

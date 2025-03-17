@@ -22,7 +22,7 @@
 <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="error_handler" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, ErrorHandler, hub_sdk, error handling, documentation, Python" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/error_handler" property="og:url"/><meta content="error_handler" property="og:title"/><meta content="Explore the ErrorHandler module in Ultralytics hub_sdk helpers. Learn its usage and contribute to improvements." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/error_handler" property="twitter:url"/><meta content="error_handler" property="twitter:title"/><meta content="Explore the ErrorHandler module in Ultralytics hub_sdk helpers. Learn its usage and contribute to improvements." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "error_handler", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-03-17 21:01:29 +0000", "dateModified": "2025-02-05 21:01:29 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the ErrorHandler module in Ultralytics hub_sdk helpers. Learn its usage and contribute to improvements."}</script></head>
+<meta content="error_handler" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, ErrorHandler, hub_sdk, error handling, documentation, Python" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/error_handler" property="og:url"/><meta content="error_handler" property="og:title"/><meta content="Explore the ErrorHandler module in Ultralytics hub_sdk helpers. Learn its usage and contribute to improvements." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/sdk/reference/helpers/error_handler" property="twitter:url"/><meta content="error_handler" property="twitter:title"/><meta content="Explore the ErrorHandler module in Ultralytics hub_sdk helpers. Learn its usage and contribute to improvements." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "error_handler", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-03-17 23:15:57 +0000", "dateModified": "2025-02-05 23:15:57 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the ErrorHandler module in Ultralytics hub_sdk helpers. Learn its usage and contribute to improvements."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -764,24 +764,101 @@
 <tr class="doc-section-item">
 <td><code><span title="hub_sdk.helpers.error_handler.ErrorHandler.message">message</span></code></td>
 <td>
-<code>(<span title="str">str</span>, None)</code>
+<code><span title="str">str</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>An optional error message providing additional details.
-Defaults to None.</p>
+<p>An optional error message providing additional details.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
 <td><code><span title="hub_sdk.helpers.error_handler.ErrorHandler.headers">headers</span></code></td>
 <td>
-<code>(<span title="dict">dict</span>, None)</code>
+<code><span title="dict">dict</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>An optional dictionary providing response headers details.
-Defaults to None.</p>
+<p>An optional dictionary providing response headers details.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#hub_sdk.helpers.error_handler.ErrorHandler.handle" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;handle&lt;/span&gt; (&lt;code&gt;hub_sdk.helpers.error_handler.ErrorHandler.handle&lt;/code&gt;)'>handle</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Handle the error based on the provided status code.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#hub_sdk.helpers.error_handler.ErrorHandler.handle_unauthorized" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;handle_unauthorized&lt;/span&gt;
+  &lt;span class="doc doc-labels"&gt;
+      &lt;small class="doc doc-label doc-label-staticmethod"&gt;&lt;code&gt;staticmethod&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;hub_sdk.helpers.error_handler.ErrorHandler.handle_unauthorized&lt;/code&gt;)'>handle_unauthorized</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Handle an unauthorized error (HTTP 401).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#hub_sdk.helpers.error_handler.ErrorHandler.handle_ratelimit_exceeded" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;handle_ratelimit_exceeded&lt;/span&gt; (&lt;code&gt;hub_sdk.helpers.error_handler.ErrorHandler.handle_ratelimit_exceeded&lt;/code&gt;)'>handle_ratelimit_exceeded</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Handle rate limit exceeded error (HTTP 429).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#hub_sdk.helpers.error_handler.ErrorHandler.handle_not_found" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;handle_not_found&lt;/span&gt;
+  &lt;span class="doc doc-labels"&gt;
+      &lt;small class="doc doc-label doc-label-staticmethod"&gt;&lt;code&gt;staticmethod&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;hub_sdk.helpers.error_handler.ErrorHandler.handle_not_found&lt;/code&gt;)'>handle_not_found</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Handle a resource not found error (HTTP 404).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#hub_sdk.helpers.error_handler.ErrorHandler.handle_internal_server_error" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;handle_internal_server_error&lt;/span&gt;
+  &lt;span class="doc doc-labels"&gt;
+      &lt;small class="doc doc-label doc-label-staticmethod"&gt;&lt;code&gt;staticmethod&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;hub_sdk.helpers.error_handler.ErrorHandler.handle_internal_server_error&lt;/code&gt;)'>handle_internal_server_error</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Handle an internal server error (HTTP 500).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#hub_sdk.helpers.error_handler.ErrorHandler.handle_unknown_error" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;handle_unknown_error&lt;/span&gt;
+  &lt;span class="doc doc-labels"&gt;
+      &lt;small class="doc doc-label doc-label-staticmethod"&gt;&lt;code&gt;staticmethod&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;hub_sdk.helpers.error_handler.ErrorHandler.handle_unknown_error&lt;/code&gt;)'>handle_unknown_error</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Handle an unknown error.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#hub_sdk.helpers.error_handler.ErrorHandler.get_default_message" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_default_message&lt;/span&gt; (&lt;code&gt;hub_sdk.helpers.error_handler.ErrorHandler.get_default_message&lt;/code&gt;)'>get_default_message</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Get the default error message for a given HTTP status code.</p>
 </div>
 </td>
 </tr>
@@ -835,7 +912,7 @@ Defaults to None.</p>
 <code>headers</code>
 </td>
 <td>
-<code>(<span title="dict">dict</span>, None)</code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -850,14 +927,7 @@ Defaults to None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/helpers/error_handler.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-20">20</a></span>
-<span class="normal"><a href="#__codelineno-0-21">21</a></span>
-<span class="normal"><a href="#__codelineno-0-22">22</a></span>
-<span class="normal"><a href="#__codelineno-0-23">23</a></span>
-<span class="normal"><a href="#__codelineno-0-24">24</a></span>
-<span class="normal"><a href="#__codelineno-0-25">25</a></span>
-<span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-27">27</a></span>
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
@@ -866,23 +936,30 @@ Defaults to None.</p>
 <span class="normal"><a href="#__codelineno-0-33">33</a></span>
 <span class="normal"><a href="#__codelineno-0-34">34</a></span>
 <span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-21" name="__codelineno-0-21"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-22" name="__codelineno-0-22"></a>    <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-24" name="__codelineno-0-24"></a>    <span class="n">headers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="p">):</span>
-<a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">    Initialize the ErrorHandler object with a given status code.</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        status_code (int): The HTTP status code representing the error.</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">        message (str, optional): An optional error message providing additional details.</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="sd">        headers (dict, None): An optional dictionary providing response headers details.</span>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    """</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">status_code</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span>
+<span class="normal"><a href="#__codelineno-0-36">36</a></span>
+<span class="normal"><a href="#__codelineno-0-37">37</a></span>
+<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<span class="normal"><a href="#__codelineno-0-42">42</a></span>
+<span class="normal"><a href="#__codelineno-0-43">43</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="n">status_code</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">message</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="n">headers</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="p">):</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">    Initialize the ErrorHandler object with a given status code.</span>
+<a id="__codelineno-0-35" name="__codelineno-0-35"></a>
+<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">        status_code (int): The HTTP status code representing the error.</span>
+<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">        message (str, optional): An optional error message providing additional details.</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        headers (dict, optional): An optional dictionary providing response headers details.</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    """</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">status_code</span> <span class="o">=</span> <span class="n">status_code</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">message</span> <span class="o">=</span> <span class="n">message</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">headers</span> <span class="o">=</span> <span class="n">headers</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -909,8 +986,7 @@ Defaults to None.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The default error message associated with the provided status code.
- If no message is found, it falls back to handling an unknown error.</p>
+<p>The default error message associated with the provided status code or unknown error message if not found.</p>
 </div>
 </td>
 </tr>
@@ -918,23 +994,21 @@ Defaults to None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/helpers/error_handler.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-118">118</a></span>
-<span class="normal"><a href="#__codelineno-0-119">119</a></span>
-<span class="normal"><a href="#__codelineno-0-120">120</a></span>
-<span class="normal"><a href="#__codelineno-0-121">121</a></span>
-<span class="normal"><a href="#__codelineno-0-122">122</a></span>
-<span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span>
-<span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_default_message</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">    Get the default error message for a given HTTP status code.</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="sd">        (str): The default error message associated with the provided status code.</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="sd">             If no message is found, it falls back to handling an unknown error.</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="sd">    """</span>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a>    <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">responses</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown_error</span><span class="p">())</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-125">125</a></span>
+<span class="normal"><a href="#__codelineno-0-126">126</a></span>
+<span class="normal"><a href="#__codelineno-0-127">127</a></span>
+<span class="normal"><a href="#__codelineno-0-128">128</a></span>
+<span class="normal"><a href="#__codelineno-0-129">129</a></span>
+<span class="normal"><a href="#__codelineno-0-130">130</a></span>
+<span class="normal"><a href="#__codelineno-0-131">131</a></span>
+<span class="normal"><a href="#__codelineno-0-132">132</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-125" name="__codelineno-0-125"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_default_message</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">    Get the default error message for a given HTTP status code.</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">        (str): The default error message associated with the provided status code or unknown error message if not found.</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">    """</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a>    <span class="k">return</span> <span class="n">http</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">responses</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unknown_error</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -970,14 +1044,7 @@ Defaults to None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/helpers/error_handler.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-45">45</a></span>
 <span class="normal"><a href="#__codelineno-0-46">46</a></span>
 <span class="normal"><a href="#__codelineno-0-47">47</a></span>
 <span class="normal"><a href="#__codelineno-0-48">48</a></span>
@@ -985,22 +1052,29 @@ Defaults to None.</p>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
 <span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    Handle the error based on the provided status code.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        (str): A message describing the error.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">    """</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="n">error_handlers</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>        <span class="mi">401</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unauthorized</span><span class="p">,</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>        <span class="mi">404</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_not_found</span><span class="p">,</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="mi">500</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_internal_server_error</span><span class="p">,</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="mi">429</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_ratelimit_exceeded</span><span class="p">,</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="p">}</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">handler</span> <span class="o">=</span> <span class="n">error_handlers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_default_message</span><span class="p">)</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="k">return</span> <span class="n">handler</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span>
+<span class="normal"><a href="#__codelineno-0-54">54</a></span>
+<span class="normal"><a href="#__codelineno-0-55">55</a></span>
+<span class="normal"><a href="#__codelineno-0-56">56</a></span>
+<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<span class="normal"><a href="#__codelineno-0-58">58</a></span>
+<span class="normal"><a href="#__codelineno-0-59">59</a></span>
+<span class="normal"><a href="#__codelineno-0-60">60</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    Handle the error based on the provided status code.</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        (str): A message describing the error.</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">    """</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="n">error_handlers</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>        <span class="mi">401</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_unauthorized</span><span class="p">,</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="mi">404</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_not_found</span><span class="p">,</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="mi">500</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_internal_server_error</span><span class="p">,</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="mi">429</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">handle_ratelimit_exceeded</span><span class="p">,</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="p">}</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="n">handler</span> <span class="o">=</span> <span class="n">error_handlers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_default_message</span><span class="p">)</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="k">return</span> <span class="n">handler</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1039,23 +1113,23 @@ Defaults to None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/helpers/error_handler.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
-<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
-<span class="normal"><a href="#__codelineno-0-100">100</a></span>
-<span class="normal"><a href="#__codelineno-0-101">101</a></span>
-<span class="normal"><a href="#__codelineno-0-102">102</a></span>
-<span class="normal"><a href="#__codelineno-0-103">103</a></span>
-<span class="normal"><a href="#__codelineno-0-104">104</a></span>
-<span class="normal"><a href="#__codelineno-0-105">105</a></span>
-<span class="normal"><a href="#__codelineno-0-106">106</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_internal_server_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">    Handle an internal server error (HTTP 500).</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">        (str): An error message indicating an internal server error.</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">    """</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="k">return</span> <span class="s2">"Internal server error."</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-105">105</a></span>
+<span class="normal"><a href="#__codelineno-0-106">106</a></span>
+<span class="normal"><a href="#__codelineno-0-107">107</a></span>
+<span class="normal"><a href="#__codelineno-0-108">108</a></span>
+<span class="normal"><a href="#__codelineno-0-109">109</a></span>
+<span class="normal"><a href="#__codelineno-0-110">110</a></span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span>
+<span class="normal"><a href="#__codelineno-0-113">113</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_internal_server_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">    Handle an internal server error (HTTP 500).</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">        (str): An error message indicating an internal server error.</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">    """</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="k">return</span> <span class="s2">"Internal server error."</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1094,23 +1168,23 @@ Defaults to None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/helpers/error_handler.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-88">88</a></span>
-<span class="normal"><a href="#__codelineno-0-89">89</a></span>
-<span class="normal"><a href="#__codelineno-0-90">90</a></span>
-<span class="normal"><a href="#__codelineno-0-91">91</a></span>
-<span class="normal"><a href="#__codelineno-0-92">92</a></span>
-<span class="normal"><a href="#__codelineno-0-93">93</a></span>
-<span class="normal"><a href="#__codelineno-0-94">94</a></span>
-<span class="normal"><a href="#__codelineno-0-95">95</a></span>
-<span class="normal"><a href="#__codelineno-0-96">96</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_not_found</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="sd">    Handle a resource not found error (HTTP 404).</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">        (str): An error message indicating that the requested resource was not found.</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">    """</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="k">return</span> <span class="s2">"Resource not found."</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
+<span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-0-100">100</a></span>
+<span class="normal"><a href="#__codelineno-0-101">101</a></span>
+<span class="normal"><a href="#__codelineno-0-102">102</a></span>
+<span class="normal"><a href="#__codelineno-0-103">103</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_not_found</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">    Handle a resource not found error (HTTP 404).</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">        (str): An error message indicating that the requested resource was not found.</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">    """</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="k">return</span> <span class="s2">"Resource not found."</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1138,7 +1212,7 @@ Defaults to None.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>An error message indicating rate limit exceeded.</p>
+<p>An error message indicating rate limit exceeded with reset time if available.</p>
 </div>
 </td>
 </tr>
@@ -1146,14 +1220,7 @@ Defaults to None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/helpers/error_handler.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span>
-<span class="normal"><a href="#__codelineno-0-68">68</a></span>
-<span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-72">72</a></span>
 <span class="normal"><a href="#__codelineno-0-73">73</a></span>
 <span class="normal"><a href="#__codelineno-0-74">74</a></span>
 <span class="normal"><a href="#__codelineno-0-75">75</a></span>
@@ -1167,28 +1234,35 @@ Defaults to None.</p>
 <span class="normal"><a href="#__codelineno-0-83">83</a></span>
 <span class="normal"><a href="#__codelineno-0-84">84</a></span>
 <span class="normal"><a href="#__codelineno-0-85">85</a></span>
-<span class="normal"><a href="#__codelineno-0-86">86</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_ratelimit_exceeded</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Handle rate limit exceeded error (HTTP 429).</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        (str): An error message indicating rate limit exceeded.</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    """</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="n">error_msg</span> <span class="o">=</span> <span class="s2">"Rate Limits Exceeded: Please try again later."</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="k">if</span> <span class="s2">"X-RateLimit-Reset"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>        <span class="n">rate_reset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"X-RateLimit-Reset"</span><span class="p">)</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>            <span class="n">reset_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rate_reset</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">)</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>            <span class="n">reset_time</span> <span class="o">=</span> <span class="s2">"unknown"</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>            <span class="s2">"You have exceeded the rate limits for this request. "</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>            <span class="sa">f</span><span class="s2">"You will be able to make requests again after </span><span class="si">{</span><span class="n">reset_time</span><span class="si">}</span><span class="s2">."</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="p">)</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="k">return</span> <span class="n">error_msg</span>
+<span class="normal"><a href="#__codelineno-0-86">86</a></span>
+<span class="normal"><a href="#__codelineno-0-87">87</a></span>
+<span class="normal"><a href="#__codelineno-0-88">88</a></span>
+<span class="normal"><a href="#__codelineno-0-89">89</a></span>
+<span class="normal"><a href="#__codelineno-0-90">90</a></span>
+<span class="normal"><a href="#__codelineno-0-91">91</a></span>
+<span class="normal"><a href="#__codelineno-0-92">92</a></span>
+<span class="normal"><a href="#__codelineno-0-93">93</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_ratelimit_exceeded</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    Handle rate limit exceeded error (HTTP 429).</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        (str): An error message indicating rate limit exceeded with reset time if available.</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">    """</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="n">error_msg</span> <span class="o">=</span> <span class="s2">"Rate Limits Exceeded: Please try again later."</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="k">if</span> <span class="s2">"X-RateLimit-Reset"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="p">:</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">rate_reset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">headers</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"X-RateLimit-Reset"</span><span class="p">)</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>            <span class="n">reset_time</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">fromtimestamp</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">rate_reset</span><span class="p">))</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">"%Y-%m-</span><span class="si">%d</span><span class="s2"> %H:%M:%S"</span><span class="p">)</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>            <span class="n">reset_time</span> <span class="o">=</span> <span class="s2">"unknown"</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>        <span class="n">error_msg</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>            <span class="s2">"You have exceeded the rate limits for this request. "</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>            <span class="sa">f</span><span class="s2">"You will be able to make requests again after </span><span class="si">{</span><span class="n">reset_time</span><span class="si">}</span><span class="s2">."</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="p">)</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="k">return</span> <span class="n">error_msg</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1227,23 +1301,23 @@ Defaults to None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/helpers/error_handler.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
-<span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_unauthorized</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="sd">    Handle an unauthorized error (HTTP 401).</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">        (str): An error message indicating unauthorized access.</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    """</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="k">return</span> <span class="s2">"Unauthorized: Please check your credentials."</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-62">62</a></span>
+<span class="normal"><a href="#__codelineno-0-63">63</a></span>
+<span class="normal"><a href="#__codelineno-0-64">64</a></span>
+<span class="normal"><a href="#__codelineno-0-65">65</a></span>
+<span class="normal"><a href="#__codelineno-0-66">66</a></span>
+<span class="normal"><a href="#__codelineno-0-67">67</a></span>
+<span class="normal"><a href="#__codelineno-0-68">68</a></span>
+<span class="normal"><a href="#__codelineno-0-69">69</a></span>
+<span class="normal"><a href="#__codelineno-0-70">70</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_unauthorized</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    Handle an unauthorized error (HTTP 401).</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        (str): An error message indicating unauthorized access.</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    """</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="k">return</span> <span class="s2">"Unauthorized: Please check your credentials."</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1282,23 +1356,23 @@ Defaults to None.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>hub_sdk/helpers/error_handler.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-108">108</a></span>
-<span class="normal"><a href="#__codelineno-0-109">109</a></span>
-<span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span>
-<span class="normal"><a href="#__codelineno-0-112">112</a></span>
-<span class="normal"><a href="#__codelineno-0-113">113</a></span>
-<span class="normal"><a href="#__codelineno-0-114">114</a></span>
-<span class="normal"><a href="#__codelineno-0-115">115</a></span>
-<span class="normal"><a href="#__codelineno-0-116">116</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="nd">@staticmethod</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_unknown_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">    Handle an unknown error.</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">        (str): An error message indicating that an unknown error occurred.</span>
-<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">    """</span>
-<a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="k">return</span> <span class="s2">"Unknown error occurred."</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-115">115</a></span>
+<span class="normal"><a href="#__codelineno-0-116">116</a></span>
+<span class="normal"><a href="#__codelineno-0-117">117</a></span>
+<span class="normal"><a href="#__codelineno-0-118">118</a></span>
+<span class="normal"><a href="#__codelineno-0-119">119</a></span>
+<span class="normal"><a href="#__codelineno-0-120">120</a></span>
+<span class="normal"><a href="#__codelineno-0-121">121</a></span>
+<span class="normal"><a href="#__codelineno-0-122">122</a></span>
+<span class="normal"><a href="#__codelineno-0-123">123</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="nd">@staticmethod</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="k">def</span><span class="w"> </span><span class="nf">handle_unknown_error</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">    Handle an unknown error.</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">        (str): An error message indicating that an unknown error occurred.</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="sd">    """</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="k">return</span> <span class="s2">"Unknown error occurred."</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
