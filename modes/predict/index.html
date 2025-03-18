@@ -1390,6 +1390,18 @@
 <td><code>None</code></td>
 <td>Name of the prediction run. Used for creating a subdirectory within the project folder, where prediction outputs are stored if <code>save</code> is enabled.</td>
 </tr>
+<tr>
+<td><code>stream</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Enables memory-efficient processing for long videos or numerous images by returning a generator of Results objects instead of loading all frames into memory at once.</td>
+</tr>
+<tr>
+<td><code>verbose</code></td>
+<td><code>bool</code></td>
+<td><code>True</code></td>
+<td>Controls whether to display detailed inference logs in the terminal, providing real-time feedback on the prediction process.</td>
+</tr>
 </tbody>
 </table>
 <p>Visualization arguments:</p>
@@ -1516,6 +1528,12 @@
 <td><code>str</code></td>
 <td><code>'class'</code></td>
 <td>Specify the coloring mode for visualizations, e.g., 'instance' or 'class'.</td>
+</tr>
+<tr>
+<td><code>txt_color</code></td>
+<td><code>tuple[int, int, int]</code></td>
+<td><code>(255, 255, 255)</code></td>
+<td>RGB text color for classification task annotations.</td>
 </tr>
 </tbody>
 </table>

@@ -704,43 +704,43 @@
 <td><code>imgsz</code></td>
 <td><code>int</code></td>
 <td><code>640</code></td>
-<td>Defines the size of input images. All images are resized to this dimension before processing.</td>
+<td>Defines the size of input images. All images are resized to this dimension before processing. Larger sizes may improve accuracy for small objects but increase computation time.</td>
 </tr>
 <tr>
 <td><code>batch</code></td>
 <td><code>int</code></td>
 <td><code>16</code></td>
-<td>Sets the number of images per batch. The value must be a positive integer.</td>
+<td>Sets the number of images per batch. Higher values utilize GPU memory more efficiently but require more VRAM. Adjust based on available hardware resources.</td>
 </tr>
 <tr>
 <td><code>save_json</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>If <code>True</code>, saves the results to a JSON file for further analysis or integration with other tools.</td>
+<td>If <code>True</code>, saves the results to a JSON file for further analysis, integration with other tools, or submission to evaluation servers like COCO.</td>
 </tr>
 <tr>
 <td><code>save_hybrid</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>If <code>True</code>, saves a hybrid version of labels that combines original annotations with additional model predictions. Only works with detection models.</td>
+<td>If <code>True</code>, saves a hybrid version of labels that combines original annotations with additional model predictions. Useful for semi-supervised learning and dataset enhancement.</td>
 </tr>
 <tr>
 <td><code>conf</code></td>
 <td><code>float</code></td>
 <td><code>0.001</code></td>
-<td>Sets the minimum confidence threshold for detections. Detections with confidence below this threshold are discarded.</td>
+<td>Sets the minimum confidence threshold for detections. Lower values increase recall but may introduce more false positives. Used during <a href="https://docs.ultralytics.com/modes/val/">validation</a> to compute precision-recall curves.</td>
 </tr>
 <tr>
 <td><code>iou</code></td>
 <td><code>float</code></td>
 <td><code>0.6</code></td>
-<td>Sets the <a href="https://www.ultralytics.com/glossary/intersection-over-union-iou">Intersection Over Union</a> (IoU) threshold for Non-Maximum Suppression (NMS). Helps in reducing duplicate detections.</td>
+<td>Sets the <a href="https://www.ultralytics.com/glossary/intersection-over-union-iou">Intersection Over Union</a> threshold for <a href="https://www.ultralytics.com/glossary/non-maximum-suppression-nms">Non-Maximum Suppression</a>. Controls duplicate detection elimination.</td>
 </tr>
 <tr>
 <td><code>max_det</code></td>
 <td><code>int</code></td>
 <td><code>300</code></td>
-<td>Limits the maximum number of detections per image. Useful in dense scenes to prevent excessive detections.</td>
+<td>Limits the maximum number of detections per image. Useful in dense scenes to prevent excessive detections and manage computational resources.</td>
 </tr>
 <tr>
 <td><code>half</code></td>
@@ -752,7 +752,7 @@
 <td><code>device</code></td>
 <td><code>str</code></td>
 <td><code>None</code></td>
-<td>Specifies the device for validation (<code>cpu</code>, <code>cuda:0</code>, etc.). Allows flexibility in utilizing CPU or GPU resources.</td>
+<td>Specifies the device for validation (<code>cpu</code>, <code>cuda:0</code>, etc.). When <code>None</code>, automatically selects the best available device. Multiple CUDA devices can be specified with comma separation.</td>
 </tr>
 <tr>
 <td><code>dnn</code></td>
@@ -764,13 +764,13 @@
 <td><code>plots</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>When set to <code>True</code>, generates and saves plots of predictions versus ground truth for visual evaluation of the model's performance.</td>
+<td>When set to <code>True</code>, generates and saves plots of predictions versus ground truth, confusion matrices, and PR curves for visual evaluation of model performance.</td>
 </tr>
 <tr>
 <td><code>rect</code></td>
 <td><code>bool</code></td>
 <td><code>True</code></td>
-<td>If <code>True</code>, uses rectangular inference for batching, reducing padding and potentially increasing speed and efficiency.</td>
+<td>If <code>True</code>, uses rectangular inference for batching, reducing padding and potentially increasing speed and efficiency by processing images in their original aspect ratio.</td>
 </tr>
 <tr>
 <td><code>split</code></td>
@@ -782,7 +782,7 @@
 <td><code>project</code></td>
 <td><code>str</code></td>
 <td><code>None</code></td>
-<td>Name of the project directory where validation outputs are saved.</td>
+<td>Name of the project directory where validation outputs are saved. Helps organize results from different experiments or models.</td>
 </tr>
 <tr>
 <td><code>name</code></td>
@@ -794,31 +794,49 @@
 <td><code>verbose</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>If <code>True</code>, displays detailed information during the validation process, including per-class metrics and additional debugging information.</td>
+<td>If <code>True</code>, displays detailed information during the validation process, including per-class metrics, batch progress, and additional debugging information.</td>
 </tr>
 <tr>
 <td><code>save_txt</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>If <code>True</code>, saves detection results in text files, with one file per image, useful for further analysis or custom post-processing.</td>
+<td>If <code>True</code>, saves detection results in text files, with one file per image, useful for further analysis, custom post-processing, or integration with other systems.</td>
 </tr>
 <tr>
 <td><code>save_conf</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>If <code>True</code>, includes confidence values in the saved text files when <code>save_txt</code> is enabled, providing more detailed output for analysis.</td>
+<td>If <code>True</code>, includes confidence values in the saved text files when <code>save_txt</code> is enabled, providing more detailed output for analysis and filtering.</td>
 </tr>
 <tr>
 <td><code>save_crop</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>If <code>True</code>, saves cropped images of detected objects, which can be useful for creating focused datasets or visual verification.</td>
+<td>If <code>True</code>, saves cropped images of detected objects, which can be useful for creating focused datasets, visual verification, or further analysis of individual detections.</td>
 </tr>
 <tr>
 <td><code>workers</code></td>
 <td><code>int</code></td>
 <td><code>8</code></td>
-<td>Number of worker threads for data loading. Setting to 0 uses main thread, which can be more stable in some environments but slower.</td>
+<td>Number of worker threads for data loading. Higher values can speed up data preprocessing but may increase CPU usage. Setting to 0 uses main thread, which can be more stable in some environments.</td>
+</tr>
+<tr>
+<td><code>augment</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Enables test-time augmentation (TTA) during validation, potentially improving detection accuracy at the cost of inference speed by running inference on transformed versions of the input.</td>
+</tr>
+<tr>
+<td><code>agnostic_nms</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Enables class-agnostic <a href="https://www.ultralytics.com/glossary/non-maximum-suppression-nms">Non-Maximum Suppression</a>, which merges overlapping boxes regardless of their predicted class. Useful for instance-focused applications.</td>
+</tr>
+<tr>
+<td><code>single_cls</code></td>
+<td><code>bool</code></td>
+<td><code>False</code></td>
+<td>Treats all classes as a single class during validation. Useful for evaluating model performance on binary detection tasks or when class distinctions aren't important.</td>
 </tr>
 </tbody>
 </table>
