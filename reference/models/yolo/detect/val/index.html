@@ -1396,7 +1396,7 @@ prediction processing, and visualization of results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.class_map">class_map</span></code></td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1440,7 +1440,7 @@ prediction processing, and visualization of results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.lb">lb</span></code></td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1451,7 +1451,7 @@ prediction processing, and visualization of results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.jdict">jdict</span></code></td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1462,7 +1462,7 @@ prediction processing, and visualization of results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.stats">stats</span></code></td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1542,7 +1542,7 @@ prediction processing, and visualization of results.</p>
 <code>args</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1558,7 +1558,7 @@ prediction processing, and visualization of results.</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1607,8 +1607,8 @@ prediction processing, and visualization of results.</p>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        dataloader (torch.utils.data.DataLoader, optional): Dataloader to use for validation.</span>
 <a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        save_dir (Path, optional): Directory to save results.</span>
 <a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        pbar (Any, optional): Progress bar for displaying progress.</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        args (Dict, optional): Arguments for the validator.</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        _callbacks (List, optional): List of callback functions.</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        args (dict, optional): Arguments for the validator.</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">        _callbacks (list, optional): List of callback functions.</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="sd">    """</span>
 <a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">pbar</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span> <span class="o">=</span> <span class="kc">None</span>
@@ -1774,7 +1774,7 @@ prediction processing, and visualization of results.</p>
 <code>stats</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1798,7 +1798,7 @@ prediction processing, and visualization of results.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1863,10 +1863,10 @@ prediction processing, and visualization of results.</p>
 <a id="__codelineno-0-416" name="__codelineno-0-416"></a><span class="sd">    Evaluate YOLO output in JSON format and return performance statistics.</span>
 <a id="__codelineno-0-417" name="__codelineno-0-417"></a>
 <a id="__codelineno-0-418" name="__codelineno-0-418"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a><span class="sd">        stats (Dict): Current statistics dictionary.</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a><span class="sd">        stats (dict): Current statistics dictionary.</span>
 <a id="__codelineno-0-420" name="__codelineno-0-420"></a>
 <a id="__codelineno-0-421" name="__codelineno-0-421"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a><span class="sd">        (Dict): Updated statistics dictionary with COCO/LVIS evaluation results.</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a><span class="sd">        (dict): Updated statistics dictionary with COCO/LVIS evaluation results.</span>
 <a id="__codelineno-0-423" name="__codelineno-0-423"></a><span class="sd">    """</span>
 <a id="__codelineno-0-424" name="__codelineno-0-424"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">):</span>
 <a id="__codelineno-0-425" name="__codelineno-0-425"></a>        <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
@@ -2132,7 +2132,7 @@ prediction processing, and visualization of results.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2162,7 +2162,7 @@ prediction processing, and visualization of results.</p>
 <a id="__codelineno-0-258" name="__codelineno-0-258"></a><span class="sd">    Calculate and return metrics statistics.</span>
 <a id="__codelineno-0-259" name="__codelineno-0-259"></a>
 <a id="__codelineno-0-260" name="__codelineno-0-260"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-261" name="__codelineno-0-261"></a><span class="sd">        (Dict): Dictionary containing metrics results.</span>
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a><span class="sd">        (dict): Dictionary containing metrics results.</span>
 <a id="__codelineno-0-262" name="__codelineno-0-262"></a><span class="sd">    """</span>
 <a id="__codelineno-0-263" name="__codelineno-0-263"></a>    <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>  <span class="c1"># to numpy</span>
 <a id="__codelineno-0-264" name="__codelineno-0-264"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">"target_cls"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">minlength</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">)</span>
@@ -2291,7 +2291,7 @@ prediction processing, and visualization of results.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2359,7 +2359,7 @@ prediction processing, and visualization of results.</p>
 <a id="__codelineno-0-357" name="__codelineno-0-357"></a><span class="sd">    Plot predicted bounding boxes on input images and save the result.</span>
 <a id="__codelineno-0-358" name="__codelineno-0-358"></a>
 <a id="__codelineno-0-359" name="__codelineno-0-359"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-360" name="__codelineno-0-360"></a><span class="sd">        batch (Dict): Batch containing images and annotations.</span>
+<a id="__codelineno-0-360" name="__codelineno-0-360"></a><span class="sd">        batch (dict): Batch containing images and annotations.</span>
 <a id="__codelineno-0-361" name="__codelineno-0-361"></a><span class="sd">        preds (List[torch.Tensor]): List of predictions from the model.</span>
 <a id="__codelineno-0-362" name="__codelineno-0-362"></a><span class="sd">        ni (int): Batch index.</span>
 <a id="__codelineno-0-363" name="__codelineno-0-363"></a><span class="sd">    """</span>
@@ -2399,7 +2399,7 @@ prediction processing, and visualization of results.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2452,7 +2452,7 @@ prediction processing, and visualization of results.</p>
 <a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="sd">    Plot validation image samples.</span>
 <a id="__codelineno-0-339" name="__codelineno-0-339"></a>
 <a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">        batch (Dict): Batch containing images and annotations.</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a><span class="sd">        batch (dict): Batch containing images and annotations.</span>
 <a id="__codelineno-0-342" name="__codelineno-0-342"></a><span class="sd">        ni (int): Batch index.</span>
 <a id="__codelineno-0-343" name="__codelineno-0-343"></a><span class="sd">    """</span>
 <a id="__codelineno-0-344" name="__codelineno-0-344"></a>    <span class="n">plot_images</span><span class="p">(</span>
@@ -2700,7 +2700,7 @@ prediction processing, and visualization of results.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2724,7 +2724,7 @@ prediction processing, and visualization of results.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2765,10 +2765,10 @@ prediction processing, and visualization of results.</p>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    Preprocess batch of images for YOLO validation.</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        batch (Dict): Batch containing images and annotations.</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        batch (dict): Batch containing images and annotations.</span>
 <a id="__codelineno-0-78" name="__codelineno-0-78"></a>
 <a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">        (Dict): Preprocessed batch.</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">        (dict): Preprocessed batch.</span>
 <a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    """</span>
 <a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">non_blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">float</span><span class="p">())</span> <span class="o">/</span> <span class="mi">255</span>
@@ -3006,7 +3006,7 @@ prediction processing, and visualization of results.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3080,7 +3080,7 @@ prediction processing, and visualization of results.</p>
 <a id="__codelineno-0-193" name="__codelineno-0-193"></a>
 <a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="sd">        preds (List[torch.Tensor]): List of predictions from the model.</span>
-<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">        batch (Dict): Batch data containing ground truth.</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">        batch (dict): Batch data containing ground truth.</span>
 <a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">    """</span>
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a>    <span class="k">for</span> <span class="n">si</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preds</span><span class="p">):</span>
 <a id="__codelineno-0-199" name="__codelineno-0-199"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">seen</span> <span class="o">+=</span> <span class="mi">1</span>

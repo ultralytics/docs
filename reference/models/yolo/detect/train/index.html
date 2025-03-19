@@ -1319,7 +1319,7 @@ for object detection.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.train.DetectionTrainer.data">data</span></code></td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1524,8 +1524,8 @@ for object detection.</p>
 <a id="__codelineno-0-99" name="__codelineno-0-99"></a>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">        cfg (str, optional): Path to a configuration file. Defaults to DEFAULT_CFG.</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">        overrides (Dict, optional): Configuration overrides. Defaults to None.</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">        _callbacks (List, optional): List of callback functions. Defaults to None.</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">        overrides (dict, optional): Configuration overrides. Defaults to None.</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">        _callbacks (list, optional): List of callback functions. Defaults to None.</span>
 <a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">    """</span>
 <a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
 <a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">check_resume</span><span class="p">(</span><span class="n">overrides</span><span class="p">)</span>
@@ -2248,7 +2248,7 @@ for object detection.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2300,7 +2300,7 @@ for object detection.</p>
 <a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">    Plot training samples with their annotations.</span>
 <a id="__codelineno-0-183" name="__codelineno-0-183"></a>
 <a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">        batch (Dict): Dictionary containing batch data.</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">        batch (dict): Dictionary containing batch data.</span>
 <a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="sd">        ni (int): Number of iterations.</span>
 <a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">    """</span>
 <a id="__codelineno-0-188" name="__codelineno-0-188"></a>    <span class="n">plot_images</span><span class="p">(</span>
@@ -2340,7 +2340,7 @@ for object detection.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2364,7 +2364,7 @@ for object detection.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2406,10 +2406,10 @@ for object detection.</p>
 <a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">    Preprocess a batch of images by scaling and converting to float.</span>
 <a id="__codelineno-0-93" name="__codelineno-0-93"></a>
 <a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">        batch (Dict): Dictionary containing batch data with 'img' tensor.</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">        batch (dict): Dictionary containing batch data with 'img' tensor.</span>
 <a id="__codelineno-0-96" name="__codelineno-0-96"></a>
 <a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">        (Dict): Preprocessed batch with normalized images.</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">        (dict): Preprocessed batch with normalized images.</span>
 <a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="sd">    """</span>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">non_blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">/</span> <span class="mi">255</span>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">multi_scale</span><span class="p">:</span>

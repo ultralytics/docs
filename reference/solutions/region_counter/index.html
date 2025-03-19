@@ -1075,7 +1075,7 @@ counting in specified areas, such as monitoring zones or segmented sections.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.region_counter.RegionCounter.region_template">region_template</span></code></td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1087,7 +1087,7 @@ polygon coordinates, and display colors.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.region_counter.RegionCounter.counting_regions">counting_regions</span></code></td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1099,7 +1099,7 @@ and includes specific region settings like name, coordinates, and color.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.region_counter.RegionCounter.region_counts">region_counts</span></code></td>
 <td>
-<code><span title="Dict">Dict</span></code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1222,7 +1222,7 @@ and includes specific region settings like name, coordinates, and color.</p>
 <code>region_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span></code>
+<code><span title="tuple">tuple</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1238,7 +1238,7 @@ and includes specific region settings like name, coordinates, and color.</p>
 <code>text_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span></code>
+<code><span title="tuple">tuple</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1279,8 +1279,8 @@ and includes specific region settings like name, coordinates, and color.</p>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        name (str): Name assigned to the new region.</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">        polygon_points (List[Tuple]): List of (x, y) coordinates defining the region's polygon.</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        region_color (Tuple): BGR color for region visualization.</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        text_color (Tuple): BGR color for the text within the region.</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">        region_color (tuple): BGR color for region visualization.</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        text_color (tuple): BGR color for the text within the region.</span>
 <a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">    """</span>
 <a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="n">region</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">region_template</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="n">region</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
@@ -1349,7 +1349,7 @@ and includes specific region settings like name, coordinates, and color.</p>
 <td>
 <div class="doc-md-description">
 <p>Contains processed image <code>plot_im</code>, 'total_tracks' (int, total number of tracked objects),
-and 'region_counts' (Dict, counts of objects per region).</p>
+and 'region_counts' (dict, counts of objects per region).</p>
 </div>
 </td>
 </tr>
@@ -1421,7 +1421,7 @@ and 'region_counts' (Dict, counts of objects per region).</p>
 <a id="__codelineno-0-70" name="__codelineno-0-70"></a>
 <a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        (SolutionResults): Contains processed image `plot_im`, 'total_tracks' (int, total number of tracked objects),</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">            and 'region_counts' (Dict, counts of objects per region).</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">            and 'region_counts' (dict, counts of objects per region).</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    """</span>
 <a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
 <a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>
