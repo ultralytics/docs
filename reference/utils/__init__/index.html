@@ -2783,17 +2783,17 @@ modified. It ensures thread-safe operations using a lock.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1112">1112</a></span>
-<span class="normal"><a href="#__codelineno-0-1113">1113</a></span>
-<span class="normal"><a href="#__codelineno-0-1114">1114</a></span>
-<span class="normal"><a href="#__codelineno-0-1115">1115</a></span>
-<span class="normal"><a href="#__codelineno-0-1116">1116</a></span>
-<span class="normal"><a href="#__codelineno-0-1117">1117</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1112" name="__codelineno-0-1112"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"data.json"</span><span class="p">):</span>
-<a id="__codelineno-0-1113" name="__codelineno-0-1113"></a><span class="w">    </span><span class="sd">"""Initialize a JSONDict object with a specified file path for JSON persistence."""</span>
-<a id="__codelineno-0-1114" name="__codelineno-0-1114"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-1115" name="__codelineno-0-1115"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
-<a id="__codelineno-0-1116" name="__codelineno-0-1116"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
-<a id="__codelineno-0-1117" name="__codelineno-0-1117"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_load</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1128">1128</a></span>
+<span class="normal"><a href="#__codelineno-0-1129">1129</a></span>
+<span class="normal"><a href="#__codelineno-0-1130">1130</a></span>
+<span class="normal"><a href="#__codelineno-0-1131">1131</a></span>
+<span class="normal"><a href="#__codelineno-0-1132">1132</a></span>
+<span class="normal"><a href="#__codelineno-0-1133">1133</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1128" name="__codelineno-0-1128"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"data.json"</span><span class="p">):</span>
+<a id="__codelineno-0-1129" name="__codelineno-0-1129"></a><span class="w">    </span><span class="sd">"""Initialize a JSONDict object with a specified file path for JSON persistence."""</span>
+<a id="__codelineno-0-1130" name="__codelineno-0-1130"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-1131" name="__codelineno-0-1131"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+<a id="__codelineno-0-1132" name="__codelineno-0-1132"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">Lock</span><span class="p">()</span>
+<a id="__codelineno-0-1133" name="__codelineno-0-1133"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_load</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2807,15 +2807,15 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Remove an item and update the persistent storage.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1152">1152</a></span>
-<span class="normal"><a href="#__codelineno-0-1153">1153</a></span>
-<span class="normal"><a href="#__codelineno-0-1154">1154</a></span>
-<span class="normal"><a href="#__codelineno-0-1155">1155</a></span>
-<span class="normal"><a href="#__codelineno-0-1156">1156</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1152" name="__codelineno-0-1152"></a><span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
-<a id="__codelineno-0-1153" name="__codelineno-0-1153"></a><span class="w">    </span><span class="sd">"""Remove an item and update the persistent storage."""</span>
-<a id="__codelineno-0-1154" name="__codelineno-0-1154"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
-<a id="__codelineno-0-1155" name="__codelineno-0-1155"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-<a id="__codelineno-0-1156" name="__codelineno-0-1156"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1168">1168</a></span>
+<span class="normal"><a href="#__codelineno-0-1169">1169</a></span>
+<span class="normal"><a href="#__codelineno-0-1170">1170</a></span>
+<span class="normal"><a href="#__codelineno-0-1171">1171</a></span>
+<span class="normal"><a href="#__codelineno-0-1172">1172</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1168" name="__codelineno-0-1168"></a><span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<a id="__codelineno-0-1169" name="__codelineno-0-1169"></a><span class="w">    </span><span class="sd">"""Remove an item and update the persistent storage."""</span>
+<a id="__codelineno-0-1170" name="__codelineno-0-1170"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+<a id="__codelineno-0-1171" name="__codelineno-0-1171"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+<a id="__codelineno-0-1172" name="__codelineno-0-1172"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2830,15 +2830,15 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Store a key-value pair and persist to disk.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1146">1146</a></span>
-<span class="normal"><a href="#__codelineno-0-1147">1147</a></span>
-<span class="normal"><a href="#__codelineno-0-1148">1148</a></span>
-<span class="normal"><a href="#__codelineno-0-1149">1149</a></span>
-<span class="normal"><a href="#__codelineno-0-1150">1150</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1146" name="__codelineno-0-1146"></a><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<a id="__codelineno-0-1147" name="__codelineno-0-1147"></a><span class="w">    </span><span class="sd">"""Store a key-value pair and persist to disk."""</span>
-<a id="__codelineno-0-1148" name="__codelineno-0-1148"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
-<a id="__codelineno-0-1149" name="__codelineno-0-1149"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
-<a id="__codelineno-0-1150" name="__codelineno-0-1150"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1162">1162</a></span>
+<span class="normal"><a href="#__codelineno-0-1163">1163</a></span>
+<span class="normal"><a href="#__codelineno-0-1164">1164</a></span>
+<span class="normal"><a href="#__codelineno-0-1165">1165</a></span>
+<span class="normal"><a href="#__codelineno-0-1166">1166</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1162" name="__codelineno-0-1162"></a><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<a id="__codelineno-0-1163" name="__codelineno-0-1163"></a><span class="w">    </span><span class="sd">"""Store a key-value pair and persist to disk."""</span>
+<a id="__codelineno-0-1164" name="__codelineno-0-1164"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+<a id="__codelineno-0-1165" name="__codelineno-0-1165"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<a id="__codelineno-0-1166" name="__codelineno-0-1166"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2853,13 +2853,13 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Return a pretty-printed JSON string representation of the dictionary.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1158">1158</a></span>
-<span class="normal"><a href="#__codelineno-0-1159">1159</a></span>
-<span class="normal"><a href="#__codelineno-0-1160">1160</a></span>
-<span class="normal"><a href="#__codelineno-0-1161">1161</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1158" name="__codelineno-0-1158"></a><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1159" name="__codelineno-0-1159"></a><span class="w">    </span><span class="sd">"""Return a pretty-printed JSON string representation of the dictionary."""</span>
-<a id="__codelineno-0-1160" name="__codelineno-0-1160"></a>    <span class="n">contents</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_json_default</span><span class="p">)</span>
-<a id="__codelineno-0-1161" name="__codelineno-0-1161"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s1">'JSONDict("</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="si">}</span><span class="s1">"):</span><span class="se">\n</span><span class="si">{</span><span class="n">contents</span><span class="si">}</span><span class="s1">'</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1174">1174</a></span>
+<span class="normal"><a href="#__codelineno-0-1175">1175</a></span>
+<span class="normal"><a href="#__codelineno-0-1176">1176</a></span>
+<span class="normal"><a href="#__codelineno-0-1177">1177</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1174" name="__codelineno-0-1174"></a><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1175" name="__codelineno-0-1175"></a><span class="w">    </span><span class="sd">"""Return a pretty-printed JSON string representation of the dictionary."""</span>
+<a id="__codelineno-0-1176" name="__codelineno-0-1176"></a>    <span class="n">contents</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_json_default</span><span class="p">)</span>
+<a id="__codelineno-0-1177" name="__codelineno-0-1177"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s1">'JSONDict("</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="si">}</span><span class="s1">"):</span><span class="se">\n</span><span class="si">{</span><span class="n">contents</span><span class="si">}</span><span class="s1">'</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2874,15 +2874,15 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Clear all entries and update the persistent storage.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1169">1169</a></span>
-<span class="normal"><a href="#__codelineno-0-1170">1170</a></span>
-<span class="normal"><a href="#__codelineno-0-1171">1171</a></span>
-<span class="normal"><a href="#__codelineno-0-1172">1172</a></span>
-<span class="normal"><a href="#__codelineno-0-1173">1173</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1169" name="__codelineno-0-1169"></a><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1170" name="__codelineno-0-1170"></a><span class="w">    </span><span class="sd">"""Clear all entries and update the persistent storage."""</span>
-<a id="__codelineno-0-1171" name="__codelineno-0-1171"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
-<a id="__codelineno-0-1172" name="__codelineno-0-1172"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<a id="__codelineno-0-1173" name="__codelineno-0-1173"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1185">1185</a></span>
+<span class="normal"><a href="#__codelineno-0-1186">1186</a></span>
+<span class="normal"><a href="#__codelineno-0-1187">1187</a></span>
+<span class="normal"><a href="#__codelineno-0-1188">1188</a></span>
+<span class="normal"><a href="#__codelineno-0-1189">1189</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1185" name="__codelineno-0-1185"></a><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1186" name="__codelineno-0-1186"></a><span class="w">    </span><span class="sd">"""Clear all entries and update the persistent storage."""</span>
+<a id="__codelineno-0-1187" name="__codelineno-0-1187"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+<a id="__codelineno-0-1188" name="__codelineno-0-1188"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<a id="__codelineno-0-1189" name="__codelineno-0-1189"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2897,15 +2897,15 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Update the dictionary and persist changes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1163">1163</a></span>
-<span class="normal"><a href="#__codelineno-0-1164">1164</a></span>
-<span class="normal"><a href="#__codelineno-0-1165">1165</a></span>
-<span class="normal"><a href="#__codelineno-0-1166">1166</a></span>
-<span class="normal"><a href="#__codelineno-0-1167">1167</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1163" name="__codelineno-0-1163"></a><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-1164" name="__codelineno-0-1164"></a><span class="w">    </span><span class="sd">"""Update the dictionary and persist changes."""</span>
-<a id="__codelineno-0-1165" name="__codelineno-0-1165"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
-<a id="__codelineno-0-1166" name="__codelineno-0-1166"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-0-1167" name="__codelineno-0-1167"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1179">1179</a></span>
+<span class="normal"><a href="#__codelineno-0-1180">1180</a></span>
+<span class="normal"><a href="#__codelineno-0-1181">1181</a></span>
+<span class="normal"><a href="#__codelineno-0-1182">1182</a></span>
+<span class="normal"><a href="#__codelineno-0-1183">1183</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1179" name="__codelineno-0-1179"></a><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-1180" name="__codelineno-0-1180"></a><span class="w">    </span><span class="sd">"""Update the dictionary and persist changes."""</span>
+<a id="__codelineno-0-1181" name="__codelineno-0-1181"></a>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+<a id="__codelineno-0-1182" name="__codelineno-0-1182"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-1183" name="__codelineno-0-1183"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_save</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3025,23 +3025,7 @@ values. It validates settings on initialization and provides methods to update o
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1202">1202</a></span>
-<span class="normal"><a href="#__codelineno-0-1203">1203</a></span>
-<span class="normal"><a href="#__codelineno-0-1204">1204</a></span>
-<span class="normal"><a href="#__codelineno-0-1205">1205</a></span>
-<span class="normal"><a href="#__codelineno-0-1206">1206</a></span>
-<span class="normal"><a href="#__codelineno-0-1207">1207</a></span>
-<span class="normal"><a href="#__codelineno-0-1208">1208</a></span>
-<span class="normal"><a href="#__codelineno-0-1209">1209</a></span>
-<span class="normal"><a href="#__codelineno-0-1210">1210</a></span>
-<span class="normal"><a href="#__codelineno-0-1211">1211</a></span>
-<span class="normal"><a href="#__codelineno-0-1212">1212</a></span>
-<span class="normal"><a href="#__codelineno-0-1213">1213</a></span>
-<span class="normal"><a href="#__codelineno-0-1214">1214</a></span>
-<span class="normal"><a href="#__codelineno-0-1215">1215</a></span>
-<span class="normal"><a href="#__codelineno-0-1216">1216</a></span>
-<span class="normal"><a href="#__codelineno-0-1217">1217</a></span>
-<span class="normal"><a href="#__codelineno-0-1218">1218</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1218">1218</a></span>
 <span class="normal"><a href="#__codelineno-0-1219">1219</a></span>
 <span class="normal"><a href="#__codelineno-0-1220">1220</a></span>
 <span class="normal"><a href="#__codelineno-0-1221">1221</a></span>
@@ -3070,52 +3054,68 @@ values. It validates settings on initialization and provides methods to update o
 <span class="normal"><a href="#__codelineno-0-1244">1244</a></span>
 <span class="normal"><a href="#__codelineno-0-1245">1245</a></span>
 <span class="normal"><a href="#__codelineno-0-1246">1246</a></span>
-<span class="normal"><a href="#__codelineno-0-1247">1247</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1202" name="__codelineno-0-1202"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
-<a id="__codelineno-0-1203" name="__codelineno-0-1203"></a><span class="w">    </span><span class="sd">"""Initializes the SettingsManager with default settings and loads user settings."""</span>
-<a id="__codelineno-0-1204" name="__codelineno-0-1204"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
-<a id="__codelineno-0-1205" name="__codelineno-0-1205"></a>
-<a id="__codelineno-0-1206" name="__codelineno-0-1206"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch_distributed_zero_first</span>
-<a id="__codelineno-0-1207" name="__codelineno-0-1207"></a>
-<a id="__codelineno-0-1208" name="__codelineno-0-1208"></a>    <span class="n">root</span> <span class="o">=</span> <span class="n">GIT_DIR</span> <span class="ow">or</span> <span class="n">Path</span><span class="p">()</span>
-<a id="__codelineno-0-1209" name="__codelineno-0-1209"></a>    <span class="n">datasets_root</span> <span class="o">=</span> <span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">parent</span> <span class="k">if</span> <span class="n">GIT_DIR</span> <span class="ow">and</span> <span class="n">is_dir_writeable</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span> <span class="k">else</span> <span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
-<a id="__codelineno-0-1210" name="__codelineno-0-1210"></a>
-<a id="__codelineno-0-1211" name="__codelineno-0-1211"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-<a id="__codelineno-0-1212" name="__codelineno-0-1212"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
-<a id="__codelineno-0-1213" name="__codelineno-0-1213"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-1214" name="__codelineno-0-1214"></a>        <span class="s2">"settings_version"</span><span class="p">:</span> <span class="n">version</span><span class="p">,</span>  <span class="c1"># Settings schema version</span>
-<a id="__codelineno-0-1215" name="__codelineno-0-1215"></a>        <span class="s2">"datasets_dir"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">datasets_root</span> <span class="o">/</span> <span class="s2">"datasets"</span><span class="p">),</span>  <span class="c1"># Datasets directory</span>
-<a id="__codelineno-0-1216" name="__codelineno-0-1216"></a>        <span class="s2">"weights_dir"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"weights"</span><span class="p">),</span>  <span class="c1"># Model weights directory</span>
-<a id="__codelineno-0-1217" name="__codelineno-0-1217"></a>        <span class="s2">"runs_dir"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"runs"</span><span class="p">),</span>  <span class="c1"># Experiment runs directory</span>
-<a id="__codelineno-0-1218" name="__codelineno-0-1218"></a>        <span class="s2">"uuid"</span><span class="p">:</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">getnode</span><span class="p">())</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span>  <span class="c1"># SHA-256 anonymized UUID hash</span>
-<a id="__codelineno-0-1219" name="__codelineno-0-1219"></a>        <span class="s2">"sync"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Enable synchronization</span>
-<a id="__codelineno-0-1220" name="__codelineno-0-1220"></a>        <span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>  <span class="c1"># Ultralytics API Key</span>
-<a id="__codelineno-0-1221" name="__codelineno-0-1221"></a>        <span class="s2">"openai_api_key"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>  <span class="c1"># OpenAI API Key</span>
-<a id="__codelineno-0-1222" name="__codelineno-0-1222"></a>        <span class="s2">"clearml"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># ClearML integration</span>
-<a id="__codelineno-0-1223" name="__codelineno-0-1223"></a>        <span class="s2">"comet"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Comet integration</span>
-<a id="__codelineno-0-1224" name="__codelineno-0-1224"></a>        <span class="s2">"dvc"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># DVC integration</span>
-<a id="__codelineno-0-1225" name="__codelineno-0-1225"></a>        <span class="s2">"hub"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Ultralytics HUB integration</span>
-<a id="__codelineno-0-1226" name="__codelineno-0-1226"></a>        <span class="s2">"mlflow"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># MLflow integration</span>
-<a id="__codelineno-0-1227" name="__codelineno-0-1227"></a>        <span class="s2">"neptune"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Neptune integration</span>
-<a id="__codelineno-0-1228" name="__codelineno-0-1228"></a>        <span class="s2">"raytune"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Ray Tune integration</span>
-<a id="__codelineno-0-1229" name="__codelineno-0-1229"></a>        <span class="s2">"tensorboard"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># TensorBoard logging</span>
-<a id="__codelineno-0-1230" name="__codelineno-0-1230"></a>        <span class="s2">"wandb"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># Weights &amp; Biases logging</span>
-<a id="__codelineno-0-1231" name="__codelineno-0-1231"></a>        <span class="s2">"vscode_msg"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># VSCode messaging</span>
-<a id="__codelineno-0-1232" name="__codelineno-0-1232"></a>    <span class="p">}</span>
-<a id="__codelineno-0-1233" name="__codelineno-0-1233"></a>
-<a id="__codelineno-0-1234" name="__codelineno-0-1234"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-1235" name="__codelineno-0-1235"></a>        <span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">View Ultralytics Settings with 'yolo settings' or at '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="si">}</span><span class="s2">'"</span>
-<a id="__codelineno-0-1236" name="__codelineno-0-1236"></a>        <span class="s2">"</span><span class="se">\n</span><span class="s2">Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. "</span>
-<a id="__codelineno-0-1237" name="__codelineno-0-1237"></a>        <span class="s2">"For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings."</span>
-<a id="__codelineno-0-1238" name="__codelineno-0-1238"></a>    <span class="p">)</span>
-<a id="__codelineno-0-1239" name="__codelineno-0-1239"></a>
-<a id="__codelineno-0-1240" name="__codelineno-0-1240"></a>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">RANK</span><span class="p">):</span>
-<a id="__codelineno-0-1241" name="__codelineno-0-1241"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span>
-<a id="__codelineno-0-1242" name="__codelineno-0-1242"></a>
-<a id="__codelineno-0-1243" name="__codelineno-0-1243"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">:</span>  <span class="c1"># Check if file doesn't exist or is empty</span>
-<a id="__codelineno-0-1244" name="__codelineno-0-1244"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Creating new Ultralytics Settings v</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2"> file ✅ </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-1245" name="__codelineno-0-1245"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-<a id="__codelineno-0-1246" name="__codelineno-0-1246"></a>
-<a id="__codelineno-0-1247" name="__codelineno-0-1247"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_settings</span><span class="p">()</span>
+<span class="normal"><a href="#__codelineno-0-1247">1247</a></span>
+<span class="normal"><a href="#__codelineno-0-1248">1248</a></span>
+<span class="normal"><a href="#__codelineno-0-1249">1249</a></span>
+<span class="normal"><a href="#__codelineno-0-1250">1250</a></span>
+<span class="normal"><a href="#__codelineno-0-1251">1251</a></span>
+<span class="normal"><a href="#__codelineno-0-1252">1252</a></span>
+<span class="normal"><a href="#__codelineno-0-1253">1253</a></span>
+<span class="normal"><a href="#__codelineno-0-1254">1254</a></span>
+<span class="normal"><a href="#__codelineno-0-1255">1255</a></span>
+<span class="normal"><a href="#__codelineno-0-1256">1256</a></span>
+<span class="normal"><a href="#__codelineno-0-1257">1257</a></span>
+<span class="normal"><a href="#__codelineno-0-1258">1258</a></span>
+<span class="normal"><a href="#__codelineno-0-1259">1259</a></span>
+<span class="normal"><a href="#__codelineno-0-1260">1260</a></span>
+<span class="normal"><a href="#__codelineno-0-1261">1261</a></span>
+<span class="normal"><a href="#__codelineno-0-1262">1262</a></span>
+<span class="normal"><a href="#__codelineno-0-1263">1263</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1218" name="__codelineno-0-1218"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
+<a id="__codelineno-0-1219" name="__codelineno-0-1219"></a><span class="w">    </span><span class="sd">"""Initializes the SettingsManager with default settings and loads user settings."""</span>
+<a id="__codelineno-0-1220" name="__codelineno-0-1220"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
+<a id="__codelineno-0-1221" name="__codelineno-0-1221"></a>
+<a id="__codelineno-0-1222" name="__codelineno-0-1222"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">torch_distributed_zero_first</span>
+<a id="__codelineno-0-1223" name="__codelineno-0-1223"></a>
+<a id="__codelineno-0-1224" name="__codelineno-0-1224"></a>    <span class="n">root</span> <span class="o">=</span> <span class="n">GIT_DIR</span> <span class="ow">or</span> <span class="n">Path</span><span class="p">()</span>
+<a id="__codelineno-0-1225" name="__codelineno-0-1225"></a>    <span class="n">datasets_root</span> <span class="o">=</span> <span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">parent</span> <span class="k">if</span> <span class="n">GIT_DIR</span> <span class="ow">and</span> <span class="n">is_dir_writeable</span><span class="p">(</span><span class="n">root</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span> <span class="k">else</span> <span class="n">root</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>
+<a id="__codelineno-0-1226" name="__codelineno-0-1226"></a>
+<a id="__codelineno-0-1227" name="__codelineno-0-1227"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<a id="__codelineno-0-1228" name="__codelineno-0-1228"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">version</span> <span class="o">=</span> <span class="n">version</span>
+<a id="__codelineno-0-1229" name="__codelineno-0-1229"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-1230" name="__codelineno-0-1230"></a>        <span class="s2">"settings_version"</span><span class="p">:</span> <span class="n">version</span><span class="p">,</span>  <span class="c1"># Settings schema version</span>
+<a id="__codelineno-0-1231" name="__codelineno-0-1231"></a>        <span class="s2">"datasets_dir"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">datasets_root</span> <span class="o">/</span> <span class="s2">"datasets"</span><span class="p">),</span>  <span class="c1"># Datasets directory</span>
+<a id="__codelineno-0-1232" name="__codelineno-0-1232"></a>        <span class="s2">"weights_dir"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"weights"</span><span class="p">),</span>  <span class="c1"># Model weights directory</span>
+<a id="__codelineno-0-1233" name="__codelineno-0-1233"></a>        <span class="s2">"runs_dir"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">root</span> <span class="o">/</span> <span class="s2">"runs"</span><span class="p">),</span>  <span class="c1"># Experiment runs directory</span>
+<a id="__codelineno-0-1234" name="__codelineno-0-1234"></a>        <span class="s2">"uuid"</span><span class="p">:</span> <span class="n">hashlib</span><span class="o">.</span><span class="n">sha256</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">getnode</span><span class="p">())</span><span class="o">.</span><span class="n">encode</span><span class="p">())</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">(),</span>  <span class="c1"># SHA-256 anonymized UUID hash</span>
+<a id="__codelineno-0-1235" name="__codelineno-0-1235"></a>        <span class="s2">"sync"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Enable synchronization</span>
+<a id="__codelineno-0-1236" name="__codelineno-0-1236"></a>        <span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>  <span class="c1"># Ultralytics API Key</span>
+<a id="__codelineno-0-1237" name="__codelineno-0-1237"></a>        <span class="s2">"openai_api_key"</span><span class="p">:</span> <span class="s2">""</span><span class="p">,</span>  <span class="c1"># OpenAI API Key</span>
+<a id="__codelineno-0-1238" name="__codelineno-0-1238"></a>        <span class="s2">"clearml"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># ClearML integration</span>
+<a id="__codelineno-0-1239" name="__codelineno-0-1239"></a>        <span class="s2">"comet"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Comet integration</span>
+<a id="__codelineno-0-1240" name="__codelineno-0-1240"></a>        <span class="s2">"dvc"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># DVC integration</span>
+<a id="__codelineno-0-1241" name="__codelineno-0-1241"></a>        <span class="s2">"hub"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Ultralytics HUB integration</span>
+<a id="__codelineno-0-1242" name="__codelineno-0-1242"></a>        <span class="s2">"mlflow"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># MLflow integration</span>
+<a id="__codelineno-0-1243" name="__codelineno-0-1243"></a>        <span class="s2">"neptune"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Neptune integration</span>
+<a id="__codelineno-0-1244" name="__codelineno-0-1244"></a>        <span class="s2">"raytune"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Ray Tune integration</span>
+<a id="__codelineno-0-1245" name="__codelineno-0-1245"></a>        <span class="s2">"tensorboard"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># TensorBoard logging</span>
+<a id="__codelineno-0-1246" name="__codelineno-0-1246"></a>        <span class="s2">"wandb"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># Weights &amp; Biases logging</span>
+<a id="__codelineno-0-1247" name="__codelineno-0-1247"></a>        <span class="s2">"vscode_msg"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># VSCode messaging</span>
+<a id="__codelineno-0-1248" name="__codelineno-0-1248"></a>    <span class="p">}</span>
+<a id="__codelineno-0-1249" name="__codelineno-0-1249"></a>
+<a id="__codelineno-0-1250" name="__codelineno-0-1250"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-1251" name="__codelineno-0-1251"></a>        <span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">View Ultralytics Settings with 'yolo settings' or at '</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="si">}</span><span class="s2">'"</span>
+<a id="__codelineno-0-1252" name="__codelineno-0-1252"></a>        <span class="s2">"</span><span class="se">\n</span><span class="s2">Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. "</span>
+<a id="__codelineno-0-1253" name="__codelineno-0-1253"></a>        <span class="s2">"For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings."</span>
+<a id="__codelineno-0-1254" name="__codelineno-0-1254"></a>    <span class="p">)</span>
+<a id="__codelineno-0-1255" name="__codelineno-0-1255"></a>
+<a id="__codelineno-0-1256" name="__codelineno-0-1256"></a>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">RANK</span><span class="p">):</span>
+<a id="__codelineno-0-1257" name="__codelineno-0-1257"></a>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span>
+<a id="__codelineno-0-1258" name="__codelineno-0-1258"></a>
+<a id="__codelineno-0-1259" name="__codelineno-0-1259"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">:</span>  <span class="c1"># Check if file doesn't exist or is empty</span>
+<a id="__codelineno-0-1260" name="__codelineno-0-1260"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Creating new Ultralytics Settings v</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2"> file ✅ </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-1261" name="__codelineno-0-1261"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<a id="__codelineno-0-1262" name="__codelineno-0-1262"></a>
+<a id="__codelineno-0-1263" name="__codelineno-0-1263"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_validate_settings</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3129,11 +3129,11 @@ values. It validates settings on initialization and provides methods to update o
 <p>Updates one key: value pair.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1269">1269</a></span>
-<span class="normal"><a href="#__codelineno-0-1270">1270</a></span>
-<span class="normal"><a href="#__codelineno-0-1271">1271</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1269" name="__codelineno-0-1269"></a><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<a id="__codelineno-0-1270" name="__codelineno-0-1270"></a><span class="w">    </span><span class="sd">"""Updates one key: value pair."""</span>
-<a id="__codelineno-0-1271" name="__codelineno-0-1271"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1285">1285</a></span>
+<span class="normal"><a href="#__codelineno-0-1286">1286</a></span>
+<span class="normal"><a href="#__codelineno-0-1287">1287</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1285" name="__codelineno-0-1285"></a><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<a id="__codelineno-0-1286" name="__codelineno-0-1286"></a><span class="w">    </span><span class="sd">"""Updates one key: value pair."""</span>
+<a id="__codelineno-0-1287" name="__codelineno-0-1287"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3148,13 +3148,13 @@ values. It validates settings on initialization and provides methods to update o
 <p>Resets the settings to default and saves them.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1288">1288</a></span>
-<span class="normal"><a href="#__codelineno-0-1289">1289</a></span>
-<span class="normal"><a href="#__codelineno-0-1290">1290</a></span>
-<span class="normal"><a href="#__codelineno-0-1291">1291</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1288" name="__codelineno-0-1288"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-1289" name="__codelineno-0-1289"></a><span class="w">    </span><span class="sd">"""Resets the settings to default and saves them."""</span>
-<a id="__codelineno-0-1290" name="__codelineno-0-1290"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<a id="__codelineno-0-1291" name="__codelineno-0-1291"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1304">1304</a></span>
+<span class="normal"><a href="#__codelineno-0-1305">1305</a></span>
+<span class="normal"><a href="#__codelineno-0-1306">1306</a></span>
+<span class="normal"><a href="#__codelineno-0-1307">1307</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1304" name="__codelineno-0-1304"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-1305" name="__codelineno-0-1305"></a><span class="w">    </span><span class="sd">"""Resets the settings to default and saves them."""</span>
+<a id="__codelineno-0-1306" name="__codelineno-0-1306"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<a id="__codelineno-0-1307" name="__codelineno-0-1307"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3169,33 +3169,33 @@ values. It validates settings on initialization and provides methods to update o
 <p>Updates settings, validating keys and types.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1273">1273</a></span>
-<span class="normal"><a href="#__codelineno-0-1274">1274</a></span>
-<span class="normal"><a href="#__codelineno-0-1275">1275</a></span>
-<span class="normal"><a href="#__codelineno-0-1276">1276</a></span>
-<span class="normal"><a href="#__codelineno-0-1277">1277</a></span>
-<span class="normal"><a href="#__codelineno-0-1278">1278</a></span>
-<span class="normal"><a href="#__codelineno-0-1279">1279</a></span>
-<span class="normal"><a href="#__codelineno-0-1280">1280</a></span>
-<span class="normal"><a href="#__codelineno-0-1281">1281</a></span>
-<span class="normal"><a href="#__codelineno-0-1282">1282</a></span>
-<span class="normal"><a href="#__codelineno-0-1283">1283</a></span>
-<span class="normal"><a href="#__codelineno-0-1284">1284</a></span>
-<span class="normal"><a href="#__codelineno-0-1285">1285</a></span>
-<span class="normal"><a href="#__codelineno-0-1286">1286</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1273" name="__codelineno-0-1273"></a><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-1274" name="__codelineno-0-1274"></a><span class="w">    </span><span class="sd">"""Updates settings, validating keys and types."""</span>
-<a id="__codelineno-0-1275" name="__codelineno-0-1275"></a>    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
-<a id="__codelineno-0-1276" name="__codelineno-0-1276"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-<a id="__codelineno-0-1277" name="__codelineno-0-1277"></a>            <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
-<a id="__codelineno-0-1278" name="__codelineno-0-1278"></a>    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-1279" name="__codelineno-0-1279"></a>        <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">:</span>
-<a id="__codelineno-0-1280" name="__codelineno-0-1280"></a>            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No Ultralytics setting '</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">'. </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-1281" name="__codelineno-0-1281"></a>        <span class="n">t</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
-<a id="__codelineno-0-1282" name="__codelineno-0-1282"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
-<a id="__codelineno-0-1283" name="__codelineno-0-1283"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<a id="__codelineno-0-1284" name="__codelineno-0-1284"></a>                <span class="sa">f</span><span class="s2">"Ultralytics setting '</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">' must be '</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">' type, not '</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">'. </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-1285" name="__codelineno-0-1285"></a>            <span class="p">)</span>
-<a id="__codelineno-0-1286" name="__codelineno-0-1286"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1289">1289</a></span>
+<span class="normal"><a href="#__codelineno-0-1290">1290</a></span>
+<span class="normal"><a href="#__codelineno-0-1291">1291</a></span>
+<span class="normal"><a href="#__codelineno-0-1292">1292</a></span>
+<span class="normal"><a href="#__codelineno-0-1293">1293</a></span>
+<span class="normal"><a href="#__codelineno-0-1294">1294</a></span>
+<span class="normal"><a href="#__codelineno-0-1295">1295</a></span>
+<span class="normal"><a href="#__codelineno-0-1296">1296</a></span>
+<span class="normal"><a href="#__codelineno-0-1297">1297</a></span>
+<span class="normal"><a href="#__codelineno-0-1298">1298</a></span>
+<span class="normal"><a href="#__codelineno-0-1299">1299</a></span>
+<span class="normal"><a href="#__codelineno-0-1300">1300</a></span>
+<span class="normal"><a href="#__codelineno-0-1301">1301</a></span>
+<span class="normal"><a href="#__codelineno-0-1302">1302</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1289" name="__codelineno-0-1289"></a><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-1290" name="__codelineno-0-1290"></a><span class="w">    </span><span class="sd">"""Updates settings, validating keys and types."""</span>
+<a id="__codelineno-0-1291" name="__codelineno-0-1291"></a>    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
+<a id="__codelineno-0-1292" name="__codelineno-0-1292"></a>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<a id="__codelineno-0-1293" name="__codelineno-0-1293"></a>            <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
+<a id="__codelineno-0-1294" name="__codelineno-0-1294"></a>    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<a id="__codelineno-0-1295" name="__codelineno-0-1295"></a>        <span class="k">if</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">:</span>
+<a id="__codelineno-0-1296" name="__codelineno-0-1296"></a>            <span class="k">raise</span> <span class="ne">KeyError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No Ultralytics setting '</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">'. </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-1297" name="__codelineno-0-1297"></a>        <span class="n">t</span> <span class="o">=</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<a id="__codelineno-0-1298" name="__codelineno-0-1298"></a>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">t</span><span class="p">):</span>
+<a id="__codelineno-0-1299" name="__codelineno-0-1299"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<a id="__codelineno-0-1300" name="__codelineno-0-1300"></a>                <span class="sa">f</span><span class="s2">"Ultralytics setting '</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">' must be '</span><span class="si">{</span><span class="n">t</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">' type, not '</span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">'. </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-1301" name="__codelineno-0-1301"></a>            <span class="p">)</span>
+<a id="__codelineno-0-1302" name="__codelineno-0-1302"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5623,7 +5623,73 @@ Misc: 'end', 'bold', 'underline'</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Multi-threads a target function by default and returns the thread or function result.</p>
-<p>Use as @threaded decorator. The function runs in a separate thread unless 'threaded=False' is passed.</p>
+<p>This decorator provides flexible execution of the target function, either in a separate thread or synchronously.
+By default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument
+which is removed from kwargs before calling the function.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>func</code>
+</td>
+<td>
+<code><span title="callable">callable</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The function to be potentially executed in a separate thread.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="callable">callable</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A wrapper function that either returns a daemon thread or the direct function result.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="example" open="">
+<summary>Example</summary>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>@threaded
+... def process_data(data):
+...     return data</p>
+<p>thread = process_data(my_data)  # Runs in background thread
+result = process_data(my_data, threaded=False)  # Runs synchronously, returns function result</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-994"> 994</a></span>
@@ -5642,23 +5708,55 @@ Misc: 'end', 'bold', 'underline'</p>
 <span class="normal"><a href="#__codelineno-0-1007">1007</a></span>
 <span class="normal"><a href="#__codelineno-0-1008">1008</a></span>
 <span class="normal"><a href="#__codelineno-0-1009">1009</a></span>
-<span class="normal"><a href="#__codelineno-0-1010">1010</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-994" name="__codelineno-0-994"></a><span class="k">def</span><span class="w"> </span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-1010">1010</a></span>
+<span class="normal"><a href="#__codelineno-0-1011">1011</a></span>
+<span class="normal"><a href="#__codelineno-0-1012">1012</a></span>
+<span class="normal"><a href="#__codelineno-0-1013">1013</a></span>
+<span class="normal"><a href="#__codelineno-0-1014">1014</a></span>
+<span class="normal"><a href="#__codelineno-0-1015">1015</a></span>
+<span class="normal"><a href="#__codelineno-0-1016">1016</a></span>
+<span class="normal"><a href="#__codelineno-0-1017">1017</a></span>
+<span class="normal"><a href="#__codelineno-0-1018">1018</a></span>
+<span class="normal"><a href="#__codelineno-0-1019">1019</a></span>
+<span class="normal"><a href="#__codelineno-0-1020">1020</a></span>
+<span class="normal"><a href="#__codelineno-0-1021">1021</a></span>
+<span class="normal"><a href="#__codelineno-0-1022">1022</a></span>
+<span class="normal"><a href="#__codelineno-0-1023">1023</a></span>
+<span class="normal"><a href="#__codelineno-0-1024">1024</a></span>
+<span class="normal"><a href="#__codelineno-0-1025">1025</a></span>
+<span class="normal"><a href="#__codelineno-0-1026">1026</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-994" name="__codelineno-0-994"></a><span class="k">def</span><span class="w"> </span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
 <a id="__codelineno-0-995" name="__codelineno-0-995"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-996" name="__codelineno-0-996"></a><span class="sd">    Multi-threads a target function by default and returns the thread or function result.</span>
 <a id="__codelineno-0-997" name="__codelineno-0-997"></a>
-<a id="__codelineno-0-998" name="__codelineno-0-998"></a><span class="sd">    Use as @threaded decorator. The function runs in a separate thread unless 'threaded=False' is passed.</span>
-<a id="__codelineno-0-999" name="__codelineno-0-999"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a>
-<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a><span class="w">        </span><span class="sd">"""Multi-threads a given function based on 'threaded' kwarg and returns the thread or function result."""</span>
-<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a>        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"threaded"</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>  <span class="c1"># run in thread</span>
-<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>            <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a>            <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-0-1006" name="__codelineno-0-1006"></a>            <span class="k">return</span> <span class="n">thread</span>
-<a id="__codelineno-0-1007" name="__codelineno-0-1007"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-1008" name="__codelineno-0-1008"></a>            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-0-1009" name="__codelineno-0-1009"></a>
-<a id="__codelineno-0-1010" name="__codelineno-0-1010"></a>    <span class="k">return</span> <span class="n">wrapper</span>
+<a id="__codelineno-0-998" name="__codelineno-0-998"></a><span class="sd">    This decorator provides flexible execution of the target function, either in a separate thread or synchronously.</span>
+<a id="__codelineno-0-999" name="__codelineno-0-999"></a><span class="sd">    By default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument</span>
+<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a><span class="sd">    which is removed from kwargs before calling the function.</span>
+<a id="__codelineno-0-1001" name="__codelineno-0-1001"></a>
+<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a><span class="sd">        func (callable): The function to be potentially executed in a separate thread.</span>
+<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>
+<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-1006" name="__codelineno-0-1006"></a><span class="sd">        (callable): A wrapper function that either returns a daemon thread or the direct function result.</span>
+<a id="__codelineno-0-1007" name="__codelineno-0-1007"></a>
+<a id="__codelineno-0-1008" name="__codelineno-0-1008"></a><span class="sd">    Example:</span>
+<a id="__codelineno-0-1009" name="__codelineno-0-1009"></a><span class="sd">        &gt;&gt;&gt; @threaded</span>
+<a id="__codelineno-0-1010" name="__codelineno-0-1010"></a><span class="sd">        ... def process_data(data):</span>
+<a id="__codelineno-0-1011" name="__codelineno-0-1011"></a><span class="sd">        ...     return data</span>
+<a id="__codelineno-0-1012" name="__codelineno-0-1012"></a><span class="sd">        &gt;&gt;&gt;</span>
+<a id="__codelineno-0-1013" name="__codelineno-0-1013"></a><span class="sd">        &gt;&gt;&gt; thread = process_data(my_data)  # Runs in background thread</span>
+<a id="__codelineno-0-1014" name="__codelineno-0-1014"></a><span class="sd">        &gt;&gt;&gt; result = process_data(my_data, threaded=False)  # Runs synchronously, returns function result</span>
+<a id="__codelineno-0-1015" name="__codelineno-0-1015"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1016" name="__codelineno-0-1016"></a>
+<a id="__codelineno-0-1017" name="__codelineno-0-1017"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-1018" name="__codelineno-0-1018"></a><span class="w">        </span><span class="sd">"""Multi-threads a given function based on 'threaded' kwarg and returns the thread or function result."""</span>
+<a id="__codelineno-0-1019" name="__codelineno-0-1019"></a>        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"threaded"</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>  <span class="c1"># run in thread</span>
+<a id="__codelineno-0-1020" name="__codelineno-0-1020"></a>            <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-1021" name="__codelineno-0-1021"></a>            <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-0-1022" name="__codelineno-0-1022"></a>            <span class="k">return</span> <span class="n">thread</span>
+<a id="__codelineno-0-1023" name="__codelineno-0-1023"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-1024" name="__codelineno-0-1024"></a>            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-1025" name="__codelineno-0-1025"></a>
+<a id="__codelineno-0-1026" name="__codelineno-0-1026"></a>    <span class="k">return</span> <span class="n">wrapper</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5684,23 +5782,7 @@ settings.</p>
     - CLI used to run package (checked with 'yolo' as the name of the main CLI command)</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1013">1013</a></span>
-<span class="normal"><a href="#__codelineno-0-1014">1014</a></span>
-<span class="normal"><a href="#__codelineno-0-1015">1015</a></span>
-<span class="normal"><a href="#__codelineno-0-1016">1016</a></span>
-<span class="normal"><a href="#__codelineno-0-1017">1017</a></span>
-<span class="normal"><a href="#__codelineno-0-1018">1018</a></span>
-<span class="normal"><a href="#__codelineno-0-1019">1019</a></span>
-<span class="normal"><a href="#__codelineno-0-1020">1020</a></span>
-<span class="normal"><a href="#__codelineno-0-1021">1021</a></span>
-<span class="normal"><a href="#__codelineno-0-1022">1022</a></span>
-<span class="normal"><a href="#__codelineno-0-1023">1023</a></span>
-<span class="normal"><a href="#__codelineno-0-1024">1024</a></span>
-<span class="normal"><a href="#__codelineno-0-1025">1025</a></span>
-<span class="normal"><a href="#__codelineno-0-1026">1026</a></span>
-<span class="normal"><a href="#__codelineno-0-1027">1027</a></span>
-<span class="normal"><a href="#__codelineno-0-1028">1028</a></span>
-<span class="normal"><a href="#__codelineno-0-1029">1029</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1029">1029</a></span>
 <span class="normal"><a href="#__codelineno-0-1030">1030</a></span>
 <span class="normal"><a href="#__codelineno-0-1031">1031</a></span>
 <span class="normal"><a href="#__codelineno-0-1032">1032</a></span>
@@ -5751,74 +5833,90 @@ settings.</p>
 <span class="normal"><a href="#__codelineno-0-1077">1077</a></span>
 <span class="normal"><a href="#__codelineno-0-1078">1078</a></span>
 <span class="normal"><a href="#__codelineno-0-1079">1079</a></span>
-<span class="normal"><a href="#__codelineno-0-1080">1080</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1013" name="__codelineno-0-1013"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_sentry</span><span class="p">():</span>
-<a id="__codelineno-0-1014" name="__codelineno-0-1014"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-1015" name="__codelineno-0-1015"></a><span class="sd">    Initialize the Sentry SDK for error tracking and reporting.</span>
-<a id="__codelineno-0-1016" name="__codelineno-0-1016"></a>
-<a id="__codelineno-0-1017" name="__codelineno-0-1017"></a><span class="sd">    Only used if sentry_sdk package is installed and sync=True in settings. Run 'yolo settings' to see and update</span>
-<a id="__codelineno-0-1018" name="__codelineno-0-1018"></a><span class="sd">    settings.</span>
-<a id="__codelineno-0-1019" name="__codelineno-0-1019"></a>
-<a id="__codelineno-0-1020" name="__codelineno-0-1020"></a><span class="sd">    Conditions required to send errors (ALL conditions must be met or no errors will be reported):</span>
-<a id="__codelineno-0-1021" name="__codelineno-0-1021"></a><span class="sd">        - sentry_sdk package is installed</span>
-<a id="__codelineno-0-1022" name="__codelineno-0-1022"></a><span class="sd">        - sync=True in YOLO settings</span>
-<a id="__codelineno-0-1023" name="__codelineno-0-1023"></a><span class="sd">        - pytest is not running</span>
-<a id="__codelineno-0-1024" name="__codelineno-0-1024"></a><span class="sd">        - running in a pip package installation</span>
-<a id="__codelineno-0-1025" name="__codelineno-0-1025"></a><span class="sd">        - running in a non-git directory</span>
-<a id="__codelineno-0-1026" name="__codelineno-0-1026"></a><span class="sd">        - running with rank -1 or 0</span>
-<a id="__codelineno-0-1027" name="__codelineno-0-1027"></a><span class="sd">        - online environment</span>
-<a id="__codelineno-0-1028" name="__codelineno-0-1028"></a><span class="sd">        - CLI used to run package (checked with 'yolo' as the name of the main CLI command)</span>
-<a id="__codelineno-0-1029" name="__codelineno-0-1029"></a><span class="sd">    """</span>
-<a id="__codelineno-0-1030" name="__codelineno-0-1030"></a>    <span class="k">if</span> <span class="p">(</span>
-<a id="__codelineno-0-1031" name="__codelineno-0-1031"></a>        <span class="ow">not</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"sync"</span><span class="p">]</span>
-<a id="__codelineno-0-1032" name="__codelineno-0-1032"></a>        <span class="ow">or</span> <span class="n">RANK</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
-<a id="__codelineno-0-1033" name="__codelineno-0-1033"></a>        <span class="ow">or</span> <span class="n">Path</span><span class="p">(</span><span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s2">"yolo"</span>
-<a id="__codelineno-0-1034" name="__codelineno-0-1034"></a>        <span class="ow">or</span> <span class="n">TESTS_RUNNING</span>
-<a id="__codelineno-0-1035" name="__codelineno-0-1035"></a>        <span class="ow">or</span> <span class="ow">not</span> <span class="n">ONLINE</span>
-<a id="__codelineno-0-1036" name="__codelineno-0-1036"></a>        <span class="ow">or</span> <span class="ow">not</span> <span class="n">IS_PIP_PACKAGE</span>
-<a id="__codelineno-0-1037" name="__codelineno-0-1037"></a>        <span class="ow">or</span> <span class="n">IS_GIT_DIR</span>
-<a id="__codelineno-0-1038" name="__codelineno-0-1038"></a>    <span class="p">):</span>
-<a id="__codelineno-0-1039" name="__codelineno-0-1039"></a>        <span class="k">return</span>
-<a id="__codelineno-0-1040" name="__codelineno-0-1040"></a>    <span class="c1"># If sentry_sdk package is not installed then return and do not use Sentry</span>
-<a id="__codelineno-0-1041" name="__codelineno-0-1041"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-1042" name="__codelineno-0-1042"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">sentry_sdk</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-1043" name="__codelineno-0-1043"></a>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<a id="__codelineno-0-1044" name="__codelineno-0-1044"></a>        <span class="k">return</span>
-<a id="__codelineno-0-1045" name="__codelineno-0-1045"></a>
-<a id="__codelineno-0-1046" name="__codelineno-0-1046"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">before_send</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">hint</span><span class="p">):</span>
-<a id="__codelineno-0-1047" name="__codelineno-0-1047"></a><span class="w">        </span><span class="sd">"""</span>
-<a id="__codelineno-0-1048" name="__codelineno-0-1048"></a><span class="sd">        Modify the event before sending it to Sentry based on specific exception types and messages.</span>
-<a id="__codelineno-0-1049" name="__codelineno-0-1049"></a>
-<a id="__codelineno-0-1050" name="__codelineno-0-1050"></a><span class="sd">        Args:</span>
-<a id="__codelineno-0-1051" name="__codelineno-0-1051"></a><span class="sd">            event (dict): The event dictionary containing information about the error.</span>
-<a id="__codelineno-0-1052" name="__codelineno-0-1052"></a><span class="sd">            hint (dict): A dictionary containing additional information about the error.</span>
-<a id="__codelineno-0-1053" name="__codelineno-0-1053"></a>
-<a id="__codelineno-0-1054" name="__codelineno-0-1054"></a><span class="sd">        Returns:</span>
-<a id="__codelineno-0-1055" name="__codelineno-0-1055"></a><span class="sd">            dict: The modified event or None if the event should not be sent to Sentry.</span>
-<a id="__codelineno-0-1056" name="__codelineno-0-1056"></a><span class="sd">        """</span>
-<a id="__codelineno-0-1057" name="__codelineno-0-1057"></a>        <span class="k">if</span> <span class="s2">"exc_info"</span> <span class="ow">in</span> <span class="n">hint</span><span class="p">:</span>
-<a id="__codelineno-0-1058" name="__codelineno-0-1058"></a>            <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">hint</span><span class="p">[</span><span class="s2">"exc_info"</span><span class="p">]</span>
-<a id="__codelineno-0-1059" name="__codelineno-0-1059"></a>            <span class="k">if</span> <span class="n">exc_type</span> <span class="ow">in</span> <span class="p">{</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">FileNotFoundError</span><span class="p">}</span> <span class="ow">or</span> <span class="s2">"out of memory"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc_value</span><span class="p">):</span>
-<a id="__codelineno-0-1060" name="__codelineno-0-1060"></a>                <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># do not send event</span>
+<span class="normal"><a href="#__codelineno-0-1080">1080</a></span>
+<span class="normal"><a href="#__codelineno-0-1081">1081</a></span>
+<span class="normal"><a href="#__codelineno-0-1082">1082</a></span>
+<span class="normal"><a href="#__codelineno-0-1083">1083</a></span>
+<span class="normal"><a href="#__codelineno-0-1084">1084</a></span>
+<span class="normal"><a href="#__codelineno-0-1085">1085</a></span>
+<span class="normal"><a href="#__codelineno-0-1086">1086</a></span>
+<span class="normal"><a href="#__codelineno-0-1087">1087</a></span>
+<span class="normal"><a href="#__codelineno-0-1088">1088</a></span>
+<span class="normal"><a href="#__codelineno-0-1089">1089</a></span>
+<span class="normal"><a href="#__codelineno-0-1090">1090</a></span>
+<span class="normal"><a href="#__codelineno-0-1091">1091</a></span>
+<span class="normal"><a href="#__codelineno-0-1092">1092</a></span>
+<span class="normal"><a href="#__codelineno-0-1093">1093</a></span>
+<span class="normal"><a href="#__codelineno-0-1094">1094</a></span>
+<span class="normal"><a href="#__codelineno-0-1095">1095</a></span>
+<span class="normal"><a href="#__codelineno-0-1096">1096</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1029" name="__codelineno-0-1029"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_sentry</span><span class="p">():</span>
+<a id="__codelineno-0-1030" name="__codelineno-0-1030"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-1031" name="__codelineno-0-1031"></a><span class="sd">    Initialize the Sentry SDK for error tracking and reporting.</span>
+<a id="__codelineno-0-1032" name="__codelineno-0-1032"></a>
+<a id="__codelineno-0-1033" name="__codelineno-0-1033"></a><span class="sd">    Only used if sentry_sdk package is installed and sync=True in settings. Run 'yolo settings' to see and update</span>
+<a id="__codelineno-0-1034" name="__codelineno-0-1034"></a><span class="sd">    settings.</span>
+<a id="__codelineno-0-1035" name="__codelineno-0-1035"></a>
+<a id="__codelineno-0-1036" name="__codelineno-0-1036"></a><span class="sd">    Conditions required to send errors (ALL conditions must be met or no errors will be reported):</span>
+<a id="__codelineno-0-1037" name="__codelineno-0-1037"></a><span class="sd">        - sentry_sdk package is installed</span>
+<a id="__codelineno-0-1038" name="__codelineno-0-1038"></a><span class="sd">        - sync=True in YOLO settings</span>
+<a id="__codelineno-0-1039" name="__codelineno-0-1039"></a><span class="sd">        - pytest is not running</span>
+<a id="__codelineno-0-1040" name="__codelineno-0-1040"></a><span class="sd">        - running in a pip package installation</span>
+<a id="__codelineno-0-1041" name="__codelineno-0-1041"></a><span class="sd">        - running in a non-git directory</span>
+<a id="__codelineno-0-1042" name="__codelineno-0-1042"></a><span class="sd">        - running with rank -1 or 0</span>
+<a id="__codelineno-0-1043" name="__codelineno-0-1043"></a><span class="sd">        - online environment</span>
+<a id="__codelineno-0-1044" name="__codelineno-0-1044"></a><span class="sd">        - CLI used to run package (checked with 'yolo' as the name of the main CLI command)</span>
+<a id="__codelineno-0-1045" name="__codelineno-0-1045"></a><span class="sd">    """</span>
+<a id="__codelineno-0-1046" name="__codelineno-0-1046"></a>    <span class="k">if</span> <span class="p">(</span>
+<a id="__codelineno-0-1047" name="__codelineno-0-1047"></a>        <span class="ow">not</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"sync"</span><span class="p">]</span>
+<a id="__codelineno-0-1048" name="__codelineno-0-1048"></a>        <span class="ow">or</span> <span class="n">RANK</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span>
+<a id="__codelineno-0-1049" name="__codelineno-0-1049"></a>        <span class="ow">or</span> <span class="n">Path</span><span class="p">(</span><span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">name</span> <span class="o">!=</span> <span class="s2">"yolo"</span>
+<a id="__codelineno-0-1050" name="__codelineno-0-1050"></a>        <span class="ow">or</span> <span class="n">TESTS_RUNNING</span>
+<a id="__codelineno-0-1051" name="__codelineno-0-1051"></a>        <span class="ow">or</span> <span class="ow">not</span> <span class="n">ONLINE</span>
+<a id="__codelineno-0-1052" name="__codelineno-0-1052"></a>        <span class="ow">or</span> <span class="ow">not</span> <span class="n">IS_PIP_PACKAGE</span>
+<a id="__codelineno-0-1053" name="__codelineno-0-1053"></a>        <span class="ow">or</span> <span class="n">IS_GIT_DIR</span>
+<a id="__codelineno-0-1054" name="__codelineno-0-1054"></a>    <span class="p">):</span>
+<a id="__codelineno-0-1055" name="__codelineno-0-1055"></a>        <span class="k">return</span>
+<a id="__codelineno-0-1056" name="__codelineno-0-1056"></a>    <span class="c1"># If sentry_sdk package is not installed then return and do not use Sentry</span>
+<a id="__codelineno-0-1057" name="__codelineno-0-1057"></a>    <span class="k">try</span><span class="p">:</span>
+<a id="__codelineno-0-1058" name="__codelineno-0-1058"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">sentry_sdk</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-1059" name="__codelineno-0-1059"></a>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<a id="__codelineno-0-1060" name="__codelineno-0-1060"></a>        <span class="k">return</span>
 <a id="__codelineno-0-1061" name="__codelineno-0-1061"></a>
-<a id="__codelineno-0-1062" name="__codelineno-0-1062"></a>        <span class="n">event</span><span class="p">[</span><span class="s2">"tags"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-1063" name="__codelineno-0-1063"></a>            <span class="s2">"sys_argv"</span><span class="p">:</span> <span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-<a id="__codelineno-0-1064" name="__codelineno-0-1064"></a>            <span class="s2">"sys_argv_name"</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-<a id="__codelineno-0-1065" name="__codelineno-0-1065"></a>            <span class="s2">"install"</span><span class="p">:</span> <span class="s2">"git"</span> <span class="k">if</span> <span class="n">IS_GIT_DIR</span> <span class="k">else</span> <span class="s2">"pip"</span> <span class="k">if</span> <span class="n">IS_PIP_PACKAGE</span> <span class="k">else</span> <span class="s2">"other"</span><span class="p">,</span>
-<a id="__codelineno-0-1066" name="__codelineno-0-1066"></a>            <span class="s2">"os"</span><span class="p">:</span> <span class="n">ENVIRONMENT</span><span class="p">,</span>
-<a id="__codelineno-0-1067" name="__codelineno-0-1067"></a>        <span class="p">}</span>
-<a id="__codelineno-0-1068" name="__codelineno-0-1068"></a>        <span class="k">return</span> <span class="n">event</span>
+<a id="__codelineno-0-1062" name="__codelineno-0-1062"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">before_send</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="n">hint</span><span class="p">):</span>
+<a id="__codelineno-0-1063" name="__codelineno-0-1063"></a><span class="w">        </span><span class="sd">"""</span>
+<a id="__codelineno-0-1064" name="__codelineno-0-1064"></a><span class="sd">        Modify the event before sending it to Sentry based on specific exception types and messages.</span>
+<a id="__codelineno-0-1065" name="__codelineno-0-1065"></a>
+<a id="__codelineno-0-1066" name="__codelineno-0-1066"></a><span class="sd">        Args:</span>
+<a id="__codelineno-0-1067" name="__codelineno-0-1067"></a><span class="sd">            event (dict): The event dictionary containing information about the error.</span>
+<a id="__codelineno-0-1068" name="__codelineno-0-1068"></a><span class="sd">            hint (dict): A dictionary containing additional information about the error.</span>
 <a id="__codelineno-0-1069" name="__codelineno-0-1069"></a>
-<a id="__codelineno-0-1070" name="__codelineno-0-1070"></a>    <span class="n">sentry_sdk</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
-<a id="__codelineno-0-1071" name="__codelineno-0-1071"></a>        <span class="n">dsn</span><span class="o">=</span><span class="s2">"https://888e5a0778212e1d0314c37d4b9aae5d@o4504521589325824.ingest.us.sentry.io/4504521592406016"</span><span class="p">,</span>
-<a id="__codelineno-0-1072" name="__codelineno-0-1072"></a>        <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-1073" name="__codelineno-0-1073"></a>        <span class="n">auto_enabling_integrations</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-1074" name="__codelineno-0-1074"></a>        <span class="n">traces_sample_rate</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-<a id="__codelineno-0-1075" name="__codelineno-0-1075"></a>        <span class="n">release</span><span class="o">=</span><span class="n">__version__</span><span class="p">,</span>
-<a id="__codelineno-0-1076" name="__codelineno-0-1076"></a>        <span class="n">environment</span><span class="o">=</span><span class="s2">"runpod"</span> <span class="k">if</span> <span class="n">is_runpod</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"production"</span><span class="p">,</span>
-<a id="__codelineno-0-1077" name="__codelineno-0-1077"></a>        <span class="n">before_send</span><span class="o">=</span><span class="n">before_send</span><span class="p">,</span>
-<a id="__codelineno-0-1078" name="__codelineno-0-1078"></a>        <span class="n">ignore_errors</span><span class="o">=</span><span class="p">[</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">FileNotFoundError</span><span class="p">],</span>
-<a id="__codelineno-0-1079" name="__codelineno-0-1079"></a>    <span class="p">)</span>
-<a id="__codelineno-0-1080" name="__codelineno-0-1080"></a>    <span class="n">sentry_sdk</span><span class="o">.</span><span class="n">set_user</span><span class="p">({</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"uuid"</span><span class="p">]})</span>  <span class="c1"># SHA-256 anonymized UUID hash</span>
+<a id="__codelineno-0-1070" name="__codelineno-0-1070"></a><span class="sd">        Returns:</span>
+<a id="__codelineno-0-1071" name="__codelineno-0-1071"></a><span class="sd">            dict: The modified event or None if the event should not be sent to Sentry.</span>
+<a id="__codelineno-0-1072" name="__codelineno-0-1072"></a><span class="sd">        """</span>
+<a id="__codelineno-0-1073" name="__codelineno-0-1073"></a>        <span class="k">if</span> <span class="s2">"exc_info"</span> <span class="ow">in</span> <span class="n">hint</span><span class="p">:</span>
+<a id="__codelineno-0-1074" name="__codelineno-0-1074"></a>            <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">hint</span><span class="p">[</span><span class="s2">"exc_info"</span><span class="p">]</span>
+<a id="__codelineno-0-1075" name="__codelineno-0-1075"></a>            <span class="k">if</span> <span class="n">exc_type</span> <span class="ow">in</span> <span class="p">{</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">FileNotFoundError</span><span class="p">}</span> <span class="ow">or</span> <span class="s2">"out of memory"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">exc_value</span><span class="p">):</span>
+<a id="__codelineno-0-1076" name="__codelineno-0-1076"></a>                <span class="k">return</span> <span class="kc">None</span>  <span class="c1"># do not send event</span>
+<a id="__codelineno-0-1077" name="__codelineno-0-1077"></a>
+<a id="__codelineno-0-1078" name="__codelineno-0-1078"></a>        <span class="n">event</span><span class="p">[</span><span class="s2">"tags"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-1079" name="__codelineno-0-1079"></a>            <span class="s2">"sys_argv"</span><span class="p">:</span> <span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
+<a id="__codelineno-0-1080" name="__codelineno-0-1080"></a>            <span class="s2">"sys_argv_name"</span><span class="p">:</span> <span class="n">Path</span><span class="p">(</span><span class="n">ARGV</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+<a id="__codelineno-0-1081" name="__codelineno-0-1081"></a>            <span class="s2">"install"</span><span class="p">:</span> <span class="s2">"git"</span> <span class="k">if</span> <span class="n">IS_GIT_DIR</span> <span class="k">else</span> <span class="s2">"pip"</span> <span class="k">if</span> <span class="n">IS_PIP_PACKAGE</span> <span class="k">else</span> <span class="s2">"other"</span><span class="p">,</span>
+<a id="__codelineno-0-1082" name="__codelineno-0-1082"></a>            <span class="s2">"os"</span><span class="p">:</span> <span class="n">ENVIRONMENT</span><span class="p">,</span>
+<a id="__codelineno-0-1083" name="__codelineno-0-1083"></a>        <span class="p">}</span>
+<a id="__codelineno-0-1084" name="__codelineno-0-1084"></a>        <span class="k">return</span> <span class="n">event</span>
+<a id="__codelineno-0-1085" name="__codelineno-0-1085"></a>
+<a id="__codelineno-0-1086" name="__codelineno-0-1086"></a>    <span class="n">sentry_sdk</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
+<a id="__codelineno-0-1087" name="__codelineno-0-1087"></a>        <span class="n">dsn</span><span class="o">=</span><span class="s2">"https://888e5a0778212e1d0314c37d4b9aae5d@o4504521589325824.ingest.us.sentry.io/4504521592406016"</span><span class="p">,</span>
+<a id="__codelineno-0-1088" name="__codelineno-0-1088"></a>        <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-1089" name="__codelineno-0-1089"></a>        <span class="n">auto_enabling_integrations</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-1090" name="__codelineno-0-1090"></a>        <span class="n">traces_sample_rate</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-0-1091" name="__codelineno-0-1091"></a>        <span class="n">release</span><span class="o">=</span><span class="n">__version__</span><span class="p">,</span>
+<a id="__codelineno-0-1092" name="__codelineno-0-1092"></a>        <span class="n">environment</span><span class="o">=</span><span class="s2">"runpod"</span> <span class="k">if</span> <span class="n">is_runpod</span><span class="p">()</span> <span class="k">else</span> <span class="s2">"production"</span><span class="p">,</span>
+<a id="__codelineno-0-1093" name="__codelineno-0-1093"></a>        <span class="n">before_send</span><span class="o">=</span><span class="n">before_send</span><span class="p">,</span>
+<a id="__codelineno-0-1094" name="__codelineno-0-1094"></a>        <span class="n">ignore_errors</span><span class="o">=</span><span class="p">[</span><span class="ne">KeyboardInterrupt</span><span class="p">,</span> <span class="ne">FileNotFoundError</span><span class="p">],</span>
+<a id="__codelineno-0-1095" name="__codelineno-0-1095"></a>    <span class="p">)</span>
+<a id="__codelineno-0-1096" name="__codelineno-0-1096"></a>    <span class="n">sentry_sdk</span><span class="o">.</span><span class="n">set_user</span><span class="p">({</span><span class="s2">"id"</span><span class="p">:</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"uuid"</span><span class="p">]})</span>  <span class="c1"># SHA-256 anonymized UUID hash</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5833,17 +5931,17 @@ settings.</p>
 <p>Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1294">1294</a></span>
-<span class="normal"><a href="#__codelineno-0-1295">1295</a></span>
-<span class="normal"><a href="#__codelineno-0-1296">1296</a></span>
-<span class="normal"><a href="#__codelineno-0-1297">1297</a></span>
-<span class="normal"><a href="#__codelineno-0-1298">1298</a></span>
-<span class="normal"><a href="#__codelineno-0-1299">1299</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1294" name="__codelineno-0-1294"></a><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-1295" name="__codelineno-0-1295"></a><span class="w">    </span><span class="sd">"""Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument."""</span>
-<a id="__codelineno-0-1296" name="__codelineno-0-1296"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">' is deprecated and will be removed in in the future."</span>
-<a id="__codelineno-0-1297" name="__codelineno-0-1297"></a>    <span class="k">if</span> <span class="n">new_arg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-1298" name="__codelineno-0-1298"></a>        <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">" Use '</span><span class="si">{</span><span class="n">new_arg</span><span class="si">}</span><span class="s2">' instead."</span>
-<a id="__codelineno-0-1299" name="__codelineno-0-1299"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1310">1310</a></span>
+<span class="normal"><a href="#__codelineno-0-1311">1311</a></span>
+<span class="normal"><a href="#__codelineno-0-1312">1312</a></span>
+<span class="normal"><a href="#__codelineno-0-1313">1313</a></span>
+<span class="normal"><a href="#__codelineno-0-1314">1314</a></span>
+<span class="normal"><a href="#__codelineno-0-1315">1315</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1310" name="__codelineno-0-1310"></a><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-1311" name="__codelineno-0-1311"></a><span class="w">    </span><span class="sd">"""Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument."""</span>
+<a id="__codelineno-0-1312" name="__codelineno-0-1312"></a>    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"WARNING ⚠️ '</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">' is deprecated and will be removed in in the future."</span>
+<a id="__codelineno-0-1313" name="__codelineno-0-1313"></a>    <span class="k">if</span> <span class="n">new_arg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-1314" name="__codelineno-0-1314"></a>        <span class="n">msg</span> <span class="o">+=</span> <span class="sa">f</span><span class="s2">" Use '</span><span class="si">{</span><span class="n">new_arg</span><span class="si">}</span><span class="s2">' instead."</span>
+<a id="__codelineno-0-1315" name="__codelineno-0-1315"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="n">msg</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5858,13 +5956,13 @@ settings.</p>
 <p>Strip auth from URL, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; <a href="https://url.com/file.txt">https://url.com/file.txt</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1302">1302</a></span>
-<span class="normal"><a href="#__codelineno-0-1303">1303</a></span>
-<span class="normal"><a href="#__codelineno-0-1304">1304</a></span>
-<span class="normal"><a href="#__codelineno-0-1305">1305</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1302" name="__codelineno-0-1302"></a><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-<a id="__codelineno-0-1303" name="__codelineno-0-1303"></a><span class="w">    </span><span class="sd">"""Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt."""</span>
-<a id="__codelineno-0-1304" name="__codelineno-0-1304"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":/"</span><span class="p">,</span> <span class="s2">"://"</span><span class="p">)</span>  <span class="c1"># Pathlib turns :// -&gt; :/, as_posix() for Windows</span>
-<a id="__codelineno-0-1305" name="__codelineno-0-1305"></a>    <span class="k">return</span> <span class="n">unquote</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1318">1318</a></span>
+<span class="normal"><a href="#__codelineno-0-1319">1319</a></span>
+<span class="normal"><a href="#__codelineno-0-1320">1320</a></span>
+<span class="normal"><a href="#__codelineno-0-1321">1321</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1318" name="__codelineno-0-1318"></a><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<a id="__codelineno-0-1319" name="__codelineno-0-1319"></a><span class="w">    </span><span class="sd">"""Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt."""</span>
+<a id="__codelineno-0-1320" name="__codelineno-0-1320"></a>    <span class="n">url</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":/"</span><span class="p">,</span> <span class="s2">"://"</span><span class="p">)</span>  <span class="c1"># Pathlib turns :// -&gt; :/, as_posix() for Windows</span>
+<a id="__codelineno-0-1321" name="__codelineno-0-1321"></a>    <span class="k">return</span> <span class="n">unquote</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5879,11 +5977,11 @@ settings.</p>
 <p>Convert URL to filename, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; file.txt.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1308">1308</a></span>
-<span class="normal"><a href="#__codelineno-0-1309">1309</a></span>
-<span class="normal"><a href="#__codelineno-0-1310">1310</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1308" name="__codelineno-0-1308"></a><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
-<a id="__codelineno-0-1309" name="__codelineno-0-1309"></a><span class="w">    </span><span class="sd">"""Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt."""</span>
-<a id="__codelineno-0-1310" name="__codelineno-0-1310"></a>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1324">1324</a></span>
+<span class="normal"><a href="#__codelineno-0-1325">1325</a></span>
+<span class="normal"><a href="#__codelineno-0-1326">1326</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1324" name="__codelineno-0-1324"></a><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<a id="__codelineno-0-1325" name="__codelineno-0-1325"></a><span class="w">    </span><span class="sd">"""Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt."""</span>
+<a id="__codelineno-0-1326" name="__codelineno-0-1326"></a>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5898,19 +5996,19 @@ settings.</p>
 <p>Display a message to install Ultralytics-Snippets for VS Code if not already installed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1313">1313</a></span>
-<span class="normal"><a href="#__codelineno-0-1314">1314</a></span>
-<span class="normal"><a href="#__codelineno-0-1315">1315</a></span>
-<span class="normal"><a href="#__codelineno-0-1316">1316</a></span>
-<span class="normal"><a href="#__codelineno-0-1317">1317</a></span>
-<span class="normal"><a href="#__codelineno-0-1318">1318</a></span>
-<span class="normal"><a href="#__codelineno-0-1319">1319</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1313" name="__codelineno-0-1313"></a><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<a id="__codelineno-0-1314" name="__codelineno-0-1314"></a><span class="w">    </span><span class="sd">"""Display a message to install Ultralytics-Snippets for VS Code if not already installed."""</span>
-<a id="__codelineno-0-1315" name="__codelineno-0-1315"></a>    <span class="n">path</span> <span class="o">=</span> <span class="p">(</span><span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">WINDOWS</span> <span class="k">else</span> <span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="s2">".vscode/extensions"</span>
-<a id="__codelineno-0-1316" name="__codelineno-0-1316"></a>    <span class="n">obs_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">".obsolete"</span>  <span class="c1"># file tracks uninstalled extensions, while source directory remains</span>
-<a id="__codelineno-0-1317" name="__codelineno-0-1317"></a>    <span class="n">installed</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s2">*"</span><span class="p">))</span> <span class="ow">and</span> <span class="n">ext</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">obs_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">if</span> <span class="n">obs_file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span>
-<a id="__codelineno-0-1318" name="__codelineno-0-1318"></a>    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://docs.ultralytics.com/integrations/vscode"</span>
-<a id="__codelineno-0-1319" name="__codelineno-0-1319"></a>    <span class="k">return</span> <span class="s2">""</span> <span class="k">if</span> <span class="n">installed</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'VS Code:'</span><span class="p">)</span><span class="si">}</span><span class="s2"> view Ultralytics VS Code Extension ⚡ at </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">"</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1329">1329</a></span>
+<span class="normal"><a href="#__codelineno-0-1330">1330</a></span>
+<span class="normal"><a href="#__codelineno-0-1331">1331</a></span>
+<span class="normal"><a href="#__codelineno-0-1332">1332</a></span>
+<span class="normal"><a href="#__codelineno-0-1333">1333</a></span>
+<span class="normal"><a href="#__codelineno-0-1334">1334</a></span>
+<span class="normal"><a href="#__codelineno-0-1335">1335</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1329" name="__codelineno-0-1329"></a><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<a id="__codelineno-0-1330" name="__codelineno-0-1330"></a><span class="w">    </span><span class="sd">"""Display a message to install Ultralytics-Snippets for VS Code if not already installed."""</span>
+<a id="__codelineno-0-1331" name="__codelineno-0-1331"></a>    <span class="n">path</span> <span class="o">=</span> <span class="p">(</span><span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">WINDOWS</span> <span class="k">else</span> <span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="s2">".vscode/extensions"</span>
+<a id="__codelineno-0-1332" name="__codelineno-0-1332"></a>    <span class="n">obs_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">".obsolete"</span>  <span class="c1"># file tracks uninstalled extensions, while source directory remains</span>
+<a id="__codelineno-0-1333" name="__codelineno-0-1333"></a>    <span class="n">installed</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ext</span><span class="si">}</span><span class="s2">*"</span><span class="p">))</span> <span class="ow">and</span> <span class="n">ext</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="n">obs_file</span><span class="o">.</span><span class="n">read_text</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">if</span> <span class="n">obs_file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)</span>
+<a id="__codelineno-0-1334" name="__codelineno-0-1334"></a>    <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://docs.ultralytics.com/integrations/vscode"</span>
+<a id="__codelineno-0-1335" name="__codelineno-0-1335"></a>    <span class="k">return</span> <span class="s2">""</span> <span class="k">if</span> <span class="n">installed</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">colorstr</span><span class="p">(</span><span class="s1">'VS Code:'</span><span class="p">)</span><span class="si">}</span><span class="s2"> view Ultralytics VS Code Extension ⚡ at </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
