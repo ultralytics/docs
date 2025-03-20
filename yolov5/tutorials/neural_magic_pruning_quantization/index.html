@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Neural Magic's DeepSparse" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, DeepSparse, Neural Magic, YOLO deployment, Sparse inference, Deep learning, Model sparsity, CPU optimization, No hardware accelerators, AI deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/neural_magic_pruning_quantization" property="og:url"/><meta content="Neural Magic's DeepSparse" property="og:title"/><meta content="Learn how to deploy YOLOv5 using Neural Magic's DeepSparse for GPU-class performance on CPUs. Discover easy integration, flexible deployments, and more." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-speed-improvement.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/neural_magic_pruning_quantization" property="twitter:url"/><meta content="Neural Magic's DeepSparse" property="twitter:title"/><meta content="Learn how to deploy YOLOv5 using Neural Magic's DeepSparse for GPU-class performance on CPUs. Discover easy integration, flexible deployments, and more." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-speed-improvement.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Neural Magic's DeepSparse", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov5-speed-improvement.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-17 21:52:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to deploy YOLOv5 using Neural Magic's DeepSparse for GPU-class performance on CPUs. Discover easy integration, flexible deployments, and more."}</script></head>
+<meta content="Neural Magic's DeepSparse" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, DeepSparse, Neural Magic, YOLO deployment, Sparse inference, Deep learning, Model sparsity, CPU optimization, No hardware accelerators, AI deployment" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/neural_magic_pruning_quantization" property="og:url"/><meta content="Neural Magic's DeepSparse" property="og:title"/><meta content="Learn how to deploy YOLOv5 using Neural Magic's DeepSparse for GPU-class performance on CPUs. Discover easy integration, flexible deployments, and more." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-speed-improvement.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/neural_magic_pruning_quantization" property="twitter:url"/><meta content="Neural Magic's DeepSparse" property="twitter:title"/><meta content="Learn how to deploy YOLOv5 using Neural Magic's DeepSparse for GPU-class performance on CPUs. Discover easy integration, flexible deployments, and more." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-speed-improvement.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Neural Magic's DeepSparse", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov5-speed-improvement.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-20 20:24:06 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to deploy YOLOv5 using Neural Magic's DeepSparse for GPU-class performance on CPUs. Discover easy integration, flexible deployments, and more."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1088,8 +1088,8 @@
 <p>DeepSparse Server runs on top of the popular <a href="https://fastapi.tiangolo.com/">FastAPI</a> web framework and <a href="https://www.uvicorn.org/">Uvicorn</a> web server. With just a single CLI command, you can easily setup a model service endpoint with DeepSparse. The Server supports any Pipeline from DeepSparse, including <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> with YOLOv5, enabling you to send raw images to the endpoint and receive the bounding boxes.</p>
 <p>Spin up the Server with the pruned-quantized YOLOv5s:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>deepsparse.server<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">    </span>--task<span class="w"> </span>yolo<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">    </span>--model_path<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span>--task<span class="w"> </span>yolo<span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span>--model_path<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none
 </code></pre></div>
 <p>An example request, using Python's <code>requests</code> package:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
@@ -1125,30 +1125,30 @@
 <p>At batch 32, ONNX Runtime achieves 42 images/sec with the standard dense YOLOv5s:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span>onnxruntime
 <a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>&gt;<span class="w"> </span>Original<span class="w"> </span>Model<span class="w"> </span>Path:<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>&gt;<span class="w"> </span>Batch<span class="w"> </span>Size:<span class="w"> </span><span class="m">32</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>&gt;<span class="w"> </span>Scenario:<span class="w"> </span>sync
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>&gt;<span class="w"> </span>Throughput<span class="w"> </span><span class="o">(</span>items/sec<span class="o">)</span>:<span class="w"> </span><span class="m">41</span>.9025
+<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
+<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># Batch Size: 32</span>
+<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="c1"># Scenario: sync</span>
+<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="c1"># Throughput (items/sec): 41.9025</span>
 </code></pre></div>
 <h4 id="deepsparse-dense-performance">DeepSparse Dense Performance</h4>
 <p>While DeepSparse offers its best performance with optimized sparse models, it also performs well with the standard dense YOLOv5s.</p>
 <p>At batch 32, DeepSparse achieves 70 images/sec with the standard dense YOLOv5s, a <strong>1.7x performance improvement over ORT</strong>!</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
 <a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a>&gt;<span class="w"> </span>Original<span class="w"> </span>Model<span class="w"> </span>Path:<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a>&gt;<span class="w"> </span>Batch<span class="w"> </span>Size:<span class="w"> </span><span class="m">32</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>&gt;<span class="w"> </span>Scenario:<span class="w"> </span>sync
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a>&gt;<span class="w"> </span>Throughput<span class="w"> </span><span class="o">(</span>items/sec<span class="o">)</span>:<span class="w"> </span><span class="m">69</span>.5546
+<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
+<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="c1"># Batch Size: 32</span>
+<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="c1"># Scenario: sync</span>
+<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="c1"># Throughput (items/sec): 69.5546</span>
 </code></pre></div>
 <h4 id="deepsparse-sparse-performance">DeepSparse Sparse Performance</h4>
 <p>When sparsity is applied to the model, DeepSparse's performance gains over ONNX Runtime is even stronger.</p>
 <p>At batch 32, DeepSparse achieves 241 images/sec with the pruned-quantized YOLOv5s, a <strong>5.8x performance improvement over ORT</strong>!</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
 <a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>&gt;<span class="w"> </span>Original<span class="w"> </span>Model<span class="w"> </span>Path:<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a>&gt;<span class="w"> </span>Batch<span class="w"> </span>Size:<span class="w"> </span><span class="m">32</span>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>&gt;<span class="w"> </span>Scenario:<span class="w"> </span>sync
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>&gt;<span class="w"> </span>Throughput<span class="w"> </span><span class="o">(</span>items/sec<span class="o">)</span>:<span class="w"> </span><span class="m">241</span>.2452
+<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none</span>
+<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="c1"># Batch Size: 32</span>
+<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="c1"># Scenario: sync</span>
+<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># Throughput (items/sec): 241.2452</span>
 </code></pre></div>
 <h3 id="batch-1-performance-comparison">Batch 1 Performance Comparison</h3>
 <p>DeepSparse is also able to gain a speed-up over ONNX Runtime for the latency-sensitive, batch 1 scenario.</p>
@@ -1156,28 +1156,28 @@
 <p>At batch 1, ONNX Runtime achieves 48 images/sec with the standard, dense YOLOv5s.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span>onnxruntime
 <a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>&gt;<span class="w"> </span>Original<span class="w"> </span>Model<span class="w"> </span>Path:<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a>&gt;<span class="w"> </span>Batch<span class="w"> </span>Size:<span class="w"> </span><span class="m">1</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>&gt;<span class="w"> </span>Scenario:<span class="w"> </span>sync
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>&gt;<span class="w"> </span>Throughput<span class="w"> </span><span class="o">(</span>items/sec<span class="o">)</span>:<span class="w"> </span><span class="m">48</span>.0921
+<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
+<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="c1"># Batch Size: 1</span>
+<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="c1"># Scenario: sync</span>
+<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="c1"># Throughput (items/sec): 48.0921</span>
 </code></pre></div>
 <h4 id="deepsparse-sparse-performance_1">DeepSparse Sparse Performance</h4>
 <p>At batch 1, DeepSparse achieves 135 items/sec with a pruned-quantized YOLOv5s, <strong>a 2.8x performance gain over ONNX Runtime!</strong></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
 <a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a>&gt;<span class="w"> </span>Original<span class="w"> </span>Model<span class="w"> </span>Path:<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a>&gt;<span class="w"> </span>Batch<span class="w"> </span>Size:<span class="w"> </span><span class="m">1</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>&gt;<span class="w"> </span>Scenario:<span class="w"> </span>sync
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>&gt;<span class="w"> </span>Throughput<span class="w"> </span><span class="o">(</span>items/sec<span class="o">)</span>:<span class="w"> </span><span class="m">134</span>.9468
+<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none</span>
+<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="c1"># Batch Size: 1</span>
+<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="c1"># Scenario: sync</span>
+<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="c1"># Throughput (items/sec): 134.9468</span>
 </code></pre></div>
 <p>Since <code>c6i.8xlarge</code> instances have VNNI instructions, DeepSparse's throughput can be pushed further if weights are pruned in blocks of 4.</p>
 <p>At batch 1, DeepSparse achieves 180 items/sec with a 4-block pruned-quantized YOLOv5s, a <strong>3.7x performance gain over ONNX Runtime!</strong></p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned35_quant-none-vnni<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
 <a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a>&gt;<span class="w"> </span>Original<span class="w"> </span>Model<span class="w"> </span>Path:<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned35_quant-none-vnni
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a>&gt;<span class="w"> </span>Batch<span class="w"> </span>Size:<span class="w"> </span><span class="m">1</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>&gt;<span class="w"> </span>Scenario:<span class="w"> </span>sync
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a>&gt;<span class="w"> </span>Throughput<span class="w"> </span><span class="o">(</span>items/sec<span class="o">)</span>:<span class="w"> </span><span class="m">179</span>.7375
+<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned35_quant-none-vnni</span>
+<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="c1"># Batch Size: 1</span>
+<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a><span class="c1"># Scenario: sync</span>
+<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1"># Throughput (items/sec): 179.7375</span>
 </code></pre></div>
 <h2 id="get-started-with-deepsparse">Get Started With DeepSparse</h2>
 <p><strong>Research or Testing?</strong> DeepSparse Community is free for research and testing. Get started with their <a href="https://docs.neuralmagic.com/">Documentation</a>.</p>
@@ -1187,12 +1187,12 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on March 17, 2025">
-<span class="hover-item">✏️</span> Updated 2 days ago
+<span class="date-item" title="This page was last updated on March 20, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (8 changes)">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (9 changes)">
 <img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
