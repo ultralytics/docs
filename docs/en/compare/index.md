@@ -15,6 +15,17 @@ Welcome to the [Ultralytics](https://www.ultralytics.com) Model Comparison Index
 
 Each comparison page provides an in-depth analysis of architectural differences, performance benchmarks, strengths, weaknesses, and ideal use cases for the models being compared. We aim to equip you with the knowledge necessary to select the model that best aligns with your specific project requirements and performance priorities.
 
+<p align="center">
+  <br>
+  <iframe loading="lazy" width="720" height="405" src="https://www.youtube.com/embed/POlQ8MIHhlM"
+    title="YouTube video player" frameborder="0"
+    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+    allowfullscreen>
+  </iframe>
+  <br>
+  <strong>Watch:</strong> YOLO Models Comparison: Ultralytics YOLO11 vs. YOLOv10 vs. YOLOv9 vs. Ultralytics YOLOv8 🎉
+</p>
+
 Browse the lists below to find the comparison you are interested in.
 
 ## YOLO11 vs
