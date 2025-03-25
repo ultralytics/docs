@@ -4,7 +4,7 @@ description: Compare YOLO11 and YOLOv6-3.0 for object detection. Explore archite
 keywords: YOLO11, YOLOv6-3.0, object detection, model comparison, Ultralytics, computer vision, real-time detection, performance metrics, deep learning
 ---
 
-# YOLO11 vs YOLOv6-3.0: A Detailed Model Comparison
+# YOLOv6 vs YOLO11: A Detailed Model Comparison
 
 Choosing the right computer vision model is crucial for achieving optimal performance in object detection tasks. Ultralytics offers a range of YOLO models, each with unique strengths. This page provides a technical comparison between Ultralytics YOLO11 and YOLOv6-3.0, two popular choices for object detection, focusing on their architectures, performance metrics, and ideal applications.
 

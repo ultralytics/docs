@@ -4,7 +4,7 @@ description: Compare RTDETRv2's accuracy with YOLO11's speed in this detailed an
 keywords: RTDETRv2, YOLO11, object detection, Ultralytics, Vision Transformer, YOLO, computer vision, real-time detection, model comparison
 ---
 
-# RTDETRv2 vs YOLO11: A Technical Comparison for Object Detection
+# YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection
 
 Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers a range of models, including the efficient YOLO series and the high-accuracy RT-DETR series. This page provides a detailed technical comparison between **YOLO11** and **RTDETRv2**, two state-of-the-art models for object detection, to help you make an informed decision.
 
