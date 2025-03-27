@@ -20,11 +20,13 @@ Welcome to Ultralytics Docs, your comprehensive resource for understanding and u
 To install the `ultralytics` package in developer mode, which allows you to modify the source code directly, ensure you have [Git](https://git-scm.com/) and [Python](https://www.python.org/) 3.9 or later installed on your system. Then, follow these steps:
 
 1.  Clone the `ultralytics` repository to your local machine using Git:
+
     ```bash
     git clone https://github.com/ultralytics/ultralytics.git
     ```
 
 2.  Navigate to the cloned repository's root directory:
+
     ```bash
     cd ultralytics
     ```
@@ -43,23 +45,25 @@ The `mkdocs serve` command builds and serves a local version of your [MkDocs](ht
 mkdocs serve
 ```
 
--   **Command Breakdown:**
-    -   `mkdocs`: The main MkDocs command-line interface tool.
-    -   `serve`: The subcommand used to build and locally serve your documentation site.
--   **Note:**
-    -   `mkdocs serve` includes live reloading, automatically updating the preview in your browser as you save changes to the documentation files.
-    -   To stop the local server, simply press `CTRL+C` in your terminal.
+- **Command Breakdown:**
+  - `mkdocs`: The main MkDocs command-line interface tool.
+  - `serve`: The subcommand used to build and locally serve your documentation site.
+- **Note:**
+  - `mkdocs serve` includes live reloading, automatically updating the preview in your browser as you save changes to the documentation files.
+  - To stop the local server, simply press `CTRL+C` in your terminal.
 
 ## 🌍 Building and Serving Multi-Language
 
 If your documentation supports multiple languages, follow these steps to build and preview all versions:
 
 1.  Stage all new or modified language Markdown (`.md`) files using Git:
+
     ```bash
     git add docs/**/*.md -f
     ```
 
 2.  Build all language versions into the `/site` directory. This script ensures that relevant root-level files are included and clears the previous build:
+
     ```bash
     # Clear existing /site directory to prevent conflicts
     rm -rf site
@@ -86,19 +90,21 @@ If your documentation supports multiple languages, follow these steps to build a
 
 To deploy your MkDocs documentation site, choose a hosting provider and configure your deployment method. Common options include [GitHub Pages](https://pages.github.com/), GitLab Pages, or other static site hosting services.
 
--   Configure deployment settings within your `mkdocs.yml` file.
--   Use the `mkdocs deploy` command specific to your chosen provider to build and deploy your site.
+- Configure deployment settings within your `mkdocs.yml` file.
+- Use the `mkdocs deploy` command specific to your chosen provider to build and deploy your site.
 
-*   **GitHub Pages Deployment Example:**
-    If deploying to GitHub Pages, you can use the built-in command:
-    ```bash
-    mkdocs gh-deploy
-    ```
-    After deployment, you might need to update the "Custom domain" settings in your repository's settings page if you wish to use a personalized URL.
+* **GitHub Pages Deployment Example:**
+  If deploying to GitHub Pages, you can use the built-in command:
 
-    ![GitHub Pages Custom Domain Setting](https://user-images.githubusercontent.com/26833433/210150206-9e86dcd7-10af-43e4-9eb2-9518b3799eac.png)
+  ```bash
+  mkdocs gh-deploy
+  ```
 
--   For detailed instructions on various deployment methods, consult the official [MkDocs Deploying your docs guide](https://www.mkdocs.org/user-guide/deploying-your-docs/).
+  After deployment, you might need to update the "Custom domain" settings in your repository's settings page if you wish to use a personalized URL.
+
+  ![GitHub Pages Custom Domain Setting](https://user-images.githubusercontent.com/26833433/210150206-9e86dcd7-10af-43e4-9eb2-9518b3799eac.png)
+
+- For detailed instructions on various deployment methods, consult the official [MkDocs Deploying your docs guide](https://www.mkdocs.org/user-guide/deploying-your-docs/).
 
 ## 💡 Contribute
 
@@ -112,8 +118,8 @@ We look forward to your contributions!
 
 Ultralytics Docs are available under two licensing options to accommodate different usage scenarios:
 
--   **AGPL-3.0 License**: Ideal for students, researchers, and enthusiasts involved in academic pursuits and open collaboration. See the [LICENSE](https://github.com/ultralytics/docs/blob/main/LICENSE) file for full details. This license promotes sharing improvements back with the community.
--   **Enterprise License**: Designed for commercial applications, this license allows seamless integration of Ultralytics software and [AI models](https://docs.ultralytics.com/models/) into commercial products and services. Visit [Ultralytics Licensing](https://www.ultralytics.com/license) for more information on obtaining an Enterprise License.
+- **AGPL-3.0 License**: Ideal for students, researchers, and enthusiasts involved in academic pursuits and open collaboration. See the [LICENSE](https://github.com/ultralytics/docs/blob/main/LICENSE) file for full details. This license promotes sharing improvements back with the community.
+- **Enterprise License**: Designed for commercial applications, this license allows seamless integration of Ultralytics software and [AI models](https://docs.ultralytics.com/models/) into commercial products and services. Visit [Ultralytics Licensing](https://www.ultralytics.com/license) for more information on obtaining an Enterprise License.
 
 ## ✉️ Contact
 
