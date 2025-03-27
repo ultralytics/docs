@@ -32,9 +32,11 @@ To install the `ultralytics` package in developer mode, which allows you to modi
     ```
 
 3.  Install the package in editable mode (`-e`) along with its development dependencies (`[dev]`) using [pip](https://pip.pypa.io/en/stable/):
+
     ```bash
     pip install -e '.[dev]'
     ```
+    
     This command installs the `ultralytics` package such that changes to the source code are immediately reflected in your environment, ideal for development.
 
 ## 🚀 Building and Serving Locally
