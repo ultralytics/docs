@@ -36,7 +36,7 @@ To install the `ultralytics` package in developer mode, which allows you to modi
     ```bash
     pip install -e '.[dev]'
     ```
-    
+
     This command installs the `ultralytics` package such that changes to the source code are immediately reflected in your environment, ideal for development.
 
 ## 🚀 Building and Serving Locally
