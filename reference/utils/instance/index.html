@@ -2491,11 +2491,11 @@ length as the number of instances.</p>
 <p>Return the length of the instance list.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-439">439</a></span>
-<span class="normal"><a href="#__codelineno-0-440">440</a></span>
-<span class="normal"><a href="#__codelineno-0-441">441</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-439" name="__codelineno-0-439"></a><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-440" name="__codelineno-0-440"></a><span class="w">    </span><span class="sd">"""Return the length of the instance list."""</span>
-<a id="__codelineno-0-441" name="__codelineno-0-441"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-444">444</a></span>
+<span class="normal"><a href="#__codelineno-0-445">445</a></span>
+<span class="normal"><a href="#__codelineno-0-446">446</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="w">    </span><span class="sd">"""Return the length of the instance list."""</span>
+<a id="__codelineno-0-446" name="__codelineno-0-446"></a>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2661,7 +2661,12 @@ length as the number of instances.</p>
 <span class="normal"><a href="#__codelineno-0-403">403</a></span>
 <span class="normal"><a href="#__codelineno-0-404">404</a></span>
 <span class="normal"><a href="#__codelineno-0-405">405</a></span>
-<span class="normal"><a href="#__codelineno-0-406">406</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-406">406</a></span>
+<span class="normal"><a href="#__codelineno-0-407">407</a></span>
+<span class="normal"><a href="#__codelineno-0-408">408</a></span>
+<span class="normal"><a href="#__codelineno-0-409">409</a></span>
+<span class="normal"><a href="#__codelineno-0-410">410</a></span>
+<span class="normal"><a href="#__codelineno-0-411">411</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="sd">    Clip coordinates to stay within image boundaries.</span>
 <a id="__codelineno-0-391" name="__codelineno-0-391"></a>
@@ -2678,8 +2683,13 @@ length as the number of instances.</p>
 <a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
 <a id="__codelineno-0-403" name="__codelineno-0-403"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
 <a id="__codelineno-0-404" name="__codelineno-0-404"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-405" name="__codelineno-0-405"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a>        <span class="c1"># Set out of bounds visibility to zero</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">][</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a>            <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a>            <span class="o">|</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">w</span><span class="p">)</span>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a>            <span class="o">|</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a>            <span class="o">|</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">)</span>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>        <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2770,12 +2780,7 @@ coordinates are normalized.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-443">443</a></span>
-<span class="normal"><a href="#__codelineno-0-444">444</a></span>
-<span class="normal"><a href="#__codelineno-0-445">445</a></span>
-<span class="normal"><a href="#__codelineno-0-446">446</a></span>
-<span class="normal"><a href="#__codelineno-0-447">447</a></span>
-<span class="normal"><a href="#__codelineno-0-448">448</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-448">448</a></span>
 <span class="normal"><a href="#__codelineno-0-449">449</a></span>
 <span class="normal"><a href="#__codelineno-0-450">450</a></span>
 <span class="normal"><a href="#__codelineno-0-451">451</a></span>
@@ -2816,53 +2821,58 @@ coordinates are normalized.</p>
 <span class="normal"><a href="#__codelineno-0-486">486</a></span>
 <span class="normal"><a href="#__codelineno-0-487">487</a></span>
 <span class="normal"><a href="#__codelineno-0-488">488</a></span>
-<span class="normal"><a href="#__codelineno-0-489">489</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-443" name="__codelineno-0-443"></a><span class="nd">@classmethod</span>
-<a id="__codelineno-0-444" name="__codelineno-0-444"></a><span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">instances_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"Instances"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
-<a id="__codelineno-0-445" name="__codelineno-0-445"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-446" name="__codelineno-0-446"></a><span class="sd">    Concatenate a list of Instances objects into a single Instances object.</span>
-<a id="__codelineno-0-447" name="__codelineno-0-447"></a>
-<a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="sd">        instances_list (List[Instances]): A list of Instances objects to concatenate.</span>
-<a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="sd">        axis (int, optional): The axis along which the arrays will be concatenated.</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="sd">        (Instances): A new Instances object containing the concatenated bounding boxes,</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a><span class="sd">                   segments, and keypoints if present.</span>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a>
-<a id="__codelineno-0-456" name="__codelineno-0-456"></a><span class="sd">    Note:</span>
-<a id="__codelineno-0-457" name="__codelineno-0-457"></a><span class="sd">        The `Instances` objects in the list should have the same properties, such as</span>
-<a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="sd">        the format of the bounding boxes, whether keypoints are present, and if the</span>
-<a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">        coordinates are normalized.</span>
-<a id="__codelineno-0-460" name="__codelineno-0-460"></a><span class="sd">    """</span>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">instances_list</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span>
-<a id="__codelineno-0-462" name="__codelineno-0-462"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">instances_list</span><span class="p">:</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
-<a id="__codelineno-0-464" name="__codelineno-0-464"></a>    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">Instances</span><span class="p">)</span> <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">)</span>
-<a id="__codelineno-0-465" name="__codelineno-0-465"></a>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">instances_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a>        <span class="k">return</span> <span class="n">instances_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a>    <span class="n">use_keypoint</span> <span class="o">=</span> <span class="n">instances_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
-<a id="__codelineno-0-470" name="__codelineno-0-470"></a>    <span class="n">bbox_format</span> <span class="o">=</span> <span class="n">instances_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">_bboxes</span><span class="o">.</span><span class="n">format</span>
-<a id="__codelineno-0-471" name="__codelineno-0-471"></a>    <span class="n">normalized</span> <span class="o">=</span> <span class="n">instances_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">normalized</span>
-<a id="__codelineno-0-472" name="__codelineno-0-472"></a>
-<a id="__codelineno-0-473" name="__codelineno-0-473"></a>    <span class="n">cat_boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ins</span><span class="o">.</span><span class="n">bboxes</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-<a id="__codelineno-0-474" name="__codelineno-0-474"></a>    <span class="n">seg_len</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">]</span>
-<a id="__codelineno-0-475" name="__codelineno-0-475"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">seg_len</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># resample segments if there's different length</span>
-<a id="__codelineno-0-476" name="__codelineno-0-476"></a>        <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">seg_len</span><span class="p">)</span>
-<a id="__codelineno-0-477" name="__codelineno-0-477"></a>        <span class="n">cat_segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
-<a id="__codelineno-0-478" name="__codelineno-0-478"></a>            <span class="p">[</span>
-<a id="__codelineno-0-479" name="__codelineno-0-479"></a>                <span class="n">resample_segments</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">segments</span><span class="p">),</span> <span class="n">max_len</span><span class="p">)</span>
-<a id="__codelineno-0-480" name="__codelineno-0-480"></a>                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span>
-<a id="__codelineno-0-481" name="__codelineno-0-481"></a>                <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># re-generating empty segments</span>
-<a id="__codelineno-0-482" name="__codelineno-0-482"></a>                <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">instances_list</span>
-<a id="__codelineno-0-483" name="__codelineno-0-483"></a>            <span class="p">],</span>
-<a id="__codelineno-0-484" name="__codelineno-0-484"></a>            <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
-<a id="__codelineno-0-485" name="__codelineno-0-485"></a>        <span class="p">)</span>
-<a id="__codelineno-0-486" name="__codelineno-0-486"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-487" name="__codelineno-0-487"></a>        <span class="n">cat_segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">b</span><span class="o">.</span><span class="n">segments</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
-<a id="__codelineno-0-488" name="__codelineno-0-488"></a>    <span class="n">cat_keypoints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">b</span><span class="o">.</span><span class="n">keypoints</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span> <span class="k">if</span> <span class="n">use_keypoint</span> <span class="k">else</span> <span class="kc">None</span>
-<a id="__codelineno-0-489" name="__codelineno-0-489"></a>    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">cat_boxes</span><span class="p">,</span> <span class="n">cat_segments</span><span class="p">,</span> <span class="n">cat_keypoints</span><span class="p">,</span> <span class="n">bbox_format</span><span class="p">,</span> <span class="n">normalized</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-489">489</a></span>
+<span class="normal"><a href="#__codelineno-0-490">490</a></span>
+<span class="normal"><a href="#__codelineno-0-491">491</a></span>
+<span class="normal"><a href="#__codelineno-0-492">492</a></span>
+<span class="normal"><a href="#__codelineno-0-493">493</a></span>
+<span class="normal"><a href="#__codelineno-0-494">494</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-448" name="__codelineno-0-448"></a><span class="nd">@classmethod</span>
+<a id="__codelineno-0-449" name="__codelineno-0-449"></a><span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">instances_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"Instances"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
+<a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-451" name="__codelineno-0-451"></a><span class="sd">    Concatenate a list of Instances objects into a single Instances object.</span>
+<a id="__codelineno-0-452" name="__codelineno-0-452"></a>
+<a id="__codelineno-0-453" name="__codelineno-0-453"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-454" name="__codelineno-0-454"></a><span class="sd">        instances_list (List[Instances]): A list of Instances objects to concatenate.</span>
+<a id="__codelineno-0-455" name="__codelineno-0-455"></a><span class="sd">        axis (int, optional): The axis along which the arrays will be concatenated.</span>
+<a id="__codelineno-0-456" name="__codelineno-0-456"></a>
+<a id="__codelineno-0-457" name="__codelineno-0-457"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-458" name="__codelineno-0-458"></a><span class="sd">        (Instances): A new Instances object containing the concatenated bounding boxes,</span>
+<a id="__codelineno-0-459" name="__codelineno-0-459"></a><span class="sd">                   segments, and keypoints if present.</span>
+<a id="__codelineno-0-460" name="__codelineno-0-460"></a>
+<a id="__codelineno-0-461" name="__codelineno-0-461"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-462" name="__codelineno-0-462"></a><span class="sd">        The `Instances` objects in the list should have the same properties, such as</span>
+<a id="__codelineno-0-463" name="__codelineno-0-463"></a><span class="sd">        the format of the bounding boxes, whether keypoints are present, and if the</span>
+<a id="__codelineno-0-464" name="__codelineno-0-464"></a><span class="sd">        coordinates are normalized.</span>
+<a id="__codelineno-0-465" name="__codelineno-0-465"></a><span class="sd">    """</span>
+<a id="__codelineno-0-466" name="__codelineno-0-466"></a>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">instances_list</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span>
+<a id="__codelineno-0-467" name="__codelineno-0-467"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">instances_list</span><span class="p">:</span>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a>        <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+<a id="__codelineno-0-469" name="__codelineno-0-469"></a>    <span class="k">assert</span> <span class="nb">all</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">instance</span><span class="p">,</span> <span class="n">Instances</span><span class="p">)</span> <span class="k">for</span> <span class="n">instance</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">)</span>
+<a id="__codelineno-0-470" name="__codelineno-0-470"></a>
+<a id="__codelineno-0-471" name="__codelineno-0-471"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">instances_list</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<a id="__codelineno-0-472" name="__codelineno-0-472"></a>        <span class="k">return</span> <span class="n">instances_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-473" name="__codelineno-0-473"></a>
+<a id="__codelineno-0-474" name="__codelineno-0-474"></a>    <span class="n">use_keypoint</span> <span class="o">=</span> <span class="n">instances_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<a id="__codelineno-0-475" name="__codelineno-0-475"></a>    <span class="n">bbox_format</span> <span class="o">=</span> <span class="n">instances_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">_bboxes</span><span class="o">.</span><span class="n">format</span>
+<a id="__codelineno-0-476" name="__codelineno-0-476"></a>    <span class="n">normalized</span> <span class="o">=</span> <span class="n">instances_list</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">normalized</span>
+<a id="__codelineno-0-477" name="__codelineno-0-477"></a>
+<a id="__codelineno-0-478" name="__codelineno-0-478"></a>    <span class="n">cat_boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">ins</span><span class="o">.</span><span class="n">bboxes</span> <span class="k">for</span> <span class="n">ins</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+<a id="__codelineno-0-479" name="__codelineno-0-479"></a>    <span class="n">seg_len</span> <span class="o">=</span> <span class="p">[</span><span class="n">b</span><span class="o">.</span><span class="n">segments</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">]</span>
+<a id="__codelineno-0-480" name="__codelineno-0-480"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">frozenset</span><span class="p">(</span><span class="n">seg_len</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># resample segments if there's different length</span>
+<a id="__codelineno-0-481" name="__codelineno-0-481"></a>        <span class="n">max_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">seg_len</span><span class="p">)</span>
+<a id="__codelineno-0-482" name="__codelineno-0-482"></a>        <span class="n">cat_segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">(</span>
+<a id="__codelineno-0-483" name="__codelineno-0-483"></a>            <span class="p">[</span>
+<a id="__codelineno-0-484" name="__codelineno-0-484"></a>                <span class="n">resample_segments</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">segments</span><span class="p">),</span> <span class="n">max_len</span><span class="p">)</span>
+<a id="__codelineno-0-485" name="__codelineno-0-485"></a>                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span>
+<a id="__codelineno-0-486" name="__codelineno-0-486"></a>                <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_len</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>  <span class="c1"># re-generating empty segments</span>
+<a id="__codelineno-0-487" name="__codelineno-0-487"></a>                <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">instances_list</span>
+<a id="__codelineno-0-488" name="__codelineno-0-488"></a>            <span class="p">],</span>
+<a id="__codelineno-0-489" name="__codelineno-0-489"></a>            <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">,</span>
+<a id="__codelineno-0-490" name="__codelineno-0-490"></a>        <span class="p">)</span>
+<a id="__codelineno-0-491" name="__codelineno-0-491"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-492" name="__codelineno-0-492"></a>        <span class="n">cat_segments</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">b</span><span class="o">.</span><span class="n">segments</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span>
+<a id="__codelineno-0-493" name="__codelineno-0-493"></a>    <span class="n">cat_keypoints</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">b</span><span class="o">.</span><span class="n">keypoints</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">instances_list</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="n">axis</span><span class="p">)</span> <span class="k">if</span> <span class="n">use_keypoint</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-0-494" name="__codelineno-0-494"></a>    <span class="k">return</span> <span class="bp">cls</span><span class="p">(</span><span class="n">cat_boxes</span><span class="p">,</span> <span class="n">cat_segments</span><span class="p">,</span> <span class="n">cat_keypoints</span><span class="p">,</span> <span class="n">bbox_format</span><span class="p">,</span> <span class="n">normalized</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3292,12 +3302,7 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-408">408</a></span>
-<span class="normal"><a href="#__codelineno-0-409">409</a></span>
-<span class="normal"><a href="#__codelineno-0-410">410</a></span>
-<span class="normal"><a href="#__codelineno-0-411">411</a></span>
-<span class="normal"><a href="#__codelineno-0-412">412</a></span>
-<span class="normal"><a href="#__codelineno-0-413">413</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-413">413</a></span>
 <span class="normal"><a href="#__codelineno-0-414">414</a></span>
 <span class="normal"><a href="#__codelineno-0-415">415</a></span>
 <span class="normal"><a href="#__codelineno-0-416">416</a></span>
@@ -3306,21 +3311,26 @@ coordinates are normalized.</p>
 <span class="normal"><a href="#__codelineno-0-419">419</a></span>
 <span class="normal"><a href="#__codelineno-0-420">420</a></span>
 <span class="normal"><a href="#__codelineno-0-421">421</a></span>
-<span class="normal"><a href="#__codelineno-0-422">422</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-408" name="__codelineno-0-408"></a><span class="k">def</span><span class="w"> </span><span class="nf">remove_zero_area_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-410" name="__codelineno-0-410"></a><span class="sd">    Remove zero-area boxes, i.e. after clipping some boxes may have zero width or height.</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a><span class="sd">        (np.ndarray): Boolean array indicating which boxes were kept.</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a><span class="sd">    """</span>
-<a id="__codelineno-0-415" name="__codelineno-0-415"></a>    <span class="n">good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_areas</span> <span class="o">&gt;</span> <span class="mi">0</span>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">good</span><span class="p">):</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span><span class="p">[</span><span class="n">good</span><span class="p">]</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">):</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="n">good</span><span class="p">]</span>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-421" name="__codelineno-0-421"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="n">good</span><span class="p">]</span>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a>    <span class="k">return</span> <span class="n">good</span>
+<span class="normal"><a href="#__codelineno-0-422">422</a></span>
+<span class="normal"><a href="#__codelineno-0-423">423</a></span>
+<span class="normal"><a href="#__codelineno-0-424">424</a></span>
+<span class="normal"><a href="#__codelineno-0-425">425</a></span>
+<span class="normal"><a href="#__codelineno-0-426">426</a></span>
+<span class="normal"><a href="#__codelineno-0-427">427</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-413" name="__codelineno-0-413"></a><span class="k">def</span><span class="w"> </span><span class="nf">remove_zero_area_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a><span class="sd">    Remove zero-area boxes, i.e. after clipping some boxes may have zero width or height.</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a>
+<a id="__codelineno-0-417" name="__codelineno-0-417"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-418" name="__codelineno-0-418"></a><span class="sd">        (np.ndarray): Boolean array indicating which boxes were kept.</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a><span class="sd">    """</span>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="n">good</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bbox_areas</span> <span class="o">&gt;</span> <span class="mi">0</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">good</span><span class="p">):</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span><span class="p">[</span><span class="n">good</span><span class="p">]</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">):</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="n">good</span><span class="p">]</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="n">good</span><span class="p">]</span>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>    <span class="k">return</span> <span class="n">good</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3504,12 +3514,7 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-424">424</a></span>
-<span class="normal"><a href="#__codelineno-0-425">425</a></span>
-<span class="normal"><a href="#__codelineno-0-426">426</a></span>
-<span class="normal"><a href="#__codelineno-0-427">427</a></span>
-<span class="normal"><a href="#__codelineno-0-428">428</a></span>
-<span class="normal"><a href="#__codelineno-0-429">429</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-429">429</a></span>
 <span class="normal"><a href="#__codelineno-0-430">430</a></span>
 <span class="normal"><a href="#__codelineno-0-431">431</a></span>
 <span class="normal"><a href="#__codelineno-0-432">432</a></span>
@@ -3517,20 +3522,25 @@ coordinates are normalized.</p>
 <span class="normal"><a href="#__codelineno-0-434">434</a></span>
 <span class="normal"><a href="#__codelineno-0-435">435</a></span>
 <span class="normal"><a href="#__codelineno-0-436">436</a></span>
-<span class="normal"><a href="#__codelineno-0-437">437</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-424" name="__codelineno-0-424"></a><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-425" name="__codelineno-0-425"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-426" name="__codelineno-0-426"></a><span class="sd">    Update instance variables.</span>
-<a id="__codelineno-0-427" name="__codelineno-0-427"></a>
-<a id="__codelineno-0-428" name="__codelineno-0-428"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="sd">        bboxes (np.ndarray): New bounding boxes.</span>
-<a id="__codelineno-0-430" name="__codelineno-0-430"></a><span class="sd">        segments (np.ndarray, optional): New segments.</span>
-<a id="__codelineno-0-431" name="__codelineno-0-431"></a><span class="sd">        keypoints (np.ndarray, optional): New keypoints.</span>
-<a id="__codelineno-0-432" name="__codelineno-0-432"></a><span class="sd">    """</span>
-<a id="__codelineno-0-433" name="__codelineno-0-433"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span> <span class="o">=</span> <span class="n">Bboxes</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
-<a id="__codelineno-0-434" name="__codelineno-0-434"></a>    <span class="k">if</span> <span class="n">segments</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-435" name="__codelineno-0-435"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="n">segments</span>
-<a id="__codelineno-0-436" name="__codelineno-0-436"></a>    <span class="k">if</span> <span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-437" name="__codelineno-0-437"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="o">=</span> <span class="n">keypoints</span>
+<span class="normal"><a href="#__codelineno-0-437">437</a></span>
+<span class="normal"><a href="#__codelineno-0-438">438</a></span>
+<span class="normal"><a href="#__codelineno-0-439">439</a></span>
+<span class="normal"><a href="#__codelineno-0-440">440</a></span>
+<span class="normal"><a href="#__codelineno-0-441">441</a></span>
+<span class="normal"><a href="#__codelineno-0-442">442</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-429" name="__codelineno-0-429"></a><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-431" name="__codelineno-0-431"></a><span class="sd">    Update instance variables.</span>
+<a id="__codelineno-0-432" name="__codelineno-0-432"></a>
+<a id="__codelineno-0-433" name="__codelineno-0-433"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a><span class="sd">        bboxes (np.ndarray): New bounding boxes.</span>
+<a id="__codelineno-0-435" name="__codelineno-0-435"></a><span class="sd">        segments (np.ndarray, optional): New segments.</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a><span class="sd">        keypoints (np.ndarray, optional): New keypoints.</span>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a><span class="sd">    """</span>
+<a id="__codelineno-0-438" name="__codelineno-0-438"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span> <span class="o">=</span> <span class="n">Bboxes</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span><span class="o">.</span><span class="n">format</span><span class="p">)</span>
+<a id="__codelineno-0-439" name="__codelineno-0-439"></a>    <span class="k">if</span> <span class="n">segments</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-440" name="__codelineno-0-440"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">segments</span> <span class="o">=</span> <span class="n">segments</span>
+<a id="__codelineno-0-441" name="__codelineno-0-441"></a>    <span class="k">if</span> <span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-442" name="__codelineno-0-442"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="o">=</span> <span class="n">keypoints</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
