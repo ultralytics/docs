@@ -59,7 +59,7 @@ YOLO11 offers models ranging from nano (n) to extra-large (x). YOLO11n achieves 
 **Ideal Use Cases:**
 YOLO11 is excellent for real-time applications such as:
 
-- **Autonomous Vehicles:** [Self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving), robotics.
+- **Autonomous Vehicles:** [Self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive), robotics.
 - **Surveillance:** [Security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security).
 - **Industrial Automation:** [Manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing), [recycling](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting).
 - **Retail Analytics:** [Inventory management](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management), [customer behavior analysis](https://www.ultralytics.com/blog/achieving-retail-efficiency-with-ai).

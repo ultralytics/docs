@@ -43,7 +43,7 @@ When choosing an object detection model, it's essential to understand the techni
 
 YOLOv8's versatility makes it ideal for applications requiring real-time performance and high accuracy, such as:
 
-- **Real-time object detection** in [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Real-time object detection** in [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Versatile Vision AI Solutions** across industries like [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture) and [healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare).
 - **Rapid Prototyping and Deployment** due to its ease of use and robust tooling.
 

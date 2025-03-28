@@ -37,7 +37,7 @@ YOLOv10 introduces key architectural innovations such as an efficient backbone a
 YOLOv10's speed and efficiency make it ideal for applications requiring rapid object detection, such as:
 
 - **Edge AI Deployments:** Perfect for devices with limited resources like mobile phones, embedded systems, and IoT devices ([Edge AI](https://www.ultralytics.com/glossary/edge-ai)).
-- **Real-time Video Analytics:** Suited for applications requiring immediate analysis, like autonomous driving and high-speed surveillance systems ([AI in Self-Driving](https://www.ultralytics.com/solutions/ai-in-self-driving)).
+- **Real-time Video Analytics:** Suited for applications requiring immediate analysis, like autonomous driving and high-speed surveillance systems ([AI in Self-Driving](https://www.ultralytics.com/solutions/ai-in-automotive)).
 - **High-Throughput Industrial Inspection:** Excels in scenarios where rapid processing is paramount, such as automated quality control in manufacturing ([AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing)).
 
 **Model Details:**

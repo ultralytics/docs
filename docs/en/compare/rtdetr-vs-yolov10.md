@@ -42,7 +42,7 @@ RTDETRv2 models, particularly larger variants like RTDETRv2-x, achieve impressiv
 
 RTDETRv2 is best suited for applications requiring high precision and where computational resources are not severely limited. Example use cases include:
 
-- **Autonomous Driving**: For precise environmental perception in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Driving**: For precise environmental perception in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Robotics**: To enable accurate object interaction in [AI in Robotics](https://www.ultralytics.com/glossary/robotics) applications.
 - **Medical Imaging**: For detailed analysis and anomaly detection in [AI in Healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare).
 - **High-Resolution Imagery**: For analyzing satellite or aerial images, similar to [using computer vision to analyse satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).

@@ -31,7 +31,7 @@ YOLO11 is ideal for applications demanding high accuracy and real-time processin
 - **Manufacturing**: For [quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) in automated production lines.
 - **Agriculture**: In [crop health monitoring](https://www.ultralytics.com/blog/real-time-crop-health-monitoring-with-ultralytics-yolo11) for precision agriculture.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## YOLOv9: Programmable Gradient Information
 

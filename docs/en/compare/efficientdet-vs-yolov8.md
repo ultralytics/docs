@@ -71,7 +71,7 @@ Ultralytics YOLOv8, developed by Ultralytics and released on January 10, 2023 ([
 YOLOv8 is exceptionally versatile and suitable for a wide range of applications, especially those requiring real-time object detection and rapid deployment. These include:
 
 - **Real-time Video Analytics:** Applications like [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [traffic monitoring](https://www.ultralytics.com/blog/ultralytics-yolov8-for-smarter-parking-management-systems), and [queue management](https://docs.ultralytics.com/guides/queue-management/).
-- **Autonomous Systems:** Use in [robotics](https://www.ultralytics.com/glossary/robotics) and [self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving) where low latency is crucial.
+- **Autonomous Systems:** Use in [robotics](https://www.ultralytics.com/glossary/robotics) and [self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive) where low latency is crucial.
 - **Rapid Prototyping and Deployment:** Ideal for projects needing quick development cycles due to its ease of use and pre-trained models.
 
 [Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }

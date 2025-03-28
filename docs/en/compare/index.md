@@ -6,7 +6,7 @@ keywords: YOLO model comparison, object detection benchmarks, YOLO11, YOLOv10, Y
 
 # Model Comparisons: Choose the Best YOLO Model for Your Project
 
-Welcome to the [Ultralytics](https://www.ultralytics.com) Model Comparison Index! This page provides a centralized collection of detailed technical comparisons between state-of-the-art object detection models, including the latest Ultralytics YOLO models and other leading architectures. Whether you're evaluating different YOLO versions or exploring alternatives like RTDETR or EfficientDet, our in-depth analyses are designed to help you make informed decisions for your [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects.
+Welcome to the [Ultralytics](https://www.ultralytics.com/) Model Comparison Index! This page provides a centralized collection of detailed technical comparisons between state-of-the-art object detection models, including the latest Ultralytics YOLO models and other leading architectures. Whether you're evaluating different YOLO versions or exploring alternatives like RTDETR or EfficientDet, our in-depth analyses are designed to help you make informed decisions for your [computer vision](https://www.ultralytics.com/glossary/computer-vision-cv) projects.
 
 <script async src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer src="../../javascript/benchmark.js"></script>

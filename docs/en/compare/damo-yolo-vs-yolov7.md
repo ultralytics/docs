@@ -69,7 +69,7 @@ DAMO-YOLO offers various model sizes (tiny, small, medium, large), each providin
 
 DAMO-YOLO is well-suited for applications that require a balance of high accuracy and real-time performance:
 
-- **Autonomous Driving**: Object detection is crucial in [self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving) for perceiving the environment in real-time.
+- **Autonomous Driving**: Object detection is crucial in [self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive) for perceiving the environment in real-time.
 - **Robotics**: For tasks like navigation and object manipulation in [robotics](https://www.ultralytics.com/glossary/robotics) applications, fast and accurate detection is essential.
 - **Surveillance Systems**: In [security systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), real-time object detection is vital for timely threat detection.
 - **Industrial Inspection**: For [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing), DAMO-YOLO can be used for fast defect detection.

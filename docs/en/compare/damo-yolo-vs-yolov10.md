@@ -91,7 +91,7 @@ YOLOv10 excels in both speed and accuracy:
 YOLOv10 is ideally suited for applications where real-time performance and efficiency are paramount:
 
 - **Edge AI Applications**: Deployment on edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) for real-time processing.
-- **High-Throughput Video Processing**: Applications requiring rapid analysis of video streams, such as [traffic monitoring](https://www.ultralytics.com/blog/ai-in-traffic-management-from-congestion-to-coordination/) and [queue management](https://docs.ultralytics.com/guides/queue-management/).
+- **High-Throughput Video Processing**: Applications requiring rapid analysis of video streams, such as [traffic monitoring](https://www.ultralytics.com/blog/ai-in-traffic-management-from-congestion-to-coordination) and [queue management](https://docs.ultralytics.com/guides/queue-management/).
 - **Mobile and Web Deployments**: Object detection in web and mobile applications where low latency is critical.
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }

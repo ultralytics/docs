@@ -40,7 +40,7 @@ YOLOv8 adopts an anchor-free approach, simplifying the architecture and improvin
 
 YOLOv8's versatility makes it ideal for applications requiring a balance of high accuracy and real-time performance, such as:
 
-- **Real-time object detection**: Applications like [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [robotics](https://www.ultralytics.com/glossary/robotics), and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Real-time object detection**: Applications like [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [robotics](https://www.ultralytics.com/glossary/robotics), and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Versatile Vision AI Solutions**: Across industries like [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture), [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing), and [healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare).
 - **Rapid Prototyping and Deployment**: Due to its ease of use and comprehensive tooling including [Ultralytics HUB](https://www.ultralytics.com/hub).
 

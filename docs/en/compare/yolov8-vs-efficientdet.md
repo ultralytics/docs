@@ -19,7 +19,7 @@ Choosing the right object detection model is crucial for balancing accuracy, spe
 
 **Strengths:**
 
-- **High Efficiency**: YOLOv8 achieves state-of-the-art performance with optimized speed and accuracy, suitable for real-time applications like [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **High Efficiency**: YOLOv8 achieves state-of-the-art performance with optimized speed and accuracy, suitable for real-time applications like [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Versatility**: Beyond object detection, YOLOv8 supports [instance segmentation](https://www.ultralytics.com/glossary/instance-segmentation), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [image classification](https://www.ultralytics.com/glossary/image-classification), providing a unified solution for various computer vision tasks.
 - **Ease of Use**: Ultralytics emphasizes user-friendliness with comprehensive [documentation](https://docs.ultralytics.com/) and a Python package, simplifying training, validation, and deployment.
 - **Ecosystem Integration**: Seamless integration with [Ultralytics HUB](https://www.ultralytics.com/hub) and other MLOps tools streamlines the development workflow.

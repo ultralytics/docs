@@ -42,7 +42,7 @@ As shown in the comparison table, YOLO11 offers a range of models (n, s, m, l, x
 
 YOLO11 excels in applications requiring real-time object detection, such as:
 
-- **Autonomous systems**: [Self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving), robotics.
+- **Autonomous systems**: [Self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive), robotics.
 - **Security and surveillance**: [Security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/), [theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security).
 - **Industrial automation**: Quality control in [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing), [recycling efficiency](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting).
 - **Retail analytics**: [Inventory management](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management), [customer behavior analysis](https://www.ultralytics.com/blog/achieving-retail-efficiency-with-ai).

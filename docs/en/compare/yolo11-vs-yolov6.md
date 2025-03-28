@@ -37,7 +37,7 @@ YOLO11 introduces architectural improvements for more precise predictions and gr
 
 YOLO11's accuracy and speed balance makes it ideal for applications requiring high precision and real-time performance, such as:
 
-- **Advanced Driver-Assistance Systems (ADAS)** in self-driving cars ([AI in self-driving](https://www.ultralytics.com/solutions/ai-in-self-driving))
+- **Advanced Driver-Assistance Systems (ADAS)** in self-driving cars ([AI in self-driving](https://www.ultralytics.com/solutions/ai-in-automotive))
 - **High-precision robotics** in manufacturing ([AI in manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing))
 - **Sophisticated surveillance systems** for enhanced security ([computer vision for theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security))
 - **Medical image analysis** for accurate diagnostics ([AI in healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare))

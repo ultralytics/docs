@@ -53,7 +53,7 @@ YOLOv8's versatility makes it ideal for a broad spectrum of applications, from r
 
 **Use Cases:**
 
-YOLOv9 is particularly well-suited for applications where high accuracy and efficiency are paramount, especially in resource-constrained environments. This includes real-time object detection on edge devices, applications requiring fast inference with limited computational power, and scenarios benefiting from highly accurate lightweight models. Its enhanced efficiency makes it valuable in [robotics](https://www.ultralytics.com/glossary/robotics) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving) where computational resources are limited.
+YOLOv9 is particularly well-suited for applications where high accuracy and efficiency are paramount, especially in resource-constrained environments. This includes real-time object detection on edge devices, applications requiring fast inference with limited computational power, and scenarios benefiting from highly accurate lightweight models. Its enhanced efficiency makes it valuable in [robotics](https://www.ultralytics.com/glossary/robotics) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive) where computational resources are limited.
 
 [Learn more about YOLOv9](https://docs.ultralytics.com/models/yolov9/){ .md-button }
 

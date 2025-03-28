@@ -39,7 +39,7 @@ RTDETRv2 prioritizes accuracy and delivers strong performance metrics, making it
 
 RTDETRv2 is particularly well-suited for applications that demand high detection accuracy, such as:
 
-- **Autonomous Driving:** For precise detection of vehicles, pedestrians, and traffic signs, crucial for safety in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Driving:** For precise detection of vehicles, pedestrians, and traffic signs, crucial for safety in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Medical Image Analysis:** Accurate identification of anomalies in medical scans for diagnostics, a key application of [AI in Healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare).
 - **High-Resolution Imagery Analysis:** Applications like [satellite image analysis](https://www.ultralytics.com/glossary/satellite-image-analysis) and detailed industrial inspection benefit from RTDETRv2's detailed scene understanding.
 

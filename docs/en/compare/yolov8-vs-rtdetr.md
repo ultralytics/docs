@@ -59,7 +59,7 @@ RTDETRv2 prioritizes accuracy and delivers competitive performance metrics, part
 
 ### Use Cases
 
-RTDETRv2 excels in applications where high accuracy is paramount and sufficient computational resources are available. It is particularly suitable for autonomous driving systems ([AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving)), robotics ([AI in Robotics](https://www.ultralytics.com/glossary/robotics)), and advanced security systems requiring precise object detection. Its real-time capabilities also make it valuable for [AI in healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare) applications like medical imaging analysis.
+RTDETRv2 excels in applications where high accuracy is paramount and sufficient computational resources are available. It is particularly suitable for autonomous driving systems ([AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive)), robotics ([AI in Robotics](https://www.ultralytics.com/glossary/robotics)), and advanced security systems requiring precise object detection. Its real-time capabilities also make it valuable for [AI in healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare) applications like medical imaging analysis.
 
 ### Strengths and Weaknesses
 

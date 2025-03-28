@@ -42,7 +42,7 @@ RTDETRv2 models demonstrate impressive mAP scores, with larger variants like RTD
 
 RTDETRv2 is best suited for applications where accuracy is paramount and sufficient computational resources are available. Ideal use cases include:
 
-- **Autonomous Vehicles:** For reliable and precise environmental perception in self-driving systems. [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving)
+- **Autonomous Vehicles:** For reliable and precise environmental perception in self-driving systems. [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive)
 - **Robotics:** Enabling robots to accurately perceive and interact with objects in complex environments. [From Algorithms to Automation: AI's Role in Robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics)
 - **Medical Imaging:** For high-precision detection of anomalies in medical images, aiding in diagnostics. [AI in Healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare)
 - **High-Resolution Image Analysis:** Applications requiring detailed analysis of large images, such as satellite or aerial imagery. [Using Computer Vision to Analyse Satellite Imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery)

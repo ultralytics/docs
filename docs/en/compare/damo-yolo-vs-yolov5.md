@@ -91,7 +91,7 @@ Ultralytics YOLOv5, developed by Glenn Jocher and Ultralytics, is renowned for i
 
 - **Real-time Object Detection:** Ideal for applications requiring rapid detection, such as robotics, security systems, and autonomous vehicles.
 - **Edge Deployment:** Smaller YOLOv5 models are well-suited for deployment on resource-constrained edge devices like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/).
-- **Industrial Automation:** Applications in manufacturing and quality control where speed and reliability are crucial, such as automating [recycling efficiency](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting/).
+- **Industrial Automation:** Applications in manufacturing and quality control where speed and reliability are crucial, such as automating [recycling efficiency](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting).
 
 **Authors and Information:**
 

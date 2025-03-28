@@ -47,7 +47,7 @@ EfficientDet is well-suited for applications where efficiency and good accuracy 
 
 - **Mobile Applications:** Deployment on smartphones and tablets where computational resources are limited. [Edge AI](https://www.ultralytics.com/glossary/edge-ai)
 - **Edge Devices:** Running object detection on edge devices like Raspberry Pi or NVIDIA Jetson for real-time processing. [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/)
-- **Real-time Systems:** Applications requiring fast inference, such as robotics and surveillance. [AI in Robotics](https://www.ultralytics.com/solutions/ai-in-self-driving)
+- **Real-time Systems:** Applications requiring fast inference, such as robotics and surveillance. [AI in Robotics](https://www.ultralytics.com/solutions/ai-in-automotive)
 - **Resource-Constrained Environments:** Scenarios where computational resources are limited or cost-sensitive.
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet#readme){ .md-button }
@@ -85,7 +85,7 @@ RTDETRv2 models, particularly larger variants like RTDETRv2-x, achieve impressiv
 
 RTDETRv2 is ideally suited for applications where top-tier accuracy is paramount and sufficient computational resources are available:
 
-- **Autonomous Vehicles:** For reliable and precise environmental perception in self-driving systems. [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving)
+- **Autonomous Vehicles:** For reliable and precise environmental perception in self-driving systems. [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive)
 - **Advanced Robotics:** Enabling robots to perform complex tasks requiring accurate object recognition and interaction. [From Algorithms to Automation: AI's Role in Robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics)
 - **High-Precision Medical Imaging:** For critical applications in medical diagnostics where accuracy is essential. [AI in Healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare)
 - **Detailed Surveillance Systems:** Scenarios requiring high accuracy in monitoring and analysis. [Shattering the Surveillance Status Quo with Vision AI](https://www.ultralytics.com/blog/shattering-the-surveillance-status-quo-with-vision-ai)

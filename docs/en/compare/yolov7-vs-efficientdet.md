@@ -39,7 +39,7 @@ YOLOv7 incorporates several architectural innovations:
 
 ### Use Cases
 
-- **Real-time Object Detection:** Ideal for applications needing rapid and precise object detection, including [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving), and [robotics](https://www.ultralytics.com/glossary/robotics).
+- **Real-time Object Detection:** Ideal for applications needing rapid and precise object detection, including [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive), and [robotics](https://www.ultralytics.com/glossary/robotics).
 - **General-Purpose Detection:** Well-suited for a broad spectrum of object detection tasks due to its robust and versatile performance.
 - **Edge Deployment:** Optimized versions can be deployed on edge devices for real-time processing in various [edge AI](https://www.ultralytics.com/glossary/edge-ai) applications.
 

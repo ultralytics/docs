@@ -33,7 +33,7 @@ YOLO11 demonstrates a strong balance of speed and accuracy, making it suitable f
 - **Inference Speed:** Optimized for fast inference, crucial for real-time processing needs as seen in [vision AI in streaming applications](https://www.ultralytics.com/blog/behind-the-scenes-of-vision-ai-in-streaming).
 - **Model Size:** Maintains a compact model size, facilitating deployment on resource-constrained devices.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ### Strengths and Weaknesses
 
@@ -54,7 +54,7 @@ YOLO11 is well-suited for applications demanding real-time object detection with
 
 - **Real-time Video Analytics:** Applications like [queue management](https://docs.ultralytics.com/guides/queue-management/) and security systems benefit from its speed and precision.
 - **Edge AI Deployment:** Efficient for on-device processing on platforms like [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/).
-- **Autonomous Systems:** Ideal for self-driving cars and robotics requiring rapid and accurate perception, as highlighted in [vision AI in self-driving applications](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Systems:** Ideal for self-driving cars and robotics requiring rapid and accurate perception, as highlighted in [vision AI in self-driving applications](https://www.ultralytics.com/solutions/ai-in-automotive).
 
 ## PP-YOLOE+: Accuracy-Focused and Efficient
 

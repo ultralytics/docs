@@ -15,13 +15,13 @@ Choosing the optimal object detection model is a critical decision in computer v
 
 ## Ultralytics YOLOv5
 
-Ultralytics YOLOv5, developed by Glenn Jocher at [Ultralytics](https://ultralytics.com), is a highly versatile and efficient one-stage object detection model. Released on June 26, 2020, YOLOv5 is built upon a CSPDarknet53 backbone, known for enhancing learning capacity while maintaining computational efficiency. It offers a range of model sizes (n, s, m, l, x), allowing users to tailor the model to their specific needs, from deployment on resource-constrained edge devices to high-performance servers.
+Ultralytics YOLOv5, developed by Glenn Jocher at [Ultralytics](https://www.ultralytics.com/), is a highly versatile and efficient one-stage object detection model. Released on June 26, 2020, YOLOv5 is built upon a CSPDarknet53 backbone, known for enhancing learning capacity while maintaining computational efficiency. It offers a range of model sizes (n, s, m, l, x), allowing users to tailor the model to their specific needs, from deployment on resource-constrained edge devices to high-performance servers.
 
 **Strengths:**
 
 - **Speed and Efficiency:** YOLOv5 is highly optimized for fast inference, making it exceptionally suitable for real-time applications.
 - **Scalability:** The availability of multiple model sizes provides unparalleled scalability, adapting to diverse hardware and performance demands.
-- **Ease of Use:** Ultralytics provides comprehensive [documentation](https://docs.ultralytics.com/models/yolov5/) and a user-friendly [Python package](https://pypi.org/project/ultralytics/) and [Ultralytics HUB](https://ultralytics.com/hub) platform, streamlining training, deployment, and model management.
+- **Ease of Use:** Ultralytics provides comprehensive [documentation](https://docs.ultralytics.com/models/yolov5/) and a user-friendly [Python package](https://pypi.org/project/ultralytics/) and [Ultralytics HUB](https://www.ultralytics.com/hub) platform, streamlining training, deployment, and model management.
 - **Community Support:** The [YOLOv5 GitHub repository](https://github.com/ultralytics/yolov5) benefits from a large and active community, ensuring continuous development, support, and integration.
 
 **Weaknesses:**
