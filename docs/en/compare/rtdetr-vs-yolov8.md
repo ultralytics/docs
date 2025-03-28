@@ -27,7 +27,7 @@ YOLOv8 offers a range of model sizes, from YOLOv8n to YOLOv8x, allowing users to
 
 ### Use Cases
 
-YOLOv8's adaptability makes it ideal for diverse applications. Its speed is crucial for real-time systems like [AI in robotics](https://www.ultralytics.com/glossary/robotics) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving). It's also effective in industrial automation for tasks like [improving manufacturing with computer vision](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision) and in [AI in agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture). Explore more use cases on our [solutions page](https://www.ultralytics.com/solutions).
+YOLOv8's adaptability makes it ideal for diverse applications. Its speed is crucial for real-time systems like [AI in robotics](https://www.ultralytics.com/glossary/robotics) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive). It's also effective in industrial automation for tasks like [improving manufacturing with computer vision](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision) and in [AI in agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture). Explore more use cases on our [solutions page](https://www.ultralytics.com/solutions).
 
 ### Strengths and Weaknesses
 
@@ -59,7 +59,7 @@ RTDETRv2 is designed for high accuracy in real-time object detection. The model'
 
 ### Use Cases
 
-RTDETRv2 is particularly suited for applications where high detection accuracy is paramount and computational resources are sufficient. Ideal use cases include [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving) requiring precise environmental perception, advanced robotics for accurate object interaction, and [AI in healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare), such as in medical imaging analysis for precise anomaly detection.
+RTDETRv2 is particularly suited for applications where high detection accuracy is paramount and computational resources are sufficient. Ideal use cases include [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive) requiring precise environmental perception, advanced robotics for accurate object interaction, and [AI in healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare), such as in medical imaging analysis for precise anomaly detection.
 
 ### Strengths and Weaknesses
 

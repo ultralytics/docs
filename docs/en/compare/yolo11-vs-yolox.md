@@ -48,7 +48,7 @@ YOLO11 models are available in various sizes, from YOLO11n to YOLO11x, catering 
 
 YOLO11 is well-suited for applications that require a balance of high accuracy and real-time processing, such as:
 
-- **Autonomous systems:** For use in [robotics](https://www.ultralytics.com/glossary/robotics) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving) requiring robust and fast object detection.
+- **Autonomous systems:** For use in [robotics](https://www.ultralytics.com/glossary/robotics) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive) requiring robust and fast object detection.
 - **Security and surveillance:** In [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) for real-time monitoring and threat detection.
 - **Industrial automation:** For quality control and process monitoring in [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing).
 

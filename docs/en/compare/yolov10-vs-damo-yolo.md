@@ -52,7 +52,7 @@ YOLOv10 delivers state-of-the-art performance across various model scales, provi
 
 YOLOv10 is well-suited for applications requiring high-speed, accurate object detection, such as:
 
-- **Autonomous Systems**: [Self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving) and [robotics](https://www.ultralytics.com/glossary/robotics).
+- **Autonomous Systems**: [Self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive) and [robotics](https://www.ultralytics.com/glossary/robotics).
 - **Security and Surveillance**: [Security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) and real-time monitoring.
 - **Industrial Automation**: [Manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) and process automation.
 - **Retail Analytics**: [Inventory management](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management) and customer behavior analysis.

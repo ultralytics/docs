@@ -20,7 +20,7 @@ Ultralytics YOLO11, the latest iteration from Ultralytics, is designed to excel 
 **Technical Details:**
 
 - **Authors:** Glenn Jocher, Jing Qiu
-- **Organization:** [Ultralytics](https://ultralytics.com)
+- **Organization:** [Ultralytics](https://www.ultralytics.com/)
 - **Date:** 2024-09-27
 - **GitHub Link:** [https://github.com/ultralytics/ultralytics](https://github.com/ultralytics/ultralytics)
 - **Docs Link:** [https://docs.ultralytics.com/models/yolo11/](https://docs.ultralytics.com/models/yolo11/)
@@ -50,12 +50,12 @@ YOLO11 offers a range of models (YOLO11n, YOLO11s, YOLO11m, YOLO11l, YOLO11x) to
 
 YOLO11 is ideal for real-time object detection applications such as:
 
-- **Autonomous Systems:** [Self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving), robotics.
+- **Autonomous Systems:** [Self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive), robotics.
 - **Security and Surveillance:** [Security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security).
 - **Industrial Automation:** Quality control in [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing), [recycling efficiency](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting).
 - **Retail Analytics:** [Inventory management](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management), [customer behavior analysis](https://www.ultralytics.com/blog/achieving-retail-efficiency-with-ai).
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## YOLOv10
 

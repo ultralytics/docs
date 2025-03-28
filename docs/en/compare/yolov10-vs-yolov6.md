@@ -50,7 +50,7 @@ YOLO10 introduces innovations like Consistent Dual Assignments for NMS-free trai
 
 YOLO10's blend of speed and accuracy positions it as ideal for applications requiring real-time processing and high precision. These include:
 
-- **Autonomous Systems:** Suitable for use in autonomous vehicles ([AI in self-driving](https://www.ultralytics.com/solutions/ai-in-self-driving)) and robotics where low latency is crucial.
+- **Autonomous Systems:** Suitable for use in autonomous vehicles ([AI in self-driving](https://www.ultralytics.com/solutions/ai-in-automotive)) and robotics where low latency is crucial.
 - **High-Throughput Video Analytics:** Excellent for real-time surveillance systems ([shattering the surveillance status quo with vision AI](https://www.ultralytics.com/blog/shattering-the-surveillance-status-quo-with-vision-ai)) and industrial automation ([improving manufacturing with computer vision](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision)) requiring rapid object detection.
 - **Edge Computing Applications:** Efficient performance makes it well-suited for deployment on edge devices with limited computational resources.
 - **Advanced Driver-Assistance Systems (ADAS):** Real-time object detection capabilities are critical for ADAS in modern vehicles.

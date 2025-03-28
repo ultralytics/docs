@@ -52,7 +52,7 @@ YOLOv8 is designed to strike a balance between speed and accuracy. Performance m
 YOLOv8 is ideally suited for applications demanding real-time object detection, such as:
 
 - **Real-time Analytics**: For [queue management](https://docs.ultralytics.com/guides/queue-management/), [traffic monitoring](https://www.ultralytics.com/blog/ultralytics-yolov8-for-smarter-parking-management-systems), and [security systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8).
-- **Autonomous Navigation**: In [robotics](https://www.ultralytics.com/glossary/robotics) and [self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Navigation**: In [robotics](https://www.ultralytics.com/glossary/robotics) and [self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Industrial Quality Control**: For [manufacturing quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) and [automation](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting).
 
 [Learn more about YOLOv8](https://docs.ultralytics.com/models/yolov8/){ .md-button }

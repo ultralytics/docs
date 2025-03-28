@@ -71,7 +71,7 @@ YOLOX is suitable for applications requiring a balance of high accuracy and real
 
 YOLOv8's versatility and ease of use make it ideal for a wide array of applications:
 
-- **Real-time object detection** in applications like [security systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [robotics](https://www.ultralytics.com/glossary/robotics), and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Real-time object detection** in applications like [security systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [robotics](https://www.ultralytics.com/glossary/robotics), and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Versatile Vision AI Solutions** across industries including [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture), [healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare), and [smart cities](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities).
 - **Rapid Prototyping and Deployment** due to its user-friendly interface and pre-trained models available on [Ultralytics HUB](https://www.ultralytics.com/hub).
 

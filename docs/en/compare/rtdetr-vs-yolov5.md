@@ -38,7 +38,7 @@ YOLOv5 is available in multiple sizes (n, s, m, l, x), providing users with opti
 
 - Real-time object detection scenarios including video surveillance and [AI in traffic management](https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11).
 - Edge computing and mobile deployments.
-- Applications requiring rapid processing, such as [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics) ([ROS Quickstart](https://docs.ultralytics.com/guides/ros-quickstart/)) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- Applications requiring rapid processing, such as [robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics) ([ROS Quickstart](https://docs.ultralytics.com/guides/ros-quickstart/)) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 
 [Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 
@@ -65,7 +65,7 @@ RTDETRv2 leverages a transformer-based architecture, enabling it to capture glob
 
 RTDETRv2 is optimally suited for applications where accuracy is paramount and computational resources are sufficient. These include:
 
-- **Autonomous Driving:** For reliable and precise environmental perception in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Driving:** For reliable and precise environmental perception in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Robotics:** Enabling robots to accurately interact with their surroundings, essential for tasks discussed in "[From Algorithms to Automation: AI's Role in Robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics)".
 - **Medical Imaging:** For precise anomaly detection, aiding in diagnostics as highlighted in [AI in Healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare) and potentially useful in areas like [using-yolo11-for-tumor-detection-in-medical-imaging](https://www.ultralytics.com/blog/using-yolo11-for-tumor-detection-in-medical-imaging).
 - **High-Resolution Image Analysis:** Applications requiring detailed analysis of large images, like satellite imagery or industrial inspection, as seen in [improving-manufacturing-with-computer-vision](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision).

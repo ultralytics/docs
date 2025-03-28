@@ -73,7 +73,7 @@ YOLOX, introduced on 2021-07-18 by Zheng Ge, Songtao Liu, Feng Wang, Zeming Li, 
 
 YOLOX is suitable for applications that demand high accuracy and robustness, including:
 
-- **Autonomous Driving:** Its accuracy and efficiency make it suitable for perception tasks in [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Driving:** Its accuracy and efficiency make it suitable for perception tasks in [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Advanced Robotics:** Ideal for robotic applications requiring precise object detection in complex environments.
 - **Research and Development:** YOLOX serves as a strong baseline for research in object detection, exploring anchor-free methodologies and advanced training techniques.
 

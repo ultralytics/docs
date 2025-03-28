@@ -42,7 +42,7 @@ As detailed in the comparison table, YOLO11 offers various model sizes (n, s, m,
 
 YOLO11 is well-suited for applications requiring real-time object detection, such as:
 
-- **Autonomous Driving:** [AI in self-driving](https://www.ultralytics.com/solutions/ai-in-self-driving), robotics.
+- **Autonomous Driving:** [AI in self-driving](https://www.ultralytics.com/solutions/ai-in-automotive), robotics.
 - **Surveillance and Security:** [Security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security).
 - **Industrial Automation:** Quality control in [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing), [recycling efficiency](https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting).
 - **Retail Analytics:** [Inventory management](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management), [customer behavior analysis](https://www.ultralytics.com/blog/achieving-retail-efficiency-with-ai).

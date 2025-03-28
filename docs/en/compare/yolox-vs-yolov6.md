@@ -72,7 +72,7 @@ YOLOv6-3.0 excels in inference speed, achieving remarkable FPS (frames per secon
 
 ### Use Cases
 
-- **Real-time Object Detection:** Ideal for applications where low latency and fast processing are critical, such as [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [smart retail](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management), and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Real-time Object Detection:** Ideal for applications where low latency and fast processing are critical, such as [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [smart retail](https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management), and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Edge Device Deployment:** Optimized for deployment on edge devices with limited computational resources due to its efficient design and smaller model sizes.
 - **Industrial Applications:** Tailored for practical, real-world industrial applications needing fast and efficient object detection in manufacturing, surveillance, and automation.
 

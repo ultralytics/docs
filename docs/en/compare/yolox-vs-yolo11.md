@@ -31,7 +31,7 @@ YOLO11 models demonstrate state-of-the-art performance in speed and accuracy. As
 
 ### Use Cases
 
-- **Real-time Object Detection:** Ideal for applications requiring immediate analysis, such as [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Real-time Object Detection:** Ideal for applications requiring immediate analysis, such as [security alarm systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Versatile AI Applications:** Suitable for diverse industries including [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture), [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing), and [healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare) due to its multi-task capabilities.
 - **Rapid Deployment:** Ease of use and integration with [Ultralytics HUB](https://www.ultralytics.com/hub) facilitate quick prototyping and deployment.
 

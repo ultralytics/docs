@@ -59,7 +59,7 @@ YOLOv9 is particularly well-suited for scenarios demanding top-tier accuracy wit
 
 YOLOX excels in applications needing a balance of high accuracy and speed, including:
 
-- **Real-time Object Detection**: Applications in robotics, surveillance, and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Real-time Object Detection**: Applications in robotics, surveillance, and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Versatile Applications**: Suitable for various industries like [agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture) and [manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing).
 - **Research and Development**: Its modular design makes it adaptable for research in object detection.
 

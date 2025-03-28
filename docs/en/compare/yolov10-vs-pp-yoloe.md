@@ -37,7 +37,7 @@ YOLOv10 achieves a balance of speed and accuracy. Key performance indicators inc
 
 YOLOv10's real-time performance and scalability make it suitable for diverse applications:
 
-- **Real-time Object Detection**: Ideal for applications requiring low latency, such as autonomous driving (see [AI in Self-Driving Cars](https://www.ultralytics.com/solutions/ai-in-self-driving)), robotics ([Robotics](https://www.ultralytics.com/glossary/robotics)), and surveillance ([Computer Vision for Theft Prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security)).
+- **Real-time Object Detection**: Ideal for applications requiring low latency, such as autonomous driving (see [AI in Self-Driving Cars](https://www.ultralytics.com/solutions/ai-in-automotive)), robotics ([Robotics](https://www.ultralytics.com/glossary/robotics)), and surveillance ([Computer Vision for Theft Prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security)).
 - **Edge Deployment**: Smaller models are optimized for edge devices like Raspberry Pi ([Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/)) and NVIDIA Jetson ([NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/)).
 - **High-Accuracy Demands**: Larger models like YOLOv10x are suitable for tasks needing high precision, such as medical image analysis ([Medical Image Analysis](https://www.ultralytics.com/glossary/medical-image-analysis)) and industrial quality control ([AI in Manufacturing](https://www.ultralytics.com/solutions/ai-in-manufacturing)).
 

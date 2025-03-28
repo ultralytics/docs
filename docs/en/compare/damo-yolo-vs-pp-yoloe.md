@@ -97,7 +97,7 @@ DAMO-YOLO is particularly effective in scenarios demanding high detection accura
 
 - **High-Precision Object Detection**: Applications requiring meticulous object detection, such as detailed [industrial inspection](https://www.ultralytics.com/solutions/ai-in-manufacturing) or [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis).
 - **Surveillance and Security**: Scenarios where accurate detection of small or occluded objects is critical for effective monitoring and security.
-- **Autonomous Driving**: Applications like [self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving) where precise environmental perception is crucial for safety and navigation.
+- **Autonomous Driving**: Applications like [self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive) where precise environmental perception is crucial for safety and navigation.
 
 [Learn more about DAMO-YOLO](https://github.com/tinyvision/DAMO-YOLO){ .md-button }
 

@@ -25,7 +25,7 @@ RTDETRv2 builds upon the DETR (Detection Transformer) framework, utilizing a tra
 
 RTDETRv2 models are known for their excellent balance of speed and accuracy. They are particularly well-suited for real-time applications where high detection accuracy is paramount. Use cases include:
 
-- **Autonomous Driving**: Real-time perception for self-driving cars requires both speed and accuracy for safe navigation. Explore the role of [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Driving**: Real-time perception for self-driving cars requires both speed and accuracy for safe navigation. Explore the role of [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Robotics**: Object detection is crucial for robot navigation and interaction in dynamic environments. Learn more about [robotics](https://www.ultralytics.com/glossary/robotics) and its applications.
 - **Advanced Surveillance**: High-accuracy detection in security systems and monitoring enhances [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/).
 

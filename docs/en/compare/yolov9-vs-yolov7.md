@@ -40,7 +40,7 @@ YOLOv9 demonstrates superior performance on the MS COCO dataset. For instance, Y
 
 YOLOv9 is ideally suited for applications demanding high accuracy, such as:
 
-- [Autonomous Vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving)
+- [Autonomous Vehicles](https://www.ultralytics.com/solutions/ai-in-automotive)
 - Advanced [Security Systems](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8)
 - Complex [Robotic Tasks](https://www.ultralytics.com/glossary/robotics)
 

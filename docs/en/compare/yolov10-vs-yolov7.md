@@ -82,7 +82,7 @@ YOLOv7 demonstrates a strong balance between speed and accuracy. As shown in the
 
 YOLOv7's balance of accuracy and efficiency makes it suitable for applications requiring reliable object detection in real-time scenarios. Ideal use cases include:
 
-- **Autonomous Vehicles:** Robust object detection in complex driving environments, as critical for [AI in Self-Driving Cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Vehicles:** Robust object detection in complex driving environments, as critical for [AI in Self-Driving Cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Advanced Surveillance Systems:** High accuracy for identifying potential security threats in [security systems](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security).
 - **Robotics:** Precise object recognition for manipulation and navigation in robotics, similar to YOLOv10, but potentially favoring accuracy in certain scenarios.
 - **Industrial Automation:** Quality control and defect detection in manufacturing processes where accuracy is paramount.

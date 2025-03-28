@@ -46,14 +46,14 @@ YOLOv10 excels in speed and efficiency. As indicated in the comparison table, YO
 YOLOv10 is ideally suited for applications where real-time processing and edge deployment are critical:
 
 - **Edge Devices**: Deployment on devices with limited resources such as [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/) and [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/).
-- **Real-time Systems**: Applications requiring immediate object detection, including [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving), [robotics](https://www.ultralytics.com/glossary/robotics), and high-speed surveillance.
+- **Real-time Systems**: Applications requiring immediate object detection, including [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive), [robotics](https://www.ultralytics.com/glossary/robotics), and high-speed surveillance.
 - **High-Throughput Processing**: Scenarios demanding rapid processing, such as industrial inspection and fast-paced analytics.
 
 [Learn more about YOLOv10](https://docs.ultralytics.com/models/yolov10/){ .md-button }
 
 ## YOLOX: High-Performance Anchor-Free Detector
 
-[YOLOX](https://yolox.readthedocs.io/en/latest/) is a high-performance anchor-free object detector developed by [Megvii](https://www.megvii.com/en). Introduced in 2021, YOLOX aims for simplicity and effectiveness, bridging the gap between research and industrial applications. The architecture and implementation details are available in the [arXiv paper](https://arxiv.org/abs/2107.08430) and on the [official GitHub repository](https://github.com/Megvii-BaseDetection/YOLOX).
+[YOLOX](https://yolox.readthedocs.io/en/latest/) is a high-performance anchor-free object detector developed by [Megvii](https://www.megvii.com/). Introduced in 2021, YOLOX aims for simplicity and effectiveness, bridging the gap between research and industrial applications. The architecture and implementation details are available in the [arXiv paper](https://arxiv.org/abs/2107.08430) and on the [official GitHub repository](https://github.com/Megvii-BaseDetection/YOLOX).
 
 ### Architecture and Key Features
 

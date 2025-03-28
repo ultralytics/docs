@@ -38,7 +38,7 @@ YOLOv5 comes in various sizes (n, s, m, l, x), offering a trade-off between spee
 
 - Real-time object detection in video surveillance and [computer vision for theft prevention](https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security).
 - Mobile and edge deployments for [smart cities applications](https://www.ultralytics.com/blog/computer-vision-ai-in-smart-cities) and [AI in agriculture](https://www.ultralytics.com/solutions/ai-in-agriculture).
-- Applications requiring rapid processing, such as robotics ([ROS Quickstart](https://docs.ultralytics.com/guides/ros-quickstart/)) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- Applications requiring rapid processing, such as robotics ([ROS Quickstart](https://docs.ultralytics.com/guides/ros-quickstart/)) and [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive).
 
 [Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 
@@ -67,7 +67,7 @@ RTDETRv2 employs a transformer-based architecture, enabling it to capture global
 
 RTDETRv2 is ideally suited for applications where high accuracy is paramount and sufficient computational resources are available. These include:
 
-- **Autonomous Vehicles:** For reliable and precise perception of the environment in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Vehicles:** For reliable and precise perception of the environment in [AI in self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Robotics:** Enabling robots to accurately interact with and manipulate objects in complex settings, as explored in [AI's role in robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 - **Medical Imaging:** For precise detection of anomalies in medical images, aiding in diagnostics and [AI in Healthcare](https://www.ultralytics.com/solutions/ai-in-healthcare).
 - **High-Resolution Image Analysis:** Applications requiring detailed analysis of large images, such as [using computer vision to analyse satellite imagery](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery) or industrial inspection for [improving manufacturing with computer vision](https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision).

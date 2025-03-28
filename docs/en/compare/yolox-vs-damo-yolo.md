@@ -50,7 +50,7 @@ YOLOX demonstrates impressive performance across various model sizes, balancing 
 
 YOLOX is well-suited for applications demanding high performance and efficiency, such as:
 
-- **Autonomous Driving**: Real-time object detection for [self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving) and advanced driver-assistance systems (ADAS).
+- **Autonomous Driving**: Real-time object detection for [self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive) and advanced driver-assistance systems (ADAS).
 - **Robotics**: Enabling robots to perceive and interact with their environment in real-time for tasks like navigation and manipulation in [robotics](https://www.ultralytics.com/glossary/robotics).
 - **Edge Deployment**: Lightweight models like YOLOX-Nano are ideal for deployment on resource-constrained edge devices like [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) for applications such as smart cameras and IoT devices.
 

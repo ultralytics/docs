@@ -23,7 +23,7 @@ This page provides a detailed technical comparison between two state-of-the-art 
 
 **Use Cases:** YOLO11 is particularly well-suited for scenarios demanding high precision and real-time processing, such as [traffic management](https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11) in smart cities, [medical image analysis](https://www.ultralytics.com/glossary/medical-image-analysis) for diagnostics, and [quality control](https://www.ultralytics.com/solutions/ai-in-manufacturing) in manufacturing.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## YOLOv9: Efficiency and Accuracy Innovations
 

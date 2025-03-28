@@ -49,7 +49,7 @@ YOLO11's speed and accuracy make it suitable for numerous real-time applications
 - **Robotics**: Enabling navigation and object interaction in dynamic settings.
 - **Security Systems**: Enhancing [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) for intrusion detection.
 - **Industrial Automation**: Supporting quality control and defect detection in manufacturing.
-- **Autonomous Vehicles**: Contributing to real-time perception in [self-driving cars](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Vehicles**: Contributing to real-time perception in [self-driving cars](https://www.ultralytics.com/solutions/ai-in-automotive).
 
 **Strengths:**
 

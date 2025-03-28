@@ -54,7 +54,7 @@ YOLOv7 models are engineered for high performance, achieving a compelling balanc
 
 ### Use Cases
 
-YOLOv7 is well-suited for applications requiring real-time object detection, such as [security alarm system projects](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-self-driving), and [robotics](https://www.ultralytics.com/glossary/robotics). It is also effective for general-purpose object detection and can be optimized for [edge deployment](https://www.ultralytics.com/glossary/edge-ai).
+YOLOv7 is well-suited for applications requiring real-time object detection, such as [security alarm system projects](https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8), [autonomous vehicles](https://www.ultralytics.com/solutions/ai-in-automotive), and [robotics](https://www.ultralytics.com/glossary/robotics). It is also effective for general-purpose object detection and can be optimized for [edge deployment](https://www.ultralytics.com/glossary/edge-ai).
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
 
