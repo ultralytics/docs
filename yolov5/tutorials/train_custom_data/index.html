@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Train Custom Data" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, custom dataset, model training, object detection, machine learning, AI, YOLO model, PyTorch, dataset preparation" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/train_custom_data" property="og:url"/><meta content="Train Custom Data" property="og:title"/><meta content="Learn how to train YOLOv5 on your own custom datasets with easy-to-follow steps. Detailed guide on dataset preparation, model selection, and training process." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/ultralytics-active-learning-loop.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/train_custom_data" property="twitter:url"/><meta content="Train Custom Data" property="twitter:title"/><meta content="Learn how to train YOLOv5 on your own custom datasets with easy-to-follow steps. Detailed guide on dataset preparation, model selection, and training process." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/ultralytics-active-learning-loop.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Train Custom Data", "image": ["https://github.com/ultralytics/docs/releases/download/0/ultralytics-active-learning-loop.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-20 20:24:06 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to train YOLOv5 on your own custom datasets with easy-to-follow steps. Detailed guide on dataset preparation, model selection, and training process.", "mainEntity": [{"@type": "Question", "name": "How do I train YOLOv5 on my custom dataset?", "acceptedAnswer": {"@type": "Answer", "text": "Training YOLOv5 on a custom dataset involves several steps:"}}, {"@type": "Question", "name": "What tools can I use to annotate my YOLOv5 dataset?", "acceptedAnswer": {"@type": "Answer", "text": "You can use Roboflow Annotate, an intuitive web-based tool for labeling images. It supports team collaboration and exports in YOLOv5 format. After collecting images, use Roboflow to create and manage annotations efficiently. Other options include tools like LabelImg and CVAT for local annotations."}}, {"@type": "Question", "name": "Why should I use Ultralytics HUB for training my YOLO models?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics HUB offers an end-to-end platform for training, deploying, and managing YOLO models without needing extensive coding skills. Benefits include: For a detailed walkthrough, check out How to train your custom models with Ultralytics HUB."}}, {"@type": "Question", "name": "How do I convert my annotated data to YOLOv5 format?", "acceptedAnswer": {"@type": "Answer", "text": "To convert annotated data to YOLOv5 format using Roboflow:"}}, {"@type": "Question", "name": "What are the licensing options for using YOLOv5 in commercial applications?", "acceptedAnswer": {"@type": "Answer", "text": "Ultralytics offers two licensing options: For more details, refer to our guide on Ultralytics Licensing."}}]}</script></head>
+<meta content="Train Custom Data" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, custom dataset, model training, object detection, machine learning, AI, YOLO model, PyTorch, dataset preparation, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/train_custom_data" property="og:url"/><meta content="Train Custom Data" property="og:title"/><meta content="Learn how to train YOLOv5 on your own custom datasets with easy-to-follow steps. Detailed guide on dataset preparation, model selection, and training process." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/ultralytics-active-learning-loop.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/train_custom_data" property="twitter:url"/><meta content="Train Custom Data" property="twitter:title"/><meta content="Learn how to train YOLOv5 on your own custom datasets with easy-to-follow steps. Detailed guide on dataset preparation, model selection, and training process." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/ultralytics-active-learning-loop.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Train Custom Data", "image": ["https://github.com/ultralytics/docs/releases/download/0/ultralytics-active-learning-loop.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-29 01:58:56 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to train YOLOv5 on your own custom datasets with easy-to-follow steps. Detailed guide on dataset preparation, model selection, and training process."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -575,17 +575,17 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#option-1-create-a-roboflow-dataset">
+<a class="md-nav__link" href="#1-create-a-dataset">
 <span class="md-ellipsis">
-      Option 1: Create a Roboflow Dataset
+      1. Create a Dataset
     </span>
 </a>
-<nav aria-label="Option 1: Create a Roboflow Dataset" class="md-nav">
+<nav aria-label="1. Create a Dataset" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#11-collect-images">
+<a class="md-nav__link" href="#11-create-datasetyaml">
 <span class="md-ellipsis">
-      1.1 Collect Images
+      1.1 Create dataset.yaml
     </span>
 </a>
 </li>
@@ -597,9 +597,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#13-prepare-dataset-for-yolov5">
+<a class="md-nav__link" href="#13-organize-directories">
 <span class="md-ellipsis">
-      1.3 Prepare Dataset for YOLOv5
+      1.3 Organize Directories
     </span>
 </a>
 </li>
@@ -607,58 +607,26 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#option-2-create-a-manual-dataset">
+<a class="md-nav__link" href="#2-select-a-model">
 <span class="md-ellipsis">
-      Option 2: Create a Manual Dataset
-    </span>
-</a>
-<nav aria-label="Option 2: Create a Manual Dataset" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#21-create-datasetyaml">
-<span class="md-ellipsis">
-      2.1 Create dataset.yaml
+      2. Select a Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#22-create-labels">
+<a class="md-nav__link" href="#3-train">
 <span class="md-ellipsis">
-      2.2 Create Labels
+      3. Train
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#23-organize-directories">
+<a class="md-nav__link" href="#4-visualize">
 <span class="md-ellipsis">
-      2.3 Organize Directories
+      4. Visualize
     </span>
 </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-select-a-model">
-<span class="md-ellipsis">
-      3. Select a Model
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-train">
-<span class="md-ellipsis">
-      4. Train
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-visualize">
-<span class="md-ellipsis">
-      5. Visualize
-    </span>
-</a>
-<nav aria-label="5. Visualize" class="md-nav">
+<nav aria-label="4. Visualize" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#comet-logging-and-visualization-new">
@@ -685,9 +653,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#next-steps">
+<a class="md-nav__link" href="#5-next-steps">
 <span class="md-ellipsis">
-      Next Steps
+      5. Next Steps
     </span>
 </a>
 </li>
@@ -711,19 +679,19 @@
       FAQ
     </span>
 </a>
-<nav aria-label="FAQ" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frequently-asked-questions">
+<span class="md-ellipsis">
+      Frequently Asked Questions
+    </span>
+</a>
+<nav aria-label="Frequently Asked Questions" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-train-yolov5-on-my-custom-dataset">
 <span class="md-ellipsis">
       How do I train YOLOv5 on my custom dataset?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-tools-can-i-use-to-annotate-my-yolov5-dataset">
-<span class="md-ellipsis">
-      What tools can I use to annotate my YOLOv5 dataset?
     </span>
 </a>
 </li>
@@ -735,9 +703,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-convert-my-annotated-data-to-yolov5-format">
+<a class="md-nav__link" href="#how-do-i-convert-my-annotated-data-to-the-yolov5-format">
 <span class="md-ellipsis">
-      How do I convert my annotated data to YOLOv5 format?
+      How do I convert my annotated data to the YOLOv5 format?
     </span>
 </a>
 </li>
@@ -821,13 +789,6 @@
 <a class="md-nav__link" href="../architecture_description/">
 <span class="md-ellipsis">
     Architecture Summary
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../roboflow_datasets_integration/">
-<span class="md-ellipsis">
-    Roboflow Datasets
   </span>
 </a>
 </li>
@@ -922,17 +883,17 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#option-1-create-a-roboflow-dataset">
+<a class="md-nav__link" href="#1-create-a-dataset">
 <span class="md-ellipsis">
-      Option 1: Create a Roboflow Dataset
+      1. Create a Dataset
     </span>
 </a>
-<nav aria-label="Option 1: Create a Roboflow Dataset" class="md-nav">
+<nav aria-label="1. Create a Dataset" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#11-collect-images">
+<a class="md-nav__link" href="#11-create-datasetyaml">
 <span class="md-ellipsis">
-      1.1 Collect Images
+      1.1 Create dataset.yaml
     </span>
 </a>
 </li>
@@ -944,9 +905,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#13-prepare-dataset-for-yolov5">
+<a class="md-nav__link" href="#13-organize-directories">
 <span class="md-ellipsis">
-      1.3 Prepare Dataset for YOLOv5
+      1.3 Organize Directories
     </span>
 </a>
 </li>
@@ -954,58 +915,26 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#option-2-create-a-manual-dataset">
+<a class="md-nav__link" href="#2-select-a-model">
 <span class="md-ellipsis">
-      Option 2: Create a Manual Dataset
-    </span>
-</a>
-<nav aria-label="Option 2: Create a Manual Dataset" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#21-create-datasetyaml">
-<span class="md-ellipsis">
-      2.1 Create dataset.yaml
+      2. Select a Model
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#22-create-labels">
+<a class="md-nav__link" href="#3-train">
 <span class="md-ellipsis">
-      2.2 Create Labels
+      3. Train
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#23-organize-directories">
+<a class="md-nav__link" href="#4-visualize">
 <span class="md-ellipsis">
-      2.3 Organize Directories
+      4. Visualize
     </span>
 </a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#3-select-a-model">
-<span class="md-ellipsis">
-      3. Select a Model
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#4-train">
-<span class="md-ellipsis">
-      4. Train
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#5-visualize">
-<span class="md-ellipsis">
-      5. Visualize
-    </span>
-</a>
-<nav aria-label="5. Visualize" class="md-nav">
+<nav aria-label="4. Visualize" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#comet-logging-and-visualization-new">
@@ -1032,9 +961,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#next-steps">
+<a class="md-nav__link" href="#5-next-steps">
 <span class="md-ellipsis">
-      Next Steps
+      5. Next Steps
     </span>
 </a>
 </li>
@@ -1058,19 +987,19 @@
       FAQ
     </span>
 </a>
-<nav aria-label="FAQ" class="md-nav">
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#frequently-asked-questions">
+<span class="md-ellipsis">
+      Frequently Asked Questions
+    </span>
+</a>
+<nav aria-label="Frequently Asked Questions" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-do-i-train-yolov5-on-my-custom-dataset">
 <span class="md-ellipsis">
       How do I train YOLOv5 on my custom dataset?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-tools-can-i-use-to-annotate-my-yolov5-dataset">
-<span class="md-ellipsis">
-      What tools can I use to annotate my YOLOv5 dataset?
     </span>
 </a>
 </li>
@@ -1082,9 +1011,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-convert-my-annotated-data-to-yolov5-format">
+<a class="md-nav__link" href="#how-do-i-convert-my-annotated-data-to-the-yolov5-format">
 <span class="md-ellipsis">
-      How do I convert my annotated data to YOLOv5 format?
+      How do I convert my annotated data to the YOLOv5 format?
     </span>
 </a>
 </li>
@@ -1109,205 +1038,248 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="train-yolov5-on-custom-data">Train YOLOv5 on Custom Data</h1>
-<p>📚 This guide explains how to train your own <strong>custom dataset</strong> with <a href="https://github.com/ultralytics/yolov5">YOLOv5</a> 🚀.</p>
+<p>📚 This guide explains how to train your own <strong>custom dataset</strong> using the <a href="https://github.com/ultralytics/yolov5">YOLOv5</a> model 🚀. Training custom models is a fundamental step in tailoring <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> solutions to specific real-world applications beyond generic <a href="https://docs.ultralytics.com/tasks/detect/">object detection</a>.</p>
 <h2 id="before-you-start">Before You Start</h2>
-<p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w"> </span><span class="c1"># clone</span>
+<p>First, ensure you have the necessary environment set up. Clone the YOLOv5 repository and install the required dependencies from <code>requirements.txt</code>. A <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment with <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a> is essential. Models and datasets are automatically downloaded from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a> if they are not found locally.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w"> </span><span class="c1"># Clone the repository</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># install</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># Install dependencies</span>
 </code></pre></div>
 <h2 id="train-on-custom-data">Train On Custom Data</h2>
 <p><a href="https://www.ultralytics.com/hub" target="_blank">
-<img alt="Ultralytics active learning" src="https://github.com/ultralytics/docs/releases/download/0/ultralytics-active-learning-loop.avif" width="100%"/></a>
+<img alt="Ultralytics active learning loop diagram showing data collection, labeling, training, deployment, and edge case collection" src="https://github.com/ultralytics/docs/releases/download/0/ultralytics-active-learning-loop.avif" width="100%"/></a>
 <br/>
 <br/></p>
-<p>Creating a custom model to detect your objects is an iterative process of collecting and organizing images, labeling your objects of interest, training a model, deploying it into the wild to make predictions, and then using that deployed model to collect examples of edge cases to repeat and improve.</p>
+<p>Developing a custom <a href="https://docs.ultralytics.com/tasks/detect/">object detection</a> model is an iterative process:</p>
+<ol>
+<li><strong>Collect &amp; Organize Images</strong>: Gather images relevant to your specific task. High-quality, diverse data is crucial. See our guide on <a href="https://docs.ultralytics.com/guides/data-collection-and-annotation/">Data Collection and Annotation</a>.</li>
+<li><strong>Label Objects</strong>: Annotate the objects of interest within your images accurately.</li>
+<li><strong>Train a Model</strong>: Use the labeled data to <a href="https://docs.ultralytics.com/modes/train/">train</a> your YOLOv5 model. Leverage <a href="https://www.ultralytics.com/glossary/transfer-learning">transfer learning</a> by starting with pretrained weights.</li>
+<li><strong>Deploy &amp; Predict</strong>: Utilize the trained model for <a href="https://docs.ultralytics.com/modes/predict/">inference</a> on new, unseen data.</li>
+<li><strong>Collect Edge Cases</strong>: Identify scenarios where the model performs poorly (<a href="https://en.wikipedia.org/wiki/Edge_case">edge cases</a>) and add similar data to your dataset to improve robustness. Repeat the cycle.</li>
+</ol>
+<p><a href="https://docs.ultralytics.com/hub/">Ultralytics HUB</a> offers a streamlined, no-code solution for this entire <a href="https://www.ultralytics.com/glossary/machine-learning-operations-mlops">machine learning operations (MLOps)</a> cycle, including dataset management, model training, and deployment.</p>
 <div class="admonition question">
 <p class="admonition-title">Licensing</p>
-<p>Ultralytics offers two licensing options:</p>
+<p>Ultralytics provides two licensing options to accommodate diverse usage scenarios:</p>
 <ul>
-<li>The <a href="https://github.com/ultralytics/ultralytics/blob/main/LICENSE">AGPL-3.0 License</a>, an <a href="https://opensource.org/license">OSI-approved</a> open-source license ideal for students and enthusiasts.</li>
-<li>The <a href="https://www.ultralytics.com/license">Enterprise License</a> for businesses seeking to incorporate our AI models into their products and services.</li>
+<li><strong>AGPL-3.0 License</strong>: This <a href="https://opensource.org/license/agpl-v3">OSI-approved</a> open-source license is ideal for students, researchers, and enthusiasts passionate about open collaboration and knowledge sharing. It requires derived works to be shared under the same license. See the <a href="https://github.com/ultralytics/ultralytics/blob/main/LICENSE">LICENSE</a> file for full details.</li>
+<li><strong>Enterprise License</strong>: Designed for commercial applications, this license permits the seamless integration of Ultralytics software and AI models into commercial products and services without the open-source stipulations of AGPL-3.0. If your project requires commercial deployment, request an <a href="https://www.ultralytics.com/license">Enterprise License</a>.</li>
 </ul>
-<p>For more details see <a href="https://www.ultralytics.com/license">Ultralytics Licensing</a>.</p>
+<p>Explore our licensing options further on the <a href="https://www.ultralytics.com/license">Ultralytics Licensing</a> page.</p>
 </div>
-<p>YOLOv5 models must be trained on labeled data in order to learn classes of objects in that data. There are two options for creating your dataset before you start training:</p>
-<h2 id="option-1-create-a-roboflow-dataset">Option 1: Create a <a href="https://roboflow.com/?ref=ultralytics">Roboflow</a> Dataset</h2>
-<h3 id="11-collect-images">1.1 Collect Images</h3>
-<p>Your model will learn by example. Training on images similar to the ones it will see in the wild is of the utmost importance. Ideally, you will collect a wide variety of images from the same configuration (camera, angle, lighting, etc.) as you will ultimately deploy your project.</p>
-<p>If this is not possible, you can start from <a href="https://universe.roboflow.com/?ref=ultralytics">a public dataset</a> to train your initial model and then <a href="https://blog.roboflow.com/what-is-active-learning/?ref=ultralytics">sample images from the wild during inference</a> to improve your dataset and model iteratively.</p>
+<p>Before initiating the training, dataset preparation is essential.</p>
+<h2 id="1-create-a-dataset">1. Create a Dataset</h2>
+<p>YOLOv5 models require labeled data to learn the visual characteristics of object classes. Organizing your dataset correctly is key.</p>
+<h3 id="11-create-datasetyaml">1.1 Create <code>dataset.yaml</code></h3>
+<p>The dataset configuration file (e.g., <code>coco128.yaml</code>) outlines the dataset's structure, class names, and paths to image directories. <a href="https://docs.ultralytics.com/datasets/detect/coco128/">COCO128</a> serves as a small example dataset, comprising the first 128 images from the extensive <a href="https://docs.ultralytics.com/datasets/detect/coco/">COCO</a> dataset. It's useful for quickly testing the training pipeline and diagnosing potential issues like <a href="https://www.ultralytics.com/glossary/overfitting">overfitting</a>.</p>
+<p>The <code>dataset.yaml</code> file structure includes:</p>
+<ul>
+<li><code>path</code>: The root directory containing the dataset.</li>
+<li><code>train</code>, <code>val</code>, <code>test</code>: Relative paths from <code>path</code> to directories containing images or text files listing image paths for training, validation, and testing sets.</li>
+<li><code>names</code>: A dictionary mapping class indices (starting from 0) to their corresponding class names.</li>
+</ul>
+<p>Below is the structure for <code>coco128.yaml</code> (<a href="https://github.com/ultralytics/yolov5/blob/master/data/coco128.yaml">view on GitHub</a>):</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Dataset root directory relative to the yolov5 directory</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco128</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Train/val/test sets: specify directories, *.txt files, or lists</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train2017</span><span class="w"> </span><span class="c1"># 128 images for training</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train2017</span><span class="w"> </span><span class="c1"># 128 images for validation</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># Optional path to test images</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Classes (example using 80 COCO classes)</span>
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="nt">names</span><span class="p">:</span>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="c1"># ... (remaining COCO classes)</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="nt">77</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teddy bear</span>
+<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a><span class="w">    </span><span class="nt">78</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hair drier</span>
+<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="w">    </span><span class="nt">79</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toothbrush</span>
+</code></pre></div>
 <h3 id="12-create-labels">1.2 Create Labels</h3>
-<p>Once you have collected images, you will need to annotate the objects of interest to create a ground truth for your model to learn from.</p>
-<p align="center"><a href="https://app.roboflow.com/?model=yolov5&amp;ref=ultralytics" title="Create a Free Roboflow Account"><img alt="YOLOv5 accuracies" src="https://github.com/ultralytics/docs/releases/download/0/roboflow-annotate.avif" width="450"/></a></p>
-<p><a href="https://roboflow.com/annotate?ref=ultralytics">Roboflow Annotate</a> is a simple web-based tool for managing and labeling your images with your team and exporting them in <a href="https://roboflow.com/formats/yolov5-pytorch-txt?ref=ultralytics">YOLOv5's annotation format</a>.</p>
-<h3 id="13-prepare-dataset-for-yolov5">1.3 Prepare Dataset for YOLOv5</h3>
-<p>Whether you <a href="https://roboflow.com/annotate?ref=ultralytics">label your images with Roboflow</a> or not, you can use it to convert your dataset into YOLO format, create a YOLOv5 YAML configuration file, and host it for importing into your training script.</p>
-<p><a href="https://app.roboflow.com/?model=yolov5&amp;ref=ultralytics">Create a free Roboflow account</a> and upload your dataset to a <code>Public</code> workspace, label any unannotated images, then generate and export a version of your dataset in <code>YOLOv5 Pytorch</code> format.</p>
-<p>Note: YOLOv5 does online augmentation during training, so we do not recommend applying any augmentation steps in Roboflow for training with YOLOv5. But we recommend applying the following preprocessing steps:</p>
-<p align="center"><img alt="Recommended Preprocessing Steps" src="https://github.com/ultralytics/docs/releases/download/0/roboflow-preprocessing-steps.avif" width="450"/></p>
+<p>Utilize an annotation tool such as <a href="https://github.com/cvat-ai/cvat">CVAT</a> or <a href="https://github.com/HumanSignal/labelImg">LabelImg</a> for the crucial task of <a href="https://www.ultralytics.com/glossary/data-labeling">data labeling</a>. Export your annotations in the <strong>YOLO format</strong>. This format mandates one <code>*.txt</code> file for each image. If an image contains no objects, no corresponding <code>*.txt</code> file is necessary.</p>
+<p>The <code>*.txt</code> file format specifications are precise:</p>
 <ul>
-<li><strong>Auto-Orient</strong> - to strip EXIF orientation from your images.</li>
-<li><strong>Resize (Stretch)</strong> - to the square input size of your model (640x640 is the YOLOv5 default).</li>
+<li>One row per object <a href="https://www.ultralytics.com/glossary/bounding-box">bounding box</a>.</li>
+<li>Each row must contain: <code>class_index x_center y_center width height</code>.</li>
+<li>Coordinates must be <strong>normalized</strong> to a range between 0 and 1. To achieve this, divide the pixel values of <code>x_center</code> and <code>width</code> by the image's total width, and divide <code>y_center</code> and <code>height</code> by the image's total height.</li>
+<li>Class indices are zero-indexed (i.e., the first class is represented by <code>0</code>, the second by <code>1</code>, and so forth).</li>
 </ul>
-<p>Generating a version will give you a snapshot of your dataset, so you can always go back and compare your future model training runs against it, even if you add more images or change its configuration later.</p>
-<p align="center"><img alt="Export in YOLOv5 Format" src="https://github.com/ultralytics/docs/releases/download/0/roboflow-export.avif" width="450"/></p>
-<p>Export in <code>YOLOv5 Pytorch</code> format, then copy the snippet into your training script or notebook to download your dataset.</p>
-<p align="center"><img alt="Roboflow dataset download snippet" src="https://github.com/ultralytics/docs/releases/download/0/roboflow-dataset-download-snippet.avif" width="450"/></p>
-<h2 id="option-2-create-a-manual-dataset">Option 2: Create a Manual Dataset</h2>
-<h3 id="21-create-datasetyaml">2.1 Create <code>dataset.yaml</code></h3>
-<p><a href="https://www.kaggle.com/datasets/ultralytics/coco128">COCO128</a> is an example small tutorial dataset composed of the first 128 images in <a href="https://cocodataset.org/">COCO</a> train2017. These same 128 images are used for both training and validation to verify our training pipeline is capable of <a href="https://www.ultralytics.com/glossary/overfitting">overfitting</a>. <a href="https://github.com/ultralytics/yolov5/blob/master/data/coco128.yaml">data/coco128.yaml</a>, shown below, is the dataset config file that defines 1) the dataset root directory <code>path</code> and relative paths to <code>train</code> / <code>val</code> / <code>test</code> image directories (or <code>*.txt</code> files with image paths) and 2) a class <code>names</code> dictionary:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco128</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train2017</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 128 images</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train2017</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 128 images</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Classes (80 COCO classes)</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="nt">names</span><span class="p">:</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="w">    </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="w">    </span><span class="c1"># ...</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="w">    </span><span class="nt">77</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teddy bear</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="w">    </span><span class="nt">78</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hair drier</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="w">    </span><span class="nt">79</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toothbrush</span>
+<p align="center"><img alt="Example image with two persons and a tie annotated" src="https://github.com/ultralytics/docs/releases/download/0/two-persons-tie.avif" width="750"/></p>
+<p>The label file corresponding to the image above, containing two 'person' objects (class index <code>0</code>) and one 'tie' object (class index <code>27</code>), would look like this:</p>
+<p align="center"><img alt="Example YOLO format label file content for the annotated image" src="https://github.com/ultralytics/docs/releases/download/0/two-persons-tie-1.avif" width="428"/></p>
+<h3 id="13-organize-directories">1.3 Organize Directories</h3>
+<p>Structure your <a href="https://docs.ultralytics.com/datasets/">datasets</a> directory as illustrated below. By default, YOLOv5 anticipates the dataset directory (e.g., <code>/coco128</code>) to reside within a <code>/datasets</code> folder located <strong>adjacent to</strong> the <code>/yolov5</code> repository directory.</p>
+<p>YOLOv5 automatically locates the labels for each image by substituting the last instance of <code>/images/</code> in the image path with <code>/labels/</code>. For example:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>../datasets/coco128/images/im0.jpg<span class="w"> </span><span class="c1"># Path to the image file</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>../datasets/coco128/labels/im0.txt<span class="w"> </span><span class="c1"># Path to the corresponding label file</span>
 </code></pre></div>
-<h3 id="22-create-labels">2.2 Create Labels</h3>
-<p>After using an annotation tool to label your images, export your labels to <strong>YOLO format</strong>, with one <code>*.txt</code> file per image (if no objects in image, no <code>*.txt</code> file is required). The <code>*.txt</code> file specifications are:</p>
+<p>The recommended directory structure is:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>/datasets/
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>└── coco128/  # Dataset root
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>    ├── images/
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>    │   ├── train2017/  # Training images
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>    │   │   ├── 000000000009.jpg
+<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>    │   │   └── ...
+<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    │   └── val2017/    # Validation images (optional if using same set for train/val)
+<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    │       └── ...
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>    └── labels/
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>        ├── train2017/  # Training labels
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>        │   ├── 000000000009.txt
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>        │   └── ...
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>        └── val2017/    # Validation labels (optional if using same set for train/val)
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>            └── ...
+</code></pre></div>
+<p align="center"><img alt="Diagram showing the recommended YOLOv5 dataset directory structure" src="https://github.com/ultralytics/docs/releases/download/0/yolov5-dataset-structure.avif" width="700"/></p>
+<h2 id="2-select-a-model">2. Select a Model</h2>
+<p>Choose a <a href="https://docs.ultralytics.com/models/">pretrained model</a> to initiate the training process. Starting with pretrained weights significantly accelerates learning and improves performance compared to training from scratch. YOLOv5 offers various model sizes, each balancing speed and accuracy differently. For example, <a href="https://github.com/ultralytics/yolov5/blob/master/models/yolov5s.yaml">YOLOv5s</a> is the second-smallest and fastest model, suitable for resource-constrained environments. Consult the <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">README table</a> for a detailed comparison of all available <a href="https://docs.ultralytics.com/models/">models</a>.</p>
+<p align="center"><img alt="Comparison chart of YOLOv5 models showing size, speed, and accuracy" src="https://github.com/ultralytics/docs/releases/download/0/yolov5-model-comparison.avif" width="800"/></p>
+<h2 id="3-train">3. Train</h2>
+<p>Begin the <a href="https://docs.ultralytics.com/modes/train/">model training</a> using the <code>train.py</code> script. Essential arguments include:</p>
 <ul>
-<li>One row per object</li>
-<li>Each row is <code>class x_center y_center width height</code> format.</li>
-<li>Box coordinates must be in <strong>normalized xywh</strong> format (from 0 to 1). If your boxes are in pixels, divide <code>x_center</code> and <code>width</code> by image width, and <code>y_center</code> and <code>height</code> by image height.</li>
-<li>Class numbers are zero-indexed (start from 0).</li>
+<li><code>--img</code>: Defines the input <a href="https://docs.ultralytics.com/usage/cfg/#image-size">image size</a> (e.g., <code>--img 640</code>). Larger sizes generally yield better accuracy but require more GPU memory.</li>
+<li><code>--batch</code>: Determines the <a href="https://www.ultralytics.com/glossary/batch-size">batch size</a> (e.g., <code>--batch 16</code>). Choose the largest size your GPU can handle.</li>
+<li><code>--epochs</code>: Specifies the total number of training <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> (e.g., <code>--epochs 100</code>). One epoch represents a full pass over the entire training dataset.</li>
+<li><code>--data</code>: Path to your <code>dataset.yaml</code> file (e.g., <code>--data coco128.yaml</code>).</li>
+<li><code>--weights</code>: Path to the initial weights file. Using pretrained weights (e.g., <code>--weights yolov5s.pt</code>) is highly recommended for faster convergence and superior results. To train from scratch (not advised unless you have a very large dataset and specific needs), use <code>--weights '' --cfg yolov5s.yaml</code>.</li>
 </ul>
-<p align="center"><img alt="Roboflow annotations" src="https://github.com/ultralytics/docs/releases/download/0/two-persons-tie.avif" width="750"/></p>
-<p>The label file corresponding to the above image contains 2 persons (class <code>0</code>) and a tie (class <code>27</code>):</p>
-<p align="center"><img alt="Roboflow dataset preprocessing" src="https://github.com/ultralytics/docs/releases/download/0/two-persons-tie-1.avif" width="428"/></p>
-<h3 id="23-organize-directories">2.3 Organize Directories</h3>
-<p>Organize your train and val images and labels according to the example below. YOLOv5 assumes <code>/coco128</code> is inside a <code>/datasets</code> directory <strong>next to</strong> the <code>/yolov5</code> directory. <strong>YOLOv5 locates labels automatically for each image</strong> by replacing the last instance of <code>/images/</code> in each image path with <code>/labels/</code>. For example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>../datasets/coco128/images/im0.jpg<span class="w"> </span><span class="c1"># image</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>../datasets/coco128/labels/im0.txt<span class="w"> </span><span class="c1"># label</span>
-</code></pre></div>
-<p align="center"><img alt="YOLOv5 dataset structure" src="https://github.com/ultralytics/docs/releases/download/0/yolov5-dataset-structure.avif" width="700"/></p>
-<h2 id="3-select-a-model">3. Select a Model</h2>
-<p>Select a pretrained model to start training from. Here we select <a href="https://github.com/ultralytics/yolov5/blob/master/models/yolov5s.yaml">YOLOv5s</a>, the second-smallest and fastest model available. See our README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a> for a full comparison of all models.</p>
-<p align="center"><img alt="YOLOv5 models" src="https://github.com/ultralytics/docs/releases/download/0/yolov5-model-comparison.avif" width="800"/></p>
-<h2 id="4-train">4. Train</h2>
-<p>Train a YOLOv5s model on COCO128 by specifying dataset, batch-size, image size and either pretrained <code>--weights yolov5s.pt</code> (recommended), or randomly initialized <code>--weights '' --cfg yolov5s.yaml</code> (not recommended). Pretrained weights are auto-downloaded from the <a href="https://github.com/ultralytics/yolov5/releases">latest YOLOv5 release</a>.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
+<p>Pretrained weights are automatically downloaded from the <a href="https://github.com/ultralytics/yolov5/releases">latest YOLOv5 release</a> if not found locally.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Example: Train YOLOv5s on the COCO128 dataset for 3 epochs</span>
+<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
 </code></pre></div>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>💡 Add <code>--cache ram</code> or <code>--cache disk</code> to speed up training (requires significant RAM/disk resources).</p>
+<p class="admonition-title">Optimize Training Speed</p>
+<p>💡 Employ <code>--cache ram</code> or <code>--cache disk</code> to cache dataset images in <a href="https://en.wikipedia.org/wiki/Random-access_memory">RAM</a> or local disk, respectively. This dramatically accelerates training, particularly when dataset I/O (Input/Output) operations are a bottleneck. Note that this requires substantial RAM or disk space.</p>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>💡 Always train from a local dataset. Mounted or network drives like Google Drive will be very slow.</p>
+<p class="admonition-title">Local Data Storage</p>
+<p>💡 Always train using datasets stored locally. Accessing data from network drives (like Google Drive) or remote storage can be significantly slower and impede training performance. Copying your dataset to a local SSD is often the best practice.</p>
 </div>
-<p>All training results are saved to <code>runs/train/</code> with incrementing run directories, i.e. <code>runs/train/exp2</code>, <code>runs/train/exp3</code> etc. For more details see the Training section of our tutorial notebook. <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/models/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></p>
-<h2 id="5-visualize">5. Visualize</h2>
+<p>All training outputs, including weights and logs, are saved in the <code>runs/train/</code> directory. Each training session creates a new subdirectory (e.g., <code>runs/train/exp</code>, <code>runs/train/exp2</code>, etc.). For an interactive, hands-on experience, explore the training section in our official tutorial notebooks: <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/models/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></p>
+<h2 id="4-visualize">4. Visualize</h2>
+<p>YOLOv5 seamlessly integrates with various tools for visualizing training progress, evaluating results, and monitoring performance in real-time.</p>
 <h3 id="comet-logging-and-visualization-new">Comet Logging and Visualization 🌟 NEW</h3>
-<p><a href="https://bit.ly/yolov5-readme-comet">Comet</a> is now fully integrated with YOLOv5. Track and visualize model metrics in real time, save your hyperparameters, datasets, and model checkpoints, and visualize your model predictions with <a href="https://bit.ly/yolov5-colab-comet-panels">Comet Custom Panels</a>! Comet makes sure you never lose track of your work and makes it easy to share results and collaborate across teams of all sizes!</p>
-<p>Getting started is easy:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>comet_ml<span class="w">                                                          </span><span class="c1"># 1. install</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_API_KEY</span><span class="o">=</span>YOUR_API_KEY<span class="w">                                             </span><span class="c1"># 2. paste API key</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="c1"># 3. train</span>
+<p><a href="https://docs.ultralytics.com/integrations/comet/">Comet</a> is fully integrated for comprehensive experiment tracking. Visualize metrics live, save hyperparameters, manage datasets and model checkpoints, and analyze model predictions using interactive <a href="https://bit.ly/yolov5-colab-comet-panels">Comet Custom Panels</a>.</p>
+<p>Getting started is straightforward:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>comet_ml<span class="w">                                                          </span><span class="c1"># 1. Install Comet library</span>
+<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_API_KEY</span><span class="o">=</span>&lt;Your<span class="w"> </span>API<span class="w"> </span>Key&gt;<span class="w">                                           </span><span class="c1"># 2. Set your Comet API key (create a free account at Comet.ml)</span>
+<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="c1"># 3. Train your model - Comet automatically logs everything!</span>
 </code></pre></div>
-<p>To learn more about all the supported Comet features for this integration, check out the <a href="../comet_logging_integration/">Comet Tutorial</a>. If you'd like to learn more about Comet, head over to our <a href="https://bit.ly/yolov5-colab-comet-docs">documentation</a>. Get started by trying out the Comet Colab Notebook: <a href="https://colab.research.google.com/drive/1RG0WOQyxlDlo5Km8GogJpIEJlg_5lyYO?usp=sharing"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
-<p><img alt="YOLO UI" src="https://github.com/ultralytics/docs/releases/download/0/yolo-ui.avif" width="1920"/></p>
+<p>Dive deeper into the supported features in our <a href="https://docs.ultralytics.com/integrations/comet/">Comet Integration Guide</a>. Learn more about Comet's capabilities from their official <a href="https://bit.ly/yolov5-colab-comet-docs">documentation</a>. Try the Comet Colab Notebook for a live demo: <a href="https://colab.research.google.com/drive/1RG0WOQyxlDlo5Km8GogJpIEJlg_5lyYO?usp=sharing"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
+<p><img alt="Comet UI showing YOLOv5 training metrics and visualizations" src="https://github.com/ultralytics/docs/releases/download/0/yolo-ui.avif" width="1920"/></p>
 <h3 id="clearml-logging-and-automation-new">ClearML Logging and Automation 🌟 NEW</h3>
-<p><a href="https://clear.ml/">ClearML</a> is completely integrated into YOLOv5 to track your experimentation, manage dataset versions and even remotely execute training runs. To enable ClearML:</p>
+<p><a href="https://docs.ultralytics.com/integrations/clearml/">ClearML</a> integration enables detailed experiment tracking, dataset version management, and even remote execution of training runs. Activate ClearML with these simple steps:</p>
 <ul>
-<li><code>pip install clearml</code></li>
-<li>run <code>clearml-init</code> to connect to a ClearML server</li>
+<li>Install the package: <code>pip install clearml</code></li>
+<li>Initialize ClearML: Run <code>clearml-init</code> once to connect to your ClearML server (either self-hosted or the <a href="https://clear.ml/">free tier</a>).</li>
 </ul>
-<p>You'll get all the great expected features from an experiment manager: live updates, model upload, experiment comparison etc. but ClearML also tracks uncommitted changes and installed packages for example. Thanks to that ClearML Tasks (which is what we call experiments) are also reproducible on different machines! With only 1 extra line, we can schedule a YOLOv5 training task on a queue to be executed by any number of ClearML Agents (workers).</p>
-<p>You can use ClearML Data to version your dataset and then pass it to YOLOv5 simply using its unique ID. This will help you keep track of your data without adding extra hassle. Explore the <a href="../clearml_logging_integration/">ClearML Tutorial</a> for details!</p>
+<p>ClearML automatically captures experiment details, model uploads, comparisons, uncommitted code changes, and installed packages, ensuring full reproducibility. You can easily schedule training tasks on remote agents and manage dataset versions using ClearML Data. Explore the <a href="https://docs.ultralytics.com/integrations/clearml/">ClearML Integration Guide</a> for comprehensive details.</p>
 <p><a href="https://clear.ml/">
-<img alt="ClearML Experiment Management UI" src="https://github.com/ultralytics/docs/releases/download/0/clearml-experiment-management-ui.avif" width="1280"/></a></p>
+<img alt="ClearML Experiment Management UI showing charts and logs for a YOLOv5 training run" src="https://github.com/ultralytics/docs/releases/download/0/clearml-experiment-management-ui.avif" width="1280"/></a></p>
 <h3 id="local-logging">Local Logging</h3>
-<p>Training results are automatically logged with <a href="https://www.tensorflow.org/tensorboard">Tensorboard</a> and <a href="https://github.com/ultralytics/yolov5/pull/4148">CSV</a> loggers to <code>runs/train</code>, with a new experiment directory created for each new training as <code>runs/train/exp2</code>, <code>runs/train/exp3</code>, etc.</p>
-<p>This directory contains train and val statistics, mosaics, labels, predictions and augmented mosaics, as well as metrics and charts including <a href="https://www.ultralytics.com/glossary/precision">precision</a>-<a href="https://www.ultralytics.com/glossary/recall">recall</a> (PR) curves and confusion matrices.</p>
-<p><img alt="Local logging results" src="https://github.com/ultralytics/docs/releases/download/0/local-logging-results.avif" width="1280"/></p>
-<p>Results file <code>results.csv</code> is updated after each <a href="https://www.ultralytics.com/glossary/epoch">epoch</a>, and then plotted as <code>results.png</code> (below) after training completes. You can also plot any <code>results.csv</code> file manually:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_results</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">plot_results</span><span class="p">(</span><span class="s2">"path/to/results.csv"</span><span class="p">)</span>  <span class="c1"># plot 'results.csv' as 'results.png'</span>
-</code></pre></div>
-<p align="center"><img alt="results.png" src="https://github.com/ultralytics/docs/releases/download/0/results.avif" width="800"/></p>
-<h2 id="next-steps">Next Steps</h2>
-<p>Once your model is trained you can use your best checkpoint <code>best.pt</code> to:</p>
+<p>Training results are automatically logged using <a href="https://docs.ultralytics.com/integrations/tensorboard/">TensorBoard</a> and saved as <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> files within the specific experiment directory (e.g., <code>runs/train/exp</code>). Logged data includes:</p>
 <ul>
-<li>Run <a href="https://github.com/ultralytics/yolov5#quick-start-examples">CLI</a> or <a href="../pytorch_hub_model_loading/">Python</a> inference on new images and videos</li>
-<li><a href="https://github.com/ultralytics/yolov5/blob/master/val.py">Validate</a> <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> on train, val and test splits</li>
-<li><a href="../model_export/">Export</a> to <a href="https://www.ultralytics.com/glossary/tensorflow">TensorFlow</a>, Keras, ONNX, TFlite, TF.js, CoreML and TensorRT formats</li>
-<li><a href="../hyperparameter_evolution/">Evolve</a> hyperparameters to improve performance</li>
-<li><a href="https://docs.roboflow.com/adding-data/upload-api?ref=ultralytics">Improve</a> your model by sampling real-world images and adding them to your dataset</li>
+<li>Training and validation loss and performance metrics.</li>
+<li>Sample images showing applied augmentations (like mosaics).</li>
+<li>Ground truth labels alongside model predictions for visual inspection.</li>
+<li>Key evaluation metrics such as <a href="https://www.ultralytics.com/glossary/precision">Precision</a>-<a href="https://www.ultralytics.com/glossary/recall">Recall</a> (PR) curves.</li>
+<li><a href="https://www.ultralytics.com/glossary/confusion-matrix">Confusion matrices</a> for detailed class-wise performance analysis.</li>
+</ul>
+<p><img alt="Example of local logging results including charts and image mosaics from YOLOv5 training" src="https://github.com/ultralytics/docs/releases/download/0/local-logging-results.avif" width="1280"/></p>
+<p>The <code>results.csv</code> file is updated after every epoch and is plotted as <code>results.png</code> once training concludes. You can also plot any <code>results.csv</code> file manually using the provided utility function:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">utils.plots</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_results</span>
+<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
+<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Plot results from a specific training run directory</span>
+<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">plot_results</span><span class="p">(</span><span class="s2">"runs/train/exp/results.csv"</span><span class="p">)</span>  <span class="c1"># This will generate 'results.png' in the same directory</span>
+</code></pre></div>
+<p align="center"><img alt="Example results.png plot showing training metrics like mAP, precision, recall, and loss over epochs" src="https://github.com/ultralytics/docs/releases/download/0/results.avif" width="800"/></p>
+<h2 id="5-next-steps">5. Next Steps</h2>
+<p>Upon successful completion of training, the best performing model checkpoint (<code>best.pt</code>) is saved and ready for deployment or further refinement. Potential next steps include:</p>
+<ul>
+<li>Run <a href="https://docs.ultralytics.com/modes/predict/">inference</a> on new images or videos using the trained model via the <a href="https://github.com/ultralytics/yolov5#quick-start-examples">CLI</a> or <a href="../pytorch_hub_model_loading/">Python</a>.</li>
+<li>Perform <a href="https://docs.ultralytics.com/modes/val/">validation</a> to evaluate the model's <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> and generalization capabilities on different data splits (e.g., a held-out test set).</li>
+<li><a href="https://docs.ultralytics.com/modes/export/">Export</a> the model to various deployment formats like <a href="https://docs.ultralytics.com/integrations/onnx/">ONNX</a>, <a href="https://docs.ultralytics.com/integrations/tf-savedmodel/">TensorFlow SavedModel</a>, or <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT</a> for optimized inference on diverse platforms.</li>
+<li>Employ <a href="https://docs.ultralytics.com/guides/hyperparameter-tuning/">hyperparameter tuning</a> techniques to potentially squeeze out additional performance gains.</li>
+<li>Continue improving your model by following our <a href="https://docs.ultralytics.com/guides/model-training-tips/">Tips for Best Training Results</a> and iteratively adding more diverse and challenging data based on performance analysis.</li>
 </ul>
 <h2 id="supported-environments">Supported Environments</h2>
-<p>Ultralytics provides a range of ready-to-use environments, each pre-installed with essential dependencies such as <a href="https://developer.nvidia.com/cuda-zone">CUDA</a>, <a href="https://developer.nvidia.com/cudnn">CUDNN</a>, <a href="https://www.python.org/">Python</a>, and <a href="https://pytorch.org/">PyTorch</a>, to kickstart your projects.</p>
+<p>Ultralytics provides ready-to-use environments equipped with essential dependencies like <a href="https://developer.nvidia.com/cuda-zone">CUDA</a>, <a href="https://developer.nvidia.com/cudnn">cuDNN</a>, <a href="https://www.python.org/">Python</a>, and <a href="https://pytorch.org/">PyTorch</a>, facilitating a smooth start.</p>
 <ul>
-<li><strong>Free GPU Notebooks</strong>: <a href="https://bit.ly/yolov5-paperspace-notebook"><img alt="Run on Gradient" src="https://assets.paperspace.io/img/gradient-badge.svg"/></a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/models/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></li>
-<li><strong>Google Cloud</strong>: <a href="../../environments/google_cloud_quickstart_tutorial/">GCP Quickstart Guide</a></li>
-<li><strong>Amazon</strong>: <a href="../../environments/aws_quickstart_tutorial/">AWS Quickstart Guide</a></li>
-<li><strong>Azure</strong>: <a href="../../environments/azureml_quickstart_tutorial/">AzureML Quickstart Guide</a></li>
-<li><strong>Docker</strong>: <a href="../../environments/docker_image_quickstart_tutorial/">Docker Quickstart Guide</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a></li>
+<li><strong>Free GPU Notebooks</strong>:<ul>
+<li><a href="https://bit.ly/yolov5-paperspace-notebook"><img alt="Run on Gradient" src="https://assets.paperspace.io/img/gradient-badge.svg"/></a></li>
+<li><a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></li>
+<li><a href="https://www.kaggle.com/models/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a></li>
+</ul>
+</li>
+<li><strong>Cloud Platforms</strong>:<ul>
+<li><strong>Google Cloud</strong>: <a href="https://docs.ultralytics.com/integrations/google-colab/">GCP Quickstart Guide</a></li>
+<li><strong>Amazon AWS</strong>: <a href="https://docs.ultralytics.com/integrations/amazon-sagemaker/">AWS Quickstart Guide</a></li>
+<li><strong>Microsoft Azure</strong>: <a href="https://docs.ultralytics.com/guides/azureml-quickstart/">AzureML Quickstart Guide</a></li>
+</ul>
+</li>
+<li><strong>Local Setup</strong>:<ul>
+<li><strong>Docker</strong>: <a href="https://docs.ultralytics.com/guides/docker-quickstart/">Docker Quickstart Guide</a> <a href="https://hub.docker.com/r/ultralytics/yolov5"><img alt="Docker Pulls" src="https://img.shields.io/docker/pulls/ultralytics/yolov5?logo=docker"/></a></li>
+</ul>
+</li>
 </ul>
 <h2 id="project-status">Project Status</h2>
-<p><a href="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml"><img alt="YOLOv5 CI" src="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml/badge.svg"/></a></p>
-<p>This badge indicates that all <a href="https://github.com/ultralytics/yolov5/actions">YOLOv5 GitHub Actions</a> Continuous Integration (CI) tests are successfully passing. These CI tests rigorously check the functionality and performance of YOLOv5 across various key aspects: <a href="https://github.com/ultralytics/yolov5/blob/master/train.py">training</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/val.py">validation</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/detect.py">inference</a>, <a href="https://github.com/ultralytics/yolov5/blob/master/export.py">export</a>, and <a href="https://github.com/ultralytics/yolov5/blob/master/benchmarks.py">benchmarks</a>. They ensure consistent and reliable operation on macOS, Windows, and Ubuntu, with tests conducted every 24 hours and upon each new commit.</p>
+<p><a href="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml"><img alt="YOLOv5 Continuous Integration Status Badge" src="https://github.com/ultralytics/yolov5/actions/workflows/ci-testing.yml/badge.svg"/></a></p>
+<p>This badge indicates that all YOLOv5 <a href="https://github.com/ultralytics/yolov5/actions">GitHub Actions</a> <a href="https://www.ultralytics.com/glossary/continuous-integration-ci">Continuous Integration (CI)</a> tests are passing successfully. These rigorous CI tests cover the core functionalities, including <a href="https://docs.ultralytics.com/modes/train/">training</a>, <a href="https://docs.ultralytics.com/modes/val/">validation</a>, <a href="https://docs.ultralytics.com/modes/predict/">inference</a>, <a href="https://docs.ultralytics.com/modes/export/">export</a>, and <a href="https://docs.ultralytics.com/modes/benchmark/">benchmarks</a>, across macOS, Windows, and Ubuntu operating systems. Tests are executed automatically every 24 hours and upon each code commit, ensuring consistent stability and optimal performance.</p>
 <h2 id="faq">FAQ</h2>
+<h2 id="frequently-asked-questions">Frequently Asked Questions</h2>
 <h3 id="how-do-i-train-yolov5-on-my-custom-dataset">How do I train YOLOv5 on my custom dataset?</h3>
-<p>Training YOLOv5 on a custom dataset involves several steps:</p>
+<p>Training YOLOv5 on a custom dataset involves several key steps:</p>
 <ol>
-<li><strong>Prepare Your Dataset</strong>: Collect and label images. Use tools like <a href="https://roboflow.com/?ref=ultralytics">Roboflow</a> to organize data and export in <a href="https://roboflow.com/formats/yolov5-pytorch-txt?ref=ultralytics">YOLOv5 format</a>.</li>
-<li><strong>Setup Environment</strong>: Clone the YOLOv5 repo and install dependencies:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<li><strong>Prepare Your Dataset</strong>: Collect images and annotate them using a suitable tool. Export annotations in the required <a href="https://docs.ultralytics.com/datasets/detect/">YOLO format</a>. Organize images and labels into <code>train/</code> and <code>val/</code> (and optionally <code>test/</code>) directories.</li>
+<li><strong>Set Up Your Environment</strong>: Clone the YOLOv5 repository and install dependencies using <code>pip install -r requirements.txt</code>.
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div></li>
-<li><strong>Create Dataset Configuration</strong>: Write a <code>dataset.yaml</code> file defining train/val paths and class names.</li>
-<li><strong>Train the Model</strong>:
-    <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>dataset.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
+<li><strong>Create Dataset Configuration</strong>: Define dataset paths, number of classes, and class names in a <code>dataset.yaml</code> file.</li>
+<li><strong>Start Training</strong>: Execute the <code>train.py</code> script, providing paths to your <code>dataset.yaml</code>, desired pretrained weights (e.g., <code>yolov5s.pt</code>), image size, batch size, and the number of epochs.
+    <div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">100</span><span class="w"> </span>--data<span class="w"> </span>path/to/your/dataset.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
 </code></pre></div></li>
 </ol>
-<h3 id="what-tools-can-i-use-to-annotate-my-yolov5-dataset">What tools can I use to annotate my YOLOv5 dataset?</h3>
-<p>You can use <a href="https://roboflow.com/annotate?ref=ultralytics">Roboflow Annotate</a>, an intuitive web-based tool for labeling images. It supports team collaboration and exports in YOLOv5 format. After collecting images, use Roboflow to create and manage annotations efficiently. Other options include tools like LabelImg and CVAT for local annotations.</p>
 <h3 id="why-should-i-use-ultralytics-hub-for-training-my-yolo-models">Why should I use Ultralytics HUB for training my YOLO models?</h3>
-<p><a href="https://www.ultralytics.com/hub">Ultralytics HUB</a> offers an end-to-end platform for training, deploying, and managing YOLO models without needing extensive coding skills. Benefits include:</p>
+<p><a href="https://docs.ultralytics.com/hub/">Ultralytics HUB</a> is a comprehensive platform designed to streamline the entire YOLO model development lifecycle, often without needing to write any code. Key benefits include:</p>
 <ul>
-<li><strong>Easy Model Training</strong>: Simplifies the training process with preconfigured environments.</li>
-<li><strong>Data Management</strong>: Effortlessly manage datasets and version control.</li>
-<li><strong>Real-time Monitoring</strong>: Integrates tools like <a href="https://bit.ly/yolov5-readme-comet">Comet</a> for real-time metrics tracking and visualization.</li>
-<li><strong>Collaboration</strong>: Ideal for team projects with shared resources and easy management.</li>
+<li><strong>Simplified Training</strong>: Easily train models using pre-configured environments and an intuitive user interface.</li>
+<li><strong>Integrated Data Management</strong>: Upload, version control, and manage your datasets efficiently within the platform.</li>
+<li><strong>Real-time Monitoring</strong>: Track training progress and visualize performance metrics using integrated tools like <a href="https://docs.ultralytics.com/integrations/comet/">Comet</a> or TensorBoard.</li>
+<li><strong>Collaboration Features</strong>: Facilitates teamwork through shared resources, project management tools, and easy model sharing.</li>
+<li><strong>No-Code Deployment</strong>: Deploy trained models directly to various targets.</li>
 </ul>
-<p>For a detailed walkthrough, check out <a href="https://www.ultralytics.com/blog/how-to-train-your-custom-models-with-ultralytics-hub">How to train your custom models with Ultralytics HUB</a>.</p>
-<h3 id="how-do-i-convert-my-annotated-data-to-yolov5-format">How do I convert my annotated data to YOLOv5 format?</h3>
-<p>To convert annotated data to YOLOv5 format using Roboflow:</p>
-<ol>
-<li><strong>Upload Your Dataset</strong> to a Roboflow workspace.</li>
-<li><strong>Label Images</strong> if not already labeled.</li>
-<li><strong>Generate and Export</strong> the dataset in <code>YOLOv5 Pytorch</code> format. Ensure preprocessing steps like Auto-Orient and Resize (Stretch) to the square input size (e.g., 640x640) are applied.</li>
-<li><strong>Download the Dataset</strong> and integrate it into your YOLOv5 training script.</li>
-</ol>
+<p>For a practical walkthrough, check out our blog post: <a href="https://www.ultralytics.com/blog/how-to-train-your-custom-models-with-ultralytics-hub">How to Train Your Custom Models with Ultralytics HUB</a>.</p>
+<h3 id="how-do-i-convert-my-annotated-data-to-the-yolov5-format">How do I convert my annotated data to the YOLOv5 format?</h3>
+<p>After annotating images using tools like CVAT or LabelImg, you must export the labels into the specific <strong>YOLO format</strong> required by YOLOv5:</p>
+<ul>
+<li>Create one <code>.txt</code> file for each image. The filename should match the image filename (e.g., <code>image1.jpg</code> corresponds to <code>image1.txt</code>). Place these files in a <code>labels/</code> directory parallel to your <code>images/</code> directory (e.g., <code>../datasets/mydataset/labels/train/</code>).</li>
+<li>Each line within a <code>.txt</code> file represents one object annotation and follows the format: <code>class_index center_x center_y width height</code>.</li>
+<li>Coordinates (<code>center_x</code>, <code>center_y</code>, <code>width</code>, <code>height</code>) must be <strong>normalized</strong> (values between 0.0 and 1.0) relative to the image's dimensions.</li>
+<li>Class indices are <strong>zero-based</strong> (the first class is <code>0</code>, the second is <code>1</code>, etc.).</li>
+</ul>
+<p>Many annotation tools offer direct export to YOLO format. If yours doesn't, you may need a conversion script. Ensure your final dataset structure adheres to the example provided in the guide. For more details, see our <a href="https://docs.ultralytics.com/guides/data-collection-and-annotation/">Data Collection and Annotation Guide</a>.</p>
 <h3 id="what-are-the-licensing-options-for-using-yolov5-in-commercial-applications">What are the licensing options for using YOLOv5 in commercial applications?</h3>
-<p>Ultralytics offers two licensing options:</p>
+<p>Ultralytics provides flexible licensing tailored to different needs:</p>
 <ul>
-<li><strong>AGPL-3.0 License</strong>: An open-source license suitable for non-commercial use, ideal for students and enthusiasts.</li>
-<li><strong>Enterprise License</strong>: Tailored for businesses seeking to integrate YOLOv5 into commercial products and services. For detailed information, visit our <a href="https://www.ultralytics.com/license">Licensing page</a>.</li>
+<li><strong>AGPL-3.0 License</strong>: This open-source license is suitable for academic research, personal projects, and situations where open-source compliance is acceptable. It mandates that modifications and derivative works also be open-sourced under AGPL-3.0. Review the <a href="https://www.ultralytics.com/legal/agpl-3-0-software-license">AGPL-3.0 License details</a>.</li>
+<li><strong>Enterprise License</strong>: A commercial license designed for businesses integrating YOLOv5 into proprietary products or services. This license removes the open-source obligations of AGPL-3.0, allowing for closed-source distribution. Visit our <a href="https://www.ultralytics.com/license">Licensing page</a> for further details or to request an <a href="https://www.ultralytics.com/legal/enterprise-software-license">Enterprise License</a>.</li>
 </ul>
-<p>For more details, refer to our guide on <a href="https://www.ultralytics.com/license">Ultralytics Licensing</a>.</p>
+<p>Select the license that aligns best with your project's requirements and distribution model.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on March 20, 2025">
-<span class="hover-item">✏️</span> Updated 8 days ago
+<span class="date-item" title="This page was last updated on March 29, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (21 changes)">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (22 changes)">
 <img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
