@@ -9,7 +9,7 @@
 <link href="../instance/" rel="prev"/>
 <link href="../metrics/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.9" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.10" name="generator"/>
 <title>Reference for ultralytics/utils/loss.py - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.4af4bdda.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -600,6 +600,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../nn/text_model/">
+<span class="md-ellipsis">
+    text_model
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -618,34 +625,6 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/solutions/">
-<span class="md-ellipsis">
-    solutions
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/object_counter/">
-<span class="md-ellipsis">
-    object_counter
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/object_cropper/">
-<span class="md-ellipsis">
-    object_cropper
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/object_blurrer/">
-<span class="md-ellipsis">
-    object_blurrer
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../solutions/ai_gym/">
 <span class="md-ellipsis">
     ai_gym
@@ -653,16 +632,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/region_counter/">
+<a class="md-nav__link" href="../../solutions/analytics/">
 <span class="md-ellipsis">
-    region_counter
+    analytics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/security_alarm/">
+<a class="md-nav__link" href="../../solutions/distance_calculation/">
 <span class="md-ellipsis">
-    security_alarm
+    distance_calculation
   </span>
 </a>
 </li>
@@ -681,30 +660,23 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/vision_eye/">
+<a class="md-nav__link" href="../../solutions/object_blurrer/">
 <span class="md-ellipsis">
-    visioneye_mapping
+    object_blurrer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/speed_estimation/">
+<a class="md-nav__link" href="../../solutions/object_counter/">
 <span class="md-ellipsis">
-    speed_estimation
+    object_counter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/distance_calculation/">
+<a class="md-nav__link" href="../../solutions/object_cropper/">
 <span class="md-ellipsis">
-    distance_calculation
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/queue_management/">
-<span class="md-ellipsis">
-    queue_management
+    object_cropper
   </span>
 </a>
 </li>
@@ -716,9 +688,37 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/analytics/">
+<a class="md-nav__link" href="../../solutions/queue_management/">
 <span class="md-ellipsis">
-    analytics
+    queue_management
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/region_counter/">
+<span class="md-ellipsis">
+    region_counter
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/security_alarm/">
+<span class="md-ellipsis">
+    security_alarm
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/solutions/">
+<span class="md-ellipsis">
+    solutions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/speed_estimation/">
+<span class="md-ellipsis">
+    speed_estimation
   </span>
 </a>
 </li>
@@ -733,6 +733,13 @@
 <a class="md-nav__link" href="../../solutions/trackzone/">
 <span class="md-ellipsis">
     trackzone
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/vision_eye/">
+<span class="md-ellipsis">
+    vision_eye
   </span>
 </a>
 </li>
@@ -1168,6 +1175,42 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.TVPDetectLoss">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> TVPDetectLoss
+    </span>
+</a>
+<nav aria-label=" TVPDetectLoss" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.TVPDetectLoss.__call__">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.TVPSegmentLoss">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> TVPSegmentLoss
+    </span>
+</a>
+<nav aria-label=" TVPSegmentLoss" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.TVPSegmentLoss.__call__">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </li>
@@ -1527,6 +1570,42 @@
 </ul>
 </nav>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.TVPDetectLoss">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> TVPDetectLoss
+    </span>
+</a>
+<nav aria-label=" TVPDetectLoss" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.TVPDetectLoss.__call__">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.TVPSegmentLoss">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> TVPSegmentLoss
+    </span>
+</a>
+<nav aria-label=" TVPSegmentLoss" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.loss.TVPSegmentLoss.__call__">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __call__
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
 </ul>
 </nav>
 </div>
@@ -1574,7 +1653,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span><span class="n">pred_score</span><span class="p">,</span> <span class="n">gt_score</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Compute varfocal loss between predictions and ground truth.</p>
+<p>Compute varifocal loss between predictions and ground truth.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-27">27</a></span>
@@ -1589,7 +1668,7 @@
 <span class="normal"><a href="#__codelineno-0-36">36</a></span>
 <span class="normal"><a href="#__codelineno-0-37">37</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="nd">@staticmethod</span>
 <a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="n">pred_score</span><span class="p">,</span> <span class="n">gt_score</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">):</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="sd">"""Compute varfocal loss between predictions and ground truth."""</span>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">    </span><span class="sd">"""Compute varifocal loss between predictions and ground truth."""</span>
 <a id="__codelineno-0-30" name="__codelineno-0-30"></a>    <span class="n">weight</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">pred_score</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">label</span><span class="p">)</span> <span class="o">+</span> <span class="n">gt_score</span> <span class="o">*</span> <span class="n">label</span>
 <a id="__codelineno-0-31" name="__codelineno-0-31"></a>    <span class="k">with</span> <span class="n">autocast</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <a id="__codelineno-0-32" name="__codelineno-0-32"></a>        <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span>
@@ -2106,7 +2185,7 @@
 <a id="__codelineno-0-252" name="__codelineno-0-252"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls gain</span>
 <a id="__codelineno-0-253" name="__codelineno-0-253"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">dfl</span>  <span class="c1"># dfl gain</span>
 <a id="__codelineno-0-254" name="__codelineno-0-254"></a>
-<a id="__codelineno-0-255" name="__codelineno-0-255"></a>    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a>    <span class="k">return</span> <span class="n">loss</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2303,7 +2382,7 @@
 <span class="normal"><a href="#__codelineno-0-346">346</a></span>
 <span class="normal"><a href="#__codelineno-0-347">347</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-266" name="__codelineno-0-266"></a><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <a id="__codelineno-0-267" name="__codelineno-0-267"></a><span class="w">    </span><span class="sd">"""Calculate and return the combined loss for detection and segmentation."""</span>
-<a id="__codelineno-0-268" name="__codelineno-0-268"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># box, cls, dfl</span>
+<a id="__codelineno-0-268" name="__codelineno-0-268"></a>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># box, seg, cls, dfl</span>
 <a id="__codelineno-0-269" name="__codelineno-0-269"></a>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_masks</span><span class="p">,</span> <span class="n">proto</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <a id="__codelineno-0-270" name="__codelineno-0-270"></a>    <span class="n">batch_size</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">mask_h</span><span class="p">,</span> <span class="n">mask_w</span> <span class="o">=</span> <span class="n">proto</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch size, number of masks, mask height, mask width</span>
 <a id="__codelineno-0-271" name="__codelineno-0-271"></a>    <span class="n">pred_distri</span><span class="p">,</span> <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">xi</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">feats</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">no</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">xi</span> <span class="ow">in</span> <span class="n">feats</span><span class="p">],</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span>
@@ -2382,7 +2461,7 @@
 <a id="__codelineno-0-344" name="__codelineno-0-344"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls gain</span>
 <a id="__codelineno-0-345" name="__codelineno-0-345"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">dfl</span>  <span class="c1"># dfl gain</span>
 <a id="__codelineno-0-346" name="__codelineno-0-346"></a>
-<a id="__codelineno-0-347" name="__codelineno-0-347"></a>    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
+<a id="__codelineno-0-347" name="__codelineno-0-347"></a>    <span class="k">return</span> <span class="n">loss</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3082,7 +3161,7 @@ predicted masks from the prototype masks and predicted mask coefficients.</p>
 <a id="__codelineno-0-515" name="__codelineno-0-515"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls gain</span>
 <a id="__codelineno-0-516" name="__codelineno-0-516"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">dfl</span>  <span class="c1"># dfl gain</span>
 <a id="__codelineno-0-517" name="__codelineno-0-517"></a>
-<a id="__codelineno-0-518" name="__codelineno-0-518"></a>    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
+<a id="__codelineno-0-518" name="__codelineno-0-518"></a>    <span class="k">return</span> <span class="n">loss</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3641,7 +3720,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <a id="__codelineno-0-700" name="__codelineno-0-700"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls gain</span>
 <a id="__codelineno-0-701" name="__codelineno-0-701"></a>    <span class="n">loss</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">*=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hyp</span><span class="o">.</span><span class="n">dfl</span>  <span class="c1"># dfl gain</span>
 <a id="__codelineno-0-702" name="__codelineno-0-702"></a>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="k">return</span> <span class="n">loss</span> <span class="o">*</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>  <span class="c1"># loss(box, cls, dfl)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3872,6 +3951,136 @@ a binary classification loss that classifies whether a keypoint is present or no
 </div>
 </div>
 </div>
+</div><p><br/><br/><hr/><br/></p>
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="ultralytics.utils.loss.TVPDetectLoss">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.loss.TVPDetectLoss</span>
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">TVPDetectLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents first">
+<p>Criterion class for computing training losses for text-visual prompt detection.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-744">744</a></span>
+<span class="normal"><a href="#__codelineno-0-745">745</a></span>
+<span class="normal"><a href="#__codelineno-0-746">746</a></span>
+<span class="normal"><a href="#__codelineno-0-747">747</a></span>
+<span class="normal"><a href="#__codelineno-0-748">748</a></span>
+<span class="normal"><a href="#__codelineno-0-749">749</a></span>
+<span class="normal"><a href="#__codelineno-0-750">750</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-744" name="__codelineno-0-744"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<a id="__codelineno-0-745" name="__codelineno-0-745"></a><span class="w">    </span><span class="sd">"""Initialize TVPDetectLoss with task-prompt and visual-prompt criteria using the provided model."""</span>
+<a id="__codelineno-0-746" name="__codelineno-0-746"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span> <span class="o">=</span> <span class="n">v8DetectionLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-0-747" name="__codelineno-0-747"></a>    <span class="c1"># NOTE: store following info as it's changeable in __call__</span>
+<a id="__codelineno-0-748" name="__codelineno-0-748"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">ori_nc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">nc</span>
+<a id="__codelineno-0-749" name="__codelineno-0-749"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">ori_no</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">no</span>
+<a id="__codelineno-0-750" name="__codelineno-0-750"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">ori_reg_max</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.utils.loss.TVPDetectLoss.__call__">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__call__</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="fm">__call__</span><span class="p">(</span><span class="nf">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Calculate the loss for text-visual prompt detection.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-752">752</a></span>
+<span class="normal"><a href="#__codelineno-0-753">753</a></span>
+<span class="normal"><a href="#__codelineno-0-754">754</a></span>
+<span class="normal"><a href="#__codelineno-0-755">755</a></span>
+<span class="normal"><a href="#__codelineno-0-756">756</a></span>
+<span class="normal"><a href="#__codelineno-0-757">757</a></span>
+<span class="normal"><a href="#__codelineno-0-758">758</a></span>
+<span class="normal"><a href="#__codelineno-0-759">759</a></span>
+<span class="normal"><a href="#__codelineno-0-760">760</a></span>
+<span class="normal"><a href="#__codelineno-0-761">761</a></span>
+<span class="normal"><a href="#__codelineno-0-762">762</a></span>
+<span class="normal"><a href="#__codelineno-0-763">763</a></span>
+<span class="normal"><a href="#__codelineno-0-764">764</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-752" name="__codelineno-0-752"></a><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-753" name="__codelineno-0-753"></a><span class="w">    </span><span class="sd">"""Calculate the loss for text-visual prompt detection."""</span>
+<a id="__codelineno-0-754" name="__codelineno-0-754"></a>    <span class="n">feats</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span>
+<a id="__codelineno-0-755" name="__codelineno-0-755"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_reg_max</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>  <span class="c1"># TODO: remove it</span>
+<a id="__codelineno-0-756" name="__codelineno-0-756"></a>
+<a id="__codelineno-0-757" name="__codelineno-0-757"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_reg_max</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_nc</span> <span class="o">==</span> <span class="n">feats</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<a id="__codelineno-0-758" name="__codelineno-0-758"></a>        <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-759" name="__codelineno-0-759"></a>        <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+<a id="__codelineno-0-760" name="__codelineno-0-760"></a>
+<a id="__codelineno-0-761" name="__codelineno-0-761"></a>    <span class="n">vp_feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_vp_features</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span>
+<a id="__codelineno-0-762" name="__codelineno-0-762"></a>    <span class="n">vp_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="p">(</span><span class="n">vp_feats</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+<a id="__codelineno-0-763" name="__codelineno-0-763"></a>    <span class="n">box_loss</span> <span class="o">=</span> <span class="n">vp_loss</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-764" name="__codelineno-0-764"></a>    <span class="k">return</span> <span class="n">box_loss</span><span class="p">,</span> <span class="n">vp_loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div><p><br/><br/><hr/><br/></p>
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="ultralytics.utils.loss.TVPSegmentLoss">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.loss.TVPSegmentLoss</span>
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">TVPSegmentLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents first">
+<p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.utils.loss.TVPDetectLoss" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.loss.TVPDetectLoss&lt;/span&gt;'>TVPDetectLoss</a></code></p>
+<p>Criterion class for computing training losses for text-visual prompt segmentation.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-783">783</a></span>
+<span class="normal"><a href="#__codelineno-0-784">784</a></span>
+<span class="normal"><a href="#__codelineno-0-785">785</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-783" name="__codelineno-0-783"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<a id="__codelineno-0-784" name="__codelineno-0-784"></a><span class="w">    </span><span class="sd">"""Initialize TVPSegmentLoss with task-prompt and visual-prompt criteria using the provided model."""</span>
+<a id="__codelineno-0-785" name="__codelineno-0-785"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span> <span class="o">=</span> <span class="n">v8SegmentationLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.utils.loss.TVPSegmentLoss.__call__">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__call__</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="fm">__call__</span><span class="p">(</span><span class="nf">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Calculate the loss for text-visual prompt segmentation.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-787">787</a></span>
+<span class="normal"><a href="#__codelineno-0-788">788</a></span>
+<span class="normal"><a href="#__codelineno-0-789">789</a></span>
+<span class="normal"><a href="#__codelineno-0-790">790</a></span>
+<span class="normal"><a href="#__codelineno-0-791">791</a></span>
+<span class="normal"><a href="#__codelineno-0-792">792</a></span>
+<span class="normal"><a href="#__codelineno-0-793">793</a></span>
+<span class="normal"><a href="#__codelineno-0-794">794</a></span>
+<span class="normal"><a href="#__codelineno-0-795">795</a></span>
+<span class="normal"><a href="#__codelineno-0-796">796</a></span>
+<span class="normal"><a href="#__codelineno-0-797">797</a></span>
+<span class="normal"><a href="#__codelineno-0-798">798</a></span>
+<span class="normal"><a href="#__codelineno-0-799">799</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-787" name="__codelineno-0-787"></a><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<a id="__codelineno-0-788" name="__codelineno-0-788"></a><span class="w">    </span><span class="sd">"""Calculate the loss for text-visual prompt segmentation."""</span>
+<a id="__codelineno-0-789" name="__codelineno-0-789"></a>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_masks</span><span class="p">,</span> <span class="n">proto</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-790" name="__codelineno-0-790"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">reg_max</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>
+<a id="__codelineno-0-791" name="__codelineno-0-791"></a>
+<a id="__codelineno-0-792" name="__codelineno-0-792"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">reg_max</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">nc</span> <span class="o">==</span> <span class="n">feats</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<a id="__codelineno-0-793" name="__codelineno-0-793"></a>        <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a>        <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a>
+<a id="__codelineno-0-796" name="__codelineno-0-796"></a>    <span class="n">vp_feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_vp_features</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a>    <span class="n">vp_loss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="p">((</span><span class="n">vp_feats</span><span class="p">,</span> <span class="n">pred_masks</span><span class="p">,</span> <span class="n">proto</span><span class="p">),</span> <span class="n">batch</span><span class="p">)</span>
+<a id="__codelineno-0-798" name="__codelineno-0-798"></a>    <span class="n">cls_loss</span> <span class="o">=</span> <span class="n">vp_loss</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span>
+<a id="__codelineno-0-799" name="__codelineno-0-799"></a>    <span class="k">return</span> <span class="n">cls_loss</span><span class="p">,</span> <span class="n">vp_loss</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+</div>
+</div>
 </div><p><br/><br/></p>
 <div class="git-info">
 <div class="dates-container">
@@ -3894,6 +4103,9 @@ a binary classification loss that classifies whether a keypoint is present or no
 </a>
 <a class="author-link" href="https://github.com/Burhan-Q" title="Burhan-Q (2 changes)">
 <img alt="Burhan-Q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62214284?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
+<img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
 <button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/utils/loss', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
@@ -3990,7 +4202,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>

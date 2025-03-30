@@ -6,10 +6,10 @@
 <meta content="Get to know more about Ultralytics nn.autobackend.check_class_names functionality. Optimize your YOLO models seamlessly." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/reference/nn/autobackend/" rel="canonical"/>
-<link href="../../models/yolo/world/train_world/" rel="prev"/>
+<link href="../../models/yolo/yoloe/val/" rel="prev"/>
 <link href="../modules/activation/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.9" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.10" name="generator"/>
 <title>Reference for ultralytics/nn/autobackend.py - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.4af4bdda.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -661,6 +661,13 @@
   </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../text_model/">
+<span class="md-ellipsis">
+    text_model
+  </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -679,34 +686,6 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/solutions/">
-<span class="md-ellipsis">
-    solutions
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/object_counter/">
-<span class="md-ellipsis">
-    object_counter
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/object_cropper/">
-<span class="md-ellipsis">
-    object_cropper
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/object_blurrer/">
-<span class="md-ellipsis">
-    object_blurrer
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="../../solutions/ai_gym/">
 <span class="md-ellipsis">
     ai_gym
@@ -714,16 +693,16 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/region_counter/">
+<a class="md-nav__link" href="../../solutions/analytics/">
 <span class="md-ellipsis">
-    region_counter
+    analytics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/security_alarm/">
+<a class="md-nav__link" href="../../solutions/distance_calculation/">
 <span class="md-ellipsis">
-    security_alarm
+    distance_calculation
   </span>
 </a>
 </li>
@@ -742,30 +721,23 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/vision_eye/">
+<a class="md-nav__link" href="../../solutions/object_blurrer/">
 <span class="md-ellipsis">
-    visioneye_mapping
+    object_blurrer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/speed_estimation/">
+<a class="md-nav__link" href="../../solutions/object_counter/">
 <span class="md-ellipsis">
-    speed_estimation
+    object_counter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/distance_calculation/">
+<a class="md-nav__link" href="../../solutions/object_cropper/">
 <span class="md-ellipsis">
-    distance_calculation
-  </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/queue_management/">
-<span class="md-ellipsis">
-    queue_management
+    object_cropper
   </span>
 </a>
 </li>
@@ -777,9 +749,37 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../solutions/analytics/">
+<a class="md-nav__link" href="../../solutions/queue_management/">
 <span class="md-ellipsis">
-    analytics
+    queue_management
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/region_counter/">
+<span class="md-ellipsis">
+    region_counter
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/security_alarm/">
+<span class="md-ellipsis">
+    security_alarm
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/solutions/">
+<span class="md-ellipsis">
+    solutions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/speed_estimation/">
+<span class="md-ellipsis">
+    speed_estimation
   </span>
 </a>
 </li>
@@ -794,6 +794,13 @@
 <a class="md-nav__link" href="../../solutions/trackzone/">
 <span class="md-ellipsis">
     trackzone
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/vision_eye/">
+<span class="md-ellipsis">
+    vision_eye
   </span>
 </a>
 </li>
@@ -2310,7 +2317,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <h3 class="doc doc-heading" id="ultralytics.nn.autobackend.AutoBackend.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Runs inference on the YOLOv8 MultiBackend model.</p>
@@ -2387,6 +2394,22 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </td>
 <td>
 <code>None</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>**kwargs</code>
+</td>
+<td>
+<code><span title="Any">Any</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Additional keyword arguments for model configuration.</p>
+</div>
+</td>
+<td>
+<code>{}</code>
 </td>
 </tr>
 </tbody>
@@ -2624,7 +2647,8 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span class="normal"><a href="#__codelineno-0-756">756</a></span>
 <span class="normal"><a href="#__codelineno-0-757">757</a></span>
 <span class="normal"><a href="#__codelineno-0-758">758</a></span>
-<span class="normal"><a href="#__codelineno-0-759">759</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-549" name="__codelineno-0-549"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-759">759</a></span>
+<span class="normal"><a href="#__codelineno-0-760">760</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-549" name="__codelineno-0-549"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <a id="__codelineno-0-550" name="__codelineno-0-550"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-551" name="__codelineno-0-551"></a><span class="sd">    Runs inference on the YOLOv8 MultiBackend model.</span>
 <a id="__codelineno-0-552" name="__codelineno-0-552"></a>
@@ -2633,208 +2657,209 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <a id="__codelineno-0-555" name="__codelineno-0-555"></a><span class="sd">        augment (bool): Whether to perform data augmentation during inference. Defaults to False.</span>
 <a id="__codelineno-0-556" name="__codelineno-0-556"></a><span class="sd">        visualize (bool): Whether to visualize the output predictions. Defaults to False.</span>
 <a id="__codelineno-0-557" name="__codelineno-0-557"></a><span class="sd">        embed (list, optional): A list of feature vectors/embeddings to return.</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a><span class="sd">        (torch.Tensor | List[torch.Tensor]): The raw output tensor(s) from the model.</span>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a><span class="sd">    """</span>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>    <span class="n">b</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch, channel, height, width</span>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="ow">and</span> <span class="n">im</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">:</span>
-<a id="__codelineno-0-564" name="__codelineno-0-564"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>  <span class="c1"># to FP16</span>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhwc</span><span class="p">:</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># torch BCHW to numpy BHWC shape(1,320,192,3)</span>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a>
-<a id="__codelineno-0-568" name="__codelineno-0-568"></a>    <span class="c1"># PyTorch</span>
-<a id="__codelineno-0-569" name="__codelineno-0-569"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pt</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn_module</span><span class="p">:</span>
-<a id="__codelineno-0-570" name="__codelineno-0-570"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="n">augment</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="n">visualize</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="n">embed</span><span class="p">)</span>
-<a id="__codelineno-0-571" name="__codelineno-0-571"></a>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a>    <span class="c1"># TorchScript</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span><span class="p">:</span>
-<a id="__codelineno-0-574" name="__codelineno-0-574"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-575" name="__codelineno-0-575"></a>
-<a id="__codelineno-0-576" name="__codelineno-0-576"></a>    <span class="c1"># ONNX OpenCV DNN</span>
-<a id="__codelineno-0-577" name="__codelineno-0-577"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dnn</span><span class="p">:</span>
-<a id="__codelineno-0-578" name="__codelineno-0-578"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># torch to numpy</span>
-<a id="__codelineno-0-579" name="__codelineno-0-579"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">setInput</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-580" name="__codelineno-0-580"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
-<a id="__codelineno-0-581" name="__codelineno-0-581"></a>
-<a id="__codelineno-0-582" name="__codelineno-0-582"></a>    <span class="c1"># ONNX Runtime</span>
-<a id="__codelineno-0-583" name="__codelineno-0-583"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">onnx</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">imx</span><span class="p">:</span>
-<a id="__codelineno-0-584" name="__codelineno-0-584"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="p">:</span>
-<a id="__codelineno-0-585" name="__codelineno-0-585"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># torch to numpy</span>
-<a id="__codelineno-0-586" name="__codelineno-0-586"></a>            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">,</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">im</span><span class="p">})</span>
-<a id="__codelineno-0-587" name="__codelineno-0-587"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-588" name="__codelineno-0-588"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
-<a id="__codelineno-0-589" name="__codelineno-0-589"></a>                <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<a id="__codelineno-0-590" name="__codelineno-0-590"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">bind_input</span><span class="p">(</span>
-<a id="__codelineno-0-591" name="__codelineno-0-591"></a>                <span class="n">name</span><span class="o">=</span><span class="s2">"images"</span><span class="p">,</span>
-<a id="__codelineno-0-592" name="__codelineno-0-592"></a>                <span class="n">device_type</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
-<a id="__codelineno-0-593" name="__codelineno-0-593"></a>                <span class="n">device_id</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">"cuda"</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-594" name="__codelineno-0-594"></a>                <span class="n">element_type</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a>                <span class="n">shape</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>                <span class="n">buffer_ptr</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">data_ptr</span><span class="p">(),</span>
-<a id="__codelineno-0-597" name="__codelineno-0-597"></a>            <span class="p">)</span>
-<a id="__codelineno-0-598" name="__codelineno-0-598"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">run_with_iobinding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="p">)</span>
-<a id="__codelineno-0-599" name="__codelineno-0-599"></a>            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span>
-<a id="__codelineno-0-600" name="__codelineno-0-600"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">imx</span><span class="p">:</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a>            <span class="c1"># boxes, conf, cls</span>
-<a id="__codelineno-0-602" name="__codelineno-0-602"></a>            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">][:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-603" name="__codelineno-0-603"></a>
-<a id="__codelineno-0-604" name="__codelineno-0-604"></a>    <span class="c1"># OpenVINO</span>
-<a id="__codelineno-0-605" name="__codelineno-0-605"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml</span><span class="p">:</span>
-<a id="__codelineno-0-606" name="__codelineno-0-606"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># FP32</span>
-<a id="__codelineno-0-607" name="__codelineno-0-607"></a>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"THROUGHPUT"</span><span class="p">,</span> <span class="s2">"CUMULATIVE_THROUGHPUT"</span><span class="p">}:</span>  <span class="c1"># optimized for larger batch-sizes</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a>            <span class="n">n</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># number of images in batch</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a>            <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>  <span class="c1"># preallocate list with None to match the number of images</span>
-<a id="__codelineno-0-611" name="__codelineno-0-611"></a>
-<a id="__codelineno-0-612" name="__codelineno-0-612"></a>            <span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">userdata</span><span class="p">):</span>
-<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="w">                </span><span class="sd">"""Places result in preallocated list using userdata index."""</span>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a>                <span class="n">results</span><span class="p">[</span><span class="n">userdata</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">results</span>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a>            <span class="c1"># Create AsyncInferQueue, set the callback and start asynchronous inference for each input image</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a>            <span class="n">async_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ov</span><span class="o">.</span><span class="n">AsyncInferQueue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ov_compiled_model</span><span class="p">)</span>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a>            <span class="n">async_queue</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>                <span class="c1"># Start async inference with userdata=i to specify the position in results list</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>                <span class="n">async_queue</span><span class="o">.</span><span class="n">start_async</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">input_name</span><span class="p">:</span> <span class="n">im</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]},</span> <span class="n">userdata</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># keep image as BCHW</span>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a>            <span class="n">async_queue</span><span class="o">.</span><span class="n">wait_all</span><span class="p">()</span>  <span class="c1"># wait for all inference requests to complete</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a>            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">])</span>
-<a id="__codelineno-0-624" name="__codelineno-0-624"></a>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># inference_mode = "LATENCY", optimized for fastest first result at batch-size 1</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a>            <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ov_compiled_model</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<a id="__codelineno-0-627" name="__codelineno-0-627"></a>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a>    <span class="c1"># TensorRT</span>
-<a id="__codelineno-0-629" name="__codelineno-0-629"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">:</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span> <span class="ow">and</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
-<a id="__codelineno-0-631" name="__codelineno-0-631"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_trt10</span><span class="p">:</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">set_input_shape</span><span class="p">(</span><span class="s2">"images"</span><span class="p">,</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a id="__codelineno-0-633" name="__codelineno-0-633"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a id="__codelineno-0-634" name="__codelineno-0-634"></a>                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">:</span>
-<a id="__codelineno-0-635" name="__codelineno-0-635"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">resize_</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get_tensor_shape</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
-<a id="__codelineno-0-636" name="__codelineno-0-636"></a>            <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a>                <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_binding_index</span><span class="p">(</span><span class="s2">"images"</span><span class="p">)</span>
-<a id="__codelineno-0-638" name="__codelineno-0-638"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">set_binding_shape</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a id="__codelineno-0-639" name="__codelineno-0-639"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a id="__codelineno-0-640" name="__codelineno-0-640"></a>                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">:</span>
-<a id="__codelineno-0-641" name="__codelineno-0-641"></a>                    <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_binding_index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
-<a id="__codelineno-0-642" name="__codelineno-0-642"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">resize_</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get_binding_shape</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
-<a id="__codelineno-0-643" name="__codelineno-0-643"></a>
-<a id="__codelineno-0-644" name="__codelineno-0-644"></a>        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
-<a id="__codelineno-0-645" name="__codelineno-0-645"></a>        <span class="k">assert</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">s</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"input size </span><span class="si">{</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'&gt;'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'not equal to'</span><span class="si">}</span><span class="s2"> max model size </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-646" name="__codelineno-0-646"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">binding_addrs</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">data_ptr</span><span class="p">())</span>
-<a id="__codelineno-0-647" name="__codelineno-0-647"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">execute_v2</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binding_addrs</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
-<a id="__codelineno-0-648" name="__codelineno-0-648"></a>        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">)]</span>
-<a id="__codelineno-0-649" name="__codelineno-0-649"></a>
-<a id="__codelineno-0-650" name="__codelineno-0-650"></a>    <span class="c1"># CoreML</span>
-<a id="__codelineno-0-651" name="__codelineno-0-651"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">coreml</span><span class="p">:</span>
-<a id="__codelineno-0-652" name="__codelineno-0-652"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-<a id="__codelineno-0-653" name="__codelineno-0-653"></a>        <span class="n">im_pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">((</span><span class="n">im</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">))</span>
-<a id="__codelineno-0-654" name="__codelineno-0-654"></a>        <span class="c1"># im = im.resize((192, 320), Image.BILINEAR)</span>
-<a id="__codelineno-0-655" name="__codelineno-0-655"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">({</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">im_pil</span><span class="p">})</span>  <span class="c1"># coordinates are xywh normalized</span>
-<a id="__codelineno-0-656" name="__codelineno-0-656"></a>        <span class="k">if</span> <span class="s2">"confidence"</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
-<a id="__codelineno-0-657" name="__codelineno-0-657"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<a id="__codelineno-0-658" name="__codelineno-0-658"></a>                <span class="s2">"Ultralytics only supports inference of non-pipelined CoreML models exported with "</span>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a>                <span class="sa">f</span><span class="s2">"'nms=False', but 'model=</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">' has an NMS pipeline created by an 'nms=True' export."</span>
-<a id="__codelineno-0-660" name="__codelineno-0-660"></a>            <span class="p">)</span>
-<a id="__codelineno-0-661" name="__codelineno-0-661"></a>            <span class="c1"># TODO: CoreML NMS inference handling</span>
-<a id="__codelineno-0-662" name="__codelineno-0-662"></a>            <span class="c1"># from ultralytics.utils.ops import xywh2xyxy</span>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a>            <span class="c1"># box = xywh2xyxy(y['coordinates'] * [[w, h, w, h]])  # xyxy pixels</span>
-<a id="__codelineno-0-664" name="__codelineno-0-664"></a>            <span class="c1"># conf, cls = y['confidence'].max(1), y['confidence'].argmax(1).astype(np.float32)</span>
-<a id="__codelineno-0-665" name="__codelineno-0-665"></a>            <span class="c1"># y = np.concatenate((box, conf.reshape(-1, 1), cls.reshape(-1, 1)), 1)</span>
-<a id="__codelineno-0-666" name="__codelineno-0-666"></a>        <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
-<a id="__codelineno-0-667" name="__codelineno-0-667"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># segmentation model</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a>            <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># reversed for segmentation models (pred, proto)</span>
-<a id="__codelineno-0-669" name="__codelineno-0-669"></a>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a>    <span class="c1"># PaddlePaddle</span>
-<a id="__codelineno-0-671" name="__codelineno-0-671"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">paddle</span><span class="p">:</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">input_handle</span><span class="o">.</span><span class="n">copy_from_cpu</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-674" name="__codelineno-0-674"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a>        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">get_output_handle</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">copy_to_cpu</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">]</span>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a>    <span class="c1"># MNN</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mnn</span><span class="p">:</span>
-<a id="__codelineno-0-679" name="__codelineno-0-679"></a>        <span class="n">input_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">torch_to_mnn</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a>        <span class="n">output_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">onForward</span><span class="p">([</span><span class="n">input_var</span><span class="p">])</span>
-<a id="__codelineno-0-681" name="__codelineno-0-681"></a>        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">output_var</span><span class="p">]</span>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a>    <span class="c1"># NCNN</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncnn</span><span class="p">:</span>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a>        <span class="n">mat_in</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyncnn</span><span class="o">.</span><span class="n">Mat</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
-<a id="__codelineno-0-686" name="__codelineno-0-686"></a>        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">create_extractor</span><span class="p">()</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
-<a id="__codelineno-0-687" name="__codelineno-0-687"></a>            <span class="n">ex</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">input_names</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat_in</span><span class="p">)</span>
-<a id="__codelineno-0-688" name="__codelineno-0-688"></a>            <span class="c1"># WARNING: 'output_names' sorted as a temporary fix for https://github.com/pnnx/pnnx/issues/130</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a>            <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">])[</span><span class="kc">None</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">output_names</span><span class="p">())]</span>
-<a id="__codelineno-0-690" name="__codelineno-0-690"></a>
-<a id="__codelineno-0-691" name="__codelineno-0-691"></a>    <span class="c1"># NVIDIA Triton Inference Server</span>
-<a id="__codelineno-0-692" name="__codelineno-0-692"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">:</span>
-<a id="__codelineno-0-693" name="__codelineno-0-693"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># torch to numpy</span>
-<a id="__codelineno-0-694" name="__codelineno-0-694"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a>    <span class="c1"># RKNN</span>
-<a id="__codelineno-0-697" name="__codelineno-0-697"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rknn</span><span class="p">:</span>
-<a id="__codelineno-0-698" name="__codelineno-0-698"></a>        <span class="n">im</span> <span class="o">=</span> <span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">)</span>
-<a id="__codelineno-0-699" name="__codelineno-0-699"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="p">[</span><span class="n">im</span><span class="p">]</span>
-<a id="__codelineno-0-700" name="__codelineno-0-700"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rknn_model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-701" name="__codelineno-0-701"></a>
-<a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="c1"># TensorFlow (SavedModel, GraphDef, Lite, Edge TPU)</span>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-704" name="__codelineno-0-704"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-<a id="__codelineno-0-705" name="__codelineno-0-705"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_model</span><span class="p">:</span>  <span class="c1"># SavedModel</span>
-<a id="__codelineno-0-706" name="__codelineno-0-706"></a>            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">keras</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-707" name="__codelineno-0-707"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
-<a id="__codelineno-0-708" name="__codelineno-0-708"></a>                <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span>
-<a id="__codelineno-0-709" name="__codelineno-0-709"></a>        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb</span><span class="p">:</span>  <span class="c1"># GraphDef</span>
-<a id="__codelineno-0-710" name="__codelineno-0-710"></a>            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frozen_func</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">im</span><span class="p">))</span>
-<a id="__codelineno-0-711" name="__codelineno-0-711"></a>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Lite or Edge TPU</span>
-<a id="__codelineno-0-712" name="__codelineno-0-712"></a>            <span class="n">details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_details</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-713" name="__codelineno-0-713"></a>            <span class="n">is_int</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">"dtype"</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">}</span>  <span class="c1"># is TFLite quantized int8 or int16 model</span>
-<a id="__codelineno-0-714" name="__codelineno-0-714"></a>            <span class="k">if</span> <span class="n">is_int</span><span class="p">:</span>
-<a id="__codelineno-0-715" name="__codelineno-0-715"></a>                <span class="n">scale</span><span class="p">,</span> <span class="n">zero_point</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">"quantization"</span><span class="p">]</span>
-<a id="__codelineno-0-716" name="__codelineno-0-716"></a>                <span class="n">im</span> <span class="o">=</span> <span class="p">(</span><span class="n">im</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">+</span> <span class="n">zero_point</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">"dtype"</span><span class="p">])</span>  <span class="c1"># de-scale</span>
-<a id="__codelineno-0-717" name="__codelineno-0-717"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">set_tensor</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">"index"</span><span class="p">],</span> <span class="n">im</span><span class="p">)</span>
-<a id="__codelineno-0-718" name="__codelineno-0-718"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
-<a id="__codelineno-0-719" name="__codelineno-0-719"></a>            <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-720" name="__codelineno-0-720"></a>            <span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_details</span><span class="p">:</span>
-<a id="__codelineno-0-721" name="__codelineno-0-721"></a>                <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">get_tensor</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s2">"index"</span><span class="p">])</span>
-<a id="__codelineno-0-722" name="__codelineno-0-722"></a>                <span class="k">if</span> <span class="n">is_int</span><span class="p">:</span>
-<a id="__codelineno-0-723" name="__codelineno-0-723"></a>                    <span class="n">scale</span><span class="p">,</span> <span class="n">zero_point</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">"quantization"</span><span class="p">]</span>
-<a id="__codelineno-0-724" name="__codelineno-0-724"></a>                    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-</span> <span class="n">zero_point</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>  <span class="c1"># re-scale</span>
-<a id="__codelineno-0-725" name="__codelineno-0-725"></a>                <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># if task is not classification, excluding masks (ndim=4) as well</span>
-<a id="__codelineno-0-726" name="__codelineno-0-726"></a>                    <span class="c1"># Denormalize xywh by image size. See https://github.com/ultralytics/ultralytics/pull/1695</span>
-<a id="__codelineno-0-727" name="__codelineno-0-727"></a>                    <span class="c1"># xywh are normalized in TFLite/EdgeTPU to mitigate quantization error of integer models</span>
-<a id="__codelineno-0-728" name="__codelineno-0-728"></a>                    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">end2end</span><span class="p">:</span>  <span class="c1"># end-to-end model</span>
-<a id="__codelineno-0-729" name="__codelineno-0-729"></a>                        <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">w</span>
-<a id="__codelineno-0-730" name="__codelineno-0-730"></a>                        <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">h</span>
-<a id="__codelineno-0-731" name="__codelineno-0-731"></a>                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"pose"</span><span class="p">:</span>
-<a id="__codelineno-0-732" name="__codelineno-0-732"></a>                            <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">6</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">w</span>
-<a id="__codelineno-0-733" name="__codelineno-0-733"></a>                            <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">7</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">h</span>
-<a id="__codelineno-0-734" name="__codelineno-0-734"></a>                    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-735" name="__codelineno-0-735"></a>                        <span class="n">x</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">w</span>
-<a id="__codelineno-0-736" name="__codelineno-0-736"></a>                        <span class="n">x</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">h</span>
-<a id="__codelineno-0-737" name="__codelineno-0-737"></a>                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"pose"</span><span class="p">:</span>
-<a id="__codelineno-0-738" name="__codelineno-0-738"></a>                            <span class="n">x</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">w</span>
-<a id="__codelineno-0-739" name="__codelineno-0-739"></a>                            <span class="n">x</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">h</span>
-<a id="__codelineno-0-740" name="__codelineno-0-740"></a>                <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-741" name="__codelineno-0-741"></a>        <span class="c1"># TF segment fixes: export is reversed vs ONNX export and protos are transposed</span>
-<a id="__codelineno-0-742" name="__codelineno-0-742"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># segment with (det, proto) output order reversed</span>
-<a id="__codelineno-0-743" name="__codelineno-0-743"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
-<a id="__codelineno-0-744" name="__codelineno-0-744"></a>                <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># should be y = (1, 116, 8400), (1, 160, 160, 32)</span>
-<a id="__codelineno-0-745" name="__codelineno-0-745"></a>            <span class="k">if</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>  <span class="c1"># end-to-end model</span>
-<a id="__codelineno-0-746" name="__codelineno-0-746"></a>                <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
-<a id="__codelineno-0-747" name="__codelineno-0-747"></a>            <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-748" name="__codelineno-0-748"></a>                <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># should be y = (1, 116, 8400), (1, 32, 160, 160)</span>
-<a id="__codelineno-0-749" name="__codelineno-0-749"></a>        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
-<a id="__codelineno-0-750" name="__codelineno-0-750"></a>
-<a id="__codelineno-0-751" name="__codelineno-0-751"></a>    <span class="c1"># for x in y:</span>
-<a id="__codelineno-0-752" name="__codelineno-0-752"></a>    <span class="c1">#     print(type(x), len(x)) if isinstance(x, (list, tuple)) else print(type(x), x.shape)  # debug shapes</span>
-<a id="__codelineno-0-753" name="__codelineno-0-753"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
-<a id="__codelineno-0-754" name="__codelineno-0-754"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">999</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"segment"</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>  <span class="c1"># segments and names not defined</span>
-<a id="__codelineno-0-755" name="__codelineno-0-755"></a>            <span class="n">nc</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span>  <span class="c1"># y = (1, 32, 160, 160), (1, 116, 8400)</span>
-<a id="__codelineno-0-756" name="__codelineno-0-756"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"class</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">)}</span>
-<a id="__codelineno-0-757" name="__codelineno-0-757"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
-<a id="__codelineno-0-758" name="__codelineno-0-758"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-759" name="__codelineno-0-759"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<a id="__codelineno-0-558" name="__codelineno-0-558"></a><span class="sd">        **kwargs (Any): Additional keyword arguments for model configuration.</span>
+<a id="__codelineno-0-559" name="__codelineno-0-559"></a>
+<a id="__codelineno-0-560" name="__codelineno-0-560"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-561" name="__codelineno-0-561"></a><span class="sd">        (torch.Tensor | List[torch.Tensor]): The raw output tensor(s) from the model.</span>
+<a id="__codelineno-0-562" name="__codelineno-0-562"></a><span class="sd">    """</span>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="n">b</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch, channel, height, width</span>
+<a id="__codelineno-0-564" name="__codelineno-0-564"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="ow">and</span> <span class="n">im</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">:</span>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span>  <span class="c1"># to FP16</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nhwc</span><span class="p">:</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># torch BCHW to numpy BHWC shape(1,320,192,3)</span>
+<a id="__codelineno-0-568" name="__codelineno-0-568"></a>
+<a id="__codelineno-0-569" name="__codelineno-0-569"></a>    <span class="c1"># PyTorch</span>
+<a id="__codelineno-0-570" name="__codelineno-0-570"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pt</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn_module</span><span class="p">:</span>
+<a id="__codelineno-0-571" name="__codelineno-0-571"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="n">augment</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="n">visualize</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="n">embed</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-572" name="__codelineno-0-572"></a>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a>    <span class="c1"># TorchScript</span>
+<a id="__codelineno-0-574" name="__codelineno-0-574"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span><span class="p">:</span>
+<a id="__codelineno-0-575" name="__codelineno-0-575"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-576" name="__codelineno-0-576"></a>
+<a id="__codelineno-0-577" name="__codelineno-0-577"></a>    <span class="c1"># ONNX OpenCV DNN</span>
+<a id="__codelineno-0-578" name="__codelineno-0-578"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">dnn</span><span class="p">:</span>
+<a id="__codelineno-0-579" name="__codelineno-0-579"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># torch to numpy</span>
+<a id="__codelineno-0-580" name="__codelineno-0-580"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">setInput</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-581" name="__codelineno-0-581"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">forward</span><span class="p">()</span>
+<a id="__codelineno-0-582" name="__codelineno-0-582"></a>
+<a id="__codelineno-0-583" name="__codelineno-0-583"></a>    <span class="c1"># ONNX Runtime</span>
+<a id="__codelineno-0-584" name="__codelineno-0-584"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">onnx</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">imx</span><span class="p">:</span>
+<a id="__codelineno-0-585" name="__codelineno-0-585"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="p">:</span>
+<a id="__codelineno-0-586" name="__codelineno-0-586"></a>            <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># torch to numpy</span>
+<a id="__codelineno-0-587" name="__codelineno-0-587"></a>            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">,</span> <span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_inputs</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">name</span><span class="p">:</span> <span class="n">im</span><span class="p">})</span>
+<a id="__codelineno-0-588" name="__codelineno-0-588"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-589" name="__codelineno-0-589"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
+<a id="__codelineno-0-590" name="__codelineno-0-590"></a>                <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<a id="__codelineno-0-591" name="__codelineno-0-591"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="o">.</span><span class="n">bind_input</span><span class="p">(</span>
+<a id="__codelineno-0-592" name="__codelineno-0-592"></a>                <span class="n">name</span><span class="o">=</span><span class="s2">"images"</span><span class="p">,</span>
+<a id="__codelineno-0-593" name="__codelineno-0-593"></a>                <span class="n">device_type</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span><span class="p">,</span>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a>                <span class="n">device_id</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">index</span> <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">==</span> <span class="s2">"cuda"</span> <span class="k">else</span> <span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a>                <span class="n">element_type</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float16</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a>                <span class="n">shape</span><span class="o">=</span><span class="nb">tuple</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">),</span>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>                <span class="n">buffer_ptr</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">data_ptr</span><span class="p">(),</span>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a>            <span class="p">)</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">run_with_iobinding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">io</span><span class="p">)</span>
+<a id="__codelineno-0-600" name="__codelineno-0-600"></a>            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span>
+<a id="__codelineno-0-601" name="__codelineno-0-601"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">imx</span><span class="p">:</span>
+<a id="__codelineno-0-602" name="__codelineno-0-602"></a>            <span class="c1"># boxes, conf, cls</span>
+<a id="__codelineno-0-603" name="__codelineno-0-603"></a>            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">][:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">][:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-604" name="__codelineno-0-604"></a>
+<a id="__codelineno-0-605" name="__codelineno-0-605"></a>    <span class="c1"># OpenVINO</span>
+<a id="__codelineno-0-606" name="__codelineno-0-606"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">xml</span><span class="p">:</span>
+<a id="__codelineno-0-607" name="__codelineno-0-607"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># FP32</span>
+<a id="__codelineno-0-608" name="__codelineno-0-608"></a>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">inference_mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"THROUGHPUT"</span><span class="p">,</span> <span class="s2">"CUMULATIVE_THROUGHPUT"</span><span class="p">}:</span>  <span class="c1"># optimized for larger batch-sizes</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a>            <span class="n">n</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># number of images in batch</span>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a>            <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>  <span class="c1"># preallocate list with None to match the number of images</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a>            <span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">userdata</span><span class="p">):</span>
+<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="w">                </span><span class="sd">"""Places result in preallocated list using userdata index."""</span>
+<a id="__codelineno-0-615" name="__codelineno-0-615"></a>                <span class="n">results</span><span class="p">[</span><span class="n">userdata</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">results</span>
+<a id="__codelineno-0-616" name="__codelineno-0-616"></a>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a>            <span class="c1"># Create AsyncInferQueue, set the callback and start asynchronous inference for each input image</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a>            <span class="n">async_queue</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">ov</span><span class="o">.</span><span class="n">AsyncInferQueue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ov_compiled_model</span><span class="p">)</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a>            <span class="n">async_queue</span><span class="o">.</span><span class="n">set_callback</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a>            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a>                <span class="c1"># Start async inference with userdata=i to specify the position in results list</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a>                <span class="n">async_queue</span><span class="o">.</span><span class="n">start_async</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="p">{</span><span class="bp">self</span><span class="o">.</span><span class="n">input_name</span><span class="p">:</span> <span class="n">im</span><span class="p">[</span><span class="n">i</span> <span class="p">:</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">]},</span> <span class="n">userdata</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># keep image as BCHW</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>            <span class="n">async_queue</span><span class="o">.</span><span class="n">wait_all</span><span class="p">()</span>  <span class="c1"># wait for all inference requests to complete</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="nb">list</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">values</span><span class="p">())[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">])</span>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># inference_mode = "LATENCY", optimized for fastest first result at batch-size 1</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a>            <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ov_compiled_model</span><span class="p">(</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a>    <span class="c1"># TensorRT</span>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">:</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span> <span class="ow">and</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">:</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_trt10</span><span class="p">:</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">set_input_shape</span><span class="p">(</span><span class="s2">"images"</span><span class="p">,</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a>                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">:</span>
+<a id="__codelineno-0-636" name="__codelineno-0-636"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">resize_</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get_tensor_shape</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a>                <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_binding_index</span><span class="p">(</span><span class="s2">"images"</span><span class="p">)</span>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">set_binding_shape</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-0-640" name="__codelineno-0-640"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span><span class="o">.</span><span class="n">_replace</span><span class="p">(</span><span class="n">shape</span><span class="o">=</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a id="__codelineno-0-641" name="__codelineno-0-641"></a>                <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">:</span>
+<a id="__codelineno-0-642" name="__codelineno-0-642"></a>                    <span class="n">i</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_binding_index</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
+<a id="__codelineno-0-643" name="__codelineno-0-643"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="n">name</span><span class="p">]</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">resize_</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">get_binding_shape</span><span class="p">(</span><span class="n">i</span><span class="p">)))</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a>
+<a id="__codelineno-0-645" name="__codelineno-0-645"></a>        <span class="n">s</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span>
+<a id="__codelineno-0-646" name="__codelineno-0-646"></a>        <span class="k">assert</span> <span class="n">im</span><span class="o">.</span><span class="n">shape</span> <span class="o">==</span> <span class="n">s</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"input size </span><span class="si">{</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'&gt;'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">dynamic</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'not equal to'</span><span class="si">}</span><span class="s2"> max model size </span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-647" name="__codelineno-0-647"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">binding_addrs</span><span class="p">[</span><span class="s2">"images"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">data_ptr</span><span class="p">())</span>
+<a id="__codelineno-0-648" name="__codelineno-0-648"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">context</span><span class="o">.</span><span class="n">execute_v2</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">binding_addrs</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a>        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">bindings</span><span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">)]</span>
+<a id="__codelineno-0-650" name="__codelineno-0-650"></a>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>    <span class="c1"># CoreML</span>
+<a id="__codelineno-0-652" name="__codelineno-0-652"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">coreml</span><span class="p">:</span>
+<a id="__codelineno-0-653" name="__codelineno-0-653"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<a id="__codelineno-0-654" name="__codelineno-0-654"></a>        <span class="n">im_pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">((</span><span class="n">im</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">))</span>
+<a id="__codelineno-0-655" name="__codelineno-0-655"></a>        <span class="c1"># im = im.resize((192, 320), Image.BILINEAR)</span>
+<a id="__codelineno-0-656" name="__codelineno-0-656"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">({</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">im_pil</span><span class="p">})</span>  <span class="c1"># coordinates are xywh normalized</span>
+<a id="__codelineno-0-657" name="__codelineno-0-657"></a>        <span class="k">if</span> <span class="s2">"confidence"</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
+<a id="__codelineno-0-658" name="__codelineno-0-658"></a>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
+<a id="__codelineno-0-659" name="__codelineno-0-659"></a>                <span class="s2">"Ultralytics only supports inference of non-pipelined CoreML models exported with "</span>
+<a id="__codelineno-0-660" name="__codelineno-0-660"></a>                <span class="sa">f</span><span class="s2">"'nms=False', but 'model=</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">' has an NMS pipeline created by an 'nms=True' export."</span>
+<a id="__codelineno-0-661" name="__codelineno-0-661"></a>            <span class="p">)</span>
+<a id="__codelineno-0-662" name="__codelineno-0-662"></a>            <span class="c1"># TODO: CoreML NMS inference handling</span>
+<a id="__codelineno-0-663" name="__codelineno-0-663"></a>            <span class="c1"># from ultralytics.utils.ops import xywh2xyxy</span>
+<a id="__codelineno-0-664" name="__codelineno-0-664"></a>            <span class="c1"># box = xywh2xyxy(y['coordinates'] * [[w, h, w, h]])  # xyxy pixels</span>
+<a id="__codelineno-0-665" name="__codelineno-0-665"></a>            <span class="c1"># conf, cls = y['confidence'].max(1), y['confidence'].argmax(1).astype(np.float32)</span>
+<a id="__codelineno-0-666" name="__codelineno-0-666"></a>            <span class="c1"># y = np.concatenate((box, conf.reshape(-1, 1), cls.reshape(-1, 1)), 1)</span>
+<a id="__codelineno-0-667" name="__codelineno-0-667"></a>        <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<a id="__codelineno-0-668" name="__codelineno-0-668"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># segmentation model</span>
+<a id="__codelineno-0-669" name="__codelineno-0-669"></a>            <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># reversed for segmentation models (pred, proto)</span>
+<a id="__codelineno-0-670" name="__codelineno-0-670"></a>
+<a id="__codelineno-0-671" name="__codelineno-0-671"></a>    <span class="c1"># PaddlePaddle</span>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">paddle</span><span class="p">:</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<a id="__codelineno-0-674" name="__codelineno-0-674"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">input_handle</span><span class="o">.</span><span class="n">copy_from_cpu</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a>        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="o">.</span><span class="n">get_output_handle</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">copy_to_cpu</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">]</span>
+<a id="__codelineno-0-677" name="__codelineno-0-677"></a>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a>    <span class="c1"># MNN</span>
+<a id="__codelineno-0-679" name="__codelineno-0-679"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mnn</span><span class="p">:</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a>        <span class="n">input_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">torch_to_mnn</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-681" name="__codelineno-0-681"></a>        <span class="n">output_var</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">onForward</span><span class="p">([</span><span class="n">input_var</span><span class="p">])</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a>        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">read</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">output_var</span><span class="p">]</span>
+<a id="__codelineno-0-683" name="__codelineno-0-683"></a>
+<a id="__codelineno-0-684" name="__codelineno-0-684"></a>    <span class="c1"># NCNN</span>
+<a id="__codelineno-0-685" name="__codelineno-0-685"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">ncnn</span><span class="p">:</span>
+<a id="__codelineno-0-686" name="__codelineno-0-686"></a>        <span class="n">mat_in</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pyncnn</span><span class="o">.</span><span class="n">Mat</span><span class="p">(</span><span class="n">im</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+<a id="__codelineno-0-687" name="__codelineno-0-687"></a>        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">create_extractor</span><span class="p">()</span> <span class="k">as</span> <span class="n">ex</span><span class="p">:</span>
+<a id="__codelineno-0-688" name="__codelineno-0-688"></a>            <span class="n">ex</span><span class="o">.</span><span class="n">input</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">input_names</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mat_in</span><span class="p">)</span>
+<a id="__codelineno-0-689" name="__codelineno-0-689"></a>            <span class="c1"># WARNING: 'output_names' sorted as a temporary fix for https://github.com/pnnx/pnnx/issues/130</span>
+<a id="__codelineno-0-690" name="__codelineno-0-690"></a>            <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">ex</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">1</span><span class="p">])[</span><span class="kc">None</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">net</span><span class="o">.</span><span class="n">output_names</span><span class="p">())]</span>
+<a id="__codelineno-0-691" name="__codelineno-0-691"></a>
+<a id="__codelineno-0-692" name="__codelineno-0-692"></a>    <span class="c1"># NVIDIA Triton Inference Server</span>
+<a id="__codelineno-0-693" name="__codelineno-0-693"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">:</span>
+<a id="__codelineno-0-694" name="__codelineno-0-694"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>  <span class="c1"># torch to numpy</span>
+<a id="__codelineno-0-695" name="__codelineno-0-695"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a>    <span class="c1"># RKNN</span>
+<a id="__codelineno-0-698" name="__codelineno-0-698"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">rknn</span><span class="p">:</span>
+<a id="__codelineno-0-699" name="__codelineno-0-699"></a>        <span class="n">im</span> <span class="o">=</span> <span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">)</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="p">[</span><span class="n">im</span><span class="p">]</span>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">rknn_model</span><span class="o">.</span><span class="n">inference</span><span class="p">(</span><span class="n">inputs</span><span class="o">=</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-702" name="__codelineno-0-702"></a>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="c1"># TensorFlow (SavedModel, GraphDef, Lite, Edge TPU)</span>
+<a id="__codelineno-0-704" name="__codelineno-0-704"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-705" name="__codelineno-0-705"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<a id="__codelineno-0-706" name="__codelineno-0-706"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_model</span><span class="p">:</span>  <span class="c1"># SavedModel</span>
+<a id="__codelineno-0-707" name="__codelineno-0-707"></a>            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">keras</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-708" name="__codelineno-0-708"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
+<a id="__codelineno-0-709" name="__codelineno-0-709"></a>                <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">]</span>
+<a id="__codelineno-0-710" name="__codelineno-0-710"></a>        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb</span><span class="p">:</span>  <span class="c1"># GraphDef</span>
+<a id="__codelineno-0-711" name="__codelineno-0-711"></a>            <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frozen_func</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="o">.</span><span class="n">constant</span><span class="p">(</span><span class="n">im</span><span class="p">))</span>
+<a id="__codelineno-0-712" name="__codelineno-0-712"></a>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># Lite or Edge TPU</span>
+<a id="__codelineno-0-713" name="__codelineno-0-713"></a>            <span class="n">details</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_details</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-714" name="__codelineno-0-714"></a>            <span class="n">is_int</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">"dtype"</span><span class="p">]</span> <span class="ow">in</span> <span class="p">{</span><span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">}</span>  <span class="c1"># is TFLite quantized int8 or int16 model</span>
+<a id="__codelineno-0-715" name="__codelineno-0-715"></a>            <span class="k">if</span> <span class="n">is_int</span><span class="p">:</span>
+<a id="__codelineno-0-716" name="__codelineno-0-716"></a>                <span class="n">scale</span><span class="p">,</span> <span class="n">zero_point</span> <span class="o">=</span> <span class="n">details</span><span class="p">[</span><span class="s2">"quantization"</span><span class="p">]</span>
+<a id="__codelineno-0-717" name="__codelineno-0-717"></a>                <span class="n">im</span> <span class="o">=</span> <span class="p">(</span><span class="n">im</span> <span class="o">/</span> <span class="n">scale</span> <span class="o">+</span> <span class="n">zero_point</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">"dtype"</span><span class="p">])</span>  <span class="c1"># de-scale</span>
+<a id="__codelineno-0-718" name="__codelineno-0-718"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">set_tensor</span><span class="p">(</span><span class="n">details</span><span class="p">[</span><span class="s2">"index"</span><span class="p">],</span> <span class="n">im</span><span class="p">)</span>
+<a id="__codelineno-0-719" name="__codelineno-0-719"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">invoke</span><span class="p">()</span>
+<a id="__codelineno-0-720" name="__codelineno-0-720"></a>            <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-721" name="__codelineno-0-721"></a>            <span class="k">for</span> <span class="n">output</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_details</span><span class="p">:</span>
+<a id="__codelineno-0-722" name="__codelineno-0-722"></a>                <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">interpreter</span><span class="o">.</span><span class="n">get_tensor</span><span class="p">(</span><span class="n">output</span><span class="p">[</span><span class="s2">"index"</span><span class="p">])</span>
+<a id="__codelineno-0-723" name="__codelineno-0-723"></a>                <span class="k">if</span> <span class="n">is_int</span><span class="p">:</span>
+<a id="__codelineno-0-724" name="__codelineno-0-724"></a>                    <span class="n">scale</span><span class="p">,</span> <span class="n">zero_point</span> <span class="o">=</span> <span class="n">output</span><span class="p">[</span><span class="s2">"quantization"</span><span class="p">]</span>
+<a id="__codelineno-0-725" name="__codelineno-0-725"></a>                    <span class="n">x</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">-</span> <span class="n">zero_point</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>  <span class="c1"># re-scale</span>
+<a id="__codelineno-0-726" name="__codelineno-0-726"></a>                <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>  <span class="c1"># if task is not classification, excluding masks (ndim=4) as well</span>
+<a id="__codelineno-0-727" name="__codelineno-0-727"></a>                    <span class="c1"># Denormalize xywh by image size. See https://github.com/ultralytics/ultralytics/pull/1695</span>
+<a id="__codelineno-0-728" name="__codelineno-0-728"></a>                    <span class="c1"># xywh are normalized in TFLite/EdgeTPU to mitigate quantization error of integer models</span>
+<a id="__codelineno-0-729" name="__codelineno-0-729"></a>                    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">end2end</span><span class="p">:</span>  <span class="c1"># end-to-end model</span>
+<a id="__codelineno-0-730" name="__codelineno-0-730"></a>                        <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">w</span>
+<a id="__codelineno-0-731" name="__codelineno-0-731"></a>                        <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">h</span>
+<a id="__codelineno-0-732" name="__codelineno-0-732"></a>                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"pose"</span><span class="p">:</span>
+<a id="__codelineno-0-733" name="__codelineno-0-733"></a>                            <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">6</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">w</span>
+<a id="__codelineno-0-734" name="__codelineno-0-734"></a>                            <span class="n">x</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">7</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">h</span>
+<a id="__codelineno-0-735" name="__codelineno-0-735"></a>                    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-736" name="__codelineno-0-736"></a>                        <span class="n">x</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">w</span>
+<a id="__codelineno-0-737" name="__codelineno-0-737"></a>                        <span class="n">x</span><span class="p">[:,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">*=</span> <span class="n">h</span>
+<a id="__codelineno-0-738" name="__codelineno-0-738"></a>                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"pose"</span><span class="p">:</span>
+<a id="__codelineno-0-739" name="__codelineno-0-739"></a>                            <span class="n">x</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">w</span>
+<a id="__codelineno-0-740" name="__codelineno-0-740"></a>                            <span class="n">x</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">::</span><span class="mi">3</span><span class="p">]</span> <span class="o">*=</span> <span class="n">h</span>
+<a id="__codelineno-0-741" name="__codelineno-0-741"></a>                <span class="n">y</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-742" name="__codelineno-0-742"></a>        <span class="c1"># TF segment fixes: export is reversed vs ONNX export and protos are transposed</span>
+<a id="__codelineno-0-743" name="__codelineno-0-743"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>  <span class="c1"># segment with (det, proto) output order reversed</span>
+<a id="__codelineno-0-744" name="__codelineno-0-744"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>
+<a id="__codelineno-0-745" name="__codelineno-0-745"></a>                <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># should be y = (1, 116, 8400), (1, 160, 160, 32)</span>
+<a id="__codelineno-0-746" name="__codelineno-0-746"></a>            <span class="k">if</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">6</span><span class="p">:</span>  <span class="c1"># end-to-end model</span>
+<a id="__codelineno-0-747" name="__codelineno-0-747"></a>                <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+<a id="__codelineno-0-748" name="__codelineno-0-748"></a>            <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-749" name="__codelineno-0-749"></a>                <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>  <span class="c1"># should be y = (1, 116, 8400), (1, 32, 160, 160)</span>
+<a id="__codelineno-0-750" name="__codelineno-0-750"></a>        <span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+<a id="__codelineno-0-751" name="__codelineno-0-751"></a>
+<a id="__codelineno-0-752" name="__codelineno-0-752"></a>    <span class="c1"># for x in y:</span>
+<a id="__codelineno-0-753" name="__codelineno-0-753"></a>    <span class="c1">#     print(type(x), len(x)) if isinstance(x, (list, tuple)) else print(type(x), x.shape)  # debug shapes</span>
+<a id="__codelineno-0-754" name="__codelineno-0-754"></a>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+<a id="__codelineno-0-755" name="__codelineno-0-755"></a>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">)</span> <span class="o">==</span> <span class="mi">999</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"segment"</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">):</span>  <span class="c1"># segments and names not defined</span>
+<a id="__codelineno-0-756" name="__codelineno-0-756"></a>            <span class="n">nc</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mi">4</span>  <span class="c1"># y = (1, 32, 160, 160), (1, 116, 8400)</span>
+<a id="__codelineno-0-757" name="__codelineno-0-757"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="sa">f</span><span class="s2">"class</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">)}</span>
+<a id="__codelineno-0-758" name="__codelineno-0-758"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">y</span><span class="p">]</span>
+<a id="__codelineno-0-759" name="__codelineno-0-759"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-760" name="__codelineno-0-760"></a>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2899,8 +2924,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-761">761</a></span>
-<span class="normal"><a href="#__codelineno-0-762">762</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-762">762</a></span>
 <span class="normal"><a href="#__codelineno-0-763">763</a></span>
 <span class="normal"><a href="#__codelineno-0-764">764</a></span>
 <span class="normal"><a href="#__codelineno-0-765">765</a></span>
@@ -2909,17 +2933,18 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span class="normal"><a href="#__codelineno-0-768">768</a></span>
 <span class="normal"><a href="#__codelineno-0-769">769</a></span>
 <span class="normal"><a href="#__codelineno-0-770">770</a></span>
-<span class="normal"><a href="#__codelineno-0-771">771</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-761" name="__codelineno-0-761"></a><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
-<a id="__codelineno-0-762" name="__codelineno-0-762"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-763" name="__codelineno-0-763"></a><span class="sd">    Convert a numpy array to a tensor.</span>
-<a id="__codelineno-0-764" name="__codelineno-0-764"></a>
-<a id="__codelineno-0-765" name="__codelineno-0-765"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="sd">        x (np.ndarray): The array to be converted.</span>
-<a id="__codelineno-0-767" name="__codelineno-0-767"></a>
-<a id="__codelineno-0-768" name="__codelineno-0-768"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-769" name="__codelineno-0-769"></a><span class="sd">        (torch.Tensor): The converted tensor</span>
-<a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="sd">    """</span>
-<a id="__codelineno-0-771" name="__codelineno-0-771"></a>    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span>
+<span class="normal"><a href="#__codelineno-0-771">771</a></span>
+<span class="normal"><a href="#__codelineno-0-772">772</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-762" name="__codelineno-0-762"></a><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<a id="__codelineno-0-763" name="__codelineno-0-763"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-764" name="__codelineno-0-764"></a><span class="sd">    Convert a numpy array to a tensor.</span>
+<a id="__codelineno-0-765" name="__codelineno-0-765"></a>
+<a id="__codelineno-0-766" name="__codelineno-0-766"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-767" name="__codelineno-0-767"></a><span class="sd">        x (np.ndarray): The array to be converted.</span>
+<a id="__codelineno-0-768" name="__codelineno-0-768"></a>
+<a id="__codelineno-0-769" name="__codelineno-0-769"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-770" name="__codelineno-0-770"></a><span class="sd">        (torch.Tensor): The converted tensor</span>
+<a id="__codelineno-0-771" name="__codelineno-0-771"></a><span class="sd">    """</span>
+<a id="__codelineno-0-772" name="__codelineno-0-772"></a>    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="k">else</span> <span class="n">x</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2963,8 +2988,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-773">773</a></span>
-<span class="normal"><a href="#__codelineno-0-774">774</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-774">774</a></span>
 <span class="normal"><a href="#__codelineno-0-775">775</a></span>
 <span class="normal"><a href="#__codelineno-0-776">776</a></span>
 <span class="normal"><a href="#__codelineno-0-777">777</a></span>
@@ -2976,20 +3000,21 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span class="normal"><a href="#__codelineno-0-783">783</a></span>
 <span class="normal"><a href="#__codelineno-0-784">784</a></span>
 <span class="normal"><a href="#__codelineno-0-785">785</a></span>
-<span class="normal"><a href="#__codelineno-0-786">786</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-773" name="__codelineno-0-773"></a><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)):</span>
-<a id="__codelineno-0-774" name="__codelineno-0-774"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="sd">    Warm up the model by running one forward pass with a dummy input.</span>
-<a id="__codelineno-0-776" name="__codelineno-0-776"></a>
-<a id="__codelineno-0-777" name="__codelineno-0-777"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-778" name="__codelineno-0-778"></a><span class="sd">        imgsz (tuple): The shape of the dummy input tensor in the format (batch_size, channels, height, width)</span>
-<a id="__codelineno-0-779" name="__codelineno-0-779"></a><span class="sd">    """</span>
-<a id="__codelineno-0-780" name="__codelineno-0-780"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>  <span class="c1"># noqa (import here so torchvision import time not recorded in postprocess time)</span>
-<a id="__codelineno-0-781" name="__codelineno-0-781"></a>
-<a id="__codelineno-0-782" name="__codelineno-0-782"></a>    <span class="n">warmup_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">onnx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn_module</span>
-<a id="__codelineno-0-783" name="__codelineno-0-783"></a>    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">warmup_types</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">):</span>
-<a id="__codelineno-0-784" name="__codelineno-0-784"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="o">*</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">half</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># input</span>
-<a id="__codelineno-0-785" name="__codelineno-0-785"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span> <span class="k">else</span> <span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-786" name="__codelineno-0-786"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># warmup</span>
+<span class="normal"><a href="#__codelineno-0-786">786</a></span>
+<span class="normal"><a href="#__codelineno-0-787">787</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-774" name="__codelineno-0-774"></a><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)):</span>
+<a id="__codelineno-0-775" name="__codelineno-0-775"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-776" name="__codelineno-0-776"></a><span class="sd">    Warm up the model by running one forward pass with a dummy input.</span>
+<a id="__codelineno-0-777" name="__codelineno-0-777"></a>
+<a id="__codelineno-0-778" name="__codelineno-0-778"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-779" name="__codelineno-0-779"></a><span class="sd">        imgsz (tuple): The shape of the dummy input tensor in the format (batch_size, channels, height, width)</span>
+<a id="__codelineno-0-780" name="__codelineno-0-780"></a><span class="sd">    """</span>
+<a id="__codelineno-0-781" name="__codelineno-0-781"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">torchvision</span>  <span class="c1"># noqa (import here so torchvision import time not recorded in postprocess time)</span>
+<a id="__codelineno-0-782" name="__codelineno-0-782"></a>
+<a id="__codelineno-0-783" name="__codelineno-0-783"></a>    <span class="n">warmup_types</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pt</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">onnx</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">engine</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">saved_model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pb</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nn_module</span>
+<a id="__codelineno-0-784" name="__codelineno-0-784"></a>    <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">warmup_types</span><span class="p">)</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="o">!=</span> <span class="s2">"cpu"</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton</span><span class="p">):</span>
+<a id="__codelineno-0-785" name="__codelineno-0-785"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="o">*</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">half</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># input</span>
+<a id="__codelineno-0-786" name="__codelineno-0-786"></a>        <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">jit</span> <span class="k">else</span> <span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-787" name="__codelineno-0-787"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># warmup</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3112,7 +3137,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: train_world" class="md-footer__link md-footer__link--prev" href="../../models/yolo/world/train_world/">
+<a aria-label="Previous: val" class="md-footer__link md-footer__link--prev" href="../../models/yolo/yoloe/val/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -3121,7 +3146,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
                 Previous
               </span>
 <div class="md-ellipsis">
-                train_world
+                val
               </div>
 </div>
 </a>
@@ -3187,7 +3212,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "search.highlight", "search.share", "search.suggest", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
 <script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
