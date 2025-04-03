@@ -19,7 +19,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="DAMO-YOLO vs. YOLOv9: Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="DAMO-YOLO, YOLOv9, object detection, model comparison, YOLO series, deep learning, computer vision, mAP, real-time detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov9" property="og:url"/><meta content="DAMO-YOLO vs. YOLOv9: Detailed Technical Comparison" property="og:title"/><meta content="Explore a detailed technical comparison between DAMO-YOLO and YOLOv9, covering architecture, performance, and use cases for object detection applications." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov9" property="twitter:url"/><meta content="DAMO-YOLO vs. YOLOv9: Detailed Technical Comparison" property="twitter:title"/><meta content="Explore a detailed technical comparison between DAMO-YOLO and YOLOv9, covering architecture, performance, and use cases for object detection applications." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DAMO-YOLO vs. YOLOv9: Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-03 16:01:03 +0000", "dateModified": "2025-02-22 16:01:03 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed technical comparison between DAMO-YOLO and YOLOv9, covering architecture, performance, and use cases for object detection applications."}</script></head>
+<meta content="DAMO-YOLO vs. YOLOv9: Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="DAMO-YOLO, YOLOv9, object detection, model comparison, YOLO series, deep learning, computer vision, mAP, real-time detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov9" property="og:url"/><meta content="DAMO-YOLO vs. YOLOv9: Detailed Technical Comparison" property="og:title"/><meta content="Explore a detailed technical comparison between DAMO-YOLO and YOLOv9, covering architecture, performance, and use cases for object detection applications." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/damo-yolo-vs-yolov9" property="twitter:url"/><meta content="DAMO-YOLO vs. YOLOv9: Detailed Technical Comparison" property="twitter:title"/><meta content="Explore a detailed technical comparison between DAMO-YOLO and YOLOv9, covering architecture, performance, and use cases for object detection applications." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "DAMO-YOLO vs. YOLOv9: Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-03 17:11:15 +0000", "dateModified": "2025-02-22 17:11:15 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed technical comparison between DAMO-YOLO and YOLOv9, covering architecture, performance, and use cases for object detection applications."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -306,13 +306,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics">
-<span class="md-ellipsis">
-      Performance Metrics
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#strengths-and-weaknesses">
 <span class="md-ellipsis">
       Strengths and Weaknesses
@@ -345,13 +338,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics_1">
-<span class="md-ellipsis">
-      Performance Metrics
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#strengths-and-weaknesses_1">
 <span class="md-ellipsis">
       Strengths and Weaknesses
@@ -369,9 +355,23 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#model-comparison-table">
+<a class="md-nav__link" href="#performance-comparison">
 <span class="md-ellipsis">
-      Model Comparison Table
+      Performance Comparison
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion">
+<span class="md-ellipsis">
+      Conclusion
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#explore-other-models">
+<span class="md-ellipsis">
+      Explore Other Models
     </span>
 </a>
 </li>
@@ -391,188 +391,197 @@
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["DAMO-YOLO", "YOLOv9"]' height="400" id="modelComparisonChart" width="1024"></canvas>
 <h2 id="damo-yolo">DAMO-YOLO</h2>
-<p><a href="https://github.com/tinyvision/DAMO-YOLO">DAMO-YOLO</a> is presented by Alibaba Group and introduced in November 2022 (<a href="https://arxiv.org/abs/2211.15444v2">arXiv</a>). It emphasizes a balance between speed and accuracy, incorporating Neural Architecture Search (NAS) backbones and efficient network components.</p>
+<p>DAMO-YOLO was presented by the Alibaba Group and introduced on November 23, 2022.<br/>
+Authors: Xianzhe Xu, Yiqi Jiang, Weihua Chen, Yilun Huang, Yuan Zhang, and Xiuyu Sun<br/>
+Organization: Alibaba Group<br/>
+Date: 2022-11-23<br/>
+Arxiv Link: <a href="https://arxiv.org/abs/2211.15444v2">https://arxiv.org/abs/2211.15444v2</a><br/>
+GitHub Link: <a href="https://github.com/tinyvision/DAMO-YOLO">https://github.com/tinyvision/DAMO-YOLO</a><br/>
+Docs Link: <a href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md</a></p>
+<p>DAMO-YOLO emphasizes achieving a balance between inference speed and detection accuracy, incorporating several novel techniques.</p>
 <h3 id="architecture-and-features">Architecture and Features</h3>
 <p>DAMO-YOLO's architecture is distinguished by several key innovations:</p>
 <ul>
-<li><strong>NAS Backbone</strong>: Employs a backbone optimized through Neural Architecture Search for efficient feature extraction.</li>
-<li><strong>RepGFPN</strong>: Utilizes an efficient Reparameterized Gradient Feature Pyramid Network (GFPN) for feature fusion.</li>
-<li><strong>ZeroHead</strong>: A lightweight detection head designed to reduce computational overhead.</li>
-<li><strong>AlignedOTA</strong>: Implements Aligned Optimal Transport Assignment (OTA) for improved label assignment during training.</li>
-<li><strong>Distillation Enhancement</strong>: Incorporates knowledge distillation techniques to boost performance.</li>
-</ul>
-<h3 id="performance-metrics">Performance Metrics</h3>
-<p>DAMO-YOLO offers various model sizes (tiny, small, medium, large) to cater to different computational needs. Key performance indicators include:</p>
-<ul>
-<li><strong>mAP</strong>: Achieves competitive mean Average Precision (mAP) on datasets like COCO.</li>
-<li><strong>Inference Speed</strong>: Designed for fast inference, suitable for real-time object detection tasks.</li>
-<li><strong>Model Size</strong>: Available in different sizes, allowing deployment flexibility.</li>
+<li><strong>NAS Backbone</strong>: Employs a backbone optimized through Neural Architecture Search (NAS) for efficient feature extraction.</li>
+<li><strong>RepGFPN</strong>: Utilizes an efficient Reparameterized Gradient Feature Pyramid Network (RepGFPN) for feature fusion across different scales.</li>
+<li><strong>ZeroHead</strong>: A lightweight, decoupled detection head designed to reduce computational overhead while maintaining accuracy.</li>
+<li><strong>AlignedOTA</strong>: Implements Aligned Optimal Transport Assignment (AlignedOTA) for improved label assignment during training, enhancing localization accuracy.</li>
+<li><strong>Distillation Enhancement</strong>: Incorporates knowledge distillation techniques to further boost model performance.</li>
 </ul>
 <h3 id="strengths-and-weaknesses">Strengths and Weaknesses</h3>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>High Accuracy and Speed</strong>: Balances accuracy with efficient inference speed.</li>
-<li><strong>Innovative Architecture</strong>: Incorporates NAS and efficient components for optimized performance.</li>
-<li><strong>Adaptability</strong>: Offers different model sizes for diverse application requirements.</li>
+<li><strong>Good Accuracy/Speed Balance</strong>: Offers a competitive trade-off between detection accuracy and inference speed.</li>
+<li><strong>Innovative Components</strong>: Integrates advanced techniques like NAS and efficient network modules.</li>
+<li><strong>Scalability</strong>: Provides different model sizes (tiny, small, medium, large) for various computational budgets.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
 <li><strong>Complexity</strong>: The advanced architecture might be more complex to customize or modify compared to simpler models.</li>
-<li><strong>Limited Documentation</strong>: Documentation may be less extensive compared to more widely adopted models like YOLO series (<a href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">GitHub README</a>).</li>
+<li><strong>Ecosystem Integration</strong>: May require more effort to integrate into streamlined workflows like those offered by Ultralytics. Documentation and community support might be less extensive than the widely adopted YOLO series (<a href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">GitHub README</a>).</li>
 </ul>
 <h3 id="use-cases">Use Cases</h3>
-<p>DAMO-YOLO is well-suited for applications requiring a blend of accuracy and speed, such as:</p>
+<p>DAMO-YOLO is suitable for applications requiring a solid blend of accuracy and speed, such as:</p>
 <ul>
-<li><strong>Real-time Surveillance</strong>: Security systems and monitoring where timely detection is crucial.</li>
-<li><strong>Robotics</strong>: Applications in robotics that demand efficient and accurate perception.</li>
-<li><strong>Industrial Inspection</strong>: Automated quality control processes in manufacturing.</li>
+<li><strong>Real-time Surveillance</strong>: Security systems where timely detection is crucial.</li>
+<li><strong>Robotics</strong>: Perception tasks demanding efficient and accurate object recognition.</li>
+<li><strong>Industrial Inspection</strong>: Automated quality control in manufacturing.</li>
 </ul>
 <p><a class="md-button" href="https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md">Learn more about DAMO-YOLO</a></p>
 <h2 id="yolov9">YOLOv9</h2>
-<p><a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a> is the latest in the YOLO series, introduced in February 2024 (<a href="https://arxiv.org/abs/2402.13616">arXiv</a>) by researchers from the Institute of Information Science, Academia Sinica, Taiwan. YOLOv9 focuses on addressing information loss in deep networks to enhance both accuracy and efficiency.</p>
+<p>YOLOv9 represents a significant advancement in the YOLO series, focusing on addressing information loss in deep neural networks to enhance both accuracy and efficiency. It was introduced by researchers from Academia Sinica, Taiwan.</p>
+<p>Authors: Chien-Yao Wang and Hong-Yuan Mark Liao<br/>
+Organization: Institute of Information Science, Academia Sinica, Taiwan<br/>
+Date: 2024-02-21<br/>
+Arxiv Link: <a href="https://arxiv.org/abs/2402.13616">https://arxiv.org/abs/2402.13616</a><br/>
+GitHub Link: <a href="https://github.com/WongKinYiu/yolov9">https://github.com/WongKinYiu/yolov9</a><br/>
+Docs Link: <a href="https://docs.ultralytics.com/models/yolov9/">https://docs.ultralytics.com/models/yolov9/</a></p>
 <h3 id="architecture-and-features_1">Architecture and Features</h3>
-<p>YOLOv9 introduces innovative techniques to overcome limitations in deep learning models:</p>
+<p>YOLOv9 introduces groundbreaking techniques:</p>
 <ul>
-<li><strong>Programmable Gradient Information (PGI)</strong>: A key innovation to preserve crucial information throughout the network, mitigating information loss.</li>
-<li><strong>Generalized Efficient Layer Aggregation Network (GELAN)</strong>: Employs GELAN for efficient computation and parameter utilization.</li>
-<li><strong>Backbone and Head Improvements</strong>: Refinements in the backbone and detection head for better feature extraction and detection.</li>
-</ul>
-<h3 id="performance-metrics_1">Performance Metrics</h3>
-<p>YOLOv9 demonstrates state-of-the-art performance in real-time object detection:</p>
-<ul>
-<li><strong>mAP</strong>: Achieves high mAP scores on benchmark datasets like COCO, outperforming previous models.</li>
-<li><strong>Inference Speed</strong>: Maintains impressive inference speeds suitable for real-time applications.</li>
-<li><strong>Model Size</strong>: Offers different model sizes (tiny, small, medium, etc.) with varying parameter counts and FLOPs.</li>
+<li><strong>Programmable Gradient Information (PGI)</strong>: A core innovation designed to preserve essential information throughout the network layers, mitigating the information bottleneck problem common in deep architectures and ensuring more reliable gradient flow.</li>
+<li><strong>Generalized Efficient Layer Aggregation Network (GELAN)</strong>: An optimized network architecture that enhances parameter utilization and computational efficiency, leading to faster inference without sacrificing accuracy.</li>
+<li><strong>Improved Backbone and Neck</strong>: Refinements in the feature extraction and fusion stages contribute to the model's overall speed and precision.</li>
 </ul>
 <h3 id="strengths-and-weaknesses_1">Strengths and Weaknesses</h3>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>State-of-the-Art Accuracy</strong>: Achieves superior accuracy compared to many real-time object detectors.</li>
-<li><strong>Efficient Design</strong>: PGI and GELAN contribute to higher efficiency and reduced computational overhead.</li>
-<li><strong>Versatility</strong>: Adaptable to various object detection tasks and deployment scenarios.</li>
-<li><strong>Ultralytics Integration</strong>: Easy to use with Ultralytics <a href="https://docs.ultralytics.com/usage/python/">Python package</a> and comprehensive <a href="https://docs.ultralytics.com/">documentation</a>.</li>
+<li><strong>State-of-the-Art Accuracy</strong>: Achieves superior mAP scores on benchmarks like COCO, often outperforming previous real-time detectors.</li>
+<li><strong>High Efficiency</strong>: PGI and GELAN contribute to better performance with potentially fewer parameters and FLOPs compared to models of similar accuracy.</li>
+<li><strong>Information Preservation</strong>: Effectively addresses information loss, leading to better learning and representation capabilities.</li>
+<li><strong>Ultralytics Ecosystem</strong>: Benefits from seamless integration with the Ultralytics framework, offering <strong>ease of use</strong> through a simple <a href="https://docs.ultralytics.com/usage/python/">Python API</a>, comprehensive <a href="https://docs.ultralytics.com/models/yolov9/">documentation</a>, efficient training processes, and a <strong>well-maintained ecosystem</strong> with active development and community support.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>New Model</strong>: Being a newer model, community support and available resources might still be growing compared to more established models.</li>
-<li><strong>Computational Demand</strong>: Larger YOLOv9 models can still require significant computational resources.</li>
+<li><strong>Newer Model</strong>: As a more recent release, the breadth of community resources and real-world deployment examples might still be growing compared to highly established models like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>.</li>
+<li><strong>Computational Needs</strong>: Larger YOLOv9 variants (like YOLOv9-E) still require substantial computational resources for training and inference.</li>
 </ul>
 <h3 id="use-cases_1">Use Cases</h3>
-<p>YOLOv9 is ideal for applications demanding top-tier accuracy and real-time processing:</p>
+<p>YOLOv9 excels in applications demanding high accuracy and real-time processing:</p>
 <ul>
-<li><strong>Advanced Driver-Assistance Systems (ADAS)</strong>: Self-driving cars and autonomous systems requiring precise object detection.</li>
-<li><strong>High-Resolution Image Analysis</strong>: Applications benefiting from detailed and accurate detection in high-resolution images, such as <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">satellite image analysis</a>.</li>
-<li><strong>Industrial Automation</strong>: Complex automation tasks requiring high precision and reliability.</li>
+<li><strong>Advanced Driver-Assistance Systems (ADAS)</strong>: Critical for precise and rapid object detection in autonomous driving scenarios.</li>
+<li><strong>High-Resolution Image Analysis</strong>: Ideal for tasks requiring detailed detection, such as <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">satellite image analysis</a>.</li>
+<li><strong>Resource-Constrained Environments</strong>: Smaller variants (YOLOv9t, YOLOv9s) offer efficiency for deployment on edge devices.</li>
 </ul>
 <p><a class="md-button" href="https://docs.ultralytics.com/models/yolov9/">Learn more about YOLOv9</a></p>
-<h2 id="model-comparison-table">Model Comparison Table</h2>
+<h2 id="performance-comparison">Performance Comparison</h2>
 <table>
 <thead>
 <tr>
-<th>Model</th>
-<th>size<br/><sup>(pixels)</sup></th>
-<th>mAP<sup>val<br/>50-95</sup></th>
-<th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
-<th>Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
-<th>params<br/><sup>(M)</sup></th>
-<th>FLOPs<br/><sup>(B)</sup></th>
+<th style="text-align: left;">Model</th>
+<th style="text-align: left;">size<br/><sup>(pixels)</sup></th>
+<th style="text-align: left;">mAP<sup>val<br/>50-95</sup></th>
+<th style="text-align: left;">Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
+<th style="text-align: left;">Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
+<th style="text-align: left;">params<br/><sup>(M)</sup></th>
+<th style="text-align: left;">FLOPs<br/><sup>(B)</sup></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>DAMO-YOLOt</td>
-<td>640</td>
-<td>42.0</td>
-<td>-</td>
-<td>2.32</td>
-<td>8.5</td>
-<td>18.1</td>
+<td style="text-align: left;">DAMO-YOLOt</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">42.0</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">2.32</td>
+<td style="text-align: left;">8.5</td>
+<td style="text-align: left;">18.1</td>
 </tr>
 <tr>
-<td>DAMO-YOLOs</td>
-<td>640</td>
-<td>46.0</td>
-<td>-</td>
-<td>3.45</td>
-<td>16.3</td>
-<td>37.8</td>
+<td style="text-align: left;">DAMO-YOLOs</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">46.0</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">3.45</td>
+<td style="text-align: left;">16.3</td>
+<td style="text-align: left;">37.8</td>
 </tr>
 <tr>
-<td>DAMO-YOLOm</td>
-<td>640</td>
-<td>49.2</td>
-<td>-</td>
-<td>5.09</td>
-<td>28.2</td>
-<td>61.8</td>
+<td style="text-align: left;">DAMO-YOLOm</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">49.2</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">5.09</td>
+<td style="text-align: left;">28.2</td>
+<td style="text-align: left;">61.8</td>
 </tr>
 <tr>
-<td>DAMO-YOLOl</td>
-<td>640</td>
-<td>50.8</td>
-<td>-</td>
-<td>7.18</td>
-<td>42.1</td>
-<td>97.3</td>
+<td style="text-align: left;">DAMO-YOLOl</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">50.8</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">7.18</td>
+<td style="text-align: left;">42.1</td>
+<td style="text-align: left;">97.3</td>
 </tr>
 <tr>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr>
-<td>YOLOv9t</td>
-<td>640</td>
-<td>38.3</td>
-<td>-</td>
-<td>2.3</td>
-<td>2.0</td>
-<td>7.7</td>
+<td style="text-align: left;">YOLOv9t</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">38.3</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">2.30</td>
+<td style="text-align: left;"><strong>2.0</strong></td>
+<td style="text-align: left;"><strong>7.7</strong></td>
 </tr>
 <tr>
-<td>YOLOv9s</td>
-<td>640</td>
-<td>46.8</td>
-<td>-</td>
-<td>3.54</td>
-<td>7.1</td>
-<td>26.4</td>
+<td style="text-align: left;">YOLOv9s</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">46.8</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">3.54</td>
+<td style="text-align: left;">7.1</td>
+<td style="text-align: left;">26.4</td>
 </tr>
 <tr>
-<td>YOLOv9m</td>
-<td>640</td>
-<td>51.4</td>
-<td>-</td>
-<td>6.43</td>
-<td>20.0</td>
-<td>76.3</td>
+<td style="text-align: left;">YOLOv9m</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">51.4</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">6.43</td>
+<td style="text-align: left;">20.0</td>
+<td style="text-align: left;">76.3</td>
 </tr>
 <tr>
-<td>YOLOv9c</td>
-<td>640</td>
-<td>53.0</td>
-<td>-</td>
-<td>7.16</td>
-<td>25.3</td>
-<td>102.1</td>
+<td style="text-align: left;">YOLOv9c</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;">53.0</td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">7.16</td>
+<td style="text-align: left;">25.3</td>
+<td style="text-align: left;">102.1</td>
 </tr>
 <tr>
-<td>YOLOv9e</td>
-<td>640</td>
-<td>55.6</td>
-<td>-</td>
-<td>16.77</td>
-<td>57.3</td>
-<td>189.0</td>
+<td style="text-align: left;">YOLOv9e</td>
+<td style="text-align: left;">640</td>
+<td style="text-align: left;"><strong>55.6</strong></td>
+<td style="text-align: left;">-</td>
+<td style="text-align: left;">16.77</td>
+<td style="text-align: left;">57.3</td>
+<td style="text-align: left;">189.0</td>
 </tr>
 </tbody>
 </table>
-<p>Both DAMO-YOLO and YOLOv9 represent significant advancements in object detection. DAMO-YOLO offers a strong balance of speed and accuracy through its efficient architecture, while YOLOv9 pushes the boundaries of accuracy with its innovative PGI and GELAN techniques. Your choice will depend on the specific needs of your application, whether it prioritizes cutting-edge accuracy or a well-rounded performance profile.</p>
-<p>Users might also be interested in comparing these models with other YOLO variants such as <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov7/">YOLOv7</a>, <a href="https://docs.ultralytics.com/models/yolov5/">YOLOv5</a>, and <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>, as well as models like <a href="https://docs.ultralytics.com/compare/yolov8-vs-yolox/">YOLOX</a>, <a href="https://docs.ultralytics.com/compare/yolov8-vs-rtdetr/">RT-DETR</a>, and <a href="https://docs.ultralytics.com/compare/yolov8-vs-pp-yoloe/">PP-YOLOE</a> for further exploration of object detection models.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>Both DAMO-YOLO and YOLOv9 are powerful object detection models. DAMO-YOLO offers a strong balance between speed and accuracy using innovative components like NAS backbones and RepGFPN. However, YOLOv9 pushes the state-of-the-art further with its PGI and GELAN architecture, achieving higher accuracy and efficiency, particularly notable in its larger variants.</p>
+<p>For developers seeking the highest accuracy and efficiency, especially when leveraging a robust and user-friendly ecosystem, <strong>YOLOv9 integrated within the Ultralytics framework is often the preferred choice</strong>. Ultralytics provides streamlined training, deployment, extensive documentation, and strong community support, making advanced models like YOLOv9 more accessible and easier to implement in real-world applications.</p>
+<h2 id="explore-other-models">Explore Other Models</h2>
+<p>Users interested in DAMO-YOLO and YOLOv9 might also find these models relevant within the Ultralytics ecosystem:</p>
+<ul>
+<li><strong><a href="https://docs.ultralytics.com/models/yolov8/">Ultralytics YOLOv8</a></strong>: A highly versatile and widely adopted model known for its excellent balance of speed and accuracy across multiple vision tasks. See the <a href="https://docs.ultralytics.com/compare/yolov8-vs-damo-yolo/">YOLOv8 vs. DAMO-YOLO comparison</a>.</li>
+<li><strong><a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a></strong>: Focuses on further efficiency improvements, including NMS-free inference. Check the <a href="https://docs.ultralytics.com/compare/yolov10-vs-damo-yolo/">YOLOv10 vs. DAMO-YOLO comparison</a>.</li>
+<li><strong><a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a></strong>: The latest Ultralytics model emphasizing speed and efficiency with an anchor-free design. Explore the <a href="https://docs.ultralytics.com/compare/yolo11-vs-damo-yolo/">YOLO11 vs. DAMO-YOLO comparison</a>.</li>
+<li><strong><a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a></strong>: A real-time detector leveraging a transformer-based architecture. See the <a href="https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo/">RT-DETR vs. DAMO-YOLO comparison</a>.</li>
+<li><strong><a href="https://docs.ultralytics.com/models/yolov5/">YOLOv5</a></strong>: A foundational and widely used model known for its reliability and ease of use. Compare it in <a href="https://docs.ultralytics.com/compare/yolov5-vs-damo-yolo/">YOLOv5 vs. DAMO-YOLO</a>.</li>
+</ul>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on April 03, 2024">

@@ -766,6 +766,12 @@
 <td><code>'coco8.yaml'</code></td>
 <td>Path to the <a href="https://docs.ultralytics.com/datasets/">dataset</a> configuration file (default: <code>coco8.yaml</code>), essential for INT8 quantization calibration. If not specified with INT8 enabled, a default dataset will be assigned.</td>
 </tr>
+<tr>
+<td><code>fraction</code></td>
+<td><code>float</code></td>
+<td><code>1.0</code></td>
+<td>Specifies the fraction of the dataset to use for INT8 quantization calibration. Allows for calibrating on a subset of the full dataset, useful for experiments or when resources are limited. If not specified with INT8 enabled, the full dataset will be used.</td>
+</tr>
 </tbody>
 </table>
 <p>Adjusting these parameters allows for customization of the export process to fit specific requirements, such as deployment environment, hardware constraints, and performance targets. Selecting the appropriate format and settings is essential for achieving the best balance between model size, speed, and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>.</p>
@@ -808,14 +814,14 @@
 <td><code>openvino</code></td>
 <td><code>yolo11n_openvino_model/</code></td>
 <td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>int8</code>, <code>nms</code><span class="twemoji" title="conf, iou, agnostic_nms are also available when nms=True"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg></span>, <code>batch</code>, <code>data</code></td>
+<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>int8</code>, <code>nms</code><span class="twemoji" title="conf, iou, agnostic_nms are also available when nms=True"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg></span>, <code>batch</code>, <code>data</code>, <code>fraction</code></td>
 </tr>
 <tr>
 <td><a href="../../integrations/tensorrt/">TensorRT</a></td>
 <td><code>engine</code></td>
 <td><code>yolo11n.engine</code></td>
 <td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>simplify</code>, <code>workspace</code>, <code>int8</code>, <code>nms</code><span class="twemoji" title="conf, iou, agnostic_nms are also available when nms=True"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg></span>, <code>batch</code>, <code>data</code></td>
+<td><code>imgsz</code>, <code>half</code>, <code>dynamic</code>, <code>simplify</code>, <code>workspace</code>, <code>int8</code>, <code>nms</code><span class="twemoji" title="conf, iou, agnostic_nms are also available when nms=True"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg></span>, <code>batch</code>, <code>data</code>, <code>fraction</code></td>
 </tr>
 <tr>
 <td><a href="../../integrations/coreml/">CoreML</a></td>
@@ -843,7 +849,7 @@
 <td><code>tflite</code></td>
 <td><code>yolo11n.tflite</code></td>
 <td>✅</td>
-<td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>nms</code><span class="twemoji" title="conf, iou, agnostic_nms are also available when nms=True"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg></span>, <code>batch</code>, <code>data</code></td>
+<td><code>imgsz</code>, <code>half</code>, <code>int8</code>, <code>nms</code><span class="twemoji" title="conf, iou, agnostic_nms are also available when nms=True"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M11 9h2V7h-2m1 13c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8m0-18A10 10 0 0 0 2 12a10 10 0 0 0 10 10 10 10 0 0 0 10-10A10 10 0 0 0 12 2m-1 15h2v-6h-2z"></path></svg></span>, <code>batch</code>, <code>data</code>, <code>fraction</code></td>
 </tr>
 <tr>
 <td><a href="../../integrations/edge-tpu/">TF Edge TPU</a></td>
@@ -885,7 +891,7 @@
 <td><code>imx</code></td>
 <td><code>yolov8n_imx_model/</code></td>
 <td>✅</td>
-<td><code>imgsz</code>, <code>int8</code>, <code>data</code></td>
+<td><code>imgsz</code>, <code>int8</code>, <code>data</code>, <code>fraction</code></td>
 </tr>
 <tr>
 <td><a href="../../integrations/rockchip-rknn/">RKNN</a></td>

@@ -19,7 +19,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RTDETRv2, YOLO11, object detection, Ultralytics, Vision Transformer, YOLO, computer vision, real-time detection, model comparison" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolo11-vs-rtdetr" property="og:url"/><meta content="YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection" property="og:title"/><meta content="Compare RTDETRv2's accuracy with YOLO11's speed in this detailed analysis of top object detection models. Decide the best fit for your projects." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolo11-vs-rtdetr" property="twitter:url"/><meta content="YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Compare RTDETRv2's accuracy with YOLO11's speed in this detailed analysis of top object detection models. Decide the best fit for your projects." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-03 16:01:03 +0000", "dateModified": "2025-02-22 16:01:03 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare RTDETRv2's accuracy with YOLO11's speed in this detailed analysis of top object detection models. Decide the best fit for your projects."}</script></head>
+<meta content="YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="RTDETRv2, YOLO11, object detection, Ultralytics, Vision Transformer, YOLO, computer vision, real-time detection, model comparison" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolo11-vs-rtdetr" property="og:url"/><meta content="YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection" property="og:title"/><meta content="Compare RTDETRv2's accuracy with YOLO11's speed in this detailed analysis of top object detection models. Decide the best fit for your projects." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolo11-vs-rtdetr" property="twitter:url"/><meta content="YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Compare RTDETRv2's accuracy with YOLO11's speed in this detailed analysis of top object detection models. Decide the best fit for your projects." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-03 17:11:15 +0000", "dateModified": "2025-02-22 17:11:15 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Compare RTDETRv2's accuracy with YOLO11's speed in this detailed analysis of top object detection models. Decide the best fit for your projects."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -291,24 +291,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#rtdetrv2-high-accuracy-real-time-detection">
+<a class="md-nav__link" href="#ultralytics-yolo11-efficient-and-versatile-object-detection">
 <span class="md-ellipsis">
-      RTDETRv2: High Accuracy Real-Time Detection
+      Ultralytics YOLO11: Efficient and Versatile Object Detection
     </span>
 </a>
-<nav aria-label="RTDETRv2: High Accuracy Real-Time Detection" class="md-nav">
+<nav aria-label="Ultralytics YOLO11: Efficient and Versatile Object Detection" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#architecture-and-key-features">
 <span class="md-ellipsis">
       Architecture and Key Features
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics">
-<span class="md-ellipsis">
-      Performance Metrics
     </span>
 </a>
 </li>
@@ -330,24 +323,17 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolo11-efficient-and-versatile-object-detection">
+<a class="md-nav__link" href="#rtdetrv2-high-accuracy-real-time-detection">
 <span class="md-ellipsis">
-      YOLO11: Efficient and Versatile Object Detection
+      RTDETRv2: High Accuracy Real-Time Detection
     </span>
 </a>
-<nav aria-label="YOLO11: Efficient and Versatile Object Detection" class="md-nav">
+<nav aria-label="RTDETRv2: High Accuracy Real-Time Detection" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#architecture-and-key-features_1">
 <span class="md-ellipsis">
       Architecture and Key Features
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics_1">
-<span class="md-ellipsis">
-      Performance Metrics
     </span>
 </a>
 </li>
@@ -369,9 +355,9 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#model-comparison-table">
+<a class="md-nav__link" href="#performance-comparison-yolo11-vs-rtdetrv2">
 <span class="md-ellipsis">
-      Model Comparison Table
+      Performance Comparison: YOLO11 vs RTDETRv2
     </span>
 </a>
 </li>
@@ -393,66 +379,71 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="yolo11-vs-rtdetrv2-a-technical-comparison-for-object-detection">YOLO11 vs RTDETRv2: A Technical Comparison for Object Detection</h1>
-<p>Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers a range of models, including the efficient YOLO series and the high-accuracy RT-DETR series. This page provides a detailed technical comparison between <strong>YOLO11</strong> and <strong>RTDETRv2</strong>, two state-of-the-art models for object detection, to help you make an informed decision.</p>
+<p>Choosing the right object detection model is crucial for computer vision projects. Ultralytics offers a range of models, including the highly efficient Ultralytics YOLO series, while other research groups contribute models like RT-DETR. This page provides a detailed technical comparison between <strong>Ultralytics YOLO11</strong> and <strong>RTDETRv2</strong>, analyzing their architectures, performance, and ideal use cases to help you make an informed decision.</p>
 <script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["YOLO11", "RTDETRv2"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="rtdetrv2-high-accuracy-real-time-detection">RTDETRv2: High Accuracy Real-Time Detection</h2>
-<p><strong>RTDETRv2</strong> (<a href="https://docs.ultralytics.com/models/rtdetr/">Real-Time Detection Transformer v2</a>) is authored by Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu from Baidu, and was released on 2023-04-17. It is documented on <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme">GitHub</a> and further detailed in its <a href="https://arxiv.org/abs/2304.08069">arXiv paper</a>. RTDETRv2 is celebrated for its high accuracy and real-time performance in object detection.</p>
+<h2 id="ultralytics-yolo11-efficient-and-versatile-object-detection">Ultralytics YOLO11: Efficient and Versatile Object Detection</h2>
+<p><strong>Ultralytics YOLO11</strong> is the latest iteration in the renowned YOLO series, developed by Glenn Jocher and Jing Qiu at Ultralytics and released on 2024-09-27. It represents the cutting edge in real-time object detection, balancing speed and accuracy effectively.</p>
+<ul>
+<li><strong>Authors:</strong> Glenn Jocher, Jing Qiu</li>
+<li><strong>Organization:</strong> <a href="https://www.ultralytics.com/">Ultralytics</a></li>
+<li><strong>Date:</strong> 2024-09-27</li>
+<li><strong>GitHub:</strong> <a href="https://github.com/ultralytics/ultralytics">https://github.com/ultralytics/ultralytics</a></li>
+<li><strong>Docs:</strong> <a href="https://docs.ultralytics.com/models/yolo11/">https://docs.ultralytics.com/models/yolo11/</a></li>
+</ul>
 <h3 id="architecture-and-key-features">Architecture and Key Features</h3>
-<p>RTDETRv2's architecture is built upon a Vision Transformer (ViT), which allows the model to effectively capture global context within images. This transformer-based approach distinguishes it from traditional CNN-based models like YOLO, enabling RTDETRv2 to leverage self-attention mechanisms for enhanced feature extraction. This design choice leads to superior accuracy, especially in complex visual scenes where understanding the broader context is crucial for accurate object detection.</p>
-<h3 id="performance-metrics">Performance Metrics</h3>
-<p>RTDETRv2 models demonstrate strong performance in terms of accuracy, with the larger RTDETRv2-x variant achieving a mAPval50-95 of 54.3. When using TensorRT acceleration on NVIDIA T4 GPUs, RTDETRv2 maintains competitive inference speeds. For detailed performance metrics, refer to the comparison table below.</p>
+<p>YOLO11 builds upon the successful single-stage architecture of its predecessors like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, incorporating refinements for enhanced performance. It is designed for <strong>efficiency</strong>, making it suitable for deployment across various hardware, including resource-constrained <a href="https://www.ultralytics.com/glossary/edge-ai">edge devices</a>.</p>
+<p>A key advantage of YOLO11 lies within the <strong>Ultralytics ecosystem</strong>. It offers a streamlined user experience with a simple API, extensive <a href="https://docs.ultralytics.com/">documentation</a>, and readily available pre-trained weights, facilitating <strong>efficient training</strong> and deployment. The ecosystem benefits from active development, strong community support, and frequent updates. Furthermore, YOLO11 is highly <strong>versatile</strong>, supporting tasks like detection, segmentation, classification, pose estimation, and OBB out-of-the-box, a breadth of capability often lacking in competing models. Compared to transformer-based models like RTDETRv2, YOLO11 typically requires significantly <strong>less memory</strong> during training and inference.</p>
 <h3 id="strengths-and-weaknesses">Strengths and Weaknesses</h3>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>Superior Accuracy</strong>: Transformer architecture provides excellent object detection accuracy, particularly in complex scenarios.</li>
-<li><strong>Real-Time Capable</strong>: Achieves competitive inference speeds, especially with GPU acceleration, making it suitable for real-time applications.</li>
-<li><strong>Robust Feature Extraction</strong>: Vision Transformers effectively capture global context and detailed features.</li>
+<li><strong>Exceptional Speed:</strong> Optimized for real-time inference on both CPU and GPU.</li>
+<li><strong>High Efficiency:</strong> Lower memory and computational requirements compared to transformer models.</li>
+<li><strong>Performance Balance:</strong> Excellent trade-off between speed and accuracy across various model sizes.</li>
+<li><strong>Versatility:</strong> Supports multiple vision tasks within a single framework.</li>
+<li><strong>Ease of Use:</strong> Simple API, comprehensive documentation, and integrated ecosystem (<a href="https://www.ultralytics.com/hub">Ultralytics HUB</a>).</li>
+<li><strong>Training Efficiency:</strong> Faster training times and lower resource needs.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>Larger Model Size</strong>: RTDETRv2 models, especially larger variants like RTDETRv2-x, have a considerable parameter count and higher FLOPs, requiring more computational resources compared to smaller YOLO models.</li>
-<li><strong>Inference Speed Limitations</strong>: While real-time, the inference speed may be slower than the fastest YOLO models, especially on devices with limited resources.</li>
+<li>Smaller variants (like YOLO11n) prioritize speed, potentially offering slightly lower accuracy than the largest RTDETRv2 models in complex scenarios.</li>
 </ul>
 <h3 id="ideal-use-cases">Ideal Use Cases</h3>
-<p>RTDETRv2 is ideally suited for applications where accuracy is paramount and sufficient computational resources are available, such as:</p>
+<p>YOLO11 excels in applications demanding real-time performance and efficiency, such as <a href="https://www.ultralytics.com/solutions/ai-in-automotive">autonomous vehicles</a>, robotics, <a href="https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8">security systems</a>, and deployment on edge devices. Its versatility makes it suitable for projects requiring multiple vision tasks.</p>
+<p><a class="md-button" href="https://docs.ultralytics.com/models/yolo11/">Learn more about YOLO11</a></p>
+<h2 id="rtdetrv2-high-accuracy-real-time-detection">RTDETRv2: High Accuracy Real-Time Detection</h2>
+<p><strong>RTDETRv2</strong> (Real-Time Detection Transformer v2) is an object detection model developed by researchers at Baidu, released on 2023-04-17. It leverages a transformer architecture to achieve high accuracy.</p>
 <ul>
-<li><strong>Autonomous Vehicles</strong>: For precise and reliable environmental perception. Learn more about <a href="https://www.ultralytics.com/solutions/ai-in-automotive">AI in self-driving cars</a>.</li>
-<li><strong>Robotics</strong>: To enable robots to interact accurately in complex environments. Explore <a href="https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics">AI's role in robotics</a>.</li>
-<li><strong>Medical Imaging</strong>: For detailed anomaly detection to aid in diagnostics. Discover <a href="https://www.ultralytics.com/solutions/ai-in-healthcare">AI in Healthcare</a>.</li>
-<li><strong>High-Resolution Image Analysis</strong>: For applications like satellite imagery analysis and industrial inspection. Read about <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">analyzing satellite imagery with computer vision</a>.</li>
+<li><strong>Authors:</strong> Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, Yi Liu</li>
+<li><strong>Organization:</strong> Baidu</li>
+<li><strong>Date:</strong> 2023-04-17</li>
+<li><strong>Arxiv:</strong> <a href="https://arxiv.org/abs/2304.08069">https://arxiv.org/abs/2304.08069</a></li>
+<li><strong>GitHub:</strong> <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch">https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch</a></li>
+<li><strong>Docs:</strong> <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme">https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme</a></li>
 </ul>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/rtdetr/">Learn more about RTDETRv2</a></p>
-<h2 id="yolo11-efficient-and-versatile-object-detection">YOLO11: Efficient and Versatile Object Detection</h2>
-<p><strong>YOLO11</strong> (<a href="https://docs.ultralytics.com/models/yolo11/">You Only Look Once 11</a>) is the latest in the Ultralytics YOLO series, developed by Glenn Jocher and Jing Qiu from Ultralytics, released on 2024-09-27. Find more details in the <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11 documentation</a> and the <a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub repository</a>. YOLO11 is engineered for speed and efficiency, building upon the strengths of previous YOLO iterations while enhancing accuracy and maintaining real-time performance.</p>
 <h3 id="architecture-and-key-features_1">Architecture and Key Features</h3>
-<p>YOLO11 adopts a single-stage detection approach, prioritizing inference speed while achieving a strong balance with accuracy. It improves upon predecessors like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a> through architectural optimizations and enhancements. YOLO models are inherently designed for efficient processing, making them highly adaptable for real-time applications across various hardware platforms, including edge devices.</p>
-<h3 id="performance-metrics_1">Performance Metrics</h3>
-<p>YOLO11 excels in speed, as shown in the performance table below. Models like YOLO11n and YOLO11s achieve remarkable inference speeds on both CPUs and GPUs. While its mAP scores are slightly below those of larger RTDETRv2 models, YOLO11 provides competitive accuracy suitable for a wide array of object detection tasks.</p>
+<p>RTDETRv2 utilizes a <a href="https://www.ultralytics.com/glossary/vision-transformer-vit">Vision Transformer (ViT)</a> backbone combined with CNN features. The transformer allows it to capture global image context using <a href="https://www.ultralytics.com/glossary/self-attention">self-attention mechanisms</a>, aiming for high detection accuracy, particularly in complex scenes.</p>
 <h3 id="strengths-and-weaknesses_1">Strengths and Weaknesses</h3>
 <p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>Exceptional Speed</strong>: YOLO models are famous for their fast inference speeds, crucial for real-time applications.</li>
-<li><strong>High Efficiency</strong>: YOLO11 models are computationally efficient, enabling deployment on resource-limited devices.</li>
-<li><strong>Versatile Application</strong>: Suitable for a broad range of object detection tasks and deployment scenarios.</li>
-<li><strong>Small Model Size</strong>: Smaller YOLO11 variants are memory-efficient due to their reduced parameter count.</li>
+<li><strong>High Accuracy:</strong> Achieves strong mAP scores, especially larger variants on complex datasets.</li>
+<li><strong>Global Context Understanding:</strong> Transformer architecture effectively models long-range dependencies.</li>
 </ul>
 <p><strong>Weaknesses:</strong></p>
 <ul>
-<li><strong>Accuracy Trade-off</strong>: In scenarios requiring the highest possible accuracy, particularly with complex or overlapping objects, larger models such as RTDETRv2 may offer superior performance.</li>
+<li><strong>Higher Complexity:</strong> Transformer models are generally more complex and computationally intensive.</li>
+<li><strong>Larger Model Size:</strong> Higher parameter counts and FLOPs compared to equivalent YOLO11 models.</li>
+<li><strong>Slower Inference:</strong> Significantly slower on CPU (metrics often unreported) and generally slower on GPU compared to YOLO11, especially smaller variants.</li>
+<li><strong>Higher Memory Requirements:</strong> Training and inference demand more memory resources.</li>
+<li><strong>Limited Versatility:</strong> Primarily focused on object detection, lacking built-in support for other tasks like segmentation or pose estimation found in YOLO11.</li>
+<li><strong>Less Mature Ecosystem:</strong> May lack the extensive documentation, community support, and ease-of-use features of the Ultralytics ecosystem.</li>
 </ul>
 <h3 id="ideal-use-cases_1">Ideal Use Cases</h3>
-<p>YOLO11's speed and efficiency make it ideal for applications requiring real-time processing and edge deployment:</p>
-<ul>
-<li><strong>Real-time Video Surveillance</strong>: For rapid object detection in security systems. Explore <a href="https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8">security alarm system projects with YOLOv8</a>.</li>
-<li><strong>Edge AI Applications</strong>: For deployment on devices like mobile phones and IoT devices. Learn about <a href="https://www.ultralytics.com/blog/edge-ai-and-aiot-upgrade-any-camera-with-ultralytics-yolov8-in-a-no-code-way">Edge AI with YOLOv8</a>.</li>
-<li><strong>Robotics and Automation</strong>: For real-time perception in robotic systems. Understand <a href="https://www.ultralytics.com/glossary/robotics">AI in Robotics</a>.</li>
-<li><strong>Retail Analytics</strong>: For real-time customer and inventory analysis. Discover <a href="https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management">AI for smarter retail inventory management</a>.</li>
-<li><strong>Traffic Management</strong>: For real-time vehicle detection and traffic analysis. Read about <a href="https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11">optimizing traffic management with YOLO11</a>.</li>
-</ul>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/yolo11/">Learn more about YOLO11</a></p>
-<h2 id="model-comparison-table">Model Comparison Table</h2>
+<p>RTDETRv2 is suited for applications where achieving the absolute highest accuracy is the primary goal, and sufficient computational resources (especially powerful GPUs) are available. Examples include detailed <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a> or high-resolution <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">satellite imagery analysis</a>.</p>
+<p><a class="md-button" href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme">Learn more about RTDETRv2</a></p>
+<h2 id="performance-comparison-yolo11-vs-rtdetrv2">Performance Comparison: YOLO11 vs RTDETRv2</h2>
+<p>The table below compares various YOLO11 and RTDETRv2 models based on performance metrics on the COCO dataset.</p>
 <table>
 <thead>
 <tr>
@@ -470,26 +461,26 @@
 <td>YOLO11n</td>
 <td>640</td>
 <td>39.5</td>
-<td>56.1</td>
-<td>1.5</td>
-<td>2.6</td>
-<td>6.5</td>
+<td><strong>56.1</strong></td>
+<td><strong>1.5</strong></td>
+<td><strong>2.6</strong></td>
+<td><strong>6.5</strong></td>
 </tr>
 <tr>
 <td>YOLO11s</td>
 <td>640</td>
 <td>47.0</td>
-<td>90.0</td>
-<td>2.5</td>
-<td>9.4</td>
-<td>21.5</td>
+<td><strong>90.0</strong></td>
+<td><strong>2.5</strong></td>
+<td><strong>9.4</strong></td>
+<td><strong>21.5</strong></td>
 </tr>
 <tr>
 <td>YOLO11m</td>
 <td>640</td>
 <td>51.5</td>
-<td>183.2</td>
-<td>4.7</td>
+<td><strong>183.2</strong></td>
+<td><strong>4.7</strong></td>
 <td>20.1</td>
 <td>68.0</td>
 </tr>
@@ -497,7 +488,7 @@
 <td>YOLO11l</td>
 <td>640</td>
 <td>53.4</td>
-<td>238.6</td>
+<td><strong>238.6</strong></td>
 <td>6.2</td>
 <td>25.3</td>
 <td>86.9</td>
@@ -505,8 +496,8 @@
 <tr>
 <td>YOLO11x</td>
 <td>640</td>
-<td>54.7</td>
-<td>462.8</td>
+<td><strong>54.7</strong></td>
+<td><strong>462.8</strong></td>
 <td>11.3</td>
 <td>56.9</td>
 <td>194.9</td>
@@ -553,20 +544,17 @@
 <td>54.3</td>
 <td>-</td>
 <td>15.03</td>
-<td>76</td>
-<td>259</td>
+<td><strong>76</strong></td>
+<td><strong>259</strong></td>
 </tr>
 </tbody>
 </table>
+<p><strong>Analysis:</strong> Ultralytics YOLO11 demonstrates superior speed, particularly on CPU where RTDETRv2 lacks reported metrics, and significantly faster TensorRT inference times, especially for smaller models (YOLO11n/s). YOLO11x achieves a higher mAP than RTDETRv2-x while being faster on TensorRT and more efficient (fewer FLOPs/params). Overall, YOLO11 offers a better balance of speed, accuracy, and efficiency, making it more practical for diverse deployment scenarios.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Both RTDETRv2 and YOLO11 are powerful object detection models tailored for different priorities. <strong>RTDETRv2</strong> is optimal when accuracy is the primary concern and computational resources are available, while <strong>YOLO11</strong> excels in scenarios where real-time performance, efficiency, and deployment on less powerful hardware are key.</p>
-<p>For users considering other models, Ultralytics offers a wide range, including:</p>
-<ul>
-<li><strong>YOLOv8 and YOLOv9</strong>: Previous YOLO generations, offering various speed-accuracy trade-offs. Read about <a href="https://www.ultralytics.com/blog/ultralytics-yolov8-turns-one-a-year-of-breakthroughs-and-innovations">YOLOv8's first year</a> and explore <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>.</li>
-<li><strong>YOLO-NAS</strong>: Models designed via Neural Architecture Search for optimized performance. Learn about <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS by Deci AI</a>.</li>
-<li><strong>FastSAM and MobileSAM</strong>: For real-time instance segmentation. Check out <a href="https://docs.ultralytics.com/models/fast-sam/">FastSAM</a> and <a href="https://docs.ultralytics.com/models/mobile-sam/">MobileSAM</a>.</li>
-</ul>
-<p>The choice between RTDETRv2, YOLO11, and other Ultralytics models should be based on the specific needs of your computer vision project, carefully balancing accuracy, speed, and resource constraints. Refer to the <a href="https://docs.ultralytics.com/models/">Ultralytics Documentation</a> and the <a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub repository</a> for further details and implementation guides.</p>
+<p>Both Ultralytics YOLO11 and RTDETRv2 are powerful object detection models, but they cater to different priorities.</p>
+<p><strong>Ultralytics YOLO11</strong> is highly recommended for most users due to its exceptional <strong>speed</strong>, <strong>efficiency</strong>, <strong>versatility</strong>, and <strong>ease of use</strong>. Its well-maintained ecosystem, lower memory requirements, and excellent performance balance make it ideal for real-world applications, from edge devices to cloud servers.</p>
+<p><strong>RTDETRv2</strong> offers high accuracy, particularly in complex scenes, but comes with higher computational costs, slower inference speeds, and greater memory demands. It's a viable option for niche applications where maximum accuracy is paramount and ample resources are available, but users should be prepared for its increased complexity and resource intensity compared to the streamlined experience offered by YOLO11.</p>
+<p>For users exploring other options, Ultralytics provides a rich model zoo including <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, <a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a>, <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, and specialized models like <a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a> and <a href="https://docs.ultralytics.com/models/yolo-world/">YOLO-World</a>.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on April 03, 2024">

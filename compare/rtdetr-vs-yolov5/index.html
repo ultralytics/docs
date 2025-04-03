@@ -8,7 +8,7 @@
 <link href="https://docs.ultralytics.com/compare/rtdetr-vs-yolov5/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.11" name="generator"/>
-<title>YOLOv5 vs RTDETRv2: Detailed Technical Comparison - Ultralytics YOLO Docs</title>
+<title>RTDETRv2 vs YOLOv5: Technical Comparison - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.4af4bdda.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -19,13 +19,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLOv5 vs RTDETRv2: Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, RTDETRv2, object detection comparison, YOLOv5 vs RTDETRv2, Ultralytics models, model performance, computer vision, object detection, RTDETR, YOLOv5 features, transformer architecture" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-yolov5" property="og:url"/><meta content="YOLOv5 vs RTDETRv2: Detailed Technical Comparison" property="og:title"/><meta content="Discover the key differences between YOLOv5 and RTDETRv2, from architecture to accuracy, and find the best object detection model for your project." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-yolov5" property="twitter:url"/><meta content="YOLOv5 vs RTDETRv2: Detailed Technical Comparison" property="twitter:title"/><meta content="Discover the key differences between YOLOv5 and RTDETRv2, from architecture to accuracy, and find the best object detection model for your project." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLOv5 vs RTDETRv2: Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-03 16:01:03 +0000", "dateModified": "2025-02-22 16:01:03 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the key differences between YOLOv5 and RTDETRv2, from architecture to accuracy, and find the best object detection model for your project."}</script></head>
+<meta content="RTDETRv2 vs YOLOv5: Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, RTDETRv2, object detection comparison, YOLOv5 vs RTDETRv2, Ultralytics models, model performance, computer vision, object detection, RTDETR, YOLOv5 features, transformer architecture" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-yolov5" property="og:url"/><meta content="RTDETRv2 vs YOLOv5: Technical Comparison" property="og:title"/><meta content="Discover the key differences between YOLOv5 and RTDETRv2, from architecture to accuracy, and find the best object detection model for your project." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/rtdetr-vs-yolov5" property="twitter:url"/><meta content="RTDETRv2 vs YOLOv5: Technical Comparison" property="twitter:title"/><meta content="Discover the key differences between YOLOv5 and RTDETRv2, from architecture to accuracy, and find the best object detection model for your project." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "RTDETRv2 vs YOLOv5: Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-03 17:11:15 +0000", "dateModified": "2025-02-22 17:11:15 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the key differences between YOLOv5 and RTDETRv2, from architecture to accuracy, and find the best object detection model for your project."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#yolov5-vs-rtdetrv2-detailed-technical-comparison">
+<a class="md-skip" href="#rtdetrv2-vs-yolov5-technical-comparison">
           Skip to content
         </a>
 </div>
@@ -58,7 +58,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              YOLOv5 vs RTDETRv2: Detailed Technical Comparison
+              RTDETRv2 vs YOLOv5: Technical Comparison
           </span>
 </div>
 </div>
@@ -291,23 +291,87 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolov5-optimized-for-speed-and-efficiency">
-<span class="md-ellipsis">
-      YOLOv5: Optimized for Speed and Efficiency
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#rtdetrv2-high-accuracy-real-time-detection-transformer">
 <span class="md-ellipsis">
       RTDETRv2: High-Accuracy Real-Time Detection Transformer
     </span>
 </a>
+<nav aria-label="RTDETRv2: High-Accuracy Real-Time Detection Transformer" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-and-key-features">
+<span class="md-ellipsis">
+      Architecture and Key Features
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#model-comparison-table">
+<a class="md-nav__link" href="#strengths">
 <span class="md-ellipsis">
-      Model Comparison Table
+      Strengths
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weaknesses">
+<span class="md-ellipsis">
+      Weaknesses
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ideal-use-cases">
+<span class="md-ellipsis">
+      Ideal Use Cases
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yolov5-optimized-for-speed-and-efficiency">
+<span class="md-ellipsis">
+      YOLOv5: Optimized for Speed and Efficiency
+    </span>
+</a>
+<nav aria-label="YOLOv5: Optimized for Speed and Efficiency" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#architecture-and-key-features_1">
+<span class="md-ellipsis">
+      Architecture and Key Features
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#strengths_1">
+<span class="md-ellipsis">
+      Strengths
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#weaknesses_1">
+<span class="md-ellipsis">
+      Weaknesses
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ideal-use-cases_1">
+<span class="md-ellipsis">
+      Ideal Use Cases
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#performance-comparison-rtdetrv2-vs-yolov5">
+<span class="md-ellipsis">
+      Performance Comparison: RTDETRv2 vs YOLOv5
     </span>
 </a>
 </li>
@@ -328,62 +392,83 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/rtdetr-vs-yolov5.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="yolov5-vs-rtdetrv2-detailed-technical-comparison">YOLOv5 vs RTDETRv2: Detailed Technical Comparison</h1>
-<p>Choosing the optimal object detection model is a critical decision for computer vision projects. Ultralytics offers a diverse range of models to address various project needs. This page delivers a technical comparison between <a href="https://docs.ultralytics.com/models/yolov5/">Ultralytics YOLOv5</a> and <a href="https://docs.ultralytics.com/models/rtdetr/">RTDETRv2</a>, emphasizing their architectural distinctions, performance benchmarks, and suitability for different applications.</p>
+<h1 id="rtdetrv2-vs-yolov5-technical-comparison">RTDETRv2 vs YOLOv5: Technical Comparison</h1>
+<p>Choosing the optimal object detection model is a critical decision for computer vision projects. Ultralytics offers a diverse range of models to address various project needs. This page delivers a technical comparison between <a href="https://docs.ultralytics.com/models/rtdetr/">RTDETRv2</a> and <a href="https://docs.ultralytics.com/models/yolov5/">Ultralytics YOLOv5</a>, emphasizing their architectural distinctions, performance benchmarks, and suitability for different applications.</p>
 <script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["RTDETRv2", "YOLOv5"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="yolov5-optimized-for-speed-and-efficiency">YOLOv5: Optimized for Speed and Efficiency</h2>
-<p><a href="https://docs.ultralytics.com/models/yolov5/">Ultralytics YOLOv5</a> is a widely-adopted one-stage object detector celebrated for its rapid inference speed and operational efficiency. YOLOv5's architecture is composed of:</p>
-<ul>
-<li><strong>Backbone:</strong> CSPDarknet53, responsible for feature extraction.</li>
-<li><strong>Neck:</strong> PANet, utilized for feature fusion.</li>
-<li><strong>Head:</strong> YOLOv5 head, designed for detection tasks.</li>
-</ul>
-<p>YOLOv5 is available in multiple sizes (n, s, m, l, x), providing users with options to balance speed and accuracy based on their specific requirements.</p>
-<p><strong>Strengths:</strong></p>
-<ul>
-<li><strong>Inference Speed:</strong> YOLOv5 excels in speed, making it an excellent choice for real-time applications such as <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security alarm systems</a>.</li>
-<li><strong>Efficiency:</strong> YOLOv5 models are compact, demanding fewer computational resources, suitable for edge deployment like <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>.</li>
-<li><strong>Versatility:</strong> Adaptable to various hardware environments, including resource-constrained devices.</li>
-<li><strong>User-Friendliness:</strong> Well-documented and straightforward to implement using the Ultralytics <a href="https://pypi.org/project/ultralytics/">Python package</a> and <a href="https://www.ultralytics.com/hub">Ultralytics HUB</a>.</li>
-</ul>
-<p><strong>Weaknesses:</strong></p>
-<ul>
-<li><strong>Accuracy Trade-off:</strong> While achieving high accuracy, larger models like RTDETRv2 may offer superior mAP, particularly in complex scenarios.</li>
-</ul>
-<p><strong>Ideal Use Cases:</strong></p>
-<ul>
-<li>Real-time object detection scenarios including video surveillance and <a href="https://www.ultralytics.com/blog/optimizingtraffic-management-with-ultralytics-yolo11">AI in traffic management</a>.</li>
-<li>Edge computing and mobile deployments.</li>
-<li>Applications requiring rapid processing, such as <a href="https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics">robotics</a> (<a href="https://docs.ultralytics.com/guides/ros-quickstart/">ROS Quickstart</a>) and <a href="https://www.ultralytics.com/solutions/ai-in-automotive">autonomous vehicles</a>.</li>
-</ul>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/yolov5/">Learn more about YOLOv5</a></p>
 <h2 id="rtdetrv2-high-accuracy-real-time-detection-transformer">RTDETRv2: High-Accuracy Real-Time Detection Transformer</h2>
-<p><strong>RTDETRv2</strong> (<a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme">Real-Time Detection Transformer v2</a>) is a state-of-the-art object detection model prioritizing high accuracy and real-time performance. It was introduced in a paper titled "<a href="https://arxiv.org/abs/2407.17140">RT-DETRv2: Improved Baseline with Bag-of-Freebies for Real-Time Detection Transformer</a>" on 2023-04-17 by authors Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu from Baidu. Built on a Vision Transformer (ViT) architecture, RTDETRv2 excels in applications demanding precise object localization and classification.</p>
-<p><strong>Architecture and Key Features:</strong></p>
-<p>RTDETRv2 leverages a transformer-based architecture, enabling it to capture global context within images through self-attention mechanisms. This approach allows the model to weigh the importance of different image regions, leading to enhanced feature extraction and improved accuracy, especially in complex scenes.</p>
-<p><strong>Strengths:</strong></p>
+<p><strong>RTDETRv2</strong> (Real-Time Detection Transformer v2) is a state-of-the-art object detection model prioritizing high accuracy and real-time performance.</p>
 <ul>
-<li><strong>Superior Accuracy:</strong> Transformer architecture provides enhanced object detection accuracy, particularly in complex environments as demonstrated in scenarios like <a href="https://www.ultralytics.com/blog/vision-ai-in-crowd-management">vision-ai-in-crowd-management</a>.</li>
-<li><strong>Real-Time Capability:</strong> Achieves competitive inference speeds, particularly when using hardware acceleration like NVIDIA T4 GPUs.</li>
-<li><strong>Robust Feature Extraction:</strong> Vision Transformers effectively capture global context and intricate details, beneficial in applications such as <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">using computer vision to analyse satellite imagery</a>.</li>
+<li><strong>Authors:</strong> Wenyu Lv, Yian Zhao, Qinyao Chang, Kui Huang, Guanzhong Wang, and Yi Liu</li>
+<li><strong>Organization:</strong> Baidu</li>
+<li><strong>Date:</strong> 2023-04-17</li>
+<li><strong>Arxiv Link:</strong> <a href="https://arxiv.org/abs/2304.08069">https://arxiv.org/abs/2304.08069</a> (Original RT-DETR), <a href="https://arxiv.org/abs/2407.17140">https://arxiv.org/abs/2407.17140</a> (RT-DETRv2 improvements)</li>
+<li><strong>GitHub Link:</strong> <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch">https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch</a></li>
+<li><strong>Docs Link:</strong> <a href="https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme">https://github.com/lyuwenyu/RT-DETR/tree/main/rtdetrv2_pytorch#readme</a></li>
 </ul>
-<p><strong>Weaknesses:</strong></p>
+<h3 id="architecture-and-key-features">Architecture and Key Features</h3>
+<p>RTDETRv2 leverages a <a href="https://www.ultralytics.com/glossary/vision-transformer-vit">Vision Transformer (ViT)</a> architecture, enabling it to capture global context within images through <a href="https://www.ultralytics.com/glossary/self-attention">self-attention mechanisms</a>. This approach allows the model to weigh the importance of different image regions, leading to enhanced feature extraction and improved accuracy, especially in complex scenes with occluded or small objects. It often combines CNN features with transformer layers for a hybrid approach.</p>
+<h3 id="strengths">Strengths</h3>
 <ul>
-<li><strong>Larger Model Size:</strong> RTDETRv2 models, especially larger variants, have a higher parameter count and FLOPs than YOLOv5, necessitating more computational resources.</li>
-<li><strong>Inference Speed:</strong> While real-time capable, inference speed may be lower compared to the fastest YOLOv5 models, especially on less powerful devices.</li>
+<li><strong>Superior Accuracy:</strong> The transformer architecture often provides enhanced object detection accuracy (mAP), particularly in complex environments like those found in <a href="https://www.ultralytics.com/solutions/ai-in-automotive">autonomous driving</a> or detailed <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a>.</li>
+<li><strong>Real-Time Capability:</strong> Achieves competitive inference speeds, particularly when using hardware acceleration like NVIDIA GPUs with <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT</a>.</li>
+<li><strong>Robust Feature Extraction:</strong> ViTs effectively capture global context and intricate details, beneficial in applications such as <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">satellite image analysis</a>.</li>
 </ul>
-<p><strong>Ideal Use Cases:</strong></p>
+<h3 id="weaknesses">Weaknesses</h3>
+<ul>
+<li><strong>Larger Model Size &amp; Resource Needs:</strong> RTDETRv2 models, especially larger variants, typically have a higher parameter count and FLOPs than YOLOv5, necessitating more computational resources (GPU memory, compute power), particularly during training which can require significantly more CUDA memory.</li>
+<li><strong>Inference Speed:</strong> While real-time capable on GPUs, inference speed may be lower compared to the fastest YOLOv5 models, especially on CPU or less powerful edge devices.</li>
+<li><strong>Complexity:</strong> Transformer architectures can be more complex to understand and potentially harder to optimize for specific hardware compared to CNNs.</li>
+</ul>
+<h3 id="ideal-use-cases">Ideal Use Cases</h3>
 <p>RTDETRv2 is optimally suited for applications where accuracy is paramount and computational resources are sufficient. These include:</p>
 <ul>
-<li><strong>Autonomous Driving:</strong> For reliable and precise environmental perception in <a href="https://www.ultralytics.com/solutions/ai-in-automotive">AI in self-driving cars</a>.</li>
-<li><strong>Robotics:</strong> Enabling robots to accurately interact with their surroundings, essential for tasks discussed in "<a href="https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics">From Algorithms to Automation: AI's Role in Robotics</a>".</li>
-<li><strong>Medical Imaging:</strong> For precise anomaly detection, aiding in diagnostics as highlighted in <a href="https://www.ultralytics.com/solutions/ai-in-healthcare">AI in Healthcare</a> and potentially useful in areas like <a href="https://www.ultralytics.com/blog/using-yolo11-for-tumor-detection-in-medical-imaging">using-yolo11-for-tumor-detection-in-medical-imaging</a>.</li>
-<li><strong>High-Resolution Image Analysis:</strong> Applications requiring detailed analysis of large images, like satellite imagery or industrial inspection, as seen in <a href="https://www.ultralytics.com/blog/improving-manufacturing-with-computer-vision">improving-manufacturing-with-computer-vision</a>.</li>
+<li><strong>Autonomous Driving:</strong> For reliable environmental perception.</li>
+<li><strong>Robotics:</strong> Enabling robots to accurately interact with surroundings, as discussed in "<a href="https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics">From Algorithms to Automation: AI's Role in Robotics</a>".</li>
+<li><strong>Medical Imaging:</strong> For precise anomaly detection in <a href="https://www.ultralytics.com/solutions/ai-in-healthcare">AI in Healthcare</a>.</li>
+<li><strong>High-Resolution Image Analysis:</strong> Applications requiring detailed analysis like industrial inspection or <a href="https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery">satellite imagery</a>.</li>
 </ul>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/rtdetr/">Learn more about RTDETRv2</a></p>
-<h2 id="model-comparison-table">Model Comparison Table</h2>
+<p class="md-button"><a href="https://docs.ultralytics.com/models/rtdetr/">Learn more about RTDETRv2</a></p>
+<h2 id="yolov5-optimized-for-speed-and-efficiency">YOLOv5: Optimized for Speed and Efficiency</h2>
+<p><a href="https://docs.ultralytics.com/models/yolov5/">Ultralytics YOLOv5</a>, created by Glenn Jocher at Ultralytics, is a widely-adopted one-stage object detector celebrated for its exceptional speed, efficiency, and ease of use.</p>
+<ul>
+<li><strong>Author:</strong> Glenn Jocher</li>
+<li><strong>Organization:</strong> Ultralytics</li>
+<li><strong>Date:</strong> 2020-06-26</li>
+<li><strong>GitHub Link:</strong> <a href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a></li>
+<li><strong>Docs Link:</strong> <a href="https://docs.ultralytics.com/models/yolov5/">https://docs.ultralytics.com/models/yolov5/</a></li>
+</ul>
+<h3 id="architecture-and-key-features_1">Architecture and Key Features</h3>
+<p>YOLOv5 employs a CNN-based architecture optimized for a balance between speed and accuracy:</p>
+<ul>
+<li><strong>Backbone:</strong> CSPDarknet53 for efficient feature extraction.</li>
+<li><strong>Neck:</strong> PANet for effective feature fusion across scales.</li>
+<li><strong>Head:</strong> YOLOv5 head for performing detection tasks.</li>
+</ul>
+<p>It is available in multiple sizes (n, s, m, l, x), allowing users to select the best trade-off for their specific requirements.</p>
+<h3 id="strengths_1">Strengths</h3>
+<ul>
+<li><strong>Inference Speed &amp; Efficiency:</strong> YOLOv5 excels in speed, making it ideal for real-time applications. Models are compact, demanding fewer computational resources and <strong>less memory</strong> during training and inference compared to transformer models. This makes it highly suitable for deployment on <a href="https://www.ultralytics.com/glossary/edge-ai">edge devices</a> like <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>.</li>
+<li><strong>Ease of Use:</strong> YOLOv5 is renowned for its streamlined user experience, simple API, and extensive <a href="https://docs.ultralytics.com/yolov5/">documentation</a>. Implementation is straightforward using the Ultralytics Python package and <a href="https://www.ultralytics.com/hub">Ultralytics HUB</a>.</li>
+<li><strong>Well-Maintained Ecosystem:</strong> Benefits from the integrated Ultralytics ecosystem, featuring active development, strong community support via <a href="https://github.com/ultralytics/yolov5/issues">GitHub</a> and <a href="https://discord.com/invite/ultralytics">Discord</a>, frequent updates, and comprehensive resources like <a href="https://docs.ultralytics.com/yolov5/#tutorials">tutorials</a>.</li>
+<li><strong>Performance Balance:</strong> Achieves a strong performance balance, offering a favorable trade-off between speed and accuracy suitable for diverse real-world scenarios.</li>
+<li><strong>Versatility:</strong> Highly adaptable to various hardware and software environments. Supports easy export to multiple formats (<a href="https://docs.ultralytics.com/integrations/onnx/">ONNX</a>, <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT</a>, TFLite, etc.) for deployment flexibility. Beyond detection, YOLOv5 also supports <a href="https://docs.ultralytics.com/tasks/segment/">instance segmentation</a> and <a href="https://docs.ultralytics.com/tasks/classify/">image classification</a>.</li>
+<li><strong>Training Efficiency:</strong> Offers efficient training processes with readily available <a href="https://github.com/ultralytics/yolov5/releases">pretrained weights</a>, enabling faster development cycles and effective <a href="https://www.ultralytics.com/glossary/transfer-learning">transfer learning</a>.</li>
+</ul>
+<h3 id="weaknesses_1">Weaknesses</h3>
+<ul>
+<li><strong>Accuracy Trade-off:</strong> While achieving high accuracy, its peak mAP might be slightly lower than the largest RTDETRv2 variants, particularly in highly complex scenes with many small or overlapping objects.</li>
+</ul>
+<h3 id="ideal-use-cases_1">Ideal Use Cases</h3>
+<ul>
+<li>Real-time object detection scenarios including video surveillance, <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security systems</a>, and <a href="https://www.ultralytics.com/blog/ai-in-traffic-management-from-congestion-to-coordination">AI in traffic management</a>.</li>
+<li>Edge computing and mobile deployments where resource constraints are significant.</li>
+<li>Applications requiring rapid processing, such as <a href="https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics">robotics</a> and industrial automation.</li>
+</ul>
+<p class="md-button"><a href="https://docs.ultralytics.com/models/yolov5/">Learn more about YOLOv5</a></p>
+<h2 id="performance-comparison-rtdetrv2-vs-yolov5">Performance Comparison: RTDETRv2 vs YOLOv5</h2>
+<p>The table below provides a quantitative comparison of various RTDETRv2 and YOLOv5 model variants based on key performance metrics.</p>
 <table>
 <thead>
 <tr>
@@ -427,7 +512,7 @@
 <tr>
 <td>RTDETRv2-x</td>
 <td>640</td>
-<td>54.3</td>
+<td><strong>54.3</strong></td>
 <td>-</td>
 <td>15.03</td>
 <td>76</td>
@@ -446,10 +531,10 @@
 <td>YOLOv5n</td>
 <td>640</td>
 <td>28.0</td>
-<td>73.6</td>
-<td>1.12</td>
-<td>2.6</td>
-<td>7.7</td>
+<td><strong>73.6</strong></td>
+<td><strong>1.12</strong></td>
+<td><strong>2.6</strong></td>
+<td><strong>7.7</strong></td>
 </tr>
 <tr>
 <td>YOLOv5s</td>
@@ -489,15 +574,14 @@
 </tr>
 </tbody>
 </table>
+<p><strong>Analysis:</strong> RTDETRv2 models generally achieve higher mAP values, especially the larger variants (l, x), indicating superior accuracy potential. However, YOLOv5 models, particularly the smaller ones (n, s), demonstrate significantly faster inference speeds on both CPU and GPU (TensorRT), along with lower parameter counts and FLOPs, highlighting their efficiency. YOLOv5 offers a better speed-accuracy trade-off for many real-time and resource-constrained applications.</p>
 <h2 id="conclusion">Conclusion</h2>
-<p>Both RTDETRv2 and YOLOv5 are robust object detection models, each designed for distinct priorities. RTDETRv2 is favored when accuracy is paramount and computational resources are available. Conversely, YOLOv5 excels in scenarios requiring real-time performance and efficiency, especially on resource-limited platforms.</p>
-<p>For users exploring other models, Ultralytics offers a broad model zoo, including:</p>
+<p>Both RTDETRv2 and YOLOv5 are powerful object detection models, but they cater to different priorities.</p>
 <ul>
-<li><strong>YOLOv8</strong> and <strong>YOLO11</strong>: Successors to YOLOv5, providing further advancements in performance and efficiency as highlighted in "<a href="https://www.ultralytics.com/blog/ultralytics-yolov8-turns-one-a-year-of-breakthroughs-and-innovations">Ultralytics YOLOv8 Turns One: A Year of Breakthroughs and Innovations</a>" and "<a href="https://www.ultralytics.com/blog/ultralytics-yolo11-has-arrived-redefine-whats-possible-in-ai">Ultralytics YOLO11 Has Arrived: Redefine What's Possible in AI</a>".</li>
-<li><strong>YOLO-NAS</strong>: Models architected with Neural Architecture Search for optimized performance (<a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS by Deci AI</a>).</li>
-<li><strong>FastSAM</strong> and <strong>MobileSAM</strong>: For real-time instance segmentation tasks (<a href="https://docs.ultralytics.com/models/fast-sam/">FastSAM</a> and <a href="https://docs.ultralytics.com/models/mobile-sam/">MobileSAM</a>).</li>
+<li><strong>Choose RTDETRv2 if:</strong> Maximum accuracy is the primary goal, especially in complex scenes, and sufficient computational resources (particularly GPU) are available.</li>
+<li><strong>Choose Ultralytics YOLOv5 if:</strong> Speed, efficiency, ease of use, lower resource requirements (CPU/edge deployment), and a well-supported ecosystem are crucial. Its balance of performance and usability makes it an excellent choice for a wide array of applications, especially for developers seeking rapid deployment and iteration.</li>
 </ul>
-<p>Selecting between RTDETRv2, YOLOv5, or other Ultralytics models should be based on the specific demands of your computer vision project, carefully considering the balance between accuracy, speed, and resource availability. Consult the <a href="https://docs.ultralytics.com/models/">Ultralytics Documentation</a> and <a href="https://github.com/ultralytics/ultralytics">GitHub repository</a> for comprehensive details and implementation guides.</p>
+<p>For users interested in the latest advancements from Ultralytics, consider exploring <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, and <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>, which offer further improvements in performance, versatility, and efficiency within the user-friendly Ultralytics framework. You can find more comparisons on the <a href="https://docs.ultralytics.com/compare/">compare models</a> page.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on April 03, 2024">
