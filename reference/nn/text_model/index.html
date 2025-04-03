@@ -1953,7 +1953,7 @@ the tokenize and encode_text methods.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="AssertionError">AssertionError</span></code>
+<code><span title="ValueError">ValueError</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1985,9 +1985,7 @@ the tokenize and encode_text methods.</p>
 <span class="normal"><a href="#__codelineno-0-188">188</a></span>
 <span class="normal"><a href="#__codelineno-0-189">189</a></span>
 <span class="normal"><a href="#__codelineno-0-190">190</a></span>
-<span class="normal"><a href="#__codelineno-0-191">191</a></span>
-<span class="normal"><a href="#__codelineno-0-192">192</a></span>
-<span class="normal"><a href="#__codelineno-0-193">193</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_text_model</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-191">191</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-171" name="__codelineno-0-171"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_text_model</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <a id="__codelineno-0-172" name="__codelineno-0-172"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-173" name="__codelineno-0-173"></a><span class="sd">    Build a text encoding model based on the specified variant.</span>
 <a id="__codelineno-0-174" name="__codelineno-0-174"></a>
@@ -1999,17 +1997,15 @@ the tokenize and encode_text methods.</p>
 <a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">        (TextModel): Instantiated text encoding model.</span>
 <a id="__codelineno-0-181" name="__codelineno-0-181"></a>
 <a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">        AssertionError: If the specified variant is not supported.</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">        ValueError: If the specified variant is not supported.</span>
 <a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">    """</span>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Build text model </span><span class="si">{</span><span class="n">variant</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="n">base</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a>    <span class="k">if</span> <span class="n">base</span> <span class="o">==</span> <span class="s2">"clip"</span><span class="p">:</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a>        <span class="k">return</span> <span class="n">CLIP</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-189" name="__codelineno-0-189"></a>    <span class="k">elif</span> <span class="n">base</span> <span class="o">==</span> <span class="s2">"mobileclip"</span><span class="p">:</span>
-<a id="__codelineno-0-190" name="__codelineno-0-190"></a>        <span class="k">return</span> <span class="n">MobileCLIP</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-191" name="__codelineno-0-191"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-192" name="__codelineno-0-192"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Variant not found"</span><span class="p">)</span>
-<a id="__codelineno-0-193" name="__codelineno-0-193"></a>        <span class="k">assert</span> <span class="kc">False</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="n">base</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="n">variant</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">":"</span><span class="p">)</span>
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="k">if</span> <span class="n">base</span> <span class="o">==</span> <span class="s2">"clip"</span><span class="p">:</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a>        <span class="k">return</span> <span class="n">CLIP</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a>    <span class="k">elif</span> <span class="n">base</span> <span class="o">==</span> <span class="s2">"mobileclip"</span><span class="p">:</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a>        <span class="k">return</span> <span class="n">MobileCLIP</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-191" name="__codelineno-0-191"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Unrecognized base model: '</span><span class="si">{</span><span class="n">base</span><span class="si">}</span><span class="s2">'. Supported base models: 'clip', 'mobileclip'."</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
