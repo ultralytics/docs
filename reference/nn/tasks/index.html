@@ -5625,8 +5625,8 @@ DetectionModel base class.</p>
 <a id="__codelineno-0-972" name="__codelineno-0-972"></a>                <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span>
 <a id="__codelineno-0-973" name="__codelineno-0-973"></a>                <span class="k">return</span> <span class="n">vpe</span>
 <a id="__codelineno-0-974" name="__codelineno-0-974"></a>            <span class="n">cls_pe</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_cls_pe</span><span class="p">(</span><span class="n">m</span><span class="o">.</span><span class="n">get_tpe</span><span class="p">(</span><span class="n">tpe</span><span class="p">),</span> <span class="n">vpe</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<a id="__codelineno-0-975" name="__codelineno-0-975"></a>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">cls_pe</span><span class="p">)</span> <span class="o">!=</span> <span class="n">b</span><span class="p">:</span>
-<a id="__codelineno-0-976" name="__codelineno-0-976"></a>                <span class="n">cls_pe</span> <span class="o">=</span> <span class="n">cls_pe</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-975" name="__codelineno-0-975"></a>            <span class="k">if</span> <span class="n">cls_pe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">!=</span> <span class="n">b</span> <span class="ow">or</span> <span class="n">m</span><span class="o">.</span><span class="n">export</span><span class="p">:</span>
+<a id="__codelineno-0-976" name="__codelineno-0-976"></a>                <span class="n">cls_pe</span> <span class="o">=</span> <span class="n">cls_pe</span><span class="o">.</span><span class="n">expand</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <a id="__codelineno-0-977" name="__codelineno-0-977"></a>            <span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">cls_pe</span><span class="p">)</span>
 <a id="__codelineno-0-978" name="__codelineno-0-978"></a>        <span class="k">else</span><span class="p">:</span>
 <a id="__codelineno-0-979" name="__codelineno-0-979"></a>            <span class="n">x</span> <span class="o">=</span> <span class="n">m</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># run</span>
@@ -8046,7 +8046,7 @@ After installation, the function again attempts to load the model using torch.lo
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on March 31, 2025">
-<span class="hover-item">✏️</span> Updated 2 days ago
+<span class="hover-item">✏️</span> Updated 3 days ago
     </span>
 </div>
 <div class="authors-container">
