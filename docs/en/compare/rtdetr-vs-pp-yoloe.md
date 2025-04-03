@@ -90,7 +90,7 @@ The following table provides a detailed performance comparison between various s
 
 Both RTDETRv2 and PP-YOLOE+ are powerful object detection models. RTDETRv2 excels when maximum accuracy and contextual understanding are critical, leveraging its transformer architecture. PP-YOLOE+ offers a compelling balance of speed and accuracy rooted in the efficient YOLO paradigm, ideal for real-time applications.
 
-However, for developers seeking a streamlined experience, efficient training, and versatile deployment, **Ultralytics YOLO models** like [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and the latest [YOLOv11](https://docs.ultralytics.com/models/yolo11/) often present significant advantages:
+However, for developers seeking a streamlined experience, efficient training, and versatile deployment, **Ultralytics YOLO models** like [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and the latest [YOLO11](https://docs.ultralytics.com/models/yolo11/) often present significant advantages:
 
 - **Ease of Use:** Ultralytics models feature a simple API, extensive [documentation](https://docs.ultralytics.com/), and a user-friendly CLI/Python interface.
 - **Well-Maintained Ecosystem:** Benefit from active development, strong community support via [GitHub](https://github.com/ultralytics/ultralytics), frequent updates, and numerous [integrations](https://docs.ultralytics.com/integrations/).
