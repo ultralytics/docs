@@ -51,13 +51,13 @@ PP-YOLOE+ is well-suited for applications demanding robust and efficient object 
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - Anchor-free design simplifies implementation.
-  - High accuracy and efficient inference capabilities.
-  - Well-documented and supported within the PaddlePaddle framework.
+    - Anchor-free design simplifies implementation.
+    - High accuracy and efficient inference capabilities.
+    - Well-documented and supported within the PaddlePaddle framework.
 - **Weaknesses**:
-  - Ecosystem lock-in for users outside the PaddlePaddle environment.
-  - Potentially smaller community and fewer resources compared to widely-adopted models like Ultralytics YOLOv5.
-  - May require more effort to integrate into non-PaddlePaddle workflows.
+    - Ecosystem lock-in for users outside the PaddlePaddle environment.
+    - Potentially smaller community and fewer resources compared to widely-adopted models like Ultralytics YOLOv5.
+    - May require more effort to integrate into non-PaddlePaddle workflows.
 
 [Learn more about PP-YOLOE+](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md){ .md-button }
 
@@ -100,16 +100,16 @@ YOLOv5's versatility makes it suitable for a wide range of applications:
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - **Exceptional speed** and real-time performance.
-  - Flexible deployment with multiple model sizes.
-  - **Large and active community** with extensive support. Join the [Ultralytics community](https://community.ultralytics.com/).
-  - **Easy to use** with excellent documentation and [Ultralytics HUB](https://www.ultralytics.com/hub) integration. Explore [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
-  - **Well-maintained ecosystem** with frequent updates and resources.
-  - **Efficient training** and lower memory requirements.
-  - Supports detection, segmentation, and classification tasks.
+    - **Exceptional speed** and real-time performance.
+    - Flexible deployment with multiple model sizes.
+    - **Large and active community** with extensive support. Join the [Ultralytics community](https://community.ultralytics.com/).
+    - **Easy to use** with excellent documentation and [Ultralytics HUB](https://www.ultralytics.com/hub) integration. Explore [Ultralytics HUB documentation](https://docs.ultralytics.com/hub/).
+    - **Well-maintained ecosystem** with frequent updates and resources.
+    - **Efficient training** and lower memory requirements.
+    - Supports detection, segmentation, and classification tasks.
 - **Weaknesses**:
-  - Larger models can be computationally intensive.
-  - Anchor-based approach may require more tuning for specific datasets compared to anchor-free methods like PP-YOLOE+. Learn about [anchor-based detectors](https://www.ultralytics.com/glossary/anchor-based-detectors).
+    - Larger models can be computationally intensive.
+    - Anchor-based approach may require more tuning for specific datasets compared to anchor-free methods like PP-YOLOE+. Learn about [anchor-based detectors](https://www.ultralytics.com/glossary/anchor-based-detectors).
 
 [Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 

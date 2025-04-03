@@ -36,14 +36,14 @@ YOLOv5's architecture is renowned for its efficiency and effectiveness:
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - **Exceptional Speed and Performance Balance**: Highly optimized for real-time inference, offering a great trade-off between speed and accuracy.
-  - **Ease of Use**: Simple API, extensive [documentation](https://docs.ultralytics.com/models/yolov5/), and straightforward training/deployment process.
-  - **Well-Maintained Ecosystem**: Benefits from the integrated [Ultralytics ecosystem](https://docs.ultralytics.com/), including active development, strong community support via [GitHub](https://github.com/ultralytics/yolov5) and [Discord](https://discord.com/invite/ultralytics), frequent updates, and integration with [Ultralytics HUB](https://docs.ultralytics.com/hub/) for seamless MLOps.
-  - **Training Efficiency**: Efficient training processes with readily available pre-trained weights, requiring relatively modest memory resources compared to transformer-based models.
-  - **Scalability**: Multiple model sizes allow flexible deployment from edge devices to cloud servers.
+    - **Exceptional Speed and Performance Balance**: Highly optimized for real-time inference, offering a great trade-off between speed and accuracy.
+    - **Ease of Use**: Simple API, extensive [documentation](https://docs.ultralytics.com/models/yolov5/), and straightforward training/deployment process.
+    - **Well-Maintained Ecosystem**: Benefits from the integrated [Ultralytics ecosystem](https://docs.ultralytics.com/), including active development, strong community support via [GitHub](https://github.com/ultralytics/yolov5) and [Discord](https://discord.com/invite/ultralytics), frequent updates, and integration with [Ultralytics HUB](https://docs.ultralytics.com/hub/) for seamless MLOps.
+    - **Training Efficiency**: Efficient training processes with readily available pre-trained weights, requiring relatively modest memory resources compared to transformer-based models.
+    - **Scalability**: Multiple model sizes allow flexible deployment from edge devices to cloud servers.
 - **Weaknesses**:
-  - Larger models (YOLOv5l, YOLOv5x) can be computationally demanding.
-  - Anchor-based approach might require more hyperparameter tuning for specific datasets compared to anchor-free methods.
+    - Larger models (YOLOv5l, YOLOv5x) can be computationally demanding.
+    - Anchor-based approach might require more hyperparameter tuning for specific datasets compared to anchor-free methods.
 
 ### Use Cases
 
@@ -79,14 +79,14 @@ PP-YOLOE+ incorporates several design choices for performance:
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - High accuracy potential, especially with larger models.
-  - Anchor-free approach can simplify hyperparameter tuning in some cases.
-  - Efficient inference speeds, particularly on TensorRT.
-  - Well-integrated within the PaddlePaddle ecosystem.
+    - High accuracy potential, especially with larger models.
+    - Anchor-free approach can simplify hyperparameter tuning in some cases.
+    - Efficient inference speeds, particularly on TensorRT.
+    - Well-integrated within the PaddlePaddle ecosystem.
 - **Weaknesses**:
-  - Primarily optimized for the PaddlePaddle framework, potentially limiting usability for those preferring PyTorch or other frameworks.
-  - The community and available resources might be smaller compared to the extensive ecosystem surrounding Ultralytics YOLO models.
-  - Less emphasis on ease of use and deployment simplicity compared to YOLOv5.
+    - Primarily optimized for the PaddlePaddle framework, potentially limiting usability for those preferring PyTorch or other frameworks.
+    - The community and available resources might be smaller compared to the extensive ecosystem surrounding Ultralytics YOLO models.
+    - Less emphasis on ease of use and deployment simplicity compared to YOLOv5.
 
 ### Use Cases
 
