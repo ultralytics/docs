@@ -21,10 +21,10 @@ This chart visualizes key performance metrics like mAP (mean Average Precision) 
 
 Dive deeper with our specific comparison pages. Each analysis covers:
 
-*   **Architectural Differences:** Understand the core design principles and innovations.
-*   **Performance Benchmarks:** Compare metrics like accuracy (mAP), speed (FPS, latency), and parameter count.
-*   **Strengths and Weaknesses:** Identify where each model excels and its limitations.
-*   **Ideal Use Cases:** Determine which scenarios each model is best suited for.
+- **Architectural Differences:** Understand the core design principles and innovations.
+- **Performance Benchmarks:** Compare metrics like accuracy (mAP), speed (FPS, latency), and parameter count.
+- **Strengths and Weaknesses:** Identify where each model excels and its limitations.
+- **Ideal Use Cases:** Determine which scenarios each model is best suited for.
 
 This detailed breakdown helps you weigh the pros and cons to find the model that perfectly matches your project's needs, whether for edge devices, cloud deployment, or research.
 

@@ -32,7 +32,7 @@ DAMO-YOLO is an object detection method developed by the Alibaba Group, designed
 **Date**: 2022-11-23  
 **Arxiv Link**: <https://arxiv.org/abs/2211.15444v2>  
 **GitHub Link**: <https://github.com/tinyvision/DAMO-YOLO>  
-**Docs Link**: <https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md>  
+**Docs Link**: <https://github.com/tinyvision/DAMO-YOLO/blob/master/README.md>
 
 ### Architecture and Key Features
 
@@ -72,7 +72,7 @@ DAMO-YOLO offers a range of models (t, s, m, l) providing scalability. The small
 **Date**: 2022-07-06  
 **Arxiv Link**: <https://arxiv.org/abs/2207.02696>  
 **GitHub Link**: <https://github.com/WongKinYiu/yolov7>  
-**Docs Link**: <https://docs.ultralytics.com/models/yolov7/>  
+**Docs Link**: <https://docs.ultralytics.com/models/yolov7/>
 
 ### Architecture and Key Features
 
