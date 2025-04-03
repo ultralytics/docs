@@ -64,7 +64,7 @@ YOLOv9 demonstrates state-of-the-art performance, particularly excelling in accu
 Within the Ultralytics framework, YOLOv9 benefits from:
 
 - **Ease of Use:** A streamlined user experience via the Ultralytics Python package and CLI, backed by extensive [documentation](https://docs.ultralytics.com/).
-- **Well-Maintained Ecosystem:** Access to a robust ecosystem with active development, strong [community support](https://github.com/ultralytics/ultralytics/discussions), frequent updates, and integration with tools like [Ultralytics HUB](https://docs.ultralytics.com/hub/).
+- **Well-Maintained Ecosystem:** Access to a robust ecosystem with active development, strong [community support](https://github.com/orgs/ultralytics/discussions), frequent updates, and integration with tools like [Ultralytics HUB](https://docs.ultralytics.com/hub/).
 - **Performance Balance:** Offers an excellent trade-off between speed and accuracy, suitable for diverse [real-world deployment scenarios](https://docs.ultralytics.com/guides/model-deployment-options/).
 - **Training Efficiency:** Benefits from efficient training processes, readily available pre-trained weights, and potentially lower memory requirements compared to larger, more complex architectures like transformers.
 

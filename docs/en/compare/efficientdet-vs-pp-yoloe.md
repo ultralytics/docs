@@ -29,17 +29,17 @@ EfficientDet, introduced by Mingxing Tan, Ruoming Pang, and Quoc V. Le from Goog
 ### Architecture and Key Features
 
 - **Backbone:** Utilizes EfficientNet backbones, known for their high accuracy and parameter efficiency achieved through compound scaling.
-- **Neck:** Introduces the Bi-directional Feature Pyramid Network (BiFPN), a weighted feature fusion mechanism that allows for efficient multi-scale feature aggregation. Learn more about [feature pyramid networks](https://www.ultralytics.com/glossary/feature-maps/).
+- **Neck:** Introduces the Bi-directional Feature Pyramid Network (BiFPN), a weighted feature fusion mechanism that allows for efficient multi-scale feature aggregation. Learn more about [feature pyramid networks](https://www.ultralytics.com/glossary/feature-maps).
 - **Compound Scaling:** EfficientDet employs a compound scaling method that jointly scales the depth, width, and resolution for the backbone, BiFPN, and detection head, allowing models (D0-D7) to cater to different resource constraints.
 
 ### Strengths and Weaknesses
 
 - **Strengths:** Highly scalable across a wide range of computational budgets, achieving strong accuracy-efficiency trade-offs. BiFPN provides effective feature fusion.
-- **Weaknesses:** Can be more complex to implement and tune compared to single-stage detectors like YOLO. Primarily developed within the TensorFlow ecosystem, potentially requiring more effort for integration with other frameworks like [PyTorch](https://www.ultralytics.com/glossary/pytorch/).
+- **Weaknesses:** Can be more complex to implement and tune compared to single-stage detectors like YOLO. Primarily developed within the TensorFlow ecosystem, potentially requiring more effort for integration with other frameworks like [PyTorch](https://www.ultralytics.com/glossary/pytorch).
 
 ### Use Cases
 
-EfficientDet models are suitable for applications where scalability is key, from mobile and edge devices ([EfficientDet-D0](https://www.ultralytics.com/glossary/edge-ai/)) to cloud-based systems requiring high accuracy ([EfficientDet-D7](https://www.ultralytics.com/glossary/cloud-computing/)).
+EfficientDet models are suitable for applications where scalability is key, from mobile and edge devices ([EfficientDet-D0](https://www.ultralytics.com/glossary/edge-ai)) to cloud-based systems requiring high accuracy ([EfficientDet-D7](https://www.ultralytics.com/glossary/cloud-computing)).
 
 [Learn more about EfficientDet](https://github.com/google/automl/tree/master/efficientdet#readme){ .md-button }
 
@@ -58,10 +58,10 @@ PP-YOLOE+, developed by PaddlePaddle Authors at Baidu and released in 2022, is a
 
 ### Architecture and Key Features
 
-- **Anchor-Free Design:** PP-YOLOE+ is an [anchor-free detector](https://www.ultralytics.com/glossary/anchor-free-detectors/), simplifying the model structure by removing predefined anchor boxes and reducing hyperparameters.
+- **Anchor-Free Design:** PP-YOLOE+ is an [anchor-free detector](https://www.ultralytics.com/glossary/anchor-free-detectors), simplifying the model structure by removing predefined anchor boxes and reducing hyperparameters.
 - **Backbone and Neck:** Typically uses a ResNet-based backbone and a Path Aggregation Network (PAN) neck for feature fusion, similar to architectures like [YOLOv5](https://docs.ultralytics.com/models/yolov5/).
 - **Decoupled Head:** Employs a decoupled head to separate classification and localization tasks, potentially improving accuracy.
-- **Task Alignment Learning (TAL):** Incorporates TAL, using dynamic label assignment and a specialized loss function ([VariFocal Loss](https://www.ultralytics.com/glossary/loss-function/)) to better align classification scores and localization accuracy.
+- **Task Alignment Learning (TAL):** Incorporates TAL, using dynamic label assignment and a specialized loss function ([VariFocal Loss](https://www.ultralytics.com/glossary/loss-function)) to better align classification scores and localization accuracy.
 
 ### Strengths and Weaknesses
 

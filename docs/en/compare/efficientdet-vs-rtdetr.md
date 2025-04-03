@@ -45,7 +45,7 @@ EfficientDet models offer a strong balance between accuracy and efficiency, part
 **Weaknesses:**
 
 - **Accuracy Limits:** Larger EfficientDet models can be slower and less accurate than newer transformer-based architectures like RTDETRv2 or state-of-the-art Ultralytics YOLO models on complex datasets.
-- **CNN Limitations:** Relies solely on [Convolutional Neural Networks (CNNs)](https://www.ultralytics.com/glossary/convolutional-neural-network-cnn/), which may not capture global context as effectively as transformers.
+- **CNN Limitations:** Relies solely on [Convolutional Neural Networks (CNNs)](https://www.ultralytics.com/glossary/convolutional-neural-network-cnn), which may not capture global context as effectively as transformers.
 
 ### Ideal Use Cases
 
@@ -92,7 +92,7 @@ RTDETRv2 generally achieves higher accuracy (mAP) compared to EfficientDet, espe
 
 ### Ideal Use Cases
 
-- **Autonomous Vehicles:** High-accuracy perception for [self-driving systems](https://www.ultralytics.com/solutions/ai-in-self-driving).
+- **Autonomous Vehicles:** High-accuracy perception for [self-driving systems](https://www.ultralytics.com/solutions/ai-in-automotive).
 - **Advanced Robotics:** Enabling complex interactions requiring precise object recognition ([AI's Role in Robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics)).
 - **High-Precision Analysis:** Applications like [medical imaging](https://www.ultralytics.com/solutions/ai-in-healthcare) or detailed [satellite image analysis](https://www.ultralytics.com/blog/using-computer-vision-to-analyse-satellite-imagery).
 
@@ -141,7 +141,7 @@ For users exploring other options, Ultralytics offers a wide range of models, in
 
 - **YOLOv8** and **YOLOv9**: State-of-the-art performance and versatility.
 - **YOLO11**: Known for its anchor-free design and efficiency.
-- **YOLO-NAS**: Models optimized through [Neural Architecture Search](https://www.ultralytics.com/glossary/neural-architecture-search-nas/) for enhanced performance.
+- **YOLO-NAS**: Models optimized through [Neural Architecture Search](https://www.ultralytics.com/glossary/neural-architecture-search-nas) for enhanced performance.
 - **FastSAM** and **MobileSAM**: For real-time instance segmentation tasks.
 
 Refer to the [Ultralytics Documentation](https://docs.ultralytics.com/models/) and [GitHub repository](https://github.com/ultralytics/ultralytics) for more detailed information.

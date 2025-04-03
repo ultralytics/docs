@@ -34,7 +34,7 @@ Ultralytics YOLOv5, created by Glenn Jocher at Ultralytics and released on June 
 
 - **Ease of Use**: Exceptionally well-documented and simple to use via a streamlined API, making it suitable for both novice and expert users. [Ultralytics YOLO Docs](https://docs.ultralytics.com/) offer comprehensive tutorials and guides.
 - **Scalability**: With multiple model sizes, users can select the optimal balance between speed and accuracy for their specific applications, from edge devices to cloud servers.
-- **Well-Maintained Ecosystem**: Backed by Ultralytics with active development, frequent updates, and strong community support via [GitHub](https://github.com/ultralytics/yolov5/issues) and [Discord](https://www.ultralytics.com/discord). Integration with [Ultralytics HUB](https://docs.ultralytics.com/hub/) simplifies training and deployment.
+- **Well-Maintained Ecosystem**: Backed by Ultralytics with active development, frequent updates, and strong community support via [GitHub](https://github.com/ultralytics/yolov5/issues) and [Discord](https://discord.com/invite/ultralytics). Integration with [Ultralytics HUB](https://docs.ultralytics.com/hub/) simplifies training and deployment.
 - **Performance Balance**: Offers a strong trade-off between inference speed and accuracy, suitable for diverse real-world scenarios.
 - **Training Efficiency**: Efficient training process with readily available pre-trained weights and generally lower memory requirements compared to more complex architectures.
 

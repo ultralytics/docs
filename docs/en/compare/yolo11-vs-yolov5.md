@@ -41,7 +41,7 @@ YOLO11 introduces several architectural improvements, focusing on efficiency and
 - Larger YOLO11 models (l, x) require more computational resources than smaller variants or YOLOv5 models.
 - Being newer, the community adoption is still growing compared to the established YOLOv5.
 
-[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11){ .md-button }
+[Learn more about YOLO11](https://docs.ultralytics.com/models/yolo11/){ .md-button }
 
 ## Ultralytics YOLOv5
 
@@ -87,7 +87,7 @@ The table below compares YOLO11 and YOLOv5 models based on key performance metri
 - **Lower Accuracy**: Generally achieves lower mAP scores compared to the newer YOLO11 models.
 - **Limited Native Task Support**: Primarily focused on object detection, requiring separate models or modifications for tasks like segmentation or pose estimation, unlike the integrated approach of YOLO11.
 
-[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5){ .md-button }
+[Learn more about YOLOv5](https://docs.ultralytics.com/models/yolov5/){ .md-button }
 
 ## Ideal Use Cases
 

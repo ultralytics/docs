@@ -33,11 +33,11 @@ Crucially, YOLO11 benefits immensely from the **well-maintained Ultralytics ecos
 - **Ease of Use:** A simple [Python API](https://docs.ultralytics.com/usage/python/), clear [CLI](https://docs.ultralytics.com/usage/cli/), and extensive [documentation](https://docs.ultralytics.com/) make getting started straightforward.
 - **Integrated Workflow:** Seamless integration with [Ultralytics HUB](https://www.ultralytics.com/hub) simplifies dataset management, training, and deployment.
 - **Training Efficiency:** Efficient training processes, readily available pre-trained weights on datasets like [COCO](https://docs.ultralytics.com/datasets/detect/coco/), and typically lower memory requirements compared to complex architectures like transformers.
-- **Active Development:** Frequent updates, strong community support via [GitHub](https://github.com/ultralytics/ultralytics/issues) and [Discord](https://www.ultralytics.com/discord), and numerous [integrations](https://docs.ultralytics.com/integrations/).
+- **Active Development:** Frequent updates, strong community support via [GitHub](https://github.com/ultralytics/ultralytics/issues) and [Discord](https://discord.com/invite/ultralytics), and numerous [integrations](https://docs.ultralytics.com/integrations/).
 
 ### Performance Metrics
 
-YOLO11 offers models ranging from nano (n) to extra-large (x), achieving an excellent **performance balance**. YOLO11n achieves a mAP<sup>val</sup> 50-95 of 39.5 with a compact 2.6M parameters and a rapid CPU ONNX speed of 56.1ms. Larger models like YOLO11x reach **54.7** mAP<sup>val</sup> 50-95, demonstrating superior accuracy. YOLO11 uses techniques like [mixed precision](https://www.ultralytics.com/glossary/mixed-precision/) to further accelerate inference.
+YOLO11 offers models ranging from nano (n) to extra-large (x), achieving an excellent **performance balance**. YOLO11n achieves a mAP<sup>val</sup> 50-95 of 39.5 with a compact 2.6M parameters and a rapid CPU ONNX speed of 56.1ms. Larger models like YOLO11x reach **54.7** mAP<sup>val</sup> 50-95, demonstrating superior accuracy. YOLO11 uses techniques like [mixed precision](https://www.ultralytics.com/glossary/mixed-precision) to further accelerate inference.
 
 ### Strengths
 

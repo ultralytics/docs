@@ -30,13 +30,13 @@ YOLOv10, introduced in May 2024 by researchers from Tsinghua University, represe
 
 YOLOv10 introduces several architectural innovations aimed at optimizing the speed-accuracy trade-off:
 
-- **NMS-Free Training:** Utilizes consistent dual assignments, enabling competitive performance without the [NMS](https://www.ultralytics.com/glossary/non-maximum-suppression-nms/) post-processing step, which simplifies deployment and lowers [inference latency](https://www.ultralytics.com/glossary/inference-latency/).
+- **NMS-Free Training:** Utilizes consistent dual assignments, enabling competitive performance without the [NMS](https://www.ultralytics.com/glossary/non-maximum-suppression-nms) post-processing step, which simplifies deployment and lowers [inference latency](https://www.ultralytics.com/glossary/inference-latency).
 - **Holistic Efficiency-Accuracy Driven Design:** Optimizes various components like the classification head and downsampling layers to reduce computational redundancy and enhance model capability. This includes techniques like rank-guided block design and partial self-attention ([PSA](https://docs.ultralytics.com/reference/nn/modules/block/#ultralytics.nn.modules.block.PSA)).
-- **Anchor-Free Approach:** Like some recent YOLO models, it adopts an [anchor-free detector](https://www.ultralytics.com/glossary/anchor-free-detectors/) design, simplifying the detection head.
+- **Anchor-Free Approach:** Like some recent YOLO models, it adopts an [anchor-free detector](https://www.ultralytics.com/glossary/anchor-free-detectors) design, simplifying the detection head.
 
 ### Performance Metrics
 
-YOLOv10 demonstrates state-of-the-art performance, particularly in terms of efficiency. As shown in the table below, YOLOv10 models achieve competitive [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map/) scores with significantly fewer parameters and FLOPs compared to many predecessors. For instance, YOLOv10n achieves 39.5 mAP<sup>val</sup> 50-95 with just 2.3M parameters and an impressive 1.56ms TensorRT latency. You can learn more about evaluating performance from the guide on [YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
+YOLOv10 demonstrates state-of-the-art performance, particularly in terms of efficiency. As shown in the table below, YOLOv10 models achieve competitive [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) scores with significantly fewer parameters and FLOPs compared to many predecessors. For instance, YOLOv10n achieves 39.5 mAP<sup>val</sup> 50-95 with just 2.3M parameters and an impressive 1.56ms TensorRT latency. You can learn more about evaluating performance from the guide on [YOLO performance metrics](https://docs.ultralytics.com/guides/yolo-performance-metrics/).
 
 ### Use Cases
 

@@ -42,7 +42,7 @@ YOLOv10 excels in speed and efficiency, often achieving a favorable trade-off be
 ### Strengths
 
 - **Inference Speed**: Optimized for extremely fast inference, making it ideal for real-time applications and latency-sensitive systems.
-- **Model Size**: Compact model sizes enable deployment on resource-constrained [edge devices](https://www.ultralytics.com/glossary/edge-ai/).
+- **Model Size**: Compact model sizes enable deployment on resource-constrained [edge devices](https://www.ultralytics.com/glossary/edge-ai).
 - **Efficiency**: High performance relative to computational cost, ensuring energy efficiency.
 - **Ease of Use**: Benefits from the streamlined user experience and well-maintained ecosystem provided by Ultralytics.
 

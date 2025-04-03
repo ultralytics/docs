@@ -23,20 +23,20 @@ PP-YOLOE+ is developed by PaddlePaddle Authors from Baidu.
 **GitHub Link:** [https://github.com/PaddlePaddle/PaddleDetection/](https://github.com/PaddlePaddle/PaddleDetection/)  
 **Docs Link:** [https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md](https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md)
 
-It is an enhanced version of PP-YOLOE, focusing on achieving a balance between high accuracy and efficient inference speed. PP-YOLOE+ is designed to be an [anchor-free](https://www.ultralytics.com/glossary/anchor-free-detectors/), single-stage object detector, making it user-friendly and efficient for industrial applications. It is part of the PaddlePaddle Detection model zoo.
+It is an enhanced version of PP-YOLOE, focusing on achieving a balance between high accuracy and efficient inference speed. PP-YOLOE+ is designed to be an [anchor-free](https://www.ultralytics.com/glossary/anchor-free-detectors), single-stage object detector, making it user-friendly and efficient for industrial applications. It is part of the PaddlePaddle Detection model zoo.
 
 ### Architecture and Key Features
 
 PP-YOLOE+ adopts a streamlined architecture to achieve a balance between high accuracy and fast inference speed. Key architectural components include:
 
 - **Anchor-Free Approach**: Simplifies the detection head by removing anchor boxes, reducing design complexity and computational overhead.
-- **Backbone and Neck**: Employs an enhanced [backbone](https://www.ultralytics.com/glossary/backbone/) and neck (like PAN) for improved feature extraction and fusion, leading to better detection performance.
+- **Backbone and Neck**: Employs an enhanced [backbone](https://www.ultralytics.com/glossary/backbone) and neck (like PAN) for improved feature extraction and fusion, leading to better detection performance.
 - **Scalable Model Sizes**: Offers a range of model sizes (tiny, small, medium, large, extra-large) to suit diverse computational constraints and accuracy needs.
 
 ### Strengths
 
 - **Efficiency and Speed**: PP-YOLOE+ prioritizes efficient computation and fast inference speeds, making it suitable for real-time applications and deployment on resource-constrained devices.
-- **Balanced Accuracy**: It offers a strong balance between detection accuracy and speed, providing competitive [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map/) scores without sacrificing efficiency.
+- **Balanced Accuracy**: It offers a strong balance between detection accuracy and speed, providing competitive [mAP](https://www.ultralytics.com/glossary/mean-average-precision-map) scores without sacrificing efficiency.
 - **Anchor-Free Design**: The anchor-free approach simplifies the model architecture and reduces the number of hyperparameters, making it easier to train and deploy.
 
 ### Weaknesses
@@ -103,7 +103,7 @@ Both PP-YOLOE+ and DAMO-YOLO offer a range of model sizes, allowing users to tra
 PP-YOLOE+ is well-suited for applications where efficiency and balanced performance are crucial:
 
 - **Industrial Inspection**: Ideal for [quality inspection in manufacturing](https://www.ultralytics.com/blog/quality-inspection-in-manufacturing-traditional-vs-deep-learning-methods) where fast processing is needed for real-time analysis.
-- **Real-time Object Detection**: Applications such as [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) and [robotics](https://www.ultralytics.com/glossary/robotics/) requiring rapid detection on edge devices.
+- **Real-time Object Detection**: Applications such as [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/) and [robotics](https://www.ultralytics.com/glossary/robotics) requiring rapid detection on edge devices.
 - **Resource-Constrained Environments**: Deployment on devices with limited computational power, where model size and inference speed are critical.
 
 ### DAMO-YOLO
@@ -118,6 +118,6 @@ DAMO-YOLO excels in scenarios where achieving the highest possible accuracy is t
 
 PP-YOLOE+ and DAMO-YOLO cater to different priorities in object detection. PP-YOLOE+ emphasizes efficiency and balanced performance, making it a strong choice for real-time and resource-constrained applications, especially within the PaddlePaddle ecosystem. DAMO-YOLO prioritizes achieving the highest possible accuracy, suited for applications where precision is paramount, even if it demands more computational resources.
 
-For users seeking a versatile, easy-to-use, and high-performance alternative within a well-maintained PyTorch ecosystem, Ultralytics offers state-of-the-art models like [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and the latest [YOLO11](https://docs.ultralytics.com/models/yolo11/). These models provide an excellent balance of speed and accuracy, benefit from a streamlined API, extensive documentation, efficient training processes with readily available pre-trained weights, and support for multiple tasks beyond detection (segmentation, pose, classification, tracking). The Ultralytics ecosystem ensures active development, strong community support via [GitHub](https://github.com/ultralytics/ultralytics) and [Discord](https://www.ultralytics.com/discord), and seamless integration with tools like [Ultralytics HUB](https://docs.ultralytics.com/hub/) for simplified training and deployment.
+For users seeking a versatile, easy-to-use, and high-performance alternative within a well-maintained PyTorch ecosystem, Ultralytics offers state-of-the-art models like [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and the latest [YOLO11](https://docs.ultralytics.com/models/yolo11/). These models provide an excellent balance of speed and accuracy, benefit from a streamlined API, extensive documentation, efficient training processes with readily available pre-trained weights, and support for multiple tasks beyond detection (segmentation, pose, classification, tracking). The Ultralytics ecosystem ensures active development, strong community support via [GitHub](https://github.com/ultralytics/ultralytics) and [Discord](https://discord.com/invite/ultralytics), and seamless integration with tools like [Ultralytics HUB](https://docs.ultralytics.com/hub/) for simplified training and deployment.
 
 You might also be interested in comparisons with other models like [YOLOv5](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov5/), [YOLOv9](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov9/), [YOLOv10](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov10/), and [RT-DETR](https://docs.ultralytics.com/compare/damo-yolo-vs-rtdetr/).
