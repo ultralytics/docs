@@ -87,7 +87,7 @@ YOLOv7 models achieve excellent performance, balancing speed and accuracy effect
 **Weaknesses:**
 
 - **Computational Demand:** Larger models like YOLOv7x require significant resources.
-- **Complexity:** Advanced tuning might be complex compared to the streamlined experience offered by [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) or [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
+- **Complexity:** Advanced tuning might be complex compared to the streamlined experience offered by [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) or [YOLO11](https://docs.ultralytics.com/models/yolo11/).
 - **Limited Task Versatility:** Primarily focused on object detection, unlike Ultralytics models which support segmentation, pose estimation, classification etc., within a unified framework.
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
@@ -96,7 +96,7 @@ YOLOv7 models achieve excellent performance, balancing speed and accuracy effect
 
 Both DAMO-YOLO and YOLOv7 represent significant advancements in object detection. DAMO-YOLO excels in inference speed, especially with its smaller variants, making it a strong contender for edge devices or applications prioritizing low latency. YOLOv7 pushes the boundaries of accuracy while maintaining good real-time performance, particularly suitable for scenarios where achieving the highest possible mAP is critical.
 
-However, developers might also consider models within the [Ultralytics ecosystem](https://docs.ultralytics.com/), such as [YOLOv8](https://docs.ultralytics.com/models/yolov8/) or the latest [YOLOv11](https://docs.ultralytics.com/models/yolo11/). These models often provide a superior balance of performance, **ease of use**, extensive **documentation**, efficient training, lower memory requirements, and **versatility** across multiple vision tasks (detection, segmentation, pose, classification) backed by a well-maintained ecosystem and active community support via [Ultralytics HUB](https://www.ultralytics.com/hub).
+However, developers might also consider models within the [Ultralytics ecosystem](https://docs.ultralytics.com/), such as [YOLOv8](https://docs.ultralytics.com/models/yolov8/) or the latest [YOLO11](https://docs.ultralytics.com/models/yolo11/). These models often provide a superior balance of performance, **ease of use**, extensive **documentation**, efficient training, lower memory requirements, and **versatility** across multiple vision tasks (detection, segmentation, pose, classification) backed by a well-maintained ecosystem and active community support via [Ultralytics HUB](https://www.ultralytics.com/hub).
 
 ## Other Models
 

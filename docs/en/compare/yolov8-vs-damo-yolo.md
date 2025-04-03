@@ -118,7 +118,7 @@ YOLOv8 models demonstrate superior speed, especially the smaller variants (n/s) 
 
 Users interested in exploring other object detection models might also consider:
 
-- **[YOLOv11](https://docs.ultralytics.com/models/yolo11/):** The newest Ultralytics model, offering further improvements. See [YOLOv11 vs DAMO-YOLO](https://docs.ultralytics.com/compare/yolo11-vs-damo-yolo/).
+- **[YOLO11](https://docs.ultralytics.com/models/yolo11/):** The newest Ultralytics model, offering further improvements. See [YOLO11 vs DAMO-YOLO](https://docs.ultralytics.com/compare/yolo11-vs-damo-yolo/).
 - **[YOLOv10](https://docs.ultralytics.com/models/yolov10/):** Another recent YOLO iteration with efficiency improvements. Compare [YOLOv10 vs DAMO-YOLO](https://docs.ultralytics.com/compare/yolov10-vs-damo-yolo/).
 - **[YOLOv9](https://docs.ultralytics.com/models/yolov9/):** Focuses on information bottleneck and gradient path issues. See [YOLOv9 vs DAMO-YOLO](https://docs.ultralytics.com/compare/yolov9-vs-damo-yolo/).
 - **[RT-DETR](https://docs.ultralytics.com/models/rtdetr/):** A real-time detector based on transformers. Explore [RT-DETR vs DAMO-YOLO](https://docs.ultralytics.com/compare/rtdetr-vs-damo-yolo/).
