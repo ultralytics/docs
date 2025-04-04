@@ -145,6 +145,7 @@ jobs:
             --header "Accept=*/*" \
             --header "Accept-Language=*" \
             --header "Accept-Encoding=*" \
+            --base 'https://${{ matrix.website }}' \
             './${{ matrix.website }}/**/*.html' | tee -a summary.txt
 
             # Add the summary to GitHub step summary
