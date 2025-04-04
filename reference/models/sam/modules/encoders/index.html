@@ -2752,6 +2752,61 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">encoded_feat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">pos</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="go">torch.Size([1, 256, 64, 64]) torch.Size([1, 128, 64, 64])</span>
 </code></pre></div>
+<p>This encoder processes pixel-level features and masks, fusing them to generate encoded memory representations
+suitable for downstream tasks in image segmentation models like SAM (Segment Anything Model).</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>out_dim</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Output dimension of the encoded features.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>in_dim</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Input dimension of the pixel features. Default is 256.</p>
+</div>
+</td>
+<td>
+<code>256</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span> <span class="o">=</span> <span class="n">MemoryEncoder</span><span class="p">(</span><span class="n">out_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">in_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">pix_feat</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">256</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">masks</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">64</span><span class="p">)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">encoded_feat</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">encoder</span><span class="p">(</span><span class="n">pix_feat</span><span class="p">,</span> <span class="n">masks</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">encoded_feat</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">pos</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="go">torch.Size([1, 256, 64, 64]) torch.Size([1, 128, 64, 64])</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-384">384</a></span>
@@ -2769,22 +2824,56 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 <span class="normal"><a href="#__codelineno-0-396">396</a></span>
 <span class="normal"><a href="#__codelineno-0-397">397</a></span>
 <span class="normal"><a href="#__codelineno-0-398">398</a></span>
-<span class="normal"><a href="#__codelineno-0-399">399</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span class="normal"><a href="#__codelineno-0-399">399</a></span>
+<span class="normal"><a href="#__codelineno-0-400">400</a></span>
+<span class="normal"><a href="#__codelineno-0-401">401</a></span>
+<span class="normal"><a href="#__codelineno-0-402">402</a></span>
+<span class="normal"><a href="#__codelineno-0-403">403</a></span>
+<span class="normal"><a href="#__codelineno-0-404">404</a></span>
+<span class="normal"><a href="#__codelineno-0-405">405</a></span>
+<span class="normal"><a href="#__codelineno-0-406">406</a></span>
+<span class="normal"><a href="#__codelineno-0-407">407</a></span>
+<span class="normal"><a href="#__codelineno-0-408">408</a></span>
+<span class="normal"><a href="#__codelineno-0-409">409</a></span>
+<span class="normal"><a href="#__codelineno-0-410">410</a></span>
+<span class="normal"><a href="#__codelineno-0-411">411</a></span>
+<span class="normal"><a href="#__codelineno-0-412">412</a></span>
+<span class="normal"><a href="#__codelineno-0-413">413</a></span>
+<span class="normal"><a href="#__codelineno-0-414">414</a></span>
+<span class="normal"><a href="#__codelineno-0-415">415</a></span>
+<span class="normal"><a href="#__codelineno-0-416">416</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-384" name="__codelineno-0-384"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <a id="__codelineno-0-385" name="__codelineno-0-385"></a>    <span class="bp">self</span><span class="p">,</span>
 <a id="__codelineno-0-386" name="__codelineno-0-386"></a>    <span class="n">out_dim</span><span class="p">,</span>
 <a id="__codelineno-0-387" name="__codelineno-0-387"></a>    <span class="n">in_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>  <span class="c1"># in_dim of pix_feats</span>
 <a id="__codelineno-0-388" name="__codelineno-0-388"></a><span class="p">):</span>
-<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="w">    </span><span class="sd">"""Initialize the MemoryEncoder for encoding pixel features and masks into memory representations."""</span>
-<a id="__codelineno-0-390" name="__codelineno-0-390"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-389" name="__codelineno-0-389"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-390" name="__codelineno-0-390"></a><span class="sd">    Initialize the MemoryEncoder for encoding pixel features and masks into memory representations.</span>
 <a id="__codelineno-0-391" name="__codelineno-0-391"></a>
-<a id="__codelineno-0-392" name="__codelineno-0-392"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mask_downsampler</span> <span class="o">=</span> <span class="n">MaskDownSampler</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-393" name="__codelineno-0-393"></a>
-<a id="__codelineno-0-394" name="__codelineno-0-394"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pix_feat_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_dim</span><span class="p">,</span> <span class="n">in_dim</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-395" name="__codelineno-0-395"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fuser</span> <span class="o">=</span> <span class="n">Fuser</span><span class="p">(</span><span class="n">CXBlock</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">256</span><span class="p">),</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-396" name="__codelineno-0-396"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span> <span class="o">=</span> <span class="n">PositionEmbeddingSine</span><span class="p">(</span><span class="n">num_pos_feats</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
-<a id="__codelineno-0-397" name="__codelineno-0-397"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Identity</span><span class="p">()</span>
-<a id="__codelineno-0-398" name="__codelineno-0-398"></a>    <span class="k">if</span> <span class="n">out_dim</span> <span class="o">!=</span> <span class="n">in_dim</span><span class="p">:</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-392" name="__codelineno-0-392"></a><span class="sd">    This encoder processes pixel-level features and masks, fusing them to generate encoded memory representations</span>
+<a id="__codelineno-0-393" name="__codelineno-0-393"></a><span class="sd">    suitable for downstream tasks in image segmentation models like SAM (Segment Anything Model).</span>
+<a id="__codelineno-0-394" name="__codelineno-0-394"></a>
+<a id="__codelineno-0-395" name="__codelineno-0-395"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-396" name="__codelineno-0-396"></a><span class="sd">        out_dim (int): Output dimension of the encoded features.</span>
+<a id="__codelineno-0-397" name="__codelineno-0-397"></a><span class="sd">        in_dim (int): Input dimension of the pixel features. Default is 256.</span>
+<a id="__codelineno-0-398" name="__codelineno-0-398"></a>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-400" name="__codelineno-0-400"></a><span class="sd">        &gt;&gt;&gt; encoder = MemoryEncoder(out_dim=256, in_dim=256)</span>
+<a id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="sd">        &gt;&gt;&gt; pix_feat = torch.randn(1, 256, 64, 64)</span>
+<a id="__codelineno-0-402" name="__codelineno-0-402"></a><span class="sd">        &gt;&gt;&gt; masks = torch.randn(1, 1, 64, 64)</span>
+<a id="__codelineno-0-403" name="__codelineno-0-403"></a><span class="sd">        &gt;&gt;&gt; encoded_feat, pos = encoder(pix_feat, masks)</span>
+<a id="__codelineno-0-404" name="__codelineno-0-404"></a><span class="sd">        &gt;&gt;&gt; print(encoded_feat.shape, pos.shape)</span>
+<a id="__codelineno-0-405" name="__codelineno-0-405"></a><span class="sd">        torch.Size([1, 256, 64, 64]) torch.Size([1, 128, 64, 64])</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="sd">    """</span>
+<a id="__codelineno-0-407" name="__codelineno-0-407"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-408" name="__codelineno-0-408"></a>
+<a id="__codelineno-0-409" name="__codelineno-0-409"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mask_downsampler</span> <span class="o">=</span> <span class="n">MaskDownSampler</span><span class="p">(</span><span class="n">kernel_size</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-410" name="__codelineno-0-410"></a>
+<a id="__codelineno-0-411" name="__codelineno-0-411"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pix_feat_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_dim</span><span class="p">,</span> <span class="n">in_dim</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fuser</span> <span class="o">=</span> <span class="n">Fuser</span><span class="p">(</span><span class="n">CXBlock</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">256</span><span class="p">),</span> <span class="n">num_layers</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-413" name="__codelineno-0-413"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span> <span class="o">=</span> <span class="n">PositionEmbeddingSine</span><span class="p">(</span><span class="n">num_pos_feats</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+<a id="__codelineno-0-414" name="__codelineno-0-414"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Identity</span><span class="p">()</span>
+<a id="__codelineno-0-415" name="__codelineno-0-415"></a>    <span class="k">if</span> <span class="n">out_dim</span> <span class="o">!=</span> <span class="n">in_dim</span><span class="p">:</span>
+<a id="__codelineno-0-416" name="__codelineno-0-416"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">in_dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2800,49 +2889,49 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 <p>Process pixel features and masks to generate encoded memory representations for segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-401">401</a></span>
-<span class="normal"><a href="#__codelineno-0-402">402</a></span>
-<span class="normal"><a href="#__codelineno-0-403">403</a></span>
-<span class="normal"><a href="#__codelineno-0-404">404</a></span>
-<span class="normal"><a href="#__codelineno-0-405">405</a></span>
-<span class="normal"><a href="#__codelineno-0-406">406</a></span>
-<span class="normal"><a href="#__codelineno-0-407">407</a></span>
-<span class="normal"><a href="#__codelineno-0-408">408</a></span>
-<span class="normal"><a href="#__codelineno-0-409">409</a></span>
-<span class="normal"><a href="#__codelineno-0-410">410</a></span>
-<span class="normal"><a href="#__codelineno-0-411">411</a></span>
-<span class="normal"><a href="#__codelineno-0-412">412</a></span>
-<span class="normal"><a href="#__codelineno-0-413">413</a></span>
-<span class="normal"><a href="#__codelineno-0-414">414</a></span>
-<span class="normal"><a href="#__codelineno-0-415">415</a></span>
-<span class="normal"><a href="#__codelineno-0-416">416</a></span>
-<span class="normal"><a href="#__codelineno-0-417">417</a></span>
-<span class="normal"><a href="#__codelineno-0-418">418</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-418">418</a></span>
 <span class="normal"><a href="#__codelineno-0-419">419</a></span>
 <span class="normal"><a href="#__codelineno-0-420">420</a></span>
 <span class="normal"><a href="#__codelineno-0-421">421</a></span>
-<span class="normal"><a href="#__codelineno-0-422">422</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-401" name="__codelineno-0-401"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
-<a id="__codelineno-0-402" name="__codelineno-0-402"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-403" name="__codelineno-0-403"></a>    <span class="n">pix_feat</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-<a id="__codelineno-0-404" name="__codelineno-0-404"></a>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-<a id="__codelineno-0-405" name="__codelineno-0-405"></a>    <span class="n">skip_mask_sigmoid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
-<a id="__codelineno-0-407" name="__codelineno-0-407"></a><span class="w">    </span><span class="sd">"""Process pixel features and masks to generate encoded memory representations for segmentation."""</span>
-<a id="__codelineno-0-408" name="__codelineno-0-408"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_mask_sigmoid</span><span class="p">:</span>
-<a id="__codelineno-0-409" name="__codelineno-0-409"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span>
-<a id="__codelineno-0-410" name="__codelineno-0-410"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_downsampler</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span>
-<a id="__codelineno-0-411" name="__codelineno-0-411"></a>
-<a id="__codelineno-0-412" name="__codelineno-0-412"></a>    <span class="c1"># Fuse pix_feats and downsampled masks, in case the visual features are on CPU, cast them to CUDA</span>
-<a id="__codelineno-0-413" name="__codelineno-0-413"></a>    <span class="n">pix_feat</span> <span class="o">=</span> <span class="n">pix_feat</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-414" name="__codelineno-0-414"></a>
-<a id="__codelineno-0-415" name="__codelineno-0-415"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pix_feat_proj</span><span class="p">(</span><span class="n">pix_feat</span><span class="p">)</span>
-<a id="__codelineno-0-416" name="__codelineno-0-416"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">masks</span>
-<a id="__codelineno-0-417" name="__codelineno-0-417"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fuser</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-418" name="__codelineno-0-418"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-419" name="__codelineno-0-419"></a>
-<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<a id="__codelineno-0-421" name="__codelineno-0-421"></a>
-<a id="__codelineno-0-422" name="__codelineno-0-422"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">"vision_features"</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">"vision_pos_enc"</span><span class="p">:</span> <span class="p">[</span><span class="n">pos</span><span class="p">]}</span>
+<span class="normal"><a href="#__codelineno-0-422">422</a></span>
+<span class="normal"><a href="#__codelineno-0-423">423</a></span>
+<span class="normal"><a href="#__codelineno-0-424">424</a></span>
+<span class="normal"><a href="#__codelineno-0-425">425</a></span>
+<span class="normal"><a href="#__codelineno-0-426">426</a></span>
+<span class="normal"><a href="#__codelineno-0-427">427</a></span>
+<span class="normal"><a href="#__codelineno-0-428">428</a></span>
+<span class="normal"><a href="#__codelineno-0-429">429</a></span>
+<span class="normal"><a href="#__codelineno-0-430">430</a></span>
+<span class="normal"><a href="#__codelineno-0-431">431</a></span>
+<span class="normal"><a href="#__codelineno-0-432">432</a></span>
+<span class="normal"><a href="#__codelineno-0-433">433</a></span>
+<span class="normal"><a href="#__codelineno-0-434">434</a></span>
+<span class="normal"><a href="#__codelineno-0-435">435</a></span>
+<span class="normal"><a href="#__codelineno-0-436">436</a></span>
+<span class="normal"><a href="#__codelineno-0-437">437</a></span>
+<span class="normal"><a href="#__codelineno-0-438">438</a></span>
+<span class="normal"><a href="#__codelineno-0-439">439</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-418" name="__codelineno-0-418"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<a id="__codelineno-0-419" name="__codelineno-0-419"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-420" name="__codelineno-0-420"></a>    <span class="n">pix_feat</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<a id="__codelineno-0-421" name="__codelineno-0-421"></a>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<a id="__codelineno-0-422" name="__codelineno-0-422"></a>    <span class="n">skip_mask_sigmoid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-423" name="__codelineno-0-423"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<a id="__codelineno-0-424" name="__codelineno-0-424"></a><span class="w">    </span><span class="sd">"""Process pixel features and masks to generate encoded memory representations for segmentation."""</span>
+<a id="__codelineno-0-425" name="__codelineno-0-425"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_mask_sigmoid</span><span class="p">:</span>
+<a id="__codelineno-0-426" name="__codelineno-0-426"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span>
+<a id="__codelineno-0-427" name="__codelineno-0-427"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_downsampler</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span>
+<a id="__codelineno-0-428" name="__codelineno-0-428"></a>
+<a id="__codelineno-0-429" name="__codelineno-0-429"></a>    <span class="c1"># Fuse pix_feats and downsampled masks, in case the visual features are on CPU, cast them to CUDA</span>
+<a id="__codelineno-0-430" name="__codelineno-0-430"></a>    <span class="n">pix_feat</span> <span class="o">=</span> <span class="n">pix_feat</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-431" name="__codelineno-0-431"></a>
+<a id="__codelineno-0-432" name="__codelineno-0-432"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pix_feat_proj</span><span class="p">(</span><span class="n">pix_feat</span><span class="p">)</span>
+<a id="__codelineno-0-433" name="__codelineno-0-433"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">masks</span>
+<a id="__codelineno-0-434" name="__codelineno-0-434"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fuser</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-435" name="__codelineno-0-435"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">out_proj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-436" name="__codelineno-0-436"></a>
+<a id="__codelineno-0-437" name="__codelineno-0-437"></a>    <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<a id="__codelineno-0-438" name="__codelineno-0-438"></a>
+<a id="__codelineno-0-439" name="__codelineno-0-439"></a>    <span class="k">return</span> <span class="p">{</span><span class="s2">"vision_features"</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span> <span class="s2">"vision_pos_enc"</span><span class="p">:</span> <span class="p">[</span><span class="n">pos</span><span class="p">]}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2935,35 +3024,145 @@ and positional encoding generation. It can optionally discard the lowest resolut
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="go">dict_keys(['vision_features', 'vision_pos_enc', 'backbone_fpn'])</span>
 </code></pre></div>
+<p>This encoder combines a trunk network for feature extraction with a neck network for feature refinement
+and positional encoding generation. It can optionally discard the lowest resolution features.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>trunk</code>
+</td>
+<td>
+<code><span title="torch.nn.Module">Module</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The trunk network for initial feature extraction.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>neck</code>
+</td>
+<td>
+<code><span title="torch.nn.Module">Module</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The neck network for feature refinement and positional encoding generation.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>scalp</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of lowest resolution feature levels to discard.</p>
+</div>
+</td>
+<td>
+<code>0</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">trunk</span> <span class="o">=</span> <span class="n">SomeTrunkNetwork</span><span class="p">()</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">neck</span> <span class="o">=</span> <span class="n">SomeNeckNetwork</span><span class="p">()</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">encoder</span> <span class="o">=</span> <span class="n">ImageEncoder</span><span class="p">(</span><span class="n">trunk</span><span class="p">,</span> <span class="n">neck</span><span class="p">,</span> <span class="n">scalp</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">image</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">output</span> <span class="o">=</span> <span class="n">encoder</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="go">dict_keys(['vision_features', 'vision_pos_enc', 'backbone_fpn'])</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-450">450</a></span>
-<span class="normal"><a href="#__codelineno-0-451">451</a></span>
-<span class="normal"><a href="#__codelineno-0-452">452</a></span>
-<span class="normal"><a href="#__codelineno-0-453">453</a></span>
-<span class="normal"><a href="#__codelineno-0-454">454</a></span>
-<span class="normal"><a href="#__codelineno-0-455">455</a></span>
-<span class="normal"><a href="#__codelineno-0-456">456</a></span>
-<span class="normal"><a href="#__codelineno-0-457">457</a></span>
-<span class="normal"><a href="#__codelineno-0-458">458</a></span>
-<span class="normal"><a href="#__codelineno-0-459">459</a></span>
-<span class="normal"><a href="#__codelineno-0-460">460</a></span>
-<span class="normal"><a href="#__codelineno-0-461">461</a></span>
-<span class="normal"><a href="#__codelineno-0-462">462</a></span>
-<span class="normal"><a href="#__codelineno-0-463">463</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-450" name="__codelineno-0-450"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-451" name="__codelineno-0-451"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-452" name="__codelineno-0-452"></a>    <span class="n">trunk</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
-<a id="__codelineno-0-453" name="__codelineno-0-453"></a>    <span class="n">neck</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
-<a id="__codelineno-0-454" name="__codelineno-0-454"></a>    <span class="n">scalp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-455" name="__codelineno-0-455"></a><span class="p">):</span>
-<a id="__codelineno-0-456" name="__codelineno-0-456"></a><span class="w">    </span><span class="sd">"""Initialize the ImageEncoder with trunk and neck networks for feature extraction and refinement."""</span>
-<a id="__codelineno-0-457" name="__codelineno-0-457"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-458" name="__codelineno-0-458"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trunk</span> <span class="o">=</span> <span class="n">trunk</span>
-<a id="__codelineno-0-459" name="__codelineno-0-459"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">neck</span> <span class="o">=</span> <span class="n">neck</span>
-<a id="__codelineno-0-460" name="__codelineno-0-460"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">scalp</span> <span class="o">=</span> <span class="n">scalp</span>
-<a id="__codelineno-0-461" name="__codelineno-0-461"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">trunk</span><span class="o">.</span><span class="n">channel_list</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="o">.</span><span class="n">backbone_channel_list</span><span class="p">,</span> <span class="p">(</span>
-<a id="__codelineno-0-462" name="__codelineno-0-462"></a>        <span class="sa">f</span><span class="s2">"Channel dims of trunk </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">trunk</span><span class="o">.</span><span class="n">channel_list</span><span class="si">}</span><span class="s2"> and neck </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="o">.</span><span class="n">backbone_channel_list</span><span class="si">}</span><span class="s2"> do not match."</span>
-<a id="__codelineno-0-463" name="__codelineno-0-463"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-467">467</a></span>
+<span class="normal"><a href="#__codelineno-0-468">468</a></span>
+<span class="normal"><a href="#__codelineno-0-469">469</a></span>
+<span class="normal"><a href="#__codelineno-0-470">470</a></span>
+<span class="normal"><a href="#__codelineno-0-471">471</a></span>
+<span class="normal"><a href="#__codelineno-0-472">472</a></span>
+<span class="normal"><a href="#__codelineno-0-473">473</a></span>
+<span class="normal"><a href="#__codelineno-0-474">474</a></span>
+<span class="normal"><a href="#__codelineno-0-475">475</a></span>
+<span class="normal"><a href="#__codelineno-0-476">476</a></span>
+<span class="normal"><a href="#__codelineno-0-477">477</a></span>
+<span class="normal"><a href="#__codelineno-0-478">478</a></span>
+<span class="normal"><a href="#__codelineno-0-479">479</a></span>
+<span class="normal"><a href="#__codelineno-0-480">480</a></span>
+<span class="normal"><a href="#__codelineno-0-481">481</a></span>
+<span class="normal"><a href="#__codelineno-0-482">482</a></span>
+<span class="normal"><a href="#__codelineno-0-483">483</a></span>
+<span class="normal"><a href="#__codelineno-0-484">484</a></span>
+<span class="normal"><a href="#__codelineno-0-485">485</a></span>
+<span class="normal"><a href="#__codelineno-0-486">486</a></span>
+<span class="normal"><a href="#__codelineno-0-487">487</a></span>
+<span class="normal"><a href="#__codelineno-0-488">488</a></span>
+<span class="normal"><a href="#__codelineno-0-489">489</a></span>
+<span class="normal"><a href="#__codelineno-0-490">490</a></span>
+<span class="normal"><a href="#__codelineno-0-491">491</a></span>
+<span class="normal"><a href="#__codelineno-0-492">492</a></span>
+<span class="normal"><a href="#__codelineno-0-493">493</a></span>
+<span class="normal"><a href="#__codelineno-0-494">494</a></span>
+<span class="normal"><a href="#__codelineno-0-495">495</a></span>
+<span class="normal"><a href="#__codelineno-0-496">496</a></span>
+<span class="normal"><a href="#__codelineno-0-497">497</a></span>
+<span class="normal"><a href="#__codelineno-0-498">498</a></span>
+<span class="normal"><a href="#__codelineno-0-499">499</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-467" name="__codelineno-0-467"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-468" name="__codelineno-0-468"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-469" name="__codelineno-0-469"></a>    <span class="n">trunk</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+<a id="__codelineno-0-470" name="__codelineno-0-470"></a>    <span class="n">neck</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+<a id="__codelineno-0-471" name="__codelineno-0-471"></a>    <span class="n">scalp</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-472" name="__codelineno-0-472"></a><span class="p">):</span>
+<a id="__codelineno-0-473" name="__codelineno-0-473"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-474" name="__codelineno-0-474"></a><span class="sd">    Initialize the ImageEncoder with trunk and neck networks for feature extraction and refinement.</span>
+<a id="__codelineno-0-475" name="__codelineno-0-475"></a>
+<a id="__codelineno-0-476" name="__codelineno-0-476"></a><span class="sd">    This encoder combines a trunk network for feature extraction with a neck network for feature refinement</span>
+<a id="__codelineno-0-477" name="__codelineno-0-477"></a><span class="sd">    and positional encoding generation. It can optionally discard the lowest resolution features.</span>
+<a id="__codelineno-0-478" name="__codelineno-0-478"></a>
+<a id="__codelineno-0-479" name="__codelineno-0-479"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-480" name="__codelineno-0-480"></a><span class="sd">        trunk (nn.Module): The trunk network for initial feature extraction.</span>
+<a id="__codelineno-0-481" name="__codelineno-0-481"></a><span class="sd">        neck (nn.Module): The neck network for feature refinement and positional encoding generation.</span>
+<a id="__codelineno-0-482" name="__codelineno-0-482"></a><span class="sd">        scalp (int): Number of lowest resolution feature levels to discard.</span>
+<a id="__codelineno-0-483" name="__codelineno-0-483"></a>
+<a id="__codelineno-0-484" name="__codelineno-0-484"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-485" name="__codelineno-0-485"></a><span class="sd">        &gt;&gt;&gt; trunk = SomeTrunkNetwork()</span>
+<a id="__codelineno-0-486" name="__codelineno-0-486"></a><span class="sd">        &gt;&gt;&gt; neck = SomeNeckNetwork()</span>
+<a id="__codelineno-0-487" name="__codelineno-0-487"></a><span class="sd">        &gt;&gt;&gt; encoder = ImageEncoder(trunk, neck, scalp=1)</span>
+<a id="__codelineno-0-488" name="__codelineno-0-488"></a><span class="sd">        &gt;&gt;&gt; image = torch.randn(1, 3, 224, 224)</span>
+<a id="__codelineno-0-489" name="__codelineno-0-489"></a><span class="sd">        &gt;&gt;&gt; output = encoder(image)</span>
+<a id="__codelineno-0-490" name="__codelineno-0-490"></a><span class="sd">        &gt;&gt;&gt; print(output.keys())</span>
+<a id="__codelineno-0-491" name="__codelineno-0-491"></a><span class="sd">        dict_keys(['vision_features', 'vision_pos_enc', 'backbone_fpn'])</span>
+<a id="__codelineno-0-492" name="__codelineno-0-492"></a><span class="sd">    """</span>
+<a id="__codelineno-0-493" name="__codelineno-0-493"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-494" name="__codelineno-0-494"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trunk</span> <span class="o">=</span> <span class="n">trunk</span>
+<a id="__codelineno-0-495" name="__codelineno-0-495"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">neck</span> <span class="o">=</span> <span class="n">neck</span>
+<a id="__codelineno-0-496" name="__codelineno-0-496"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">scalp</span> <span class="o">=</span> <span class="n">scalp</span>
+<a id="__codelineno-0-497" name="__codelineno-0-497"></a>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">trunk</span><span class="o">.</span><span class="n">channel_list</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="o">.</span><span class="n">backbone_channel_list</span><span class="p">,</span> <span class="p">(</span>
+<a id="__codelineno-0-498" name="__codelineno-0-498"></a>        <span class="sa">f</span><span class="s2">"Channel dims of trunk </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">trunk</span><span class="o">.</span><span class="n">channel_list</span><span class="si">}</span><span class="s2"> and neck </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="o">.</span><span class="n">backbone_channel_list</span><span class="si">}</span><span class="s2"> do not match."</span>
+<a id="__codelineno-0-499" name="__codelineno-0-499"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2977,31 +3176,31 @@ and positional encoding generation. It can optionally discard the lowest resolut
 <p>Encode input through patch embedding, positional embedding, transformer blocks, and neck module.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-465">465</a></span>
-<span class="normal"><a href="#__codelineno-0-466">466</a></span>
-<span class="normal"><a href="#__codelineno-0-467">467</a></span>
-<span class="normal"><a href="#__codelineno-0-468">468</a></span>
-<span class="normal"><a href="#__codelineno-0-469">469</a></span>
-<span class="normal"><a href="#__codelineno-0-470">470</a></span>
-<span class="normal"><a href="#__codelineno-0-471">471</a></span>
-<span class="normal"><a href="#__codelineno-0-472">472</a></span>
-<span class="normal"><a href="#__codelineno-0-473">473</a></span>
-<span class="normal"><a href="#__codelineno-0-474">474</a></span>
-<span class="normal"><a href="#__codelineno-0-475">475</a></span>
-<span class="normal"><a href="#__codelineno-0-476">476</a></span>
-<span class="normal"><a href="#__codelineno-0-477">477</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-465" name="__codelineno-0-465"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-<a id="__codelineno-0-466" name="__codelineno-0-466"></a><span class="w">    </span><span class="sd">"""Encode input through patch embedding, positional embedding, transformer blocks, and neck module."""</span>
-<a id="__codelineno-0-467" name="__codelineno-0-467"></a>    <span class="n">features</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trunk</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
-<a id="__codelineno-0-468" name="__codelineno-0-468"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scalp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-469" name="__codelineno-0-469"></a>        <span class="c1"># Discard the lowest resolution features</span>
-<a id="__codelineno-0-470" name="__codelineno-0-470"></a>        <span class="n">features</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">scalp</span><span class="p">],</span> <span class="n">pos</span><span class="p">[:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">scalp</span><span class="p">]</span>
-<a id="__codelineno-0-471" name="__codelineno-0-471"></a>
-<a id="__codelineno-0-472" name="__codelineno-0-472"></a>    <span class="n">src</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-473" name="__codelineno-0-473"></a>    <span class="k">return</span> <span class="p">{</span>
-<a id="__codelineno-0-474" name="__codelineno-0-474"></a>        <span class="s2">"vision_features"</span><span class="p">:</span> <span class="n">src</span><span class="p">,</span>
-<a id="__codelineno-0-475" name="__codelineno-0-475"></a>        <span class="s2">"vision_pos_enc"</span><span class="p">:</span> <span class="n">pos</span><span class="p">,</span>
-<a id="__codelineno-0-476" name="__codelineno-0-476"></a>        <span class="s2">"backbone_fpn"</span><span class="p">:</span> <span class="n">features</span><span class="p">,</span>
-<a id="__codelineno-0-477" name="__codelineno-0-477"></a>    <span class="p">}</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-501">501</a></span>
+<span class="normal"><a href="#__codelineno-0-502">502</a></span>
+<span class="normal"><a href="#__codelineno-0-503">503</a></span>
+<span class="normal"><a href="#__codelineno-0-504">504</a></span>
+<span class="normal"><a href="#__codelineno-0-505">505</a></span>
+<span class="normal"><a href="#__codelineno-0-506">506</a></span>
+<span class="normal"><a href="#__codelineno-0-507">507</a></span>
+<span class="normal"><a href="#__codelineno-0-508">508</a></span>
+<span class="normal"><a href="#__codelineno-0-509">509</a></span>
+<span class="normal"><a href="#__codelineno-0-510">510</a></span>
+<span class="normal"><a href="#__codelineno-0-511">511</a></span>
+<span class="normal"><a href="#__codelineno-0-512">512</a></span>
+<span class="normal"><a href="#__codelineno-0-513">513</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-501" name="__codelineno-0-501"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<a id="__codelineno-0-502" name="__codelineno-0-502"></a><span class="w">    </span><span class="sd">"""Encode input through patch embedding, positional embedding, transformer blocks, and neck module."""</span>
+<a id="__codelineno-0-503" name="__codelineno-0-503"></a>    <span class="n">features</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trunk</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
+<a id="__codelineno-0-504" name="__codelineno-0-504"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scalp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-505" name="__codelineno-0-505"></a>        <span class="c1"># Discard the lowest resolution features</span>
+<a id="__codelineno-0-506" name="__codelineno-0-506"></a>        <span class="n">features</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="n">features</span><span class="p">[:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">scalp</span><span class="p">],</span> <span class="n">pos</span><span class="p">[:</span> <span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">scalp</span><span class="p">]</span>
+<a id="__codelineno-0-507" name="__codelineno-0-507"></a>
+<a id="__codelineno-0-508" name="__codelineno-0-508"></a>    <span class="n">src</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-509" name="__codelineno-0-509"></a>    <span class="k">return</span> <span class="p">{</span>
+<a id="__codelineno-0-510" name="__codelineno-0-510"></a>        <span class="s2">"vision_features"</span><span class="p">:</span> <span class="n">src</span><span class="p">,</span>
+<a id="__codelineno-0-511" name="__codelineno-0-511"></a>        <span class="s2">"vision_pos_enc"</span><span class="p">:</span> <span class="n">pos</span><span class="p">,</span>
+<a id="__codelineno-0-512" name="__codelineno-0-512"></a>        <span class="s2">"backbone_fpn"</span><span class="p">:</span> <span class="n">features</span><span class="p">,</span>
+<a id="__codelineno-0-513" name="__codelineno-0-513"></a>    <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3285,43 +3484,7 @@ similar to ViT positional embedding interpolation.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-507">507</a></span>
-<span class="normal"><a href="#__codelineno-0-508">508</a></span>
-<span class="normal"><a href="#__codelineno-0-509">509</a></span>
-<span class="normal"><a href="#__codelineno-0-510">510</a></span>
-<span class="normal"><a href="#__codelineno-0-511">511</a></span>
-<span class="normal"><a href="#__codelineno-0-512">512</a></span>
-<span class="normal"><a href="#__codelineno-0-513">513</a></span>
-<span class="normal"><a href="#__codelineno-0-514">514</a></span>
-<span class="normal"><a href="#__codelineno-0-515">515</a></span>
-<span class="normal"><a href="#__codelineno-0-516">516</a></span>
-<span class="normal"><a href="#__codelineno-0-517">517</a></span>
-<span class="normal"><a href="#__codelineno-0-518">518</a></span>
-<span class="normal"><a href="#__codelineno-0-519">519</a></span>
-<span class="normal"><a href="#__codelineno-0-520">520</a></span>
-<span class="normal"><a href="#__codelineno-0-521">521</a></span>
-<span class="normal"><a href="#__codelineno-0-522">522</a></span>
-<span class="normal"><a href="#__codelineno-0-523">523</a></span>
-<span class="normal"><a href="#__codelineno-0-524">524</a></span>
-<span class="normal"><a href="#__codelineno-0-525">525</a></span>
-<span class="normal"><a href="#__codelineno-0-526">526</a></span>
-<span class="normal"><a href="#__codelineno-0-527">527</a></span>
-<span class="normal"><a href="#__codelineno-0-528">528</a></span>
-<span class="normal"><a href="#__codelineno-0-529">529</a></span>
-<span class="normal"><a href="#__codelineno-0-530">530</a></span>
-<span class="normal"><a href="#__codelineno-0-531">531</a></span>
-<span class="normal"><a href="#__codelineno-0-532">532</a></span>
-<span class="normal"><a href="#__codelineno-0-533">533</a></span>
-<span class="normal"><a href="#__codelineno-0-534">534</a></span>
-<span class="normal"><a href="#__codelineno-0-535">535</a></span>
-<span class="normal"><a href="#__codelineno-0-536">536</a></span>
-<span class="normal"><a href="#__codelineno-0-537">537</a></span>
-<span class="normal"><a href="#__codelineno-0-538">538</a></span>
-<span class="normal"><a href="#__codelineno-0-539">539</a></span>
-<span class="normal"><a href="#__codelineno-0-540">540</a></span>
-<span class="normal"><a href="#__codelineno-0-541">541</a></span>
-<span class="normal"><a href="#__codelineno-0-542">542</a></span>
-<span class="normal"><a href="#__codelineno-0-543">543</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-543">543</a></span>
 <span class="normal"><a href="#__codelineno-0-544">544</a></span>
 <span class="normal"><a href="#__codelineno-0-545">545</a></span>
 <span class="normal"><a href="#__codelineno-0-546">546</a></span>
@@ -3346,68 +3509,104 @@ similar to ViT positional embedding interpolation.</p>
 <span class="normal"><a href="#__codelineno-0-565">565</a></span>
 <span class="normal"><a href="#__codelineno-0-566">566</a></span>
 <span class="normal"><a href="#__codelineno-0-567">567</a></span>
-<span class="normal"><a href="#__codelineno-0-568">568</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-507" name="__codelineno-0-507"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-508" name="__codelineno-0-508"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-509" name="__codelineno-0-509"></a>    <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-510" name="__codelineno-0-510"></a>    <span class="n">backbone_channel_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
-<a id="__codelineno-0-511" name="__codelineno-0-511"></a>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-512" name="__codelineno-0-512"></a>    <span class="n">stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-513" name="__codelineno-0-513"></a>    <span class="n">padding</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-0-514" name="__codelineno-0-514"></a>    <span class="n">fpn_interp_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"bilinear"</span><span class="p">,</span>
-<a id="__codelineno-0-515" name="__codelineno-0-515"></a>    <span class="n">fuse_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sum"</span><span class="p">,</span>
-<a id="__codelineno-0-516" name="__codelineno-0-516"></a>    <span class="n">fpn_top_down_levels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-517" name="__codelineno-0-517"></a><span class="p">):</span>
-<a id="__codelineno-0-518" name="__codelineno-0-518"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-519" name="__codelineno-0-519"></a><span class="sd">    Initializes a modified Feature Pyramid Network (FPN) neck.</span>
-<a id="__codelineno-0-520" name="__codelineno-0-520"></a>
-<a id="__codelineno-0-521" name="__codelineno-0-521"></a><span class="sd">    This FPN variant removes the output convolution and uses bicubic interpolation for feature resizing,</span>
-<a id="__codelineno-0-522" name="__codelineno-0-522"></a><span class="sd">    similar to ViT positional embedding interpolation.</span>
-<a id="__codelineno-0-523" name="__codelineno-0-523"></a>
-<a id="__codelineno-0-524" name="__codelineno-0-524"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-525" name="__codelineno-0-525"></a><span class="sd">        d_model (int): Dimension of the model.</span>
-<a id="__codelineno-0-526" name="__codelineno-0-526"></a><span class="sd">        backbone_channel_list (List[int]): List of channel dimensions from the backbone.</span>
-<a id="__codelineno-0-527" name="__codelineno-0-527"></a><span class="sd">        kernel_size (int): Kernel size for the convolutional layers.</span>
-<a id="__codelineno-0-528" name="__codelineno-0-528"></a><span class="sd">        stride (int): Stride for the convolutional layers.</span>
-<a id="__codelineno-0-529" name="__codelineno-0-529"></a><span class="sd">        padding (int): Padding for the convolutional layers.</span>
-<a id="__codelineno-0-530" name="__codelineno-0-530"></a><span class="sd">        fpn_interp_model (str): Interpolation mode for FPN feature resizing.</span>
-<a id="__codelineno-0-531" name="__codelineno-0-531"></a><span class="sd">        fuse_type (str): Type of feature fusion, either 'sum' or 'avg'.</span>
-<a id="__codelineno-0-532" name="__codelineno-0-532"></a><span class="sd">        fpn_top_down_levels (Optional[List[int]]): Levels to have top-down features in outputs.</span>
-<a id="__codelineno-0-533" name="__codelineno-0-533"></a>
-<a id="__codelineno-0-534" name="__codelineno-0-534"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-535" name="__codelineno-0-535"></a><span class="sd">        &gt;&gt;&gt; backbone_channels = [64, 128, 256, 512]</span>
-<a id="__codelineno-0-536" name="__codelineno-0-536"></a><span class="sd">        &gt;&gt;&gt; fpn_neck = FpnNeck(256, backbone_channels)</span>
-<a id="__codelineno-0-537" name="__codelineno-0-537"></a><span class="sd">        &gt;&gt;&gt; print(fpn_neck)</span>
-<a id="__codelineno-0-538" name="__codelineno-0-538"></a><span class="sd">    """</span>
-<a id="__codelineno-0-539" name="__codelineno-0-539"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-540" name="__codelineno-0-540"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span> <span class="o">=</span> <span class="n">PositionEmbeddingSine</span><span class="p">(</span><span class="n">num_pos_feats</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
-<a id="__codelineno-0-541" name="__codelineno-0-541"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">convs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
-<a id="__codelineno-0-542" name="__codelineno-0-542"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">backbone_channel_list</span> <span class="o">=</span> <span class="n">backbone_channel_list</span>
-<a id="__codelineno-0-543" name="__codelineno-0-543"></a>    <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">backbone_channel_list</span><span class="p">:</span>
-<a id="__codelineno-0-544" name="__codelineno-0-544"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
-<a id="__codelineno-0-545" name="__codelineno-0-545"></a>        <span class="n">current</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span>
-<a id="__codelineno-0-546" name="__codelineno-0-546"></a>            <span class="s2">"conv"</span><span class="p">,</span>
-<a id="__codelineno-0-547" name="__codelineno-0-547"></a>            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
-<a id="__codelineno-0-548" name="__codelineno-0-548"></a>                <span class="n">in_channels</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
-<a id="__codelineno-0-549" name="__codelineno-0-549"></a>                <span class="n">out_channels</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
-<a id="__codelineno-0-550" name="__codelineno-0-550"></a>                <span class="n">kernel_size</span><span class="o">=</span><span class="n">kernel_size</span><span class="p">,</span>
-<a id="__codelineno-0-551" name="__codelineno-0-551"></a>                <span class="n">stride</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span>
-<a id="__codelineno-0-552" name="__codelineno-0-552"></a>                <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">,</span>
-<a id="__codelineno-0-553" name="__codelineno-0-553"></a>            <span class="p">),</span>
-<a id="__codelineno-0-554" name="__codelineno-0-554"></a>        <span class="p">)</span>
-<a id="__codelineno-0-555" name="__codelineno-0-555"></a>
-<a id="__codelineno-0-556" name="__codelineno-0-556"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
-<a id="__codelineno-0-557" name="__codelineno-0-557"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fpn_interp_model</span> <span class="o">=</span> <span class="n">fpn_interp_model</span>
-<a id="__codelineno-0-558" name="__codelineno-0-558"></a>    <span class="k">assert</span> <span class="n">fuse_type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"sum"</span><span class="p">,</span> <span class="s2">"avg"</span><span class="p">}</span>
-<a id="__codelineno-0-559" name="__codelineno-0-559"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fuse_type</span> <span class="o">=</span> <span class="n">fuse_type</span>
-<a id="__codelineno-0-560" name="__codelineno-0-560"></a>
-<a id="__codelineno-0-561" name="__codelineno-0-561"></a>    <span class="c1"># levels to have top-down features in its outputs</span>
-<a id="__codelineno-0-562" name="__codelineno-0-562"></a>    <span class="c1"># e.g. if fpn_top_down_levels is [2, 3], then only outputs of level 2 and 3</span>
-<a id="__codelineno-0-563" name="__codelineno-0-563"></a>    <span class="c1"># have top-down propagation, while outputs of level 0 and level 1 have only</span>
-<a id="__codelineno-0-564" name="__codelineno-0-564"></a>    <span class="c1"># lateral features from the same backbone level.</span>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a>    <span class="k">if</span> <span class="n">fpn_top_down_levels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a>        <span class="c1"># default is to have top-down features on all levels</span>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a>        <span class="n">fpn_top_down_levels</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">))</span>
-<a id="__codelineno-0-568" name="__codelineno-0-568"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fpn_top_down_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fpn_top_down_levels</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-568">568</a></span>
+<span class="normal"><a href="#__codelineno-0-569">569</a></span>
+<span class="normal"><a href="#__codelineno-0-570">570</a></span>
+<span class="normal"><a href="#__codelineno-0-571">571</a></span>
+<span class="normal"><a href="#__codelineno-0-572">572</a></span>
+<span class="normal"><a href="#__codelineno-0-573">573</a></span>
+<span class="normal"><a href="#__codelineno-0-574">574</a></span>
+<span class="normal"><a href="#__codelineno-0-575">575</a></span>
+<span class="normal"><a href="#__codelineno-0-576">576</a></span>
+<span class="normal"><a href="#__codelineno-0-577">577</a></span>
+<span class="normal"><a href="#__codelineno-0-578">578</a></span>
+<span class="normal"><a href="#__codelineno-0-579">579</a></span>
+<span class="normal"><a href="#__codelineno-0-580">580</a></span>
+<span class="normal"><a href="#__codelineno-0-581">581</a></span>
+<span class="normal"><a href="#__codelineno-0-582">582</a></span>
+<span class="normal"><a href="#__codelineno-0-583">583</a></span>
+<span class="normal"><a href="#__codelineno-0-584">584</a></span>
+<span class="normal"><a href="#__codelineno-0-585">585</a></span>
+<span class="normal"><a href="#__codelineno-0-586">586</a></span>
+<span class="normal"><a href="#__codelineno-0-587">587</a></span>
+<span class="normal"><a href="#__codelineno-0-588">588</a></span>
+<span class="normal"><a href="#__codelineno-0-589">589</a></span>
+<span class="normal"><a href="#__codelineno-0-590">590</a></span>
+<span class="normal"><a href="#__codelineno-0-591">591</a></span>
+<span class="normal"><a href="#__codelineno-0-592">592</a></span>
+<span class="normal"><a href="#__codelineno-0-593">593</a></span>
+<span class="normal"><a href="#__codelineno-0-594">594</a></span>
+<span class="normal"><a href="#__codelineno-0-595">595</a></span>
+<span class="normal"><a href="#__codelineno-0-596">596</a></span>
+<span class="normal"><a href="#__codelineno-0-597">597</a></span>
+<span class="normal"><a href="#__codelineno-0-598">598</a></span>
+<span class="normal"><a href="#__codelineno-0-599">599</a></span>
+<span class="normal"><a href="#__codelineno-0-600">600</a></span>
+<span class="normal"><a href="#__codelineno-0-601">601</a></span>
+<span class="normal"><a href="#__codelineno-0-602">602</a></span>
+<span class="normal"><a href="#__codelineno-0-603">603</a></span>
+<span class="normal"><a href="#__codelineno-0-604">604</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-543" name="__codelineno-0-543"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-544" name="__codelineno-0-544"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-545" name="__codelineno-0-545"></a>    <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<a id="__codelineno-0-546" name="__codelineno-0-546"></a>    <span class="n">backbone_channel_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+<a id="__codelineno-0-547" name="__codelineno-0-547"></a>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-548" name="__codelineno-0-548"></a>    <span class="n">stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-549" name="__codelineno-0-549"></a>    <span class="n">padding</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<a id="__codelineno-0-550" name="__codelineno-0-550"></a>    <span class="n">fpn_interp_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"bilinear"</span><span class="p">,</span>
+<a id="__codelineno-0-551" name="__codelineno-0-551"></a>    <span class="n">fuse_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sum"</span><span class="p">,</span>
+<a id="__codelineno-0-552" name="__codelineno-0-552"></a>    <span class="n">fpn_top_down_levels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-553" name="__codelineno-0-553"></a><span class="p">):</span>
+<a id="__codelineno-0-554" name="__codelineno-0-554"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-555" name="__codelineno-0-555"></a><span class="sd">    Initializes a modified Feature Pyramid Network (FPN) neck.</span>
+<a id="__codelineno-0-556" name="__codelineno-0-556"></a>
+<a id="__codelineno-0-557" name="__codelineno-0-557"></a><span class="sd">    This FPN variant removes the output convolution and uses bicubic interpolation for feature resizing,</span>
+<a id="__codelineno-0-558" name="__codelineno-0-558"></a><span class="sd">    similar to ViT positional embedding interpolation.</span>
+<a id="__codelineno-0-559" name="__codelineno-0-559"></a>
+<a id="__codelineno-0-560" name="__codelineno-0-560"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-561" name="__codelineno-0-561"></a><span class="sd">        d_model (int): Dimension of the model.</span>
+<a id="__codelineno-0-562" name="__codelineno-0-562"></a><span class="sd">        backbone_channel_list (List[int]): List of channel dimensions from the backbone.</span>
+<a id="__codelineno-0-563" name="__codelineno-0-563"></a><span class="sd">        kernel_size (int): Kernel size for the convolutional layers.</span>
+<a id="__codelineno-0-564" name="__codelineno-0-564"></a><span class="sd">        stride (int): Stride for the convolutional layers.</span>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a><span class="sd">        padding (int): Padding for the convolutional layers.</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a><span class="sd">        fpn_interp_model (str): Interpolation mode for FPN feature resizing.</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a><span class="sd">        fuse_type (str): Type of feature fusion, either 'sum' or 'avg'.</span>
+<a id="__codelineno-0-568" name="__codelineno-0-568"></a><span class="sd">        fpn_top_down_levels (Optional[List[int]]): Levels to have top-down features in outputs.</span>
+<a id="__codelineno-0-569" name="__codelineno-0-569"></a>
+<a id="__codelineno-0-570" name="__codelineno-0-570"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-571" name="__codelineno-0-571"></a><span class="sd">        &gt;&gt;&gt; backbone_channels = [64, 128, 256, 512]</span>
+<a id="__codelineno-0-572" name="__codelineno-0-572"></a><span class="sd">        &gt;&gt;&gt; fpn_neck = FpnNeck(256, backbone_channels)</span>
+<a id="__codelineno-0-573" name="__codelineno-0-573"></a><span class="sd">        &gt;&gt;&gt; print(fpn_neck)</span>
+<a id="__codelineno-0-574" name="__codelineno-0-574"></a><span class="sd">    """</span>
+<a id="__codelineno-0-575" name="__codelineno-0-575"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-576" name="__codelineno-0-576"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span> <span class="o">=</span> <span class="n">PositionEmbeddingSine</span><span class="p">(</span><span class="n">num_pos_feats</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
+<a id="__codelineno-0-577" name="__codelineno-0-577"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">convs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
+<a id="__codelineno-0-578" name="__codelineno-0-578"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">backbone_channel_list</span> <span class="o">=</span> <span class="n">backbone_channel_list</span>
+<a id="__codelineno-0-579" name="__codelineno-0-579"></a>    <span class="k">for</span> <span class="n">dim</span> <span class="ow">in</span> <span class="n">backbone_channel_list</span><span class="p">:</span>
+<a id="__codelineno-0-580" name="__codelineno-0-580"></a>        <span class="n">current</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">()</span>
+<a id="__codelineno-0-581" name="__codelineno-0-581"></a>        <span class="n">current</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span>
+<a id="__codelineno-0-582" name="__codelineno-0-582"></a>            <span class="s2">"conv"</span><span class="p">,</span>
+<a id="__codelineno-0-583" name="__codelineno-0-583"></a>            <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
+<a id="__codelineno-0-584" name="__codelineno-0-584"></a>                <span class="n">in_channels</span><span class="o">=</span><span class="n">dim</span><span class="p">,</span>
+<a id="__codelineno-0-585" name="__codelineno-0-585"></a>                <span class="n">out_channels</span><span class="o">=</span><span class="n">d_model</span><span class="p">,</span>
+<a id="__codelineno-0-586" name="__codelineno-0-586"></a>                <span class="n">kernel_size</span><span class="o">=</span><span class="n">kernel_size</span><span class="p">,</span>
+<a id="__codelineno-0-587" name="__codelineno-0-587"></a>                <span class="n">stride</span><span class="o">=</span><span class="n">stride</span><span class="p">,</span>
+<a id="__codelineno-0-588" name="__codelineno-0-588"></a>                <span class="n">padding</span><span class="o">=</span><span class="n">padding</span><span class="p">,</span>
+<a id="__codelineno-0-589" name="__codelineno-0-589"></a>            <span class="p">),</span>
+<a id="__codelineno-0-590" name="__codelineno-0-590"></a>        <span class="p">)</span>
+<a id="__codelineno-0-591" name="__codelineno-0-591"></a>
+<a id="__codelineno-0-592" name="__codelineno-0-592"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">current</span><span class="p">)</span>
+<a id="__codelineno-0-593" name="__codelineno-0-593"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fpn_interp_model</span> <span class="o">=</span> <span class="n">fpn_interp_model</span>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a>    <span class="k">assert</span> <span class="n">fuse_type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"sum"</span><span class="p">,</span> <span class="s2">"avg"</span><span class="p">}</span>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fuse_type</span> <span class="o">=</span> <span class="n">fuse_type</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="c1"># levels to have top-down features in its outputs</span>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="c1"># e.g. if fpn_top_down_levels is [2, 3], then only outputs of level 2 and 3</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>    <span class="c1"># have top-down propagation, while outputs of level 0 and level 1 have only</span>
+<a id="__codelineno-0-600" name="__codelineno-0-600"></a>    <span class="c1"># lateral features from the same backbone level.</span>
+<a id="__codelineno-0-601" name="__codelineno-0-601"></a>    <span class="k">if</span> <span class="n">fpn_top_down_levels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-602" name="__codelineno-0-602"></a>        <span class="c1"># default is to have top-down features on all levels</span>
+<a id="__codelineno-0-603" name="__codelineno-0-603"></a>        <span class="n">fpn_top_down_levels</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">))</span>
+<a id="__codelineno-0-604" name="__codelineno-0-604"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fpn_top_down_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fpn_top_down_levels</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -3483,43 +3682,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-570">570</a></span>
-<span class="normal"><a href="#__codelineno-0-571">571</a></span>
-<span class="normal"><a href="#__codelineno-0-572">572</a></span>
-<span class="normal"><a href="#__codelineno-0-573">573</a></span>
-<span class="normal"><a href="#__codelineno-0-574">574</a></span>
-<span class="normal"><a href="#__codelineno-0-575">575</a></span>
-<span class="normal"><a href="#__codelineno-0-576">576</a></span>
-<span class="normal"><a href="#__codelineno-0-577">577</a></span>
-<span class="normal"><a href="#__codelineno-0-578">578</a></span>
-<span class="normal"><a href="#__codelineno-0-579">579</a></span>
-<span class="normal"><a href="#__codelineno-0-580">580</a></span>
-<span class="normal"><a href="#__codelineno-0-581">581</a></span>
-<span class="normal"><a href="#__codelineno-0-582">582</a></span>
-<span class="normal"><a href="#__codelineno-0-583">583</a></span>
-<span class="normal"><a href="#__codelineno-0-584">584</a></span>
-<span class="normal"><a href="#__codelineno-0-585">585</a></span>
-<span class="normal"><a href="#__codelineno-0-586">586</a></span>
-<span class="normal"><a href="#__codelineno-0-587">587</a></span>
-<span class="normal"><a href="#__codelineno-0-588">588</a></span>
-<span class="normal"><a href="#__codelineno-0-589">589</a></span>
-<span class="normal"><a href="#__codelineno-0-590">590</a></span>
-<span class="normal"><a href="#__codelineno-0-591">591</a></span>
-<span class="normal"><a href="#__codelineno-0-592">592</a></span>
-<span class="normal"><a href="#__codelineno-0-593">593</a></span>
-<span class="normal"><a href="#__codelineno-0-594">594</a></span>
-<span class="normal"><a href="#__codelineno-0-595">595</a></span>
-<span class="normal"><a href="#__codelineno-0-596">596</a></span>
-<span class="normal"><a href="#__codelineno-0-597">597</a></span>
-<span class="normal"><a href="#__codelineno-0-598">598</a></span>
-<span class="normal"><a href="#__codelineno-0-599">599</a></span>
-<span class="normal"><a href="#__codelineno-0-600">600</a></span>
-<span class="normal"><a href="#__codelineno-0-601">601</a></span>
-<span class="normal"><a href="#__codelineno-0-602">602</a></span>
-<span class="normal"><a href="#__codelineno-0-603">603</a></span>
-<span class="normal"><a href="#__codelineno-0-604">604</a></span>
-<span class="normal"><a href="#__codelineno-0-605">605</a></span>
-<span class="normal"><a href="#__codelineno-0-606">606</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-606">606</a></span>
 <span class="normal"><a href="#__codelineno-0-607">607</a></span>
 <span class="normal"><a href="#__codelineno-0-608">608</a></span>
 <span class="normal"><a href="#__codelineno-0-609">609</a></span>
@@ -3534,58 +3697,94 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <span class="normal"><a href="#__codelineno-0-618">618</a></span>
 <span class="normal"><a href="#__codelineno-0-619">619</a></span>
 <span class="normal"><a href="#__codelineno-0-620">620</a></span>
-<span class="normal"><a href="#__codelineno-0-621">621</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-570" name="__codelineno-0-570"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
-<a id="__codelineno-0-571" name="__codelineno-0-571"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-572" name="__codelineno-0-572"></a><span class="sd">    Performs forward pass through the Feature Pyramid Network (FPN) neck.</span>
-<a id="__codelineno-0-573" name="__codelineno-0-573"></a>
-<a id="__codelineno-0-574" name="__codelineno-0-574"></a><span class="sd">    This method processes a list of input tensors from the backbone through the FPN, applying lateral connections</span>
-<a id="__codelineno-0-575" name="__codelineno-0-575"></a><span class="sd">    and top-down feature fusion. It generates output feature maps and corresponding positional encodings.</span>
-<a id="__codelineno-0-576" name="__codelineno-0-576"></a>
-<a id="__codelineno-0-577" name="__codelineno-0-577"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-578" name="__codelineno-0-578"></a><span class="sd">        xs (List[torch.Tensor]): List of input tensors from the backbone, each with shape (B, C, H, W).</span>
-<a id="__codelineno-0-579" name="__codelineno-0-579"></a>
-<a id="__codelineno-0-580" name="__codelineno-0-580"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-581" name="__codelineno-0-581"></a><span class="sd">        (Tuple[List[torch.Tensor], List[torch.Tensor]]): A tuple containing:</span>
-<a id="__codelineno-0-582" name="__codelineno-0-582"></a><span class="sd">            - out (List[torch.Tensor]): List of output feature maps after FPN processing, each with shape</span>
-<a id="__codelineno-0-583" name="__codelineno-0-583"></a><span class="sd">              (B, d_model, H, W).</span>
-<a id="__codelineno-0-584" name="__codelineno-0-584"></a><span class="sd">            - pos (List[torch.Tensor]): List of positional encodings corresponding to each output feature map.</span>
-<a id="__codelineno-0-585" name="__codelineno-0-585"></a>
-<a id="__codelineno-0-586" name="__codelineno-0-586"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-587" name="__codelineno-0-587"></a><span class="sd">        &gt;&gt;&gt; fpn_neck = FpnNeck(d_model=256, backbone_channel_list=[64, 128, 256, 512])</span>
-<a id="__codelineno-0-588" name="__codelineno-0-588"></a><span class="sd">        &gt;&gt;&gt; inputs = [torch.rand(1, c, 32, 32) for c in [64, 128, 256, 512]]</span>
-<a id="__codelineno-0-589" name="__codelineno-0-589"></a><span class="sd">        &gt;&gt;&gt; outputs, positions = fpn_neck(inputs)</span>
-<a id="__codelineno-0-590" name="__codelineno-0-590"></a><span class="sd">        &gt;&gt;&gt; print(len(outputs), len(positions))</span>
-<a id="__codelineno-0-591" name="__codelineno-0-591"></a><span class="sd">        4 4</span>
-<a id="__codelineno-0-592" name="__codelineno-0-592"></a><span class="sd">    """</span>
-<a id="__codelineno-0-593" name="__codelineno-0-593"></a>    <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
-<a id="__codelineno-0-594" name="__codelineno-0-594"></a>    <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="c1"># fpn forward pass</span>
-<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="c1"># see https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/backbone/fpn.py</span>
-<a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="n">prev_features</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-599" name="__codelineno-0-599"></a>    <span class="c1"># forward in top-down order (from low to high resolution)</span>
-<a id="__codelineno-0-600" name="__codelineno-0-600"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-602" name="__codelineno-0-602"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
-<a id="__codelineno-0-603" name="__codelineno-0-603"></a>        <span class="n">lateral_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-604" name="__codelineno-0-604"></a>        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fpn_top_down_levels</span> <span class="ow">and</span> <span class="n">prev_features</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-605" name="__codelineno-0-605"></a>            <span class="n">top_down_features</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
-<a id="__codelineno-0-606" name="__codelineno-0-606"></a>                <span class="n">prev_features</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
-<a id="__codelineno-0-607" name="__codelineno-0-607"></a>                <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a>                <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fpn_interp_model</span><span class="p">,</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a>                <span class="n">align_corners</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fpn_interp_model</span> <span class="o">==</span> <span class="s2">"nearest"</span> <span class="k">else</span> <span class="kc">False</span><span class="p">),</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a>                <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-611" name="__codelineno-0-611"></a>            <span class="p">)</span>
-<a id="__codelineno-0-612" name="__codelineno-0-612"></a>            <span class="n">prev_features</span> <span class="o">=</span> <span class="n">lateral_features</span> <span class="o">+</span> <span class="n">top_down_features</span>
-<a id="__codelineno-0-613" name="__codelineno-0-613"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fuse_type</span> <span class="o">==</span> <span class="s2">"avg"</span><span class="p">:</span>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a>                <span class="n">prev_features</span> <span class="o">/=</span> <span class="mi">2</span>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a>            <span class="n">prev_features</span> <span class="o">=</span> <span class="n">lateral_features</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a>        <span class="n">x_out</span> <span class="o">=</span> <span class="n">prev_features</span>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a>        <span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_out</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a>        <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span><span class="p">(</span><span class="n">x_out</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x_out</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>    <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="n">pos</span>
+<span class="normal"><a href="#__codelineno-0-621">621</a></span>
+<span class="normal"><a href="#__codelineno-0-622">622</a></span>
+<span class="normal"><a href="#__codelineno-0-623">623</a></span>
+<span class="normal"><a href="#__codelineno-0-624">624</a></span>
+<span class="normal"><a href="#__codelineno-0-625">625</a></span>
+<span class="normal"><a href="#__codelineno-0-626">626</a></span>
+<span class="normal"><a href="#__codelineno-0-627">627</a></span>
+<span class="normal"><a href="#__codelineno-0-628">628</a></span>
+<span class="normal"><a href="#__codelineno-0-629">629</a></span>
+<span class="normal"><a href="#__codelineno-0-630">630</a></span>
+<span class="normal"><a href="#__codelineno-0-631">631</a></span>
+<span class="normal"><a href="#__codelineno-0-632">632</a></span>
+<span class="normal"><a href="#__codelineno-0-633">633</a></span>
+<span class="normal"><a href="#__codelineno-0-634">634</a></span>
+<span class="normal"><a href="#__codelineno-0-635">635</a></span>
+<span class="normal"><a href="#__codelineno-0-636">636</a></span>
+<span class="normal"><a href="#__codelineno-0-637">637</a></span>
+<span class="normal"><a href="#__codelineno-0-638">638</a></span>
+<span class="normal"><a href="#__codelineno-0-639">639</a></span>
+<span class="normal"><a href="#__codelineno-0-640">640</a></span>
+<span class="normal"><a href="#__codelineno-0-641">641</a></span>
+<span class="normal"><a href="#__codelineno-0-642">642</a></span>
+<span class="normal"><a href="#__codelineno-0-643">643</a></span>
+<span class="normal"><a href="#__codelineno-0-644">644</a></span>
+<span class="normal"><a href="#__codelineno-0-645">645</a></span>
+<span class="normal"><a href="#__codelineno-0-646">646</a></span>
+<span class="normal"><a href="#__codelineno-0-647">647</a></span>
+<span class="normal"><a href="#__codelineno-0-648">648</a></span>
+<span class="normal"><a href="#__codelineno-0-649">649</a></span>
+<span class="normal"><a href="#__codelineno-0-650">650</a></span>
+<span class="normal"><a href="#__codelineno-0-651">651</a></span>
+<span class="normal"><a href="#__codelineno-0-652">652</a></span>
+<span class="normal"><a href="#__codelineno-0-653">653</a></span>
+<span class="normal"><a href="#__codelineno-0-654">654</a></span>
+<span class="normal"><a href="#__codelineno-0-655">655</a></span>
+<span class="normal"><a href="#__codelineno-0-656">656</a></span>
+<span class="normal"><a href="#__codelineno-0-657">657</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
+<a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">    Performs forward pass through the Feature Pyramid Network (FPN) neck.</span>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">    This method processes a list of input tensors from the backbone through the FPN, applying lateral connections</span>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">    and top-down feature fusion. It generates output feature maps and corresponding positional encodings.</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">        xs (List[torch.Tensor]): List of input tensors from the backbone, each with shape (B, C, H, W).</span>
+<a id="__codelineno-0-615" name="__codelineno-0-615"></a>
+<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">        (Tuple[List[torch.Tensor], List[torch.Tensor]]): A tuple containing:</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a><span class="sd">            - out (List[torch.Tensor]): List of output feature maps after FPN processing, each with shape</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a><span class="sd">              (B, d_model, H, W).</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a><span class="sd">            - pos (List[torch.Tensor]): List of positional encodings corresponding to each output feature map.</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a><span class="sd">        &gt;&gt;&gt; fpn_neck = FpnNeck(d_model=256, backbone_channel_list=[64, 128, 256, 512])</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a><span class="sd">        &gt;&gt;&gt; inputs = [torch.rand(1, c, 32, 32) for c in [64, 128, 256, 512]]</span>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a><span class="sd">        &gt;&gt;&gt; outputs, positions = fpn_neck(inputs)</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a><span class="sd">        &gt;&gt;&gt; print(len(outputs), len(positions))</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a><span class="sd">        4 4</span>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a><span class="sd">    """</span>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a>    <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a>    <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a>    <span class="c1"># fpn forward pass</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a>    <span class="c1"># see https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/backbone/fpn.py</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>    <span class="n">prev_features</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a>    <span class="c1"># forward in top-down order (from low to high resolution)</span>
+<a id="__codelineno-0-636" name="__codelineno-0-636"></a>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a>        <span class="n">lateral_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-640" name="__codelineno-0-640"></a>        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fpn_top_down_levels</span> <span class="ow">and</span> <span class="n">prev_features</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-641" name="__codelineno-0-641"></a>            <span class="n">top_down_features</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
+<a id="__codelineno-0-642" name="__codelineno-0-642"></a>                <span class="n">prev_features</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+<a id="__codelineno-0-643" name="__codelineno-0-643"></a>                <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+<a id="__codelineno-0-644" name="__codelineno-0-644"></a>                <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fpn_interp_model</span><span class="p">,</span>
+<a id="__codelineno-0-645" name="__codelineno-0-645"></a>                <span class="n">align_corners</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fpn_interp_model</span> <span class="o">==</span> <span class="s2">"nearest"</span> <span class="k">else</span> <span class="kc">False</span><span class="p">),</span>
+<a id="__codelineno-0-646" name="__codelineno-0-646"></a>                <span class="n">antialias</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-647" name="__codelineno-0-647"></a>            <span class="p">)</span>
+<a id="__codelineno-0-648" name="__codelineno-0-648"></a>            <span class="n">prev_features</span> <span class="o">=</span> <span class="n">lateral_features</span> <span class="o">+</span> <span class="n">top_down_features</span>
+<a id="__codelineno-0-649" name="__codelineno-0-649"></a>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fuse_type</span> <span class="o">==</span> <span class="s2">"avg"</span><span class="p">:</span>
+<a id="__codelineno-0-650" name="__codelineno-0-650"></a>                <span class="n">prev_features</span> <span class="o">/=</span> <span class="mi">2</span>
+<a id="__codelineno-0-651" name="__codelineno-0-651"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-652" name="__codelineno-0-652"></a>            <span class="n">prev_features</span> <span class="o">=</span> <span class="n">lateral_features</span>
+<a id="__codelineno-0-653" name="__codelineno-0-653"></a>        <span class="n">x_out</span> <span class="o">=</span> <span class="n">prev_features</span>
+<a id="__codelineno-0-654" name="__codelineno-0-654"></a>        <span class="n">out</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">x_out</span>
+<a id="__codelineno-0-655" name="__codelineno-0-655"></a>        <span class="n">pos</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">position_encoding</span><span class="p">(</span><span class="n">x_out</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">x_out</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
+<a id="__codelineno-0-656" name="__codelineno-0-656"></a>
+<a id="__codelineno-0-657" name="__codelineno-0-657"></a>    <span class="k">return</span> <span class="n">out</span><span class="p">,</span> <span class="n">pos</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3797,45 +3996,224 @@ with optional pooling and global attention mechanisms.</p>
 <a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">output_features</span><span class="p">:</span>
 <a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">feat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </code></pre></div>
+<p>Hiera is a hierarchical vision transformer architecture designed for efficient multiscale feature extraction
+in image processing tasks. It uses a series of transformer blocks organized into stages, with optional
+pooling and global attention mechanisms.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>embed_dim</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Initial embedding dimension for the model.</p>
+</div>
+</td>
+<td>
+<code>96</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>num_heads</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Initial number of attention heads.</p>
+</div>
+</td>
+<td>
+<code>1</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>drop_path_rate</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Stochastic depth rate.</p>
+</div>
+</td>
+<td>
+<code>0.0</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>q_pool</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of query pooling stages.</p>
+</div>
+</td>
+<td>
+<code>3</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>q_stride</code>
+</td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Downsampling stride between stages.</p>
+</div>
+</td>
+<td>
+<code>(2, 2)</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>stages</code>
+</td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of blocks per stage.</p>
+</div>
+</td>
+<td>
+<code>(2, 3, 16, 3)</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>dim_mul</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dimension multiplier factor at stage transitions.</p>
+</div>
+</td>
+<td>
+<code>2.0</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>head_mul</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Head multiplier factor at stage transitions.</p>
+</div>
+</td>
+<td>
+<code>2.0</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>window_pos_embed_bkg_spatial_size</code>
+</td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Spatial size for window positional embedding background.</p>
+</div>
+</td>
+<td>
+<code>(14, 14)</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>window_spec</code>
+</td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Window sizes for each stage when not using global attention.</p>
+</div>
+</td>
+<td>
+<code>(8, 4, 14, 7)</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>global_att_blocks</code>
+</td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Indices of blocks that use global attention.</p>
+</div>
+</td>
+<td>
+<code>(12, 16, 20)</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>return_interm_layers</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to return intermediate layer outputs.</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Hiera</span><span class="p">(</span><span class="n">embed_dim</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stages</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">input_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">output_features</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">output_features</span><span class="p">:</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">feat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-658">658</a></span>
-<span class="normal"><a href="#__codelineno-0-659">659</a></span>
-<span class="normal"><a href="#__codelineno-0-660">660</a></span>
-<span class="normal"><a href="#__codelineno-0-661">661</a></span>
-<span class="normal"><a href="#__codelineno-0-662">662</a></span>
-<span class="normal"><a href="#__codelineno-0-663">663</a></span>
-<span class="normal"><a href="#__codelineno-0-664">664</a></span>
-<span class="normal"><a href="#__codelineno-0-665">665</a></span>
-<span class="normal"><a href="#__codelineno-0-666">666</a></span>
-<span class="normal"><a href="#__codelineno-0-667">667</a></span>
-<span class="normal"><a href="#__codelineno-0-668">668</a></span>
-<span class="normal"><a href="#__codelineno-0-669">669</a></span>
-<span class="normal"><a href="#__codelineno-0-670">670</a></span>
-<span class="normal"><a href="#__codelineno-0-671">671</a></span>
-<span class="normal"><a href="#__codelineno-0-672">672</a></span>
-<span class="normal"><a href="#__codelineno-0-673">673</a></span>
-<span class="normal"><a href="#__codelineno-0-674">674</a></span>
-<span class="normal"><a href="#__codelineno-0-675">675</a></span>
-<span class="normal"><a href="#__codelineno-0-676">676</a></span>
-<span class="normal"><a href="#__codelineno-0-677">677</a></span>
-<span class="normal"><a href="#__codelineno-0-678">678</a></span>
-<span class="normal"><a href="#__codelineno-0-679">679</a></span>
-<span class="normal"><a href="#__codelineno-0-680">680</a></span>
-<span class="normal"><a href="#__codelineno-0-681">681</a></span>
-<span class="normal"><a href="#__codelineno-0-682">682</a></span>
-<span class="normal"><a href="#__codelineno-0-683">683</a></span>
-<span class="normal"><a href="#__codelineno-0-684">684</a></span>
-<span class="normal"><a href="#__codelineno-0-685">685</a></span>
-<span class="normal"><a href="#__codelineno-0-686">686</a></span>
-<span class="normal"><a href="#__codelineno-0-687">687</a></span>
-<span class="normal"><a href="#__codelineno-0-688">688</a></span>
-<span class="normal"><a href="#__codelineno-0-689">689</a></span>
-<span class="normal"><a href="#__codelineno-0-690">690</a></span>
-<span class="normal"><a href="#__codelineno-0-691">691</a></span>
-<span class="normal"><a href="#__codelineno-0-692">692</a></span>
-<span class="normal"><a href="#__codelineno-0-693">693</a></span>
-<span class="normal"><a href="#__codelineno-0-694">694</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-694">694</a></span>
 <span class="normal"><a href="#__codelineno-0-695">695</a></span>
 <span class="normal"><a href="#__codelineno-0-696">696</a></span>
 <span class="normal"><a href="#__codelineno-0-697">697</a></span>
@@ -3888,110 +4266,18 @@ with optional pooling and global attention mechanisms.</p>
 <span class="normal"><a href="#__codelineno-0-744">744</a></span>
 <span class="normal"><a href="#__codelineno-0-745">745</a></span>
 <span class="normal"><a href="#__codelineno-0-746">746</a></span>
-<span class="normal"><a href="#__codelineno-0-747">747</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-658" name="__codelineno-0-658"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-659" name="__codelineno-0-659"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-660" name="__codelineno-0-660"></a>    <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">96</span><span class="p">,</span>  <span class="c1"># initial embed dim</span>
-<a id="__codelineno-0-661" name="__codelineno-0-661"></a>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># initial number of heads</span>
-<a id="__codelineno-0-662" name="__codelineno-0-662"></a>    <span class="n">drop_path_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># stochastic depth</span>
-<a id="__codelineno-0-663" name="__codelineno-0-663"></a>    <span class="n">q_pool</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># number of q_pool stages</span>
-<a id="__codelineno-0-664" name="__codelineno-0-664"></a>    <span class="n">q_stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># downsample stride bet. stages</span>
-<a id="__codelineno-0-665" name="__codelineno-0-665"></a>    <span class="n">stages</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>  <span class="c1"># blocks per stage</span>
-<a id="__codelineno-0-666" name="__codelineno-0-666"></a>    <span class="n">dim_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1"># dim_mul factor at stage shift</span>
-<a id="__codelineno-0-667" name="__codelineno-0-667"></a>    <span class="n">head_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1"># head_mul factor at stage shift</span>
-<a id="__codelineno-0-668" name="__codelineno-0-668"></a>    <span class="n">window_pos_embed_bkg_spatial_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
-<a id="__codelineno-0-669" name="__codelineno-0-669"></a>    <span class="c1"># window size per stage, when not using global att.</span>
-<a id="__codelineno-0-670" name="__codelineno-0-670"></a>    <span class="n">window_spec</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-671" name="__codelineno-0-671"></a>        <span class="mi">8</span><span class="p">,</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a>        <span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a>        <span class="mi">14</span><span class="p">,</span>
-<a id="__codelineno-0-674" name="__codelineno-0-674"></a>        <span class="mi">7</span><span class="p">,</span>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a>    <span class="p">),</span>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a>    <span class="c1"># global attn in these blocks</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a>    <span class="n">global_att_blocks</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a>        <span class="mi">12</span><span class="p">,</span>
-<a id="__codelineno-0-679" name="__codelineno-0-679"></a>        <span class="mi">16</span><span class="p">,</span>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a>        <span class="mi">20</span><span class="p">,</span>
-<a id="__codelineno-0-681" name="__codelineno-0-681"></a>    <span class="p">),</span>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a>    <span class="n">return_interm_layers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># return feats from every stage</span>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a><span class="p">):</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a><span class="w">    </span><span class="sd">"""Initialize the Hiera model, configuring its hierarchical vision transformer architecture."""</span>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-686" name="__codelineno-0-686"></a>
-<a id="__codelineno-0-687" name="__codelineno-0-687"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">window_spec</span><span class="p">)</span>
-<a id="__codelineno-0-688" name="__codelineno-0-688"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span> <span class="o">=</span> <span class="n">window_spec</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a>
-<a id="__codelineno-0-690" name="__codelineno-0-690"></a>    <span class="n">depth</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
-<a id="__codelineno-0-691" name="__codelineno-0-691"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">q_stride</span> <span class="o">=</span> <span class="n">q_stride</span>
-<a id="__codelineno-0-692" name="__codelineno-0-692"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">stages</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
-<a id="__codelineno-0-693" name="__codelineno-0-693"></a>    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">q_pool</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-694" name="__codelineno-0-694"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">q_pool_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]][:</span><span class="n">q_pool</span><span class="p">]</span>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">return_interm_layers</span> <span class="o">=</span> <span class="n">return_interm_layers</span>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a>
-<a id="__codelineno-0-697" name="__codelineno-0-697"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span> <span class="o">=</span> <span class="n">PatchEmbed</span><span class="p">(</span>
-<a id="__codelineno-0-698" name="__codelineno-0-698"></a>        <span class="n">embed_dim</span><span class="o">=</span><span class="n">embed_dim</span><span class="p">,</span>
-<a id="__codelineno-0-699" name="__codelineno-0-699"></a>        <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
-<a id="__codelineno-0-700" name="__codelineno-0-700"></a>        <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
-<a id="__codelineno-0-701" name="__codelineno-0-701"></a>        <span class="n">padding</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-<a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="p">)</span>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="c1"># Which blocks have global att?</span>
-<a id="__codelineno-0-704" name="__codelineno-0-704"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">global_att_blocks</span> <span class="o">=</span> <span class="n">global_att_blocks</span>
-<a id="__codelineno-0-705" name="__codelineno-0-705"></a>
-<a id="__codelineno-0-706" name="__codelineno-0-706"></a>    <span class="c1"># Windowed positional embedding (https://arxiv.org/abs/2311.05613)</span>
-<a id="__codelineno-0-707" name="__codelineno-0-707"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">window_pos_embed_bkg_spatial_size</span> <span class="o">=</span> <span class="n">window_pos_embed_bkg_spatial_size</span>
-<a id="__codelineno-0-708" name="__codelineno-0-708"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">window_pos_embed_bkg_spatial_size</span><span class="p">))</span>
-<a id="__codelineno-0-709" name="__codelineno-0-709"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed_window</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
-<a id="__codelineno-0-710" name="__codelineno-0-710"></a>
-<a id="__codelineno-0-711" name="__codelineno-0-711"></a>    <span class="n">dpr</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">drop_path_rate</span><span class="p">,</span> <span class="n">depth</span><span class="p">)]</span>  <span class="c1"># stochastic depth decay rule</span>
-<a id="__codelineno-0-712" name="__codelineno-0-712"></a>
-<a id="__codelineno-0-713" name="__codelineno-0-713"></a>    <span class="n">cur_stage</span> <span class="o">=</span> <span class="mi">1</span>
-<a id="__codelineno-0-714" name="__codelineno-0-714"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
-<a id="__codelineno-0-715" name="__codelineno-0-715"></a>
-<a id="__codelineno-0-716" name="__codelineno-0-716"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">depth</span><span class="p">):</span>
-<a id="__codelineno-0-717" name="__codelineno-0-717"></a>        <span class="n">dim_out</span> <span class="o">=</span> <span class="n">embed_dim</span>
-<a id="__codelineno-0-718" name="__codelineno-0-718"></a>        <span class="c1"># lags by a block, so first block of</span>
-<a id="__codelineno-0-719" name="__codelineno-0-719"></a>        <span class="c1"># next stage uses an initial window size</span>
-<a id="__codelineno-0-720" name="__codelineno-0-720"></a>        <span class="c1"># of previous stage and final window size of current stage</span>
-<a id="__codelineno-0-721" name="__codelineno-0-721"></a>        <span class="n">window_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span><span class="p">[</span><span class="n">cur_stage</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-722" name="__codelineno-0-722"></a>
-<a id="__codelineno-0-723" name="__codelineno-0-723"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_att_blocks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-724" name="__codelineno-0-724"></a>            <span class="n">window_size</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_att_blocks</span> <span class="k">else</span> <span class="n">window_size</span>
-<a id="__codelineno-0-725" name="__codelineno-0-725"></a>
-<a id="__codelineno-0-726" name="__codelineno-0-726"></a>        <span class="k">if</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">:</span>
-<a id="__codelineno-0-727" name="__codelineno-0-727"></a>            <span class="n">dim_out</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">embed_dim</span> <span class="o">*</span> <span class="n">dim_mul</span><span class="p">)</span>
-<a id="__codelineno-0-728" name="__codelineno-0-728"></a>            <span class="n">num_heads</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_heads</span> <span class="o">*</span> <span class="n">head_mul</span><span class="p">)</span>
-<a id="__codelineno-0-729" name="__codelineno-0-729"></a>            <span class="n">cur_stage</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-0-730" name="__codelineno-0-730"></a>
-<a id="__codelineno-0-731" name="__codelineno-0-731"></a>        <span class="n">block</span> <span class="o">=</span> <span class="n">MultiScaleBlock</span><span class="p">(</span>
-<a id="__codelineno-0-732" name="__codelineno-0-732"></a>            <span class="n">dim</span><span class="o">=</span><span class="n">embed_dim</span><span class="p">,</span>
-<a id="__codelineno-0-733" name="__codelineno-0-733"></a>            <span class="n">dim_out</span><span class="o">=</span><span class="n">dim_out</span><span class="p">,</span>
-<a id="__codelineno-0-734" name="__codelineno-0-734"></a>            <span class="n">num_heads</span><span class="o">=</span><span class="n">num_heads</span><span class="p">,</span>
-<a id="__codelineno-0-735" name="__codelineno-0-735"></a>            <span class="n">drop_path</span><span class="o">=</span><span class="n">dpr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
-<a id="__codelineno-0-736" name="__codelineno-0-736"></a>            <span class="n">q_stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">q_stride</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_pool_blocks</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-737" name="__codelineno-0-737"></a>            <span class="n">window_size</span><span class="o">=</span><span class="n">window_size</span><span class="p">,</span>
-<a id="__codelineno-0-738" name="__codelineno-0-738"></a>        <span class="p">)</span>
-<a id="__codelineno-0-739" name="__codelineno-0-739"></a>
-<a id="__codelineno-0-740" name="__codelineno-0-740"></a>        <span class="n">embed_dim</span> <span class="o">=</span> <span class="n">dim_out</span>
-<a id="__codelineno-0-741" name="__codelineno-0-741"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
-<a id="__codelineno-0-742" name="__codelineno-0-742"></a>
-<a id="__codelineno-0-743" name="__codelineno-0-743"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">channel_list</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-744" name="__codelineno-0-744"></a>        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dim_out</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
-<a id="__codelineno-0-745" name="__codelineno-0-745"></a>        <span class="k">if</span> <span class="n">return_interm_layers</span>
-<a id="__codelineno-0-746" name="__codelineno-0-746"></a>        <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dim_out</span><span class="p">]</span>
-<a id="__codelineno-0-747" name="__codelineno-0-747"></a>    <span class="p">)</span>
-</code></pre></div></td></tr></table></div>
-</details>
-<div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.models.sam.modules.encoders.Hiera.forward">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
-</h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
-</code></pre></div>
-<div class="doc doc-contents">
-<p>Perform forward pass through Hiera model, extracting multiscale features from input images.</p>
-<details class="quote">
-<summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-758">758</a></span>
+<span class="normal"><a href="#__codelineno-0-747">747</a></span>
+<span class="normal"><a href="#__codelineno-0-748">748</a></span>
+<span class="normal"><a href="#__codelineno-0-749">749</a></span>
+<span class="normal"><a href="#__codelineno-0-750">750</a></span>
+<span class="normal"><a href="#__codelineno-0-751">751</a></span>
+<span class="normal"><a href="#__codelineno-0-752">752</a></span>
+<span class="normal"><a href="#__codelineno-0-753">753</a></span>
+<span class="normal"><a href="#__codelineno-0-754">754</a></span>
+<span class="normal"><a href="#__codelineno-0-755">755</a></span>
+<span class="normal"><a href="#__codelineno-0-756">756</a></span>
+<span class="normal"><a href="#__codelineno-0-757">757</a></span>
+<span class="normal"><a href="#__codelineno-0-758">758</a></span>
 <span class="normal"><a href="#__codelineno-0-759">759</a></span>
 <span class="normal"><a href="#__codelineno-0-760">760</a></span>
 <span class="normal"><a href="#__codelineno-0-761">761</a></span>
@@ -4006,22 +4292,300 @@ with optional pooling and global attention mechanisms.</p>
 <span class="normal"><a href="#__codelineno-0-770">770</a></span>
 <span class="normal"><a href="#__codelineno-0-771">771</a></span>
 <span class="normal"><a href="#__codelineno-0-772">772</a></span>
-<span class="normal"><a href="#__codelineno-0-773">773</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-758" name="__codelineno-0-758"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
-<a id="__codelineno-0-759" name="__codelineno-0-759"></a><span class="w">    </span><span class="sd">"""Perform forward pass through Hiera model, extracting multiscale features from input images."""</span>
-<a id="__codelineno-0-760" name="__codelineno-0-760"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-761" name="__codelineno-0-761"></a>    <span class="c1"># x: (B, H, W, C)</span>
-<a id="__codelineno-0-762" name="__codelineno-0-762"></a>
-<a id="__codelineno-0-763" name="__codelineno-0-763"></a>    <span class="c1"># Add pos embed</span>
-<a id="__codelineno-0-764" name="__codelineno-0-764"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pos_embed</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
-<a id="__codelineno-0-765" name="__codelineno-0-765"></a>
-<a id="__codelineno-0-766" name="__codelineno-0-766"></a>    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-767" name="__codelineno-0-767"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">blk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">):</span>
-<a id="__codelineno-0-768" name="__codelineno-0-768"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">blk</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-769" name="__codelineno-0-769"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="ow">or</span> <span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_interm_layers</span><span class="p">):</span>
-<a id="__codelineno-0-770" name="__codelineno-0-770"></a>            <span class="n">feats</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-771" name="__codelineno-0-771"></a>            <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span>
-<a id="__codelineno-0-772" name="__codelineno-0-772"></a>
-<a id="__codelineno-0-773" name="__codelineno-0-773"></a>    <span class="k">return</span> <span class="n">outputs</span>
+<span class="normal"><a href="#__codelineno-0-773">773</a></span>
+<span class="normal"><a href="#__codelineno-0-774">774</a></span>
+<span class="normal"><a href="#__codelineno-0-775">775</a></span>
+<span class="normal"><a href="#__codelineno-0-776">776</a></span>
+<span class="normal"><a href="#__codelineno-0-777">777</a></span>
+<span class="normal"><a href="#__codelineno-0-778">778</a></span>
+<span class="normal"><a href="#__codelineno-0-779">779</a></span>
+<span class="normal"><a href="#__codelineno-0-780">780</a></span>
+<span class="normal"><a href="#__codelineno-0-781">781</a></span>
+<span class="normal"><a href="#__codelineno-0-782">782</a></span>
+<span class="normal"><a href="#__codelineno-0-783">783</a></span>
+<span class="normal"><a href="#__codelineno-0-784">784</a></span>
+<span class="normal"><a href="#__codelineno-0-785">785</a></span>
+<span class="normal"><a href="#__codelineno-0-786">786</a></span>
+<span class="normal"><a href="#__codelineno-0-787">787</a></span>
+<span class="normal"><a href="#__codelineno-0-788">788</a></span>
+<span class="normal"><a href="#__codelineno-0-789">789</a></span>
+<span class="normal"><a href="#__codelineno-0-790">790</a></span>
+<span class="normal"><a href="#__codelineno-0-791">791</a></span>
+<span class="normal"><a href="#__codelineno-0-792">792</a></span>
+<span class="normal"><a href="#__codelineno-0-793">793</a></span>
+<span class="normal"><a href="#__codelineno-0-794">794</a></span>
+<span class="normal"><a href="#__codelineno-0-795">795</a></span>
+<span class="normal"><a href="#__codelineno-0-796">796</a></span>
+<span class="normal"><a href="#__codelineno-0-797">797</a></span>
+<span class="normal"><a href="#__codelineno-0-798">798</a></span>
+<span class="normal"><a href="#__codelineno-0-799">799</a></span>
+<span class="normal"><a href="#__codelineno-0-800">800</a></span>
+<span class="normal"><a href="#__codelineno-0-801">801</a></span>
+<span class="normal"><a href="#__codelineno-0-802">802</a></span>
+<span class="normal"><a href="#__codelineno-0-803">803</a></span>
+<span class="normal"><a href="#__codelineno-0-804">804</a></span>
+<span class="normal"><a href="#__codelineno-0-805">805</a></span>
+<span class="normal"><a href="#__codelineno-0-806">806</a></span>
+<span class="normal"><a href="#__codelineno-0-807">807</a></span>
+<span class="normal"><a href="#__codelineno-0-808">808</a></span>
+<span class="normal"><a href="#__codelineno-0-809">809</a></span>
+<span class="normal"><a href="#__codelineno-0-810">810</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-694" name="__codelineno-0-694"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-695" name="__codelineno-0-695"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a>    <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">96</span><span class="p">,</span>  <span class="c1"># initial embed dim</span>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># initial number of heads</span>
+<a id="__codelineno-0-698" name="__codelineno-0-698"></a>    <span class="n">drop_path_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># stochastic depth</span>
+<a id="__codelineno-0-699" name="__codelineno-0-699"></a>    <span class="n">q_pool</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># number of q_pool stages</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a>    <span class="n">q_stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># downsample stride bet. stages</span>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a>    <span class="n">stages</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>  <span class="c1"># blocks per stage</span>
+<a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="n">dim_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1"># dim_mul factor at stage shift</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="n">head_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1"># head_mul factor at stage shift</span>
+<a id="__codelineno-0-704" name="__codelineno-0-704"></a>    <span class="n">window_pos_embed_bkg_spatial_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
+<a id="__codelineno-0-705" name="__codelineno-0-705"></a>    <span class="c1"># window size per stage, when not using global att.</span>
+<a id="__codelineno-0-706" name="__codelineno-0-706"></a>    <span class="n">window_spec</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-707" name="__codelineno-0-707"></a>        <span class="mi">8</span><span class="p">,</span>
+<a id="__codelineno-0-708" name="__codelineno-0-708"></a>        <span class="mi">4</span><span class="p">,</span>
+<a id="__codelineno-0-709" name="__codelineno-0-709"></a>        <span class="mi">14</span><span class="p">,</span>
+<a id="__codelineno-0-710" name="__codelineno-0-710"></a>        <span class="mi">7</span><span class="p">,</span>
+<a id="__codelineno-0-711" name="__codelineno-0-711"></a>    <span class="p">),</span>
+<a id="__codelineno-0-712" name="__codelineno-0-712"></a>    <span class="c1"># global attn in these blocks</span>
+<a id="__codelineno-0-713" name="__codelineno-0-713"></a>    <span class="n">global_att_blocks</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-714" name="__codelineno-0-714"></a>        <span class="mi">12</span><span class="p">,</span>
+<a id="__codelineno-0-715" name="__codelineno-0-715"></a>        <span class="mi">16</span><span class="p">,</span>
+<a id="__codelineno-0-716" name="__codelineno-0-716"></a>        <span class="mi">20</span><span class="p">,</span>
+<a id="__codelineno-0-717" name="__codelineno-0-717"></a>    <span class="p">),</span>
+<a id="__codelineno-0-718" name="__codelineno-0-718"></a>    <span class="n">return_interm_layers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># return feats from every stage</span>
+<a id="__codelineno-0-719" name="__codelineno-0-719"></a><span class="p">):</span>
+<a id="__codelineno-0-720" name="__codelineno-0-720"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-721" name="__codelineno-0-721"></a><span class="sd">    Initialize a Hiera model, a hierarchical vision transformer for efficient multiscale feature extraction.</span>
+<a id="__codelineno-0-722" name="__codelineno-0-722"></a>
+<a id="__codelineno-0-723" name="__codelineno-0-723"></a><span class="sd">    Hiera is a hierarchical vision transformer architecture designed for efficient multiscale feature extraction</span>
+<a id="__codelineno-0-724" name="__codelineno-0-724"></a><span class="sd">    in image processing tasks. It uses a series of transformer blocks organized into stages, with optional</span>
+<a id="__codelineno-0-725" name="__codelineno-0-725"></a><span class="sd">    pooling and global attention mechanisms.</span>
+<a id="__codelineno-0-726" name="__codelineno-0-726"></a>
+<a id="__codelineno-0-727" name="__codelineno-0-727"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-728" name="__codelineno-0-728"></a><span class="sd">        embed_dim (int): Initial embedding dimension for the model.</span>
+<a id="__codelineno-0-729" name="__codelineno-0-729"></a><span class="sd">        num_heads (int): Initial number of attention heads.</span>
+<a id="__codelineno-0-730" name="__codelineno-0-730"></a><span class="sd">        drop_path_rate (float): Stochastic depth rate.</span>
+<a id="__codelineno-0-731" name="__codelineno-0-731"></a><span class="sd">        q_pool (int): Number of query pooling stages.</span>
+<a id="__codelineno-0-732" name="__codelineno-0-732"></a><span class="sd">        q_stride (Tuple[int, int]): Downsampling stride between stages.</span>
+<a id="__codelineno-0-733" name="__codelineno-0-733"></a><span class="sd">        stages (Tuple[int, ...]): Number of blocks per stage.</span>
+<a id="__codelineno-0-734" name="__codelineno-0-734"></a><span class="sd">        dim_mul (float): Dimension multiplier factor at stage transitions.</span>
+<a id="__codelineno-0-735" name="__codelineno-0-735"></a><span class="sd">        head_mul (float): Head multiplier factor at stage transitions.</span>
+<a id="__codelineno-0-736" name="__codelineno-0-736"></a><span class="sd">        window_pos_embed_bkg_spatial_size (Tuple[int, int]): Spatial size for window positional embedding background.</span>
+<a id="__codelineno-0-737" name="__codelineno-0-737"></a><span class="sd">        window_spec (Tuple[int, ...]): Window sizes for each stage when not using global attention.</span>
+<a id="__codelineno-0-738" name="__codelineno-0-738"></a><span class="sd">        global_att_blocks (Tuple[int, ...]): Indices of blocks that use global attention.</span>
+<a id="__codelineno-0-739" name="__codelineno-0-739"></a><span class="sd">        return_interm_layers (bool): Whether to return intermediate layer outputs.</span>
+<a id="__codelineno-0-740" name="__codelineno-0-740"></a>
+<a id="__codelineno-0-741" name="__codelineno-0-741"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-742" name="__codelineno-0-742"></a><span class="sd">        &gt;&gt;&gt; model = Hiera(embed_dim=96, num_heads=1, stages=(2, 3, 16, 3))</span>
+<a id="__codelineno-0-743" name="__codelineno-0-743"></a><span class="sd">        &gt;&gt;&gt; input_tensor = torch.randn(1, 3, 224, 224)</span>
+<a id="__codelineno-0-744" name="__codelineno-0-744"></a><span class="sd">        &gt;&gt;&gt; output_features = model(input_tensor)</span>
+<a id="__codelineno-0-745" name="__codelineno-0-745"></a><span class="sd">        &gt;&gt;&gt; for feat in output_features:</span>
+<a id="__codelineno-0-746" name="__codelineno-0-746"></a><span class="sd">        ...     print(feat.shape)</span>
+<a id="__codelineno-0-747" name="__codelineno-0-747"></a><span class="sd">    """</span>
+<a id="__codelineno-0-748" name="__codelineno-0-748"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-749" name="__codelineno-0-749"></a>
+<a id="__codelineno-0-750" name="__codelineno-0-750"></a>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">window_spec</span><span class="p">)</span>
+<a id="__codelineno-0-751" name="__codelineno-0-751"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span> <span class="o">=</span> <span class="n">window_spec</span>
+<a id="__codelineno-0-752" name="__codelineno-0-752"></a>
+<a id="__codelineno-0-753" name="__codelineno-0-753"></a>    <span class="n">depth</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+<a id="__codelineno-0-754" name="__codelineno-0-754"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">q_stride</span> <span class="o">=</span> <span class="n">q_stride</span>
+<a id="__codelineno-0-755" name="__codelineno-0-755"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span> <span class="o">=</span> <span class="p">[</span><span class="nb">sum</span><span class="p">(</span><span class="n">stages</span><span class="p">[:</span><span class="n">i</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
+<a id="__codelineno-0-756" name="__codelineno-0-756"></a>    <span class="k">assert</span> <span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">q_pool</span> <span class="o">&lt;=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-757" name="__codelineno-0-757"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">q_pool_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">+</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]][:</span><span class="n">q_pool</span><span class="p">]</span>
+<a id="__codelineno-0-758" name="__codelineno-0-758"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">return_interm_layers</span> <span class="o">=</span> <span class="n">return_interm_layers</span>
+<a id="__codelineno-0-759" name="__codelineno-0-759"></a>
+<a id="__codelineno-0-760" name="__codelineno-0-760"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span> <span class="o">=</span> <span class="n">PatchEmbed</span><span class="p">(</span>
+<a id="__codelineno-0-761" name="__codelineno-0-761"></a>        <span class="n">embed_dim</span><span class="o">=</span><span class="n">embed_dim</span><span class="p">,</span>
+<a id="__codelineno-0-762" name="__codelineno-0-762"></a>        <span class="n">kernel_size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+<a id="__codelineno-0-763" name="__codelineno-0-763"></a>        <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<a id="__codelineno-0-764" name="__codelineno-0-764"></a>        <span class="n">padding</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<a id="__codelineno-0-765" name="__codelineno-0-765"></a>    <span class="p">)</span>
+<a id="__codelineno-0-766" name="__codelineno-0-766"></a>    <span class="c1"># Which blocks have global att?</span>
+<a id="__codelineno-0-767" name="__codelineno-0-767"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">global_att_blocks</span> <span class="o">=</span> <span class="n">global_att_blocks</span>
+<a id="__codelineno-0-768" name="__codelineno-0-768"></a>
+<a id="__codelineno-0-769" name="__codelineno-0-769"></a>    <span class="c1"># Windowed positional embedding (https://arxiv.org/abs/2311.05613)</span>
+<a id="__codelineno-0-770" name="__codelineno-0-770"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">window_pos_embed_bkg_spatial_size</span> <span class="o">=</span> <span class="n">window_pos_embed_bkg_spatial_size</span>
+<a id="__codelineno-0-771" name="__codelineno-0-771"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">window_pos_embed_bkg_spatial_size</span><span class="p">))</span>
+<a id="__codelineno-0-772" name="__codelineno-0-772"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed_window</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<a id="__codelineno-0-773" name="__codelineno-0-773"></a>
+<a id="__codelineno-0-774" name="__codelineno-0-774"></a>    <span class="n">dpr</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">item</span><span class="p">()</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">drop_path_rate</span><span class="p">,</span> <span class="n">depth</span><span class="p">)]</span>  <span class="c1"># stochastic depth decay rule</span>
+<a id="__codelineno-0-775" name="__codelineno-0-775"></a>
+<a id="__codelineno-0-776" name="__codelineno-0-776"></a>    <span class="n">cur_stage</span> <span class="o">=</span> <span class="mi">1</span>
+<a id="__codelineno-0-777" name="__codelineno-0-777"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
+<a id="__codelineno-0-778" name="__codelineno-0-778"></a>
+<a id="__codelineno-0-779" name="__codelineno-0-779"></a>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">depth</span><span class="p">):</span>
+<a id="__codelineno-0-780" name="__codelineno-0-780"></a>        <span class="n">dim_out</span> <span class="o">=</span> <span class="n">embed_dim</span>
+<a id="__codelineno-0-781" name="__codelineno-0-781"></a>        <span class="c1"># lags by a block, so first block of</span>
+<a id="__codelineno-0-782" name="__codelineno-0-782"></a>        <span class="c1"># next stage uses an initial window size</span>
+<a id="__codelineno-0-783" name="__codelineno-0-783"></a>        <span class="c1"># of previous stage and final window size of current stage</span>
+<a id="__codelineno-0-784" name="__codelineno-0-784"></a>        <span class="n">window_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span><span class="p">[</span><span class="n">cur_stage</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-785" name="__codelineno-0-785"></a>
+<a id="__codelineno-0-786" name="__codelineno-0-786"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_att_blocks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-787" name="__codelineno-0-787"></a>            <span class="n">window_size</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">global_att_blocks</span> <span class="k">else</span> <span class="n">window_size</span>
+<a id="__codelineno-0-788" name="__codelineno-0-788"></a>
+<a id="__codelineno-0-789" name="__codelineno-0-789"></a>        <span class="k">if</span> <span class="n">i</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">:</span>
+<a id="__codelineno-0-790" name="__codelineno-0-790"></a>            <span class="n">dim_out</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">embed_dim</span> <span class="o">*</span> <span class="n">dim_mul</span><span class="p">)</span>
+<a id="__codelineno-0-791" name="__codelineno-0-791"></a>            <span class="n">num_heads</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">num_heads</span> <span class="o">*</span> <span class="n">head_mul</span><span class="p">)</span>
+<a id="__codelineno-0-792" name="__codelineno-0-792"></a>            <span class="n">cur_stage</span> <span class="o">+=</span> <span class="mi">1</span>
+<a id="__codelineno-0-793" name="__codelineno-0-793"></a>
+<a id="__codelineno-0-794" name="__codelineno-0-794"></a>        <span class="n">block</span> <span class="o">=</span> <span class="n">MultiScaleBlock</span><span class="p">(</span>
+<a id="__codelineno-0-795" name="__codelineno-0-795"></a>            <span class="n">dim</span><span class="o">=</span><span class="n">embed_dim</span><span class="p">,</span>
+<a id="__codelineno-0-796" name="__codelineno-0-796"></a>            <span class="n">dim_out</span><span class="o">=</span><span class="n">dim_out</span><span class="p">,</span>
+<a id="__codelineno-0-797" name="__codelineno-0-797"></a>            <span class="n">num_heads</span><span class="o">=</span><span class="n">num_heads</span><span class="p">,</span>
+<a id="__codelineno-0-798" name="__codelineno-0-798"></a>            <span class="n">drop_path</span><span class="o">=</span><span class="n">dpr</span><span class="p">[</span><span class="n">i</span><span class="p">],</span>
+<a id="__codelineno-0-799" name="__codelineno-0-799"></a>            <span class="n">q_stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">q_stride</span> <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_pool_blocks</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-800" name="__codelineno-0-800"></a>            <span class="n">window_size</span><span class="o">=</span><span class="n">window_size</span><span class="p">,</span>
+<a id="__codelineno-0-801" name="__codelineno-0-801"></a>        <span class="p">)</span>
+<a id="__codelineno-0-802" name="__codelineno-0-802"></a>
+<a id="__codelineno-0-803" name="__codelineno-0-803"></a>        <span class="n">embed_dim</span> <span class="o">=</span> <span class="n">dim_out</span>
+<a id="__codelineno-0-804" name="__codelineno-0-804"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">block</span><span class="p">)</span>
+<a id="__codelineno-0-805" name="__codelineno-0-805"></a>
+<a id="__codelineno-0-806" name="__codelineno-0-806"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">channel_list</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-807" name="__codelineno-0-807"></a>        <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">dim_out</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span>
+<a id="__codelineno-0-808" name="__codelineno-0-808"></a>        <span class="k">if</span> <span class="n">return_interm_layers</span>
+<a id="__codelineno-0-809" name="__codelineno-0-809"></a>        <span class="k">else</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">dim_out</span><span class="p">]</span>
+<a id="__codelineno-0-810" name="__codelineno-0-810"></a>    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.models.sam.modules.encoders.Hiera.forward">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">forward</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Perform forward pass through Hiera model, extracting multiscale features from input images.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>x</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Input tensor with shape (B, C, H, W) representing a batch of images.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of feature maps at different scales, each with shape (B, C_i, H_i, W_i), where
+C_i is the channel dimension and H_i, W_i are the spatial dimensions at scale i. The list is ordered
+from highest resolution (fine features) to lowest resolution (coarse features) if return_interm_layers
+is True, otherwise contains only the final output.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">Hiera</span><span class="p">(</span><span class="n">embed_dim</span><span class="o">=</span><span class="mi">96</span><span class="p">,</span> <span class="n">num_heads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stages</span><span class="o">=</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">input_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">224</span><span class="p">,</span> <span class="mi">224</span><span class="p">)</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">output_features</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">input_tensor</span><span class="p">)</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="n">output_features</span><span class="p">:</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">feat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</code></pre></div>
+<details class="quote">
+<summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-821">821</a></span>
+<span class="normal"><a href="#__codelineno-0-822">822</a></span>
+<span class="normal"><a href="#__codelineno-0-823">823</a></span>
+<span class="normal"><a href="#__codelineno-0-824">824</a></span>
+<span class="normal"><a href="#__codelineno-0-825">825</a></span>
+<span class="normal"><a href="#__codelineno-0-826">826</a></span>
+<span class="normal"><a href="#__codelineno-0-827">827</a></span>
+<span class="normal"><a href="#__codelineno-0-828">828</a></span>
+<span class="normal"><a href="#__codelineno-0-829">829</a></span>
+<span class="normal"><a href="#__codelineno-0-830">830</a></span>
+<span class="normal"><a href="#__codelineno-0-831">831</a></span>
+<span class="normal"><a href="#__codelineno-0-832">832</a></span>
+<span class="normal"><a href="#__codelineno-0-833">833</a></span>
+<span class="normal"><a href="#__codelineno-0-834">834</a></span>
+<span class="normal"><a href="#__codelineno-0-835">835</a></span>
+<span class="normal"><a href="#__codelineno-0-836">836</a></span>
+<span class="normal"><a href="#__codelineno-0-837">837</a></span>
+<span class="normal"><a href="#__codelineno-0-838">838</a></span>
+<span class="normal"><a href="#__codelineno-0-839">839</a></span>
+<span class="normal"><a href="#__codelineno-0-840">840</a></span>
+<span class="normal"><a href="#__codelineno-0-841">841</a></span>
+<span class="normal"><a href="#__codelineno-0-842">842</a></span>
+<span class="normal"><a href="#__codelineno-0-843">843</a></span>
+<span class="normal"><a href="#__codelineno-0-844">844</a></span>
+<span class="normal"><a href="#__codelineno-0-845">845</a></span>
+<span class="normal"><a href="#__codelineno-0-846">846</a></span>
+<span class="normal"><a href="#__codelineno-0-847">847</a></span>
+<span class="normal"><a href="#__codelineno-0-848">848</a></span>
+<span class="normal"><a href="#__codelineno-0-849">849</a></span>
+<span class="normal"><a href="#__codelineno-0-850">850</a></span>
+<span class="normal"><a href="#__codelineno-0-851">851</a></span>
+<span class="normal"><a href="#__codelineno-0-852">852</a></span>
+<span class="normal"><a href="#__codelineno-0-853">853</a></span>
+<span class="normal"><a href="#__codelineno-0-854">854</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-821" name="__codelineno-0-821"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<a id="__codelineno-0-822" name="__codelineno-0-822"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-823" name="__codelineno-0-823"></a><span class="sd">    Perform forward pass through Hiera model, extracting multiscale features from input images.</span>
+<a id="__codelineno-0-824" name="__codelineno-0-824"></a>
+<a id="__codelineno-0-825" name="__codelineno-0-825"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-826" name="__codelineno-0-826"></a><span class="sd">        x (torch.Tensor): Input tensor with shape (B, C, H, W) representing a batch of images.</span>
+<a id="__codelineno-0-827" name="__codelineno-0-827"></a>
+<a id="__codelineno-0-828" name="__codelineno-0-828"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-829" name="__codelineno-0-829"></a><span class="sd">        (List[torch.Tensor]): List of feature maps at different scales, each with shape (B, C_i, H_i, W_i), where</span>
+<a id="__codelineno-0-830" name="__codelineno-0-830"></a><span class="sd">            C_i is the channel dimension and H_i, W_i are the spatial dimensions at scale i. The list is ordered</span>
+<a id="__codelineno-0-831" name="__codelineno-0-831"></a><span class="sd">            from highest resolution (fine features) to lowest resolution (coarse features) if return_interm_layers</span>
+<a id="__codelineno-0-832" name="__codelineno-0-832"></a><span class="sd">            is True, otherwise contains only the final output.</span>
+<a id="__codelineno-0-833" name="__codelineno-0-833"></a>
+<a id="__codelineno-0-834" name="__codelineno-0-834"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-835" name="__codelineno-0-835"></a><span class="sd">        &gt;&gt;&gt; model = Hiera(embed_dim=96, num_heads=1, stages=(2, 3, 16, 3))</span>
+<a id="__codelineno-0-836" name="__codelineno-0-836"></a><span class="sd">        &gt;&gt;&gt; input_tensor = torch.randn(1, 3, 224, 224)</span>
+<a id="__codelineno-0-837" name="__codelineno-0-837"></a><span class="sd">        &gt;&gt;&gt; output_features = model(input_tensor)</span>
+<a id="__codelineno-0-838" name="__codelineno-0-838"></a><span class="sd">        &gt;&gt;&gt; for feat in output_features:</span>
+<a id="__codelineno-0-839" name="__codelineno-0-839"></a><span class="sd">        ...     print(feat.shape)</span>
+<a id="__codelineno-0-840" name="__codelineno-0-840"></a><span class="sd">    """</span>
+<a id="__codelineno-0-841" name="__codelineno-0-841"></a>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-842" name="__codelineno-0-842"></a>    <span class="c1"># x: (B, H, W, C)</span>
+<a id="__codelineno-0-843" name="__codelineno-0-843"></a>
+<a id="__codelineno-0-844" name="__codelineno-0-844"></a>    <span class="c1"># Add pos embed</span>
+<a id="__codelineno-0-845" name="__codelineno-0-845"></a>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pos_embed</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
+<a id="__codelineno-0-846" name="__codelineno-0-846"></a>
+<a id="__codelineno-0-847" name="__codelineno-0-847"></a>    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-848" name="__codelineno-0-848"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">blk</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">):</span>
+<a id="__codelineno-0-849" name="__codelineno-0-849"></a>        <span class="n">x</span> <span class="o">=</span> <span class="n">blk</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-850" name="__codelineno-0-850"></a>        <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="ow">or</span> <span class="p">(</span><span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage_ends</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">return_interm_layers</span><span class="p">):</span>
+<a id="__codelineno-0-851" name="__codelineno-0-851"></a>            <span class="n">feats</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-852" name="__codelineno-0-852"></a>            <span class="n">outputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span>
+<a id="__codelineno-0-853" name="__codelineno-0-853"></a>
+<a id="__codelineno-0-854" name="__codelineno-0-854"></a>    <span class="k">return</span> <span class="n">outputs</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

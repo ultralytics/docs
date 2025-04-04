@@ -1170,6 +1170,25 @@ and processing the responses.</p>
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.triton.TritonRemoteModel.__call__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__call__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.triton.TritonRemoteModel.__call__&lt;/code&gt;)'>__call__</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Call the model with the given inputs and return the outputs.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="doc-section-title">Examples:</span></p>
 <p>Initialize a Triton client with HTTP</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">"http"</span><span class="p">)</span>
@@ -1239,12 +1258,13 @@ and processing the responses.</p>
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">"http"</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"http://localhost:8000/yolov8"</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/triton.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-38">38</a></span>
 <span class="normal"><a href="#__codelineno-0-39">39</a></span>
 <span class="normal"><a href="#__codelineno-0-40">40</a></span>
 <span class="normal"><a href="#__codelineno-0-41">41</a></span>
@@ -1285,51 +1305,62 @@ and processing the responses.</p>
 <span class="normal"><a href="#__codelineno-0-76">76</a></span>
 <span class="normal"><a href="#__codelineno-0-77">77</a></span>
 <span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="sd">    Initialize the TritonRemoteModel.</span>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">    Arguments may be provided individually or parsed from a collective 'url' argument of the form</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    &lt;scheme&gt;://&lt;netloc&gt;/&lt;endpoint&gt;/&lt;task_name&gt;</span>
+<span class="normal"><a href="#__codelineno-0-79">79</a></span>
+<span class="normal"><a href="#__codelineno-0-80">80</a></span>
+<span class="normal"><a href="#__codelineno-0-81">81</a></span>
+<span class="normal"><a href="#__codelineno-0-82">82</a></span>
+<span class="normal"><a href="#__codelineno-0-83">83</a></span>
+<span class="normal"><a href="#__codelineno-0-84">84</a></span>
+<span class="normal"><a href="#__codelineno-0-85">85</a></span>
+<span class="normal"><a href="#__codelineno-0-86">86</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">endpoint</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">scheme</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    Initialize the TritonRemoteModel for interacting with a remote Triton Inference Server.</span>
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">        url (str): The URL of the Triton server.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        endpoint (str): The name of the model on the Triton server.</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">        scheme (str): The communication scheme ('http' or 'grpc').</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">    """</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">endpoint</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">scheme</span><span class="p">:</span>  <span class="c1"># Parse all args from URL string</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>        <span class="n">splits</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>        <span class="n">endpoint</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>        <span class="n">scheme</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">scheme</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>        <span class="n">url</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">netloc</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span> <span class="o">=</span> <span class="n">endpoint</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="c1"># Choose the Triton client based on the communication scheme</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="k">if</span> <span class="n">scheme</span> <span class="o">==</span> <span class="s2">"http"</span><span class="p">:</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">tritonclient.http</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">client</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    Arguments may be provided individually or parsed from a collective 'url' argument of the form</span>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    &lt;scheme&gt;://&lt;netloc&gt;/&lt;endpoint&gt;/&lt;task_name&gt;</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        url (str): The URL of the Triton server.</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        endpoint (str): The name of the model on the Triton server.</span>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        scheme (str): The communication scheme ('http' or 'grpc').</span>
+<a id="__codelineno-0-49" name="__codelineno-0-49"></a>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="sd">        &gt;&gt;&gt; model = TritonRemoteModel(url="localhost:8000", endpoint="yolov8", scheme="http")</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="sd">        &gt;&gt;&gt; model = TritonRemoteModel(url="http://localhost:8000/yolov8")</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="sd">    """</span>
+<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">endpoint</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">scheme</span><span class="p">:</span>  <span class="c1"># Parse all args from URL string</span>
+<a id="__codelineno-0-55" name="__codelineno-0-55"></a>        <span class="n">splits</span> <span class="o">=</span> <span class="n">urlsplit</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a>        <span class="n">endpoint</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">scheme</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">scheme</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">url</span> <span class="o">=</span> <span class="n">splits</span><span class="o">.</span><span class="n">netloc</span>
 <a id="__codelineno-0-59" name="__codelineno-0-59"></a>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">get_model_config</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">tritonclient.grpc</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">client</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">get_model_config</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">as_json</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"config"</span><span class="p">]</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a>    <span class="c1"># Sort output names alphabetically, i.e. 'output0', 'output1', etc.</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">))</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="c1"># Define model attributes</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="n">type_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"TYPE_FP32"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="s2">"TYPE_FP16"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span> <span class="s2">"TYPE_UINT8"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">}</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">InferRequestedOutput</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferRequestedOutput</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">InferInput</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferInput</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"data_type"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"input"</span><span class="p">]]</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span> <span class="o">=</span> <span class="p">[</span><span class="n">type_map</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span><span class="p">]</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">input_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"input"</span><span class="p">]]</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">]]</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"parameters"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"string_value"</span><span class="p">,</span> <span class="s2">"None"</span><span class="p">))</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span> <span class="o">=</span> <span class="n">endpoint</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">url</span> <span class="o">=</span> <span class="n">url</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="c1"># Choose the Triton client based on the communication scheme</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">if</span> <span class="n">scheme</span> <span class="o">==</span> <span class="s2">"http"</span><span class="p">:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">tritonclient.http</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">client</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a>        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">get_model_config</span><span class="p">(</span><span class="n">endpoint</span><span class="p">)</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">tritonclient.grpc</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">client</span>  <span class="c1"># noqa</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">url</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>        <span class="n">config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">get_model_config</span><span class="p">(</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">as_json</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="s2">"config"</span><span class="p">]</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="c1"># Sort output names alphabetically, i.e. 'output0', 'output1', etc.</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">))</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="c1"># Define model attributes</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="n">type_map</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"TYPE_FP32"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="s2">"TYPE_FP16"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float16</span><span class="p">,</span> <span class="s2">"TYPE_UINT8"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">}</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">InferRequestedOutput</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferRequestedOutput</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">InferInput</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">InferInput</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"data_type"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"input"</span><span class="p">]]</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span> <span class="o">=</span> <span class="p">[</span><span class="n">type_map</span><span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span><span class="p">]</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">input_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"input"</span><span class="p">]]</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">config</span><span class="p">[</span><span class="s2">"output"</span><span class="p">]]</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metadata</span> <span class="o">=</span> <span class="nb">eval</span><span class="p">(</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"parameters"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metadata"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"string_value"</span><span class="p">,</span> <span class="s2">"None"</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1361,7 +1392,8 @@ and processing the responses.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Input data to the model.</p>
+<p>Input data to the model. Each array should match the expected shape and type
+for the corresponding model input.</p>
 </div>
 </td>
 <td>
@@ -1385,22 +1417,20 @@ and processing the responses.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Model outputs with the same dtype as the input.</p>
+<p>Model outputs with the same dtype as the input. Each element in the list
+corresponds to one of the model's output tensors.</p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">TritonRemoteModel</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">endpoint</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">scheme</span><span class="o">=</span><span class="s2">"http"</span><span class="p">)</span>
+<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">outputs</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">))</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/triton.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-81"> 81</a></span>
-<span class="normal"><a href="#__codelineno-0-82"> 82</a></span>
-<span class="normal"><a href="#__codelineno-0-83"> 83</a></span>
-<span class="normal"><a href="#__codelineno-0-84"> 84</a></span>
-<span class="normal"><a href="#__codelineno-0-85"> 85</a></span>
-<span class="normal"><a href="#__codelineno-0-86"> 86</a></span>
-<span class="normal"><a href="#__codelineno-0-87"> 87</a></span>
-<span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-88"> 88</a></span>
 <span class="normal"><a href="#__codelineno-0-89"> 89</a></span>
 <span class="normal"><a href="#__codelineno-0-90"> 90</a></span>
 <span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
@@ -1415,29 +1445,48 @@ and processing the responses.</p>
 <span class="normal"><a href="#__codelineno-0-100">100</a></span>
 <span class="normal"><a href="#__codelineno-0-101">101</a></span>
 <span class="normal"><a href="#__codelineno-0-102">102</a></span>
-<span class="normal"><a href="#__codelineno-0-103">103</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="sd">    Call the model with the given inputs.</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="sd">        *inputs (np.ndarray): Input data to the model.</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="sd">        (List[np.ndarray]): Model outputs with the same dtype as the input.</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">    """</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="n">infer_inputs</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="n">input_format</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>        <span class="n">infer_input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">InferInput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">[</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"TYPE_"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="n">infer_input</span><span class="o">.</span><span class="n">set_data_from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="n">infer_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">infer_input</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-103">103</a></span>
+<span class="normal"><a href="#__codelineno-0-104">104</a></span>
+<span class="normal"><a href="#__codelineno-0-105">105</a></span>
+<span class="normal"><a href="#__codelineno-0-106">106</a></span>
+<span class="normal"><a href="#__codelineno-0-107">107</a></span>
+<span class="normal"><a href="#__codelineno-0-108">108</a></span>
+<span class="normal"><a href="#__codelineno-0-109">109</a></span>
+<span class="normal"><a href="#__codelineno-0-110">110</a></span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span>
+<span class="normal"><a href="#__codelineno-0-112">112</a></span>
+<span class="normal"><a href="#__codelineno-0-113">113</a></span>
+<span class="normal"><a href="#__codelineno-0-114">114</a></span>
+<span class="normal"><a href="#__codelineno-0-115">115</a></span>
+<span class="normal"><a href="#__codelineno-0-116">116</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">inputs</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="sd">    Call the model with the given inputs.</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">        *inputs (np.ndarray): Input data to the model. Each array should match the expected shape and type</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">            for the corresponding model input.</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">        (List[np.ndarray]): Model outputs with the same dtype as the input. Each element in the list</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">            corresponds to one of the model's output tensors.</span>
 <a id="__codelineno-0-99" name="__codelineno-0-99"></a>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="n">infer_outputs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">InferRequestedOutput</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">output_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">]</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">infer_inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">infer_outputs</span><span class="p">)</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">outputs</span><span class="o">.</span><span class="n">as_numpy</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">input_format</span><span class="p">)</span> <span class="k">for</span> <span class="n">output_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">]</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="sd">        &gt;&gt;&gt; model = TritonRemoteModel(url="localhost:8000", endpoint="yolov8", scheme="http")</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">        &gt;&gt;&gt; outputs = model(np.random.rand(1, 3, 640, 640).astype(np.float32))</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">    """</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>    <span class="n">infer_inputs</span> <span class="o">=</span> <span class="p">[]</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>    <span class="n">input_format</span> <span class="o">=</span> <span class="n">inputs</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">inputs</span><span class="p">):</span>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">dtype</span> <span class="o">!=</span> <span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">np_input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>        <span class="n">infer_input</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">InferInput</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">input_names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="p">[</span><span class="o">*</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_formats</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"TYPE_"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>        <span class="n">infer_input</span><span class="o">.</span><span class="n">set_data_from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>        <span class="n">infer_inputs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">infer_input</span><span class="p">)</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="n">infer_outputs</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">InferRequestedOutput</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span> <span class="k">for</span> <span class="n">output_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">]</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="n">outputs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">triton_client</span><span class="o">.</span><span class="n">infer</span><span class="p">(</span><span class="n">model_name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">endpoint</span><span class="p">,</span> <span class="n">inputs</span><span class="o">=</span><span class="n">infer_inputs</span><span class="p">,</span> <span class="n">outputs</span><span class="o">=</span><span class="n">infer_outputs</span><span class="p">)</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a>    <span class="k">return</span> <span class="p">[</span><span class="n">outputs</span><span class="o">.</span><span class="n">as_numpy</span><span class="p">(</span><span class="n">output_name</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">input_format</span><span class="p">)</span> <span class="k">for</span> <span class="n">output_name</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_names</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

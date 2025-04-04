@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Docker Image" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Docker, Ultralytics, setup, guide, tutorial, machine learning, deep learning, AI, GPU, NVIDIA, container, X11, Wayland" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial" property="og:url"/><meta content="Docker Image" property="og:title"/><meta content="Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions for CPU and GPU environments, mounting volumes, and using display servers." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial" property="twitter:url"/><meta content="Docker Image" property="twitter:title"/><meta content="Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions for CPU and GPU environments, mounting volumes, and using display servers." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker Image", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-30 20:40:15 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions for CPU and GPU environments, mounting volumes, and using display servers."}</script></head>
+<meta content="Docker Image" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Docker, Ultralytics, setup, guide, tutorial, machine learning, deep learning, AI, GPU, NVIDIA, container, X11, Wayland" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial" property="og:url"/><meta content="Docker Image" property="og:title"/><meta content="Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions for CPU and GPU environments, mounting volumes, and using display servers." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/environments/docker_image_quickstart_tutorial" property="twitter:url"/><meta content="Docker Image" property="twitter:title"/><meta content="Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions for CPU and GPU environments, mounting volumes, and using display servers." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Docker Image", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-04-04 18:31:32 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to set up and run YOLOv5 in a Docker container with step-by-step instructions for CPU and GPU environments, mounting volumes, and using display servers."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -582,9 +582,9 @@
 <nav aria-label="Prerequisites" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#setting-up-nvidia-docker-runtime">
+<a class="md-nav__link" href="#setting-up-nvidia-container-toolkit-gpu-users">
 <span class="md-ellipsis">
-      Setting up NVIDIA Docker Runtime
+      Setting up NVIDIA Container Toolkit (GPU Users)
     </span>
 </a>
 </li>
@@ -624,13 +624,6 @@
 <a class="md-nav__link" href="#mounting-local-directories">
 <span class="md-ellipsis">
       Mounting Local Directories
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#container-with-gpu-access">
-<span class="md-ellipsis">
-      Container with GPU access:
     </span>
 </a>
 </li>
@@ -719,9 +712,9 @@
 <nav aria-label="Prerequisites" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#setting-up-nvidia-docker-runtime">
+<a class="md-nav__link" href="#setting-up-nvidia-container-toolkit-gpu-users">
 <span class="md-ellipsis">
-      Setting up NVIDIA Docker Runtime
+      Setting up NVIDIA Container Toolkit (GPU Users)
     </span>
 </a>
 </li>
@@ -764,13 +757,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#container-with-gpu-access">
-<span class="md-ellipsis">
-      Container with GPU access:
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </li>
@@ -792,94 +778,111 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="get-started-with-yolov5-in-docker">Get Started with YOLOv5 🚀 in Docker</h1>
-<p>This tutorial will guide you through the process of setting up and running YOLOv5 in a Docker container, providing comprehensive instructions for both CPU and GPU environments.</p>
-<p>You can also explore other quickstart options for YOLOv5, such as our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/models/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>, <a href="../google_cloud_quickstart_tutorial/">GCP Deep Learning VM</a>, and <a href="../aws_quickstart_tutorial/">Amazon AWS</a>.</p>
+<p>Welcome to the Ultralytics YOLOv5 Docker Quickstart Guide! This tutorial provides step-by-step instructions for setting up and running <a href="../../../models/yolov5/">YOLOv5</a> within a <a href="https://www.ultralytics.com/glossary/docker">Docker</a> container. Using Docker enables you to run YOLOv5 in an isolated, consistent environment, simplifying deployment and dependency management across different systems. This approach leverages <a href="https://www.ultralytics.com/glossary/containerization">containerization</a> to package the application and its dependencies together.</p>
+<p>For alternative setup methods, consider our <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb">Colab Notebook</a> <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a> <a href="https://www.kaggle.com/models/ultralytics/yolov5"><img alt="Open In Kaggle" src="https://kaggle.com/static/images/open-in-kaggle.svg"/></a>, <a href="../google_cloud_quickstart_tutorial/">GCP Deep Learning VM</a>, or <a href="../aws_quickstart_tutorial/">Amazon AWS</a> guides. For a general overview of Docker usage with Ultralytics models, see the <a href="../../../guides/docker-quickstart/">Ultralytics Docker Quickstart Guide</a>.</p>
 <h2 id="prerequisites">Prerequisites</h2>
+<p>Before you begin, ensure you have the following installed:</p>
 <ol>
-<li><strong>Docker</strong>: Install Docker from the <a href="https://docs.docker.com/get-started/get-docker/">official Docker website</a>.</li>
-<li><strong>NVIDIA Driver</strong> (for GPU support): Version 455.23 or higher. Download from <a href="https://www.nvidia.com/Download/index.aspx">NVIDIA's website</a>.</li>
-<li><strong>NVIDIA Docker Runtime</strong> (for GPU support): Allows Docker to interact with your local GPU. Follow the installation instructions below.</li>
+<li><strong>Docker</strong>: Download and install Docker from the <a href="https://docs.docker.com/get-started/get-docker/">official Docker website</a>. Docker is essential for creating and managing containers.</li>
+<li><strong>NVIDIA Drivers</strong> (Required for <a href="https://www.ultralytics.com/glossary/gpu-graphics-processing-unit">GPU</a> support): Ensure you have NVIDIA drivers version 455.23 or higher installed. You can download the latest drivers from <a href="https://www.nvidia.com/Download/index.aspx">NVIDIA's website</a>.</li>
+<li><strong>NVIDIA Container Toolkit</strong> (Required for GPU support): This toolkit allows Docker containers to access your host machine's NVIDIA GPUs. Follow the official <a href="https://docs.nvidia.com/datacenter/cloud-native/container-toolkit/latest/install-guide.html">NVIDIA Container Toolkit installation guide</a> for detailed instructions.</li>
 </ol>
-<h3 id="setting-up-nvidia-docker-runtime">Setting up NVIDIA Docker Runtime</h3>
-<p>Verify that your NVIDIA drivers are properly installed:</p>
+<h3 id="setting-up-nvidia-container-toolkit-gpu-users">Setting up NVIDIA Container Toolkit (GPU Users)</h3>
+<p>First, verify that your NVIDIA drivers are installed correctly by running:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>nvidia-smi
 </code></pre></div>
-<p>Install the NVIDIA Docker runtime:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Add NVIDIA package repositories</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/gpgkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-docker.list
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Install NVIDIA Docker runtime</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-docker2
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># Restart Docker service</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
+<p>This command should display information about your GPU(s) and the installed driver version.</p>
+<p>Next, install the NVIDIA Container Toolkit. The commands below are typical for Debian-based systems like Ubuntu, but refer to the official guide linked above for instructions specific to your distribution:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Add NVIDIA package repositories (refer to official guide for latest setup)</span>
+<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://nvidia.github.io/libnvidia-container/gpgkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>gpg<span class="w"> </span>--dearmor<span class="w"> </span>-o<span class="w"> </span>/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg<span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="w">  </span><span class="o">&amp;&amp;</span><span class="w"> </span>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/libnvidia-container/stable/deb/nvidia-container-toolkit.list<span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="w">  </span><span class="p">|</span><span class="w"> </span>sed<span class="w"> </span><span class="s1">'s#deb https://#deb [signed-by=/usr/share/keyrings/nvidia-container-toolkit-keyring.gpg] https://#g'</span><span class="w"> </span><span class="se">\</span>
+<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-container-toolkit.list
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Update package list and install the toolkit</span>
+<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-container-toolkit
+<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
+<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="c1"># Configure Docker to use the NVIDIA runtime</span>
+<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>sudo<span class="w"> </span>nvidia-ctk<span class="w"> </span>runtime<span class="w"> </span>configure<span class="w"> </span>--runtime<span class="o">=</span>docker
+<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>
+<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="c1"># Restart Docker service to apply changes</span>
+<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
 </code></pre></div>
-<p>Verify the NVIDIA runtime is available:</p>
+<p>Finally, verify that the NVIDIA runtime is configured and available to Docker:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>docker<span class="w"> </span>info<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>runtime
 </code></pre></div>
+<p>You should see <code>nvidia</code> listed as one of the available runtimes.</p>
 <h2 id="step-1-pull-the-yolov5-docker-image">Step 1: Pull the YOLOv5 Docker Image</h2>
-<p>The Ultralytics YOLOv5 DockerHub repository is available at <a href="https://hub.docker.com/r/ultralytics/yolov5">https://hub.docker.com/r/ultralytics/yolov5</a>. Docker Autobuild ensures that the <code>ultralytics/yolov5:latest</code> image is always in sync with the most recent repository commit.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Set image name as a variable</span>
+<p>Ultralytics provides official YOLOv5 images on <a href="https://hub.docker.com/">Docker Hub</a>. The <code>latest</code> tag tracks the most recent repository commit, ensuring you always get the newest version. Pull the image using the following command:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Define the image name with tag</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/yolov5:latest
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Pull the latest image</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Pull the latest YOLOv5 image from Docker Hub</span>
 <a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
+<p>You can browse all available images at the <a href="https://hub.docker.com/r/ultralytics/yolov5">Ultralytics YOLOv5 Docker Hub repository</a>.</p>
 <h2 id="step-2-run-the-docker-container">Step 2: Run the Docker Container</h2>
+<p>Once the image is pulled, you can run it as a container.</p>
 <h3 id="using-cpu-only">Using CPU Only</h3>
-<p>Run an interactive instance of the YOLOv5 Docker image (called a "container") using the <code>-it</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Run without GPU</span>
+<p>To run an interactive container instance using only the CPU, use the <code>-it</code> flag. The <code>--ipc=host</code> flag allows sharing of host IPC namespace, which is important for shared memory access.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Run an interactive container instance using CPU</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <h3 id="using-gpu">Using GPU</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Run with all GPUs</span>
+<p>To enable GPU access within the container, use the <code>--gpus</code> flag. This requires the NVIDIA Container Toolkit to be installed correctly.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Run with access to all available GPUs</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Run with specific GPUs</span>
+<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Run with access to specific GPUs (e.g., GPUs 2 and 3)</span>
 <a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
+<p>Refer to the <a href="https://docs.docker.com/engine/reference/run/">Docker run reference</a> for more details on command options.</p>
 <h3 id="mounting-local-directories">Mounting Local Directories</h3>
-<p>To access files on your local machine within the container:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Mount a local directory into the container</span>
+<p>To work with your local files (datasets, model weights, etc.) inside the container, use the <code>-v</code> flag to mount a host directory into the container:</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Mount /path/on/host (your local machine) to /path/in/container (inside the container)</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
-<h3 id="container-with-gpu-access">Container with GPU access:</h3>
-<p>To run a container with GPU access, use the <code>--gpus all</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>ultralytics/yolov5:latest
-</code></pre></div>
+<p>Replace <code>/path/on/host</code> with the actual path on your machine and <code>/path/in/container</code> with the desired path inside the Docker container (e.g., <code>/usr/src/datasets</code>).</p>
 <h2 id="step-3-use-yolov5-within-the-docker-container">Step 3: Use YOLOv5 🚀 within the Docker Container</h2>
-<p>Now you can train, test, detect, and export YOLOv5 models within the running Docker container:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Train a model on your data</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>python<span class="w"> </span>train.py
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="c1"># Validate the trained model for Precision, Recall, and mAP</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># Run inference using the trained model on your images or videos</span>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/images
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a>
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="c1"># Export the trained model to other formats for deployment</span>
-<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite
+<p>You are now inside the running YOLOv5 Docker container! From here, you can execute standard YOLOv5 commands for various <a href="https://www.ultralytics.com/glossary/machine-learning-ml">Machine Learning</a> and <a href="https://www.ultralytics.com/glossary/deep-learning-dl">Deep Learning</a> tasks like <a href="https://www.ultralytics.com/glossary/object-detection">Object Detection</a>.</p>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Train a YOLOv5 model on your custom dataset (ensure data is mounted or downloaded)</span>
+<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>your_dataset.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="c1"># Start training</span>
+<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>
+<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># Validate the trained model's performance (Precision, Recall, mAP)</span>
+<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>path/to/your/best.pt<span class="w"> </span>--data<span class="w"> </span>your_dataset.yaml<span class="w"> </span><span class="c1"># Validate accuracy</span>
+<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
+<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="c1"># Run inference on images or videos using a trained model</span>
+<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/your/images_or_videos<span class="w"> </span><span class="c1"># Perform detection</span>
+<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a>
+<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a><span class="c1"># Export the trained model to various formats like ONNX, CoreML, or TFLite for deployment</span>
+<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite<span class="w"> </span><span class="c1"># Export model</span>
 </code></pre></div>
-<p align="center"><img alt="GCP running Docker" src="https://github.com/ultralytics/docs/releases/download/0/gcp-running-docker.avif" width="1000"/></p>
+<p>Explore the documentation for detailed usage of different modes:</p>
+<ul>
+<li><a href="../../../modes/train/">Train</a></li>
+<li><a href="../../../modes/val/">Validate</a></li>
+<li><a href="../../../modes/predict/">Predict</a></li>
+<li><a href="../../../modes/export/">Export</a></li>
+</ul>
+<p>Learn more about evaluation metrics like <a href="https://www.ultralytics.com/glossary/precision">Precision</a>, <a href="https://www.ultralytics.com/glossary/recall">Recall</a>, and <a href="https://www.ultralytics.com/glossary/mean-average-precision-map">mAP</a>. Understand different export formats like <a href="../../../integrations/onnx/">ONNX</a>, <a href="../../../integrations/coreml/">CoreML</a>, and <a href="../../../integrations/tflite/">TFLite</a>, and explore various <a href="../../../guides/model-deployment-options/">Model Deployment Options</a>. Remember to manage your <a href="https://www.ultralytics.com/glossary/model-weights">model weights</a> effectively.</p>
+<p align="center"><img alt="Running YOLOv5 inside a Docker container on GCP" src="https://github.com/ultralytics/docs/releases/download/0/gcp-running-docker.avif" width="1000"/></p>
+<p>Congratulations! You have successfully set up and run YOLOv5 within a Docker container.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on March 30, 2025">
-<span class="hover-item">✏️</span> Updated 5 days ago
+<span class="date-item" title="This page was last updated on April 04, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (8 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/leonnil" title="leonnil (1 change)">
 <img alt="leonnil" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/146309319?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (7 changes)">
-<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
