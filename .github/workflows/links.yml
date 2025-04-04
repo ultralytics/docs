@@ -92,11 +92,11 @@ jobs:
           CODESPELL_OUTPUT=$(find ./${{ matrix.website }} -type f -name "*.html" -print0 | xargs -0 codespell \
             --uri-ignore-words-list "*" \
             --ignore-words-list "VAs,RepResNet,iDenfy,WIT,Smoot,EHR,ROUGE,ALS,iTerm,Carmel,FPR,Hach,Calle,ore,COO,MOT,crate,nd,ned,strack,dota,ane,segway,fo,gool,winn,commend,bloc,nam,afterall,skelton,goin" \
-            --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/??/*.md,./docs/mkdocs_??.yml" \
+            --skip "*.pt,*.pth,*.torchscript,*.onnx,*.tflite,*.pb,*.bin,*.param,*.mlmodel,*.engine,*.npy,*.data*,*.csv,*pnnx*,*venv*,*translat*,*lock*,__pycache__*,*.ico,*.jpg,*.png,*.mp4,*.mov,/runs,/.git,./docs/mkdocs_??.yml" \
             2>&1 || true)
 
           # Process CODESPELL_OUTPUT 
-          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #')
+          MODIFIED_OUTPUT=$(echo "$CODESPELL_OUTPUT" | sed 's#\(.*\):[0-9]*: \(.*\)#\1  \2#; s/\.html//; s#\(.*\)/index  #\1/  #; s#\./##')
 
           # Prepare the output for Slack with explicit newlines
           ESCAPED_OUTPUT=$(echo "$MODIFIED_OUTPUT" | awk '{printf "%s\\n", $0}')
@@ -145,6 +145,7 @@ jobs:
             --header "Accept=*/*" \
             --header "Accept-Language=*" \
             --header "Accept-Encoding=*" \
+            --root-dir "$(pwd)/${{ matrix.website }}" \
             './${{ matrix.website }}/**/*.html' | tee -a summary.txt
 
             # Add the summary to GitHub step summary
