@@ -10,7 +10,7 @@
 <link href="../jupyterlab/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.11" name="generator"/>
-<title>A Step-by-Step Guide to Training YOLO11 Models with IBM Watsonx - Ultralytics YOLO Docs</title>
+<title>A Step-by-Step Guide to Training YOLO11 Models with IBM Watsonx</title>
 <link href="../../assets/stylesheets/main.4af4bdda.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -929,7 +929,7 @@
 <p>Next, you can install and import the necessary Python libraries.</p>
 <div class="admonition tip">
 <p class="admonition-title">Installation</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required packages</span>
@@ -939,13 +939,13 @@
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>For detailed instructions and best practices related to the installation process, check our <a href="../../quickstart/">Ultralytics Installation guide</a>. While installing the required packages for YOLO11, if you encounter any difficulties, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips.</p>
 <p>Then, you can import the needed packages.</p>
 <div class="admonition example">
 <p class="admonition-title">Import Relevant Libraries</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Import ultralytics</span>
@@ -957,7 +957,7 @@
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <h3 id="step-3-load-the-data">Step 3: Load the Data</h3>
 <p>For this tutorial, we will use a <a href="https://www.kaggle.com/datasets/atiqishrak/trash-dataset-icra19">marine litter dataset</a> available on Kaggle. With this dataset, we will custom-train a YOLO11 model to detect and classify litter and biological objects in underwater images.</p>
@@ -965,7 +965,7 @@
 <p>Copy and paste your Kaggle username and API key into the following code. Then run the code to install the API and load the dataset into Watsonx.</p>
 <div class="admonition tip">
 <p class="admonition-title">Installation</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Install kaggle</span>
@@ -973,12 +973,12 @@
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>After installing Kaggle, we can load the dataset into Watsonx.</p>
 <div class="admonition example">
 <p class="admonition-title">Load the Data</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Replace "username" string with your username</span>
@@ -1003,7 +1003,7 @@
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>After loading the dataset, we printed and saved our working directory. We have also printed the contents of our working directory to confirm the "trash_ICRA19" data set was loaded properly.</p>
 <p>If you see "trash_ICRA19" among the directory's contents, then it has loaded successfully. You should see three files/folders: a <code>config.yaml</code> file, a <code>videos_for_testing</code> directory, and a <code>dataset</code> directory. We will ignore the <code>videos_for_testing</code> directory, so feel free to delete it.</p>
@@ -1023,7 +1023,7 @@
 <p>To reorganize the data set directory, we can run the following script:</p>
 <div class="admonition example">
 <p class="admonition-title">Preprocess the Data</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Function to reorganize dir</span>
@@ -1057,7 +1057,7 @@
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>Next, we need to modify the .yaml file for the data set. This is the setup we will use in our .yaml file. Class ID numbers start from 0:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">/path/to/dataset/directory</span><span class="w"> </span><span class="c1"># root directory for dataset</span>
@@ -1074,7 +1074,7 @@
 <p>Run the following script to delete the current contents of <code>config.yaml</code> and replace it with the above contents that reflect our new data set directory structure. Be certain to replace the work_dir portion of the root directory path in line 4 with your own working directory path we retrieved earlier. Leave the train, val, and test subdirectory definitions. Also, do not change {work_dir} in line 23 of the code.</p>
 <div class="admonition example">
 <p class="admonition-title">Edit the .yaml File</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Contents of new config.yaml file</span>
@@ -1102,20 +1102,20 @@
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <h3 id="step-5-train-the-yolo11-model">Step 5: Train the YOLO11 model</h3>
 <p>Run the following command-line code to fine tune a pretrained default YOLO11 model.</p>
 <div class="admonition example">
 <p class="admonition-title">Train the YOLO11 model</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"><div class="tabbed-labels"><label for="__tabbed_7_1">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>!yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>train<span class="w"> </span><span class="nv">data</span><span class="o">={</span>work_dir<span class="o">}</span>/trash_ICRA19/config.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">2</span><span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">32</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span>.04<span class="w"> </span><span class="nv">plots</span><span class="o">=</span>True
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>Here's a closer look at the parameters in the model training command:</p>
 <ul>
