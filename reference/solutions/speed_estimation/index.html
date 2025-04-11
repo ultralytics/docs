@@ -1231,7 +1231,9 @@ tracking data in video streams.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/speed_estimation.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-41">41</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-39">39</a></span>
+<span class="normal"><a href="#__codelineno-0-40">40</a></span>
+<span class="normal"><a href="#__codelineno-0-41">41</a></span>
 <span class="normal"><a href="#__codelineno-0-42">42</a></span>
 <span class="normal"><a href="#__codelineno-0-43">43</a></span>
 <span class="normal"><a href="#__codelineno-0-44">44</a></span>
@@ -1243,23 +1245,21 @@ tracking data in video streams.</p>
 <span class="normal"><a href="#__codelineno-0-50">50</a></span>
 <span class="normal"><a href="#__codelineno-0-51">51</a></span>
 <span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    Initialize the SpeedEstimator object with speed estimation parameters and data structures.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        **kwargs (Any): Additional keyword arguments passed to the parent class.</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">    """</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="sd">    Initialize the SpeedEstimator object with speed estimation parameters and data structures.</span>
+<a id="__codelineno-0-42" name="__codelineno-0-42"></a>
+<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="sd">        **kwargs (Any): Additional keyword arguments passed to the parent class.</span>
+<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    """</span>
+<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<a id="__codelineno-0-47" name="__codelineno-0-47"></a>
+<a id="__codelineno-0-48" name="__codelineno-0-48"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">initialize_region</span><span class="p">()</span>  <span class="c1"># Initialize speed region</span>
 <a id="__codelineno-0-49" name="__codelineno-0-49"></a>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">initialize_region</span><span class="p">()</span>  <span class="c1"># Initialize speed region</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">spd</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for speed data</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># List for already speed-estimated and tracked IDs</span>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for tracks' previous timestamps</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for tracks' previous positions</span>
+<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">spd</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for speed data</span>
+<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># List for already speed-estimated and tracked IDs</span>
+<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for tracks' previous timestamps</span>
+<a id="__codelineno-0-53" name="__codelineno-0-53"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for tracks' previous positions</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1287,7 +1287,7 @@ tracking data in video streams.</p>
 <code>im0</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span></code>
+<code><span title="np.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1328,7 +1328,9 @@ tracking data in video streams.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/speed_estimation.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-57"> 57</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-55"> 55</a></span>
+<span class="normal"><a href="#__codelineno-0-56"> 56</a></span>
+<span class="normal"><a href="#__codelineno-0-57"> 57</a></span>
 <span class="normal"><a href="#__codelineno-0-58"> 58</a></span>
 <span class="normal"><a href="#__codelineno-0-59"> 59</a></span>
 <span class="normal"><a href="#__codelineno-0-60"> 60</a></span>
@@ -1382,65 +1384,63 @@ tracking data in video streams.</p>
 <span class="normal"><a href="#__codelineno-0-108">108</a></span>
 <span class="normal"><a href="#__codelineno-0-109">109</a></span>
 <span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span>
-<span class="normal"><a href="#__codelineno-0-112">112</a></span>
-<span class="normal"><a href="#__codelineno-0-113">113</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    Process an input frame to estimate object speeds based on tracking data.</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">        im0 (np.ndarray): Input image for processing with shape (H, W, C) for RGB images.</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">        (SolutionResults): Contains processed image `plot_im` and `total_tracks` (number of tracked objects).</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        &gt;&gt;&gt; estimator = SpeedEstimator()</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        &gt;&gt;&gt; image = np.random.randint(0, 255, (480, 640, 3), dtype=np.uint8)</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        &gt;&gt;&gt; results = estimator.process(image)</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    """</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>  <span class="c1"># Initialize annotator</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a>    <span class="c1"># Draw speed estimation region</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="n">annotator</span><span class="o">.</span><span class="n">draw_region</span><span class="p">(</span><span class="n">reg_pts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">123</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">):</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>  <span class="c1"># Store track history</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>        <span class="c1"># Initialize tracking data for new objects</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">:</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">:</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>        <span class="c1"># Prepare label with speed if available, otherwise use class name</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>        <span class="n">speed_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">[</span><span class="n">track_id</span><span class="p">])</span><span class="si">}</span><span class="s2"> km/h"</span> <span class="k">if</span> <span class="n">track_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spd</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)]</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>        <span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">speed_label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>  <span class="c1"># Draw bounding box</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>        <span class="c1"># Determine if object is crossing the speed estimation region</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">LineString</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r_s</span><span class="p">):</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>            <span class="n">direction</span> <span class="o">=</span> <span class="s2">"known"</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>            <span class="n">direction</span> <span class="o">=</span> <span class="s2">"unknown"</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="c1"># Calculate speed for objects crossing the region for the first time</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"known"</span> <span class="ow">and</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span><span class="p">:</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">track_id</span><span class="p">)</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>            <span class="n">time_difference</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>            <span class="k">if</span> <span class="n">time_difference</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>                <span class="c1"># Calculate speed based on vertical displacement and time</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">time_difference</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="c1"># Update tracking data for next frame</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># Display output with base class function</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a>    <span class="c1"># Return results with processed image and tracking summary</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span><span class="n">plot_im</span><span class="o">=</span><span class="n">plot_im</span><span class="p">,</span> <span class="n">total_tracks</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">))</span>
+<span class="normal"><a href="#__codelineno-0-111">111</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="sd">    Process an input frame to estimate object speeds based on tracking data.</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="sd">        im0 (np.ndarray): Input image for processing with shape (H, W, C) for RGB images.</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="sd">        (SolutionResults): Contains processed image `plot_im` and `total_tracks` (number of tracked objects).</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">        &gt;&gt;&gt; estimator = SpeedEstimator()</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">        &gt;&gt;&gt; image = np.random.randint(0, 255, (480, 640, 3), dtype=np.uint8)</span>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        &gt;&gt;&gt; results = estimator.process(image)</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">    """</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>  <span class="c1"># Initialize annotator</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a>    <span class="c1"># Draw speed estimation region</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>    <span class="n">annotator</span><span class="o">.</span><span class="n">draw_region</span><span class="p">(</span><span class="n">reg_pts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">123</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a>    <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">):</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>  <span class="c1"># Store track history</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a>        <span class="c1"># Initialize tracking data for new objects</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">:</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">:</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="c1"># Prepare label with speed if available, otherwise use class name</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="n">speed_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">[</span><span class="n">track_id</span><span class="p">])</span><span class="si">}</span><span class="s2"> km/h"</span> <span class="k">if</span> <span class="n">track_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spd</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)]</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>        <span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">speed_label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>  <span class="c1"># Draw bounding box</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>        <span class="c1"># Determine if object is crossing the speed estimation region</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">LineString</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r_s</span><span class="p">):</span>
+<a id="__codelineno-0-91" name="__codelineno-0-91"></a>            <span class="n">direction</span> <span class="o">=</span> <span class="s2">"known"</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>            <span class="n">direction</span> <span class="o">=</span> <span class="s2">"unknown"</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>        <span class="c1"># Calculate speed for objects crossing the region for the first time</span>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a>        <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"known"</span> <span class="ow">and</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span><span class="p">:</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">track_id</span><span class="p">)</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>            <span class="n">time_difference</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>            <span class="k">if</span> <span class="n">time_difference</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>                <span class="c1"># Calculate speed based on vertical displacement and time</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">time_difference</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>        <span class="c1"># Update tracking data for next frame</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># Display output with base class function</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a>    <span class="c1"># Return results with processed image and tracking summary</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span><span class="n">plot_im</span><span class="o">=</span><span class="n">plot_im</span><span class="p">,</span> <span class="n">total_tracks</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
