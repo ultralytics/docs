@@ -1106,9 +1106,9 @@
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Sends training metrics to Ray Tune at end of each epoch.</p>
-<p>This function checks if a Ray Tune session is active and reports the current training metrics along with the
-epoch number to Ray Tune's session.</p>
+<p>Reports training metrics to Ray Tune at epoch end when a Ray session is active.</p>
+<p>Captures metrics from the trainer object and sends them to Ray Tune with the current epoch number,
+enabling hyperparameter tuning optimization. Only executes when within an active Ray Tune session.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1142,6 +1142,10 @@ epoch number to Ray Tune's session.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Called automatically by the Ultralytics training loop</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
+<details class="references" open="">
+<summary>References</summary>
+<p>Ray Tune docs: <a href="https://docs.ray.io/en/latest/tune/index.html">https://docs.ray.io/en/latest/tune/index.html</a></p>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/raytune.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-15">15</a></span>
@@ -1160,12 +1164,15 @@ epoch number to Ray Tune's session.</p>
 <span class="normal"><a href="#__codelineno-0-28">28</a></span>
 <span class="normal"><a href="#__codelineno-0-29">29</a></span>
 <span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-31">31</a></span>
+<span class="normal"><a href="#__codelineno-0-32">32</a></span>
+<span class="normal"><a href="#__codelineno-0-33">33</a></span>
+<span class="normal"><a href="#__codelineno-0-34">34</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <a id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Sends training metrics to Ray Tune at end of each epoch.</span>
+<a id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="sd">    Reports training metrics to Ray Tune at epoch end when a Ray session is active.</span>
 <a id="__codelineno-0-18" name="__codelineno-0-18"></a>
-<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    This function checks if a Ray Tune session is active and reports the current training metrics along with the</span>
-<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    epoch number to Ray Tune's session.</span>
+<a id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="sd">    Captures metrics from the trainer object and sends them to Ray Tune with the current epoch number,</span>
+<a id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="sd">    enabling hyperparameter tuning optimization. Only executes when within an active Ray Tune session.</span>
 <a id="__codelineno-0-21" name="__codelineno-0-21"></a>
 <a id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The Ultralytics trainer object containing metrics and epochs.</span>
@@ -1173,10 +1180,13 @@ epoch number to Ray Tune's session.</p>
 <a id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="sd">    Examples:</span>
 <a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="sd">        &gt;&gt;&gt; # Called automatically by the Ultralytics training loop</span>
 <a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="sd">        &gt;&gt;&gt; on_fit_epoch_end(trainer)</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    """</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>    <span class="k">if</span> <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">_internal</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_session</span><span class="p">():</span>  <span class="c1"># check if Ray Tune session is active</span>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a>        <span class="n">metrics</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a>        <span class="n">session</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="o">**</span><span class="n">metrics</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">"epoch"</span><span class="p">:</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}})</span>
+<a id="__codelineno-0-28" name="__codelineno-0-28"></a>
+<a id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="sd">    References:</span>
+<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">        Ray Tune docs: https://docs.ray.io/en/latest/tune/index.html</span>
+<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    """</span>
+<a id="__codelineno-0-32" name="__codelineno-0-32"></a>    <span class="k">if</span> <span class="n">ray</span><span class="o">.</span><span class="n">train</span><span class="o">.</span><span class="n">_internal</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">get_session</span><span class="p">():</span>  <span class="c1"># check if Ray Tune session is active</span>
+<a id="__codelineno-0-33" name="__codelineno-0-33"></a>        <span class="n">metrics</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span>
+<a id="__codelineno-0-34" name="__codelineno-0-34"></a>        <span class="n">session</span><span class="o">.</span><span class="n">report</span><span class="p">({</span><span class="o">**</span><span class="n">metrics</span><span class="p">,</span> <span class="o">**</span><span class="p">{</span><span class="s2">"epoch"</span><span class="p">:</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">}})</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
