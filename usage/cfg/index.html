@@ -1895,130 +1895,123 @@
 </thead>
 <tbody>
 <tr>
-<td><code>hsv_h</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#hue-adjustment-hsv_h"><code>hsv_h</code></a></td>
 <td><code>float</code></td>
 <td><code>0.015</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Adjusts the hue of the image by a fraction of the color wheel, introducing color variability. Helps the model generalize across different lighting conditions.</td>
 </tr>
 <tr>
-<td><code>hsv_s</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#saturation-adjustment-hsv_s"><code>hsv_s</code></a></td>
 <td><code>float</code></td>
 <td><code>0.7</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Alters the saturation of the image by a fraction, affecting the intensity of colors. Useful for simulating different environmental conditions.</td>
 </tr>
 <tr>
-<td><code>hsv_v</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#brightness-adjustment-hsv_v"><code>hsv_v</code></a></td>
 <td><code>float</code></td>
 <td><code>0.4</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Modifies the value (brightness) of the image by a fraction, helping the model to perform well under various lighting conditions.</td>
 </tr>
 <tr>
-<td><code>degrees</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#rotation-degrees"><code>degrees</code></a></td>
 <td><code>float</code></td>
 <td><code>0.0</code></td>
-<td><code>-180 - +180</code></td>
+<td><code>0.0 - 180</code></td>
 <td>Rotates the image randomly within the specified degree range, improving the model's ability to recognize objects at various orientations.</td>
 </tr>
 <tr>
-<td><code>translate</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#translation-translate"><code>translate</code></a></td>
 <td><code>float</code></td>
 <td><code>0.1</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Translates the image horizontally and vertically by a fraction of the image size, aiding in learning to detect partially visible objects.</td>
 </tr>
 <tr>
-<td><code>scale</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#scale-scale"><code>scale</code></a></td>
 <td><code>float</code></td>
 <td><code>0.5</code></td>
 <td><code>&gt;=0.0</code></td>
 <td>Scales the image by a gain factor, simulating objects at different distances from the camera.</td>
 </tr>
 <tr>
-<td><code>shear</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#shear-shear"><code>shear</code></a></td>
 <td><code>float</code></td>
 <td><code>0.0</code></td>
 <td><code>-180 - +180</code></td>
 <td>Shears the image by a specified degree, mimicking the effect of objects being viewed from different angles.</td>
 </tr>
 <tr>
-<td><code>perspective</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#perspective-perspective"><code>perspective</code></a></td>
 <td><code>float</code></td>
 <td><code>0.0</code></td>
 <td><code>0.0 - 0.001</code></td>
 <td>Applies a random perspective transformation to the image, enhancing the model's ability to understand objects in 3D space.</td>
 </tr>
 <tr>
-<td><code>flipud</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#flip-up-down-flipud"><code>flipud</code></a></td>
 <td><code>float</code></td>
 <td><code>0.0</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Flips the image upside down with the specified probability, increasing the data variability without affecting the object's characteristics.</td>
 </tr>
 <tr>
-<td><code>fliplr</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#flip-left-right-fliplr"><code>fliplr</code></a></td>
 <td><code>float</code></td>
 <td><code>0.5</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Flips the image left to right with the specified probability, useful for learning symmetrical objects and increasing dataset diversity.</td>
 </tr>
 <tr>
-<td><code>bgr</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#bgr-channel-swap-bgr"><code>bgr</code></a></td>
 <td><code>float</code></td>
 <td><code>0.0</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Flips the image channels from RGB to BGR with the specified probability, useful for increasing robustness to incorrect channel ordering.</td>
 </tr>
 <tr>
-<td><code>mosaic</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#mosaic-mosaic"><code>mosaic</code></a></td>
 <td><code>float</code></td>
 <td><code>1.0</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Combines four training images into one, simulating different scene compositions and object interactions. Highly effective for complex scene understanding.</td>
 </tr>
 <tr>
-<td><code>mixup</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#mixup-mixup"><code>mixup</code></a></td>
 <td><code>float</code></td>
 <td><code>0.0</code></td>
 <td><code>0.0 - 1.0</code></td>
 <td>Blends two images and their labels, creating a composite image. Enhances the model's ability to generalize by introducing label noise and visual variability.</td>
 </tr>
 <tr>
-<td><code>copy_paste</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#copy-paste-copy_paste"><code>copy_paste</code></a></td>
 <td><code>float</code></td>
 <td><code>0.0</code></td>
 <td><code>0.0 - 1.0</code></td>
-<td>Copies and pastes objects across images, useful for increasing object instances and learning object occlusion. Requires segmentation labels.</td>
+<td><em>Segmentation only</em>. Copies and pastes objects across images to increase object instances.</td>
 </tr>
 <tr>
-<td><code>copy_paste_mode</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#copy-paste-mode-copy_paste_mode"><code>copy_paste_mode</code></a></td>
 <td><code>str</code></td>
 <td><code>'flip'</code></td>
 <td>-</td>
-<td>Copy-Paste augmentation method selection among the options of (<code>"flip"</code>, <code>"mixup"</code>).</td>
+<td><em>Segmentation only</em>. Specifies the <code>copy-paste</code> strategy to use. Options include <code>'flip'</code> and <code>'mixup'</code>.</td>
 </tr>
 <tr>
-<td><code>auto_augment</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#auto-augment-auto_augment"><code>auto_augment</code></a></td>
 <td><code>str</code></td>
 <td><code>'randaugment'</code></td>
 <td>-</td>
-<td>Automatically applies a predefined augmentation policy (<code>randaugment</code>, <code>autoaugment</code>, <code>augmix</code>), optimizing for classification tasks by diversifying the visual features.</td>
+<td><em>Classification only</em>. Applies a predefined augmentation policy (<code>'randaugment'</code>, <code>'autoaugment'</code>, or <code>'augmix'</code>) to enhance model performance through visual diversity.</td>
 </tr>
 <tr>
-<td><code>erasing</code></td>
+<td><a href="../../guides/yolo-data-augmentation/#random-erasing-erasing"><code>erasing</code></a></td>
 <td><code>float</code></td>
 <td><code>0.4</code></td>
 <td><code>0.0 - 0.9</code></td>
-<td>Randomly erases a portion of the image during classification training, encouraging the model to focus on less obvious features for recognition.</td>
-</tr>
-<tr>
-<td><code>crop_fraction</code></td>
-<td><code>float</code></td>
-<td><code>1.0</code></td>
-<td><code>0.1 - 1.0</code></td>
-<td>Crops the classification image to a fraction of its size to emphasize central features and adapt to object scales, reducing background distractions.</td>
+<td><em>Classification only</em>. Randomly erases regions of the image during training to encourage the model to focus on less obvious features.</td>
 </tr>
 </tbody>
 </table>
@@ -2099,7 +2092,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on March 17, 2025">
-<span class="hover-item">✏️</span> Updated 26 days ago
+<span class="hover-item">✏️</span> Updated 27 days ago
     </span>
 </div>
 <div class="authors-container">
