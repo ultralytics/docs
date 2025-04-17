@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLOE (Real-Time Seeing Anything)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOE, open-vocabulary detection, real-time object detection, instance segmentation, YOLO, text prompts, visual prompts, zero-shot detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/yoloe" property="og:url"/><meta content="YOLOE (Real-Time Seeing Anything)" property="og:title"/><meta content="YOLOE is a real-time open-vocabulary detection and segmentation model that extends YOLO with text, image, or internal vocabulary prompts, enabling detection of any object class with state-of-the-art zero-shot performance." property="og:description"/><meta content="https://raw.githubusercontent.com/THU-MIG/yoloe/main/figures/visualization.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/yoloe" property="twitter:url"/><meta content="YOLOE (Real-Time Seeing Anything)" property="twitter:title"/><meta content="YOLOE is a real-time open-vocabulary detection and segmentation model that extends YOLO with text, image, or internal vocabulary prompts, enabling detection of any object class with state-of-the-art zero-shot performance." property="twitter:description"/><meta content="https://raw.githubusercontent.com/THU-MIG/yoloe/main/figures/visualization.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLOE (Real-Time Seeing Anything)", "image": ["https://raw.githubusercontent.com/THU-MIG/yoloe/main/figures/visualization.svg"], "datePublished": "2025-03-19 01:07:14 +0100", "dateModified": "2025-04-05 04:32:30 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "YOLOE is a real-time open-vocabulary detection and segmentation model that extends YOLO with text, image, or internal vocabulary prompts, enabling detection of any object class with state-of-the-art zero-shot performance.", "mainEntity": [{"@type": "Question", "name": "How does YOLOE differ from YOLO-World?", "acceptedAnswer": {"@type": "Answer", "text": "While both YOLOE and YOLO-World enable open-vocabulary detection, YOLOE offers several advantages. YOLOE achieves +3.5 AP higher accuracy on LVIS while using 3\u00d7 less training resources and running 1.4\u00d7 faster than YOLO-Worldv2. YOLOE also supports three prompting modes (text, visual, and internal vocabulary), whereas YOLO-World primarily focuses on text prompts. Additionally, YOLOE includes built-in instance segmentation capabilities, providing pixel-precise masks for detected objects without additional overhead."}}, {"@type": "Question", "name": "Can I use YOLOE as a regular YOLO model?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, YOLOE can function exactly like a standard YOLO model with no performance penalty. When used in closed-set mode (without prompts), YOLOE's open-vocabulary modules are re-parameterized into the standard detection head, resulting in identical speed and accuracy to equivalent YOLO11 models. This makes YOLOE extremely versatile\u2014you can use it as a traditional detector for maximum speed and then switch to open-vocabulary mode only when needed."}}, {"@type": "Question", "name": "What types of prompts can I use with YOLOE?", "acceptedAnswer": {"@type": "Answer", "text": "YOLOE supports three types of prompts: This flexibility allows you to adapt YOLOE to various scenarios without retraining the model, making it particularly useful for dynamic environments where detection requirements change frequently."}}, {"@type": "Question", "name": "How does YOLOE handle instance segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "YOLOE integrates instance segmentation directly into its architecture by extending the detection head with a mask prediction branch. This approach is similar to YOLOv8-Seg but works for any prompted object class. Segmentation masks are automatically included in inference results and can be accessed via results[0].masks. This unified approach eliminates the need for separate detection and segmentation models, streamlining workflows for applications requiring pixel-precise object boundaries."}}, {"@type": "Question", "name": "How does YOLOE handle inference with custom prompts?", "acceptedAnswer": {"@type": "Answer", "text": "Similar to YOLO-World, YOLOE supports a \"prompt-then-detect\" strategy that utilizes an offline vocabulary to enhance efficiency. Custom prompts like captions or specific object categories are pre-encoded and stored as offline vocabulary embeddings. This approach streamlines the detection process without requiring retraining. You can dynamically set these prompts within the model to tailor it to specific detection tasks:"}}]}</script></head>
+<meta content="YOLOE (Real-Time Seeing Anything)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOE, open-vocabulary detection, real-time object detection, instance segmentation, YOLO, text prompts, visual prompts, zero-shot detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/yoloe" property="og:url"/><meta content="YOLOE (Real-Time Seeing Anything)" property="og:title"/><meta content="YOLOE is a real-time open-vocabulary detection and segmentation model that extends YOLO with text, image, or internal vocabulary prompts, enabling detection of any object class with state-of-the-art zero-shot performance." property="og:description"/><meta content="https://raw.githubusercontent.com/THU-MIG/yoloe/main/figures/visualization.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/yoloe" property="twitter:url"/><meta content="YOLOE (Real-Time Seeing Anything)" property="twitter:title"/><meta content="YOLOE is a real-time open-vocabulary detection and segmentation model that extends YOLO with text, image, or internal vocabulary prompts, enabling detection of any object class with state-of-the-art zero-shot performance." property="twitter:description"/><meta content="https://raw.githubusercontent.com/THU-MIG/yoloe/main/figures/visualization.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLOE (Real-Time Seeing Anything)", "image": ["https://raw.githubusercontent.com/THU-MIG/yoloe/main/figures/visualization.svg"], "datePublished": "2025-03-19 01:07:14 +0100", "dateModified": "2025-04-17 16:12:11 +0600", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "YOLOE is a real-time open-vocabulary detection and segmentation model that extends YOLO with text, image, or internal vocabulary prompts, enabling detection of any object class with state-of-the-art zero-shot performance.", "mainEntity": [{"@type": "Question", "name": "How does YOLOE differ from YOLO-World?", "acceptedAnswer": {"@type": "Answer", "text": "While both YOLOE and YOLO-World enable open-vocabulary detection, YOLOE offers several advantages. YOLOE achieves +3.5 AP higher accuracy on LVIS while using 3\u00d7 less training resources and running 1.4\u00d7 faster than YOLO-Worldv2. YOLOE also supports three prompting modes (text, visual, and internal vocabulary), whereas YOLO-World primarily focuses on text prompts. Additionally, YOLOE includes built-in instance segmentation capabilities, providing pixel-precise masks for detected objects without additional overhead."}}, {"@type": "Question", "name": "Can I use YOLOE as a regular YOLO model?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, YOLOE can function exactly like a standard YOLO model with no performance penalty. When used in closed-set mode (without prompts), YOLOE's open-vocabulary modules are re-parameterized into the standard detection head, resulting in identical speed and accuracy to equivalent YOLO11 models. This makes YOLOE extremely versatile\u2014you can use it as a traditional detector for maximum speed and then switch to open-vocabulary mode only when needed."}}, {"@type": "Question", "name": "What types of prompts can I use with YOLOE?", "acceptedAnswer": {"@type": "Answer", "text": "YOLOE supports three types of prompts: This flexibility allows you to adapt YOLOE to various scenarios without retraining the model, making it particularly useful for dynamic environments where detection requirements change frequently."}}, {"@type": "Question", "name": "How does YOLOE handle instance segmentation?", "acceptedAnswer": {"@type": "Answer", "text": "YOLOE integrates instance segmentation directly into its architecture by extending the detection head with a mask prediction branch. This approach is similar to YOLOv8-Seg but works for any prompted object class. Segmentation masks are automatically included in inference results and can be accessed via results[0].masks. This unified approach eliminates the need for separate detection and segmentation models, streamlining workflows for applications requiring pixel-precise object boundaries."}}, {"@type": "Question", "name": "How does YOLOE handle inference with custom prompts?", "acceptedAnswer": {"@type": "Answer", "text": "Similar to YOLO-World, YOLOE supports a \"prompt-then-detect\" strategy that utilizes an offline vocabulary to enhance efficiency. Custom prompts like captions or specific object categories are pre-encoded and stored as offline vocabulary embeddings. This approach streamlines the detection process without requiring retraining. You can dynamically set these prompts within the model to tailor it to specific detection tasks:"}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1113,22 +1113,23 @@
 </input></input></div>
 </div>
 <h3 id="predict-usage">Predict Usage</h3>
-<p>Object detection is straightforward with the <code>predict</code> method, as illustrated below:</p>
+<p>YOLOE supports both text-based and visual prompting. Using prompts is straightforward—just pass them through the <code>predict</code> method as shown below:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Text Prompt</label><label for="__tabbed_2_2">Visual Prompt</label><label for="__tabbed_2_3">Prompt free</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
+<p>Text prompts allow you to specify the classes that you wish to detect through textual descriptions. The following code shows how you can use YOLOE to detect people and buses in an image:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
 <a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
 <a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Initialize a YOLOE model</span>
 <a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-11s/m-seg.pt for different sizes</span>
 <a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Set text prompt</span>
+<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Set text prompt to detect person and bus. You only need to do this once after you load the model.</span>
 <a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">]</span>
 <a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">get_text_pe</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
 <a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># Execute prediction for specified categories on an image</span>
+<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># Run detection on the given image</span>
 <a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
 <a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
 <a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1"># Show results</span>
@@ -1136,11 +1137,10 @@
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>If <code>source</code> is a video/stream, the first frame of the video/stream will be automatically used as <code>refer_image</code>, or you could directly pass any frame from the video/stream to <code>refer_image</code> argument.</p>
-</div>
-<p>Prompts in source image:</p>
+<p>Visual prompts allow you to guide the model by showing it visual examples of the target classes, rather than describing them in text.</p>
+<p>The <code>visual_prompts</code> argument takes a dictionary with two keys: <code>bboxes</code> and <code>cls</code>. Each bounding box in <code>bboxes</code> should tightly enclose an example of the object you want the model to detect, and the corresponding entry in <code>cls</code> specifies the class label for that box. This pairing tells the model, "This is what class X looks like—now find more like it."</p>
+<p>Class IDs (<code>cls</code>) in <code>visual_prompts</code> are used to associate each bounding box with a specific category within your prompt. They aren't fixed labels, but temporary identifiers you assign to each example. The only requirement is that class IDs must be sequential, starting from 0. This helps the model correctly associate each box with its respective class.</p>
+<p>You can provide visual prompts directly within the same image you want to run inference on. For example:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
 <a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
@@ -1149,33 +1149,38 @@
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Initialize a YOLOE model</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># Set visual prompt</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">visuals</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>        <span class="p">[</span>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>            <span class="p">[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">],</span>  <span class="c1"># For person</span>
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>            <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">445</span><span class="p">],</span>  <span class="c1"># For glasses</span>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>        <span class="p">],</span>
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>    <span class="p">),</span>
-<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>    <span class="bp">cls</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>        <span class="p">[</span>
-<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># For person</span>
-<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>            <span class="mi">1</span><span class="p">,</span>  <span class="c1"># For glasses</span>
-<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>        <span class="p">]</span>
-<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>    <span class="p">),</span>
-<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a><span class="p">)</span>
-<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a>
-<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a><span class="c1"># Execute prediction for specified categories on an image</span>
-<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a>    <span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span>
-<a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visuals</span><span class="p">,</span>
-<a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
-<a href="#__codelineno-3-30" id="__codelineno-3-30" name="__codelineno-3-30"></a><span class="p">)</span>
-<a href="#__codelineno-3-31" id="__codelineno-3-31" name="__codelineno-3-31"></a>
-<a href="#__codelineno-3-32" id="__codelineno-3-32" name="__codelineno-3-32"></a><span class="c1"># Show results</span>
-<a href="#__codelineno-3-33" id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># Define visual prompts using bounding boxes and their corresponding class IDs.</span>
+<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># Each box highlights an example of the object you want the model to detect.</span>
+<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>        <span class="p">[</span>
+<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>            <span class="p">[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">],</span>  <span class="c1"># Box enclosing person</span>
+<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a>            <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">445</span><span class="p">],</span>  <span class="c1"># Box enclosing glasses</span>
+<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a>        <span class="p">],</span>
+<a href="#__codelineno-3-17" id="__codelineno-3-17" name="__codelineno-3-17"></a>    <span class="p">),</span>
+<a href="#__codelineno-3-18" id="__codelineno-3-18" name="__codelineno-3-18"></a>    <span class="bp">cls</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<a href="#__codelineno-3-19" id="__codelineno-3-19" name="__codelineno-3-19"></a>        <span class="p">[</span>
+<a href="#__codelineno-3-20" id="__codelineno-3-20" name="__codelineno-3-20"></a>            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># ID to be assigned for person</span>
+<a href="#__codelineno-3-21" id="__codelineno-3-21" name="__codelineno-3-21"></a>            <span class="mi">1</span><span class="p">,</span>  <span class="c1"># ID to be assigned for glassses</span>
+<a href="#__codelineno-3-22" id="__codelineno-3-22" name="__codelineno-3-22"></a>        <span class="p">]</span>
+<a href="#__codelineno-3-23" id="__codelineno-3-23" name="__codelineno-3-23"></a>    <span class="p">),</span>
+<a href="#__codelineno-3-24" id="__codelineno-3-24" name="__codelineno-3-24"></a><span class="p">)</span>
+<a href="#__codelineno-3-25" id="__codelineno-3-25" name="__codelineno-3-25"></a>
+<a href="#__codelineno-3-26" id="__codelineno-3-26" name="__codelineno-3-26"></a><span class="c1"># Run inference on an image, using the provided visual prompts as guidance</span>
+<a href="#__codelineno-3-27" id="__codelineno-3-27" name="__codelineno-3-27"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<a href="#__codelineno-3-28" id="__codelineno-3-28" name="__codelineno-3-28"></a>    <span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span>
+<a href="#__codelineno-3-29" id="__codelineno-3-29" name="__codelineno-3-29"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
+<a href="#__codelineno-3-30" id="__codelineno-3-30" name="__codelineno-3-30"></a>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
+<a href="#__codelineno-3-31" id="__codelineno-3-31" name="__codelineno-3-31"></a><span class="p">)</span>
+<a href="#__codelineno-3-32" id="__codelineno-3-32" name="__codelineno-3-32"></a>
+<a href="#__codelineno-3-33" id="__codelineno-3-33" name="__codelineno-3-33"></a><span class="c1"># Show results</span>
+<a href="#__codelineno-3-34" id="__codelineno-3-34" name="__codelineno-3-34"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p>Prompts in different images:</p>
+<p>Or you can provide examples from a separate reference image using the <code>refer_image</code> argument. In that case, the <code>bboxes</code> and <code>cls</code> in <code>visual_prompts</code> should describe objects in the reference image, not the target image you're making predictions on:</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If <code>source</code> is a video or stream, the model automatically uses the first frame as the <code>refer_image</code>. This means your <code>visual_prompts</code> are applied to that initial frame to help the model understand what to look for in the rest of the video. Alternatively, you can explicitly pass any specific frame as the <code>refer_image</code> to control which visual examples the model uses as reference.</p>
+</div>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
 <a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
@@ -1184,24 +1189,24 @@
 <a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Initialize a YOLOE model</span>
 <a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
 <a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># Set visual prompt</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">visuals</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">]]),</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="bp">cls</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>
+<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># Define visual prompts based on a separate reference image</span>
+<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">]]),</span>  <span class="c1"># Box enclosing person</span>
+<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="bp">cls</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># ID to be assigned for person</span>
 <a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="p">)</span>
 <a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="c1"># Execute prediction for specified categories on an image</span>
+<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="c1"># Run prediction on a different image, using reference image to guide what to look for</span>
 <a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>    <span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">,</span>
-<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>    <span class="n">refer_image</span><span class="o">=</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span>
-<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visuals</span><span class="p">,</span>
+<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a>    <span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">,</span>            <span class="c1"># Target image for detection</span>
+<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>    <span class="n">refer_image</span><span class="o">=</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span>   <span class="c1"># Reference image used to get visual prompts</span>
+<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
 <a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
 <a href="#__codelineno-4-21" id="__codelineno-4-21" name="__codelineno-4-21"></a><span class="p">)</span>
 <a href="#__codelineno-4-22" id="__codelineno-4-22" name="__codelineno-4-22"></a>
 <a href="#__codelineno-4-23" id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="c1"># Show results</span>
 <a href="#__codelineno-4-24" id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
-<p>Running with multiple images:</p>
+<p>You can also pass multiple target images to run prediction on:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
@@ -1210,46 +1215,48 @@
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># Initialize a YOLOE model</span>
 <a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
 <a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="c1"># Set visual prompt</span>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">visuals</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="p">[</span>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>            <span class="p">[</span>
-<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>                <span class="p">[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">],</span>  <span class="c1"># For person</span>
-<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>                <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">445</span><span class="p">],</span>  <span class="c1"># For glasses</span>
-<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>            <span class="p">],</span>
-<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a>        <span class="p">),</span>
-<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1150</span><span class="p">,</span> <span class="mi">700</span><span class="p">]]),</span>
-<a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a>    <span class="p">],</span>
-<a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a>    <span class="bp">cls</span><span class="o">=</span><span class="p">[</span>
-<a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a>            <span class="p">[</span>
-<a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a>                <span class="mi">0</span><span class="p">,</span>  <span class="c1"># For person</span>
-<a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a>                <span class="mi">1</span><span class="p">,</span>  <span class="c1"># For glasses</span>
-<a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a>            <span class="p">]</span>
-<a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a>        <span class="p">),</span>
-<a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>
-<a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a>    <span class="p">],</span>
-<a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a><span class="p">)</span>
-<a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a>
-<a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a><span class="c1"># Execute prediction for specified categories on an image</span>
-<a href="#__codelineno-5-32" id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a>    <span class="p">[</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span> <span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">],</span>
-<a href="#__codelineno-5-34" id="__codelineno-5-34" name="__codelineno-5-34"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visuals</span><span class="p">,</span>
-<a href="#__codelineno-5-35" id="__codelineno-5-35" name="__codelineno-5-35"></a>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
-<a href="#__codelineno-5-36" id="__codelineno-5-36" name="__codelineno-5-36"></a><span class="p">)</span>
-<a href="#__codelineno-5-37" id="__codelineno-5-37" name="__codelineno-5-37"></a>
-<a href="#__codelineno-5-38" id="__codelineno-5-38" name="__codelineno-5-38"></a><span class="c1"># Show results</span>
-<a href="#__codelineno-5-39" id="__codelineno-5-39" name="__codelineno-5-39"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="c1"># Define visual prompts using bounding boxes and their corresponding class IDs.</span>
+<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># Each box highlights an example of the object you want the model to detect.    </span>
+<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="p">[</span>
+<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>            <span class="p">[</span>
+<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>                <span class="p">[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">],</span>  <span class="c1"># Box enclosing person</span>
+<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>                <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">445</span><span class="p">],</span>  <span class="c1"># Box enclosing glasses</span>
+<a href="#__codelineno-5-17" id="__codelineno-5-17" name="__codelineno-5-17"></a>            <span class="p">],</span>
+<a href="#__codelineno-5-18" id="__codelineno-5-18" name="__codelineno-5-18"></a>        <span class="p">),</span>
+<a href="#__codelineno-5-19" id="__codelineno-5-19" name="__codelineno-5-19"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1150</span><span class="p">,</span> <span class="mi">700</span><span class="p">]]),</span>
+<a href="#__codelineno-5-20" id="__codelineno-5-20" name="__codelineno-5-20"></a>    <span class="p">],</span>
+<a href="#__codelineno-5-21" id="__codelineno-5-21" name="__codelineno-5-21"></a>    <span class="bp">cls</span><span class="o">=</span><span class="p">[</span>
+<a href="#__codelineno-5-22" id="__codelineno-5-22" name="__codelineno-5-22"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<a href="#__codelineno-5-23" id="__codelineno-5-23" name="__codelineno-5-23"></a>            <span class="p">[</span>
+<a href="#__codelineno-5-24" id="__codelineno-5-24" name="__codelineno-5-24"></a>                <span class="mi">0</span><span class="p">,</span>  <span class="c1"># ID to be assigned for person</span>
+<a href="#__codelineno-5-25" id="__codelineno-5-25" name="__codelineno-5-25"></a>                <span class="mi">1</span><span class="p">,</span>  <span class="c1"># ID to be assigned for glasses</span>
+<a href="#__codelineno-5-26" id="__codelineno-5-26" name="__codelineno-5-26"></a>            <span class="p">]</span>
+<a href="#__codelineno-5-27" id="__codelineno-5-27" name="__codelineno-5-27"></a>        <span class="p">),</span>
+<a href="#__codelineno-5-28" id="__codelineno-5-28" name="__codelineno-5-28"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>
+<a href="#__codelineno-5-29" id="__codelineno-5-29" name="__codelineno-5-29"></a>    <span class="p">],</span>
+<a href="#__codelineno-5-30" id="__codelineno-5-30" name="__codelineno-5-30"></a><span class="p">)</span>
+<a href="#__codelineno-5-31" id="__codelineno-5-31" name="__codelineno-5-31"></a>
+<a href="#__codelineno-5-32" id="__codelineno-5-32" name="__codelineno-5-32"></a><span class="c1"># Run inference on multiple image, using the provided visual prompts as guidance</span>
+<a href="#__codelineno-5-33" id="__codelineno-5-33" name="__codelineno-5-33"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<a href="#__codelineno-5-34" id="__codelineno-5-34" name="__codelineno-5-34"></a>    <span class="p">[</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span> <span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">],</span>
+<a href="#__codelineno-5-35" id="__codelineno-5-35" name="__codelineno-5-35"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
+<a href="#__codelineno-5-36" id="__codelineno-5-36" name="__codelineno-5-36"></a>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
+<a href="#__codelineno-5-37" id="__codelineno-5-37" name="__codelineno-5-37"></a><span class="p">)</span>
+<a href="#__codelineno-5-38" id="__codelineno-5-38" name="__codelineno-5-38"></a>
+<a href="#__codelineno-5-39" id="__codelineno-5-39" name="__codelineno-5-39"></a><span class="c1"># Show results</span>
+<a href="#__codelineno-5-40" id="__codelineno-5-40" name="__codelineno-5-40"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
+<p>YOLOE also includes prompt-free variants that come with a built-in vocabulary. These models don't require any prompts and work like traditional YOLO models. Instead of relying on user-provided labels or visual examples, they detect objects from a <a href="https://github.com/xinyu1205/recognize-anything/blob/main/ram/data/ram_tag_list.txt">predefined list of 4,585 classes</a> based on the tag set used by the <a href="https://arxiv.org/abs/2310.15200">Recognize Anything Model Plus (RAM++)</a>.</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
 <a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
 <a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Initialize a YOLOE model</span>
 <a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-pf.pt"</span><span class="p">)</span>
 <a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Execute prediction for specified categories on an image</span>
+<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Run prediction. No prompts required.</span>
 <a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
 <a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>
 <a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="c1"># Show results</span>
@@ -1853,21 +1860,21 @@ To maximize YOLOE's zero-shot accuracy, fine-tune from provided checkpoints rath
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on March 19, 2025">
-<span class="hover-item">📅</span> Created 28 days ago
+<span class="hover-item">📅</span> Created 29 days ago
     </span>
-<span class="date-item" title="This page was last updated on April 05, 2025">
-<span class="hover-item">✏️</span> Updated 11 days ago
+<span class="date-item" title="This page was last updated on April 17, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/Y-T-G" title="Y-T-G (3 changes)">
+<img alt="Y-T-G" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/32206511?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (5 changes)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (2 changes)">
 <img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Y-T-G" title="Y-T-G (2 changes)">
-<img alt="Y-T-G" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/32206511?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/JShengP" title="JShengP (1 change)">
 <img alt="JShengP" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/36942973?v=4&amp;s=96"/>
