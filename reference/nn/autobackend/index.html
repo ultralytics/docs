@@ -1280,11 +1280,11 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <code>weights</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="torch.nn.Module">Module</span></code>
+<code><span title="str">str</span> | <span title="typing.List">List</span>[<span title="str">str</span>] | <span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Path to the model weights file or a module instance. Defaults to 'yolo11n.pt'.</p>
+<p>Path to the model weights file or a module instance.</p>
 </div>
 </td>
 <td>
@@ -1300,7 +1300,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Device to run the model on. Defaults to CPU.</p>
+<p>Device to run the model on.</p>
 </div>
 </td>
 <td>
@@ -1316,7 +1316,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Use OpenCV DNN module for ONNX inference. Defaults to False.</p>
+<p>Use OpenCV DNN module for ONNX inference.</p>
 </div>
 </td>
 <td>
@@ -1348,7 +1348,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Enable half-precision inference. Supported only on specific backends. Defaults to False.</p>
+<p>Enable half-precision inference. Supported only on specific backends.</p>
 </div>
 </td>
 <td>
@@ -1380,7 +1380,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Fuse Conv2D + BatchNorm layers for optimization. Defaults to True.</p>
+<p>Fuse Conv2D + BatchNorm layers for optimization.</p>
 </div>
 </td>
 <td>
@@ -1396,7 +1396,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Enable verbose logging. Defaults to True.</p>
+<p>Enable verbose logging.</p>
 </div>
 </td>
 <td>
@@ -1883,14 +1883,14 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">    Initialize the AutoBackend for inference.</span>
 <a id="__codelineno-0-111" name="__codelineno-0-111"></a>
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">        weights (str | torch.nn.Module): Path to the model weights file or a module instance. Defaults to 'yolo11n.pt'.</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">        device (torch.device): Device to run the model on. Defaults to CPU.</span>
-<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">        dnn (bool): Use OpenCV DNN module for ONNX inference. Defaults to False.</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">        weights (str | List[str] | torch.nn.Module): Path to the model weights file or a module instance.</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">        device (torch.device): Device to run the model on.</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">        dnn (bool): Use OpenCV DNN module for ONNX inference.</span>
 <a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">        data (str | Path | optional): Path to the additional data.yaml file containing class names.</span>
-<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">        fp16 (bool): Enable half-precision inference. Supported only on specific backends. Defaults to False.</span>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">        fp16 (bool): Enable half-precision inference. Supported only on specific backends.</span>
 <a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">        batch (int): Batch-size to assume for inference.</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">        fuse (bool): Fuse Conv2D + BatchNorm layers for optimization. Defaults to True.</span>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">        verbose (bool): Enable verbose logging. Defaults to True.</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">        fuse (bool): Fuse Conv2D + BatchNorm layers for optimization.</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a><span class="sd">        verbose (bool): Enable verbose logging.</span>
 <a id="__codelineno-0-121" name="__codelineno-0-121"></a><span class="sd">    """</span>
 <a id="__codelineno-0-122" name="__codelineno-0-122"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="n">w</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">weights</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">weights</span><span class="p">)</span>
@@ -2061,8 +2061,8 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <a id="__codelineno-0-288" name="__codelineno-0-288"></a>            <span class="c1"># fix error: `np.bool` was a deprecated alias for the builtin `bool` for JetPack 4 with Python &lt;= 3.8.0</span>
 <a id="__codelineno-0-289" name="__codelineno-0-289"></a>            <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"numpy==1.23.5"</span><span class="p">)</span>
 <a id="__codelineno-0-290" name="__codelineno-0-290"></a>
-<a id="__codelineno-0-291" name="__codelineno-0-291"></a>        <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-292" name="__codelineno-0-292"></a>            <span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">trt</span>  <span class="c1"># noqa https://developer.nvidia.com/nvidia-tensorrt-download</span>
+<a id="__codelineno-0-291" name="__codelineno-0-291"></a>        <span class="k">try</span><span class="p">:</span>  <span class="c1"># https://developer.nvidia.com/nvidia-tensorrt-download</span>
+<a id="__codelineno-0-292" name="__codelineno-0-292"></a>            <span class="kn">import</span><span class="w"> </span><span class="nn">tensorrt</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">trt</span>  <span class="c1"># noqa</span>
 <a id="__codelineno-0-293" name="__codelineno-0-293"></a>        <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
 <a id="__codelineno-0-294" name="__codelineno-0-294"></a>            <span class="k">if</span> <span class="n">LINUX</span><span class="p">:</span>
 <a id="__codelineno-0-295" name="__codelineno-0-295"></a>                <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"tensorrt&gt;7.0.0,!=10.1.0"</span><span class="p">)</span>
@@ -2375,7 +2375,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to perform data augmentation during inference. Defaults to False.</p>
+<p>Whether to perform data augmentation during inference.</p>
 </div>
 </td>
 <td>
@@ -2391,7 +2391,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to visualize the output predictions. Defaults to False.</p>
+<p>Whether to visualize the output predictions.</p>
 </div>
 </td>
 <td>
@@ -2403,7 +2403,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <code>embed</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2672,9 +2672,9 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <a id="__codelineno-0-562" name="__codelineno-0-562"></a>
 <a id="__codelineno-0-563" name="__codelineno-0-563"></a><span class="sd">    Args:</span>
 <a id="__codelineno-0-564" name="__codelineno-0-564"></a><span class="sd">        im (torch.Tensor): The image tensor to perform inference on.</span>
-<a id="__codelineno-0-565" name="__codelineno-0-565"></a><span class="sd">        augment (bool): Whether to perform data augmentation during inference. Defaults to False.</span>
-<a id="__codelineno-0-566" name="__codelineno-0-566"></a><span class="sd">        visualize (bool): Whether to visualize the output predictions. Defaults to False.</span>
-<a id="__codelineno-0-567" name="__codelineno-0-567"></a><span class="sd">        embed (list, optional): A list of feature vectors/embeddings to return.</span>
+<a id="__codelineno-0-565" name="__codelineno-0-565"></a><span class="sd">        augment (bool): Whether to perform data augmentation during inference.</span>
+<a id="__codelineno-0-566" name="__codelineno-0-566"></a><span class="sd">        visualize (bool): Whether to visualize the output predictions.</span>
+<a id="__codelineno-0-567" name="__codelineno-0-567"></a><span class="sd">        embed (list | None): A list of feature vectors/embeddings to return.</span>
 <a id="__codelineno-0-568" name="__codelineno-0-568"></a><span class="sd">        **kwargs (Any): Additional keyword arguments for model configuration.</span>
 <a id="__codelineno-0-569" name="__codelineno-0-569"></a>
 <a id="__codelineno-0-570" name="__codelineno-0-570"></a><span class="sd">    Returns:</span>
