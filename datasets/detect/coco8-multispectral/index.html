@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover the PASCAL VOC dataset, essential for object detection, segmentation, and classification. Learn key features, applications, and usage tips." name="description"/>
+<meta content="Explore the Ultralytics COCO8-Multispectral dataset, an enhanced version of COCO8 with interpolated spectral channels, ideal for testing multispectral object detection models and training pipelines." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/datasets/detect/voc/" rel="canonical"/>
-<link href="../visdrone/" rel="prev"/>
-<link href="../xview/" rel="next"/>
+<link href="https://docs.ultralytics.com/datasets/detect/coco8-multispectral/" rel="canonical"/>
+<link href="../coco8/" rel="prev"/>
+<link href="../coco128/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.12" name="generator"/>
-<title>VOC Dataset - Ultralytics YOLO Docs</title>
+<title>COCO8-Multispectral Dataset - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.2afb09e1.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,13 +21,13 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="VOC" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="PASCAL VOC, VOC dataset, object detection, segmentation, classification, YOLO, Faster R-CNN, Mask R-CNN, image annotations, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/detect/voc" property="og:url"/><meta content="VOC" property="og:title"/><meta content="Discover the PASCAL VOC dataset, essential for object detection, segmentation, and classification. Learn key features, applications, and usage tips." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/mosaiced-voc-dataset-sample.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/detect/voc" property="twitter:url"/><meta content="VOC" property="twitter:title"/><meta content="Discover the PASCAL VOC dataset, essential for object detection, segmentation, and classification. Learn key features, applications, and usage tips." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/mosaiced-voc-dataset-sample.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "VOC", "image": ["https://github.com/ultralytics/docs/releases/download/0/mosaiced-voc-dataset-sample.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-17 21:52:48 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the PASCAL VOC dataset, essential for object detection, segmentation, and classification. Learn key features, applications, and usage tips.", "mainEntity": [{"@type": "Question", "name": "What is the PASCAL VOC dataset and why is it important for computer vision tasks?", "acceptedAnswer": {"@type": "Answer", "text": "The PASCAL VOC (Visual Object Classes) dataset is a renowned benchmark for object detection, segmentation, and classification in computer vision. It includes comprehensive annotations like bounding boxes, class labels, and segmentation masks across 20 different object categories. Researchers use it widely to evaluate the performance of models like Faster R-CNN, YOLO, and Mask R-CNN due to its standardized evaluation metrics such as mean Average Precision (mAP)."}}, {"@type": "Question", "name": "How do I train a YOLO11 model using the VOC dataset?", "acceptedAnswer": {"@type": "Answer", "text": "To train a YOLO11 model with the VOC dataset, you need the dataset configuration in a YAML file. Here's an example to start training a YOLO11n model for 100 epochs with an image size of 640:"}}, {"@type": "Question", "name": "What are the primary challenges included in the VOC dataset?", "acceptedAnswer": {"@type": "Answer", "text": "The VOC dataset includes two main challenges: VOC2007 and VOC2012. These challenges test object detection, segmentation, and classification across 20 diverse object categories. Each image is meticulously annotated with bounding boxes, class labels, and segmentation masks. The challenges provide standardized metrics like mAP, facilitating the comparison and benchmarking of different computer vision models."}}, {"@type": "Question", "name": "How does the PASCAL VOC dataset enhance model benchmarking and evaluation?", "acceptedAnswer": {"@type": "Answer", "text": "The PASCAL VOC dataset enhances model benchmarking and evaluation through its detailed annotations and standardized metrics like mean Average Precision (mAP). These metrics are crucial for assessing the performance of object detection and classification models. The dataset's diverse and complex images ensure comprehensive model evaluation across various real-world scenarios."}}, {"@type": "Question", "name": "How do I use the VOC dataset for semantic segmentation in YOLO models?", "acceptedAnswer": {"@type": "Answer", "text": "To use the VOC dataset for semantic segmentation tasks with YOLO models, you need to configure the dataset properly in a YAML file. The YAML file defines paths and classes needed for training segmentation models. Check the VOC dataset YAML configuration file at VOC.yaml for detailed setups. For segmentation tasks, you would use a segmentation-specific model like yolo11n-seg.pt instead of the detection model."}}]}</script></head>
+<meta content="COCO8-Multispectral" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="COCO8-Multispectral, Ultralytics, dataset, multispectral, object detection, YOLO11, training, validation, machine learning, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/datasets/detect/coco8-multispectral" property="og:url"/><meta content="COCO8-Multispectral" property="og:title"/><meta content="Explore the Ultralytics COCO8-Multispectral dataset, an enhanced version of COCO8 with interpolated spectral channels, ideal for testing multispectral object detection models and training pipelines." property="og:description"/><meta content="https://github.com/user-attachments/assets/5bf7f52b-b81e-4e5f-9888-653ab68665f5" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/datasets/detect/coco8-multispectral" property="twitter:url"/><meta content="COCO8-Multispectral" property="twitter:title"/><meta content="Explore the Ultralytics COCO8-Multispectral dataset, an enhanced version of COCO8 with interpolated spectral channels, ideal for testing multispectral object detection models and training pipelines." property="twitter:description"/><meta content="https://github.com/user-attachments/assets/5bf7f52b-b81e-4e5f-9888-653ab68665f5" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "COCO8-Multispectral", "image": ["https://github.com/user-attachments/assets/5bf7f52b-b81e-4e5f-9888-653ab68665f5"], "datePublished": "2025-04-18 17:16:49 +0200", "dateModified": "2025-04-18 17:16:49 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the Ultralytics COCO8-Multispectral dataset, an enhanced version of COCO8 with interpolated spectral channels, ideal for testing multispectral object detection models and training pipelines.", "mainEntity": [{"@type": "Question", "name": "What Is the Ultralytics COCO8-Multispectral Dataset Used For?", "acceptedAnswer": {"@type": "Answer", "text": "The Ultralytics COCO8-Multispectral dataset is designed for rapid testing and debugging of multispectral object detection models. With only 8 images (4 for training, 4 for validation), it is ideal for verifying your YOLO training pipelines and ensuring everything works as expected before scaling to larger datasets. For more datasets to experiment with, visit the Ultralytics Datasets Catalog."}}, {"@type": "Question", "name": "How Does Multispectral Data Improve Object Detection?", "acceptedAnswer": {"@type": "Answer", "text": "Multispectral data provides additional spectral information beyond standard RGB, enabling models to distinguish objects based on subtle differences in reflectance across wavelengths. This can enhance detection accuracy, especially in challenging scenarios. Learn more about multispectral imaging and its applications in advanced computer vision."}}, {"@type": "Question", "name": "Is COCO8-Multispectral Compatible With Ultralytics HUB and YOLO Models?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, COCO8-Multispectral is fully compatible with Ultralytics HUB and all YOLO models, including the latest YOLO11. This allows you to easily integrate the dataset into your training and validation workflows."}}, {"@type": "Question", "name": "Where Can I Find More Information on Data Augmentation Techniques?", "acceptedAnswer": {"@type": "Answer", "text": "For a deeper understanding of data augmentation methods such as mosaic and their impact on model performance, refer to the YOLO Data Augmentation Guide and the Ultralytics Blog on Data Augmentation."}}, {"@type": "Question", "name": "Can I Use COCO8-Multispectral for Benchmarking or Educational Purposes?", "acceptedAnswer": {"@type": "Answer", "text": "Absolutely! The small size and multispectral nature of COCO8-Multispectral make it ideal for benchmarking, educational demonstrations, and prototyping new model architectures. For more benchmarking datasets, see the Ultralytics Benchmark Dataset Collection."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#voc-dataset">
+<a class="md-skip" href="#coco8-multispectral-dataset">
           Skip to content
         </a>
 </div>
@@ -60,7 +60,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              VOC
+              COCO8-Multispectral
           </span>
 </div>
 </div>
@@ -279,12 +279,115 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../coco8-multispectral/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    COCO8-Multispectral
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     COCO8-Multispectral
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#introduction">
+<span class="md-ellipsis">
+      Introduction
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dataset-generation">
+<span class="md-ellipsis">
+      Dataset Generation
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#dataset-yaml">
+<span class="md-ellipsis">
+      Dataset YAML
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#usage">
+<span class="md-ellipsis">
+      Usage
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sample-images-and-annotations">
+<span class="md-ellipsis">
+      Sample Images and Annotations
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#citations-and-acknowledgments">
+<span class="md-ellipsis">
+      Citations and Acknowledgments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-the-ultralytics-coco8-multispectral-dataset-used-for">
+<span class="md-ellipsis">
+      What Is the Ultralytics COCO8-Multispectral Dataset Used For?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-does-multispectral-data-improve-object-detection">
+<span class="md-ellipsis">
+      How Does Multispectral Data Improve Object Detection?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#is-coco8-multispectral-compatible-with-ultralytics-hub-and-yolo-models">
+<span class="md-ellipsis">
+      Is COCO8-Multispectral Compatible With Ultralytics HUB and YOLO Models?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#where-can-i-find-more-information-on-data-augmentation-techniques">
+<span class="md-ellipsis">
+      Where Can I Find More Information on Data Augmentation Techniques?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#can-i-use-coco8-multispectral-for-benchmarking-or-educational-purposes">
+<span class="md-ellipsis">
+      Can I Use COCO8-Multispectral for Benchmarking or Educational Purposes?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../coco128/">
@@ -335,122 +438,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    VOC
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../voc/">
 <span class="md-ellipsis">
     VOC
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#key-features">
-<span class="md-ellipsis">
-      Key Features
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-structure">
-<span class="md-ellipsis">
-      Dataset Structure
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#applications">
-<span class="md-ellipsis">
-      Applications
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-yaml">
-<span class="md-ellipsis">
-      Dataset YAML
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#usage">
-<span class="md-ellipsis">
-      Usage
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#sample-images-and-annotations">
-<span class="md-ellipsis">
-      Sample Images and Annotations
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#citations-and-acknowledgments">
-<span class="md-ellipsis">
-      Citations and Acknowledgments
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#faq">
-<span class="md-ellipsis">
-      FAQ
-    </span>
-</a>
-<nav aria-label="FAQ" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-the-pascal-voc-dataset-and-why-is-it-important-for-computer-vision-tasks">
-<span class="md-ellipsis">
-      What is the PASCAL VOC dataset and why is it important for computer vision tasks?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-train-a-yolo11-model-using-the-voc-dataset">
-<span class="md-ellipsis">
-      How do I train a YOLO11 model using the VOC dataset?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-primary-challenges-included-in-the-voc-dataset">
-<span class="md-ellipsis">
-      What are the primary challenges included in the VOC dataset?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-does-the-pascal-voc-dataset-enhance-model-benchmarking-and-evaluation">
-<span class="md-ellipsis">
-      How does the PASCAL VOC dataset enhance model benchmarking and evaluation?
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-use-the-voc-dataset-for-semantic-segmentation-in-yolo-models">
-<span class="md-ellipsis">
-      How do I use the VOC dataset for semantic segmentation in YOLO models?
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../xview/">
@@ -819,23 +812,16 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#key-features">
+<a class="md-nav__link" href="#introduction">
 <span class="md-ellipsis">
-      Key Features
+      Introduction
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#dataset-structure">
+<a class="md-nav__link" href="#dataset-generation">
 <span class="md-ellipsis">
-      Dataset Structure
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#applications">
-<span class="md-ellipsis">
-      Applications
+      Dataset Generation
     </span>
 </a>
 </li>
@@ -876,37 +862,37 @@
 <nav aria-label="FAQ" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-is-the-pascal-voc-dataset-and-why-is-it-important-for-computer-vision-tasks">
+<a class="md-nav__link" href="#what-is-the-ultralytics-coco8-multispectral-dataset-used-for">
 <span class="md-ellipsis">
-      What is the PASCAL VOC dataset and why is it important for computer vision tasks?
+      What Is the Ultralytics COCO8-Multispectral Dataset Used For?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-train-a-yolo11-model-using-the-voc-dataset">
+<a class="md-nav__link" href="#how-does-multispectral-data-improve-object-detection">
 <span class="md-ellipsis">
-      How do I train a YOLO11 model using the VOC dataset?
+      How Does Multispectral Data Improve Object Detection?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#what-are-the-primary-challenges-included-in-the-voc-dataset">
+<a class="md-nav__link" href="#is-coco8-multispectral-compatible-with-ultralytics-hub-and-yolo-models">
 <span class="md-ellipsis">
-      What are the primary challenges included in the VOC dataset?
+      Is COCO8-Multispectral Compatible With Ultralytics HUB and YOLO Models?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-does-the-pascal-voc-dataset-enhance-model-benchmarking-and-evaluation">
+<a class="md-nav__link" href="#where-can-i-find-more-information-on-data-augmentation-techniques">
 <span class="md-ellipsis">
-      How does the PASCAL VOC dataset enhance model benchmarking and evaluation?
+      Where Can I Find More Information on Data Augmentation Techniques?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#how-do-i-use-the-voc-dataset-for-semantic-segmentation-in-yolo-models">
+<a class="md-nav__link" href="#can-i-use-coco8-multispectral-for-benchmarking-or-educational-purposes">
 <span class="md-ellipsis">
-      How do I use the VOC dataset for semantic segmentation in YOLO models?
+      Can I Use COCO8-Multispectral for Benchmarking or Educational Purposes?
     </span>
 </a>
 </li>
@@ -920,141 +906,133 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/datasets/detect/voc.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/datasets/detect/coco8-multispectral.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="voc-dataset">VOC Dataset</h1>
-<p>The <a href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a> (Visual Object Classes) dataset is a well-known object detection, segmentation, and classification dataset. It is designed to encourage research on a wide variety of object categories and is commonly used for benchmarking computer vision models. It is an essential dataset for researchers and developers working on object detection, segmentation, and classification tasks.</p>
-<h2 id="key-features">Key Features</h2>
+<h1 id="coco8-multispectral-dataset">COCO8-Multispectral Dataset</h1>
+<h2 id="introduction">Introduction</h2>
+<p>The <a href="https://www.ultralytics.com/">Ultralytics</a> COCO8-Multispectral dataset is an advanced variant of the original COCO8 dataset, designed to facilitate experimentation with multispectral object detection models. It consists of the same 8 images from the COCO train 2017 set—4 for training and 4 for validation—but with each image transformed into a 10-channel multispectral format. By expanding beyond standard RGB channels, COCO8-Multispectral enables the development and evaluation of models that can leverage richer spectral information.</p>
+<p align="center">
+<img alt="Multispectral Imagery Overview" src="https://github.com/user-attachments/assets/5bf7f52b-b81e-4e5f-9888-653ab68665f5" width="640"/>
+</p>
+<p>COCO8-Multispectral is fully compatible with <a href="https://hub.ultralytics.com/">Ultralytics HUB</a> and <a href="../../../models/yolo11/">YOLO11</a>, ensuring seamless integration into your <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> workflows.</p>
+<h2 id="dataset-generation">Dataset Generation</h2>
+<p>The multispectral images in COCO8-Multispectral were created by interpolating the original RGB images across 10 evenly spaced spectral channels within the visible spectrum. The process includes:</p>
 <ul>
-<li>VOC dataset includes two main challenges: VOC2007 and VOC2012.</li>
-<li>The dataset comprises 20 object categories, including common objects like cars, bicycles, and animals, as well as more specific categories such as boats, sofas, and dining tables.</li>
-<li>Annotations include object bounding boxes and class labels for object detection and classification tasks, and segmentation masks for the segmentation tasks.</li>
-<li>VOC provides standardized evaluation metrics like <a href="https://www.ultralytics.com/glossary/mean-average-precision-map">mean Average Precision</a> (mAP) for object detection and classification, making it suitable for comparing model performance.</li>
+<li><strong>Wavelength Assignment</strong>: Assigning nominal wavelengths to the RGB channels—Red: 650 nm, Green: 510 nm, Blue: 475 nm.</li>
+<li><strong>Interpolation</strong>: Using linear interpolation to estimate pixel values at intermediate wavelengths between 450 nm and 700 nm, resulting in 10 spectral channels.</li>
+<li><strong>Extrapolation</strong>: Applying extrapolation with SciPy's <code>interp1d</code> function to estimate values beyond the original RGB wavelengths, ensuring a complete spectral representation.</li>
 </ul>
-<h2 id="dataset-structure">Dataset Structure</h2>
-<p>The VOC dataset is split into three subsets:</p>
-<ol>
-<li><strong>Train</strong>: This subset contains images for training object detection, segmentation, and classification models.</li>
-<li><strong>Validation</strong>: This subset has images used for validation purposes during model training.</li>
-<li><strong>Test</strong>: This subset consists of images used for testing and benchmarking the trained models. Ground truth annotations for this subset are not publicly available, and the results are submitted to the <a href="http://host.robots.ox.ac.uk:8080/leaderboard/displaylb.php">PASCAL VOC evaluation server</a> for performance evaluation.</li>
-</ol>
-<h2 id="applications">Applications</h2>
-<p>The VOC dataset is widely used for training and evaluating <a href="https://www.ultralytics.com/glossary/deep-learning-dl">deep learning</a> models in object detection (such as <a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO</a>, <a href="https://arxiv.org/abs/1506.01497">Faster R-CNN</a>, and <a href="https://arxiv.org/abs/1512.02325">SSD</a>), <a href="https://www.ultralytics.com/glossary/instance-segmentation">instance segmentation</a> (such as <a href="https://arxiv.org/abs/1703.06870">Mask R-CNN</a>), and <a href="https://www.ultralytics.com/glossary/image-classification">image classification</a>. The dataset's diverse set of object categories, large number of annotated images, and standardized evaluation metrics make it an essential resource for <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> researchers and practitioners.</p>
+<p>This approach simulates a multispectral imaging process, providing a more diverse set of data for model training and evaluation. For further reading on multispectral imaging, see the <a href="https://en.wikipedia.org/wiki/Multispectral_imaging">Multispectral Imaging Wikipedia article</a>.</p>
 <h2 id="dataset-yaml">Dataset YAML</h2>
-<p>A YAML (Yet Another Markup Language) file is used to define the dataset configuration. It contains information about the dataset's paths, classes, and other relevant information. In the case of the VOC dataset, the <code>VOC.yaml</code> file is maintained at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/VOC.yaml">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/VOC.yaml</a>.</p>
+<p>The COCO8-Multispectral dataset is configured using a YAML file, which defines dataset paths, class names, and essential metadata. You can review the official <code>coco8-multispectral.yaml</code> file in the <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco8-multispectral.yaml">Ultralytics GitHub repository</a>.</p>
 <div class="admonition example">
-<p class="admonition-title">ultralytics/cfg/datasets/VOC.yaml</p>
+<p class="admonition-title">ultralytics/cfg/datasets/coco8-multispectral.yaml</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
 <a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># PASCAL VOC dataset http://host.robots.ox.ac.uk/pascal/VOC by University of Oxford</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Documentation: # Documentation: https://docs.ultralytics.com/datasets/detect/voc/</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># Example usage: yolo train data=VOC.yaml</span>
+<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># COCO8-Multispectral dataset (COCO8 images interpolated across 10 channels in the visual spectrum) by Ultralytics</span>
+<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/coco8-multispectral/</span>
+<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># Example usage: yolo train data=coco8-multispectral.yaml</span>
 <a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># parent</span>
 <a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># ├── ultralytics</span>
 <a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># └── datasets</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1">#     └── VOC  ← downloads here (2.8 GB)</span>
+<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1">#     └── coco8-multispectral  ← downloads here (20.2 MB)</span>
 <a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
 <a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/VOC</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="c1"># train images (relative to 'path')  16551 images</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train2012</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train2007</span>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val2012</span>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val2007</span>
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="c1"># val images (relative to 'path')  4952 images</span>
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/test2007</span>
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/test2007</span>
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a>
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="c1"># Classes</span>
-<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="nt">names</span><span class="p">:</span>
-<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">aeroplane</span>
-<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
-<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bird</span>
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boat</span>
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bottle</span>
-<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bus</span>
-<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
-<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cat</span>
-<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">  </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chair</span>
-<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">  </span><span class="nt">9</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cow</span>
-<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">  </span><span class="nt">10</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">diningtable</span>
-<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">  </span><span class="nt">11</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dog</span>
-<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">  </span><span class="nt">12</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">horse</span>
-<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">  </span><span class="nt">13</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motorbike</span>
-<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">  </span><span class="nt">14</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
-<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">  </span><span class="nt">15</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pottedplant</span>
-<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">  </span><span class="nt">16</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sheep</span>
-<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">  </span><span class="nt">17</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sofa</span>
-<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">  </span><span class="nt">18</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">train</span>
-<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">  </span><span class="nt">19</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tvmonitor</span>
-<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a>
-<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
-<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">  </span><span class="no">import xml.etree.ElementTree as ET</span>
-<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
-<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">  </span><span class="no">from tqdm import tqdm</span>
-<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a>
-<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a>
-<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a>
-<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">  </span><span class="no">def convert_label(path, lb_path, year, image_id):</span>
-<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">      </span><span class="no">"""Converts XML annotations from VOC format to YOLO format by extracting bounding boxes and class IDs."""</span>
-<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a>
-<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">      </span><span class="no">def convert_box(size, box):</span>
-<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">          </span><span class="no">dw, dh = 1.0 / size[0], 1.0 / size[1]</span>
-<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">          </span><span class="no">x, y, w, h = (box[0] + box[1]) / 2.0 - 1, (box[2] + box[3]) / 2.0 - 1, box[1] - box[0], box[3] - box[2]</span>
-<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">          </span><span class="no">return x * dw, y * dh, w * dw, h * dh</span>
-<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a>
-<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">      </span><span class="no">in_file = open(path / f"VOC{year}/Annotations/{image_id}.xml")</span>
-<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">      </span><span class="no">out_file = open(lb_path, "w")</span>
-<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">      </span><span class="no">tree = ET.parse(in_file)</span>
-<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">      </span><span class="no">root = tree.getroot()</span>
-<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">      </span><span class="no">size = root.find("size")</span>
-<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">      </span><span class="no">w = int(size.find("width").text)</span>
-<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">      </span><span class="no">h = int(size.find("height").text)</span>
-<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a>
-<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">      </span><span class="no">names = list(yaml["names"].values())  # names list</span>
-<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">      </span><span class="no">for obj in root.iter("object"):</span>
-<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">          </span><span class="no">cls = obj.find("name").text</span>
-<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">          </span><span class="no">if cls in names and int(obj.find("difficult").text) != 1:</span>
-<a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="w">              </span><span class="no">xmlbox = obj.find("bndbox")</span>
-<a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="w">              </span><span class="no">bb = convert_box((w, h), [float(xmlbox.find(x).text) for x in ("xmin", "xmax", "ymin", "ymax")])</span>
-<a href="#__codelineno-0-78" id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">              </span><span class="no">cls_id = names.index(cls)  # class id</span>
-<a href="#__codelineno-0-79" id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">              </span><span class="no">out_file.write(" ".join(str(a) for a in (cls_id, *bb)) + "\n")</span>
-<a href="#__codelineno-0-80" id="__codelineno-0-80" name="__codelineno-0-80"></a>
-<a href="#__codelineno-0-81" id="__codelineno-0-81" name="__codelineno-0-81"></a>
-<a href="#__codelineno-0-82" id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">  </span><span class="no"># Download</span>
-<a href="#__codelineno-0-83" id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
-<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">  </span><span class="no">url = "https://github.com/ultralytics/assets/releases/download/v0.0.0/"</span>
-<a href="#__codelineno-0-85" id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="w">  </span><span class="no">urls = [</span>
-<a href="#__codelineno-0-86" id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">      </span><span class="no">f"{url}VOCtrainval_06-Nov-2007.zip",  # 446MB, 5012 images</span>
-<a href="#__codelineno-0-87" id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="w">      </span><span class="no">f"{url}VOCtest_06-Nov-2007.zip",  # 438MB, 4953 images</span>
-<a href="#__codelineno-0-88" id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="w">      </span><span class="no">f"{url}VOCtrainval_11-May-2012.zip",  # 1.95GB, 17126 images</span>
-<a href="#__codelineno-0-89" id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">  </span><span class="no">]</span>
-<a href="#__codelineno-0-90" id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">  </span><span class="no">download(urls, dir=dir / "images", curl=True, threads=3, exist_ok=True)  # download and unzip over existing (required)</span>
-<a href="#__codelineno-0-91" id="__codelineno-0-91" name="__codelineno-0-91"></a>
-<a href="#__codelineno-0-92" id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">  </span><span class="no"># Convert</span>
-<a href="#__codelineno-0-93" id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">  </span><span class="no">path = dir / "images/VOCdevkit"</span>
-<a href="#__codelineno-0-94" id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="w">  </span><span class="no">for year, image_set in ("2012", "train"), ("2012", "val"), ("2007", "train"), ("2007", "val"), ("2007", "test"):</span>
-<a href="#__codelineno-0-95" id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">      </span><span class="no">imgs_path = dir / "images" / f"{image_set}{year}"</span>
-<a href="#__codelineno-0-96" id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">      </span><span class="no">lbs_path = dir / "labels" / f"{image_set}{year}"</span>
-<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">      </span><span class="no">imgs_path.mkdir(exist_ok=True, parents=True)</span>
-<a href="#__codelineno-0-98" id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">      </span><span class="no">lbs_path.mkdir(exist_ok=True, parents=True)</span>
+<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-multispectral</span><span class="w"> </span><span class="c1"># dataset root dir</span>
+<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 4 images</span>
+<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 4 images</span>
+<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
+<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
+<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="c1"># Classes</span>
+<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="nt">names</span><span class="p">:</span>
+<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
+<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
+<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motorcycle</span>
+<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">airplane</span>
+<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bus</span>
+<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">train</span>
+<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truck</span>
+<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">  </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boat</span>
+<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">  </span><span class="nt">9</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traffic light</span>
+<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">  </span><span class="nt">10</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fire hydrant</span>
+<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">  </span><span class="nt">11</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stop sign</span>
+<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">  </span><span class="nt">12</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parking meter</span>
+<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">  </span><span class="nt">13</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bench</span>
+<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">  </span><span class="nt">14</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bird</span>
+<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">  </span><span class="nt">15</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cat</span>
+<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">  </span><span class="nt">16</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dog</span>
+<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">  </span><span class="nt">17</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">horse</span>
+<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">  </span><span class="nt">18</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sheep</span>
+<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">  </span><span class="nt">19</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cow</span>
+<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">  </span><span class="nt">20</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">elephant</span>
+<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">  </span><span class="nt">21</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bear</span>
+<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">  </span><span class="nt">22</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zebra</span>
+<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">  </span><span class="nt">23</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">giraffe</span>
+<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">  </span><span class="nt">24</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backpack</span>
+<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">  </span><span class="nt">25</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">umbrella</span>
+<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">  </span><span class="nt">26</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">handbag</span>
+<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">  </span><span class="nt">27</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tie</span>
+<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">  </span><span class="nt">28</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">suitcase</span>
+<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">  </span><span class="nt">29</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frisbee</span>
+<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">  </span><span class="nt">30</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skis</span>
+<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">  </span><span class="nt">31</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snowboard</span>
+<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">  </span><span class="nt">32</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sports ball</span>
+<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">  </span><span class="nt">33</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kite</span>
+<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">  </span><span class="nt">34</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseball bat</span>
+<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">  </span><span class="nt">35</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseball glove</span>
+<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">  </span><span class="nt">36</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skateboard</span>
+<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">  </span><span class="nt">37</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">surfboard</span>
+<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">  </span><span class="nt">38</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tennis racket</span>
+<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">  </span><span class="nt">39</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bottle</span>
+<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">  </span><span class="nt">40</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wine glass</span>
+<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">  </span><span class="nt">41</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cup</span>
+<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">  </span><span class="nt">42</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fork</span>
+<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">  </span><span class="nt">43</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">knife</span>
+<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">  </span><span class="nt">44</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spoon</span>
+<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">  </span><span class="nt">45</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bowl</span>
+<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">  </span><span class="nt">46</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">banana</span>
+<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="nt">47</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apple</span>
+<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">  </span><span class="nt">48</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sandwich</span>
+<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">  </span><span class="nt">49</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">orange</span>
+<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">  </span><span class="nt">50</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">broccoli</span>
+<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">  </span><span class="nt">51</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">carrot</span>
+<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">  </span><span class="nt">52</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hot dog</span>
+<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">  </span><span class="nt">53</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pizza</span>
+<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">  </span><span class="nt">54</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">donut</span>
+<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">  </span><span class="nt">55</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cake</span>
+<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">  </span><span class="nt">56</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chair</span>
+<a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="w">  </span><span class="nt">57</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">couch</span>
+<a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="w">  </span><span class="nt">58</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">potted plant</span>
+<a href="#__codelineno-0-78" id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">  </span><span class="nt">59</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bed</span>
+<a href="#__codelineno-0-79" id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">  </span><span class="nt">60</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dining table</span>
+<a href="#__codelineno-0-80" id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="w">  </span><span class="nt">61</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toilet</span>
+<a href="#__codelineno-0-81" id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="w">  </span><span class="nt">62</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tv</span>
+<a href="#__codelineno-0-82" id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">  </span><span class="nt">63</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">laptop</span>
+<a href="#__codelineno-0-83" id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">  </span><span class="nt">64</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mouse</span>
+<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">  </span><span class="nt">65</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remote</span>
+<a href="#__codelineno-0-85" id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="w">  </span><span class="nt">66</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyboard</span>
+<a href="#__codelineno-0-86" id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">  </span><span class="nt">67</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cell phone</span>
+<a href="#__codelineno-0-87" id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="w">  </span><span class="nt">68</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microwave</span>
+<a href="#__codelineno-0-88" id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="w">  </span><span class="nt">69</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oven</span>
+<a href="#__codelineno-0-89" id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">  </span><span class="nt">70</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toaster</span>
+<a href="#__codelineno-0-90" id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">  </span><span class="nt">71</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sink</span>
+<a href="#__codelineno-0-91" id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="w">  </span><span class="nt">72</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">refrigerator</span>
+<a href="#__codelineno-0-92" id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">  </span><span class="nt">73</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">book</span>
+<a href="#__codelineno-0-93" id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">  </span><span class="nt">74</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clock</span>
+<a href="#__codelineno-0-94" id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="w">  </span><span class="nt">75</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vase</span>
+<a href="#__codelineno-0-95" id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">  </span><span class="nt">76</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scissors</span>
+<a href="#__codelineno-0-96" id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">  </span><span class="nt">77</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teddy bear</span>
+<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">  </span><span class="nt">78</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hair drier</span>
+<a href="#__codelineno-0-98" id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">  </span><span class="nt">79</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toothbrush</span>
 <a href="#__codelineno-0-99" id="__codelineno-0-99" name="__codelineno-0-99"></a>
-<a href="#__codelineno-0-100" id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="w">      </span><span class="no">with open(path / f"VOC{year}/ImageSets/Main/{image_set}.txt") as f:</span>
-<a href="#__codelineno-0-101" id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="w">          </span><span class="no">image_ids = f.read().strip().split()</span>
-<a href="#__codelineno-0-102" id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="w">      </span><span class="no">for id in tqdm(image_ids, desc=f"{image_set}{year}"):</span>
-<a href="#__codelineno-0-103" id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="w">          </span><span class="no">f = path / f"VOC{year}/JPEGImages/{id}.jpg"  # old img path</span>
-<a href="#__codelineno-0-104" id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="w">          </span><span class="no">lb_path = (lbs_path / f.name).with_suffix(".txt")  # new label path</span>
-<a href="#__codelineno-0-105" id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="w">          </span><span class="no">f.rename(imgs_path / f.name)  # move image</span>
-<a href="#__codelineno-0-106" id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="w">          </span><span class="no">convert_label(path, lb_path, year, id)  # convert labels to YOLO format</span>
+<a href="#__codelineno-0-100" id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="c1"># Download script/URL (optional)</span>
+<a href="#__codelineno-0-101" id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8-multispectral.zip</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
-<p>To train a YOLO11n model on the VOC dataset for 100 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> with an image size of 640, you can use the following code snippets. For a comprehensive list of available arguments, refer to the model <a href="../../../modes/train/">Training</a> page.</p>
+<p>To train a YOLO11n model on the COCO8-Multispectral dataset for 100 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> with an image size of 640, use the following examples. For a comprehensive list of training options, refer to the <a href="../../../modes/train/">YOLO Training documentation</a>.</p>
 <div class="admonition example">
 <p class="admonition-title">Train Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
@@ -1062,39 +1040,40 @@
 <div class="tabbed-block">
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"VOC.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Train the model on COCO8-Multispectral</span>
+<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8-multispectral.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>VOC.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Train YOLO11n on COCO8-Multispectral using the command line</span>
+<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8-multispectral.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
 </input></input></div>
 </div>
+<p>For more details on model selection and best practices, explore the <a href="../../../models/yolo11/">Ultralytics YOLO model documentation</a> and the <a href="https://docs.ultralytics.com/guides/model-training-tips/">YOLO Model Training Tips guide</a>.</p>
 <h2 id="sample-images-and-annotations">Sample Images and Annotations</h2>
-<p>The VOC dataset contains a diverse set of images with various object categories and complex scenes. Here are some examples of images from the dataset, along with their corresponding annotations:</p>
-<p><img alt="Dataset sample image" src="https://github.com/ultralytics/docs/releases/download/0/mosaiced-voc-dataset-sample.avif"/></p>
+<p>Below is an example of a mosaiced training batch from the COCO8-Multispectral dataset:</p>
+<p><img alt="Dataset sample image" src="https://github.com/user-attachments/assets/bd1cc52b-fc25-46cf-91f9-8922ab098081" width="800"/></p>
 <ul>
-<li><strong>Mosaiced Image</strong>: This image demonstrates a training batch composed of mosaiced dataset images. Mosaicing is a technique used during training that combines multiple images into a single image to increase the variety of objects and scenes within each training batch. This helps improve the model's ability to generalize to different object sizes, aspect ratios, and contexts.</li>
+<li><strong>Mosaiced Image</strong>: This image demonstrates a training batch where multiple dataset images are combined using <a href="https://docs.ultralytics.com/reference/data/augment/">mosaic augmentation</a>. Mosaic augmentation increases the diversity of objects and scenes within each batch, helping the model generalize better to various object sizes, aspect ratios, and backgrounds.</li>
 </ul>
-<p>The example showcases the variety and complexity of the images in the VOC dataset and the benefits of using mosaicing during the training process.</p>
+<p>This technique is especially valuable for small datasets like COCO8-Multispectral, as it maximizes the utility of each image during training.</p>
 <h2 id="citations-and-acknowledgments">Citations and Acknowledgments</h2>
-<p>If you use the VOC dataset in your research or development work, please cite the following paper:</p>
+<p>If you use the COCO dataset in your research or development, please cite the following paper:</p>
 <div class="admonition quote">
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">everingham2010pascal</span><span class="p">,</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{The PASCAL Visual Object Classes (VOC) Challenge}</span><span class="p">,</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Mark Everingham and Luc Van Gool and Christopher K. I. Williams and John Winn and Andrew Zisserman}</span><span class="p">,</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2010}</span><span class="p">,</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{0909.5206}</span><span class="p">,</span>
+<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">lin2015microsoft</span><span class="p">,</span>
+<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{Microsoft COCO: Common Objects in Context}</span><span class="p">,</span>
+<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Tsung-Yi Lin and Michael Maire and Serge Belongie and Lubomir Bourdev and Ross Girshick and James Hays and Pietro Perona and Deva Ramanan and C. Lawrence Zitnick and Piotr Dollár}</span><span class="p">,</span>
+<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2015}</span><span class="p">,</span>
+<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{1405.0312}</span><span class="p">,</span>
 <a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
 <a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
 <a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="p">}</span>
@@ -1103,70 +1082,36 @@
 </div>
 </input></div>
 </div>
-<p>We would like to acknowledge the PASCAL VOC Consortium for creating and maintaining this valuable resource for the <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> community. For more information about the VOC dataset and its creators, visit the <a href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC dataset website</a>.</p>
+<p>Special thanks to the <a href="https://cocodataset.org/#home">COCO Consortium</a> for their ongoing contributions to the <a href="https://www.ultralytics.com/blog/a-history-of-vision-models">computer vision community</a>.</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="what-is-the-pascal-voc-dataset-and-why-is-it-important-for-computer-vision-tasks">What is the PASCAL VOC dataset and why is it important for computer vision tasks?</h3>
-<p>The <a href="http://host.robots.ox.ac.uk/pascal/VOC/">PASCAL VOC</a> (Visual Object Classes) dataset is a renowned benchmark for <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a>, segmentation, and classification in computer vision. It includes comprehensive annotations like bounding boxes, class labels, and segmentation masks across 20 different object categories. Researchers use it widely to evaluate the performance of models like Faster R-CNN, YOLO, and Mask R-CNN due to its standardized evaluation metrics such as mean Average Precision (mAP).</p>
-<h3 id="how-do-i-train-a-yolo11-model-using-the-voc-dataset">How do I train a YOLO11 model using the VOC dataset?</h3>
-<p>To train a YOLO11 model with the VOC dataset, you need the dataset configuration in a YAML file. Here's an example to start training a YOLO11n model for 100 epochs with an image size of 640:</p>
-<div class="admonition example">
-<p class="admonition-title">Train Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
-<div class="tabbed-content">
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"VOC.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-</code></pre></div>
-</div>
-<div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>VOC.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-</code></pre></div>
-</div>
-</div>
-</input></input></div>
-</div>
-<h3 id="what-are-the-primary-challenges-included-in-the-voc-dataset">What are the primary challenges included in the VOC dataset?</h3>
-<p>The VOC dataset includes two main challenges: VOC2007 and VOC2012. These challenges test object detection, segmentation, and classification across 20 diverse object categories. Each image is meticulously annotated with bounding boxes, class labels, and segmentation masks. The challenges provide standardized metrics like mAP, facilitating the comparison and benchmarking of different computer vision models.</p>
-<h3 id="how-does-the-pascal-voc-dataset-enhance-model-benchmarking-and-evaluation">How does the PASCAL VOC dataset enhance model benchmarking and evaluation?</h3>
-<p>The PASCAL VOC dataset enhances model benchmarking and evaluation through its detailed annotations and standardized metrics like mean Average <a href="https://www.ultralytics.com/glossary/precision">Precision</a> (mAP). These metrics are crucial for assessing the performance of object detection and classification models. The dataset's diverse and complex images ensure comprehensive model evaluation across various real-world scenarios.</p>
-<h3 id="how-do-i-use-the-voc-dataset-for-semantic-segmentation-in-yolo-models">How do I use the VOC dataset for <a href="https://www.ultralytics.com/glossary/semantic-segmentation">semantic segmentation</a> in YOLO models?</h3>
-<p>To use the VOC dataset for semantic segmentation tasks with YOLO models, you need to configure the dataset properly in a YAML file. The YAML file defines paths and classes needed for training segmentation models. Check the VOC dataset YAML configuration file at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/VOC.yaml">VOC.yaml</a> for detailed setups. For segmentation tasks, you would use a segmentation-specific model like <code>yolo11n-seg.pt</code> instead of the detection model.</p>
+<h3 id="what-is-the-ultralytics-coco8-multispectral-dataset-used-for">What Is the Ultralytics COCO8-Multispectral Dataset Used For?</h3>
+<p>The Ultralytics COCO8-Multispectral dataset is designed for rapid testing and debugging of <a href="https://www.ultralytics.com/glossary/object-detection">multispectral object detection</a> models. With only 8 images (4 for training, 4 for validation), it is ideal for verifying your <a href="../../../models/yolo11/">YOLO</a> training pipelines and ensuring everything works as expected before scaling to larger datasets. For more datasets to experiment with, visit the <a href="https://docs.ultralytics.com/datasets/">Ultralytics Datasets Catalog</a>.</p>
+<h3 id="how-does-multispectral-data-improve-object-detection">How Does Multispectral Data Improve Object Detection?</h3>
+<p>Multispectral data provides additional spectral information beyond standard RGB, enabling models to distinguish objects based on subtle differences in reflectance across wavelengths. This can enhance detection accuracy, especially in challenging scenarios. Learn more about <a href="https://en.wikipedia.org/wiki/Multispectral_imaging">multispectral imaging</a> and its applications in <a href="https://www.ultralytics.com/blog/ai-in-aviation-a-runway-to-smarter-airports">advanced computer vision</a>.</p>
+<h3 id="is-coco8-multispectral-compatible-with-ultralytics-hub-and-yolo-models">Is COCO8-Multispectral Compatible With Ultralytics HUB and YOLO Models?</h3>
+<p>Yes, COCO8-Multispectral is fully compatible with <a href="https://hub.ultralytics.com/">Ultralytics HUB</a> and all <a href="../../../models/yolo11/">YOLO models</a>, including the latest YOLO11. This allows you to easily integrate the dataset into your training and validation workflows.</p>
+<h3 id="where-can-i-find-more-information-on-data-augmentation-techniques">Where Can I Find More Information on Data Augmentation Techniques?</h3>
+<p>For a deeper understanding of data augmentation methods such as mosaic and their impact on model performance, refer to the <a href="https://docs.ultralytics.com/guides/yolo-data-augmentation/">YOLO Data Augmentation Guide</a> and the <a href="https://www.ultralytics.com/blog/the-ultimate-guide-to-data-augmentation-in-2025">Ultralytics Blog on Data Augmentation</a>.</p>
+<h3 id="can-i-use-coco8-multispectral-for-benchmarking-or-educational-purposes">Can I Use COCO8-Multispectral for Benchmarking or Educational Purposes?</h3>
+<p>Absolutely! The small size and multispectral nature of COCO8-Multispectral make it ideal for benchmarking, educational demonstrations, and prototyping new model architectures. For more benchmarking datasets, see the <a href="https://docs.ultralytics.com/datasets/">Ultralytics Benchmark Dataset Collection</a>.</p>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on November 12, 2023">
-<span class="hover-item">📅</span> Created 1 year ago
+<span class="date-item" title="This page was first created on April 18, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
-<span class="date-item" title="This page was last updated on March 17, 2025">
-<span class="hover-item">✏️</span> Updated 1 month ago
+<span class="date-item" title="This page was last updated on April 18, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (9 changes)">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (1 change)">
 <img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
-<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
-<img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/MatthewNoyce" title="MatthewNoyce (1 change)">
-<img alt="MatthewNoyce" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/131261051?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
-<img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
-<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
-</a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/datasets/detect/voc', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/datasets/detect/coco8-multispectral', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/datasets/detect/voc', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/datasets/detect/coco8-multispectral', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -1184,7 +1129,7 @@
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: VisDrone" class="md-footer__link md-footer__link--prev" href="../visdrone/">
+<a aria-label="Previous: COCO8" class="md-footer__link md-footer__link--prev" href="../coco8/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1193,17 +1138,17 @@
                 Previous
               </span>
 <div class="md-ellipsis">
-                VisDrone
+                COCO8
               </div>
 </div>
 </a>
-<a aria-label="Next: xView" class="md-footer__link md-footer__link--next" href="../xview/">
+<a aria-label="Next: COCO128" class="md-footer__link md-footer__link--next" href="../coco128/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                xView
+                COCO128
               </div>
 </div>
 <div class="md-footer__button md-icon">
