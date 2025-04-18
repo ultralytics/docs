@@ -3012,7 +3012,7 @@ devices when using multiple GPUs.</p>
 <div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">fuse_conv_and_bn</span><span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">bn</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Fuse Conv2d() and BatchNorm2d() layers <a href="https://tehnokv.com/posts/fusing-batchnorm-and-conv/">https://tehnokv.com/posts/fusing-batchnorm-and-conv/</a>.</p>
+<p>Fuse Conv2d() and BatchNorm2d() layers.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/torch_utils.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-240">240</a></span>
@@ -3047,7 +3047,7 @@ devices when using multiple GPUs.</p>
 <span class="normal"><a href="#__codelineno-0-269">269</a></span>
 <span class="normal"><a href="#__codelineno-0-270">270</a></span>
 <span class="normal"><a href="#__codelineno-0-271">271</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-240" name="__codelineno-0-240"></a><span class="k">def</span><span class="w"> </span><span class="nf">fuse_conv_and_bn</span><span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">bn</span><span class="p">):</span>
-<a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="w">    </span><span class="sd">"""Fuse Conv2d() and BatchNorm2d() layers https://tehnokv.com/posts/fusing-batchnorm-and-conv/."""</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a><span class="w">    </span><span class="sd">"""Fuse Conv2d() and BatchNorm2d() layers."""</span>
 <a id="__codelineno-0-242" name="__codelineno-0-242"></a>    <span class="n">fusedconv</span> <span class="o">=</span> <span class="p">(</span>
 <a id="__codelineno-0-243" name="__codelineno-0-243"></a>        <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span>
 <a id="__codelineno-0-244" name="__codelineno-0-244"></a>            <span class="n">conv</span><span class="o">.</span><span class="n">in_channels</span><span class="p">,</span>

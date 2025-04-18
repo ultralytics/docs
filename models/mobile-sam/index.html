@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Discover MobileSAM, a lightweight and fast image segmentation model for mobile applications. Compare its performance with the original SAM and explore its various modes." name="description"/>
+<meta content="Discover MobileSAM, a lightweight and fast image segmentation model for mobile and edge applications. Compare its performance with SAM and YOLO models." name="description"/>
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/models/mobile-sam/" rel="canonical"/>
 <link href="../sam-2/" rel="prev"/>
@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="MobileSAM (Mobile Segment Anything Model)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="MobileSAM, image segmentation, lightweight model, fast segmentation, mobile applications, SAM, ViT encoder, Tiny-ViT, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/mobile-sam" property="og:url"/><meta content="MobileSAM (Mobile Segment Anything Model)" property="og:title"/><meta content="Discover MobileSAM, a lightweight and fast image segmentation model for mobile applications. Compare its performance with the original SAM and explore its various modes." property="og:description"/><meta content="https://raw.githubusercontent.com/ChaoningZhang/MobileSAM/master/assets/logo2.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/mobile-sam" property="twitter:url"/><meta content="MobileSAM (Mobile Segment Anything Model)" property="twitter:title"/><meta content="Discover MobileSAM, a lightweight and fast image segmentation model for mobile applications. Compare its performance with the original SAM and explore its various modes." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ChaoningZhang/MobileSAM/master/assets/logo2.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "MobileSAM (Mobile Segment Anything Model)", "image": ["https://raw.githubusercontent.com/ChaoningZhang/MobileSAM/master/assets/logo2.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-04-05 19:12:16 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover MobileSAM, a lightweight and fast image segmentation model for mobile applications. Compare its performance with the original SAM and explore its various modes.", "mainEntity": [{"@type": "Question", "name": "What is MobileSAM and how does it differ from the original SAM model?", "acceptedAnswer": {"@type": "Answer", "text": "MobileSAM is a lightweight, fast image segmentation model designed for mobile applications. It retains the same pipeline as the original SAM but replaces the heavyweight ViT-H encoder (632M parameters) with a smaller Tiny-ViT encoder (5M parameters). This change results in MobileSAM being approximately 5 times smaller and 7 times faster than the original SAM. For instance, MobileSAM operates at about 12ms per image, compared to the original SAM's 456ms. You can learn more about the MobileSAM implementation in various projects at the MobileSAM GitHub repository."}}, {"@type": "Question", "name": "How can I test MobileSAM using Ultralytics?", "acceptedAnswer": {"@type": "Answer", "text": "Testing MobileSAM in Ultralytics can be accomplished through straightforward methods. You can use Point and Box prompts to predict segments. Here's an example using a Point prompt: You can also refer to the Testing MobileSAM section for more details."}}, {"@type": "Question", "name": "Why should I use MobileSAM for my mobile application?", "acceptedAnswer": {"@type": "Answer", "text": "MobileSAM is ideal for mobile applications due to its lightweight architecture and fast inference speed. Compared to the original SAM, MobileSAM is approximately 5 times smaller and 7 times faster, making it suitable for environments where computational resources are limited. This efficiency ensures that mobile devices can perform real-time image segmentation without significant latency. Additionally, MobileSAM's models, such as Inference, are optimized for mobile performance."}}, {"@type": "Question", "name": "How was MobileSAM trained, and is the training code available?", "acceptedAnswer": {"@type": "Answer", "text": "MobileSAM was trained on a single GPU with a 100k dataset, which is 1% of the original images, in less than a day. While the training code will be made available in the future, you can currently explore other aspects of MobileSAM in the MobileSAM GitHub repository. This repository includes pre-trained weights and implementation details for various applications."}}, {"@type": "Question", "name": "What are the primary use cases for MobileSAM?", "acceptedAnswer": {"@type": "Answer", "text": "MobileSAM is designed for fast and efficient image segmentation in mobile environments. Primary use cases include: For more detailed use cases and performance comparisons, see the section on Adapting from SAM to MobileSAM."}}]}</script></head>
+<meta content="MobileSAM (Mobile Segment Anything Model)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="MobileSAM, image segmentation, lightweight model, fast segmentation, mobile applications, SAM, Tiny-ViT, YOLO, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/models/mobile-sam" property="og:url"/><meta content="MobileSAM (Mobile Segment Anything Model)" property="og:title"/><meta content="Discover MobileSAM, a lightweight and fast image segmentation model for mobile and edge applications. Compare its performance with SAM and YOLO models." property="og:description"/><meta content="https://raw.githubusercontent.com/ChaoningZhang/MobileSAM/master/assets/logo2.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/models/mobile-sam" property="twitter:url"/><meta content="MobileSAM (Mobile Segment Anything Model)" property="twitter:title"/><meta content="Discover MobileSAM, a lightweight and fast image segmentation model for mobile and edge applications. Compare its performance with SAM and YOLO models." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ChaoningZhang/MobileSAM/master/assets/logo2.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "MobileSAM (Mobile Segment Anything Model)", "image": ["https://raw.githubusercontent.com/ChaoningZhang/MobileSAM/master/assets/logo2.png"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-04-18 11:53:06 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover MobileSAM, a lightweight and fast image segmentation model for mobile and edge applications. Compare its performance with SAM and YOLO models.", "mainEntity": [{"@type": "Question", "name": "What Is MobileSAM and How Does It Differ from the Original SAM Model?", "acceptedAnswer": {"@type": "Answer", "text": "MobileSAM is a lightweight, fast image segmentation model optimized for mobile and edge applications. It maintains the same pipeline as the original SAM but replaces the large ViT-H encoder (632M parameters) with a compact Tiny-ViT encoder (5M parameters). This results in MobileSAM being about 5 times smaller and 7 times faster than the original SAM, operating at roughly 12ms per image versus SAM's 456ms. Explore more about MobileSAM's implementation on the MobileSAM GitHub repository."}}, {"@type": "Question", "name": "How Can I Test MobileSAM Using Ultralytics?", "acceptedAnswer": {"@type": "Answer", "text": "Testing MobileSAM in Ultralytics is straightforward. You can use Point and Box prompts to predict segments. For example, using a Point prompt: For more details, see the Testing MobileSAM in Ultralytics section."}}, {"@type": "Question", "name": "Why Should I Use MobileSAM for My Mobile Application?", "acceptedAnswer": {"@type": "Answer", "text": "MobileSAM is ideal for mobile and edge applications due to its lightweight design and rapid inference speed. Compared to the original SAM, MobileSAM is about 5 times smaller and 7 times faster, making it suitable for real-time segmentation on devices with limited computational resources. Its efficiency enables mobile devices to perform real-time image segmentation without significant latency. Additionally, MobileSAM supports Inference mode optimized for mobile performance."}}, {"@type": "Question", "name": "How Was MobileSAM Trained, and Is the Training Code Available?", "acceptedAnswer": {"@type": "Answer", "text": "MobileSAM was trained on a single GPU with a 100k image dataset (1% of the original images) in under a day. While the training code will be released in the future, you can currently access pre-trained weights and implementation details from the MobileSAM GitHub repository."}}, {"@type": "Question", "name": "What Are the Primary Use Cases for MobileSAM?", "acceptedAnswer": {"@type": "Answer", "text": "MobileSAM is designed for fast, efficient image segmentation in mobile and edge environments. Primary use cases include: For more details on use cases and performance, see Adapting from SAM to MobileSAM and the Ultralytics blog on MobileSAM applications."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -355,6 +355,31 @@
       Adapting from SAM to MobileSAM
     </span>
 </a>
+<nav aria-label="Adapting from SAM to MobileSAM" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vit-based-image-encoder-comparison">
+<span class="md-ellipsis">
+      ViT-Based Image Encoder Comparison
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prompt-guided-mask-decoder">
+<span class="md-ellipsis">
+      Prompt-Guided Mask Decoder
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#whole-pipeline-comparison">
+<span class="md-ellipsis">
+      Whole Pipeline Comparison
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#testing-mobilesam-in-ultralytics">
@@ -386,9 +411,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#automatically-build-segmentation-datasets-leveraging-a-detection-model">
+<a class="md-nav__link" href="#automatically-build-segmentation-datasets-using-a-detection-model">
 <span class="md-ellipsis">
-      Automatically Build Segmentation Datasets Leveraging a Detection Model
+      Automatically Build Segmentation Datasets Using a Detection Model
     </span>
 </a>
 </li>
@@ -413,35 +438,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-mobilesam-and-how-does-it-differ-from-the-original-sam-model">
 <span class="md-ellipsis">
-      What is MobileSAM and how does it differ from the original SAM model?
+      What Is MobileSAM and How Does It Differ from the Original SAM Model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-test-mobilesam-using-ultralytics">
 <span class="md-ellipsis">
-      How can I test MobileSAM using Ultralytics?
+      How Can I Test MobileSAM Using Ultralytics?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-mobilesam-for-my-mobile-application">
 <span class="md-ellipsis">
-      Why should I use MobileSAM for my mobile application?
+      Why Should I Use MobileSAM for My Mobile Application?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-was-mobilesam-trained-and-is-the-training-code-available">
 <span class="md-ellipsis">
-      How was MobileSAM trained, and is the training code available?
+      How Was MobileSAM Trained, and Is the Training Code Available?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-primary-use-cases-for-mobilesam">
 <span class="md-ellipsis">
-      What are the primary use cases for MobileSAM?
+      What Are the Primary Use Cases for MobileSAM?
     </span>
 </a>
 </li>
@@ -579,6 +604,31 @@
       Adapting from SAM to MobileSAM
     </span>
 </a>
+<nav aria-label="Adapting from SAM to MobileSAM" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#vit-based-image-encoder-comparison">
+<span class="md-ellipsis">
+      ViT-Based Image Encoder Comparison
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#prompt-guided-mask-decoder">
+<span class="md-ellipsis">
+      Prompt-Guided Mask Decoder
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#whole-pipeline-comparison">
+<span class="md-ellipsis">
+      Whole Pipeline Comparison
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#testing-mobilesam-in-ultralytics">
@@ -610,9 +660,9 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#automatically-build-segmentation-datasets-leveraging-a-detection-model">
+<a class="md-nav__link" href="#automatically-build-segmentation-datasets-using-a-detection-model">
 <span class="md-ellipsis">
-      Automatically Build Segmentation Datasets Leveraging a Detection Model
+      Automatically Build Segmentation Datasets Using a Detection Model
     </span>
 </a>
 </li>
@@ -637,35 +687,35 @@
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-is-mobilesam-and-how-does-it-differ-from-the-original-sam-model">
 <span class="md-ellipsis">
-      What is MobileSAM and how does it differ from the original SAM model?
+      What Is MobileSAM and How Does It Differ from the Original SAM Model?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-can-i-test-mobilesam-using-ultralytics">
 <span class="md-ellipsis">
-      How can I test MobileSAM using Ultralytics?
+      How Can I Test MobileSAM Using Ultralytics?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#why-should-i-use-mobilesam-for-my-mobile-application">
 <span class="md-ellipsis">
-      Why should I use MobileSAM for my mobile application?
+      Why Should I Use MobileSAM for My Mobile Application?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#how-was-mobilesam-trained-and-is-the-training-code-available">
 <span class="md-ellipsis">
-      How was MobileSAM trained, and is the training code available?
+      How Was MobileSAM Trained, and Is the Training Code Available?
     </span>
 </a>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="#what-are-the-primary-use-cases-for-mobilesam">
 <span class="md-ellipsis">
-      What are the primary use cases for MobileSAM?
+      What Are the Primary Use Cases for MobileSAM?
     </span>
 </a>
 </li>
@@ -684,8 +734,7 @@
 </a>
 <p><img alt="MobileSAM Logo" src="https://raw.githubusercontent.com/ChaoningZhang/MobileSAM/master/assets/logo2.png"/></p>
 <h1 id="mobile-segment-anything-mobilesam">Mobile Segment Anything (MobileSAM)</h1>
-<p>The MobileSAM paper is now available on <a href="https://arxiv.org/pdf/2306.14289">arXiv</a>.</p>
-<p>A demonstration of MobileSAM running on a CPU can be accessed at this <a href="https://huggingface.co/spaces/dhkim2810/MobileSAM">demo link</a>. The performance on a Mac i5 CPU takes approximately 3 seconds. On the <a href="https://www.ultralytics.com/glossary/hugging-face">Hugging Face</a> demo, the interface and lower-performance CPUs contribute to a slower response, but it continues to function effectively.</p>
+<p>MobileSAM is a compact, efficient image segmentation model purpose-built for mobile and edge devices. Designed to bring the power of Meta's Segment Anything Model (<a href="../sam/">SAM</a>) to environments with limited compute, MobileSAM delivers near-instant segmentation while maintaining compatibility with the original SAM pipeline. Whether you're developing real-time applications or lightweight deployments, MobileSAM provides impressive segmentation results with a fraction of the size and speed requirements of its predecessors.</p>
 <p align="center">
 <br/>
 <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" loading="lazy" src="https://www.youtube.com/embed/yXQPLMrNX2s" title="YouTube video player" width="720">
@@ -693,10 +742,10 @@
 <br/>
 <strong>Watch:</strong> How to Run Inference with MobileSAM using Ultralytics | Step-by-Step Guide 🎉
 </p>
-<p>MobileSAM is implemented in various projects including <a href="https://github.com/IDEA-Research/Grounded-Segment-Anything">Grounding-SAM</a>, <a href="https://github.com/vietanhdev/anylabeling">AnyLabeling</a>, and <a href="https://github.com/Jumpat/SegmentAnythingin3D">Segment Anything in 3D</a>.</p>
-<p>MobileSAM is trained on a single GPU with a 100k dataset (1% of the original images) in less than a day. The code for this training will be made available in the future.</p>
+<p>MobileSAM has been adopted in a variety of projects, including <a href="https://github.com/IDEA-Research/Grounded-Segment-Anything">Grounding-SAM</a>, <a href="https://github.com/vietanhdev/anylabeling">AnyLabeling</a>, and <a href="https://github.com/Jumpat/SegmentAnythingin3D">Segment Anything in 3D</a>.</p>
+<p>MobileSAM was trained on a single GPU using a 100k image dataset (1% of the original images) in less than a day. The training code will be released in the future.</p>
 <h2 id="available-models-supported-tasks-and-operating-modes">Available Models, Supported Tasks, and Operating Modes</h2>
-<p>This table presents the available models with their specific pre-trained weights, the tasks they support, and their compatibility with different operating modes like <a href="../../modes/predict/">Inference</a>, <a href="../../modes/val/">Validation</a>, <a href="../../modes/train/">Training</a>, and <a href="../../modes/export/">Export</a>, indicated by ✅ emojis for supported modes and ❌ emojis for unsupported modes.</p>
+<p>The table below outlines the available MobileSAM model, its pre-trained weights, supported tasks, and compatibility with different operating modes such as <a href="../../modes/predict/">Inference</a>, <a href="../../modes/val/">Validation</a>, <a href="../../modes/train/">Training</a>, and <a href="../../modes/export/">Export</a>. Supported modes are indicated by ✅ and unsupported modes by ❌.</p>
 <table>
 <thead>
 <tr>
@@ -722,14 +771,14 @@
 </tbody>
 </table>
 <h2 id="mobilesam-comparison-vs-yolo">MobileSAM Comparison vs YOLO</h2>
-<p>Here we compare Meta's SAM variants, including MobileSAM, with Ultralytics smallest segmentation model, YOLO11n-seg:</p>
+<p>The following comparison highlights the differences between Meta's SAM variants, MobileSAM, and Ultralytics' smallest segmentation models, including <a href="../yolo11/">YOLO11n-seg</a>:</p>
 <table>
 <thead>
 <tr>
 <th>Model</th>
-<th>Size (MB)</th>
-<th>Parameters (M)</th>
-<th>Speed (CPU) (ms/im)</th>
+<th>Size<br/><sup>(MB)</sup></th>
+<th>Parameters<br/><sup>(M)</sup></th>
+<th>Speed (CPU)<br/><sup>(ms/im)</sup></th>
 </tr>
 </thead>
 <tbody>
@@ -777,8 +826,8 @@
 </tr>
 </tbody>
 </table>
-<p>This comparison demonstrates the substantial differences in model sizes and speeds between SAM variants and YOLO segmentation models. While SAM provides unique automatic segmentation capabilities, YOLO models, particularly YOLOv8n-seg and YOLO11n-seg, are significantly smaller, faster, and more computationally efficient.</p>
-<p>Tests run on a 2025 Apple M4 Pro with 24GB of RAM using <code>torch==2.6.0</code> and <code>ultralytics==8.3.90</code>. To reproduce this test:</p>
+<p>This comparison demonstrates the substantial differences in model size and speed between SAM variants and YOLO segmentation models. While SAM models offer unique automatic segmentation capabilities, YOLO models—especially YOLOv8n-seg and YOLO11n-seg—are significantly smaller, faster, and more computationally efficient.</p>
+<p>Tests were conducted on a 2025 Apple M4 Pro with 24GB RAM using <code>torch==2.6.0</code> and <code>ultralytics==8.3.90</code>. To reproduce these results:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
@@ -808,9 +857,9 @@
 </input></div>
 </div>
 <h2 id="adapting-from-sam-to-mobilesam">Adapting from SAM to MobileSAM</h2>
-<p>Since MobileSAM retains the same pipeline as the original SAM, we have incorporated the original's pre-processing, post-processing, and all other interfaces. Consequently, those currently using the original SAM can transition to MobileSAM with minimal effort.</p>
-<p>MobileSAM performs comparably to the original SAM and retains the same pipeline except for a change in the image encoder. Specifically, we replace the original heavyweight ViT-H encoder (632M) with a smaller Tiny-ViT (5M). On a single GPU, MobileSAM operates at about 12ms per image: 8ms on the image encoder and 4ms on the mask decoder.</p>
-<p>The following table provides a comparison of ViT-based image encoders:</p>
+<p>MobileSAM retains the same pipeline as the original <a href="../sam/">SAM</a>, including pre-processing, post-processing, and all interfaces. This means you can transition from SAM to MobileSAM with minimal changes to your workflow.</p>
+<p>The key difference is the image encoder: MobileSAM replaces the original ViT-H encoder (632M parameters) with a much smaller Tiny-ViT encoder (5M parameters). On a single GPU, MobileSAM processes an image in about 12ms (8ms for the encoder, 4ms for the mask decoder).</p>
+<h3 id="vit-based-image-encoder-comparison">ViT-Based Image Encoder Comparison</h3>
 <table>
 <thead>
 <tr>
@@ -832,7 +881,7 @@
 </tr>
 </tbody>
 </table>
-<p>Both the original SAM and MobileSAM utilize the same prompt-guided mask decoder:</p>
+<h3 id="prompt-guided-mask-decoder">Prompt-Guided Mask Decoder</h3>
 <table>
 <thead>
 <tr>
@@ -854,7 +903,7 @@
 </tr>
 </tbody>
 </table>
-<p>Here is the comparison of the whole pipeline:</p>
+<h3 id="whole-pipeline-comparison">Whole Pipeline Comparison</h3>
 <table>
 <thead>
 <tr>
@@ -876,14 +925,14 @@
 </tr>
 </tbody>
 </table>
-<p>The performance of MobileSAM and the original SAM are demonstrated using both a point and a box as prompts.</p>
+<p>The performance of MobileSAM and the original SAM is illustrated below using both point and box prompts.</p>
 <p><img alt="Image with Point as Prompt" src="https://github.com/ultralytics/docs/releases/download/0/mask-box.avif"/></p>
 <p><img alt="Image with Box as Prompt" src="https://github.com/ultralytics/docs/releases/download/0/mask-box.avif"/></p>
-<p>With its superior performance, MobileSAM is approximately 5 times smaller and 7 times faster than the current FastSAM. More details are available at the <a href="https://github.com/ChaoningZhang/MobileSAM">MobileSAM project page</a>.</p>
+<p>MobileSAM is approximately 5 times smaller and 7 times faster than FastSAM. For further details, visit the <a href="https://github.com/ChaoningZhang/MobileSAM">MobileSAM project page</a>.</p>
 <h2 id="testing-mobilesam-in-ultralytics">Testing MobileSAM in Ultralytics</h2>
-<p>Just like the original <a href="../sam/">SAM</a>, we offer a straightforward testing method in Ultralytics, including modes for both Point and Box prompts.</p>
+<p>Just like the original <a href="../sam/">SAM</a>, Ultralytics provides a simple interface for testing MobileSAM, supporting both Point and Box prompts.</p>
 <h3 id="model-download">Model Download</h3>
-<p>You can download the MobileSAM pretrained weights at <a href="https://github.com/ultralytics/assets/releases/download/v8.3.0/mobile_sam.pt">https://github.com/ultralytics/assets/releases/download/v8.3.0/mobile_sam.pt</a>.</p>
+<p>Download the MobileSAM pretrained weights from <a href="https://github.com/ultralytics/assets/releases/download/v8.3.0/mobile_sam.pt">Ultralytics assets</a>.</p>
 <h3 id="point-prompt">Point Prompt</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
@@ -938,9 +987,9 @@
 </div>
 </input></div>
 </div>
-<p>We have implemented <code>MobileSAM</code> and <code>SAM</code> using the same API. For more usage information, please see the <a href="../sam/">SAM page</a>.</p>
-<h3 id="automatically-build-segmentation-datasets-leveraging-a-detection-model">Automatically Build Segmentation Datasets Leveraging a Detection Model</h3>
-<p>To automatically annotate your dataset using the Ultralytics framework, utilize the <code>auto_annotate</code> function as demonstrated below:</p>
+<p>Both <code>MobileSAM</code> and <code>SAM</code> share the same API. For more usage details, see the <a href="../sam/">SAM documentation</a>.</p>
+<h3 id="automatically-build-segmentation-datasets-using-a-detection-model">Automatically Build Segmentation Datasets Using a Detection Model</h3>
+<p>To automatically annotate your dataset with the Ultralytics framework, use the <code>auto_annotate</code> function as shown below:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label></div>
@@ -1027,7 +1076,7 @@
 </tbody>
 </table>
 <h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
-<p>If you find MobileSAM useful in your research or development work, please consider citing our paper:</p>
+<p>If MobileSAM is helpful in your research or development, please consider citing the following paper:</p>
 <div class="admonition quote">
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">BibTeX</label></div>
 <div class="tabbed-content">
@@ -1043,11 +1092,12 @@
 </div>
 </input></div>
 </div>
+<p>Read the full <a href="https://arxiv.org/pdf/2306.14289">MobileSAM paper on arXiv</a>.</p>
 <h2 id="faq">FAQ</h2>
-<h3 id="what-is-mobilesam-and-how-does-it-differ-from-the-original-sam-model">What is MobileSAM and how does it differ from the original SAM model?</h3>
-<p>MobileSAM is a lightweight, fast <a href="https://www.ultralytics.com/glossary/image-segmentation">image segmentation</a> model designed for mobile applications. It retains the same pipeline as the original SAM but replaces the heavyweight ViT-H encoder (632M parameters) with a smaller Tiny-ViT encoder (5M parameters). This change results in MobileSAM being approximately 5 times smaller and 7 times faster than the original SAM. For instance, MobileSAM operates at about 12ms per image, compared to the original SAM's 456ms. You can learn more about the MobileSAM implementation in various projects at the <a href="https://github.com/ChaoningZhang/MobileSAM">MobileSAM GitHub repository</a>.</p>
-<h3 id="how-can-i-test-mobilesam-using-ultralytics">How can I test MobileSAM using Ultralytics?</h3>
-<p>Testing MobileSAM in Ultralytics can be accomplished through straightforward methods. You can use Point and Box prompts to predict segments. Here's an example using a Point prompt:</p>
+<h3 id="what-is-mobilesam-and-how-does-it-differ-from-the-original-sam-model">What Is MobileSAM and How Does It Differ from the Original SAM Model?</h3>
+<p>MobileSAM is a lightweight, fast <a href="https://www.ultralytics.com/glossary/image-segmentation">image segmentation</a> model optimized for mobile and edge applications. It maintains the same pipeline as the original SAM but replaces the large ViT-H encoder (632M parameters) with a compact Tiny-ViT encoder (5M parameters). This results in MobileSAM being about 5 times smaller and 7 times faster than the original SAM, operating at roughly 12ms per image versus SAM's 456ms. Explore more about MobileSAM's implementation on the <a href="https://github.com/ChaoningZhang/MobileSAM">MobileSAM GitHub repository</a>.</p>
+<h3 id="how-can-i-test-mobilesam-using-ultralytics">How Can I Test MobileSAM Using Ultralytics?</h3>
+<p>Testing MobileSAM in Ultralytics is straightforward. You can use Point and Box prompts to predict segments. For example, using a Point prompt:</p>
 <div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM</span>
 <a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
 <a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># Load the model</span>
@@ -1056,30 +1106,30 @@
 <a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># Predict a segment based on a point prompt</span>
 <a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
-<p>You can also refer to the <a href="#testing-mobilesam-in-ultralytics">Testing MobileSAM</a> section for more details.</p>
-<h3 id="why-should-i-use-mobilesam-for-my-mobile-application">Why should I use MobileSAM for my mobile application?</h3>
-<p>MobileSAM is ideal for mobile applications due to its lightweight architecture and fast inference speed. Compared to the original SAM, MobileSAM is approximately 5 times smaller and 7 times faster, making it suitable for environments where computational resources are limited. This efficiency ensures that mobile devices can perform real-time image segmentation without significant latency. Additionally, MobileSAM's models, such as <a href="../../modes/predict/">Inference</a>, are optimized for mobile performance.</p>
-<h3 id="how-was-mobilesam-trained-and-is-the-training-code-available">How was MobileSAM trained, and is the training code available?</h3>
-<p>MobileSAM was trained on a single GPU with a 100k dataset, which is 1% of the original images, in less than a day. While the training code will be made available in the future, you can currently explore other aspects of MobileSAM in the <a href="https://github.com/ultralytics/assets/releases/download/v8.3.0/mobile_sam.pt">MobileSAM GitHub repository</a>. This repository includes pre-trained weights and implementation details for various applications.</p>
-<h3 id="what-are-the-primary-use-cases-for-mobilesam">What are the primary use cases for MobileSAM?</h3>
-<p>MobileSAM is designed for fast and efficient image segmentation in mobile environments. Primary use cases include:</p>
+<p>For more details, see the <a href="#testing-mobilesam-in-ultralytics">Testing MobileSAM in Ultralytics</a> section.</p>
+<h3 id="why-should-i-use-mobilesam-for-my-mobile-application">Why Should I Use MobileSAM for My Mobile Application?</h3>
+<p>MobileSAM is ideal for mobile and edge applications due to its lightweight design and rapid inference speed. Compared to the original SAM, MobileSAM is about 5 times smaller and 7 times faster, making it suitable for real-time segmentation on devices with limited computational resources. Its efficiency enables mobile devices to perform <a href="https://www.ultralytics.com/glossary/real-time-inference">real-time image segmentation</a> without significant latency. Additionally, MobileSAM supports <a href="../../modes/predict/">Inference mode</a> optimized for mobile performance.</p>
+<h3 id="how-was-mobilesam-trained-and-is-the-training-code-available">How Was MobileSAM Trained, and Is the Training Code Available?</h3>
+<p>MobileSAM was trained on a single GPU with a 100k image dataset (1% of the original images) in under a day. While the training code will be released in the future, you can currently access pre-trained weights and implementation details from the <a href="https://github.com/ChaoningZhang/MobileSAM">MobileSAM GitHub repository</a>.</p>
+<h3 id="what-are-the-primary-use-cases-for-mobilesam">What Are the Primary Use Cases for MobileSAM?</h3>
+<p>MobileSAM is designed for fast, efficient image segmentation in mobile and edge environments. Primary use cases include:</p>
 <ul>
-<li><strong>Real-time <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> and segmentation</strong> for mobile applications.</li>
-<li><strong>Low-latency image processing</strong> in devices with limited computational resources.</li>
-<li><strong>Integration in AI-driven mobile apps</strong> for tasks such as augmented reality (AR) and real-time analytics.</li>
+<li><strong>Real-time <a href="https://www.ultralytics.com/glossary/object-detection">object detection and segmentation</a></strong> for mobile apps</li>
+<li><strong>Low-latency image processing</strong> on devices with limited compute</li>
+<li><strong>Integration in AI-powered mobile applications</strong> for augmented reality (AR), analytics, and more</li>
 </ul>
-<p>For more detailed use cases and performance comparisons, see the section on <a href="#adapting-from-sam-to-mobilesam">Adapting from SAM to MobileSAM</a>.</p>
+<p>For more details on use cases and performance, see <a href="#adapting-from-sam-to-mobilesam">Adapting from SAM to MobileSAM</a> and the <a href="https://www.ultralytics.com/blog/applications-of-meta-ai-segment-anything-model-2-sam-2">Ultralytics blog on MobileSAM applications</a>.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on April 05, 2025">
-<span class="hover-item">✏️</span> Updated 12 days ago
+<span class="date-item" title="This page was last updated on April 18, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (18 changes)">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (19 changes)">
 <img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (5 changes)">
