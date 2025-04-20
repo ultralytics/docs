@@ -364,6 +364,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../data/split/">
+<span class="md-ellipsis">
+    split
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../data/split_dota/">
 <span class="md-ellipsis">
     split_dota
@@ -1059,6 +1066,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/export/">
+<span class="md-ellipsis">
+    export
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../utils/files/">
 <span class="md-ellipsis">
     files
@@ -1689,7 +1703,7 @@ and region initialization.</p>
 <a id="__codelineno-0-95" name="__codelineno-0-95"></a>
 <a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="k">if</span> <span class="n">is_cli</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-97" name="__codelineno-0-97"></a>        <span class="n">d_s</span> <span class="o">=</span> <span class="s2">"solutions_ci_demo.mp4"</span> <span class="k">if</span> <span class="s2">"-pose"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="k">else</span> <span class="s2">"solution_ci_pose_demo.mp4"</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"⚠️ WARNING: source not provided. using default source </span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">d_s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"source not provided. using default source </span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">d_s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.downloads</span><span class="w"> </span><span class="kn">import</span> <span class="n">safe_download</span>
 <a id="__codelineno-0-100" name="__codelineno-0-100"></a>
 <a id="__codelineno-0-101" name="__codelineno-0-101"></a>        <span class="n">safe_download</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">d_s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># download source from ultralytics assets</span>
@@ -1926,7 +1940,7 @@ the processed frame with annotations, and allows for user interaction to close t
 <a id="__codelineno-0-129" name="__codelineno-0-129"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">clss</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_data</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <a id="__codelineno-0-130" name="__codelineno-0-130"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_data</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <a id="__codelineno-0-131" name="__codelineno-0-131"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ no tracks found!"</span><span class="p">)</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"no tracks found!"</span><span class="p">)</span>
 <a id="__codelineno-0-133" name="__codelineno-0-133"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2586,10 +2600,7 @@ and parking management.</p>
 <span class="normal"><a href="#__codelineno-0-599">599</a></span>
 <span class="normal"><a href="#__codelineno-0-600">600</a></span>
 <span class="normal"><a href="#__codelineno-0-601">601</a></span>
-<span class="normal"><a href="#__codelineno-0-602">602</a></span>
-<span class="normal"><a href="#__codelineno-0-603">603</a></span>
-<span class="normal"><a href="#__codelineno-0-604">604</a></span>
-<span class="normal"><a href="#__codelineno-0-605">605</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-566" name="__codelineno-0-566"></a><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-602">602</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-566" name="__codelineno-0-566"></a><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <a id="__codelineno-0-567" name="__codelineno-0-567"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-568" name="__codelineno-0-568"></a><span class="sd">    Draw a label with a background circle centered within a given bounding box.</span>
 <a id="__codelineno-0-569" name="__codelineno-0-569"></a>
@@ -2600,35 +2611,32 @@ and parking management.</p>
 <a id="__codelineno-0-574" name="__codelineno-0-574"></a><span class="sd">        txt_color (Tuple[int, int, int]): The color of the text (R, G, B).</span>
 <a id="__codelineno-0-575" name="__codelineno-0-575"></a><span class="sd">        margin (int): The margin between the text and the circle border.</span>
 <a id="__codelineno-0-576" name="__codelineno-0-576"></a><span class="sd">    """</span>
-<a id="__codelineno-0-577" name="__codelineno-0-577"></a>    <span class="c1"># If label have more than 3 characters, skip other characters, due to circle size</span>
-<a id="__codelineno-0-578" name="__codelineno-0-578"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
-<a id="__codelineno-0-579" name="__codelineno-0-579"></a>        <span class="nb">print</span><span class="p">(</span>
-<a id="__codelineno-0-580" name="__codelineno-0-580"></a>            <span class="sa">f</span><span class="s2">"Length of label is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="si">}</span><span class="s2">, initial 3 label characters will be considered for circle annotation!"</span>
-<a id="__codelineno-0-581" name="__codelineno-0-581"></a>        <span class="p">)</span>
-<a id="__codelineno-0-582" name="__codelineno-0-582"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">label</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
-<a id="__codelineno-0-583" name="__codelineno-0-583"></a>
-<a id="__codelineno-0-584" name="__codelineno-0-584"></a>    <span class="c1"># Calculate the center of the box</span>
-<a id="__codelineno-0-585" name="__codelineno-0-585"></a>    <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-586" name="__codelineno-0-586"></a>    <span class="c1"># Get the text size</span>
-<a id="__codelineno-0-587" name="__codelineno-0-587"></a>    <span class="n">text_size</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">-</span> <span class="mf">0.15</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-588" name="__codelineno-0-588"></a>    <span class="c1"># Calculate the required radius to fit the text with the margin</span>
-<a id="__codelineno-0-589" name="__codelineno-0-589"></a>    <span class="n">required_radius</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="n">text_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">margin</span>
-<a id="__codelineno-0-590" name="__codelineno-0-590"></a>    <span class="c1"># Draw the circle with the required radius</span>
-<a id="__codelineno-0-591" name="__codelineno-0-591"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">),</span> <span class="n">required_radius</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-592" name="__codelineno-0-592"></a>    <span class="c1"># Calculate the position for the text</span>
-<a id="__codelineno-0-593" name="__codelineno-0-593"></a>    <span class="n">text_x</span> <span class="o">=</span> <span class="n">x_center</span> <span class="o">-</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
-<a id="__codelineno-0-594" name="__codelineno-0-594"></a>    <span class="n">text_y</span> <span class="o">=</span> <span class="n">y_center</span> <span class="o">+</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a>    <span class="c1"># Draw the text</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
-<a id="__codelineno-0-597" name="__codelineno-0-597"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span>
-<a id="__codelineno-0-598" name="__codelineno-0-598"></a>        <span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">),</span>
-<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="p">(</span><span class="n">text_x</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span>
-<a id="__codelineno-0-600" name="__codelineno-0-600"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">-</span> <span class="mf">0.15</span><span class="p">,</span>
-<a id="__codelineno-0-602" name="__codelineno-0-602"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_txt_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">),</span>
-<a id="__codelineno-0-603" name="__codelineno-0-603"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">,</span>
-<a id="__codelineno-0-604" name="__codelineno-0-604"></a>        <span class="n">lineType</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">,</span>
-<a id="__codelineno-0-605" name="__codelineno-0-605"></a>    <span class="p">)</span>
+<a id="__codelineno-0-577" name="__codelineno-0-577"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">3</span><span class="p">:</span>
+<a id="__codelineno-0-578" name="__codelineno-0-578"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Length of label is </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">)</span><span class="si">}</span><span class="s2">, only first 3 letters will be used for circle annotation."</span><span class="p">)</span>
+<a id="__codelineno-0-579" name="__codelineno-0-579"></a>        <span class="n">label</span> <span class="o">=</span> <span class="n">label</span><span class="p">[:</span><span class="mi">3</span><span class="p">]</span>
+<a id="__codelineno-0-580" name="__codelineno-0-580"></a>
+<a id="__codelineno-0-581" name="__codelineno-0-581"></a>    <span class="c1"># Calculate the center of the box</span>
+<a id="__codelineno-0-582" name="__codelineno-0-582"></a>    <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-583" name="__codelineno-0-583"></a>    <span class="c1"># Get the text size</span>
+<a id="__codelineno-0-584" name="__codelineno-0-584"></a>    <span class="n">text_size</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">),</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">-</span> <span class="mf">0.15</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-585" name="__codelineno-0-585"></a>    <span class="c1"># Calculate the required radius to fit the text with the margin</span>
+<a id="__codelineno-0-586" name="__codelineno-0-586"></a>    <span class="n">required_radius</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(((</span><span class="n">text_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span> <span class="o">+</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span> <span class="o">**</span> <span class="mf">0.5</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">margin</span>
+<a id="__codelineno-0-587" name="__codelineno-0-587"></a>    <span class="c1"># Draw the circle with the required radius</span>
+<a id="__codelineno-0-588" name="__codelineno-0-588"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">circle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">),</span> <span class="n">required_radius</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-589" name="__codelineno-0-589"></a>    <span class="c1"># Calculate the position for the text</span>
+<a id="__codelineno-0-590" name="__codelineno-0-590"></a>    <span class="n">text_x</span> <span class="o">=</span> <span class="n">x_center</span> <span class="o">-</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-0-591" name="__codelineno-0-591"></a>    <span class="n">text_y</span> <span class="o">=</span> <span class="n">y_center</span> <span class="o">+</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-0-592" name="__codelineno-0-592"></a>    <span class="c1"># Draw the text</span>
+<a id="__codelineno-0-593" name="__codelineno-0-593"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
+<a id="__codelineno-0-594" name="__codelineno-0-594"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span>
+<a id="__codelineno-0-595" name="__codelineno-0-595"></a>        <span class="nb">str</span><span class="p">(</span><span class="n">label</span><span class="p">),</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a>        <span class="p">(</span><span class="n">text_x</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">-</span> <span class="mf">0.15</span><span class="p">,</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_txt_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">),</span>
+<a id="__codelineno-0-600" name="__codelineno-0-600"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">,</span>
+<a id="__codelineno-0-601" name="__codelineno-0-601"></a>        <span class="n">lineType</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">,</span>
+<a id="__codelineno-0-602" name="__codelineno-0-602"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4387,7 +4395,10 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-607">607</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-604">604</a></span>
+<span class="normal"><a href="#__codelineno-0-605">605</a></span>
+<span class="normal"><a href="#__codelineno-0-606">606</a></span>
+<span class="normal"><a href="#__codelineno-0-607">607</a></span>
 <span class="normal"><a href="#__codelineno-0-608">608</a></span>
 <span class="normal"><a href="#__codelineno-0-609">609</a></span>
 <span class="normal"><a href="#__codelineno-0-610">610</a></span>
@@ -4419,45 +4430,42 @@ Modifies self.im in-place.</p>
 <span class="normal"><a href="#__codelineno-0-636">636</a></span>
 <span class="normal"><a href="#__codelineno-0-637">637</a></span>
 <span class="normal"><a href="#__codelineno-0-638">638</a></span>
-<span class="normal"><a href="#__codelineno-0-639">639</a></span>
-<span class="normal"><a href="#__codelineno-0-640">640</a></span>
-<span class="normal"><a href="#__codelineno-0-641">641</a></span>
-<span class="normal"><a href="#__codelineno-0-642">642</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-607" name="__codelineno-0-607"></a><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
-<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">    Draw a label with a background rectangle centered within a given bounding box.</span>
-<a id="__codelineno-0-610" name="__codelineno-0-610"></a>
-<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-612" name="__codelineno-0-612"></a><span class="sd">        box (Tuple[float, float, float, float]): The bounding box coordinates (x1, y1, x2, y2).</span>
-<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">        label (str): The text label to be displayed.</span>
-<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">        color (Tuple[int, int, int]): The background color of the rectangle (B, G, R).</span>
-<a id="__codelineno-0-615" name="__codelineno-0-615"></a><span class="sd">        txt_color (Tuple[int, int, int]): The color of the text (R, G, B).</span>
-<a id="__codelineno-0-616" name="__codelineno-0-616"></a><span class="sd">        margin (int): The margin between the text and the rectangle border.</span>
-<a id="__codelineno-0-617" name="__codelineno-0-617"></a><span class="sd">    """</span>
-<a id="__codelineno-0-618" name="__codelineno-0-618"></a>    <span class="c1"># Calculate the center of the bounding box</span>
-<a id="__codelineno-0-619" name="__codelineno-0-619"></a>    <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-0-620" name="__codelineno-0-620"></a>    <span class="c1"># Get the size of the text</span>
-<a id="__codelineno-0-621" name="__codelineno-0-621"></a>    <span class="n">text_size</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-622" name="__codelineno-0-622"></a>    <span class="c1"># Calculate the top-left corner of the text (to center it)</span>
-<a id="__codelineno-0-623" name="__codelineno-0-623"></a>    <span class="n">text_x</span> <span class="o">=</span> <span class="n">x_center</span> <span class="o">-</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
-<a id="__codelineno-0-624" name="__codelineno-0-624"></a>    <span class="n">text_y</span> <span class="o">=</span> <span class="n">y_center</span> <span class="o">+</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
-<a id="__codelineno-0-625" name="__codelineno-0-625"></a>    <span class="c1"># Calculate the coordinates of the background rectangle</span>
-<a id="__codelineno-0-626" name="__codelineno-0-626"></a>    <span class="n">rect_x1</span> <span class="o">=</span> <span class="n">text_x</span> <span class="o">-</span> <span class="n">margin</span>
-<a id="__codelineno-0-627" name="__codelineno-0-627"></a>    <span class="n">rect_y1</span> <span class="o">=</span> <span class="n">text_y</span> <span class="o">-</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">margin</span>
-<a id="__codelineno-0-628" name="__codelineno-0-628"></a>    <span class="n">rect_x2</span> <span class="o">=</span> <span class="n">text_x</span> <span class="o">+</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">margin</span>
-<a id="__codelineno-0-629" name="__codelineno-0-629"></a>    <span class="n">rect_y2</span> <span class="o">=</span> <span class="n">text_y</span> <span class="o">+</span> <span class="n">margin</span>
-<a id="__codelineno-0-630" name="__codelineno-0-630"></a>    <span class="c1"># Draw the background rectangle</span>
-<a id="__codelineno-0-631" name="__codelineno-0-631"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="n">rect_x1</span><span class="p">,</span> <span class="n">rect_y1</span><span class="p">),</span> <span class="p">(</span><span class="n">rect_x2</span><span class="p">,</span> <span class="n">rect_y2</span><span class="p">),</span> <span class="n">color</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-632" name="__codelineno-0-632"></a>    <span class="c1"># Draw the text on top of the rectangle</span>
-<a id="__codelineno-0-633" name="__codelineno-0-633"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
-<a id="__codelineno-0-634" name="__codelineno-0-634"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span>
-<a id="__codelineno-0-635" name="__codelineno-0-635"></a>        <span class="n">label</span><span class="p">,</span>
-<a id="__codelineno-0-636" name="__codelineno-0-636"></a>        <span class="p">(</span><span class="n">text_x</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span>
-<a id="__codelineno-0-637" name="__codelineno-0-637"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span>
-<a id="__codelineno-0-638" name="__codelineno-0-638"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span>
-<a id="__codelineno-0-639" name="__codelineno-0-639"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_txt_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">),</span>
-<a id="__codelineno-0-640" name="__codelineno-0-640"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">,</span>
-<a id="__codelineno-0-641" name="__codelineno-0-641"></a>        <span class="n">lineType</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">,</span>
-<a id="__codelineno-0-642" name="__codelineno-0-642"></a>    <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-639">639</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-604" name="__codelineno-0-604"></a><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<a id="__codelineno-0-605" name="__codelineno-0-605"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-606" name="__codelineno-0-606"></a><span class="sd">    Draw a label with a background rectangle centered within a given bounding box.</span>
+<a id="__codelineno-0-607" name="__codelineno-0-607"></a>
+<a id="__codelineno-0-608" name="__codelineno-0-608"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-609" name="__codelineno-0-609"></a><span class="sd">        box (Tuple[float, float, float, float]): The bounding box coordinates (x1, y1, x2, y2).</span>
+<a id="__codelineno-0-610" name="__codelineno-0-610"></a><span class="sd">        label (str): The text label to be displayed.</span>
+<a id="__codelineno-0-611" name="__codelineno-0-611"></a><span class="sd">        color (Tuple[int, int, int]): The background color of the rectangle (B, G, R).</span>
+<a id="__codelineno-0-612" name="__codelineno-0-612"></a><span class="sd">        txt_color (Tuple[int, int, int]): The color of the text (R, G, B).</span>
+<a id="__codelineno-0-613" name="__codelineno-0-613"></a><span class="sd">        margin (int): The margin between the text and the rectangle border.</span>
+<a id="__codelineno-0-614" name="__codelineno-0-614"></a><span class="sd">    """</span>
+<a id="__codelineno-0-615" name="__codelineno-0-615"></a>    <span class="c1"># Calculate the center of the bounding box</span>
+<a id="__codelineno-0-616" name="__codelineno-0-616"></a>    <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<a id="__codelineno-0-617" name="__codelineno-0-617"></a>    <span class="c1"># Get the size of the text</span>
+<a id="__codelineno-0-618" name="__codelineno-0-618"></a>    <span class="n">text_size</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-619" name="__codelineno-0-619"></a>    <span class="c1"># Calculate the top-left corner of the text (to center it)</span>
+<a id="__codelineno-0-620" name="__codelineno-0-620"></a>    <span class="n">text_x</span> <span class="o">=</span> <span class="n">x_center</span> <span class="o">-</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-0-621" name="__codelineno-0-621"></a>    <span class="n">text_y</span> <span class="o">=</span> <span class="n">y_center</span> <span class="o">+</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">//</span> <span class="mi">2</span>
+<a id="__codelineno-0-622" name="__codelineno-0-622"></a>    <span class="c1"># Calculate the coordinates of the background rectangle</span>
+<a id="__codelineno-0-623" name="__codelineno-0-623"></a>    <span class="n">rect_x1</span> <span class="o">=</span> <span class="n">text_x</span> <span class="o">-</span> <span class="n">margin</span>
+<a id="__codelineno-0-624" name="__codelineno-0-624"></a>    <span class="n">rect_y1</span> <span class="o">=</span> <span class="n">text_y</span> <span class="o">-</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">margin</span>
+<a id="__codelineno-0-625" name="__codelineno-0-625"></a>    <span class="n">rect_x2</span> <span class="o">=</span> <span class="n">text_x</span> <span class="o">+</span> <span class="n">text_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">margin</span>
+<a id="__codelineno-0-626" name="__codelineno-0-626"></a>    <span class="n">rect_y2</span> <span class="o">=</span> <span class="n">text_y</span> <span class="o">+</span> <span class="n">margin</span>
+<a id="__codelineno-0-627" name="__codelineno-0-627"></a>    <span class="c1"># Draw the background rectangle</span>
+<a id="__codelineno-0-628" name="__codelineno-0-628"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="n">rect_x1</span><span class="p">,</span> <span class="n">rect_y1</span><span class="p">),</span> <span class="p">(</span><span class="n">rect_x2</span><span class="p">,</span> <span class="n">rect_y2</span><span class="p">),</span> <span class="n">color</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-629" name="__codelineno-0-629"></a>    <span class="c1"># Draw the text on top of the rectangle</span>
+<a id="__codelineno-0-630" name="__codelineno-0-630"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">putText</span><span class="p">(</span>
+<a id="__codelineno-0-631" name="__codelineno-0-631"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span>
+<a id="__codelineno-0-632" name="__codelineno-0-632"></a>        <span class="n">label</span><span class="p">,</span>
+<a id="__codelineno-0-633" name="__codelineno-0-633"></a>        <span class="p">(</span><span class="n">text_x</span><span class="p">,</span> <span class="n">text_y</span><span class="p">),</span>
+<a id="__codelineno-0-634" name="__codelineno-0-634"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">FONT_HERSHEY_SIMPLEX</span><span class="p">,</span>
+<a id="__codelineno-0-635" name="__codelineno-0-635"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">sf</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">,</span>
+<a id="__codelineno-0-636" name="__codelineno-0-636"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">get_txt_color</span><span class="p">(</span><span class="n">color</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">),</span>
+<a id="__codelineno-0-637" name="__codelineno-0-637"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">,</span>
+<a id="__codelineno-0-638" name="__codelineno-0-638"></a>        <span class="n">lineType</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">LINE_AA</span><span class="p">,</span>
+<a id="__codelineno-0-639" name="__codelineno-0-639"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4812,7 +4820,10 @@ angles, and workout stages.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-671">671</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-668">668</a></span>
+<span class="normal"><a href="#__codelineno-0-669">669</a></span>
+<span class="normal"><a href="#__codelineno-0-670">670</a></span>
+<span class="normal"><a href="#__codelineno-0-671">671</a></span>
 <span class="normal"><a href="#__codelineno-0-672">672</a></span>
 <span class="normal"><a href="#__codelineno-0-673">673</a></span>
 <span class="normal"><a href="#__codelineno-0-674">674</a></span>
@@ -4834,35 +4845,32 @@ angles, and workout stages.</p>
 <span class="normal"><a href="#__codelineno-0-690">690</a></span>
 <span class="normal"><a href="#__codelineno-0-691">691</a></span>
 <span class="normal"><a href="#__codelineno-0-692">692</a></span>
-<span class="normal"><a href="#__codelineno-0-693">693</a></span>
-<span class="normal"><a href="#__codelineno-0-694">694</a></span>
-<span class="normal"><a href="#__codelineno-0-695">695</a></span>
-<span class="normal"><a href="#__codelineno-0-696">696</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-671" name="__codelineno-0-671"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-672" name="__codelineno-0-672"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-673" name="__codelineno-0-673"></a><span class="sd">    Initialize a SolutionResults object with default or user-specified values.</span>
-<a id="__codelineno-0-674" name="__codelineno-0-674"></a>
-<a id="__codelineno-0-675" name="__codelineno-0-675"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-676" name="__codelineno-0-676"></a><span class="sd">        **kwargs (Any): Optional arguments to override default attribute values.</span>
-<a id="__codelineno-0-677" name="__codelineno-0-677"></a><span class="sd">    """</span>
-<a id="__codelineno-0-678" name="__codelineno-0-678"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot_im</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-679" name="__codelineno-0-679"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">in_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-680" name="__codelineno-0-680"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">out_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-681" name="__codelineno-0-681"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">classwise_count</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-682" name="__codelineno-0-682"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">queue_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-683" name="__codelineno-0-683"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">workout_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-684" name="__codelineno-0-684"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">workout_angle</span> <span class="o">=</span> <span class="mf">0.0</span>
-<a id="__codelineno-0-685" name="__codelineno-0-685"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">workout_stage</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-686" name="__codelineno-0-686"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pixels_distance</span> <span class="o">=</span> <span class="mf">0.0</span>
-<a id="__codelineno-0-687" name="__codelineno-0-687"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">available_slots</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-688" name="__codelineno-0-688"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">filled_slots</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-689" name="__codelineno-0-689"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">email_sent</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-690" name="__codelineno-0-690"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">total_tracks</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-691" name="__codelineno-0-691"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">region_counts</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-692" name="__codelineno-0-692"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed_dict</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-693" name="__codelineno-0-693"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">total_crop_objects</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-694" name="__codelineno-0-694"></a>
-<a id="__codelineno-0-695" name="__codelineno-0-695"></a>    <span class="c1"># Override with user-defined values</span>
-<a id="__codelineno-0-696" name="__codelineno-0-696"></a>    <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-693">693</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-668" name="__codelineno-0-668"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-669" name="__codelineno-0-669"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-670" name="__codelineno-0-670"></a><span class="sd">    Initialize a SolutionResults object with default or user-specified values.</span>
+<a id="__codelineno-0-671" name="__codelineno-0-671"></a>
+<a id="__codelineno-0-672" name="__codelineno-0-672"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-673" name="__codelineno-0-673"></a><span class="sd">        **kwargs (Any): Optional arguments to override default attribute values.</span>
+<a id="__codelineno-0-674" name="__codelineno-0-674"></a><span class="sd">    """</span>
+<a id="__codelineno-0-675" name="__codelineno-0-675"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot_im</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-676" name="__codelineno-0-676"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">in_count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-677" name="__codelineno-0-677"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">out_count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-678" name="__codelineno-0-678"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">classwise_count</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-679" name="__codelineno-0-679"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">queue_count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-680" name="__codelineno-0-680"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">workout_count</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-681" name="__codelineno-0-681"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">workout_angle</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a id="__codelineno-0-682" name="__codelineno-0-682"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">workout_stage</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-683" name="__codelineno-0-683"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pixels_distance</span> <span class="o">=</span> <span class="mf">0.0</span>
+<a id="__codelineno-0-684" name="__codelineno-0-684"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">available_slots</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-685" name="__codelineno-0-685"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">filled_slots</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-686" name="__codelineno-0-686"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">email_sent</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-0-687" name="__codelineno-0-687"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">total_tracks</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-688" name="__codelineno-0-688"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">region_counts</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-689" name="__codelineno-0-689"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">speed_dict</span> <span class="o">=</span> <span class="p">{}</span>
+<a id="__codelineno-0-690" name="__codelineno-0-690"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">total_crop_objects</span> <span class="o">=</span> <span class="mi">0</span>
+<a id="__codelineno-0-691" name="__codelineno-0-691"></a>
+<a id="__codelineno-0-692" name="__codelineno-0-692"></a>    <span class="c1"># Override with user-defined values</span>
+<a id="__codelineno-0-693" name="__codelineno-0-693"></a>    <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4897,7 +4905,10 @@ angles, and workout stages.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-698">698</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-695">695</a></span>
+<span class="normal"><a href="#__codelineno-0-696">696</a></span>
+<span class="normal"><a href="#__codelineno-0-697">697</a></span>
+<span class="normal"><a href="#__codelineno-0-698">698</a></span>
 <span class="normal"><a href="#__codelineno-0-699">699</a></span>
 <span class="normal"><a href="#__codelineno-0-700">700</a></span>
 <span class="normal"><a href="#__codelineno-0-701">701</a></span>
@@ -4906,22 +4917,19 @@ angles, and workout stages.</p>
 <span class="normal"><a href="#__codelineno-0-704">704</a></span>
 <span class="normal"><a href="#__codelineno-0-705">705</a></span>
 <span class="normal"><a href="#__codelineno-0-706">706</a></span>
-<span class="normal"><a href="#__codelineno-0-707">707</a></span>
-<span class="normal"><a href="#__codelineno-0-708">708</a></span>
-<span class="normal"><a href="#__codelineno-0-709">709</a></span>
-<span class="normal"><a href="#__codelineno-0-710">710</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-698" name="__codelineno-0-698"></a><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-699" name="__codelineno-0-699"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-700" name="__codelineno-0-700"></a><span class="sd">    Return a formatted string representation of the SolutionResults object.</span>
-<a id="__codelineno-0-701" name="__codelineno-0-701"></a>
-<a id="__codelineno-0-702" name="__codelineno-0-702"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a><span class="sd">        (str): A string representation listing non-null attributes.</span>
-<a id="__codelineno-0-704" name="__codelineno-0-704"></a><span class="sd">    """</span>
-<a id="__codelineno-0-705" name="__codelineno-0-705"></a>    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-706" name="__codelineno-0-706"></a>        <span class="n">k</span><span class="p">:</span> <span class="n">v</span>
-<a id="__codelineno-0-707" name="__codelineno-0-707"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
-<a id="__codelineno-0-708" name="__codelineno-0-708"></a>        <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">"plot_im"</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">{},</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>  <span class="c1"># Exclude `plot_im` explicitly</span>
-<a id="__codelineno-0-709" name="__codelineno-0-709"></a>    <span class="p">}</span>
-<a id="__codelineno-0-710" name="__codelineno-0-710"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"SolutionResults(</span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">'</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="si">}</span><span class="s2">)"</span>
+<span class="normal"><a href="#__codelineno-0-707">707</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-695" name="__codelineno-0-695"></a><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-696" name="__codelineno-0-696"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-697" name="__codelineno-0-697"></a><span class="sd">    Return a formatted string representation of the SolutionResults object.</span>
+<a id="__codelineno-0-698" name="__codelineno-0-698"></a>
+<a id="__codelineno-0-699" name="__codelineno-0-699"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-700" name="__codelineno-0-700"></a><span class="sd">        (str): A string representation listing non-null attributes.</span>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a><span class="sd">    """</span>
+<a id="__codelineno-0-702" name="__codelineno-0-702"></a>    <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>        <span class="n">k</span><span class="p">:</span> <span class="n">v</span>
+<a id="__codelineno-0-704" name="__codelineno-0-704"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+<a id="__codelineno-0-705" name="__codelineno-0-705"></a>        <span class="k">if</span> <span class="n">k</span> <span class="o">!=</span> <span class="s2">"plot_im"</span> <span class="ow">and</span> <span class="n">v</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="kc">None</span><span class="p">,</span> <span class="p">{},</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="kc">False</span><span class="p">]</span>  <span class="c1"># Exclude `plot_im` explicitly</span>
+<a id="__codelineno-0-706" name="__codelineno-0-706"></a>    <span class="p">}</span>
+<a id="__codelineno-0-707" name="__codelineno-0-707"></a>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"SolutionResults(</span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s1">'</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s1">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s1">'</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="n">v</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="n">attrs</span><span class="o">.</span><span class="n">items</span><span class="p">())</span><span class="si">}</span><span class="s2">)"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

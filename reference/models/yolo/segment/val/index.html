@@ -364,6 +364,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../data/split/">
+<span class="md-ellipsis">
+    split
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../data/split_dota/">
 <span class="md-ellipsis">
     split_dota
@@ -1072,6 +1079,13 @@
 <a class="md-nav__link" href="../../../../utils/errors/">
 <span class="md-ellipsis">
     errors
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../utils/export/">
+<span class="md-ellipsis">
+    export
   </span>
 </a>
 </li>
@@ -2636,7 +2650,7 @@ It transfers the validator's speed measurement to the metrics object for reporti
 <a id="__codelineno-0-192" name="__codelineno-0-192"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_i</span> <span class="o">&lt;</span> <span class="mi">3</span><span class="p">:</span>
 <a id="__codelineno-0-193" name="__codelineno-0-193"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">plot_masks</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pred_masks</span><span class="p">[:</span><span class="mi">50</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">())</span>  <span class="c1"># Limit plotted items for speed</span>
 <a id="__codelineno-0-194" name="__codelineno-0-194"></a>            <span class="k">if</span> <span class="n">pred_masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">:</span>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"WARNING ⚠️ Limiting validation plots to first 50 items per image for speed..."</span><span class="p">)</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Limiting validation plots to first 50 items per image for speed..."</span><span class="p">)</span>
 <a id="__codelineno-0-196" name="__codelineno-0-196"></a>
 <a id="__codelineno-0-197" name="__codelineno-0-197"></a>        <span class="c1"># Save</span>
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span><span class="p">:</span>

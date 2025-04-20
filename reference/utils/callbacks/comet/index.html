@@ -364,6 +364,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../data/split/">
+<span class="md-ellipsis">
+    split
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../data/split_dota/">
 <span class="md-ellipsis">
     split_dota
@@ -1140,6 +1147,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../export/">
+<span class="md-ellipsis">
+    export
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../files/">
 <span class="md-ellipsis">
     files
@@ -1462,7 +1476,7 @@
 <a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="n">comet_mode</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_MODE"</span><span class="p">)</span>
 <a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="k">if</span> <span class="n">comet_mode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <a id="__codelineno-0-43" name="__codelineno-0-43"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="s2">"WARNING ⚠️ The COMET_MODE environment variable is deprecated. "</span>
+<a id="__codelineno-0-44" name="__codelineno-0-44"></a>            <span class="s2">"The COMET_MODE environment variable is deprecated. "</span>
 <a id="__codelineno-0-45" name="__codelineno-0-45"></a>            <span class="s2">"Please use COMET_START_ONLINE to set the Comet experiment mode. "</span>
 <a id="__codelineno-0-46" name="__codelineno-0-46"></a>            <span class="s2">"To start an offline Comet experiment, use 'export COMET_START_ONLINE=0'. "</span>
 <a id="__codelineno-0-47" name="__codelineno-0-47"></a>            <span class="s2">"If COMET_START_ONLINE is not set or is set to '1', an online Comet experiment will be created."</span>
@@ -1661,7 +1675,7 @@
 <a id="__codelineno-0-112" name="__codelineno-0-112"></a>        <span class="n">experiment</span><span class="o">.</span><span class="n">log_other</span><span class="p">(</span><span class="s2">"Created from"</span><span class="p">,</span> <span class="s2">"ultralytics"</span><span class="p">)</span>
 <a id="__codelineno-0-113" name="__codelineno-0-113"></a>
 <a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-115" name="__codelineno-0-115"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ Comet installed but not initialized correctly, not logging this run. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Comet installed but not initialized correctly, not logging this run. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1970,7 +1984,7 @@ Returns None if no bounding boxes are found for the image.</p>
 <a id="__codelineno-0-184" name="__codelineno-0-184"></a>    <span class="n">indices</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_idx</span>
 <a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">][</span><span class="n">indices</span><span class="p">]</span>
 <a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">bboxes</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"COMET WARNING: Image: </span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2"> has no bounding boxes labels"</span><span class="p">)</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Comet Image: </span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2"> has no bounding boxes labels"</span><span class="p">)</span>
 <a id="__codelineno-0-188" name="__codelineno-0-188"></a>        <span class="k">return</span> <span class="kc">None</span>
 <a id="__codelineno-0-189" name="__codelineno-0-189"></a>
 <a id="__codelineno-0-190" name="__codelineno-0-190"></a>    <span class="n">cls_labels</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">][</span><span class="n">indices</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
@@ -2055,7 +2069,7 @@ Returns None if no bounding boxes are found for the image.</p>
 <a id="__codelineno-0-216" name="__codelineno-0-216"></a>
 <a id="__codelineno-0-217" name="__codelineno-0-217"></a>    <span class="n">predictions</span> <span class="o">=</span> <span class="n">metadata</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">image_id</span><span class="p">)</span>
 <a id="__codelineno-0-218" name="__codelineno-0-218"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">predictions</span><span class="p">:</span>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"COMET WARNING: Image: </span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2"> has no bounding boxes predictions"</span><span class="p">)</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Comet Image: </span><span class="si">{</span><span class="n">image_path</span><span class="si">}</span><span class="s2"> has no bounding boxes predictions"</span><span class="p">)</span>
 <a id="__codelineno-0-220" name="__codelineno-0-220"></a>        <span class="k">return</span> <span class="kc">None</span>
 <a id="__codelineno-0-221" name="__codelineno-0-221"></a>
 <a id="__codelineno-0-222" name="__codelineno-0-222"></a>    <span class="c1"># apply the mapping that was used to map the predicted classes when the JSON was created</span>
@@ -2205,7 +2219,7 @@ Returns None if no bounding boxes are found for the image.</p>
 <a id="__codelineno-0-268" name="__codelineno-0-268"></a>        <span class="n">annotations</span> <span class="o">=</span> <span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">polygon</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">()</span> <span class="k">for</span> <span class="n">polygon</span> <span class="ow">in</span> <span class="n">contours</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">polygon</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="mi">3</span><span class="p">]</span>
 <a id="__codelineno-0-269" name="__codelineno-0-269"></a>        <span class="k">return</span> <span class="p">[</span><span class="n">annotation</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="n">annotations</span><span class="p">]</span>
 <a id="__codelineno-0-270" name="__codelineno-0-270"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"COMET WARNING: Failed to extract segmentation annotation: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Comet Failed to extract segmentation annotation: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-272" name="__codelineno-0-272"></a>    <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
 </details>

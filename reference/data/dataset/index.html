@@ -595,6 +595,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../split/">
+<span class="md-ellipsis">
+    split
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../split_dota/">
 <span class="md-ellipsis">
     split_dota
@@ -1098,6 +1105,13 @@
 <a class="md-nav__link" href="../../utils/errors/">
 <span class="md-ellipsis">
     errors
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/export/">
+<span class="md-ellipsis">
+    export
   </span>
 </a>
 </li>
@@ -1995,7 +2009,7 @@
 <a id="__codelineno-0-148" name="__codelineno-0-148"></a>    <span class="k">if</span> <span class="n">msgs</span><span class="p">:</span>
 <a id="__codelineno-0-149" name="__codelineno-0-149"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">msgs</span><span class="p">))</span>
 <a id="__codelineno-0-150" name="__codelineno-0-150"></a>    <span class="k">if</span> <span class="n">nf</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-151" name="__codelineno-0-151"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="si">}</span><span class="s2">WARNING ⚠️ No labels found in </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">HELP_URL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-151" name="__codelineno-0-151"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="si">}</span><span class="s2">No labels found in </span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2">. </span><span class="si">{</span><span class="n">HELP_URL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-152" name="__codelineno-0-152"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"hash"</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_hash</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">label_files</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">im_files</span><span class="p">)</span>
 <a id="__codelineno-0-153" name="__codelineno-0-153"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"results"</span><span class="p">]</span> <span class="o">=</span> <span class="n">nf</span><span class="p">,</span> <span class="n">nm</span><span class="p">,</span> <span class="n">ne</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im_files</span><span class="p">)</span>
 <a id="__codelineno-0-154" name="__codelineno-0-154"></a>    <span class="n">x</span><span class="p">[</span><span class="s2">"msgs"</span><span class="p">]</span> <span class="o">=</span> <span class="n">msgs</span>  <span class="c1"># warnings</span>
@@ -2301,7 +2315,7 @@
 <a id="__codelineno-0-185" name="__codelineno-0-185"></a>    <span class="p">[</span><span class="n">cache</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"hash"</span><span class="p">,</span> <span class="s2">"version"</span><span class="p">,</span> <span class="s2">"msgs"</span><span class="p">)]</span>  <span class="c1"># remove items</span>
 <a id="__codelineno-0-186" name="__codelineno-0-186"></a>    <span class="n">labels</span> <span class="o">=</span> <span class="n">cache</span><span class="p">[</span><span class="s2">"labels"</span><span class="p">]</span>
 <a id="__codelineno-0-187" name="__codelineno-0-187"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">labels</span><span class="p">:</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ No images found in </span><span class="si">{</span><span class="n">cache_path</span><span class="si">}</span><span class="s2">, training may not work correctly. </span><span class="si">{</span><span class="n">HELP_URL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No images found in </span><span class="si">{</span><span class="n">cache_path</span><span class="si">}</span><span class="s2">, training may not work correctly. </span><span class="si">{</span><span class="n">HELP_URL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-189" name="__codelineno-0-189"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">im_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">lb</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span> <span class="k">for</span> <span class="n">lb</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">]</span>  <span class="c1"># update im_files</span>
 <a id="__codelineno-0-190" name="__codelineno-0-190"></a>
 <a id="__codelineno-0-191" name="__codelineno-0-191"></a>    <span class="c1"># Check if the dataset is all boxes or all segments</span>
@@ -2309,14 +2323,14 @@
 <a id="__codelineno-0-193" name="__codelineno-0-193"></a>    <span class="n">len_cls</span><span class="p">,</span> <span class="n">len_boxes</span><span class="p">,</span> <span class="n">len_segments</span> <span class="o">=</span> <span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">lengths</span><span class="p">))</span>
 <a id="__codelineno-0-194" name="__codelineno-0-194"></a>    <span class="k">if</span> <span class="n">len_segments</span> <span class="ow">and</span> <span class="n">len_boxes</span> <span class="o">!=</span> <span class="n">len_segments</span><span class="p">:</span>
 <a id="__codelineno-0-195" name="__codelineno-0-195"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-196" name="__codelineno-0-196"></a>            <span class="sa">f</span><span class="s2">"WARNING ⚠️ Box and segment counts should be equal, but got len(segments) = </span><span class="si">{</span><span class="n">len_segments</span><span class="si">}</span><span class="s2">, "</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a>            <span class="sa">f</span><span class="s2">"Box and segment counts should be equal, but got len(segments) = </span><span class="si">{</span><span class="n">len_segments</span><span class="si">}</span><span class="s2">, "</span>
 <a id="__codelineno-0-197" name="__codelineno-0-197"></a>            <span class="sa">f</span><span class="s2">"len(boxes) = </span><span class="si">{</span><span class="n">len_boxes</span><span class="si">}</span><span class="s2">. To resolve this only boxes will be used and all segments will be removed. "</span>
 <a id="__codelineno-0-198" name="__codelineno-0-198"></a>            <span class="s2">"To avoid this please supply either a detect or segment dataset, not a detect-segment mixed dataset."</span>
 <a id="__codelineno-0-199" name="__codelineno-0-199"></a>        <span class="p">)</span>
 <a id="__codelineno-0-200" name="__codelineno-0-200"></a>        <span class="k">for</span> <span class="n">lb</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">:</span>
 <a id="__codelineno-0-201" name="__codelineno-0-201"></a>            <span class="n">lb</span><span class="p">[</span><span class="s2">"segments"</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
 <a id="__codelineno-0-202" name="__codelineno-0-202"></a>    <span class="k">if</span> <span class="n">len_cls</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"WARNING ⚠️ No labels found in </span><span class="si">{</span><span class="n">cache_path</span><span class="si">}</span><span class="s2">, training may not work correctly. </span><span class="si">{</span><span class="n">HELP_URL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No labels found in </span><span class="si">{</span><span class="n">cache_path</span><span class="si">}</span><span class="s2">, training may not work correctly. </span><span class="si">{</span><span class="n">HELP_URL</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-204" name="__codelineno-0-204"></a>    <span class="k">return</span> <span class="n">labels</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4121,7 +4135,7 @@ parameters, and cache settings.</p>
 <a id="__codelineno-0-731" name="__codelineno-0-731"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">cache_ram</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">cache</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">or</span> <span class="nb">str</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">cache</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"ram"</span>  <span class="c1"># cache images into RAM</span>
 <a id="__codelineno-0-732" name="__codelineno-0-732"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache_ram</span><span class="p">:</span>
 <a id="__codelineno-0-733" name="__codelineno-0-733"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-734" name="__codelineno-0-734"></a>            <span class="s2">"WARNING ⚠️ Classification `cache_ram` training has known memory leak in "</span>
+<a id="__codelineno-0-734" name="__codelineno-0-734"></a>            <span class="s2">"Classification `cache_ram` training has known memory leak in "</span>
 <a id="__codelineno-0-735" name="__codelineno-0-735"></a>            <span class="s2">"https://github.com/ultralytics/ultralytics/issues/9824, setting `cache_ram=False`."</span>
 <a id="__codelineno-0-736" name="__codelineno-0-736"></a>        <span class="p">)</span>
 <a id="__codelineno-0-737" name="__codelineno-0-737"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">cache_ram</span> <span class="o">=</span> <span class="kc">False</span>

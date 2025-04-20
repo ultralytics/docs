@@ -449,6 +449,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../split/">
+<span class="md-ellipsis">
+    split
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../split_dota/">
 <span class="md-ellipsis">
     split_dota
@@ -952,6 +959,13 @@
 <a class="md-nav__link" href="../../utils/errors/">
 <span class="md-ellipsis">
     errors
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/export/">
+<span class="md-ellipsis">
+    export
   </span>
 </a>
 </li>
@@ -3128,9 +3142,9 @@ them in the COCO dataset structure. It uses multithreading to generate images ef
 <a id="__codelineno-0-698" name="__codelineno-0-698"></a>                <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">TQDM</span><span class="p">(</span><span class="n">as_completed</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">futures</span><span class="p">),</span> <span class="n">desc</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Generating images for </span><span class="si">{</span><span class="n">subset</span><span class="si">}</span><span class="s2">"</span><span class="p">):</span>
 <a id="__codelineno-0-699" name="__codelineno-0-699"></a>                    <span class="k">pass</span>  <span class="c1"># The actual work is done in the background</span>
 <a id="__codelineno-0-700" name="__codelineno-0-700"></a>            <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-701" name="__codelineno-0-701"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Warning: Labels file </span><span class="si">{</span><span class="n">label_list_file</span><span class="si">}</span><span class="s2"> does not exist. Skipping image creation for </span><span class="si">{</span><span class="n">subset</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<a id="__codelineno-0-701" name="__codelineno-0-701"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Labels file </span><span class="si">{</span><span class="n">label_list_file</span><span class="si">}</span><span class="s2"> does not exist. Skipping image creation for </span><span class="si">{</span><span class="n">subset</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 <a id="__codelineno-0-702" name="__codelineno-0-702"></a>
-<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Synthetic COCO dataset created successfully."</span><span class="p">)</span>
+<a id="__codelineno-0-703" name="__codelineno-0-703"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Synthetic COCO dataset created successfully."</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3305,7 +3319,7 @@ of channels. It can process either a single image or a directory of images.</p>
 <a id="__codelineno-0-734" name="__codelineno-0-734"></a>                <span class="k">if</span> <span class="n">replace</span><span class="p">:</span>
 <a id="__codelineno-0-735" name="__codelineno-0-735"></a>                    <span class="n">im_path</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>
 <a id="__codelineno-0-736" name="__codelineno-0-736"></a>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-737" name="__codelineno-0-737"></a>                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error converting </span><span class="si">{</span><span class="n">im_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-737" name="__codelineno-0-737"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error converting </span><span class="si">{</span><span class="n">im_path</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-738" name="__codelineno-0-738"></a>
 <a id="__codelineno-0-739" name="__codelineno-0-739"></a>        <span class="k">if</span> <span class="nb">zip</span><span class="p">:</span>
 <a id="__codelineno-0-740" name="__codelineno-0-740"></a>            <span class="n">zip_directory</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
@@ -3320,7 +3334,7 @@ of channels. It can process either a single image or a directory of images.</p>
 <a id="__codelineno-0-749" name="__codelineno-0-749"></a>        <span class="n">f</span> <span class="o">=</span> <span class="n">interp1d</span><span class="p">(</span><span class="n">rgb_wavelengths</span><span class="o">.</span><span class="n">T</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">"linear"</span><span class="p">,</span> <span class="n">bounds_error</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">fill_value</span><span class="o">=</span><span class="s2">"extrapolate"</span><span class="p">)</span>
 <a id="__codelineno-0-750" name="__codelineno-0-750"></a>        <span class="n">multispectral</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="n">target_wavelengths</span><span class="p">)</span>
 <a id="__codelineno-0-751" name="__codelineno-0-751"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imwritemulti</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">output_path</span><span class="p">),</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">multispectral</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span>
-<a id="__codelineno-0-752" name="__codelineno-0-752"></a>        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Converted </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-752" name="__codelineno-0-752"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Converted </span><span class="si">{</span><span class="n">output_path</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

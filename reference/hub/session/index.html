@@ -364,6 +364,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../data/split/">
+<span class="md-ellipsis">
+    split
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../data/split_dota/">
 <span class="md-ellipsis">
     split_dota
@@ -939,6 +946,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/export/">
+<span class="md-ellipsis">
+    export
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../utils/files/">
 <span class="md-ellipsis">
     files
@@ -1420,7 +1434,7 @@ It can be a URL string or a model key with specific format.</p>
 <a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
 <a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="k">if</span> <span class="n">identifier</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/"</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">authenticated</span><span class="p">:</span>
 <a id="__codelineno-0-86" name="__codelineno-0-86"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">WARNING ⚠️ Please log in using 'yolo login API_KEY'. "</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Please log in using 'yolo login API_KEY'. "</span>
 <a id="__codelineno-0-88" name="__codelineno-0-88"></a>                <span class="s2">"You can find your API Key at: https://hub.ultralytics.com/settings?tab=api+keys."</span>
 <a id="__codelineno-0-89" name="__codelineno-0-89"></a>            <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2371,14 +2385,14 @@ It can be a URL string or a model key with specific format.</p>
 <a id="__codelineno-0-396" name="__codelineno-0-396"></a>        <span class="n">last</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="sa">f</span><span class="s2">"last</span><span class="si">{</span><span class="n">weights</span><span class="o">.</span><span class="n">suffix</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <a id="__codelineno-0-397" name="__codelineno-0-397"></a>        <span class="k">if</span> <span class="n">final</span> <span class="ow">and</span> <span class="n">last</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
 <a id="__codelineno-0-398" name="__codelineno-0-398"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-399" name="__codelineno-0-399"></a>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2"> WARNING ⚠️ Model 'best.pt' not found, copying 'last.pt' to 'best.pt' and uploading. "</span>
+<a id="__codelineno-0-399" name="__codelineno-0-399"></a>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2"> Model 'best.pt' not found, copying 'last.pt' to 'best.pt' and uploading. "</span>
 <a id="__codelineno-0-400" name="__codelineno-0-400"></a>                <span class="s2">"This often happens when resuming training in transient environments like Google Colab. "</span>
 <a id="__codelineno-0-401" name="__codelineno-0-401"></a>                <span class="s2">"For more reliable training, consider using Ultralytics HUB Cloud. "</span>
 <a id="__codelineno-0-402" name="__codelineno-0-402"></a>                <span class="s2">"Learn more at https://docs.ultralytics.com/hub/cloud-training."</span>
 <a id="__codelineno-0-403" name="__codelineno-0-403"></a>            <span class="p">)</span>
 <a id="__codelineno-0-404" name="__codelineno-0-404"></a>            <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">last</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>  <span class="c1"># copy last.pt to best.pt</span>
 <a id="__codelineno-0-405" name="__codelineno-0-405"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-406" name="__codelineno-0-406"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2"> WARNING ⚠️ Model upload issue. Missing model </span><span class="si">{</span><span class="n">weights</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<a id="__codelineno-0-406" name="__codelineno-0-406"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2"> Model upload issue. Missing model </span><span class="si">{</span><span class="n">weights</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
 <a id="__codelineno-0-407" name="__codelineno-0-407"></a>            <span class="k">return</span>
 <a id="__codelineno-0-408" name="__codelineno-0-408"></a>
 <a id="__codelineno-0-409" name="__codelineno-0-409"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span>

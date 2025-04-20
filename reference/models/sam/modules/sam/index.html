@@ -364,6 +364,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../data/split/">
+<span class="md-ellipsis">
+    split
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../data/split_dota/">
 <span class="md-ellipsis">
     split_dota
@@ -1067,6 +1074,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../utils/export/">
+<span class="md-ellipsis">
+    export
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../utils/files/">
 <span class="md-ellipsis">
     files
@@ -1460,8 +1474,7 @@ and input prompts.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-57">57</a></span>
 <span class="normal"><a href="#__codelineno-0-58">58</a></span>
 <span class="normal"><a href="#__codelineno-0-59">59</a></span>
 <span class="normal"><a href="#__codelineno-0-60">60</a></span>
@@ -1493,40 +1506,41 @@ and input prompts.</p>
 <span class="normal"><a href="#__codelineno-0-86">86</a></span>
 <span class="normal"><a href="#__codelineno-0-87">87</a></span>
 <span class="normal"><a href="#__codelineno-0-88">88</a></span>
-<span class="normal"><a href="#__codelineno-0-89">89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="n">image_encoder</span><span class="p">:</span> <span class="n">ImageEncoderViT</span><span class="p">,</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="n">prompt_encoder</span><span class="p">:</span> <span class="n">PromptEncoder</span><span class="p">,</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="n">mask_decoder</span><span class="p">:</span> <span class="n">MaskDecoder</span><span class="p">,</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="n">pixel_mean</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">),</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="n">pixel_std</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">),</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="sd">    Initialize the SAMModel class to predict object masks from an image and input prompts.</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">        image_encoder (ImageEncoderViT): The backbone used to encode the image into image embeddings.</span>
-<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        prompt_encoder (PromptEncoder): Encodes various types of input prompts.</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        mask_decoder (MaskDecoder): Predicts masks from the image embeddings and encoded prompts.</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        pixel_mean (List[float]): Mean values for normalizing pixels in the input image.</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        pixel_std (List[float]): Std values for normalizing pixels in the input image.</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">        &gt;&gt;&gt; image_encoder = ImageEncoderViT(...)</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        &gt;&gt;&gt; prompt_encoder = PromptEncoder(...)</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        &gt;&gt;&gt; mask_decoder = MaskDecoder(...)</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">        &gt;&gt;&gt; sam_model = SAMModel(image_encoder, prompt_encoder, mask_decoder)</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        &gt;&gt;&gt; # Further usage depends on SAMPredictor class</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">        All forward() operations moved to SAMPredictor.</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="sd">    """</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span> <span class="o">=</span> <span class="n">image_encoder</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_encoder</span> <span class="o">=</span> <span class="n">prompt_encoder</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mask_decoder</span> <span class="o">=</span> <span class="n">mask_decoder</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"pixel_mean"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">pixel_mean</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"pixel_std"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">pixel_std</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-89">89</a></span>
+<span class="normal"><a href="#__codelineno-0-90">90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-58" name="__codelineno-0-58"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-59" name="__codelineno-0-59"></a>    <span class="n">image_encoder</span><span class="p">:</span> <span class="n">ImageEncoderViT</span><span class="p">,</span>
+<a id="__codelineno-0-60" name="__codelineno-0-60"></a>    <span class="n">prompt_encoder</span><span class="p">:</span> <span class="n">PromptEncoder</span><span class="p">,</span>
+<a id="__codelineno-0-61" name="__codelineno-0-61"></a>    <span class="n">mask_decoder</span><span class="p">:</span> <span class="n">MaskDecoder</span><span class="p">,</span>
+<a id="__codelineno-0-62" name="__codelineno-0-62"></a>    <span class="n">pixel_mean</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">),</span>
+<a id="__codelineno-0-63" name="__codelineno-0-63"></a>    <span class="n">pixel_std</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">),</span>
+<a id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="sd">    Initialize the SAMModel class to predict object masks from an image and input prompts.</span>
+<a id="__codelineno-0-67" name="__codelineno-0-67"></a>
+<a id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="sd">        image_encoder (ImageEncoderViT): The backbone used to encode the image into image embeddings.</span>
+<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="sd">        prompt_encoder (PromptEncoder): Encodes various types of input prompts.</span>
+<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">        mask_decoder (MaskDecoder): Predicts masks from the image embeddings and encoded prompts.</span>
+<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">        pixel_mean (List[float]): Mean values for normalizing pixels in the input image.</span>
+<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">        pixel_std (List[float]): Std values for normalizing pixels in the input image.</span>
+<a id="__codelineno-0-74" name="__codelineno-0-74"></a>
+<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        &gt;&gt;&gt; image_encoder = ImageEncoderViT(...)</span>
+<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">        &gt;&gt;&gt; prompt_encoder = PromptEncoder(...)</span>
+<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">        &gt;&gt;&gt; mask_decoder = MaskDecoder(...)</span>
+<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        &gt;&gt;&gt; sam_model = SAMModel(image_encoder, prompt_encoder, mask_decoder)</span>
+<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">        &gt;&gt;&gt; # Further usage depends on SAMPredictor class</span>
+<a id="__codelineno-0-81" name="__codelineno-0-81"></a>
+<a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">    Notes:</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="sd">        All forward() operations moved to SAMPredictor.</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="sd">    """</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span> <span class="o">=</span> <span class="n">image_encoder</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_encoder</span> <span class="o">=</span> <span class="n">prompt_encoder</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mask_decoder</span> <span class="o">=</span> <span class="n">mask_decoder</span>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"pixel_mean"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">pixel_mean</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
+<a id="__codelineno-0-90" name="__codelineno-0-90"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">register_buffer</span><span class="p">(</span><span class="s2">"pixel_std"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">(</span><span class="n">pixel_std</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1569,8 +1583,7 @@ and input prompts.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-91"> 91</a></span>
-<span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-92"> 92</a></span>
 <span class="normal"><a href="#__codelineno-0-93"> 93</a></span>
 <span class="normal"><a href="#__codelineno-0-94"> 94</a></span>
 <span class="normal"><a href="#__codelineno-0-95"> 95</a></span>
@@ -1580,18 +1593,19 @@ and input prompts.</p>
 <span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
 <span class="normal"><a href="#__codelineno-0-100">100</a></span>
 <span class="normal"><a href="#__codelineno-0-101">101</a></span>
-<span class="normal"><a href="#__codelineno-0-102">102</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="sd">    Set image size to make model compatible with different image sizes.</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">        imgsz (Tuple[int, int]): The size of the input image.</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">    """</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">,</span> <span class="s2">"set_imgsz"</span><span class="p">):</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">set_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">)</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_encoder</span><span class="o">.</span><span class="n">image_embedding_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>  <span class="c1"># 16 is fixed as patch size of ViT model</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">img_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="normal"><a href="#__codelineno-0-102">102</a></span>
+<span class="normal"><a href="#__codelineno-0-103">103</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="sd">    Set image size to make model compatible with different image sizes.</span>
+<a id="__codelineno-0-95" name="__codelineno-0-95"></a>
+<a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="sd">        imgsz (Tuple[int, int]): The size of the input image.</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="sd">    """</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">,</span> <span class="s2">"set_imgsz"</span><span class="p">):</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">set_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">)</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
+<a id="__codelineno-0-102" name="__codelineno-0-102"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_encoder</span><span class="o">.</span><span class="n">image_embedding_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>  <span class="c1"># 16 is fixed as patch size of ViT model</span>
+<a id="__codelineno-0-103" name="__codelineno-0-103"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">img_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2431,8 +2445,7 @@ during evaluation.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-140">140</a></span>
-<span class="normal"><a href="#__codelineno-0-141">141</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-141">141</a></span>
 <span class="normal"><a href="#__codelineno-0-142">142</a></span>
 <span class="normal"><a href="#__codelineno-0-143">143</a></span>
 <span class="normal"><a href="#__codelineno-0-144">144</a></span>
@@ -2622,198 +2635,199 @@ during evaluation.</p>
 <span class="normal"><a href="#__codelineno-0-328">328</a></span>
 <span class="normal"><a href="#__codelineno-0-329">329</a></span>
 <span class="normal"><a href="#__codelineno-0-330">330</a></span>
-<span class="normal"><a href="#__codelineno-0-331">331</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-140" name="__codelineno-0-140"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<a id="__codelineno-0-141" name="__codelineno-0-141"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-142" name="__codelineno-0-142"></a>    <span class="n">image_encoder</span><span class="p">,</span>
-<a id="__codelineno-0-143" name="__codelineno-0-143"></a>    <span class="n">memory_attention</span><span class="p">,</span>
-<a id="__codelineno-0-144" name="__codelineno-0-144"></a>    <span class="n">memory_encoder</span><span class="p">,</span>
-<a id="__codelineno-0-145" name="__codelineno-0-145"></a>    <span class="n">num_maskmem</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
-<a id="__codelineno-0-146" name="__codelineno-0-146"></a>    <span class="n">image_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
-<a id="__codelineno-0-147" name="__codelineno-0-147"></a>    <span class="n">backbone_stride</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-<a id="__codelineno-0-148" name="__codelineno-0-148"></a>    <span class="n">sigmoid_scale_for_mem_enc</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-<a id="__codelineno-0-149" name="__codelineno-0-149"></a>    <span class="n">sigmoid_bias_for_mem_enc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-0-150" name="__codelineno-0-150"></a>    <span class="n">binarize_mask_from_pts_for_mem_enc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-151" name="__codelineno-0-151"></a>    <span class="n">use_mask_input_as_output_without_sam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-152" name="__codelineno-0-152"></a>    <span class="n">max_cond_frames_in_attn</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-153" name="__codelineno-0-153"></a>    <span class="n">directly_add_no_mem_embed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-154" name="__codelineno-0-154"></a>    <span class="n">use_high_res_features_in_sam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-155" name="__codelineno-0-155"></a>    <span class="n">multimask_output_in_sam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-156" name="__codelineno-0-156"></a>    <span class="n">multimask_min_pt_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-157" name="__codelineno-0-157"></a>    <span class="n">multimask_max_pt_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-158" name="__codelineno-0-158"></a>    <span class="n">multimask_output_for_tracking</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-159" name="__codelineno-0-159"></a>    <span class="n">use_multimask_token_for_obj_ptr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-160" name="__codelineno-0-160"></a>    <span class="n">iou_prediction_use_sigmoid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-161" name="__codelineno-0-161"></a>    <span class="n">memory_temporal_stride_for_eval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-162" name="__codelineno-0-162"></a>    <span class="n">non_overlap_masks_for_mem_enc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-163" name="__codelineno-0-163"></a>    <span class="n">use_obj_ptrs_in_encoder</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-164" name="__codelineno-0-164"></a>    <span class="n">max_obj_ptrs_in_encoder</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-<a id="__codelineno-0-165" name="__codelineno-0-165"></a>    <span class="n">add_tpos_enc_to_obj_ptrs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-166" name="__codelineno-0-166"></a>    <span class="n">proj_tpos_enc_in_obj_ptrs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-167" name="__codelineno-0-167"></a>    <span class="n">use_signed_tpos_enc_to_obj_ptrs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-168" name="__codelineno-0-168"></a>    <span class="n">only_obj_ptrs_in_the_past_for_eval</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-169" name="__codelineno-0-169"></a>    <span class="n">pred_obj_scores</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="n">pred_obj_scores_mlp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-171" name="__codelineno-0-171"></a>    <span class="n">fixed_no_obj_ptr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-172" name="__codelineno-0-172"></a>    <span class="n">soft_no_obj_ptr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="n">use_mlp_for_obj_ptr_proj</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-174" name="__codelineno-0-174"></a>    <span class="n">no_obj_embed_spatial</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-175" name="__codelineno-0-175"></a>    <span class="n">sam_mask_decoder_extra_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-176" name="__codelineno-0-176"></a>    <span class="n">compile_image_encoder</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-177" name="__codelineno-0-177"></a><span class="p">):</span>
-<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="sd">    Initialize the SAM2Model for video object segmentation with memory-based tracking.</span>
-<a id="__codelineno-0-180" name="__codelineno-0-180"></a>
-<a id="__codelineno-0-181" name="__codelineno-0-181"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">        image_encoder (nn.Module): Visual encoder for extracting image features.</span>
-<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">        memory_attention (nn.Module): Module for attending to memory features.</span>
-<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">        memory_encoder (nn.Module): Encoder for generating memory representations.</span>
-<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">        num_maskmem (int): Number of accessible memory frames. Default is 7 (1 input frame + 6 previous frames).</span>
-<a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="sd">        image_size (int): Size of input images.</span>
-<a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">        backbone_stride (int): Stride of the image backbone output.</span>
-<a id="__codelineno-0-188" name="__codelineno-0-188"></a><span class="sd">        sigmoid_scale_for_mem_enc (float): Scale factor for mask sigmoid probability.</span>
-<a id="__codelineno-0-189" name="__codelineno-0-189"></a><span class="sd">        sigmoid_bias_for_mem_enc (float): Bias factor for mask sigmoid probability.</span>
-<a id="__codelineno-0-190" name="__codelineno-0-190"></a><span class="sd">        binarize_mask_from_pts_for_mem_enc (bool): Whether to binarize sigmoid mask logits on interacted frames</span>
-<a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="sd">            with clicks during evaluation.</span>
-<a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="sd">        use_mask_input_as_output_without_sam (bool): Whether to directly output the input mask without using SAM</span>
-<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="sd">            prompt encoder and mask decoder on frames with mask input.</span>
-<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">        max_cond_frames_in_attn (int): Maximum number of conditioning frames to participate in memory attention.</span>
-<a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="sd">            -1 means no limit.</span>
-<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">        directly_add_no_mem_embed (bool): Whether to directly add no-memory embedding to image feature on the</span>
-<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">            first frame.</span>
-<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">        use_high_res_features_in_sam (bool): Whether to use high-resolution feature maps in the SAM mask decoder.</span>
-<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">        multimask_output_in_sam (bool): Whether to output multiple (3) masks for the first click on initial</span>
-<a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">            conditioning frames.</span>
-<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">        multimask_min_pt_num (int): Minimum number of clicks to use multimask output in SAM.</span>
-<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="sd">        multimask_max_pt_num (int): Maximum number of clicks to use multimask output in SAM.</span>
-<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="sd">        multimask_output_for_tracking (bool): Whether to use multimask output for tracking.</span>
-<a id="__codelineno-0-204" name="__codelineno-0-204"></a><span class="sd">        use_multimask_token_for_obj_ptr (bool): Whether to use multimask tokens for object pointers.</span>
-<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">        iou_prediction_use_sigmoid (bool): Whether to use sigmoid to restrict IoU prediction to [0-1].</span>
-<a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">        memory_temporal_stride_for_eval (int): Memory bank's temporal stride during evaluation.</span>
-<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">        non_overlap_masks_for_mem_enc (bool): Whether to apply non-overlapping constraints on object masks in</span>
-<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">            memory encoder during evaluation.</span>
-<a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="sd">        use_obj_ptrs_in_encoder (bool): Whether to cross-attend to object pointers from other frames in the encoder.</span>
-<a id="__codelineno-0-210" name="__codelineno-0-210"></a><span class="sd">        max_obj_ptrs_in_encoder (int): Maximum number of object pointers from other frames in encoder</span>
-<a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="sd">            cross-attention.</span>
-<a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">        add_tpos_enc_to_obj_ptrs (bool): Whether to add temporal positional encoding to object pointers in</span>
-<a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="sd">            the encoder.</span>
-<a id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="sd">        proj_tpos_enc_in_obj_ptrs (bool): Whether to add an extra linear projection layer for temporal positional</span>
-<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">            encoding in object pointers.</span>
-<a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="sd">        use_signed_tpos_enc_to_obj_ptrs (bool): Whether to use signed distance (instead of unsigned absolute distance)</span>
-<a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">            in the temporal positional encoding in the object pointers, only relevant when both</span>
-<a id="__codelineno-0-218" name="__codelineno-0-218"></a><span class="sd">            `use_obj_ptrs_in_encoder=True` and `add_tpos_enc_to_obj_ptrs=True`.</span>
-<a id="__codelineno-0-219" name="__codelineno-0-219"></a><span class="sd">        only_obj_ptrs_in_the_past_for_eval (bool): Whether to only attend to object pointers in the past</span>
-<a id="__codelineno-0-220" name="__codelineno-0-220"></a><span class="sd">            during evaluation.</span>
-<a id="__codelineno-0-221" name="__codelineno-0-221"></a><span class="sd">        pred_obj_scores (bool): Whether to predict if there is an object in the frame.</span>
-<a id="__codelineno-0-222" name="__codelineno-0-222"></a><span class="sd">        pred_obj_scores_mlp (bool): Whether to use an MLP to predict object scores.</span>
-<a id="__codelineno-0-223" name="__codelineno-0-223"></a><span class="sd">        fixed_no_obj_ptr (bool): Whether to have a fixed no-object pointer when there is no object present.</span>
-<a id="__codelineno-0-224" name="__codelineno-0-224"></a><span class="sd">        soft_no_obj_ptr (bool): Whether to mix in no-object pointer softly for easier recovery and error mitigation.</span>
-<a id="__codelineno-0-225" name="__codelineno-0-225"></a><span class="sd">        use_mlp_for_obj_ptr_proj (bool): Whether to use MLP for object pointer projection.</span>
-<a id="__codelineno-0-226" name="__codelineno-0-226"></a><span class="sd">        no_obj_embed_spatial (bool): Whether add no obj embedding to spatial frames.</span>
-<a id="__codelineno-0-227" name="__codelineno-0-227"></a><span class="sd">        sam_mask_decoder_extra_args (Dict | None): Extra arguments for constructing the SAM mask decoder.</span>
-<a id="__codelineno-0-228" name="__codelineno-0-228"></a><span class="sd">        compile_image_encoder (bool): Whether to compile the image encoder for faster inference.</span>
-<a id="__codelineno-0-229" name="__codelineno-0-229"></a>
-<a id="__codelineno-0-230" name="__codelineno-0-230"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="sd">        &gt;&gt;&gt; image_encoder = ImageEncoderViT(...)</span>
-<a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">        &gt;&gt;&gt; memory_attention = SAM2TwoWayTransformer(...)</span>
-<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">        &gt;&gt;&gt; memory_encoder = nn.Sequential(...)</span>
-<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">        &gt;&gt;&gt; model = SAM2Model(image_encoder, memory_attention, memory_encoder)</span>
-<a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">        &gt;&gt;&gt; image_batch = torch.rand(1, 3, 512, 512)</span>
-<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">        &gt;&gt;&gt; features = model.forward_image(image_batch)</span>
-<a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">        &gt;&gt;&gt; track_results = model.track_step(0, True, features, None, None, None, {})</span>
-<a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">    """</span>
-<a id="__codelineno-0-239" name="__codelineno-0-239"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<a id="__codelineno-0-240" name="__codelineno-0-240"></a>
-<a id="__codelineno-0-241" name="__codelineno-0-241"></a>    <span class="c1"># Part 1: the image backbone</span>
-<a id="__codelineno-0-242" name="__codelineno-0-242"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span> <span class="o">=</span> <span class="n">image_encoder</span>
-<a id="__codelineno-0-243" name="__codelineno-0-243"></a>    <span class="c1"># Use level 0, 1, 2 for high-res setting, or just level 2 for the default setting</span>
-<a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_high_res_features_in_sam</span> <span class="o">=</span> <span class="n">use_high_res_features_in_sam</span>
-<a id="__codelineno-0-245" name="__codelineno-0-245"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">num_feature_levels</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">use_high_res_features_in_sam</span> <span class="k">else</span> <span class="mi">1</span>
-<a id="__codelineno-0-246" name="__codelineno-0-246"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_obj_ptrs_in_encoder</span> <span class="o">=</span> <span class="n">use_obj_ptrs_in_encoder</span>
-<a id="__codelineno-0-247" name="__codelineno-0-247"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">max_obj_ptrs_in_encoder</span> <span class="o">=</span> <span class="n">max_obj_ptrs_in_encoder</span>
-<a id="__codelineno-0-248" name="__codelineno-0-248"></a>    <span class="k">if</span> <span class="n">use_obj_ptrs_in_encoder</span><span class="p">:</span>
-<a id="__codelineno-0-249" name="__codelineno-0-249"></a>        <span class="c1"># A conv layer to downsample the mask prompt to stride 4 (the same stride as</span>
-<a id="__codelineno-0-250" name="__codelineno-0-250"></a>        <span class="c1"># low-res SAM mask logits) and to change its scales from 0~1 to SAM logit scale,</span>
-<a id="__codelineno-0-251" name="__codelineno-0-251"></a>        <span class="c1"># so that it can be fed into the SAM mask decoder to generate a pointer.</span>
-<a id="__codelineno-0-252" name="__codelineno-0-252"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">mask_downsample</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
-<a id="__codelineno-0-253" name="__codelineno-0-253"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">add_tpos_enc_to_obj_ptrs</span> <span class="o">=</span> <span class="n">add_tpos_enc_to_obj_ptrs</span>
-<a id="__codelineno-0-254" name="__codelineno-0-254"></a>    <span class="k">if</span> <span class="n">proj_tpos_enc_in_obj_ptrs</span><span class="p">:</span>
-<a id="__codelineno-0-255" name="__codelineno-0-255"></a>        <span class="k">assert</span> <span class="n">add_tpos_enc_to_obj_ptrs</span>  <span class="c1"># these options need to be used together</span>
-<a id="__codelineno-0-256" name="__codelineno-0-256"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">proj_tpos_enc_in_obj_ptrs</span> <span class="o">=</span> <span class="n">proj_tpos_enc_in_obj_ptrs</span>
-<a id="__codelineno-0-257" name="__codelineno-0-257"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_signed_tpos_enc_to_obj_ptrs</span> <span class="o">=</span> <span class="n">use_signed_tpos_enc_to_obj_ptrs</span>
-<a id="__codelineno-0-258" name="__codelineno-0-258"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">only_obj_ptrs_in_the_past_for_eval</span> <span class="o">=</span> <span class="n">only_obj_ptrs_in_the_past_for_eval</span>
-<a id="__codelineno-0-259" name="__codelineno-0-259"></a>
-<a id="__codelineno-0-260" name="__codelineno-0-260"></a>    <span class="c1"># Part 2: memory attention to condition current frame's visual features</span>
-<a id="__codelineno-0-261" name="__codelineno-0-261"></a>    <span class="c1"># with memories (and obj ptrs) from past frames</span>
-<a id="__codelineno-0-262" name="__codelineno-0-262"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">memory_attention</span> <span class="o">=</span> <span class="n">memory_attention</span>
-<a id="__codelineno-0-263" name="__codelineno-0-263"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span> <span class="o">=</span> <span class="n">memory_attention</span><span class="o">.</span><span class="n">d_model</span>
-<a id="__codelineno-0-264" name="__codelineno-0-264"></a>
-<a id="__codelineno-0-265" name="__codelineno-0-265"></a>    <span class="c1"># Part 3: memory encoder for the previous frame's outputs</span>
-<a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">memory_encoder</span> <span class="o">=</span> <span class="n">memory_encoder</span>
-<a id="__codelineno-0-267" name="__codelineno-0-267"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mem_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span>
-<a id="__codelineno-0-268" name="__codelineno-0-268"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory_encoder</span><span class="p">,</span> <span class="s2">"out_proj"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory_encoder</span><span class="o">.</span><span class="n">out_proj</span><span class="p">,</span> <span class="s2">"weight"</span><span class="p">):</span>
-<a id="__codelineno-0-269" name="__codelineno-0-269"></a>        <span class="c1"># if there is compression of memories along channel dim</span>
-<a id="__codelineno-0-270" name="__codelineno-0-270"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">mem_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory_encoder</span><span class="o">.</span><span class="n">out_proj</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-271" name="__codelineno-0-271"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">num_maskmem</span> <span class="o">=</span> <span class="n">num_maskmem</span>  <span class="c1"># Number of memories accessible</span>
-<a id="__codelineno-0-272" name="__codelineno-0-272"></a>    <span class="c1"># Temporal encoding of the memories</span>
-<a id="__codelineno-0-273" name="__codelineno-0-273"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">maskmem_tpos_enc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_maskmem</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mem_dim</span><span class="p">))</span>
-<a id="__codelineno-0-274" name="__codelineno-0-274"></a>    <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maskmem_tpos_enc</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
-<a id="__codelineno-0-275" name="__codelineno-0-275"></a>    <span class="c1"># a single token to indicate no memory embedding from previous frames</span>
-<a id="__codelineno-0-276" name="__codelineno-0-276"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">no_mem_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">))</span>
-<a id="__codelineno-0-277" name="__codelineno-0-277"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">no_mem_pos_enc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">))</span>
-<a id="__codelineno-0-278" name="__codelineno-0-278"></a>    <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_mem_embed</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
-<a id="__codelineno-0-279" name="__codelineno-0-279"></a>    <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_mem_pos_enc</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
-<a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">directly_add_no_mem_embed</span> <span class="o">=</span> <span class="n">directly_add_no_mem_embed</span>
-<a id="__codelineno-0-281" name="__codelineno-0-281"></a>    <span class="c1"># Apply sigmoid to the output raw mask logits (to turn them from</span>
-<a id="__codelineno-0-282" name="__codelineno-0-282"></a>    <span class="c1"># range (-inf, +inf) to range (0, 1)) before feeding them into the memory encoder</span>
-<a id="__codelineno-0-283" name="__codelineno-0-283"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid_scale_for_mem_enc</span> <span class="o">=</span> <span class="n">sigmoid_scale_for_mem_enc</span>
-<a id="__codelineno-0-284" name="__codelineno-0-284"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid_bias_for_mem_enc</span> <span class="o">=</span> <span class="n">sigmoid_bias_for_mem_enc</span>
-<a id="__codelineno-0-285" name="__codelineno-0-285"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">binarize_mask_from_pts_for_mem_enc</span> <span class="o">=</span> <span class="n">binarize_mask_from_pts_for_mem_enc</span>
-<a id="__codelineno-0-286" name="__codelineno-0-286"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">non_overlap_masks_for_mem_enc</span> <span class="o">=</span> <span class="n">non_overlap_masks_for_mem_enc</span>
-<a id="__codelineno-0-287" name="__codelineno-0-287"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">memory_temporal_stride_for_eval</span> <span class="o">=</span> <span class="n">memory_temporal_stride_for_eval</span>
-<a id="__codelineno-0-288" name="__codelineno-0-288"></a>    <span class="c1"># On frames with mask input, whether to directly output the input mask without</span>
-<a id="__codelineno-0-289" name="__codelineno-0-289"></a>    <span class="c1"># using a SAM prompt encoder + mask decoder</span>
-<a id="__codelineno-0-290" name="__codelineno-0-290"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_mask_input_as_output_without_sam</span> <span class="o">=</span> <span class="n">use_mask_input_as_output_without_sam</span>
-<a id="__codelineno-0-291" name="__codelineno-0-291"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">multimask_output_in_sam</span> <span class="o">=</span> <span class="n">multimask_output_in_sam</span>
-<a id="__codelineno-0-292" name="__codelineno-0-292"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">multimask_min_pt_num</span> <span class="o">=</span> <span class="n">multimask_min_pt_num</span>
-<a id="__codelineno-0-293" name="__codelineno-0-293"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">multimask_max_pt_num</span> <span class="o">=</span> <span class="n">multimask_max_pt_num</span>
-<a id="__codelineno-0-294" name="__codelineno-0-294"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">multimask_output_for_tracking</span> <span class="o">=</span> <span class="n">multimask_output_for_tracking</span>
-<a id="__codelineno-0-295" name="__codelineno-0-295"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_multimask_token_for_obj_ptr</span> <span class="o">=</span> <span class="n">use_multimask_token_for_obj_ptr</span>
-<a id="__codelineno-0-296" name="__codelineno-0-296"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">iou_prediction_use_sigmoid</span> <span class="o">=</span> <span class="n">iou_prediction_use_sigmoid</span>
-<a id="__codelineno-0-297" name="__codelineno-0-297"></a>
-<a id="__codelineno-0-298" name="__codelineno-0-298"></a>    <span class="c1"># Part 4: SAM-style prompt encoder (for both mask and point inputs)</span>
-<a id="__codelineno-0-299" name="__codelineno-0-299"></a>    <span class="c1"># and SAM-style mask decoder for the final mask output</span>
-<a id="__codelineno-0-300" name="__codelineno-0-300"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">image_size</span>
-<a id="__codelineno-0-301" name="__codelineno-0-301"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">backbone_stride</span> <span class="o">=</span> <span class="n">backbone_stride</span>
-<a id="__codelineno-0-302" name="__codelineno-0-302"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_mask_decoder_extra_args</span> <span class="o">=</span> <span class="n">sam_mask_decoder_extra_args</span>
-<a id="__codelineno-0-303" name="__codelineno-0-303"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pred_obj_scores</span> <span class="o">=</span> <span class="n">pred_obj_scores</span>
-<a id="__codelineno-0-304" name="__codelineno-0-304"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pred_obj_scores_mlp</span> <span class="o">=</span> <span class="n">pred_obj_scores_mlp</span>
-<a id="__codelineno-0-305" name="__codelineno-0-305"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fixed_no_obj_ptr</span> <span class="o">=</span> <span class="n">fixed_no_obj_ptr</span>
-<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">soft_no_obj_ptr</span> <span class="o">=</span> <span class="n">soft_no_obj_ptr</span>
-<a id="__codelineno-0-307" name="__codelineno-0-307"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_no_obj_ptr</span><span class="p">:</span>
-<a id="__codelineno-0-308" name="__codelineno-0-308"></a>        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">pred_obj_scores</span>
-<a id="__codelineno-0-309" name="__codelineno-0-309"></a>        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_obj_ptrs_in_encoder</span>
-<a id="__codelineno-0-310" name="__codelineno-0-310"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pred_obj_scores</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_obj_ptrs_in_encoder</span><span class="p">:</span>
-<a id="__codelineno-0-311" name="__codelineno-0-311"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">no_obj_ptr</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">))</span>
-<a id="__codelineno-0-312" name="__codelineno-0-312"></a>        <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_obj_ptr</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
-<a id="__codelineno-0-313" name="__codelineno-0-313"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_mlp_for_obj_ptr_proj</span> <span class="o">=</span> <span class="n">use_mlp_for_obj_ptr_proj</span>
-<a id="__codelineno-0-314" name="__codelineno-0-314"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">no_obj_embed_spatial</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-315" name="__codelineno-0-315"></a>    <span class="k">if</span> <span class="n">no_obj_embed_spatial</span><span class="p">:</span>
-<a id="__codelineno-0-316" name="__codelineno-0-316"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">no_obj_embed_spatial</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mem_dim</span><span class="p">))</span>
-<a id="__codelineno-0-317" name="__codelineno-0-317"></a>        <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_obj_embed_spatial</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
-<a id="__codelineno-0-318" name="__codelineno-0-318"></a>
-<a id="__codelineno-0-319" name="__codelineno-0-319"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_build_sam_heads</span><span class="p">()</span>
-<a id="__codelineno-0-320" name="__codelineno-0-320"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">max_cond_frames_in_attn</span> <span class="o">=</span> <span class="n">max_cond_frames_in_attn</span>
-<a id="__codelineno-0-321" name="__codelineno-0-321"></a>
-<a id="__codelineno-0-322" name="__codelineno-0-322"></a>    <span class="c1"># Model compilation</span>
-<a id="__codelineno-0-323" name="__codelineno-0-323"></a>    <span class="k">if</span> <span class="n">compile_image_encoder</span><span class="p">:</span>
-<a id="__codelineno-0-324" name="__codelineno-0-324"></a>        <span class="c1"># Compile the forward function (not the full module) to allow loading checkpoints.</span>
-<a id="__codelineno-0-325" name="__codelineno-0-325"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Image encoder compilation is enabled. First forward pass will be slow."</span><span class="p">)</span>
-<a id="__codelineno-0-326" name="__codelineno-0-326"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">forward</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
-<a id="__codelineno-0-327" name="__codelineno-0-327"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">forward</span><span class="p">,</span>
-<a id="__codelineno-0-328" name="__codelineno-0-328"></a>            <span class="n">mode</span><span class="o">=</span><span class="s2">"max-autotune"</span><span class="p">,</span>
-<a id="__codelineno-0-329" name="__codelineno-0-329"></a>            <span class="n">fullgraph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-330" name="__codelineno-0-330"></a>            <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-331" name="__codelineno-0-331"></a>        <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-331">331</a></span>
+<span class="normal"><a href="#__codelineno-0-332">332</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-141" name="__codelineno-0-141"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<a id="__codelineno-0-142" name="__codelineno-0-142"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-143" name="__codelineno-0-143"></a>    <span class="n">image_encoder</span><span class="p">,</span>
+<a id="__codelineno-0-144" name="__codelineno-0-144"></a>    <span class="n">memory_attention</span><span class="p">,</span>
+<a id="__codelineno-0-145" name="__codelineno-0-145"></a>    <span class="n">memory_encoder</span><span class="p">,</span>
+<a id="__codelineno-0-146" name="__codelineno-0-146"></a>    <span class="n">num_maskmem</span><span class="o">=</span><span class="mi">7</span><span class="p">,</span>
+<a id="__codelineno-0-147" name="__codelineno-0-147"></a>    <span class="n">image_size</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span>
+<a id="__codelineno-0-148" name="__codelineno-0-148"></a>    <span class="n">backbone_stride</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+<a id="__codelineno-0-149" name="__codelineno-0-149"></a>    <span class="n">sigmoid_scale_for_mem_enc</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<a id="__codelineno-0-150" name="__codelineno-0-150"></a>    <span class="n">sigmoid_bias_for_mem_enc</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<a id="__codelineno-0-151" name="__codelineno-0-151"></a>    <span class="n">binarize_mask_from_pts_for_mem_enc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-152" name="__codelineno-0-152"></a>    <span class="n">use_mask_input_as_output_without_sam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-153" name="__codelineno-0-153"></a>    <span class="n">max_cond_frames_in_attn</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-154" name="__codelineno-0-154"></a>    <span class="n">directly_add_no_mem_embed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-155" name="__codelineno-0-155"></a>    <span class="n">use_high_res_features_in_sam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-156" name="__codelineno-0-156"></a>    <span class="n">multimask_output_in_sam</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-157" name="__codelineno-0-157"></a>    <span class="n">multimask_min_pt_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-158" name="__codelineno-0-158"></a>    <span class="n">multimask_max_pt_num</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-159" name="__codelineno-0-159"></a>    <span class="n">multimask_output_for_tracking</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-160" name="__codelineno-0-160"></a>    <span class="n">use_multimask_token_for_obj_ptr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-161" name="__codelineno-0-161"></a>    <span class="n">iou_prediction_use_sigmoid</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-162" name="__codelineno-0-162"></a>    <span class="n">memory_temporal_stride_for_eval</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<a id="__codelineno-0-163" name="__codelineno-0-163"></a>    <span class="n">non_overlap_masks_for_mem_enc</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-164" name="__codelineno-0-164"></a>    <span class="n">use_obj_ptrs_in_encoder</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-165" name="__codelineno-0-165"></a>    <span class="n">max_obj_ptrs_in_encoder</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+<a id="__codelineno-0-166" name="__codelineno-0-166"></a>    <span class="n">add_tpos_enc_to_obj_ptrs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-167" name="__codelineno-0-167"></a>    <span class="n">proj_tpos_enc_in_obj_ptrs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-168" name="__codelineno-0-168"></a>    <span class="n">use_signed_tpos_enc_to_obj_ptrs</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-169" name="__codelineno-0-169"></a>    <span class="n">only_obj_ptrs_in_the_past_for_eval</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-170" name="__codelineno-0-170"></a>    <span class="n">pred_obj_scores</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-171" name="__codelineno-0-171"></a>    <span class="n">pred_obj_scores_mlp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-172" name="__codelineno-0-172"></a>    <span class="n">fixed_no_obj_ptr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-173" name="__codelineno-0-173"></a>    <span class="n">soft_no_obj_ptr</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-174" name="__codelineno-0-174"></a>    <span class="n">use_mlp_for_obj_ptr_proj</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-175" name="__codelineno-0-175"></a>    <span class="n">no_obj_embed_spatial</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-176" name="__codelineno-0-176"></a>    <span class="n">sam_mask_decoder_extra_args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-177" name="__codelineno-0-177"></a>    <span class="n">compile_image_encoder</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-178" name="__codelineno-0-178"></a><span class="p">):</span>
+<a id="__codelineno-0-179" name="__codelineno-0-179"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-180" name="__codelineno-0-180"></a><span class="sd">    Initialize the SAM2Model for video object segmentation with memory-based tracking.</span>
+<a id="__codelineno-0-181" name="__codelineno-0-181"></a>
+<a id="__codelineno-0-182" name="__codelineno-0-182"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-183" name="__codelineno-0-183"></a><span class="sd">        image_encoder (nn.Module): Visual encoder for extracting image features.</span>
+<a id="__codelineno-0-184" name="__codelineno-0-184"></a><span class="sd">        memory_attention (nn.Module): Module for attending to memory features.</span>
+<a id="__codelineno-0-185" name="__codelineno-0-185"></a><span class="sd">        memory_encoder (nn.Module): Encoder for generating memory representations.</span>
+<a id="__codelineno-0-186" name="__codelineno-0-186"></a><span class="sd">        num_maskmem (int): Number of accessible memory frames. Default is 7 (1 input frame + 6 previous frames).</span>
+<a id="__codelineno-0-187" name="__codelineno-0-187"></a><span class="sd">        image_size (int): Size of input images.</span>
+<a id="__codelineno-0-188" name="__codelineno-0-188"></a><span class="sd">        backbone_stride (int): Stride of the image backbone output.</span>
+<a id="__codelineno-0-189" name="__codelineno-0-189"></a><span class="sd">        sigmoid_scale_for_mem_enc (float): Scale factor for mask sigmoid probability.</span>
+<a id="__codelineno-0-190" name="__codelineno-0-190"></a><span class="sd">        sigmoid_bias_for_mem_enc (float): Bias factor for mask sigmoid probability.</span>
+<a id="__codelineno-0-191" name="__codelineno-0-191"></a><span class="sd">        binarize_mask_from_pts_for_mem_enc (bool): Whether to binarize sigmoid mask logits on interacted frames</span>
+<a id="__codelineno-0-192" name="__codelineno-0-192"></a><span class="sd">            with clicks during evaluation.</span>
+<a id="__codelineno-0-193" name="__codelineno-0-193"></a><span class="sd">        use_mask_input_as_output_without_sam (bool): Whether to directly output the input mask without using SAM</span>
+<a id="__codelineno-0-194" name="__codelineno-0-194"></a><span class="sd">            prompt encoder and mask decoder on frames with mask input.</span>
+<a id="__codelineno-0-195" name="__codelineno-0-195"></a><span class="sd">        max_cond_frames_in_attn (int): Maximum number of conditioning frames to participate in memory attention.</span>
+<a id="__codelineno-0-196" name="__codelineno-0-196"></a><span class="sd">            -1 means no limit.</span>
+<a id="__codelineno-0-197" name="__codelineno-0-197"></a><span class="sd">        directly_add_no_mem_embed (bool): Whether to directly add no-memory embedding to image feature on the</span>
+<a id="__codelineno-0-198" name="__codelineno-0-198"></a><span class="sd">            first frame.</span>
+<a id="__codelineno-0-199" name="__codelineno-0-199"></a><span class="sd">        use_high_res_features_in_sam (bool): Whether to use high-resolution feature maps in the SAM mask decoder.</span>
+<a id="__codelineno-0-200" name="__codelineno-0-200"></a><span class="sd">        multimask_output_in_sam (bool): Whether to output multiple (3) masks for the first click on initial</span>
+<a id="__codelineno-0-201" name="__codelineno-0-201"></a><span class="sd">            conditioning frames.</span>
+<a id="__codelineno-0-202" name="__codelineno-0-202"></a><span class="sd">        multimask_min_pt_num (int): Minimum number of clicks to use multimask output in SAM.</span>
+<a id="__codelineno-0-203" name="__codelineno-0-203"></a><span class="sd">        multimask_max_pt_num (int): Maximum number of clicks to use multimask output in SAM.</span>
+<a id="__codelineno-0-204" name="__codelineno-0-204"></a><span class="sd">        multimask_output_for_tracking (bool): Whether to use multimask output for tracking.</span>
+<a id="__codelineno-0-205" name="__codelineno-0-205"></a><span class="sd">        use_multimask_token_for_obj_ptr (bool): Whether to use multimask tokens for object pointers.</span>
+<a id="__codelineno-0-206" name="__codelineno-0-206"></a><span class="sd">        iou_prediction_use_sigmoid (bool): Whether to use sigmoid to restrict IoU prediction to [0-1].</span>
+<a id="__codelineno-0-207" name="__codelineno-0-207"></a><span class="sd">        memory_temporal_stride_for_eval (int): Memory bank's temporal stride during evaluation.</span>
+<a id="__codelineno-0-208" name="__codelineno-0-208"></a><span class="sd">        non_overlap_masks_for_mem_enc (bool): Whether to apply non-overlapping constraints on object masks in</span>
+<a id="__codelineno-0-209" name="__codelineno-0-209"></a><span class="sd">            memory encoder during evaluation.</span>
+<a id="__codelineno-0-210" name="__codelineno-0-210"></a><span class="sd">        use_obj_ptrs_in_encoder (bool): Whether to cross-attend to object pointers from other frames in the encoder.</span>
+<a id="__codelineno-0-211" name="__codelineno-0-211"></a><span class="sd">        max_obj_ptrs_in_encoder (int): Maximum number of object pointers from other frames in encoder</span>
+<a id="__codelineno-0-212" name="__codelineno-0-212"></a><span class="sd">            cross-attention.</span>
+<a id="__codelineno-0-213" name="__codelineno-0-213"></a><span class="sd">        add_tpos_enc_to_obj_ptrs (bool): Whether to add temporal positional encoding to object pointers in</span>
+<a id="__codelineno-0-214" name="__codelineno-0-214"></a><span class="sd">            the encoder.</span>
+<a id="__codelineno-0-215" name="__codelineno-0-215"></a><span class="sd">        proj_tpos_enc_in_obj_ptrs (bool): Whether to add an extra linear projection layer for temporal positional</span>
+<a id="__codelineno-0-216" name="__codelineno-0-216"></a><span class="sd">            encoding in object pointers.</span>
+<a id="__codelineno-0-217" name="__codelineno-0-217"></a><span class="sd">        use_signed_tpos_enc_to_obj_ptrs (bool): Whether to use signed distance (instead of unsigned absolute distance)</span>
+<a id="__codelineno-0-218" name="__codelineno-0-218"></a><span class="sd">            in the temporal positional encoding in the object pointers, only relevant when both</span>
+<a id="__codelineno-0-219" name="__codelineno-0-219"></a><span class="sd">            `use_obj_ptrs_in_encoder=True` and `add_tpos_enc_to_obj_ptrs=True`.</span>
+<a id="__codelineno-0-220" name="__codelineno-0-220"></a><span class="sd">        only_obj_ptrs_in_the_past_for_eval (bool): Whether to only attend to object pointers in the past</span>
+<a id="__codelineno-0-221" name="__codelineno-0-221"></a><span class="sd">            during evaluation.</span>
+<a id="__codelineno-0-222" name="__codelineno-0-222"></a><span class="sd">        pred_obj_scores (bool): Whether to predict if there is an object in the frame.</span>
+<a id="__codelineno-0-223" name="__codelineno-0-223"></a><span class="sd">        pred_obj_scores_mlp (bool): Whether to use an MLP to predict object scores.</span>
+<a id="__codelineno-0-224" name="__codelineno-0-224"></a><span class="sd">        fixed_no_obj_ptr (bool): Whether to have a fixed no-object pointer when there is no object present.</span>
+<a id="__codelineno-0-225" name="__codelineno-0-225"></a><span class="sd">        soft_no_obj_ptr (bool): Whether to mix in no-object pointer softly for easier recovery and error mitigation.</span>
+<a id="__codelineno-0-226" name="__codelineno-0-226"></a><span class="sd">        use_mlp_for_obj_ptr_proj (bool): Whether to use MLP for object pointer projection.</span>
+<a id="__codelineno-0-227" name="__codelineno-0-227"></a><span class="sd">        no_obj_embed_spatial (bool): Whether add no obj embedding to spatial frames.</span>
+<a id="__codelineno-0-228" name="__codelineno-0-228"></a><span class="sd">        sam_mask_decoder_extra_args (Dict | None): Extra arguments for constructing the SAM mask decoder.</span>
+<a id="__codelineno-0-229" name="__codelineno-0-229"></a><span class="sd">        compile_image_encoder (bool): Whether to compile the image encoder for faster inference.</span>
+<a id="__codelineno-0-230" name="__codelineno-0-230"></a>
+<a id="__codelineno-0-231" name="__codelineno-0-231"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-232" name="__codelineno-0-232"></a><span class="sd">        &gt;&gt;&gt; image_encoder = ImageEncoderViT(...)</span>
+<a id="__codelineno-0-233" name="__codelineno-0-233"></a><span class="sd">        &gt;&gt;&gt; memory_attention = SAM2TwoWayTransformer(...)</span>
+<a id="__codelineno-0-234" name="__codelineno-0-234"></a><span class="sd">        &gt;&gt;&gt; memory_encoder = nn.Sequential(...)</span>
+<a id="__codelineno-0-235" name="__codelineno-0-235"></a><span class="sd">        &gt;&gt;&gt; model = SAM2Model(image_encoder, memory_attention, memory_encoder)</span>
+<a id="__codelineno-0-236" name="__codelineno-0-236"></a><span class="sd">        &gt;&gt;&gt; image_batch = torch.rand(1, 3, 512, 512)</span>
+<a id="__codelineno-0-237" name="__codelineno-0-237"></a><span class="sd">        &gt;&gt;&gt; features = model.forward_image(image_batch)</span>
+<a id="__codelineno-0-238" name="__codelineno-0-238"></a><span class="sd">        &gt;&gt;&gt; track_results = model.track_step(0, True, features, None, None, None, {})</span>
+<a id="__codelineno-0-239" name="__codelineno-0-239"></a><span class="sd">    """</span>
+<a id="__codelineno-0-240" name="__codelineno-0-240"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<a id="__codelineno-0-241" name="__codelineno-0-241"></a>
+<a id="__codelineno-0-242" name="__codelineno-0-242"></a>    <span class="c1"># Part 1: the image backbone</span>
+<a id="__codelineno-0-243" name="__codelineno-0-243"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span> <span class="o">=</span> <span class="n">image_encoder</span>
+<a id="__codelineno-0-244" name="__codelineno-0-244"></a>    <span class="c1"># Use level 0, 1, 2 for high-res setting, or just level 2 for the default setting</span>
+<a id="__codelineno-0-245" name="__codelineno-0-245"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_high_res_features_in_sam</span> <span class="o">=</span> <span class="n">use_high_res_features_in_sam</span>
+<a id="__codelineno-0-246" name="__codelineno-0-246"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">num_feature_levels</span> <span class="o">=</span> <span class="mi">3</span> <span class="k">if</span> <span class="n">use_high_res_features_in_sam</span> <span class="k">else</span> <span class="mi">1</span>
+<a id="__codelineno-0-247" name="__codelineno-0-247"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_obj_ptrs_in_encoder</span> <span class="o">=</span> <span class="n">use_obj_ptrs_in_encoder</span>
+<a id="__codelineno-0-248" name="__codelineno-0-248"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">max_obj_ptrs_in_encoder</span> <span class="o">=</span> <span class="n">max_obj_ptrs_in_encoder</span>
+<a id="__codelineno-0-249" name="__codelineno-0-249"></a>    <span class="k">if</span> <span class="n">use_obj_ptrs_in_encoder</span><span class="p">:</span>
+<a id="__codelineno-0-250" name="__codelineno-0-250"></a>        <span class="c1"># A conv layer to downsample the mask prompt to stride 4 (the same stride as</span>
+<a id="__codelineno-0-251" name="__codelineno-0-251"></a>        <span class="c1"># low-res SAM mask logits) and to change its scales from 0~1 to SAM logit scale,</span>
+<a id="__codelineno-0-252" name="__codelineno-0-252"></a>        <span class="c1"># so that it can be fed into the SAM mask decoder to generate a pointer.</span>
+<a id="__codelineno-0-253" name="__codelineno-0-253"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">mask_downsample</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<a id="__codelineno-0-254" name="__codelineno-0-254"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">add_tpos_enc_to_obj_ptrs</span> <span class="o">=</span> <span class="n">add_tpos_enc_to_obj_ptrs</span>
+<a id="__codelineno-0-255" name="__codelineno-0-255"></a>    <span class="k">if</span> <span class="n">proj_tpos_enc_in_obj_ptrs</span><span class="p">:</span>
+<a id="__codelineno-0-256" name="__codelineno-0-256"></a>        <span class="k">assert</span> <span class="n">add_tpos_enc_to_obj_ptrs</span>  <span class="c1"># these options need to be used together</span>
+<a id="__codelineno-0-257" name="__codelineno-0-257"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">proj_tpos_enc_in_obj_ptrs</span> <span class="o">=</span> <span class="n">proj_tpos_enc_in_obj_ptrs</span>
+<a id="__codelineno-0-258" name="__codelineno-0-258"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_signed_tpos_enc_to_obj_ptrs</span> <span class="o">=</span> <span class="n">use_signed_tpos_enc_to_obj_ptrs</span>
+<a id="__codelineno-0-259" name="__codelineno-0-259"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">only_obj_ptrs_in_the_past_for_eval</span> <span class="o">=</span> <span class="n">only_obj_ptrs_in_the_past_for_eval</span>
+<a id="__codelineno-0-260" name="__codelineno-0-260"></a>
+<a id="__codelineno-0-261" name="__codelineno-0-261"></a>    <span class="c1"># Part 2: memory attention to condition current frame's visual features</span>
+<a id="__codelineno-0-262" name="__codelineno-0-262"></a>    <span class="c1"># with memories (and obj ptrs) from past frames</span>
+<a id="__codelineno-0-263" name="__codelineno-0-263"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">memory_attention</span> <span class="o">=</span> <span class="n">memory_attention</span>
+<a id="__codelineno-0-264" name="__codelineno-0-264"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span> <span class="o">=</span> <span class="n">memory_attention</span><span class="o">.</span><span class="n">d_model</span>
+<a id="__codelineno-0-265" name="__codelineno-0-265"></a>
+<a id="__codelineno-0-266" name="__codelineno-0-266"></a>    <span class="c1"># Part 3: memory encoder for the previous frame's outputs</span>
+<a id="__codelineno-0-267" name="__codelineno-0-267"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">memory_encoder</span> <span class="o">=</span> <span class="n">memory_encoder</span>
+<a id="__codelineno-0-268" name="__codelineno-0-268"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">mem_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span>
+<a id="__codelineno-0-269" name="__codelineno-0-269"></a>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory_encoder</span><span class="p">,</span> <span class="s2">"out_proj"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory_encoder</span><span class="o">.</span><span class="n">out_proj</span><span class="p">,</span> <span class="s2">"weight"</span><span class="p">):</span>
+<a id="__codelineno-0-270" name="__codelineno-0-270"></a>        <span class="c1"># if there is compression of memories along channel dim</span>
+<a id="__codelineno-0-271" name="__codelineno-0-271"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">mem_dim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">memory_encoder</span><span class="o">.</span><span class="n">out_proj</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-272" name="__codelineno-0-272"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">num_maskmem</span> <span class="o">=</span> <span class="n">num_maskmem</span>  <span class="c1"># Number of memories accessible</span>
+<a id="__codelineno-0-273" name="__codelineno-0-273"></a>    <span class="c1"># Temporal encoding of the memories</span>
+<a id="__codelineno-0-274" name="__codelineno-0-274"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">maskmem_tpos_enc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_maskmem</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mem_dim</span><span class="p">))</span>
+<a id="__codelineno-0-275" name="__codelineno-0-275"></a>    <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">maskmem_tpos_enc</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+<a id="__codelineno-0-276" name="__codelineno-0-276"></a>    <span class="c1"># a single token to indicate no memory embedding from previous frames</span>
+<a id="__codelineno-0-277" name="__codelineno-0-277"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">no_mem_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">))</span>
+<a id="__codelineno-0-278" name="__codelineno-0-278"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">no_mem_pos_enc</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">))</span>
+<a id="__codelineno-0-279" name="__codelineno-0-279"></a>    <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_mem_embed</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+<a id="__codelineno-0-280" name="__codelineno-0-280"></a>    <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_mem_pos_enc</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+<a id="__codelineno-0-281" name="__codelineno-0-281"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">directly_add_no_mem_embed</span> <span class="o">=</span> <span class="n">directly_add_no_mem_embed</span>
+<a id="__codelineno-0-282" name="__codelineno-0-282"></a>    <span class="c1"># Apply sigmoid to the output raw mask logits (to turn them from</span>
+<a id="__codelineno-0-283" name="__codelineno-0-283"></a>    <span class="c1"># range (-inf, +inf) to range (0, 1)) before feeding them into the memory encoder</span>
+<a id="__codelineno-0-284" name="__codelineno-0-284"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid_scale_for_mem_enc</span> <span class="o">=</span> <span class="n">sigmoid_scale_for_mem_enc</span>
+<a id="__codelineno-0-285" name="__codelineno-0-285"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sigmoid_bias_for_mem_enc</span> <span class="o">=</span> <span class="n">sigmoid_bias_for_mem_enc</span>
+<a id="__codelineno-0-286" name="__codelineno-0-286"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">binarize_mask_from_pts_for_mem_enc</span> <span class="o">=</span> <span class="n">binarize_mask_from_pts_for_mem_enc</span>
+<a id="__codelineno-0-287" name="__codelineno-0-287"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">non_overlap_masks_for_mem_enc</span> <span class="o">=</span> <span class="n">non_overlap_masks_for_mem_enc</span>
+<a id="__codelineno-0-288" name="__codelineno-0-288"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">memory_temporal_stride_for_eval</span> <span class="o">=</span> <span class="n">memory_temporal_stride_for_eval</span>
+<a id="__codelineno-0-289" name="__codelineno-0-289"></a>    <span class="c1"># On frames with mask input, whether to directly output the input mask without</span>
+<a id="__codelineno-0-290" name="__codelineno-0-290"></a>    <span class="c1"># using a SAM prompt encoder + mask decoder</span>
+<a id="__codelineno-0-291" name="__codelineno-0-291"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_mask_input_as_output_without_sam</span> <span class="o">=</span> <span class="n">use_mask_input_as_output_without_sam</span>
+<a id="__codelineno-0-292" name="__codelineno-0-292"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">multimask_output_in_sam</span> <span class="o">=</span> <span class="n">multimask_output_in_sam</span>
+<a id="__codelineno-0-293" name="__codelineno-0-293"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">multimask_min_pt_num</span> <span class="o">=</span> <span class="n">multimask_min_pt_num</span>
+<a id="__codelineno-0-294" name="__codelineno-0-294"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">multimask_max_pt_num</span> <span class="o">=</span> <span class="n">multimask_max_pt_num</span>
+<a id="__codelineno-0-295" name="__codelineno-0-295"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">multimask_output_for_tracking</span> <span class="o">=</span> <span class="n">multimask_output_for_tracking</span>
+<a id="__codelineno-0-296" name="__codelineno-0-296"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_multimask_token_for_obj_ptr</span> <span class="o">=</span> <span class="n">use_multimask_token_for_obj_ptr</span>
+<a id="__codelineno-0-297" name="__codelineno-0-297"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">iou_prediction_use_sigmoid</span> <span class="o">=</span> <span class="n">iou_prediction_use_sigmoid</span>
+<a id="__codelineno-0-298" name="__codelineno-0-298"></a>
+<a id="__codelineno-0-299" name="__codelineno-0-299"></a>    <span class="c1"># Part 4: SAM-style prompt encoder (for both mask and point inputs)</span>
+<a id="__codelineno-0-300" name="__codelineno-0-300"></a>    <span class="c1"># and SAM-style mask decoder for the final mask output</span>
+<a id="__codelineno-0-301" name="__codelineno-0-301"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">image_size</span>
+<a id="__codelineno-0-302" name="__codelineno-0-302"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">backbone_stride</span> <span class="o">=</span> <span class="n">backbone_stride</span>
+<a id="__codelineno-0-303" name="__codelineno-0-303"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_mask_decoder_extra_args</span> <span class="o">=</span> <span class="n">sam_mask_decoder_extra_args</span>
+<a id="__codelineno-0-304" name="__codelineno-0-304"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pred_obj_scores</span> <span class="o">=</span> <span class="n">pred_obj_scores</span>
+<a id="__codelineno-0-305" name="__codelineno-0-305"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">pred_obj_scores_mlp</span> <span class="o">=</span> <span class="n">pred_obj_scores_mlp</span>
+<a id="__codelineno-0-306" name="__codelineno-0-306"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fixed_no_obj_ptr</span> <span class="o">=</span> <span class="n">fixed_no_obj_ptr</span>
+<a id="__codelineno-0-307" name="__codelineno-0-307"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">soft_no_obj_ptr</span> <span class="o">=</span> <span class="n">soft_no_obj_ptr</span>
+<a id="__codelineno-0-308" name="__codelineno-0-308"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fixed_no_obj_ptr</span><span class="p">:</span>
+<a id="__codelineno-0-309" name="__codelineno-0-309"></a>        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">pred_obj_scores</span>
+<a id="__codelineno-0-310" name="__codelineno-0-310"></a>        <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_obj_ptrs_in_encoder</span>
+<a id="__codelineno-0-311" name="__codelineno-0-311"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pred_obj_scores</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_obj_ptrs_in_encoder</span><span class="p">:</span>
+<a id="__codelineno-0-312" name="__codelineno-0-312"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">no_obj_ptr</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">))</span>
+<a id="__codelineno-0-313" name="__codelineno-0-313"></a>        <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_obj_ptr</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+<a id="__codelineno-0-314" name="__codelineno-0-314"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">use_mlp_for_obj_ptr_proj</span> <span class="o">=</span> <span class="n">use_mlp_for_obj_ptr_proj</span>
+<a id="__codelineno-0-315" name="__codelineno-0-315"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">no_obj_embed_spatial</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-0-316" name="__codelineno-0-316"></a>    <span class="k">if</span> <span class="n">no_obj_embed_spatial</span><span class="p">:</span>
+<a id="__codelineno-0-317" name="__codelineno-0-317"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">no_obj_embed_spatial</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mem_dim</span><span class="p">))</span>
+<a id="__codelineno-0-318" name="__codelineno-0-318"></a>        <span class="n">trunc_normal_</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">no_obj_embed_spatial</span><span class="p">,</span> <span class="n">std</span><span class="o">=</span><span class="mf">0.02</span><span class="p">)</span>
+<a id="__codelineno-0-319" name="__codelineno-0-319"></a>
+<a id="__codelineno-0-320" name="__codelineno-0-320"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_build_sam_heads</span><span class="p">()</span>
+<a id="__codelineno-0-321" name="__codelineno-0-321"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">max_cond_frames_in_attn</span> <span class="o">=</span> <span class="n">max_cond_frames_in_attn</span>
+<a id="__codelineno-0-322" name="__codelineno-0-322"></a>
+<a id="__codelineno-0-323" name="__codelineno-0-323"></a>    <span class="c1"># Model compilation</span>
+<a id="__codelineno-0-324" name="__codelineno-0-324"></a>    <span class="k">if</span> <span class="n">compile_image_encoder</span><span class="p">:</span>
+<a id="__codelineno-0-325" name="__codelineno-0-325"></a>        <span class="c1"># Compile the forward function (not the full module) to allow loading checkpoints.</span>
+<a id="__codelineno-0-326" name="__codelineno-0-326"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Image encoder compilation is enabled. First forward pass will be slow."</span><span class="p">)</span>
+<a id="__codelineno-0-327" name="__codelineno-0-327"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">forward</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span>
+<a id="__codelineno-0-328" name="__codelineno-0-328"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">forward</span><span class="p">,</span>
+<a id="__codelineno-0-329" name="__codelineno-0-329"></a>            <span class="n">mode</span><span class="o">=</span><span class="s2">"max-autotune"</span><span class="p">,</span>
+<a id="__codelineno-0-330" name="__codelineno-0-330"></a>            <span class="n">fullgraph</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-331" name="__codelineno-0-331"></a>            <span class="n">dynamic</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<a id="__codelineno-0-332" name="__codelineno-0-332"></a>        <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2840,17 +2854,17 @@ during evaluation.</p>
 <p>Process image and prompt inputs to generate object masks and scores in video sequences.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-338">338</a></span>
-<span class="normal"><a href="#__codelineno-0-339">339</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-339">339</a></span>
 <span class="normal"><a href="#__codelineno-0-340">340</a></span>
 <span class="normal"><a href="#__codelineno-0-341">341</a></span>
 <span class="normal"><a href="#__codelineno-0-342">342</a></span>
-<span class="normal"><a href="#__codelineno-0-343">343</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-338" name="__codelineno-0-338"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="w">    </span><span class="sd">"""Process image and prompt inputs to generate object masks and scores in video sequences."""</span>
-<a id="__codelineno-0-340" name="__codelineno-0-340"></a>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
-<a id="__codelineno-0-341" name="__codelineno-0-341"></a>        <span class="s2">"Please use the corresponding methods in SAM2VideoPredictor for inference."</span>
-<a id="__codelineno-0-342" name="__codelineno-0-342"></a>        <span class="s2">"See notebooks/video_predictor_example.ipynb for an example."</span>
-<a id="__codelineno-0-343" name="__codelineno-0-343"></a>    <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-343">343</a></span>
+<span class="normal"><a href="#__codelineno-0-344">344</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-339" name="__codelineno-0-339"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<a id="__codelineno-0-340" name="__codelineno-0-340"></a><span class="w">    </span><span class="sd">"""Process image and prompt inputs to generate object masks and scores in video sequences."""</span>
+<a id="__codelineno-0-341" name="__codelineno-0-341"></a>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
+<a id="__codelineno-0-342" name="__codelineno-0-342"></a>        <span class="s2">"Please use the corresponding methods in SAM2VideoPredictor for inference."</span>
+<a id="__codelineno-0-343" name="__codelineno-0-343"></a>        <span class="s2">"See notebooks/video_predictor_example.ipynb for an example."</span>
+<a id="__codelineno-0-344" name="__codelineno-0-344"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2865,23 +2879,23 @@ during evaluation.</p>
 <p>Process image batch through encoder to extract multi-level features for SAM model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-594">594</a></span>
-<span class="normal"><a href="#__codelineno-0-595">595</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-595">595</a></span>
 <span class="normal"><a href="#__codelineno-0-596">596</a></span>
 <span class="normal"><a href="#__codelineno-0-597">597</a></span>
 <span class="normal"><a href="#__codelineno-0-598">598</a></span>
 <span class="normal"><a href="#__codelineno-0-599">599</a></span>
 <span class="normal"><a href="#__codelineno-0-600">600</a></span>
 <span class="normal"><a href="#__codelineno-0-601">601</a></span>
-<span class="normal"><a href="#__codelineno-0-602">602</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-594" name="__codelineno-0-594"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-<a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="w">    </span><span class="sd">"""Process image batch through encoder to extract multi-level features for SAM model."""</span>
-<a id="__codelineno-0-596" name="__codelineno-0-596"></a>    <span class="n">backbone_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">img_batch</span><span class="p">)</span>
-<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_high_res_features_in_sam</span><span class="p">:</span>
-<a id="__codelineno-0-598" name="__codelineno-0-598"></a>        <span class="c1"># precompute projected level 0 and level 1 features in SAM decoder</span>
-<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="c1"># to avoid running it again on every SAM click</span>
-<a id="__codelineno-0-600" name="__codelineno-0-600"></a>        <span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sam_mask_decoder</span><span class="o">.</span><span class="n">conv_s0</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<a id="__codelineno-0-601" name="__codelineno-0-601"></a>        <span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sam_mask_decoder</span><span class="o">.</span><span class="n">conv_s1</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-602" name="__codelineno-0-602"></a>    <span class="k">return</span> <span class="n">backbone_out</span>
+<span class="normal"><a href="#__codelineno-0-602">602</a></span>
+<span class="normal"><a href="#__codelineno-0-603">603</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-595" name="__codelineno-0-595"></a><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<a id="__codelineno-0-596" name="__codelineno-0-596"></a><span class="w">    </span><span class="sd">"""Process image batch through encoder to extract multi-level features for SAM model."""</span>
+<a id="__codelineno-0-597" name="__codelineno-0-597"></a>    <span class="n">backbone_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">img_batch</span><span class="p">)</span>
+<a id="__codelineno-0-598" name="__codelineno-0-598"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_high_res_features_in_sam</span><span class="p">:</span>
+<a id="__codelineno-0-599" name="__codelineno-0-599"></a>        <span class="c1"># precompute projected level 0 and level 1 features in SAM decoder</span>
+<a id="__codelineno-0-600" name="__codelineno-0-600"></a>        <span class="c1"># to avoid running it again on every SAM click</span>
+<a id="__codelineno-0-601" name="__codelineno-0-601"></a>        <span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sam_mask_decoder</span><span class="o">.</span><span class="n">conv_s0</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-602" name="__codelineno-0-602"></a>        <span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">sam_mask_decoder</span><span class="o">.</span><span class="n">conv_s1</span><span class="p">(</span><span class="n">backbone_out</span><span class="p">[</span><span class="s2">"backbone_fpn"</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-0-603" name="__codelineno-0-603"></a>    <span class="k">return</span> <span class="n">backbone_out</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2896,11 +2910,11 @@ during evaluation.</p>
 <p>Set binarize for VideoPredictor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-997">997</a></span>
-<span class="normal"><a href="#__codelineno-0-998">998</a></span>
-<span class="normal"><a href="#__codelineno-0-999">999</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-997" name="__codelineno-0-997"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
-<a id="__codelineno-0-998" name="__codelineno-0-998"></a><span class="w">    </span><span class="sd">"""Set binarize for VideoPredictor."""</span>
-<a id="__codelineno-0-999" name="__codelineno-0-999"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">binarize_mask_from_pts_for_mem_enc</span> <span class="o">=</span> <span class="n">binarize</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-998"> 998</a></span>
+<span class="normal"><a href="#__codelineno-0-999"> 999</a></span>
+<span class="normal"><a href="#__codelineno-0-1000">1000</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-998" name="__codelineno-0-998"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<a id="__codelineno-0-999" name="__codelineno-0-999"></a><span class="w">    </span><span class="sd">"""Set binarize for VideoPredictor."""</span>
+<a id="__codelineno-0-1000" name="__codelineno-0-1000"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">binarize_mask_from_pts_for_mem_enc</span> <span class="o">=</span> <span class="n">binarize</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2915,15 +2929,15 @@ during evaluation.</p>
 <p>Set image size to make model compatible with different image sizes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1001">1001</a></span>
-<span class="normal"><a href="#__codelineno-0-1002">1002</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1002">1002</a></span>
 <span class="normal"><a href="#__codelineno-0-1003">1003</a></span>
 <span class="normal"><a href="#__codelineno-0-1004">1004</a></span>
-<span class="normal"><a href="#__codelineno-0-1005">1005</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1001" name="__codelineno-0-1001"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
-<a id="__codelineno-0-1002" name="__codelineno-0-1002"></a><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
-<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
-<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">image_embedding_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>  <span class="c1"># fixed ViT patch size of 16</span>
+<span class="normal"><a href="#__codelineno-0-1005">1005</a></span>
+<span class="normal"><a href="#__codelineno-0-1006">1006</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-1002" name="__codelineno-0-1002"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<a id="__codelineno-0-1003" name="__codelineno-0-1003"></a><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
+<a id="__codelineno-0-1004" name="__codelineno-0-1004"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-0-1005" name="__codelineno-0-1005"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
+<a id="__codelineno-0-1006" name="__codelineno-0-1006"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">image_embedding_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>  <span class="c1"># fixed ViT patch size of 16</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2951,8 +2965,7 @@ during evaluation.</p>
 <p>Perform a single tracking step, updating object masks and memory features based on current frame inputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-912">912</a></span>
-<span class="normal"><a href="#__codelineno-0-913">913</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-913">913</a></span>
 <span class="normal"><a href="#__codelineno-0-914">914</a></span>
 <span class="normal"><a href="#__codelineno-0-915">915</a></span>
 <span class="normal"><a href="#__codelineno-0-916">916</a></span>
@@ -3007,63 +3020,64 @@ during evaluation.</p>
 <span class="normal"><a href="#__codelineno-0-965">965</a></span>
 <span class="normal"><a href="#__codelineno-0-966">966</a></span>
 <span class="normal"><a href="#__codelineno-0-967">967</a></span>
-<span class="normal"><a href="#__codelineno-0-968">968</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-912" name="__codelineno-0-912"></a><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
-<a id="__codelineno-0-913" name="__codelineno-0-913"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-914" name="__codelineno-0-914"></a>    <span class="n">frame_idx</span><span class="p">,</span>
-<a id="__codelineno-0-915" name="__codelineno-0-915"></a>    <span class="n">is_init_cond_frame</span><span class="p">,</span>
-<a id="__codelineno-0-916" name="__codelineno-0-916"></a>    <span class="n">current_vision_feats</span><span class="p">,</span>
-<a id="__codelineno-0-917" name="__codelineno-0-917"></a>    <span class="n">current_vision_pos_embeds</span><span class="p">,</span>
-<a id="__codelineno-0-918" name="__codelineno-0-918"></a>    <span class="n">feat_sizes</span><span class="p">,</span>
-<a id="__codelineno-0-919" name="__codelineno-0-919"></a>    <span class="n">point_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-920" name="__codelineno-0-920"></a>    <span class="n">mask_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-921" name="__codelineno-0-921"></a>    <span class="n">output_dict</span><span class="p">,</span>
-<a id="__codelineno-0-922" name="__codelineno-0-922"></a>    <span class="n">num_frames</span><span class="p">,</span>
-<a id="__codelineno-0-923" name="__codelineno-0-923"></a>    <span class="n">track_in_reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># tracking in reverse time order (for demo usage)</span>
-<a id="__codelineno-0-924" name="__codelineno-0-924"></a>    <span class="c1"># Whether to run the memory encoder on the predicted masks. Sometimes we might want</span>
-<a id="__codelineno-0-925" name="__codelineno-0-925"></a>    <span class="c1"># to skip the memory encoder with `run_mem_encoder=False`. For example,</span>
-<a id="__codelineno-0-926" name="__codelineno-0-926"></a>    <span class="c1"># in demo we might call `track_step` multiple times for each user click,</span>
-<a id="__codelineno-0-927" name="__codelineno-0-927"></a>    <span class="c1"># and only encode the memory when the user finalizes their clicks. And in ablation</span>
-<a id="__codelineno-0-928" name="__codelineno-0-928"></a>    <span class="c1"># settings like SAM training on static images, we don't need the memory encoder.</span>
-<a id="__codelineno-0-929" name="__codelineno-0-929"></a>    <span class="n">run_mem_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-930" name="__codelineno-0-930"></a>    <span class="c1"># The previously predicted SAM mask logits (which can be fed together with new clicks in demo).</span>
-<a id="__codelineno-0-931" name="__codelineno-0-931"></a>    <span class="n">prev_sam_mask_logits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-932" name="__codelineno-0-932"></a><span class="p">):</span>
-<a id="__codelineno-0-933" name="__codelineno-0-933"></a><span class="w">    </span><span class="sd">"""Perform a single tracking step, updating object masks and memory features based on current frame inputs."""</span>
-<a id="__codelineno-0-934" name="__codelineno-0-934"></a>    <span class="n">current_out</span><span class="p">,</span> <span class="n">sam_outputs</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_track_step</span><span class="p">(</span>
-<a id="__codelineno-0-935" name="__codelineno-0-935"></a>        <span class="n">frame_idx</span><span class="p">,</span>
-<a id="__codelineno-0-936" name="__codelineno-0-936"></a>        <span class="n">is_init_cond_frame</span><span class="p">,</span>
-<a id="__codelineno-0-937" name="__codelineno-0-937"></a>        <span class="n">current_vision_feats</span><span class="p">,</span>
-<a id="__codelineno-0-938" name="__codelineno-0-938"></a>        <span class="n">current_vision_pos_embeds</span><span class="p">,</span>
-<a id="__codelineno-0-939" name="__codelineno-0-939"></a>        <span class="n">feat_sizes</span><span class="p">,</span>
-<a id="__codelineno-0-940" name="__codelineno-0-940"></a>        <span class="n">point_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-941" name="__codelineno-0-941"></a>        <span class="n">mask_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-942" name="__codelineno-0-942"></a>        <span class="n">output_dict</span><span class="p">,</span>
-<a id="__codelineno-0-943" name="__codelineno-0-943"></a>        <span class="n">num_frames</span><span class="p">,</span>
-<a id="__codelineno-0-944" name="__codelineno-0-944"></a>        <span class="n">track_in_reverse</span><span class="p">,</span>
-<a id="__codelineno-0-945" name="__codelineno-0-945"></a>        <span class="n">prev_sam_mask_logits</span><span class="p">,</span>
-<a id="__codelineno-0-946" name="__codelineno-0-946"></a>    <span class="p">)</span>
-<a id="__codelineno-0-947" name="__codelineno-0-947"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">low_res_masks</span><span class="p">,</span> <span class="n">high_res_masks</span><span class="p">,</span> <span class="n">obj_ptr</span><span class="p">,</span> <span class="n">object_score_logits</span> <span class="o">=</span> <span class="n">sam_outputs</span>
-<a id="__codelineno-0-948" name="__codelineno-0-948"></a>
-<a id="__codelineno-0-949" name="__codelineno-0-949"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">low_res_masks</span>
-<a id="__codelineno-0-950" name="__codelineno-0-950"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks_high_res"</span><span class="p">]</span> <span class="o">=</span> <span class="n">high_res_masks</span>
-<a id="__codelineno-0-951" name="__codelineno-0-951"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"obj_ptr"</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj_ptr</span>
-<a id="__codelineno-0-952" name="__codelineno-0-952"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">:</span>
-<a id="__codelineno-0-953" name="__codelineno-0-953"></a>        <span class="c1"># Only add this in inference (to avoid unused param in activation checkpointing;</span>
-<a id="__codelineno-0-954" name="__codelineno-0-954"></a>        <span class="c1"># it's mainly used in the demo to encode spatial memories w/ consolidated masks)</span>
-<a id="__codelineno-0-955" name="__codelineno-0-955"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"object_score_logits"</span><span class="p">]</span> <span class="o">=</span> <span class="n">object_score_logits</span>
-<a id="__codelineno-0-956" name="__codelineno-0-956"></a>
-<a id="__codelineno-0-957" name="__codelineno-0-957"></a>    <span class="c1"># Run memory encoder on the predicted mask to encode it into a new memory feature (for use in future frames)</span>
-<a id="__codelineno-0-958" name="__codelineno-0-958"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_encode_memory_in_output</span><span class="p">(</span>
-<a id="__codelineno-0-959" name="__codelineno-0-959"></a>        <span class="n">current_vision_feats</span><span class="p">,</span>
-<a id="__codelineno-0-960" name="__codelineno-0-960"></a>        <span class="n">feat_sizes</span><span class="p">,</span>
-<a id="__codelineno-0-961" name="__codelineno-0-961"></a>        <span class="n">point_inputs</span><span class="p">,</span>
-<a id="__codelineno-0-962" name="__codelineno-0-962"></a>        <span class="n">run_mem_encoder</span><span class="p">,</span>
-<a id="__codelineno-0-963" name="__codelineno-0-963"></a>        <span class="n">high_res_masks</span><span class="p">,</span>
-<a id="__codelineno-0-964" name="__codelineno-0-964"></a>        <span class="n">object_score_logits</span><span class="p">,</span>
-<a id="__codelineno-0-965" name="__codelineno-0-965"></a>        <span class="n">current_out</span><span class="p">,</span>
-<a id="__codelineno-0-966" name="__codelineno-0-966"></a>    <span class="p">)</span>
-<a id="__codelineno-0-967" name="__codelineno-0-967"></a>
-<a id="__codelineno-0-968" name="__codelineno-0-968"></a>    <span class="k">return</span> <span class="n">current_out</span>
+<span class="normal"><a href="#__codelineno-0-968">968</a></span>
+<span class="normal"><a href="#__codelineno-0-969">969</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-913" name="__codelineno-0-913"></a><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
+<a id="__codelineno-0-914" name="__codelineno-0-914"></a>    <span class="bp">self</span><span class="p">,</span>
+<a id="__codelineno-0-915" name="__codelineno-0-915"></a>    <span class="n">frame_idx</span><span class="p">,</span>
+<a id="__codelineno-0-916" name="__codelineno-0-916"></a>    <span class="n">is_init_cond_frame</span><span class="p">,</span>
+<a id="__codelineno-0-917" name="__codelineno-0-917"></a>    <span class="n">current_vision_feats</span><span class="p">,</span>
+<a id="__codelineno-0-918" name="__codelineno-0-918"></a>    <span class="n">current_vision_pos_embeds</span><span class="p">,</span>
+<a id="__codelineno-0-919" name="__codelineno-0-919"></a>    <span class="n">feat_sizes</span><span class="p">,</span>
+<a id="__codelineno-0-920" name="__codelineno-0-920"></a>    <span class="n">point_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-921" name="__codelineno-0-921"></a>    <span class="n">mask_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-922" name="__codelineno-0-922"></a>    <span class="n">output_dict</span><span class="p">,</span>
+<a id="__codelineno-0-923" name="__codelineno-0-923"></a>    <span class="n">num_frames</span><span class="p">,</span>
+<a id="__codelineno-0-924" name="__codelineno-0-924"></a>    <span class="n">track_in_reverse</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>  <span class="c1"># tracking in reverse time order (for demo usage)</span>
+<a id="__codelineno-0-925" name="__codelineno-0-925"></a>    <span class="c1"># Whether to run the memory encoder on the predicted masks. Sometimes we might want</span>
+<a id="__codelineno-0-926" name="__codelineno-0-926"></a>    <span class="c1"># to skip the memory encoder with `run_mem_encoder=False`. For example,</span>
+<a id="__codelineno-0-927" name="__codelineno-0-927"></a>    <span class="c1"># in demo we might call `track_step` multiple times for each user click,</span>
+<a id="__codelineno-0-928" name="__codelineno-0-928"></a>    <span class="c1"># and only encode the memory when the user finalizes their clicks. And in ablation</span>
+<a id="__codelineno-0-929" name="__codelineno-0-929"></a>    <span class="c1"># settings like SAM training on static images, we don't need the memory encoder.</span>
+<a id="__codelineno-0-930" name="__codelineno-0-930"></a>    <span class="n">run_mem_encoder</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-0-931" name="__codelineno-0-931"></a>    <span class="c1"># The previously predicted SAM mask logits (which can be fed together with new clicks in demo).</span>
+<a id="__codelineno-0-932" name="__codelineno-0-932"></a>    <span class="n">prev_sam_mask_logits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<a id="__codelineno-0-933" name="__codelineno-0-933"></a><span class="p">):</span>
+<a id="__codelineno-0-934" name="__codelineno-0-934"></a><span class="w">    </span><span class="sd">"""Perform a single tracking step, updating object masks and memory features based on current frame inputs."""</span>
+<a id="__codelineno-0-935" name="__codelineno-0-935"></a>    <span class="n">current_out</span><span class="p">,</span> <span class="n">sam_outputs</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_track_step</span><span class="p">(</span>
+<a id="__codelineno-0-936" name="__codelineno-0-936"></a>        <span class="n">frame_idx</span><span class="p">,</span>
+<a id="__codelineno-0-937" name="__codelineno-0-937"></a>        <span class="n">is_init_cond_frame</span><span class="p">,</span>
+<a id="__codelineno-0-938" name="__codelineno-0-938"></a>        <span class="n">current_vision_feats</span><span class="p">,</span>
+<a id="__codelineno-0-939" name="__codelineno-0-939"></a>        <span class="n">current_vision_pos_embeds</span><span class="p">,</span>
+<a id="__codelineno-0-940" name="__codelineno-0-940"></a>        <span class="n">feat_sizes</span><span class="p">,</span>
+<a id="__codelineno-0-941" name="__codelineno-0-941"></a>        <span class="n">point_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-942" name="__codelineno-0-942"></a>        <span class="n">mask_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-943" name="__codelineno-0-943"></a>        <span class="n">output_dict</span><span class="p">,</span>
+<a id="__codelineno-0-944" name="__codelineno-0-944"></a>        <span class="n">num_frames</span><span class="p">,</span>
+<a id="__codelineno-0-945" name="__codelineno-0-945"></a>        <span class="n">track_in_reverse</span><span class="p">,</span>
+<a id="__codelineno-0-946" name="__codelineno-0-946"></a>        <span class="n">prev_sam_mask_logits</span><span class="p">,</span>
+<a id="__codelineno-0-947" name="__codelineno-0-947"></a>    <span class="p">)</span>
+<a id="__codelineno-0-948" name="__codelineno-0-948"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">low_res_masks</span><span class="p">,</span> <span class="n">high_res_masks</span><span class="p">,</span> <span class="n">obj_ptr</span><span class="p">,</span> <span class="n">object_score_logits</span> <span class="o">=</span> <span class="n">sam_outputs</span>
+<a id="__codelineno-0-949" name="__codelineno-0-949"></a>
+<a id="__codelineno-0-950" name="__codelineno-0-950"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">low_res_masks</span>
+<a id="__codelineno-0-951" name="__codelineno-0-951"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks_high_res"</span><span class="p">]</span> <span class="o">=</span> <span class="n">high_res_masks</span>
+<a id="__codelineno-0-952" name="__codelineno-0-952"></a>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"obj_ptr"</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj_ptr</span>
+<a id="__codelineno-0-953" name="__codelineno-0-953"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span><span class="p">:</span>
+<a id="__codelineno-0-954" name="__codelineno-0-954"></a>        <span class="c1"># Only add this in inference (to avoid unused param in activation checkpointing;</span>
+<a id="__codelineno-0-955" name="__codelineno-0-955"></a>        <span class="c1"># it's mainly used in the demo to encode spatial memories w/ consolidated masks)</span>
+<a id="__codelineno-0-956" name="__codelineno-0-956"></a>        <span class="n">current_out</span><span class="p">[</span><span class="s2">"object_score_logits"</span><span class="p">]</span> <span class="o">=</span> <span class="n">object_score_logits</span>
+<a id="__codelineno-0-957" name="__codelineno-0-957"></a>
+<a id="__codelineno-0-958" name="__codelineno-0-958"></a>    <span class="c1"># Run memory encoder on the predicted mask to encode it into a new memory feature (for use in future frames)</span>
+<a id="__codelineno-0-959" name="__codelineno-0-959"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_encode_memory_in_output</span><span class="p">(</span>
+<a id="__codelineno-0-960" name="__codelineno-0-960"></a>        <span class="n">current_vision_feats</span><span class="p">,</span>
+<a id="__codelineno-0-961" name="__codelineno-0-961"></a>        <span class="n">feat_sizes</span><span class="p">,</span>
+<a id="__codelineno-0-962" name="__codelineno-0-962"></a>        <span class="n">point_inputs</span><span class="p">,</span>
+<a id="__codelineno-0-963" name="__codelineno-0-963"></a>        <span class="n">run_mem_encoder</span><span class="p">,</span>
+<a id="__codelineno-0-964" name="__codelineno-0-964"></a>        <span class="n">high_res_masks</span><span class="p">,</span>
+<a id="__codelineno-0-965" name="__codelineno-0-965"></a>        <span class="n">object_score_logits</span><span class="p">,</span>
+<a id="__codelineno-0-966" name="__codelineno-0-966"></a>        <span class="n">current_out</span><span class="p">,</span>
+<a id="__codelineno-0-967" name="__codelineno-0-967"></a>    <span class="p">)</span>
+<a id="__codelineno-0-968" name="__codelineno-0-968"></a>
+<a id="__codelineno-0-969" name="__codelineno-0-969"></a>    <span class="k">return</span> <span class="n">current_out</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
