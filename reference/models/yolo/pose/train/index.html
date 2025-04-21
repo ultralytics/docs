@@ -1589,7 +1589,9 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <span class="normal"><a href="#__codelineno-0-84">84</a></span>
 <span class="normal"><a href="#__codelineno-0-85">85</a></span>
 <span class="normal"><a href="#__codelineno-0-86">86</a></span>
-<span class="normal"><a href="#__codelineno-0-87">87</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span class="normal"><a href="#__codelineno-0-87">87</a></span>
+<span class="normal"><a href="#__codelineno-0-88">88</a></span>
+<span class="normal"><a href="#__codelineno-0-89">89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">    </span><span class="sd">"""</span>
 <a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    Get pose estimation model with specified configuration and weights.</span>
 <a id="__codelineno-0-74" name="__codelineno-0-74"></a>
@@ -1601,11 +1603,13 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">    Returns:</span>
 <a id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="sd">        (PoseModel): Initialized pose estimation model.</span>
 <a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="sd">    """</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">PoseModel</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">],</span> <span class="n">data_kpt_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"kpt_shape"</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>    <span class="k">return</span> <span class="n">model</span>
+<a id="__codelineno-0-83" name="__codelineno-0-83"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">PoseModel</span><span class="p">(</span>
+<a id="__codelineno-0-84" name="__codelineno-0-84"></a>        <span class="n">cfg</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">],</span> <span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">],</span> <span class="n">data_kpt_shape</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"kpt_shape"</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span>
+<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="p">)</span>
+<a id="__codelineno-0-86" name="__codelineno-0-86"></a>    <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
+<a id="__codelineno-0-87" name="__codelineno-0-87"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<a id="__codelineno-0-88" name="__codelineno-0-88"></a>
+<a id="__codelineno-0-89" name="__codelineno-0-89"></a>    <span class="k">return</span> <span class="n">model</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1620,17 +1624,17 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <p>Returns an instance of the PoseValidator class for validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-94">94</a></span>
-<span class="normal"><a href="#__codelineno-0-95">95</a></span>
-<span class="normal"><a href="#__codelineno-0-96">96</a></span>
-<span class="normal"><a href="#__codelineno-0-97">97</a></span>
-<span class="normal"><a href="#__codelineno-0-98">98</a></span>
-<span class="normal"><a href="#__codelineno-0-99">99</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">    </span><span class="sd">"""Returns an instance of the PoseValidator class for validation."""</span>
-<a id="__codelineno-0-96" name="__codelineno-0-96"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box_loss"</span><span class="p">,</span> <span class="s2">"pose_loss"</span><span class="p">,</span> <span class="s2">"kobj_loss"</span><span class="p">,</span> <span class="s2">"cls_loss"</span><span class="p">,</span> <span class="s2">"dfl_loss"</span>
-<a id="__codelineno-0-97" name="__codelineno-0-97"></a>    <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">(</span>
-<a id="__codelineno-0-98" name="__codelineno-0-98"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">),</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-96"> 96</a></span>
+<span class="normal"><a href="#__codelineno-0-97"> 97</a></span>
+<span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
+<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
+<span class="normal"><a href="#__codelineno-0-100">100</a></span>
+<span class="normal"><a href="#__codelineno-0-101">101</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">    </span><span class="sd">"""Returns an instance of the PoseValidator class for validation."""</span>
+<a id="__codelineno-0-98" name="__codelineno-0-98"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box_loss"</span><span class="p">,</span> <span class="s2">"pose_loss"</span><span class="p">,</span> <span class="s2">"kobj_loss"</span><span class="p">,</span> <span class="s2">"cls_loss"</span><span class="p">,</span> <span class="s2">"dfl_loss"</span>
+<a id="__codelineno-0-99" name="__codelineno-0-99"></a>    <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">PoseValidator</span><span class="p">(</span>
+<a id="__codelineno-0-100" name="__codelineno-0-100"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">),</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span>
+<a id="__codelineno-0-101" name="__codelineno-0-101"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1645,11 +1649,11 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <p>Plots training/val metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-135">135</a></span>
-<span class="normal"><a href="#__codelineno-0-136">136</a></span>
-<span class="normal"><a href="#__codelineno-0-137">137</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="w">    </span><span class="sd">"""Plots training/val metrics."""</span>
-<a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">pose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-137">137</a></span>
+<span class="normal"><a href="#__codelineno-0-138">138</a></span>
+<span class="normal"><a href="#__codelineno-0-139">139</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-137" name="__codelineno-0-137"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-138" name="__codelineno-0-138"></a><span class="w">    </span><span class="sd">"""Plots training/val metrics."""</span>
+<a id="__codelineno-0-139" name="__codelineno-0-139"></a>    <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">pose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1717,9 +1721,7 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 'train_batch{ni}.jpg', where ni is the iteration number.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-101">101</a></span>
-<span class="normal"><a href="#__codelineno-0-102">102</a></span>
-<span class="normal"><a href="#__codelineno-0-103">103</a></span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-103">103</a></span>
 <span class="normal"><a href="#__codelineno-0-104">104</a></span>
 <span class="normal"><a href="#__codelineno-0-105">105</a></span>
 <span class="normal"><a href="#__codelineno-0-106">106</a></span>
@@ -1749,39 +1751,41 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <span class="normal"><a href="#__codelineno-0-130">130</a></span>
 <span class="normal"><a href="#__codelineno-0-131">131</a></span>
 <span class="normal"><a href="#__codelineno-0-132">132</a></span>
-<span class="normal"><a href="#__codelineno-0-133">133</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">    Plot a batch of training samples with annotated class labels, bounding boxes, and keypoints.</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="sd">        batch (dict): Dictionary containing batch data with the following keys:</span>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">            - img (torch.Tensor): Batch of images</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">            - keypoints (torch.Tensor): Keypoints coordinates for pose estimation</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">            - cls (torch.Tensor): Class labels</span>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">            - bboxes (torch.Tensor): Bounding box coordinates</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">            - im_file (list): List of image file paths</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">            - batch_idx (torch.Tensor): Batch indices for each instance</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">        ni (int): Current training iteration number used for filename</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a>
-<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">    The function saves the plotted batch as an image in the trainer's save directory with the filename</span>
-<a id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="sd">    'train_batch{ni}.jpg', where ni is the iteration number.</span>
-<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">    """</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a>    <span class="n">images</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a>    <span class="n">kpts</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span>
-<a id="__codelineno-0-120" name="__codelineno-0-120"></a>    <span class="bp">cls</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-121" name="__codelineno-0-121"></a>    <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span>
-<a id="__codelineno-0-122" name="__codelineno-0-122"></a>    <span class="n">paths</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="n">plot_images</span><span class="p">(</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>        <span class="n">images</span><span class="p">,</span>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a>        <span class="n">batch_idx</span><span class="p">,</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a>        <span class="bp">cls</span><span class="p">,</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="n">bboxes</span><span class="p">,</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a>        <span class="n">kpts</span><span class="o">=</span><span class="n">kpts</span><span class="p">,</span>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a>        <span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a>        <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"train_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">,</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a>    <span class="p">)</span>
+<span class="normal"><a href="#__codelineno-0-133">133</a></span>
+<span class="normal"><a href="#__codelineno-0-134">134</a></span>
+<span class="normal"><a href="#__codelineno-0-135">135</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">    Plot a batch of training samples with annotated class labels, bounding boxes, and keypoints.</span>
+<a id="__codelineno-0-106" name="__codelineno-0-106"></a>
+<a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">        batch (dict): Dictionary containing batch data with the following keys:</span>
+<a id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="sd">            - img (torch.Tensor): Batch of images</span>
+<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">            - keypoints (torch.Tensor): Keypoints coordinates for pose estimation</span>
+<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">            - cls (torch.Tensor): Class labels</span>
+<a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">            - bboxes (torch.Tensor): Bounding box coordinates</span>
+<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">            - im_file (list): List of image file paths</span>
+<a id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="sd">            - batch_idx (torch.Tensor): Batch indices for each instance</span>
+<a id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="sd">        ni (int): Current training iteration number used for filename</span>
+<a id="__codelineno-0-116" name="__codelineno-0-116"></a>
+<a id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="sd">    The function saves the plotted batch as an image in the trainer's save directory with the filename</span>
+<a id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="sd">    'train_batch{ni}.jpg', where ni is the iteration number.</span>
+<a id="__codelineno-0-119" name="__codelineno-0-119"></a><span class="sd">    """</span>
+<a id="__codelineno-0-120" name="__codelineno-0-120"></a>    <span class="n">images</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span>
+<a id="__codelineno-0-121" name="__codelineno-0-121"></a>    <span class="n">kpts</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span>
+<a id="__codelineno-0-122" name="__codelineno-0-122"></a>    <span class="bp">cls</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<a id="__codelineno-0-123" name="__codelineno-0-123"></a>    <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span>
+<a id="__codelineno-0-124" name="__codelineno-0-124"></a>    <span class="n">paths</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">]</span>
+<a id="__codelineno-0-125" name="__codelineno-0-125"></a>    <span class="n">batch_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span>
+<a id="__codelineno-0-126" name="__codelineno-0-126"></a>    <span class="n">plot_images</span><span class="p">(</span>
+<a id="__codelineno-0-127" name="__codelineno-0-127"></a>        <span class="n">images</span><span class="p">,</span>
+<a id="__codelineno-0-128" name="__codelineno-0-128"></a>        <span class="n">batch_idx</span><span class="p">,</span>
+<a id="__codelineno-0-129" name="__codelineno-0-129"></a>        <span class="bp">cls</span><span class="p">,</span>
+<a id="__codelineno-0-130" name="__codelineno-0-130"></a>        <span class="n">bboxes</span><span class="p">,</span>
+<a id="__codelineno-0-131" name="__codelineno-0-131"></a>        <span class="n">kpts</span><span class="o">=</span><span class="n">kpts</span><span class="p">,</span>
+<a id="__codelineno-0-132" name="__codelineno-0-132"></a>        <span class="n">paths</span><span class="o">=</span><span class="n">paths</span><span class="p">,</span>
+<a id="__codelineno-0-133" name="__codelineno-0-133"></a>        <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"train_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">,</span>
+<a id="__codelineno-0-134" name="__codelineno-0-134"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
+<a id="__codelineno-0-135" name="__codelineno-0-135"></a>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1796,13 +1800,13 @@ A warning is issued when using Apple MPS device due to known bugs with pose mode
 <p>Sets keypoints shape attribute of PoseModel.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-89">89</a></span>
-<span class="normal"><a href="#__codelineno-0-90">90</a></span>
-<span class="normal"><a href="#__codelineno-0-91">91</a></span>
-<span class="normal"><a href="#__codelineno-0-92">92</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">    </span><span class="sd">"""Sets keypoints shape attribute of PoseModel."""</span>
-<a id="__codelineno-0-91" name="__codelineno-0-91"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_model_attributes</span><span class="p">()</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"kpt_shape"</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-91">91</a></span>
+<span class="normal"><a href="#__codelineno-0-92">92</a></span>
+<span class="normal"><a href="#__codelineno-0-93">93</a></span>
+<span class="normal"><a href="#__codelineno-0-94">94</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">    </span><span class="sd">"""Sets keypoints shape attribute of PoseModel."""</span>
+<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">set_model_attributes</span><span class="p">()</span>
+<a id="__codelineno-0-94" name="__codelineno-0-94"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"kpt_shape"</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
