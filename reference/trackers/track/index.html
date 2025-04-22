@@ -1189,7 +1189,26 @@
 <span class="normal"><span>51</span></span>
 <span class="normal"><span>52</span></span>
 <span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="normal"><span>54</span></span>
+<span class="normal"><span>55</span></span>
+<span class="normal"><span>56</span></span>
+<span class="normal"><span>57</span></span>
+<span class="normal"><span>58</span></span>
+<span class="normal"><span>59</span></span>
+<span class="normal"><span>60</span></span>
+<span class="normal"><span>61</span></span>
+<span class="normal"><span>62</span></span>
+<span class="normal"><span>63</span></span>
+<span class="normal"><span>64</span></span>
+<span class="normal"><span>65</span></span>
+<span class="normal"><span>66</span></span>
+<span class="normal"><span>67</span></span>
+<span class="normal"><span>68</span></span>
+<span class="normal"><span>69</span></span>
+<span class="normal"><span>70</span></span>
+<span class="normal"><span>71</span></span>
+<span class="normal"><span>72</span></span>
+<span class="normal"><span>73</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize trackers for object tracking during prediction.</span>
 <span></span>
@@ -1217,6 +1236,25 @@
 <span></span>
 <span></span>    <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">tracker_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"bytetrack"</span><span class="p">,</span> <span class="s2">"botsort"</span><span class="p">}:</span>
 <span></span>        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Only 'bytetrack' and 'botsort' are supported for now, but got '</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">tracker_type</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">tracker_type</span> <span class="o">==</span> <span class="s2">"botsort"</span> <span class="ow">and</span> <span class="n">cfg</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s2">"auto"</span><span class="p">:</span>
+<span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.nn.modules.head</span><span class="w"> </span><span class="kn">import</span> <span class="n">Detect</span>
+<span></span>
+<span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span>
+<span></span>            <span class="nb">isinstance</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span>
+<span></span>            <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">Detect</span><span class="p">)</span>
+<span></span>            <span class="ow">and</span> <span class="ow">not</span> <span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">end2end</span>
+<span></span>        <span class="p">):</span>
+<span></span>            <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="s2">"yolo11n-cls.pt"</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="n">predictor</span><span class="o">.</span><span class="n">save_feats</span> <span class="o">=</span> <span class="kc">True</span>
+<span></span>            <span class="n">predictor</span><span class="o">.</span><span class="n">_feats</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>
+<span></span>            <span class="c1"># Register hook to extract input of Detect layer</span>
+<span></span>            <span class="k">def</span><span class="w"> </span><span class="nf">capture_io</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">input</span><span class="p">,</span> <span class="n">output</span><span class="p">):</span>
+<span></span>                <span class="n">predictor</span><span class="o">.</span><span class="n">_feats</span> <span class="o">=</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>
+<span></span>            <span class="n">predictor</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">register_forward_hook</span><span class="p">(</span><span class="n">capture_io</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="n">trackers</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">bs</span><span class="p">):</span>
@@ -1290,39 +1328,39 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/track.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>57</span></span>
-<span class="normal"><span>58</span></span>
-<span class="normal"><span>59</span></span>
-<span class="normal"><span>60</span></span>
-<span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span>
-<span class="normal"><span>64</span></span>
-<span class="normal"><span>65</span></span>
-<span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span>
-<span class="normal"><span>72</span></span>
-<span class="normal"><span>73</span></span>
-<span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span>
-<span class="normal"><span>76</span></span>
-<span class="normal"><span>77</span></span>
-<span class="normal"><span>78</span></span>
-<span class="normal"><span>79</span></span>
-<span class="normal"><span>80</span></span>
-<span class="normal"><span>81</span></span>
-<span class="normal"><span>82</span></span>
-<span class="normal"><span>83</span></span>
-<span class="normal"><span>84</span></span>
-<span class="normal"><span>85</span></span>
-<span class="normal"><span>86</span></span>
-<span class="normal"><span>87</span></span>
-<span class="normal"><span>88</span></span>
-<span class="normal"><span>89</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_postprocess_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 76</span></span>
+<span class="normal"><span> 77</span></span>
+<span class="normal"><span> 78</span></span>
+<span class="normal"><span> 79</span></span>
+<span class="normal"><span> 80</span></span>
+<span class="normal"><span> 81</span></span>
+<span class="normal"><span> 82</span></span>
+<span class="normal"><span> 83</span></span>
+<span class="normal"><span> 84</span></span>
+<span class="normal"><span> 85</span></span>
+<span class="normal"><span> 86</span></span>
+<span class="normal"><span> 87</span></span>
+<span class="normal"><span> 88</span></span>
+<span class="normal"><span> 89</span></span>
+<span class="normal"><span> 90</span></span>
+<span class="normal"><span> 91</span></span>
+<span class="normal"><span> 92</span></span>
+<span class="normal"><span> 93</span></span>
+<span class="normal"><span> 94</span></span>
+<span class="normal"><span> 95</span></span>
+<span class="normal"><span> 96</span></span>
+<span class="normal"><span> 97</span></span>
+<span class="normal"><span> 98</span></span>
+<span class="normal"><span> 99</span></span>
+<span class="normal"><span>100</span></span>
+<span class="normal"><span>101</span></span>
+<span class="normal"><span>102</span></span>
+<span class="normal"><span>103</span></span>
+<span class="normal"><span>104</span></span>
+<span class="normal"><span>105</span></span>
+<span class="normal"><span>106</span></span>
+<span class="normal"><span>107</span></span>
+<span class="normal"><span>108</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_postprocess_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Postprocess detected boxes and update with object tracking.</span>
 <span></span>
@@ -1347,7 +1385,7 @@
 <span></span>        <span class="n">det</span> <span class="o">=</span> <span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">obb</span> <span class="k">if</span> <span class="n">is_obb</span> <span class="k">else</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 <span></span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">det</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>            <span class="k">continue</span>
-<span></span>        <span class="n">tracks</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">orig_img</span><span class="p">)</span>
+<span></span>        <span class="n">tracks</span> <span class="o">=</span> <span class="n">tracker</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">det</span><span class="p">,</span> <span class="n">result</span><span class="o">.</span><span class="n">orig_img</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="s2">"feats"</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
 <span></span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>            <span class="k">continue</span>
 <span></span>        <span class="n">idx</span> <span class="o">=</span> <span class="n">tracks</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
@@ -1419,21 +1457,21 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/track.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 92</span></span>
-<span class="normal"><span> 93</span></span>
-<span class="normal"><span> 94</span></span>
-<span class="normal"><span> 95</span></span>
-<span class="normal"><span> 96</span></span>
-<span class="normal"><span> 97</span></span>
-<span class="normal"><span> 98</span></span>
-<span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span>
-<span class="normal"><span>102</span></span>
-<span class="normal"><span>103</span></span>
-<span class="normal"><span>104</span></span>
-<span class="normal"><span>105</span></span>
-<span class="normal"><span>106</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">register_tracker</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>111</span></span>
+<span class="normal"><span>112</span></span>
+<span class="normal"><span>113</span></span>
+<span class="normal"><span>114</span></span>
+<span class="normal"><span>115</span></span>
+<span class="normal"><span>116</span></span>
+<span class="normal"><span>117</span></span>
+<span class="normal"><span>118</span></span>
+<span class="normal"><span>119</span></span>
+<span class="normal"><span>120</span></span>
+<span class="normal"><span>121</span></span>
+<span class="normal"><span>122</span></span>
+<span class="normal"><span>123</span></span>
+<span class="normal"><span>124</span></span>
+<span class="normal"><span>125</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">register_tracker</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Register tracking callbacks to the model for object tracking during prediction.</span>
 <span></span>
