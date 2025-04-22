@@ -1055,32 +1055,32 @@
 <p>Roboflow offers a scalable API for deployed models and SDKs compatible with devices like <a href="https://developer.nvidia.com/embedded-computing">NVIDIA Jetson</a>, <a href="https://www.luxonis.com/">Luxonis OAK</a>, <a href="../../guides/raspberry-pi/">Raspberry Pi</a>, and GPU-based systems. Explore various <a href="../../guides/model-deployment-options/">model deployment options</a> in our guides.</p>
 <p>You can deploy YOLO11 models by uploading their weights to Roboflow using a simple <a href="https://www.python.org/">Python</a> script.</p>
 <p>Create a new Python file and add the following code:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">roboflow</span>  <span class="c1"># install with 'pip install roboflow'</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="c1"># Log in to Roboflow (requires API key)</span>
-<a id="__codelineno-0-4"></a><span class="n">roboflow</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
-<a id="__codelineno-0-5"></a>
-<a id="__codelineno-0-6"></a><span class="c1"># Initialize Roboflow client</span>
-<a id="__codelineno-0-7"></a><span class="n">rf</span> <span class="o">=</span> <span class="n">roboflow</span><span class="o">.</span><span class="n">Roboflow</span><span class="p">()</span>
-<a id="__codelineno-0-8"></a>
-<a id="__codelineno-0-9"></a><span class="c1"># Define your workspace and project details</span>
-<a id="__codelineno-0-10"></a><span class="n">WORKSPACE_ID</span> <span class="o">=</span> <span class="s2">"your-workspace-id"</span>  <span class="c1"># Replace with your actual Workspace ID</span>
-<a id="__codelineno-0-11"></a><span class="n">PROJECT_ID</span> <span class="o">=</span> <span class="s2">"your-project-id"</span>  <span class="c1"># Replace with your actual Project ID</span>
-<a id="__codelineno-0-12"></a><span class="n">VERSION</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Replace with your desired dataset version number</span>
-<a id="__codelineno-0-13"></a><span class="n">MODEL_PATH</span> <span class="o">=</span> <span class="s2">"path/to/your/runs/detect/train/"</span>  <span class="c1"># Replace with the path to your YOLO11 training results directory</span>
-<a id="__codelineno-0-14"></a>
-<a id="__codelineno-0-15"></a><span class="c1"># Get project and version</span>
-<a id="__codelineno-0-16"></a><span class="n">project</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">workspace</span><span class="p">(</span><span class="n">WORKSPACE_ID</span><span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">PROJECT_ID</span><span class="p">)</span>
-<a id="__codelineno-0-17"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="n">VERSION</span><span class="p">)</span>
-<a id="__codelineno-0-18"></a>
-<a id="__codelineno-0-19"></a><span class="c1"># Upload model weights for deployment</span>
-<a id="__codelineno-0-20"></a><span class="c1"># Ensure model_path points to the directory containing 'best.pt'</span>
-<a id="__codelineno-0-21"></a><span class="n">project</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">version</span><span class="p">)</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span>
-<a id="__codelineno-0-22"></a>    <span class="n">model_type</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">model_path</span><span class="o">=</span><span class="n">MODEL_PATH</span>
-<a id="__codelineno-0-23"></a><span class="p">)</span>  <span class="c1"># Note: Use "yolov8" as model_type for YOLO11 compatibility in Roboflow deployment</span>
-<a id="__codelineno-0-24"></a>
-<a id="__codelineno-0-25"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Model from </span><span class="si">{</span><span class="n">MODEL_PATH</span><span class="si">}</span><span class="s2"> uploaded to Roboflow project </span><span class="si">{</span><span class="n">PROJECT_ID</span><span class="si">}</span><span class="s2">, version </span><span class="si">{</span><span class="n">VERSION</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-<a id="__codelineno-0-26"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Deployment may take up to 30 minutes."</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">roboflow</span>  <span class="c1"># install with 'pip install roboflow'</span>
+<span></span>
+<span></span><span class="c1"># Log in to Roboflow (requires API key)</span>
+<span></span><span class="n">roboflow</span><span class="o">.</span><span class="n">login</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Initialize Roboflow client</span>
+<span></span><span class="n">rf</span> <span class="o">=</span> <span class="n">roboflow</span><span class="o">.</span><span class="n">Roboflow</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Define your workspace and project details</span>
+<span></span><span class="n">WORKSPACE_ID</span> <span class="o">=</span> <span class="s2">"your-workspace-id"</span>  <span class="c1"># Replace with your actual Workspace ID</span>
+<span></span><span class="n">PROJECT_ID</span> <span class="o">=</span> <span class="s2">"your-project-id"</span>  <span class="c1"># Replace with your actual Project ID</span>
+<span></span><span class="n">VERSION</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c1"># Replace with your desired dataset version number</span>
+<span></span><span class="n">MODEL_PATH</span> <span class="o">=</span> <span class="s2">"path/to/your/runs/detect/train/"</span>  <span class="c1"># Replace with the path to your YOLO11 training results directory</span>
+<span></span>
+<span></span><span class="c1"># Get project and version</span>
+<span></span><span class="n">project</span> <span class="o">=</span> <span class="n">rf</span><span class="o">.</span><span class="n">workspace</span><span class="p">(</span><span class="n">WORKSPACE_ID</span><span class="p">)</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="n">PROJECT_ID</span><span class="p">)</span>
+<span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">project</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="n">VERSION</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Upload model weights for deployment</span>
+<span></span><span class="c1"># Ensure model_path points to the directory containing 'best.pt'</span>
+<span></span><span class="n">project</span><span class="o">.</span><span class="n">version</span><span class="p">(</span><span class="n">dataset</span><span class="o">.</span><span class="n">version</span><span class="p">)</span><span class="o">.</span><span class="n">deploy</span><span class="p">(</span>
+<span></span>    <span class="n">model_type</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">model_path</span><span class="o">=</span><span class="n">MODEL_PATH</span>
+<span></span><span class="p">)</span>  <span class="c1"># Note: Use "yolov8" as model_type for YOLO11 compatibility in Roboflow deployment</span>
+<span></span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Model from </span><span class="si">{</span><span class="n">MODEL_PATH</span><span class="si">}</span><span class="s2"> uploaded to Roboflow project </span><span class="si">{</span><span class="n">PROJECT_ID</span><span class="si">}</span><span class="s2">, version </span><span class="si">{</span><span class="n">VERSION</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Deployment may take up to 30 minutes."</span><span class="p">)</span>
 </code></pre></div>
 <p>In this code, replace <code>your-workspace-id</code>, <code>your-project-id</code>, the <code>VERSION</code> number, and the <code>MODEL_PATH</code> with the values specific to your Roboflow account, project, and local training results directory. Ensure the <code>MODEL_PATH</code> correctly points to the directory containing your trained <code>best.pt</code> weights file.</p>
 <p>When you run the code above, you will be asked to authenticate (usually via an API key). Then, your model will be uploaded, and an API endpoint will be created for your project. This process can take up to 30 minutes to complete.</p>

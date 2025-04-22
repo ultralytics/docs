@@ -799,12 +799,12 @@
 <p>Install or update the <code>ultralytics</code> package using pip by running <code>pip install -U ultralytics</code>. For more details on the <code>ultralytics</code> package, visit the <a href="https://pypi.org/project/ultralytics/">Python Package Index (PyPI)</a>.</p>
 <p><a href="https://pypi.org/project/ultralytics/"><img alt="PyPI - Version" src="https://img.shields.io/pypi/v/ultralytics?logo=pypi&amp;logoColor=white"/></a>
 <a href="https://www.pepy.tech/projects/ultralytics"><img alt="Downloads" src="https://static.pepy.tech/badge/ultralytics"/></a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Install the ultralytics package from PyPI</span>
-<a id="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install the ultralytics package from PyPI</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 <p>You can also install <code>ultralytics</code> directly from the <a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub repository</a>. This can be useful if you want the latest development version. Ensure you have the Git command-line tool installed, and then run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Install the ultralytics package from GitHub</span>
-<a id="__codelineno-1-2"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/ultralytics/ultralytics.git@main
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install the ultralytics package from GitHub</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/ultralytics/ultralytics.git@main
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -813,41 +813,41 @@
 <a href="https://anaconda.org/conda-forge/ultralytics"><img alt="Conda Downloads" src="https://img.shields.io/conda/dn/conda-forge/ultralytics.svg"/></a>
 <a href="https://anaconda.org/conda-forge/ultralytics"><img alt="Conda Recipe" src="https://img.shields.io/badge/recipe-ultralytics-green.svg"/></a>
 <a href="https://anaconda.org/conda-forge/ultralytics"><img alt="Conda Platforms" src="https://img.shields.io/conda/pn/conda-forge/ultralytics.svg"/></a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Install the ultralytics package using conda</span>
-<a id="__codelineno-2-2"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install the ultralytics package using conda</span>
+<span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you are installing in a CUDA environment, it is best practice to install <code>ultralytics</code>, <code>pytorch</code>, and <code>pytorch-cuda</code> in the same command. This allows the conda package manager to resolve any conflicts. Alternatively, install <code>pytorch-cuda</code> last to override the CPU-specific <code>pytorch</code> package if necessary.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Install all packages together using conda</span>
-<a id="__codelineno-3-2"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install all packages together using conda</span>
+<span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
 </code></pre></div></p>
 </div>
 <h3 id="conda-docker-image">Conda Docker Image</h3>
 <p>Ultralytics Conda Docker images are also available from <a href="https://hub.docker.com/r/ultralytics/ultralytics">DockerHub</a>. These images are based on <a href="https://www.anaconda.com/docs/main">Miniconda3</a> and provide a straightforward way to start using <code>ultralytics</code> in a Conda environment.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># Set image name as a variable</span>
-<a id="__codelineno-4-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest-conda
-<a id="__codelineno-4-3"></a>
-<a id="__codelineno-4-4"></a><span class="c1"># Pull the latest ultralytics image from Docker Hub</span>
-<a id="__codelineno-4-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
-<a id="__codelineno-4-6"></a>
-<a id="__codelineno-4-7"></a><span class="c1"># Run the ultralytics image in a container with GPU support</span>
-<a id="__codelineno-4-8"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span><span class="w">            </span><span class="c1"># all GPUs</span>
-<a id="__codelineno-4-9"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="c1"># specify GPUs</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Set image name as a variable</span>
+<span></span><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest-conda
+<span></span>
+<span></span><span class="c1"># Pull the latest ultralytics image from Docker Hub</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
+<span></span>
+<span></span><span class="c1"># Run the ultralytics image in a container with GPU support</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span><span class="w">            </span><span class="c1"># all GPUs</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="c1"># specify GPUs</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Clone the <a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub repository</a> if you are interested in contributing to development or wish to experiment with the latest source code. After cloning, navigate into the directory and install the package in editable mode <code>-e</code> using pip.</p>
 <p><a href="https://github.com/ultralytics/ultralytics"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/ultralytics/ultralytics?logo=github"/></a>
 <a href="https://github.com/ultralytics/ultralytics"><img alt="GitHub commit activity" src="https://img.shields.io/github/commit-activity/t/ultralytics/ultralytics"/></a></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Clone the ultralytics repository</span>
-<a id="__codelineno-5-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/ultralytics
-<a id="__codelineno-5-3"></a>
-<a id="__codelineno-5-4"></a><span class="c1"># Navigate to the cloned directory</span>
-<a id="__codelineno-5-5"></a><span class="nb">cd</span><span class="w"> </span>ultralytics
-<a id="__codelineno-5-6"></a>
-<a id="__codelineno-5-7"></a><span class="c1"># Install the package in editable mode for development</span>
-<a id="__codelineno-5-8"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Clone the ultralytics repository</span>
+<span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/ultralytics
+<span></span>
+<span></span><span class="c1"># Navigate to the cloned directory</span>
+<span></span><span class="nb">cd</span><span class="w"> </span>ultralytics
+<span></span>
+<span></span><span class="c1"># Install the package in editable mode for development</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -863,20 +863,20 @@
 <li><strong>Dockerfile-conda:</strong> Based on Miniconda3 with a conda installation of the <code>ultralytics</code> package.</li>
 </ul>
 <p>Here are the commands to get the latest image and execute it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="c1"># Set image name as a variable</span>
-<a id="__codelineno-6-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest
-<a id="__codelineno-6-3"></a>
-<a id="__codelineno-6-4"></a><span class="c1"># Pull the latest ultralytics image from Docker Hub</span>
-<a id="__codelineno-6-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
-<a id="__codelineno-6-6"></a>
-<a id="__codelineno-6-7"></a><span class="c1"># Run the ultralytics image in a container with GPU support</span>
-<a id="__codelineno-6-8"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span><span class="w">            </span><span class="c1"># all GPUs</span>
-<a id="__codelineno-6-9"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="c1"># specify GPUs</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Set image name as a variable</span>
+<span></span><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest
+<span></span>
+<span></span><span class="c1"># Pull the latest ultralytics image from Docker Hub</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
+<span></span>
+<span></span><span class="c1"># Run the ultralytics image in a container with GPU support</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span><span class="w">            </span><span class="c1"># all GPUs</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="c1"># specify GPUs</span>
 </code></pre></div>
 <p>The above command initializes a Docker container with the latest <code>ultralytics</code> image. The <code>-it</code> flags assign a pseudo-TTY and keep stdin open, allowing interaction with the container. The <code>--ipc=host</code> flag sets the IPC (Inter-Process Communication) namespace to the host, which is essential for sharing memory between processes. The <code>--gpus all</code> flag enables access to all available GPUs inside the container, crucial for tasks requiring GPU computation.</p>
 <p>Note: To work with files on your local machine within the container, use Docker volumes to mount a local directory into the container:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="c1"># Mount local directory to a directory inside the container</span>
-<a id="__codelineno-7-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Mount local directory to a directory inside the container</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>Replace <code>/path/on/host</code> with the directory path on your local machine, and <code>/path/in/container</code> with the desired path inside the Docker container.</p>
 <p>For advanced Docker usage, explore the <a href="../guides/docker-quickstart/">Ultralytics Docker Guide</a>.</p>
@@ -900,7 +900,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Ultralytics <code>yolo</code> commands use the following syntax:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>yolo<span class="w"> </span>TASK<span class="w"> </span>MODE<span class="w"> </span>ARGS
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>TASK<span class="w"> </span>MODE<span class="w"> </span>ARGS
 </code></pre></div>
 - <code>TASK</code> (optional) is one of (<a href="../tasks/detect/">detect</a>, <a href="../tasks/segment/">segment</a>, <a href="../tasks/classify/">classify</a>, <a href="../tasks/pose/">pose</a>, <a href="../tasks/obb/">obb</a>)
 - <code>MODE</code> (required) is one of (<a href="../modes/train/">train</a>, <a href="../modes/val/">val</a>, <a href="../modes/predict/">predict</a>, <a href="../modes/export/">export</a>, <a href="../modes/track/">track</a>, <a href="../modes/benchmark/">benchmark</a>)
@@ -909,67 +909,67 @@
 </div>
 <div class="tabbed-block">
 <p>Train a detection model for 10 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> with an initial learning rate of 0.01:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Predict a YouTube video using a pretrained segmentation model at image size 320:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://youtu.be/LNwODJXcvt4'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://youtu.be/LNwODJXcvt4'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Validate a pretrained detection model with a batch size of 1 and image size of 640:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Export a YOLOv11n classification model to ONNX format with an image size of 224x128 (no TASK required):
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-cls.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>,128
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-cls.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>,128
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Count objects in a video or live stream using YOLO11:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-13-2"></a>
-<a id="__codelineno-13-3"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Monitor workout exercises using a YOLO11 pose model:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-14-2"></a>
-<a id="__codelineno-14-3"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
-<a id="__codelineno-14-4"></a>
-<a id="__codelineno-14-5"></a><span class="c1"># Use keypoints for ab-workouts</span>
-<a id="__codelineno-14-6"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">kpts</span><span class="o">=</span><span class="s2">"[5, 11, 13]"</span><span class="w"> </span><span class="c1"># left side</span>
-<a id="__codelineno-14-7"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">kpts</span><span class="o">=</span><span class="s2">"[6, 12, 14]"</span><span class="w"> </span><span class="c1"># right side</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
+<span></span>
+<span></span><span class="c1"># Use keypoints for ab-workouts</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">kpts</span><span class="o">=</span><span class="s2">"[5, 11, 13]"</span><span class="w"> </span><span class="c1"># left side</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">kpts</span><span class="o">=</span><span class="s2">"[6, 12, 14]"</span><span class="w"> </span><span class="c1"># right side</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Use YOLO11 to count objects in a designated queue or region:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-15-2"></a>
-<a id="__codelineno-15-3"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
-<a id="__codelineno-15-4"></a>
-<a id="__codelineno-15-5"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">region</span><span class="o">=</span><span class="s2">"[(20, 400), (1080, 400), (1080, 360), (20, 360)]"</span><span class="w"> </span><span class="c1"># configure queue coordinates</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
+<span></span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">region</span><span class="o">=</span><span class="s2">"[(20, 400), (1080, 400), (1080, 360), (20, 360)]"</span><span class="w"> </span><span class="c1"># configure queue coordinates</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Perform object detection, instance segmentation, or pose estimation in a web browser using <a href="https://docs.ultralytics.com/reference/solutions/streamlit_inference/">Streamlit</a>:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>inference
-<a id="__codelineno-16-2"></a>
-<a id="__codelineno-16-3"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>inference<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s2">"path/to/model.pt"</span><span class="w"> </span><span class="c1"># use model fine-tuned with Ultralytics Python package</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>inference
+<span></span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>inference<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s2">"path/to/model.pt"</span><span class="w"> </span><span class="c1"># use model fine-tuned with Ultralytics Python package</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run special commands to see the version, view settings, run checks, and more:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1"></a>yolo<span class="w"> </span><span class="nb">help</span>
-<a id="__codelineno-17-2"></a>yolo<span class="w"> </span>checks
-<a id="__codelineno-17-3"></a>yolo<span class="w"> </span>version
-<a id="__codelineno-17-4"></a>yolo<span class="w"> </span>settings
-<a id="__codelineno-17-5"></a>yolo<span class="w"> </span>copy-cfg
-<a id="__codelineno-17-6"></a>yolo<span class="w"> </span>cfg
-<a id="__codelineno-17-7"></a>yolo<span class="w"> </span>solutions<span class="w"> </span><span class="nb">help</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span><span class="nb">help</span>
+<span></span>yolo<span class="w"> </span>checks
+<span></span>yolo<span class="w"> </span>version
+<span></span>yolo<span class="w"> </span>settings
+<span></span>yolo<span class="w"> </span>copy-cfg
+<span></span>yolo<span class="w"> </span>cfg
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span><span class="nb">help</span>
 </code></pre></div></p>
 </div>
 </div>
@@ -992,25 +992,25 @@
 <p>For instance, users can load a model, train it, evaluate its performance, and export it to ONNX format with just a few lines of code. Explore the <a href="../usage/python/">Python Guide</a> to learn more about using YOLO within your Python projects.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-18-2"></a>
-<a id="__codelineno-18-3"></a><span class="c1"># Create a new YOLO model from scratch</span>
-<a id="__codelineno-18-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
-<a id="__codelineno-18-5"></a>
-<a id="__codelineno-18-6"></a><span class="c1"># Load a pretrained YOLO model (recommended for training)</span>
-<a id="__codelineno-18-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-18-8"></a>
-<a id="__codelineno-18-9"></a><span class="c1"># Train the model using the 'coco8.yaml' dataset for 3 epochs</span>
-<a id="__codelineno-18-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-18-11"></a>
-<a id="__codelineno-18-12"></a><span class="c1"># Evaluate the model's performance on the validation set</span>
-<a id="__codelineno-18-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
-<a id="__codelineno-18-14"></a>
-<a id="__codelineno-18-15"></a><span class="c1"># Perform object detection on an image using the model</span>
-<a id="__codelineno-18-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
-<a id="__codelineno-18-17"></a>
-<a id="__codelineno-18-18"></a><span class="c1"># Export the model to ONNX format</span>
-<a id="__codelineno-18-19"></a><span class="n">success</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Create a new YOLO model from scratch</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Load a pretrained YOLO model (recommended for training)</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model using the 'coco8.yaml' dataset for 3 epochs</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Evaluate the model's performance on the validation set</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Perform object detection on an image using the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Export the model to ONNX format</span>
+<span></span><span class="n">success</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p><a class="md-button md-button--primary" href="../usage/python/">Python Guide</a></p>
@@ -1024,18 +1024,18 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Use Python to view your settings by importing the <code>settings</code> object from the <code>ultralytics</code> module. Print and return settings with these commands:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
-<a id="__codelineno-19-2"></a>
-<a id="__codelineno-19-3"></a><span class="c1"># View all settings</span>
-<a id="__codelineno-19-4"></a><span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-<a id="__codelineno-19-5"></a>
-<a id="__codelineno-19-6"></a><span class="c1"># Return a specific setting</span>
-<a id="__codelineno-19-7"></a><span class="n">value</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s2">"runs_dir"</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
+<span></span>
+<span></span><span class="c1"># View all settings</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Return a specific setting</span>
+<span></span><span class="n">value</span> <span class="o">=</span> <span class="n">settings</span><span class="p">[</span><span class="s2">"runs_dir"</span><span class="p">]</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>The command-line interface allows you to check your settings with:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1"></a>yolo<span class="w"> </span>settings
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>settings
 </code></pre></div></p>
 </div>
 </div>
@@ -1049,28 +1049,28 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>In Python, use the <code>update</code> method on the <code>settings</code> object:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
-<a id="__codelineno-21-2"></a>
-<a id="__codelineno-21-3"></a><span class="c1"># Update a setting</span>
-<a id="__codelineno-21-4"></a><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"runs_dir"</span><span class="p">:</span> <span class="s2">"/path/to/runs"</span><span class="p">})</span>
-<a id="__codelineno-21-5"></a>
-<a id="__codelineno-21-6"></a><span class="c1"># Update multiple settings</span>
-<a id="__codelineno-21-7"></a><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"runs_dir"</span><span class="p">:</span> <span class="s2">"/path/to/runs"</span><span class="p">,</span> <span class="s2">"tensorboard"</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
-<a id="__codelineno-21-8"></a>
-<a id="__codelineno-21-9"></a><span class="c1"># Reset settings to default values</span>
-<a id="__codelineno-21-10"></a><span class="n">settings</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">settings</span>
+<span></span>
+<span></span><span class="c1"># Update a setting</span>
+<span></span><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"runs_dir"</span><span class="p">:</span> <span class="s2">"/path/to/runs"</span><span class="p">})</span>
+<span></span>
+<span></span><span class="c1"># Update multiple settings</span>
+<span></span><span class="n">settings</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"runs_dir"</span><span class="p">:</span> <span class="s2">"/path/to/runs"</span><span class="p">,</span> <span class="s2">"tensorboard"</span><span class="p">:</span> <span class="kc">False</span><span class="p">})</span>
+<span></span>
+<span></span><span class="c1"># Reset settings to default values</span>
+<span></span><span class="n">settings</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>To modify settings using the command-line interface:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1"></a><span class="c1"># Update a setting</span>
-<a id="__codelineno-22-2"></a>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span>
-<a id="__codelineno-22-3"></a>
-<a id="__codelineno-22-4"></a><span class="c1"># Update multiple settings</span>
-<a id="__codelineno-22-5"></a>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span><span class="w"> </span><span class="nv">tensorboard</span><span class="o">=</span>False
-<a id="__codelineno-22-6"></a>
-<a id="__codelineno-22-7"></a><span class="c1"># Reset settings to default values</span>
-<a id="__codelineno-22-8"></a>yolo<span class="w"> </span>settings<span class="w"> </span>reset
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Update a setting</span>
+<span></span>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span>
+<span></span>
+<span></span><span class="c1"># Update multiple settings</span>
+<span></span>yolo<span class="w"> </span>settings<span class="w"> </span><span class="nv">runs_dir</span><span class="o">=</span><span class="s1">'/path/to/runs'</span><span class="w"> </span><span class="nv">tensorboard</span><span class="o">=</span>False
+<span></span>
+<span></span><span class="c1"># Reset settings to default values</span>
+<span></span>yolo<span class="w"> </span>settings<span class="w"> </span>reset
 </code></pre></div></p>
 </div>
 </div>
@@ -1196,47 +1196,47 @@
 <h2 id="faq">FAQ</h2>
 <h3 id="how-do-i-install-ultralytics-using-pip">How do I install Ultralytics using pip?</h3>
 <p>Install Ultralytics with pip using:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 <p>This installs the latest stable release of the <code>ultralytics</code> package from <a href="https://pypi.org/project/ultralytics/">PyPI</a>. To install the development version directly from GitHub:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/ultralytics/ultralytics.git
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/ultralytics/ultralytics.git
 </code></pre></div>
 <p>Ensure the Git command-line tool is installed on your system.</p>
 <h3 id="can-i-install-ultralytics-yolo-using-conda">Can I install Ultralytics YOLO using conda?</h3>
 <p>Yes, install Ultralytics YOLO using conda with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
 </code></pre></div>
 <p>This method is a great alternative to pip, ensuring compatibility with other packages. For CUDA environments, install <code>ultralytics</code>, <code>pytorch</code>, and <code>pytorch-cuda</code> together to resolve conflicts:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
 </code></pre></div>
 <p>For more instructions, see the <a href="../guides/conda-quickstart/">Conda quickstart guide</a>.</p>
 <h3 id="what-are-the-advantages-of-using-docker-to-run-ultralytics-yolo">What are the advantages of using Docker to run Ultralytics YOLO?</h3>
 <p>Docker provides an isolated, consistent environment for Ultralytics YOLO, ensuring smooth performance across systems and avoiding local installation complexities. Official Docker images are available on <a href="https://hub.docker.com/r/ultralytics/ultralytics">Docker Hub</a>, with variants for GPU, CPU, ARM64, <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>, and Conda. To pull and run the latest image:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1"></a><span class="c1"># Pull the latest ultralytics image from Docker Hub</span>
-<a id="__codelineno-27-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ultralytics/ultralytics:latest
-<a id="__codelineno-27-3"></a>
-<a id="__codelineno-27-4"></a><span class="c1"># Run the ultralytics image in a container with GPU support</span>
-<a id="__codelineno-27-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>ultralytics/ultralytics:latest
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Pull the latest ultralytics image from Docker Hub</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ultralytics/ultralytics:latest
+<span></span>
+<span></span><span class="c1"># Run the ultralytics image in a container with GPU support</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>ultralytics/ultralytics:latest
 </code></pre></div>
 <p>For detailed Docker instructions, see the <a href="../guides/docker-quickstart/">Docker quickstart guide</a>.</p>
 <h3 id="how-do-i-clone-the-ultralytics-repository-for-development">How do I clone the Ultralytics repository for development?</h3>
 <p>Clone the Ultralytics repository and set up a development environment with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1"></a><span class="c1"># Clone the ultralytics repository</span>
-<a id="__codelineno-28-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/ultralytics
-<a id="__codelineno-28-3"></a>
-<a id="__codelineno-28-4"></a><span class="c1"># Navigate to the cloned directory</span>
-<a id="__codelineno-28-5"></a><span class="nb">cd</span><span class="w"> </span>ultralytics
-<a id="__codelineno-28-6"></a>
-<a id="__codelineno-28-7"></a><span class="c1"># Install the package in editable mode for development</span>
-<a id="__codelineno-28-8"></a>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Clone the ultralytics repository</span>
+<span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/ultralytics
+<span></span>
+<span></span><span class="c1"># Navigate to the cloned directory</span>
+<span></span><span class="nb">cd</span><span class="w"> </span>ultralytics
+<span></span>
+<span></span><span class="c1"># Install the package in editable mode for development</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span>.
 </code></pre></div>
 <p>This allows contributions to the project or experimentation with the latest source code. For details, visit the <a href="https://github.com/ultralytics/ultralytics">Ultralytics GitHub repository</a>.</p>
 <h3 id="why-should-i-use-ultralytics-yolo-cli">Why should I use Ultralytics YOLO CLI?</h3>
 <p>The Ultralytics YOLO CLI simplifies running object detection tasks without Python code, enabling single-line commands for training, validation, and prediction directly from your terminal. The basic syntax is:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1"></a>yolo<span class="w"> </span>TASK<span class="w"> </span>MODE<span class="w"> </span>ARGS
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>TASK<span class="w"> </span>MODE<span class="w"> </span>ARGS
 </code></pre></div>
 <p>For example, to train a detection model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
 </code></pre></div>
 <p>Explore more commands and usage examples in the full <a href="../usage/cli/">CLI Guide</a>.</p>
 <div class="git-info">

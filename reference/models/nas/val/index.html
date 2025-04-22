@@ -1090,9 +1090,9 @@
 <h2 class="doc doc-heading" id="ultralytics.models.nas.val.NASValidator">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.nas.val.NASValidator</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">NASValidator</span><span class="p">(</span>
-<a id="__codelineno-0-2"></a>    <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
-<a id="__codelineno-0-3"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">NASValidator</span><span class="p">(</span>
+<span></span>    <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1137,11 +1137,11 @@ thresholds.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NAS</span>
-<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">NAS</span><span class="p">(</span><span class="s2">"yolo_nas_s"</span><span class="p">)</span>
-<a id="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">validator</span>
-<a id="__codelineno-0-4"></a><span class="go">Assumes that raw_preds are available</span>
-<a id="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">final_preds</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">raw_preds</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NAS</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">NAS</span><span class="p">(</span><span class="s2">"yolo_nas_s"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">validator</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">validator</span>
+<span></span><span class="go">Assumes that raw_preds are available</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">final_preds</span> <span class="o">=</span> <span class="n">validator</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">raw_preds</span><span class="p">)</span>
 </code></pre></div>
 <details class="notes" open="">
 <summary>Notes</summary>
@@ -1149,47 +1149,47 @@ thresholds.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>44</a></span>
-<span class="normal"><a>45</a></span>
-<span class="normal"><a>46</a></span>
-<span class="normal"><a>47</a></span>
-<span class="normal"><a>48</a></span>
-<span class="normal"><a>49</a></span>
-<span class="normal"><a>50</a></span>
-<span class="normal"><a>51</a></span>
-<span class="normal"><a>52</a></span>
-<span class="normal"><a>53</a></span>
-<span class="normal"><a>54</a></span>
-<span class="normal"><a>55</a></span>
-<span class="normal"><a>56</a></span>
-<span class="normal"><a>57</a></span>
-<span class="normal"><a>58</a></span>
-<span class="normal"><a>59</a></span>
-<span class="normal"><a>60</a></span>
-<span class="normal"><a>61</a></span>
-<span class="normal"><a>62</a></span>
-<span class="normal"><a>63</a></span>
-<span class="normal"><a>64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-45"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-46"></a><span class="sd">    Initialize detection validator with necessary variables and settings.</span>
-<a id="__codelineno-0-47"></a>
-<a id="__codelineno-0-48"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-49"></a><span class="sd">        dataloader (torch.utils.data.DataLoader, optional): Dataloader to use for validation.</span>
-<a id="__codelineno-0-50"></a><span class="sd">        save_dir (Path, optional): Directory to save results.</span>
-<a id="__codelineno-0-51"></a><span class="sd">        pbar (Any, optional): Progress bar for displaying progress.</span>
-<a id="__codelineno-0-52"></a><span class="sd">        args (dict, optional): Arguments for the validator.</span>
-<a id="__codelineno-0-53"></a><span class="sd">        _callbacks (list, optional): List of callback functions.</span>
-<a id="__codelineno-0-54"></a><span class="sd">    """</span>
-<a id="__codelineno-0-55"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">pbar</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-56"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-57"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_image</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-58"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-59"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-60"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-61"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"detect"</span>
-<a id="__codelineno-0-62"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>
-<a id="__codelineno-0-63"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">iouv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># IoU vector for mAP@0.5:0.95</span>
-<a id="__codelineno-0-64"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">niou</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iouv</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>44</span></span>
+<span class="normal"><span>45</span></span>
+<span class="normal"><span>46</span></span>
+<span class="normal"><span>47</span></span>
+<span class="normal"><span>48</span></span>
+<span class="normal"><span>49</span></span>
+<span class="normal"><span>50</span></span>
+<span class="normal"><span>51</span></span>
+<span class="normal"><span>52</span></span>
+<span class="normal"><span>53</span></span>
+<span class="normal"><span>54</span></span>
+<span class="normal"><span>55</span></span>
+<span class="normal"><span>56</span></span>
+<span class="normal"><span>57</span></span>
+<span class="normal"><span>58</span></span>
+<span class="normal"><span>59</span></span>
+<span class="normal"><span>60</span></span>
+<span class="normal"><span>61</span></span>
+<span class="normal"><span>62</span></span>
+<span class="normal"><span>63</span></span>
+<span class="normal"><span>64</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Initialize detection validator with necessary variables and settings.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        dataloader (torch.utils.data.DataLoader, optional): Dataloader to use for validation.</span>
+<span></span><span class="sd">        save_dir (Path, optional): Directory to save results.</span>
+<span></span><span class="sd">        pbar (Any, optional): Progress bar for displaying progress.</span>
+<span></span><span class="sd">        args (dict, optional): Arguments for the validator.</span>
+<span></span><span class="sd">        _callbacks (list, optional): List of callback functions.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">pbar</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_image</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="o">=</span> <span class="kc">False</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span> <span class="o">=</span> <span class="kc">False</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"detect"</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">iouv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># IoU vector for mAP@0.5:0.95</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">niou</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iouv</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1197,21 +1197,21 @@ thresholds.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.nas.val.NASValidator.postprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">postprocess</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds_in</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds_in</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply Non-maximum suppression to prediction outputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/nas/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>35</a></span>
-<span class="normal"><a>36</a></span>
-<span class="normal"><a>37</a></span>
-<span class="normal"><a>38</a></span>
-<span class="normal"><a>39</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-35"></a><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds_in</span><span class="p">):</span>
-<a id="__codelineno-0-36"></a><span class="w">    </span><span class="sd">"""Apply Non-maximum suppression to prediction outputs."""</span>
-<a id="__codelineno-0-37"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">preds_in</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Convert bounding box format from xyxy to xywh</span>
-<a id="__codelineno-0-38"></a>    <span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">boxes</span><span class="p">,</span> <span class="n">preds_in</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Concatenate boxes with scores and permute</span>
-<a id="__codelineno-0-39"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>35</span></span>
+<span class="normal"><span>36</span></span>
+<span class="normal"><span>37</span></span>
+<span class="normal"><span>38</span></span>
+<span class="normal"><span>39</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds_in</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Apply Non-maximum suppression to prediction outputs."""</span>
+<span></span>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">preds_in</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># Convert bounding box format from xyxy to xywh</span>
+<span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">boxes</span><span class="p">,</span> <span class="n">preds_in</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># Concatenate boxes with scores and permute</span>
+<span></span>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

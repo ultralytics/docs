@@ -785,25 +785,25 @@
 <p>For example, users can load a model, train it, evaluate its performance on a validation set, and even <a href="../../modes/export/">export it to ONNX format</a> with just a few lines of code.</p>
 <div class="admonition example">
 <p class="admonition-title">Python</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="c1"># Create a new YOLO model from scratch</span>
-<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
-<a id="__codelineno-0-5"></a>
-<a id="__codelineno-0-6"></a><span class="c1"># Load a pretrained YOLO model (recommended for training)</span>
-<a id="__codelineno-0-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-0-8"></a>
-<a id="__codelineno-0-9"></a><span class="c1"># Train the model using the 'coco8.yaml' dataset for 3 epochs</span>
-<a id="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-0-11"></a>
-<a id="__codelineno-0-12"></a><span class="c1"># Evaluate the model's performance on the validation set</span>
-<a id="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
-<a id="__codelineno-0-14"></a>
-<a id="__codelineno-0-15"></a><span class="c1"># Perform object detection on an image using the model</span>
-<a id="__codelineno-0-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
-<a id="__codelineno-0-17"></a>
-<a id="__codelineno-0-18"></a><span class="c1"># Export the model to ONNX format</span>
-<a id="__codelineno-0-19"></a><span class="n">success</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Create a new YOLO model from scratch</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Load a pretrained YOLO model (recommended for training)</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model using the 'coco8.yaml' dataset for 3 epochs</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Evaluate the model's performance on the validation set</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Perform object detection on an image using the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Export the model to ONNX format</span>
+<span></span><span class="n">success</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h2 id="train">Train</h2>
@@ -813,22 +813,22 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:3"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">From pretrained (recommended)</label><label for="__tabbed_1_2">From scratch</label><label for="__tabbed_1_3">Resume</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># pass any model type</span>
-<a id="__codelineno-1-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># pass any model type</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
-<a id="__codelineno-2-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"last.pt"</span><span class="p">)</span>
-<a id="__codelineno-3-2"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"last.pt"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -842,29 +842,29 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Val after training</label><label for="__tabbed_2_2">Val on another dataset</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="c1"># Load a YOLO model</span>
-<a id="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
-<a id="__codelineno-4-5"></a>
-<a id="__codelineno-4-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-4-7"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-4-8"></a>
-<a id="__codelineno-4-9"></a><span class="c1"># Validate on training data</span>
-<a id="__codelineno-4-10"></a><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Validate on training data</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="c1"># Load a YOLO model</span>
-<a id="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
-<a id="__codelineno-5-5"></a>
-<a id="__codelineno-5-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-5-7"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-5-8"></a>
-<a id="__codelineno-5-9"></a><span class="c1"># Validate on separate data</span>
-<a id="__codelineno-5-10"></a><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/separate/data.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Validate on separate data</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/separate/data.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -878,62 +878,62 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">From source</label><label for="__tabbed_3_2">Results usage</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a id="__codelineno-6-3"></a>
-<a id="__codelineno-6-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-6-5"></a>
-<a id="__codelineno-6-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"model.pt"</span><span class="p">)</span>
-<a id="__codelineno-6-7"></a><span class="c1"># accepts all formats - image/dir/Path/URL/video/PIL/ndarray. 0 for webcam</span>
-<a id="__codelineno-6-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"0"</span><span class="p">)</span>
-<a id="__codelineno-6-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"folder"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Display preds. Accepts all YOLO predict arguments</span>
-<a id="__codelineno-6-10"></a>
-<a id="__codelineno-6-11"></a><span class="c1"># from PIL</span>
-<a id="__codelineno-6-12"></a><span class="n">im1</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"bus.jpg"</span><span class="p">)</span>
-<a id="__codelineno-6-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">im1</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># save plotted images</span>
-<a id="__codelineno-6-14"></a>
-<a id="__codelineno-6-15"></a><span class="c1"># from ndarray</span>
-<a id="__codelineno-6-16"></a><span class="n">im2</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"bus.jpg"</span><span class="p">)</span>
-<a id="__codelineno-6-17"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">im2</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_txt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># save predictions as labels</span>
-<a id="__codelineno-6-18"></a>
-<a id="__codelineno-6-19"></a><span class="c1"># from list of PIL/ndarray</span>
-<a id="__codelineno-6-20"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="p">[</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"model.pt"</span><span class="p">)</span>
+<span></span><span class="c1"># accepts all formats - image/dir/Path/URL/video/PIL/ndarray. 0 for webcam</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"0"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"folder"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Display preds. Accepts all YOLO predict arguments</span>
+<span></span>
+<span></span><span class="c1"># from PIL</span>
+<span></span><span class="n">im1</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"bus.jpg"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">im1</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># save plotted images</span>
+<span></span>
+<span></span><span class="c1"># from ndarray</span>
+<span></span><span class="n">im2</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"bus.jpg"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">im2</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_txt</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># save predictions as labels</span>
+<span></span>
+<span></span><span class="c1"># from list of PIL/ndarray</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="p">[</span><span class="n">im1</span><span class="p">,</span> <span class="n">im2</span><span class="p">])</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="c1"># results would be a list of Results object including all the predictions by default</span>
-<a id="__codelineno-7-2"></a><span class="c1"># but be careful as it could occupy a lot memory when there're many images,</span>
-<a id="__codelineno-7-3"></a><span class="c1"># especially the task is segmentation.</span>
-<a id="__codelineno-7-4"></a><span class="c1"># 1. return as a list</span>
-<a id="__codelineno-7-5"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"folder"</span><span class="p">)</span>
-<a id="__codelineno-7-6"></a>
-<a id="__codelineno-7-7"></a><span class="c1"># results would be a generator which is more friendly to memory by setting stream=True</span>
-<a id="__codelineno-7-8"></a><span class="c1"># 2. return as a generator</span>
-<a id="__codelineno-7-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-7-10"></a>
-<a id="__codelineno-7-11"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a id="__codelineno-7-12"></a>    <span class="c1"># Detection</span>
-<a id="__codelineno-7-13"></a>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span>  <span class="c1"># box with xyxy format, (N, 4)</span>
-<a id="__codelineno-7-14"></a>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywh</span>  <span class="c1"># box with xywh format, (N, 4)</span>
-<a id="__codelineno-7-15"></a>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxyn</span>  <span class="c1"># box with xyxy format but normalized, (N, 4)</span>
-<a id="__codelineno-7-16"></a>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywhn</span>  <span class="c1"># box with xywh format but normalized, (N, 4)</span>
-<a id="__codelineno-7-17"></a>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># confidence score, (N, 1)</span>
-<a id="__codelineno-7-18"></a>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls, (N, 1)</span>
-<a id="__codelineno-7-19"></a>
-<a id="__codelineno-7-20"></a>    <span class="c1"># Segmentation</span>
-<a id="__codelineno-7-21"></a>    <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># masks, (N, H, W)</span>
-<a id="__codelineno-7-22"></a>    <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xy</span>  <span class="c1"># x,y segments (pixels), List[segment] * N</span>
-<a id="__codelineno-7-23"></a>    <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xyn</span>  <span class="c1"># x,y segments (normalized), List[segment] * N</span>
-<a id="__codelineno-7-24"></a>
-<a id="__codelineno-7-25"></a>    <span class="c1"># Classification</span>
-<a id="__codelineno-7-26"></a>    <span class="n">result</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># cls prob, (num_class, )</span>
-<a id="__codelineno-7-27"></a>
-<a id="__codelineno-7-28"></a><span class="c1"># Each result is composed of torch.Tensor by default,</span>
-<a id="__codelineno-7-29"></a><span class="c1"># in which you can easily use following functionality:</span>
-<a id="__codelineno-7-30"></a><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
-<a id="__codelineno-7-31"></a><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<a id="__codelineno-7-32"></a><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
-<a id="__codelineno-7-33"></a><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># results would be a list of Results object including all the predictions by default</span>
+<span></span><span class="c1"># but be careful as it could occupy a lot memory when there're many images,</span>
+<span></span><span class="c1"># especially the task is segmentation.</span>
+<span></span><span class="c1"># 1. return as a list</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"folder"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># results would be a generator which is more friendly to memory by setting stream=True</span>
+<span></span><span class="c1"># 2. return as a generator</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<span></span>    <span class="c1"># Detection</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span>  <span class="c1"># box with xyxy format, (N, 4)</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywh</span>  <span class="c1"># box with xywh format, (N, 4)</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxyn</span>  <span class="c1"># box with xyxy format but normalized, (N, 4)</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywhn</span>  <span class="c1"># box with xywh format but normalized, (N, 4)</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># confidence score, (N, 1)</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span>  <span class="c1"># cls, (N, 1)</span>
+<span></span>
+<span></span>    <span class="c1"># Segmentation</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span>  <span class="c1"># masks, (N, H, W)</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xy</span>  <span class="c1"># x,y segments (pixels), List[segment] * N</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xyn</span>  <span class="c1"># x,y segments (normalized), List[segment] * N</span>
+<span></span>
+<span></span>    <span class="c1"># Classification</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># cls prob, (num_class, )</span>
+<span></span>
+<span></span><span class="c1"># Each result is composed of torch.Tensor by default,</span>
+<span></span><span class="c1"># in which you can easily use following functionality:</span>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">)</span>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
@@ -948,18 +948,18 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Export an official YOLO model to <a href="https://www.ultralytics.com/glossary/onnx-open-neural-network-exchange">ONNX</a> with dynamic batch-size and image-size.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-8-2"></a>
-<a id="__codelineno-8-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-8-4"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Export an official YOLO model to <a href="https://www.ultralytics.com/glossary/tensorrt">TensorRT</a> on <code>device=0</code> for acceleration on CUDA devices.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-9-4"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></p>
 </div>
 </div>
@@ -973,16 +973,16 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-10-2"></a>
-<a id="__codelineno-10-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load an official detection model</span>
-<a id="__codelineno-10-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>  <span class="c1"># load an official segmentation model</span>
-<a id="__codelineno-10-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># load a custom model</span>
-<a id="__codelineno-10-7"></a>
-<a id="__codelineno-10-8"></a><span class="c1"># Track with the model</span>
-<a id="__codelineno-10-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-10-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tracker</span><span class="o">=</span><span class="s2">"bytetrack.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load an official detection model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>  <span class="c1"># load an official segmentation model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># load a custom model</span>
+<span></span>
+<span></span><span class="c1"># Track with the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tracker</span><span class="o">=</span><span class="s2">"bytetrack.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -997,10 +997,10 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Benchmark an official YOLO model across all export formats.
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">benchmark</span>
-<a id="__codelineno-11-2"></a>
-<a id="__codelineno-11-3"></a><span class="c1"># Benchmark</span>
-<a id="__codelineno-11-4"></a><span class="n">benchmark</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">benchmark</span>
+<span></span>
+<span></span><span class="c1"># Benchmark</span>
+<span></span><span class="n">benchmark</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></p>
 </div>
 </div>
@@ -1011,24 +1011,24 @@
 <p>The <code>YOLO</code> model class serves as a high-level wrapper for the Trainer classes. Each YOLO task has its own trainer, which inherits from <code>BaseTrainer</code>. This architecture allows for greater flexibility and customization in your <a href="https://docs.ultralytics.com/guides/model-training-tips/">machine learning workflows</a>.</p>
 <div class="admonition tip">
 <p class="admonition-title">Detection Trainer Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionPredictor</span><span class="p">,</span> <span class="n">DetectionTrainer</span><span class="p">,</span> <span class="n">DetectionValidator</span>
-<a id="__codelineno-12-2"></a>
-<a id="__codelineno-12-3"></a><span class="c1"># trainer</span>
-<a id="__codelineno-12-4"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{})</span>
-<a id="__codelineno-12-5"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<a id="__codelineno-12-6"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>
-<a id="__codelineno-12-7"></a>
-<a id="__codelineno-12-8"></a><span class="c1"># Validator</span>
-<a id="__codelineno-12-9"></a><span class="n">val</span> <span class="o">=</span> <span class="n">DetectionValidator</span><span class="p">(</span><span class="n">args</span><span class="o">=...</span><span class="p">)</span>
-<a id="__codelineno-12-10"></a><span class="n">val</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">trained_model</span><span class="p">)</span>
-<a id="__codelineno-12-11"></a>
-<a id="__codelineno-12-12"></a><span class="c1"># predictor</span>
-<a id="__codelineno-12-13"></a><span class="n">pred</span> <span class="o">=</span> <span class="n">DetectionPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{})</span>
-<a id="__codelineno-12-14"></a><span class="n">pred</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">SOURCE</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">trained_model</span><span class="p">)</span>
-<a id="__codelineno-12-15"></a>
-<a id="__codelineno-12-16"></a><span class="c1"># resume from last weight</span>
-<a id="__codelineno-12-17"></a><span class="n">overrides</span><span class="p">[</span><span class="s2">"resume"</span><span class="p">]</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
-<a id="__codelineno-12-18"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionPredictor</span><span class="p">,</span> <span class="n">DetectionTrainer</span><span class="p">,</span> <span class="n">DetectionValidator</span>
+<span></span>
+<span></span><span class="c1"># trainer</span>
+<span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{})</span>
+<span></span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<span></span><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>
+<span></span>
+<span></span><span class="c1"># Validator</span>
+<span></span><span class="n">val</span> <span class="o">=</span> <span class="n">DetectionValidator</span><span class="p">(</span><span class="n">args</span><span class="o">=...</span><span class="p">)</span>
+<span></span><span class="n">val</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">trained_model</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># predictor</span>
+<span></span><span class="n">pred</span> <span class="o">=</span> <span class="n">DetectionPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{})</span>
+<span></span><span class="n">pred</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">SOURCE</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="n">trained_model</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># resume from last weight</span>
+<span></span><span class="n">overrides</span><span class="p">[</span><span class="s2">"resume"</span><span class="p">]</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
+<span></span><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>You can easily customize Trainers to support custom tasks or explore research and development ideas. The modular design of Ultralytics YOLO allows you to adapt the framework to your specific needs, whether you're working on a novel <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> task or fine-tuning existing models for better performance.</p>
@@ -1036,17 +1036,17 @@
 <h2 id="faq">FAQ</h2>
 <h3 id="how-can-i-integrate-yolo-into-my-python-project-for-object-detection">How can I integrate YOLO into my Python project for object detection?</h3>
 <p>Integrating Ultralytics YOLO into your Python projects is simple. You can load a pretrained model or train a new model from scratch. Here's how to get started:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-13-2"></a>
-<a id="__codelineno-13-3"></a><span class="c1"># Load a pretrained YOLO model</span>
-<a id="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-13-5"></a>
-<a id="__codelineno-13-6"></a><span class="c1"># Perform object detection on an image</span>
-<a id="__codelineno-13-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
-<a id="__codelineno-13-8"></a>
-<a id="__codelineno-13-9"></a><span class="c1"># Visualize the results</span>
-<a id="__codelineno-13-10"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a id="__codelineno-13-11"></a>    <span class="n">result</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a pretrained YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Perform object detection on an image</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Visualize the results</span>
+<span></span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<span></span>    <span class="n">result</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p>See more detailed examples in our <a href="../../modes/predict/">Predict Mode</a> section.</p>
 <h3 id="what-are-the-different-modes-available-in-yolo">What are the different modes available in YOLO?</h3>
@@ -1062,38 +1062,38 @@
 <p>Each mode is designed to provide comprehensive functionalities for different stages of <a href="https://docs.ultralytics.com/guides/model-deployment-options/">model development and deployment</a>.</p>
 <h3 id="how-do-i-train-a-custom-yolo-model-using-my-dataset">How do I train a custom YOLO model using my dataset?</h3>
 <p>To train a custom YOLO model, you need to specify your dataset and other <a href="https://www.ultralytics.com/glossary/hyperparameter-tuning">hyperparameters</a>. Here's a quick example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-14-2"></a>
-<a id="__codelineno-14-3"></a><span class="c1"># Load the YOLO model</span>
-<a id="__codelineno-14-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
-<a id="__codelineno-14-5"></a>
-<a id="__codelineno-14-6"></a><span class="c1"># Train the model with custom dataset</span>
-<a id="__codelineno-14-7"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/your/dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model with custom dataset</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/your/dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 <p>For more details on training and hyperlinks to example usage, visit our <a href="../../modes/train/">Train Mode</a> page.</p>
 <h3 id="how-do-i-export-yolo-models-for-deployment">How do I export YOLO models for deployment?</h3>
 <p>Exporting YOLO models in a format suitable for deployment is straightforward with the <code>export</code> function. For example, you can export a model to ONNX format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-15-2"></a>
-<a id="__codelineno-15-3"></a><span class="c1"># Load the YOLO model</span>
-<a id="__codelineno-15-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-15-5"></a>
-<a id="__codelineno-15-6"></a><span class="c1"># Export the model to ONNX format</span>
-<a id="__codelineno-15-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Export the model to ONNX format</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
 </code></pre></div>
 <p>For various export options, refer to the <a href="../../modes/export/">Export Mode</a> documentation.</p>
 <h3 id="can-i-validate-my-yolo-model-on-different-datasets">Can I validate my YOLO model on different datasets?</h3>
 <p>Yes, validating YOLO models on different datasets is possible. After training, you can use the validation mode to evaluate the performance:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-16-2"></a>
-<a id="__codelineno-16-3"></a><span class="c1"># Load a YOLO model</span>
-<a id="__codelineno-16-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
-<a id="__codelineno-16-5"></a>
-<a id="__codelineno-16-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-16-7"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-16-8"></a>
-<a id="__codelineno-16-9"></a><span class="c1"># Validate the model on a different dataset</span>
-<a id="__codelineno-16-10"></a><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/separate/data.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.yaml"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Validate the model on a different dataset</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/separate/data.yaml"</span><span class="p">)</span>
 </code></pre></div>
 <p>Check the <a href="../../modes/val/">Val Mode</a> page for detailed examples and usage.</p>
 <div class="git-info">

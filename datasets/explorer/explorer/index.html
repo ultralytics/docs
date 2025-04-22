@@ -805,13 +805,13 @@
 </div>
 <h2 id="setup">Setup</h2>
 <p>Pip install <code>ultralytics</code> and <a href="https://github.com/ultralytics/ultralytics/blob/main/pyproject.toml">dependencies</a> and check software and hardware.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>%pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>explorer<span class="o">]</span><span class="w"> </span>openai
-<a id="__codelineno-0-2"></a>yolo<span class="w"> </span>checks
+<div class="highlight"><pre><span></span><code><span></span>%pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>explorer<span class="o">]</span><span class="w"> </span>openai
+<span></span>yolo<span class="w"> </span>checks
 </code></pre></div>
 <h2 id="similarity-search">Similarity Search</h2>
 <p>Utilize the power of vector similarity search to find the similar data points in your dataset along with their distance in the embedding space. Simply create an embeddings table for the given dataset-model pair. It is only needed once, and it is reused automatically.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="s2">"VOC.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-2"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="s2">"VOC.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
 </code></pre></div>
 <p>One the embeddings table is built, you can get run semantic search in any of the following ways:</p>
 <ul>
@@ -820,36 +820,36 @@
 </ul>
 <p>You get a pandas dataframe with the limit number of most similar data points to the input, along with their distance in the embedding space. You can use this dataset to perform further filtering</p>
 <p><img alt="Similarity search table" src="https://github.com/ultralytics/docs/releases/download/0/similarity-search-table.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Search dataset by index</span>
-<a id="__codelineno-2-2"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a id="__codelineno-2-3"></a><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Search dataset by index</span>
+<span></span><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span></span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </code></pre></div>
 <p>You can use the also plot the similar samples directly using the <code>plot_similar</code> util</p>
 <p><img alt="Similarity search image 1" src="https://github.com/ultralytics/docs/releases/download/0/similarity-search-image-1.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">6500</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
-<a id="__codelineno-3-2"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Can also pass list of idxs or imgs</span>
-<a id="__codelineno-3-3"></a>
-<a id="__codelineno-3-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Can also pass external images</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">6500</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">101</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Can also pass list of idxs or imgs</span>
+<span></span>
+<span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># Can also pass external images</span>
 </code></pre></div>
 <p><img alt="Similarity search image 2" src="https://github.com/ultralytics/docs/releases/download/0/similarity-search-image-2.avif"/></p>
 <h2 id="ask-ai-search-or-filter-with-natural-language">Ask AI: Search or filter with Natural Language</h2>
 <p>You can prompt the Explorer object with the kind of data points you want to see, and it'll try to return a dataframe with those. Because it is powered by LLMs, it doesn't always get it right. In that case, it'll return None.</p>
 <p><img alt="Ask ai table" src="https://github.com/ultralytics/docs/releases/download/0/ask-ai-nlp-table.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me images containing more than 10 objects with at least 2 persons"</span><span class="p">)</span>
-<a id="__codelineno-4-2"></a><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me images containing more than 10 objects with at least 2 persons"</span><span class="p">)</span>
+<span></span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 <p>for plotting these results you can use <code>plot_query_result</code> util Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 10 images containing exactly 2 persons"</span><span class="p">))</span>
-<a id="__codelineno-5-2"></a><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">plt</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 10 images containing exactly 2 persons"</span><span class="p">))</span>
+<span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="Ask ai image 1" src="https://github.com/ultralytics/docs/releases/download/0/ask-ai-nlp-image-1.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="c1"># plot</span>
-<a id="__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a id="__codelineno-6-3"></a>
-<a id="__codelineno-6-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.explorer</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_query_result</span>
-<a id="__codelineno-6-5"></a>
-<a id="__codelineno-6-6"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 10 images containing exactly 2 persons"</span><span class="p">))</span>
-<a id="__codelineno-6-7"></a><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># plot</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.explorer</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_query_result</span>
+<span></span>
+<span></span><span class="n">plt</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 10 images containing exactly 2 persons"</span><span class="p">))</span>
+<span></span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">plt</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="run-sql-queries-on-your-dataset">Run SQL queries on your Dataset</h2>
 <p>Sometimes you might want to investigate a certain type of entries in your dataset. For this Explorer allows you to execute SQL queries. It accepts either of the formats:</p>
@@ -862,21 +862,21 @@
 <li>let's say your model struggles on images that have humans and dogs. You can write a query like this to select the points that have at least 2 humans AND at least one dog.</li>
 </ul>
 <p>You can combine SQL query and semantic search to filter down to specific type of results</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person, person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">)</span>
-<a id="__codelineno-7-2"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person, person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person, person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">)</span>
+<span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person, person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="SQL queries table" src="https://github.com/ultralytics/docs/releases/download/0/sql-queries-table.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person, person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">)</span>
-<a id="__codelineno-8-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person, person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="p">)</span>
 </code></pre></div>
 <p>Just like similarity search, you also get a util to directly plot the sql queries using <code>exp.plot_sql_query</code></p>
 <p><img alt="SQL queries image 1" src="https://github.com/ultralytics/docs/releases/download/0/sql-query-image-1.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person, person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person, person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="working-with-embeddings-table-advanced">Working with embeddings Table (Advanced)</h2>
 <p>Explorer works on <a href="https://lancedb.github.io/lancedb/">LanceDB</a> tables internally. You can access this table directly, using <code>Explorer.table</code> object and run raw queries, push down pre- and post-filters, etc.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">table</span>
-<a id="__codelineno-10-2"></a><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">table</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">schema</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="run-raw-queries">Run raw queries¶</h3>
 <p>Vector Search finds the nearest vectors from the database. In a recommendation system or search engine, you can find similar products from the one you searched. In LLM and other AI applications, each data point can be presented by the embeddings generated from some models, it returns the most relevant features.</p>
@@ -888,42 +888,42 @@
 <li>Dot Explorer's similarity search uses L2 by default. You can run queries on tables directly, or use the lance format to build custom utilities to manage datasets. More details on available LanceDB table ops in the <a href="https://lancedb.github.io/lancedb/">docs</a></li>
 </ul>
 <p><img alt="Raw-queries-table" src="https://github.com/ultralytics/docs/releases/download/0/raw-queries-table.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="n">dummy_img_embedding</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">)]</span>
-<a id="__codelineno-11-2"></a><span class="n">table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">dummy_img_embedding</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">dummy_img_embedding</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">)]</span>
+<span></span><span class="n">table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">dummy_img_embedding</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="interconversion-to-popular-data-formats">Interconversion to popular data formats</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="n">df</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
-<a id="__codelineno-12-2"></a><span class="n">pa_table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_arrow</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()</span>
+<span></span><span class="n">pa_table</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_arrow</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="work-with-embeddings">Work with Embeddings</h3>
 <p>You can access the raw embedding from lancedb Table and analyse it. The image embeddings are stored in column <code>vector</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-13-2"></a>
-<a id="__codelineno-13-3"></a><span class="n">embeddings</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()[</span><span class="s2">"vector"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-13-4"></a><span class="n">embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span>
+<span></span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()[</span><span class="s2">"vector"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span><span class="n">embeddings</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="scatterplot">Scatterplot</h3>
 <p>One of the preliminary steps in analysing embeddings is by plotting them in 2D space via dimensionality reduction. Let's try an example</p>
 <p><img alt="Scatterplot Example" src="https://github.com/ultralytics/docs/releases/download/0/scatterplot-sql-queries.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<a id="__codelineno-14-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>  <span class="c1"># pip install scikit-learn</span>
-<a id="__codelineno-14-3"></a>
-<a id="__codelineno-14-4"></a><span class="c1"># Reduce dimensions using PCA to 3 components for visualization in 3D</span>
-<a id="__codelineno-14-5"></a><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-14-6"></a><span class="n">reduced_data</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
-<a id="__codelineno-14-7"></a>
-<a id="__codelineno-14-8"></a><span class="c1"># Create a 3D scatter plot using Matplotlib's Axes3D</span>
-<a id="__codelineno-14-9"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<a id="__codelineno-14-10"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"3d"</span><span class="p">)</span>
-<a id="__codelineno-14-11"></a>
-<a id="__codelineno-14-12"></a><span class="c1"># Scatter plot</span>
-<a id="__codelineno-14-13"></a><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<a id="__codelineno-14-14"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"3D Scatter Plot of Reduced 256-Dimensional Data (PCA)"</span><span class="p">)</span>
-<a id="__codelineno-14-15"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Component 1"</span><span class="p">)</span>
-<a id="__codelineno-14-16"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Component 2"</span><span class="p">)</span>
-<a id="__codelineno-14-17"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"Component 3"</span><span class="p">)</span>
-<a id="__codelineno-14-18"></a>
-<a id="__codelineno-14-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>  <span class="c1"># pip install scikit-learn</span>
+<span></span>
+<span></span><span class="c1"># Reduce dimensions using PCA to 3 components for visualization in 3D</span>
+<span></span><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span></span><span class="n">reduced_data</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Create a 3D scatter plot using Matplotlib's Axes3D</span>
+<span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"3d"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Scatter plot</span>
+<span></span><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<span></span><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"3D Scatter Plot of Reduced 256-Dimensional Data (PCA)"</span><span class="p">)</span>
+<span></span><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Component 1"</span><span class="p">)</span>
+<span></span><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Component 2"</span><span class="p">)</span>
+<span></span><span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"Component 3"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="similarity-index">Similarity Index</h3>
 <p>Here's a simple example of an operation powered by the embeddings table. Explorer comes with a <code>similarity_index</code> operation-</p>
@@ -932,27 +932,27 @@
 <li>It does that by counting how many image embeddings lie closer than max_dist to the current image in the generated embedding space, considering top_k similar images at a time.</li>
 </ul>
 <p>For a given dataset, model, <code>max_dist</code> &amp; <code>top_k</code> the similarity index once generated will be reused. In case, your dataset has changed, or you simply need to regenerate the similarity index, you can pass <code>force=True</code>. Similar to vector and SQL search, this also comes with a util to directly plot it. Let's look</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a><span class="n">sim_idx</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
-<a id="__codelineno-15-2"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">sim_idx</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </code></pre></div>
 <p><img alt="Similarity Index" src="https://github.com/ultralytics/docs/releases/download/0/similarity-index.avif"/></p>
 <p>at the plot first</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mf">0.01</span><span class="p">)</span>
 </code></pre></div>
 <p>Now let's look at the output of the operation</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1"></a><span class="n">sim_idx</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-17-2"></a>
-<a id="__codelineno-17-3"></a><span class="n">sim_idx</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">sim_idx</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">(</span><span class="n">max_dist</span><span class="o">=</span><span class="mf">0.2</span><span class="p">,</span> <span class="n">top_k</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span> <span class="n">force</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">sim_idx</span>
 </code></pre></div>
 <p>Let's create a query to see what data points have similarity count of more than 30 and plot images similar to them.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-18-2"></a>
-<a id="__codelineno-18-3"></a><span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">])</span>
-<a id="__codelineno-18-4"></a><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">][</span><span class="n">sim_count</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span>
+<span></span><span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">])</span>
+<span></span><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">][</span><span class="n">sim_count</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
 </code></pre></div>
 <p>You should see something like this</p>
 <p><img alt="similarity-index-image" src="https://github.com/ultralytics/docs/releases/download/0/similarity-index-image.avif"/></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="p">[</span><span class="mi">7146</span><span class="p">,</span> <span class="mi">14035</span><span class="p">])</span>  <span class="c1"># Using avg embeddings of 2 images</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="p">[</span><span class="mi">7146</span><span class="p">,</span> <span class="mi">14035</span><span class="p">])</span>  <span class="c1"># Using avg embeddings of 2 images</span>
 </code></pre></div>
 <div class="git-info">
 <div class="dates-container">

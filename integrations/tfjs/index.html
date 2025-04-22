@@ -839,8 +839,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Install the required package for YOLO11</span>
-<a id="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install the required package for YOLO11</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 </div>
 </div>
@@ -854,27 +854,27 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Load the YOLO11 model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Export the model to TF.js format</span>
-<a id="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"tfjs"</span><span class="p">)</span>  <span class="c1"># creates '/yolo11n_web_model'</span>
-<a id="__codelineno-1-8"></a>
-<a id="__codelineno-1-9"></a><span class="c1"># Load the exported TF.js model</span>
-<a id="__codelineno-1-10"></a><span class="n">tfjs_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"./yolo11n_web_model"</span><span class="p">)</span>
-<a id="__codelineno-1-11"></a>
-<a id="__codelineno-1-12"></a><span class="c1"># Run inference</span>
-<a id="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">tfjs_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the YOLO11 model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Export the model to TF.js format</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"tfjs"</span><span class="p">)</span>  <span class="c1"># creates '/yolo11n_web_model'</span>
+<span></span>
+<span></span><span class="c1"># Load the exported TF.js model</span>
+<span></span><span class="n">tfjs_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"./yolo11n_web_model"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">tfjs_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Export a YOLO11n PyTorch model to TF.js format</span>
-<a id="__codelineno-2-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>tfjs<span class="w"> </span><span class="c1"># creates '/yolo11n_web_model'</span>
-<a id="__codelineno-2-3"></a>
-<a id="__codelineno-2-4"></a><span class="c1"># Run inference with the exported model</span>
-<a id="__codelineno-2-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'./yolo11n_web_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Export a YOLO11n PyTorch model to TF.js format</span>
+<span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>tfjs<span class="w"> </span><span class="c1"># creates '/yolo11n_web_model'</span>
+<span></span>
+<span></span><span class="c1"># Run inference with the exported model</span>
+<span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'./yolo11n_web_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
 </div>
 </div>
@@ -962,27 +962,27 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="c1"># Load the YOLO11 model</span>
-<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a><span class="c1"># Export the model to TF.js format</span>
-<a id="__codelineno-3-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"tfjs"</span><span class="p">)</span>  <span class="c1"># creates '/yolo11n_web_model'</span>
-<a id="__codelineno-3-8"></a>
-<a id="__codelineno-3-9"></a><span class="c1"># Load the exported TF.js model</span>
-<a id="__codelineno-3-10"></a><span class="n">tfjs_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"./yolo11n_web_model"</span><span class="p">)</span>
-<a id="__codelineno-3-11"></a>
-<a id="__codelineno-3-12"></a><span class="c1"># Run inference</span>
-<a id="__codelineno-3-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">tfjs_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the YOLO11 model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Export the model to TF.js format</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"tfjs"</span><span class="p">)</span>  <span class="c1"># creates '/yolo11n_web_model'</span>
+<span></span>
+<span></span><span class="c1"># Load the exported TF.js model</span>
+<span></span><span class="n">tfjs_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"./yolo11n_web_model"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">tfjs_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># Export a YOLO11n PyTorch model to TF.js format</span>
-<a id="__codelineno-4-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>tfjs<span class="w"> </span><span class="c1"># creates '/yolo11n_web_model'</span>
-<a id="__codelineno-4-3"></a>
-<a id="__codelineno-4-4"></a><span class="c1"># Run inference with the exported model</span>
-<a id="__codelineno-4-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'./yolo11n_web_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Export a YOLO11n PyTorch model to TF.js format</span>
+<span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>tfjs<span class="w"> </span><span class="c1"># creates '/yolo11n_web_model'</span>
+<span></span>
+<span></span><span class="c1"># Run inference with the exported model</span>
+<span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'./yolo11n_web_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
 </div>
 </div>

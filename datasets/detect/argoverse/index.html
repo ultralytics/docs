@@ -963,83 +963,83 @@
 <p>A YAML (Yet Another Markup Language) file is used to define the dataset configuration. It contains information about the dataset's paths, classes, and other relevant information. For the case of the Argoverse dataset, the <code>Argoverse.yaml</code> file is maintained at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/Argoverse.yaml">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/Argoverse.yaml</a>.</p>
 <div class="admonition example">
 <p class="admonition-title">ultralytics/cfg/datasets/Argoverse.yaml</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="c1"># Argoverse-HD dataset (ring-front-center camera) https://www.cs.cmu.edu/~mengtial/proj/streaming/ by Argo AI</span>
-<a id="__codelineno-0-4"></a><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/argoverse/</span>
-<a id="__codelineno-0-5"></a><span class="c1"># Example usage: yolo train data=Argoverse.yaml</span>
-<a id="__codelineno-0-6"></a><span class="c1"># parent</span>
-<a id="__codelineno-0-7"></a><span class="c1"># ├── ultralytics</span>
-<a id="__codelineno-0-8"></a><span class="c1"># └── datasets</span>
-<a id="__codelineno-0-9"></a><span class="c1">#     └── Argoverse  ← downloads here (31.5 GB)</span>
-<a id="__codelineno-0-10"></a>
-<a id="__codelineno-0-11"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a id="__codelineno-0-12"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/Argoverse</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<a id="__codelineno-0-13"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/train/</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 39384 images</span>
-<a id="__codelineno-0-14"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/val/</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 15062 images</span>
-<a id="__codelineno-0-15"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/test/</span><span class="w"> </span><span class="c1"># test images (optional) https://eval.ai/web/challenges/challenge-page/800/overview</span>
-<a id="__codelineno-0-16"></a>
-<a id="__codelineno-0-17"></a><span class="c1"># Classes</span>
-<a id="__codelineno-0-18"></a><span class="nt">names</span><span class="p">:</span>
-<a id="__codelineno-0-19"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
-<a id="__codelineno-0-20"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
-<a id="__codelineno-0-21"></a><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
-<a id="__codelineno-0-22"></a><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motorcycle</span>
-<a id="__codelineno-0-23"></a><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bus</span>
-<a id="__codelineno-0-24"></a><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truck</span>
-<a id="__codelineno-0-25"></a><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traffic_light</span>
-<a id="__codelineno-0-26"></a><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stop_sign</span>
-<a id="__codelineno-0-27"></a>
-<a id="__codelineno-0-28"></a><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
-<a id="__codelineno-0-29"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-0-30"></a><span class="w">  </span><span class="no">import json</span>
-<a id="__codelineno-0-31"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
-<a id="__codelineno-0-32"></a>
-<a id="__codelineno-0-33"></a><span class="w">  </span><span class="no">from tqdm import tqdm</span>
-<a id="__codelineno-0-34"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<a id="__codelineno-0-35"></a>
-<a id="__codelineno-0-36"></a><span class="w">  </span><span class="no">def argoverse2yolo(set):</span>
-<a id="__codelineno-0-37"></a><span class="w">      </span><span class="no">"""Convert Argoverse dataset annotations to YOLO format for object detection tasks."""</span>
-<a id="__codelineno-0-38"></a><span class="w">      </span><span class="no">labels = {}</span>
-<a id="__codelineno-0-39"></a><span class="w">      </span><span class="no">a = json.load(open(set, "rb"))</span>
-<a id="__codelineno-0-40"></a><span class="w">      </span><span class="no">for annot in tqdm(a["annotations"], desc=f"Converting {set} to YOLOv5 format..."):</span>
-<a id="__codelineno-0-41"></a><span class="w">          </span><span class="no">img_id = annot["image_id"]</span>
-<a id="__codelineno-0-42"></a><span class="w">          </span><span class="no">img_name = a["images"][img_id]["name"]</span>
-<a id="__codelineno-0-43"></a><span class="w">          </span><span class="no">img_label_name = f"{img_name[:-3]}txt"</span>
-<a id="__codelineno-0-44"></a>
-<a id="__codelineno-0-45"></a><span class="w">          </span><span class="no">cls = annot["category_id"]  # instance class id</span>
-<a id="__codelineno-0-46"></a><span class="w">          </span><span class="no">x_center, y_center, width, height = annot["bbox"]</span>
-<a id="__codelineno-0-47"></a><span class="w">          </span><span class="no">x_center = (x_center + width / 2) / 1920.0  # offset and scale</span>
-<a id="__codelineno-0-48"></a><span class="w">          </span><span class="no">y_center = (y_center + height / 2) / 1200.0  # offset and scale</span>
-<a id="__codelineno-0-49"></a><span class="w">          </span><span class="no">width /= 1920.0  # scale</span>
-<a id="__codelineno-0-50"></a><span class="w">          </span><span class="no">height /= 1200.0  # scale</span>
-<a id="__codelineno-0-51"></a>
-<a id="__codelineno-0-52"></a><span class="w">          </span><span class="no">img_dir = set.parents[2] / "Argoverse-1.1" / "labels" / a["seq_dirs"][a["images"][annot["image_id"]]["sid"]]</span>
-<a id="__codelineno-0-53"></a><span class="w">          </span><span class="no">if not img_dir.exists():</span>
-<a id="__codelineno-0-54"></a><span class="w">              </span><span class="no">img_dir.mkdir(parents=True, exist_ok=True)</span>
-<a id="__codelineno-0-55"></a>
-<a id="__codelineno-0-56"></a><span class="w">          </span><span class="no">k = str(img_dir / img_label_name)</span>
-<a id="__codelineno-0-57"></a><span class="w">          </span><span class="no">if k not in labels:</span>
-<a id="__codelineno-0-58"></a><span class="w">              </span><span class="no">labels[k] = []</span>
-<a id="__codelineno-0-59"></a><span class="w">          </span><span class="no">labels[k].append(f"{cls} {x_center} {y_center} {width} {height}\n")</span>
-<a id="__codelineno-0-60"></a>
-<a id="__codelineno-0-61"></a><span class="w">      </span><span class="no">for k in labels:</span>
-<a id="__codelineno-0-62"></a><span class="w">          </span><span class="no">with open(k, "w", encoding="utf-8") as f:</span>
-<a id="__codelineno-0-63"></a><span class="w">              </span><span class="no">f.writelines(labels[k])</span>
-<a id="__codelineno-0-64"></a>
-<a id="__codelineno-0-65"></a>
-<a id="__codelineno-0-66"></a><span class="w">  </span><span class="no"># Download 'https://argoverse-hd.s3.us-east-2.amazonaws.com/Argoverse-HD-Full.zip' (deprecated S3 link)</span>
-<a id="__codelineno-0-67"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
-<a id="__codelineno-0-68"></a><span class="w">  </span><span class="no">urls = ["https://drive.google.com/file/d/1st9qW3BeIwQsnR0t8mRpvbsSWIo16ACi/view?usp=drive_link"]</span>
-<a id="__codelineno-0-69"></a><span class="w">  </span><span class="no">print("\n\nWARNING: Argoverse dataset MUST be downloaded manually, autodownload will NOT work.")</span>
-<a id="__codelineno-0-70"></a><span class="w">  </span><span class="no">print(f"WARNING: Manually download Argoverse dataset '{urls[0]}' to '{dir}' and re-run your command.\n\n")</span>
-<a id="__codelineno-0-71"></a><span class="w">  </span><span class="no"># download(urls, dir=dir)</span>
-<a id="__codelineno-0-72"></a>
-<a id="__codelineno-0-73"></a><span class="w">  </span><span class="no"># Convert</span>
-<a id="__codelineno-0-74"></a><span class="w">  </span><span class="no">annotations_dir = "Argoverse-HD/annotations/"</span>
-<a id="__codelineno-0-75"></a><span class="w">  </span><span class="no">(dir / "Argoverse-1.1" / "tracking").rename(dir / "Argoverse-1.1" / "images")  # rename 'tracking' to 'images'</span>
-<a id="__codelineno-0-76"></a><span class="w">  </span><span class="no">for d in "train.json", "val.json":</span>
-<a id="__codelineno-0-77"></a><span class="w">      </span><span class="no">argoverse2yolo(dir / annotations_dir / d)  # convert Argoverse annotations to YOLO labels</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
+<span></span>
+<span></span><span class="c1"># Argoverse-HD dataset (ring-front-center camera) https://www.cs.cmu.edu/~mengtial/proj/streaming/ by Argo AI</span>
+<span></span><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/argoverse/</span>
+<span></span><span class="c1"># Example usage: yolo train data=Argoverse.yaml</span>
+<span></span><span class="c1"># parent</span>
+<span></span><span class="c1"># ├── ultralytics</span>
+<span></span><span class="c1"># └── datasets</span>
+<span></span><span class="c1">#     └── Argoverse  ← downloads here (31.5 GB)</span>
+<span></span>
+<span></span><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
+<span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/Argoverse</span><span class="w"> </span><span class="c1"># dataset root dir</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/train/</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 39384 images</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/val/</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 15062 images</span>
+<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Argoverse-1.1/images/test/</span><span class="w"> </span><span class="c1"># test images (optional) https://eval.ai/web/challenges/challenge-page/800/overview</span>
+<span></span>
+<span></span><span class="c1"># Classes</span>
+<span></span><span class="nt">names</span><span class="p">:</span>
+<span></span><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<span></span><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
+<span></span><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
+<span></span><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motorcycle</span>
+<span></span><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bus</span>
+<span></span><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truck</span>
+<span></span><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traffic_light</span>
+<span></span><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stop_sign</span>
+<span></span>
+<span></span><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
+<span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span></span><span class="w">  </span><span class="no">import json</span>
+<span></span><span class="w">  </span><span class="no">from pathlib import Path</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no">from tqdm import tqdm</span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no">def argoverse2yolo(set):</span>
+<span></span><span class="w">      </span><span class="no">"""Convert Argoverse dataset annotations to YOLO format for object detection tasks."""</span>
+<span></span><span class="w">      </span><span class="no">labels = {}</span>
+<span></span><span class="w">      </span><span class="no">a = json.load(open(set, "rb"))</span>
+<span></span><span class="w">      </span><span class="no">for annot in tqdm(a["annotations"], desc=f"Converting {set} to YOLOv5 format..."):</span>
+<span></span><span class="w">          </span><span class="no">img_id = annot["image_id"]</span>
+<span></span><span class="w">          </span><span class="no">img_name = a["images"][img_id]["name"]</span>
+<span></span><span class="w">          </span><span class="no">img_label_name = f"{img_name[:-3]}txt"</span>
+<span></span>
+<span></span><span class="w">          </span><span class="no">cls = annot["category_id"]  # instance class id</span>
+<span></span><span class="w">          </span><span class="no">x_center, y_center, width, height = annot["bbox"]</span>
+<span></span><span class="w">          </span><span class="no">x_center = (x_center + width / 2) / 1920.0  # offset and scale</span>
+<span></span><span class="w">          </span><span class="no">y_center = (y_center + height / 2) / 1200.0  # offset and scale</span>
+<span></span><span class="w">          </span><span class="no">width /= 1920.0  # scale</span>
+<span></span><span class="w">          </span><span class="no">height /= 1200.0  # scale</span>
+<span></span>
+<span></span><span class="w">          </span><span class="no">img_dir = set.parents[2] / "Argoverse-1.1" / "labels" / a["seq_dirs"][a["images"][annot["image_id"]]["sid"]]</span>
+<span></span><span class="w">          </span><span class="no">if not img_dir.exists():</span>
+<span></span><span class="w">              </span><span class="no">img_dir.mkdir(parents=True, exist_ok=True)</span>
+<span></span>
+<span></span><span class="w">          </span><span class="no">k = str(img_dir / img_label_name)</span>
+<span></span><span class="w">          </span><span class="no">if k not in labels:</span>
+<span></span><span class="w">              </span><span class="no">labels[k] = []</span>
+<span></span><span class="w">          </span><span class="no">labels[k].append(f"{cls} {x_center} {y_center} {width} {height}\n")</span>
+<span></span>
+<span></span><span class="w">      </span><span class="no">for k in labels:</span>
+<span></span><span class="w">          </span><span class="no">with open(k, "w", encoding="utf-8") as f:</span>
+<span></span><span class="w">              </span><span class="no">f.writelines(labels[k])</span>
+<span></span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Download 'https://argoverse-hd.s3.us-east-2.amazonaws.com/Argoverse-HD-Full.zip' (deprecated S3 link)</span>
+<span></span><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
+<span></span><span class="w">  </span><span class="no">urls = ["https://drive.google.com/file/d/1st9qW3BeIwQsnR0t8mRpvbsSWIo16ACi/view?usp=drive_link"]</span>
+<span></span><span class="w">  </span><span class="no">print("\n\nWARNING: Argoverse dataset MUST be downloaded manually, autodownload will NOT work.")</span>
+<span></span><span class="w">  </span><span class="no">print(f"WARNING: Manually download Argoverse dataset '{urls[0]}' to '{dir}' and re-run your command.\n\n")</span>
+<span></span><span class="w">  </span><span class="no"># download(urls, dir=dir)</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Convert</span>
+<span></span><span class="w">  </span><span class="no">annotations_dir = "Argoverse-HD/annotations/"</span>
+<span></span><span class="w">  </span><span class="no">(dir / "Argoverse-1.1" / "tracking").rename(dir / "Argoverse-1.1" / "images")  # rename 'tracking' to 'images'</span>
+<span></span><span class="w">  </span><span class="no">for d in "train.json", "val.json":</span>
+<span></span><span class="w">      </span><span class="no">argoverse2yolo(dir / annotations_dir / d)  # convert Argoverse annotations to YOLO labels</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
@@ -1049,18 +1049,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"Argoverse.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"Argoverse.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a id="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>Argoverse.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
+<span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>Argoverse.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1079,13 +1079,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">chang2019argoverse</span><span class="p">,</span>
-<a id="__codelineno-3-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Argoverse: 3D Tracking and Forecasting with Rich Maps}</span><span class="p">,</span>
-<a id="__codelineno-3-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Chang, Ming-Fang and Lambert, John and Sangkloy, Patsorn and Singh, Jagjeet and Bak, Slawomir and Hartnett, Andrew and Wang, Dequan and Carr, Peter and Lucey, Simon and Ramanan, Deva and others}</span><span class="p">,</span>
-<a id="__codelineno-3-4"></a><span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}</span><span class="p">,</span>
-<a id="__codelineno-3-5"></a><span class="w">  </span><span class="na">pages</span><span class="p">=</span><span class="s">{8748--8757}</span><span class="p">,</span>
-<a id="__codelineno-3-6"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2019}</span>
-<a id="__codelineno-3-7"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@inproceedings</span><span class="p">{</span><span class="nl">chang2019argoverse</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{Argoverse: 3D Tracking and Forecasting with Rich Maps}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Chang, Ming-Fang and Lambert, John and Sangkloy, Patsorn and Singh, Jagjeet and Bak, Slawomir and Hartnett, Andrew and Wang, Dequan and Carr, Peter and Lucey, Simon and Ramanan, Deva and others}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">pages</span><span class="p">=</span><span class="s">{8748--8757}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2019}</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -1102,18 +1102,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a id="__codelineno-4-5"></a>
-<a id="__codelineno-4-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"Argoverse.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"Argoverse.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a id="__codelineno-5-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>Argoverse.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
+<span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>Argoverse.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>

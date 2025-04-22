@@ -1052,7 +1052,7 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.autobatch.check_train_batch_size">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.autobatch.check_train_batch_size</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">check_train_batch_size</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_train_batch_size</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Compute optimal YOLO training batch size using the autobatch() function.</p>
@@ -1177,49 +1177,49 @@ Otherwise, a default fraction of 0.6 is used.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autobatch.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>14</a></span>
-<span class="normal"><a>15</a></span>
-<span class="normal"><a>16</a></span>
-<span class="normal"><a>17</a></span>
-<span class="normal"><a>18</a></span>
-<span class="normal"><a>19</a></span>
-<span class="normal"><a>20</a></span>
-<span class="normal"><a>21</a></span>
-<span class="normal"><a>22</a></span>
-<span class="normal"><a>23</a></span>
-<span class="normal"><a>24</a></span>
-<span class="normal"><a>25</a></span>
-<span class="normal"><a>26</a></span>
-<span class="normal"><a>27</a></span>
-<span class="normal"><a>28</a></span>
-<span class="normal"><a>29</a></span>
-<span class="normal"><a>30</a></span>
-<span class="normal"><a>31</a></span>
-<span class="normal"><a>32</a></span>
-<span class="normal"><a>33</a></span>
-<span class="normal"><a>34</a></span>
-<span class="normal"><a>35</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_train_batch_size</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-15"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-16"></a><span class="sd">    Compute optimal YOLO training batch size using the autobatch() function.</span>
-<a id="__codelineno-0-17"></a>
-<a id="__codelineno-0-18"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-19"></a><span class="sd">        model (torch.nn.Module): YOLO model to check batch size for.</span>
-<a id="__codelineno-0-20"></a><span class="sd">        imgsz (int, optional): Image size used for training.</span>
-<a id="__codelineno-0-21"></a><span class="sd">        amp (bool, optional): Use automatic mixed precision if True.</span>
-<a id="__codelineno-0-22"></a><span class="sd">        batch (float, optional): Fraction of GPU memory to use. If -1, use default.</span>
-<a id="__codelineno-0-23"></a><span class="sd">        max_num_obj (int, optional): The maximum number of objects from dataset.</span>
-<a id="__codelineno-0-24"></a>
-<a id="__codelineno-0-25"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-26"></a><span class="sd">        (int): Optimal batch size computed using the autobatch() function.</span>
-<a id="__codelineno-0-27"></a>
-<a id="__codelineno-0-28"></a><span class="sd">    Notes:</span>
-<a id="__codelineno-0-29"></a><span class="sd">        If 0.0 &lt; batch &lt; 1.0, it's used as the fraction of GPU memory to use.</span>
-<a id="__codelineno-0-30"></a><span class="sd">        Otherwise, a default fraction of 0.6 is used.</span>
-<a id="__codelineno-0-31"></a><span class="sd">    """</span>
-<a id="__codelineno-0-32"></a>    <span class="k">with</span> <span class="n">autocast</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="n">amp</span><span class="p">):</span>
-<a id="__codelineno-0-33"></a>        <span class="k">return</span> <span class="n">autobatch</span><span class="p">(</span>
-<a id="__codelineno-0-34"></a>            <span class="n">deepcopy</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(),</span> <span class="n">imgsz</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="n">batch</span> <span class="k">if</span> <span class="mf">0.0</span> <span class="o">&lt;</span> <span class="n">batch</span> <span class="o">&lt;</span> <span class="mf">1.0</span> <span class="k">else</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="n">max_num_obj</span>
-<a id="__codelineno-0-35"></a>        <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>14</span></span>
+<span class="normal"><span>15</span></span>
+<span class="normal"><span>16</span></span>
+<span class="normal"><span>17</span></span>
+<span class="normal"><span>18</span></span>
+<span class="normal"><span>19</span></span>
+<span class="normal"><span>20</span></span>
+<span class="normal"><span>21</span></span>
+<span class="normal"><span>22</span></span>
+<span class="normal"><span>23</span></span>
+<span class="normal"><span>24</span></span>
+<span class="normal"><span>25</span></span>
+<span class="normal"><span>26</span></span>
+<span class="normal"><span>27</span></span>
+<span class="normal"><span>28</span></span>
+<span class="normal"><span>29</span></span>
+<span class="normal"><span>30</span></span>
+<span class="normal"><span>31</span></span>
+<span class="normal"><span>32</span></span>
+<span class="normal"><span>33</span></span>
+<span class="normal"><span>34</span></span>
+<span class="normal"><span>35</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_train_batch_size</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Compute optimal YOLO training batch size using the autobatch() function.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        model (torch.nn.Module): YOLO model to check batch size for.</span>
+<span></span><span class="sd">        imgsz (int, optional): Image size used for training.</span>
+<span></span><span class="sd">        amp (bool, optional): Use automatic mixed precision if True.</span>
+<span></span><span class="sd">        batch (float, optional): Fraction of GPU memory to use. If -1, use default.</span>
+<span></span><span class="sd">        max_num_obj (int, optional): The maximum number of objects from dataset.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (int): Optimal batch size computed using the autobatch() function.</span>
+<span></span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        If 0.0 &lt; batch &lt; 1.0, it's used as the fraction of GPU memory to use.</span>
+<span></span><span class="sd">        Otherwise, a default fraction of 0.6 is used.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">with</span> <span class="n">autocast</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="n">amp</span><span class="p">):</span>
+<span></span>        <span class="k">return</span> <span class="n">autobatch</span><span class="p">(</span>
+<span></span>            <span class="n">deepcopy</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">train</span><span class="p">(),</span> <span class="n">imgsz</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="n">batch</span> <span class="k">if</span> <span class="mf">0.0</span> <span class="o">&lt;</span> <span class="n">batch</span> <span class="o">&lt;</span> <span class="mf">1.0</span> <span class="k">else</span> <span class="mf">0.6</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="n">max_num_obj</span>
+<span></span>        <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1228,9 +1228,9 @@ Otherwise, a default fraction of 0.6 is used.</p>
 <h2 class="doc doc-heading" id="ultralytics.utils.autobatch.autobatch">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.autobatch.autobatch</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">autobatch</span><span class="p">(</span>
-<a id="__codelineno-0-2"></a>    <span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span>
-<a id="__codelineno-0-3"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">autobatch</span><span class="p">(</span>
+<span></span>    <span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Automatically estimate the best YOLO batch size to use a fraction of the available CUDA memory.</p>
@@ -1350,143 +1350,143 @@ Otherwise, a default fraction of 0.6 is used.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autobatch.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a> 38</a></span>
-<span class="normal"><a> 39</a></span>
-<span class="normal"><a> 40</a></span>
-<span class="normal"><a> 41</a></span>
-<span class="normal"><a> 42</a></span>
-<span class="normal"><a> 43</a></span>
-<span class="normal"><a> 44</a></span>
-<span class="normal"><a> 45</a></span>
-<span class="normal"><a> 46</a></span>
-<span class="normal"><a> 47</a></span>
-<span class="normal"><a> 48</a></span>
-<span class="normal"><a> 49</a></span>
-<span class="normal"><a> 50</a></span>
-<span class="normal"><a> 51</a></span>
-<span class="normal"><a> 52</a></span>
-<span class="normal"><a> 53</a></span>
-<span class="normal"><a> 54</a></span>
-<span class="normal"><a> 55</a></span>
-<span class="normal"><a> 56</a></span>
-<span class="normal"><a> 57</a></span>
-<span class="normal"><a> 58</a></span>
-<span class="normal"><a> 59</a></span>
-<span class="normal"><a> 60</a></span>
-<span class="normal"><a> 61</a></span>
-<span class="normal"><a> 62</a></span>
-<span class="normal"><a> 63</a></span>
-<span class="normal"><a> 64</a></span>
-<span class="normal"><a> 65</a></span>
-<span class="normal"><a> 66</a></span>
-<span class="normal"><a> 67</a></span>
-<span class="normal"><a> 68</a></span>
-<span class="normal"><a> 69</a></span>
-<span class="normal"><a> 70</a></span>
-<span class="normal"><a> 71</a></span>
-<span class="normal"><a> 72</a></span>
-<span class="normal"><a> 73</a></span>
-<span class="normal"><a> 74</a></span>
-<span class="normal"><a> 75</a></span>
-<span class="normal"><a> 76</a></span>
-<span class="normal"><a> 77</a></span>
-<span class="normal"><a> 78</a></span>
-<span class="normal"><a> 79</a></span>
-<span class="normal"><a> 80</a></span>
-<span class="normal"><a> 81</a></span>
-<span class="normal"><a> 82</a></span>
-<span class="normal"><a> 83</a></span>
-<span class="normal"><a> 84</a></span>
-<span class="normal"><a> 85</a></span>
-<span class="normal"><a> 86</a></span>
-<span class="normal"><a> 87</a></span>
-<span class="normal"><a> 88</a></span>
-<span class="normal"><a> 89</a></span>
-<span class="normal"><a> 90</a></span>
-<span class="normal"><a> 91</a></span>
-<span class="normal"><a> 92</a></span>
-<span class="normal"><a> 93</a></span>
-<span class="normal"><a> 94</a></span>
-<span class="normal"><a> 95</a></span>
-<span class="normal"><a> 96</a></span>
-<span class="normal"><a> 97</a></span>
-<span class="normal"><a> 98</a></span>
-<span class="normal"><a> 99</a></span>
-<span class="normal"><a>100</a></span>
-<span class="normal"><a>101</a></span>
-<span class="normal"><a>102</a></span>
-<span class="normal"><a>103</a></span>
-<span class="normal"><a>104</a></span>
-<span class="normal"><a>105</a></span>
-<span class="normal"><a>106</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-38"></a><span class="k">def</span><span class="w"> </span><span class="nf">autobatch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-39"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-40"></a><span class="sd">    Automatically estimate the best YOLO batch size to use a fraction of the available CUDA memory.</span>
-<a id="__codelineno-0-41"></a>
-<a id="__codelineno-0-42"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-43"></a><span class="sd">        model (torch.nn.Module): YOLO model to compute batch size for.</span>
-<a id="__codelineno-0-44"></a><span class="sd">        imgsz (int, optional): The image size used as input for the YOLO model.</span>
-<a id="__codelineno-0-45"></a><span class="sd">        fraction (float, optional): The fraction of available CUDA memory to use.</span>
-<a id="__codelineno-0-46"></a><span class="sd">        batch_size (int, optional): The default batch size to use if an error is detected.</span>
-<a id="__codelineno-0-47"></a><span class="sd">        max_num_obj (int, optional): The maximum number of objects from dataset.</span>
-<a id="__codelineno-0-48"></a>
-<a id="__codelineno-0-49"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-50"></a><span class="sd">        (int): The optimal batch size.</span>
-<a id="__codelineno-0-51"></a><span class="sd">    """</span>
-<a id="__codelineno-0-52"></a>    <span class="c1"># Check device</span>
-<a id="__codelineno-0-53"></a>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"AutoBatch: "</span><span class="p">)</span>
-<a id="__codelineno-0-54"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Computing optimal batch size for imgsz=</span><span class="si">{</span><span class="n">imgsz</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">}</span><span class="s2">% CUDA memory utilization."</span><span class="p">)</span>
-<a id="__codelineno-0-55"></a>    <span class="n">device</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># get model device</span>
-<a id="__codelineno-0-56"></a>    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"cpu"</span><span class="p">,</span> <span class="s2">"mps"</span><span class="p">}:</span>
-<a id="__codelineno-0-57"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">intended for CUDA devices, using default batch-size </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-58"></a>        <span class="k">return</span> <span class="n">batch_size</span>
-<a id="__codelineno-0-59"></a>    <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span><span class="p">:</span>
-<a id="__codelineno-0-60"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Requires torch.backends.cudnn.benchmark=False, using default batch-size </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-61"></a>        <span class="k">return</span> <span class="n">batch_size</span>
-<a id="__codelineno-0-62"></a>
-<a id="__codelineno-0-63"></a>    <span class="c1"># Inspect CUDA memory</span>
-<a id="__codelineno-0-64"></a>    <span class="n">gb</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">30</span>  <span class="c1"># bytes to GiB (1024 ** 3)</span>
-<a id="__codelineno-0-65"></a>    <span class="n">d</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"CUDA:</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CUDA_VISIBLE_DEVICES'</span><span class="p">,</span><span class="w"> </span><span class="s1">'0'</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># 'CUDA:0'</span>
-<a id="__codelineno-0-66"></a>    <span class="n">properties</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># device properties</span>
-<a id="__codelineno-0-67"></a>    <span class="n">t</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">total_memory</span> <span class="o">/</span> <span class="n">gb</span>  <span class="c1"># GiB total</span>
-<a id="__codelineno-0-68"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">memory_reserved</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="o">/</span> <span class="n">gb</span>  <span class="c1"># GiB reserved</span>
-<a id="__codelineno-0-69"></a>    <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">memory_allocated</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="o">/</span> <span class="n">gb</span>  <span class="c1"># GiB allocated</span>
-<a id="__codelineno-0-70"></a>    <span class="n">f</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>  <span class="c1"># GiB free</span>
-<a id="__codelineno-0-71"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}{</span><span class="n">d</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">properties</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">) </span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G total, </span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G reserved, </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G allocated, </span><span class="si">{</span><span class="n">f</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G free"</span><span class="p">)</span>
-<a id="__codelineno-0-72"></a>
-<a id="__codelineno-0-73"></a>    <span class="c1"># Profile batch sizes</span>
-<a id="__codelineno-0-74"></a>    <span class="n">batch_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span> <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">16</span> <span class="k">else</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
-<a id="__codelineno-0-75"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-76"></a>        <span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">batch_sizes</span><span class="p">]</span>
-<a id="__codelineno-0-77"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">profile</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="n">max_num_obj</span><span class="p">)</span>
-<a id="__codelineno-0-78"></a>
-<a id="__codelineno-0-79"></a>        <span class="c1"># Fit a solution</span>
-<a id="__codelineno-0-80"></a>        <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-81"></a>            <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
-<a id="__codelineno-0-82"></a>            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">,</span> <span class="n">results</span><span class="p">))</span>
-<a id="__codelineno-0-83"></a>            <span class="k">if</span> <span class="n">y</span>  <span class="c1"># valid result</span>
-<a id="__codelineno-0-84"></a>            <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>  <span class="c1"># is numeric</span>
-<a id="__codelineno-0-85"></a>            <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">t</span>  <span class="c1"># between 0 and GPU limit</span>
-<a id="__codelineno-0-86"></a>            <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># first item or increasing memory</span>
-<a id="__codelineno-0-87"></a>        <span class="p">]</span>
-<a id="__codelineno-0-88"></a>        <span class="n">fit_x</span><span class="p">,</span> <span class="n">fit_y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">xy</span><span class="p">)</span> <span class="k">if</span> <span class="n">xy</span> <span class="k">else</span> <span class="p">([],</span> <span class="p">[])</span>
-<a id="__codelineno-0-89"></a>        <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">fit_x</span><span class="p">,</span> <span class="n">fit_y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># first-degree polynomial fit in log space</span>
-<a id="__codelineno-0-90"></a>        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">round</span><span class="p">(</span><span class="n">f</span> <span class="o">*</span> <span class="n">fraction</span><span class="p">)</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># y intercept (optimal batch size)</span>
-<a id="__codelineno-0-91"></a>        <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>  <span class="c1"># some sizes failed</span>
-<a id="__codelineno-0-92"></a>            <span class="n">i</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># first fail index</span>
-<a id="__codelineno-0-93"></a>            <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">batch_sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>  <span class="c1"># y intercept above failure point</span>
-<a id="__codelineno-0-94"></a>                <span class="n">b</span> <span class="o">=</span> <span class="n">batch_sizes</span><span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>  <span class="c1"># select prior safe point</span>
-<a id="__codelineno-0-95"></a>        <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">1024</span><span class="p">:</span>  <span class="c1"># b outside of safe range</span>
-<a id="__codelineno-0-96"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">batch=</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> outside safe range, using default batch-size </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-<a id="__codelineno-0-97"></a>            <span class="n">b</span> <span class="o">=</span> <span class="n">batch_size</span>
-<a id="__codelineno-0-98"></a>
-<a id="__codelineno-0-99"></a>        <span class="n">fraction</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">t</span>  <span class="c1"># predicted fraction</span>
-<a id="__codelineno-0-100"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Using batch-size </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">fraction</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G/</span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G (</span><span class="si">{</span><span class="n">fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">%) ✅"</span><span class="p">)</span>
-<a id="__codelineno-0-101"></a>        <span class="k">return</span> <span class="n">b</span>
-<a id="__codelineno-0-102"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-103"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">error detected: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">,  using default batch-size </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-<a id="__codelineno-0-104"></a>        <span class="k">return</span> <span class="n">batch_size</span>
-<a id="__codelineno-0-105"></a>    <span class="k">finally</span><span class="p">:</span>
-<a id="__codelineno-0-106"></a>        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 38</span></span>
+<span class="normal"><span> 39</span></span>
+<span class="normal"><span> 40</span></span>
+<span class="normal"><span> 41</span></span>
+<span class="normal"><span> 42</span></span>
+<span class="normal"><span> 43</span></span>
+<span class="normal"><span> 44</span></span>
+<span class="normal"><span> 45</span></span>
+<span class="normal"><span> 46</span></span>
+<span class="normal"><span> 47</span></span>
+<span class="normal"><span> 48</span></span>
+<span class="normal"><span> 49</span></span>
+<span class="normal"><span> 50</span></span>
+<span class="normal"><span> 51</span></span>
+<span class="normal"><span> 52</span></span>
+<span class="normal"><span> 53</span></span>
+<span class="normal"><span> 54</span></span>
+<span class="normal"><span> 55</span></span>
+<span class="normal"><span> 56</span></span>
+<span class="normal"><span> 57</span></span>
+<span class="normal"><span> 58</span></span>
+<span class="normal"><span> 59</span></span>
+<span class="normal"><span> 60</span></span>
+<span class="normal"><span> 61</span></span>
+<span class="normal"><span> 62</span></span>
+<span class="normal"><span> 63</span></span>
+<span class="normal"><span> 64</span></span>
+<span class="normal"><span> 65</span></span>
+<span class="normal"><span> 66</span></span>
+<span class="normal"><span> 67</span></span>
+<span class="normal"><span> 68</span></span>
+<span class="normal"><span> 69</span></span>
+<span class="normal"><span> 70</span></span>
+<span class="normal"><span> 71</span></span>
+<span class="normal"><span> 72</span></span>
+<span class="normal"><span> 73</span></span>
+<span class="normal"><span> 74</span></span>
+<span class="normal"><span> 75</span></span>
+<span class="normal"><span> 76</span></span>
+<span class="normal"><span> 77</span></span>
+<span class="normal"><span> 78</span></span>
+<span class="normal"><span> 79</span></span>
+<span class="normal"><span> 80</span></span>
+<span class="normal"><span> 81</span></span>
+<span class="normal"><span> 82</span></span>
+<span class="normal"><span> 83</span></span>
+<span class="normal"><span> 84</span></span>
+<span class="normal"><span> 85</span></span>
+<span class="normal"><span> 86</span></span>
+<span class="normal"><span> 87</span></span>
+<span class="normal"><span> 88</span></span>
+<span class="normal"><span> 89</span></span>
+<span class="normal"><span> 90</span></span>
+<span class="normal"><span> 91</span></span>
+<span class="normal"><span> 92</span></span>
+<span class="normal"><span> 93</span></span>
+<span class="normal"><span> 94</span></span>
+<span class="normal"><span> 95</span></span>
+<span class="normal"><span> 96</span></span>
+<span class="normal"><span> 97</span></span>
+<span class="normal"><span> 98</span></span>
+<span class="normal"><span> 99</span></span>
+<span class="normal"><span>100</span></span>
+<span class="normal"><span>101</span></span>
+<span class="normal"><span>102</span></span>
+<span class="normal"><span>103</span></span>
+<span class="normal"><span>104</span></span>
+<span class="normal"><span>105</span></span>
+<span class="normal"><span>106</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autobatch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Automatically estimate the best YOLO batch size to use a fraction of the available CUDA memory.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        model (torch.nn.Module): YOLO model to compute batch size for.</span>
+<span></span><span class="sd">        imgsz (int, optional): The image size used as input for the YOLO model.</span>
+<span></span><span class="sd">        fraction (float, optional): The fraction of available CUDA memory to use.</span>
+<span></span><span class="sd">        batch_size (int, optional): The default batch size to use if an error is detected.</span>
+<span></span><span class="sd">        max_num_obj (int, optional): The maximum number of objects from dataset.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (int): The optimal batch size.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="c1"># Check device</span>
+<span></span>    <span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"AutoBatch: "</span><span class="p">)</span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Computing optimal batch size for imgsz=</span><span class="si">{</span><span class="n">imgsz</span><span class="si">}</span><span class="s2"> at </span><span class="si">{</span><span class="n">fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">}</span><span class="s2">% CUDA memory utilization."</span><span class="p">)</span>
+<span></span>    <span class="n">device</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># get model device</span>
+<span></span>    <span class="k">if</span> <span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"cpu"</span><span class="p">,</span> <span class="s2">"mps"</span><span class="p">}:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">intended for CUDA devices, using default batch-size </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="k">return</span> <span class="n">batch_size</span>
+<span></span>    <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">backends</span><span class="o">.</span><span class="n">cudnn</span><span class="o">.</span><span class="n">benchmark</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Requires torch.backends.cudnn.benchmark=False, using default batch-size </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="k">return</span> <span class="n">batch_size</span>
+<span></span>
+<span></span>    <span class="c1"># Inspect CUDA memory</span>
+<span></span>    <span class="n">gb</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">30</span>  <span class="c1"># bytes to GiB (1024 ** 3)</span>
+<span></span>    <span class="n">d</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"CUDA:</span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s1">'CUDA_VISIBLE_DEVICES'</span><span class="p">,</span><span class="w"> </span><span class="s1">'0'</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># 'CUDA:0'</span>
+<span></span>    <span class="n">properties</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">get_device_properties</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># device properties</span>
+<span></span>    <span class="n">t</span> <span class="o">=</span> <span class="n">properties</span><span class="o">.</span><span class="n">total_memory</span> <span class="o">/</span> <span class="n">gb</span>  <span class="c1"># GiB total</span>
+<span></span>    <span class="n">r</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">memory_reserved</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="o">/</span> <span class="n">gb</span>  <span class="c1"># GiB reserved</span>
+<span></span>    <span class="n">a</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">memory_allocated</span><span class="p">(</span><span class="n">device</span><span class="p">)</span> <span class="o">/</span> <span class="n">gb</span>  <span class="c1"># GiB allocated</span>
+<span></span>    <span class="n">f</span> <span class="o">=</span> <span class="n">t</span> <span class="o">-</span> <span class="p">(</span><span class="n">r</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span>  <span class="c1"># GiB free</span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}{</span><span class="n">d</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">properties</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">) </span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G total, </span><span class="si">{</span><span class="n">r</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G reserved, </span><span class="si">{</span><span class="n">a</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G allocated, </span><span class="si">{</span><span class="n">f</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G free"</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># Profile batch sizes</span>
+<span></span>    <span class="n">batch_sizes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">]</span> <span class="k">if</span> <span class="n">t</span> <span class="o">&lt;</span> <span class="mi">16</span> <span class="k">else</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">64</span><span class="p">]</span>
+<span></span>    <span class="k">try</span><span class="p">:</span>
+<span></span>        <span class="n">img</span> <span class="o">=</span> <span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">)</span> <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="n">batch_sizes</span><span class="p">]</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">profile</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="n">max_num_obj</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="c1"># Fit a solution</span>
+<span></span>        <span class="n">xy</span> <span class="o">=</span> <span class="p">[</span>
+<span></span>            <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+<span></span>            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">batch_sizes</span><span class="p">,</span> <span class="n">results</span><span class="p">))</span>
+<span></span>            <span class="k">if</span> <span class="n">y</span>  <span class="c1"># valid result</span>
+<span></span>            <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">))</span>  <span class="c1"># is numeric</span>
+<span></span>            <span class="ow">and</span> <span class="mi">0</span> <span class="o">&lt;</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">t</span>  <span class="c1"># between 0 and GPU limit</span>
+<span></span>            <span class="ow">and</span> <span class="p">(</span><span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span> <span class="ow">or</span> <span class="n">y</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">results</span><span class="p">[</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># first item or increasing memory</span>
+<span></span>        <span class="p">]</span>
+<span></span>        <span class="n">fit_x</span><span class="p">,</span> <span class="n">fit_y</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="o">*</span><span class="n">xy</span><span class="p">)</span> <span class="k">if</span> <span class="n">xy</span> <span class="k">else</span> <span class="p">([],</span> <span class="p">[])</span>
+<span></span>        <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">polyfit</span><span class="p">(</span><span class="n">fit_x</span><span class="p">,</span> <span class="n">fit_y</span><span class="p">,</span> <span class="n">deg</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># first-degree polynomial fit in log space</span>
+<span></span>        <span class="n">b</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="nb">round</span><span class="p">(</span><span class="n">f</span> <span class="o">*</span> <span class="n">fraction</span><span class="p">)</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># y intercept (optimal batch size)</span>
+<span></span>        <span class="k">if</span> <span class="kc">None</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>  <span class="c1"># some sizes failed</span>
+<span></span>            <span class="n">i</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>  <span class="c1"># first fail index</span>
+<span></span>            <span class="k">if</span> <span class="n">b</span> <span class="o">&gt;=</span> <span class="n">batch_sizes</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>  <span class="c1"># y intercept above failure point</span>
+<span></span>                <span class="n">b</span> <span class="o">=</span> <span class="n">batch_sizes</span><span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">i</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">)]</span>  <span class="c1"># select prior safe point</span>
+<span></span>        <span class="k">if</span> <span class="n">b</span> <span class="o">&lt;</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">b</span> <span class="o">&gt;</span> <span class="mi">1024</span><span class="p">:</span>  <span class="c1"># b outside of safe range</span>
+<span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">batch=</span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> outside safe range, using default batch-size </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span></span>            <span class="n">b</span> <span class="o">=</span> <span class="n">batch_size</span>
+<span></span>
+<span></span>        <span class="n">fraction</span> <span class="o">=</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">polyval</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span> <span class="o">+</span> <span class="n">r</span> <span class="o">+</span> <span class="n">a</span><span class="p">)</span> <span class="o">/</span> <span class="n">t</span>  <span class="c1"># predicted fraction</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Using batch-size </span><span class="si">{</span><span class="n">b</span><span class="si">}</span><span class="s2"> for </span><span class="si">{</span><span class="n">d</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">t</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">fraction</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G/</span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">G (</span><span class="si">{</span><span class="n">fraction</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.0f</span><span class="si">}</span><span class="s2">%) ✅"</span><span class="p">)</span>
+<span></span>        <span class="k">return</span> <span class="n">b</span>
+<span></span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">error detected: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">,  using default batch-size </span><span class="si">{</span><span class="n">batch_size</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span></span>        <span class="k">return</span> <span class="n">batch_size</span>
+<span></span>    <span class="k">finally</span><span class="p">:</span>
+<span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">empty_cache</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

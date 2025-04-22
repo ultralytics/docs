@@ -940,41 +940,41 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
-<a id="__codelineno-0-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
-<a id="__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<a id="__codelineno-0-4"></a>
-<a id="__codelineno-0-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">RF100Benchmark</span>
-<a id="__codelineno-0-6"></a>
-<a id="__codelineno-0-7"></a><span class="c1"># Initialize RF100Benchmark and set API key</span>
-<a id="__codelineno-0-8"></a><span class="n">benchmark</span> <span class="o">=</span> <span class="n">RF100Benchmark</span><span class="p">()</span>
-<a id="__codelineno-0-9"></a><span class="n">benchmark</span><span class="o">.</span><span class="n">set_key</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">"YOUR_ROBOFLOW_API_KEY"</span><span class="p">)</span>
-<a id="__codelineno-0-10"></a>
-<a id="__codelineno-0-11"></a><span class="c1"># Parse dataset and define file paths</span>
-<a id="__codelineno-0-12"></a><span class="n">names</span><span class="p">,</span> <span class="n">cfg_yamls</span> <span class="o">=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">parse_dataset</span><span class="p">()</span>
-<a id="__codelineno-0-13"></a><span class="n">val_log_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"ultralytics-benchmarks"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"validation.txt"</span>
-<a id="__codelineno-0-14"></a><span class="n">eval_log_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"ultralytics-benchmarks"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"evaluation.txt"</span>
-<a id="__codelineno-0-15"></a>
-<a id="__codelineno-0-16"></a><span class="c1"># Run benchmarks on each dataset in RF100</span>
-<a id="__codelineno-0-17"></a><span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cfg_yamls</span><span class="p">):</span>
-<a id="__codelineno-0-18"></a>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-<a id="__codelineno-0-19"></a>    <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<a id="__codelineno-0-20"></a>        <span class="c1"># Fix YAML file and run training</span>
-<a id="__codelineno-0-21"></a>        <span class="n">benchmark</span><span class="o">.</span><span class="n">fix_yaml</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
-<a id="__codelineno-0-22"></a>        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">"yolo detect train data=</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> model=yolo11s.pt epochs=1 batch=16"</span><span class="p">)</span>
-<a id="__codelineno-0-23"></a>
-<a id="__codelineno-0-24"></a>        <span class="c1"># Run validation and evaluate</span>
-<a id="__codelineno-0-25"></a>        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">"yolo detect val data=</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> model=runs/detect/train/weights/best.pt &gt; </span><span class="si">{</span><span class="n">val_log_file</span><span class="si">}</span><span class="s2"> 2&gt;&amp;1"</span><span class="p">)</span>
-<a id="__codelineno-0-26"></a>        <span class="n">benchmark</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">val_log_file</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">eval_log_file</span><span class="p">),</span> <span class="n">ind</span><span class="p">)</span>
-<a id="__codelineno-0-27"></a>
-<a id="__codelineno-0-28"></a>        <span class="c1"># Remove the 'runs' directory</span>
-<a id="__codelineno-0-29"></a>        <span class="n">runs_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">"runs"</span>
-<a id="__codelineno-0-30"></a>        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">runs_dir</span><span class="p">)</span>
-<a id="__codelineno-0-31"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-32"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"YAML file path does not exist"</span><span class="p">)</span>
-<a id="__codelineno-0-33"></a>        <span class="k">continue</span>
-<a id="__codelineno-0-34"></a>
-<a id="__codelineno-0-35"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"RF100 Benchmarking completed!"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">shutil</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">RF100Benchmark</span>
+<span></span>
+<span></span><span class="c1"># Initialize RF100Benchmark and set API key</span>
+<span></span><span class="n">benchmark</span> <span class="o">=</span> <span class="n">RF100Benchmark</span><span class="p">()</span>
+<span></span><span class="n">benchmark</span><span class="o">.</span><span class="n">set_key</span><span class="p">(</span><span class="n">api_key</span><span class="o">=</span><span class="s2">"YOUR_ROBOFLOW_API_KEY"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Parse dataset and define file paths</span>
+<span></span><span class="n">names</span><span class="p">,</span> <span class="n">cfg_yamls</span> <span class="o">=</span> <span class="n">benchmark</span><span class="o">.</span><span class="n">parse_dataset</span><span class="p">()</span>
+<span></span><span class="n">val_log_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"ultralytics-benchmarks"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"validation.txt"</span>
+<span></span><span class="n">eval_log_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"ultralytics-benchmarks"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"evaluation.txt"</span>
+<span></span>
+<span></span><span class="c1"># Run benchmarks on each dataset in RF100</span>
+<span></span><span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">path</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">cfg_yamls</span><span class="p">):</span>
+<span></span>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span></span>        <span class="c1"># Fix YAML file and run training</span>
+<span></span>        <span class="n">benchmark</span><span class="o">.</span><span class="n">fix_yaml</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">))</span>
+<span></span>        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">"yolo detect train data=</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> model=yolo11s.pt epochs=1 batch=16"</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="c1"># Run validation and evaluate</span>
+<span></span>        <span class="n">os</span><span class="o">.</span><span class="n">system</span><span class="p">(</span><span class="sa">f</span><span class="s2">"yolo detect val data=</span><span class="si">{</span><span class="n">path</span><span class="si">}</span><span class="s2"> model=runs/detect/train/weights/best.pt &gt; </span><span class="si">{</span><span class="n">val_log_file</span><span class="si">}</span><span class="s2"> 2&gt;&amp;1"</span><span class="p">)</span>
+<span></span>        <span class="n">benchmark</span><span class="o">.</span><span class="n">evaluate</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">val_log_file</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">eval_log_file</span><span class="p">),</span> <span class="n">ind</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="c1"># Remove the 'runs' directory</span>
+<span></span>        <span class="n">runs_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">()</span> <span class="o">/</span> <span class="s2">"runs"</span>
+<span></span>        <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">runs_dir</span><span class="p">)</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"YAML file path does not exist"</span><span class="p">)</span>
+<span></span>        <span class="k">continue</span>
+<span></span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"RF100 Benchmarking completed!"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1004,13 +1004,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">rf100benchmark</span><span class="p">,</span>
-<a id="__codelineno-1-2"></a><span class="w">    </span><span class="na">Author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Floriana Ciaglia and Francesco Saverio Zuppichini and Paul Guerrie and Mark McQuade and Jacob Solawetz}</span><span class="p">,</span>
-<a id="__codelineno-1-3"></a><span class="w">    </span><span class="na">Title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Roboflow 100: A Rich, Multi-Domain Object Detection Benchmark}</span><span class="p">,</span>
-<a id="__codelineno-1-4"></a><span class="w">    </span><span class="na">Year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2022}</span><span class="p">,</span>
-<a id="__codelineno-1-5"></a><span class="w">    </span><span class="na">Eprint</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv:2211.13523}</span><span class="p">,</span>
-<a id="__codelineno-1-6"></a><span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2211.13523}</span>
-<a id="__codelineno-1-7"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">rf100benchmark</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">Author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Floriana Ciaglia and Francesco Saverio Zuppichini and Paul Guerrie and Mark McQuade and Jacob Solawetz}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">Title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Roboflow 100: A Rich, Multi-Domain Object Detection Benchmark}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">Year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2022}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">Eprint</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv:2211.13523}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2211.13523}</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -1039,13 +1039,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">rf100benchmark</span><span class="p">,</span>
-<a id="__codelineno-2-2"></a><span class="w">    </span><span class="na">Author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Floriana Ciaglia and Francesco Saverio Zuppichini and Paul Guerrie and Mark McQuade and Jacob Solawetz}</span><span class="p">,</span>
-<a id="__codelineno-2-3"></a><span class="w">    </span><span class="na">Title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Roboflow 100: A Rich, Multi-Domain Object Detection Benchmark}</span><span class="p">,</span>
-<a id="__codelineno-2-4"></a><span class="w">    </span><span class="na">Year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2022}</span><span class="p">,</span>
-<a id="__codelineno-2-5"></a><span class="w">    </span><span class="na">Eprint</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv:2211.13523}</span><span class="p">,</span>
-<a id="__codelineno-2-6"></a><span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2211.13523}</span>
-<a id="__codelineno-2-7"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">rf100benchmark</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">Author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Floriana Ciaglia and Francesco Saverio Zuppichini and Paul Guerrie and Mark McQuade and Jacob Solawetz}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">Title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Roboflow 100: A Rich, Multi-Domain Object Detection Benchmark}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">Year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2022}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">Eprint</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{arXiv:2211.13523}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://arxiv.org/abs/2211.13523}</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>

@@ -1061,12 +1061,12 @@
 <ul>
 <li>
 <p><strong><a href="https://github.com/eric-wieser/ros_numpy">ROS Numpy package</a></strong>: This is required for fast conversion between ROS Image messages and numpy arrays.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ros_numpy
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>ros_numpy
 </code></pre></div>
 </li>
 <li>
 <p><strong>Ultralytics package</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 </li>
 </ul>
@@ -1078,83 +1078,83 @@
 <h3 id="image-step-by-step-usage">Image Step-by-Step Usage</h3>
 <p>The following code snippet demonstrates how to use the Ultralytics YOLO package with ROS. In this example, we subscribe to a camera topic, process the incoming image using YOLO, and publish the detected objects to new topics for <a href="../../tasks/detect/">detection</a> and <a href="../../tasks/segment/">segmentation</a>.</p>
 <p>First, import the necessary libraries and instantiate two models: one for <a href="../../tasks/segment/">segmentation</a> and one for <a href="../../tasks/detect/">detection</a>. Initialize a ROS node (with the name <code>ultralytics</code>) to enable communication with the ROS master. To ensure a stable connection, we include a brief pause, giving the node sufficient time to establish the connection before proceeding.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-2-4"></a>
-<a id="__codelineno-2-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-2-6"></a>
-<a id="__codelineno-2-7"></a><span class="n">detection_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m.pt"</span><span class="p">)</span>
-<a id="__codelineno-2-8"></a><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-2-9"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-2-10"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">detection_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m.pt"</span><span class="p">)</span>
+<span></span><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <p>Initialize two ROS topics: one for <a href="../../tasks/detect/">detection</a> and one for <a href="../../tasks/segment/">segmentation</a>. These topics will be used to publish the annotated images, making them accessible for further processing. The communication between nodes is facilitated using <code>sensor_msgs/Image</code> messages.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="n">det_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-3-4"></a><span class="n">seg_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/segmentation/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span></span>
+<span></span><span class="n">det_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span><span class="n">seg_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/segmentation/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 <p>Finally, create a subscriber that listens to messages on the <code>/camera/color/image_raw</code> topic and calls a callback function for each new message. This callback function receives messages of type <code>sensor_msgs/Image</code>, converts them into a numpy array using <code>ros_numpy</code>, processes the images with the previously instantiated YOLO models, annotates the images, and then publishes them back to the respective topics: <code>/ultralytics/detection/image</code> for detection and <code>/ultralytics/segmentation/image</code> for segmentation.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a>
-<a id="__codelineno-4-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-4-5"></a><span class="w">    </span><span class="sd">"""Callback function to process image and publish annotated images."""</span>
-<a id="__codelineno-4-6"></a>    <span class="n">array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-4-7"></a>    <span class="k">if</span> <span class="n">det_image_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
-<a id="__codelineno-4-8"></a>        <span class="n">det_result</span> <span class="o">=</span> <span class="n">detection_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<a id="__codelineno-4-9"></a>        <span class="n">det_annotated</span> <span class="o">=</span> <span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-4-10"></a>        <span class="n">det_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">det_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
-<a id="__codelineno-4-11"></a>
-<a id="__codelineno-4-12"></a>    <span class="k">if</span> <span class="n">seg_image_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
-<a id="__codelineno-4-13"></a>        <span class="n">seg_result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<a id="__codelineno-4-14"></a>        <span class="n">seg_annotated</span> <span class="o">=</span> <span class="n">seg_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-4-15"></a>        <span class="n">seg_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">seg_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
-<a id="__codelineno-4-16"></a>
-<a id="__codelineno-4-17"></a>
-<a id="__codelineno-4-18"></a><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
-<a id="__codelineno-4-19"></a>
-<a id="__codelineno-4-20"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-4-21"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Callback function to process image and publish annotated images."""</span>
+<span></span>    <span class="n">array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">det_image_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
+<span></span>        <span class="n">det_result</span> <span class="o">=</span> <span class="n">detection_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span></span>        <span class="n">det_annotated</span> <span class="o">=</span> <span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>        <span class="n">det_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">det_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="n">seg_image_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
+<span></span>        <span class="n">seg_result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span></span>        <span class="n">seg_annotated</span> <span class="o">=</span> <span class="n">seg_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>        <span class="n">seg_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">seg_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
+<span></span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span></span>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
 </code></pre></div>
 <details class="example">
 <summary>Complete code</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-5-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-5-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a id="__codelineno-5-6"></a>
-<a id="__codelineno-5-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-5-8"></a>
-<a id="__codelineno-5-9"></a><span class="n">detection_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m.pt"</span><span class="p">)</span>
-<a id="__codelineno-5-10"></a><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-5-11"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-5-12"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-5-13"></a>
-<a id="__codelineno-5-14"></a><span class="n">det_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-5-15"></a><span class="n">seg_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/segmentation/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-5-16"></a>
-<a id="__codelineno-5-17"></a>
-<a id="__codelineno-5-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-5-19"></a><span class="w">    </span><span class="sd">"""Callback function to process image and publish annotated images."""</span>
-<a id="__codelineno-5-20"></a>    <span class="n">array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-5-21"></a>    <span class="k">if</span> <span class="n">det_image_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
-<a id="__codelineno-5-22"></a>        <span class="n">det_result</span> <span class="o">=</span> <span class="n">detection_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<a id="__codelineno-5-23"></a>        <span class="n">det_annotated</span> <span class="o">=</span> <span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-5-24"></a>        <span class="n">det_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">det_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
-<a id="__codelineno-5-25"></a>
-<a id="__codelineno-5-26"></a>    <span class="k">if</span> <span class="n">seg_image_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
-<a id="__codelineno-5-27"></a>        <span class="n">seg_result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<a id="__codelineno-5-28"></a>        <span class="n">seg_annotated</span> <span class="o">=</span> <span class="n">seg_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-5-29"></a>        <span class="n">seg_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">seg_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
-<a id="__codelineno-5-30"></a>
-<a id="__codelineno-5-31"></a>
-<a id="__codelineno-5-32"></a><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
-<a id="__codelineno-5-33"></a>
-<a id="__codelineno-5-34"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-5-35"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">detection_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m.pt"</span><span class="p">)</span>
+<span></span><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">det_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span><span class="n">seg_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/segmentation/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Callback function to process image and publish annotated images."""</span>
+<span></span>    <span class="n">array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">det_image_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
+<span></span>        <span class="n">det_result</span> <span class="o">=</span> <span class="n">detection_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span></span>        <span class="n">det_annotated</span> <span class="o">=</span> <span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>        <span class="n">det_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">det_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="n">seg_image_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
+<span></span>        <span class="n">seg_result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span></span>        <span class="n">seg_annotated</span> <span class="o">=</span> <span class="n">seg_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>        <span class="n">seg_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">seg_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
+<span></span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span></span>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
 </code></pre></div>
 </details>
 <details class="tip" open="open">
@@ -1173,34 +1173,34 @@
 <p>Consider a warehouse robot equipped with a camera and object <a href="../../tasks/detect/">detection model</a>. Instead of sending large annotated images over the network, the robot can publish a list of detected classes as <code>std_msgs/String</code> messages. For instance, when the robot detects objects like "box", "pallet" and "forklift" it publishes these classes to the <code>/ultralytics/detection/classes</code> topic. This information can then be used by a central monitoring system to track the inventory in real-time, optimize the robot's path planning to avoid obstacles, or trigger specific actions such as picking up a detected box. This approach reduces the bandwidth required for communication and focuses on transmitting critical data.</p>
 <h3 id="string-step-by-step-usage">String Step-by-Step Usage</h3>
 <p>This example demonstrates how to use the Ultralytics YOLO package with ROS. In this example, we subscribe to a camera topic, process the incoming image using YOLO, and publish the detected objects to new topic <code>/ultralytics/detection/classes</code> using <code>std_msgs/String</code> messages. The <code>ros_numpy</code> package is used to convert the ROS Image message to a numpy array for processing with YOLO.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-6-2"></a>
-<a id="__codelineno-6-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-6-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-6-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a id="__codelineno-6-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
-<a id="__codelineno-6-7"></a>
-<a id="__codelineno-6-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-6-9"></a>
-<a id="__codelineno-6-10"></a><span class="n">detection_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m.pt"</span><span class="p">)</span>
-<a id="__codelineno-6-11"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-6-12"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-6-13"></a><span class="n">classes_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/classes"</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-6-14"></a>
-<a id="__codelineno-6-15"></a>
-<a id="__codelineno-6-16"></a><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-6-17"></a><span class="w">    </span><span class="sd">"""Callback function to process image and publish detected classes."""</span>
-<a id="__codelineno-6-18"></a>    <span class="n">array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-6-19"></a>    <span class="k">if</span> <span class="n">classes_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
-<a id="__codelineno-6-20"></a>        <span class="n">det_result</span> <span class="o">=</span> <span class="n">detection_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<a id="__codelineno-6-21"></a>        <span class="n">classes</span> <span class="o">=</span> <span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-6-22"></a>        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">]</span>
-<a id="__codelineno-6-23"></a>        <span class="n">classes_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">names</span><span class="p">)))</span>
-<a id="__codelineno-6-24"></a>
-<a id="__codelineno-6-25"></a>
-<a id="__codelineno-6-26"></a><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
-<a id="__codelineno-6-27"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-6-28"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">detection_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m.pt"</span><span class="p">)</span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span></span><span class="n">classes_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/classes"</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Callback function to process image and publish detected classes."""</span>
+<span></span>    <span class="n">array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">classes_pub</span><span class="o">.</span><span class="n">get_num_connections</span><span class="p">():</span>
+<span></span>        <span class="n">det_result</span> <span class="o">=</span> <span class="n">detection_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span></span>        <span class="n">classes</span> <span class="o">=</span> <span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span>        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">classes</span><span class="p">]</span>
+<span></span>        <span class="n">classes_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">names</span><span class="p">)))</span>
+<span></span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span></span>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="use-ultralytics-with-ros-depth-images">Use Ultralytics with ROS Depth Images</h2>
 <p>In addition to RGB images, ROS supports <a href="https://en.wikipedia.org/wiki/Depth_map">depth images</a>, which provide information about the distance of objects from the camera. Depth images are crucial for robotic applications such as obstacle avoidance, 3D mapping, and localization.</p>
@@ -1223,95 +1223,95 @@
 </div>
 <h4 id="depth-step-by-step-usage">Depth Step-by-Step Usage</h4>
 <p>In this example, we use YOLO to segment an image and apply the extracted mask to segment the object in the depth image. This allows us to determine the distance of each pixel of the object of interest from the camera's focal center. By obtaining this distance information, we can calculate the distance between the camera and the specific object in the scene. Begin by importing the necessary libraries, creating a ROS node, and instantiating a segmentation model and a ROS topic.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-7-2"></a>
-<a id="__codelineno-7-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-7-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
-<a id="__codelineno-7-5"></a>
-<a id="__codelineno-7-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-7-7"></a>
-<a id="__codelineno-7-8"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-7-9"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-7-10"></a>
-<a id="__codelineno-7-11"></a><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-7-12"></a>
-<a id="__codelineno-7-13"></a><span class="n">classes_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/distance"</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">classes_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/distance"</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 <p>Next, define a callback function that processes the incoming depth image message. The function waits for the depth image and RGB image messages, converts them into numpy arrays, and applies the segmentation model to the RGB image. It then extracts the segmentation mask for each detected object and calculates the average distance of the object from the camera using the depth image. Most sensors have a maximum distance, known as the clip distance, beyond which values are represented as inf (<code>np.inf</code>). Before processing, it is important to filter out these null values and assign them a value of <code>0</code>. Finally, it publishes the detected objects along with their average distances to the <code>/ultralytics/detection/distance</code> topic.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-8-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-8-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a id="__codelineno-8-4"></a>
-<a id="__codelineno-8-5"></a>
-<a id="__codelineno-8-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-8-7"></a><span class="w">    </span><span class="sd">"""Callback function to process depth image and RGB image."""</span>
-<a id="__codelineno-8-8"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">)</span>
-<a id="__codelineno-8-9"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<a id="__codelineno-8-10"></a>    <span class="n">depth</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-8-11"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<a id="__codelineno-8-12"></a>
-<a id="__codelineno-8-13"></a>    <span class="n">all_objects</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-8-14"></a>    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
-<a id="__codelineno-8-15"></a>        <span class="n">class_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
-<a id="__codelineno-8-16"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">class_index</span><span class="p">]</span>
-<a id="__codelineno-8-17"></a>        <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-8-18"></a>        <span class="n">obj</span> <span class="o">=</span> <span class="n">depth</span><span class="p">[</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-8-19"></a>        <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span>
-<a id="__codelineno-8-20"></a>        <span class="n">avg_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
-<a id="__codelineno-8-21"></a>        <span class="n">all_objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">avg_distance</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">m"</span><span class="p">)</span>
-<a id="__codelineno-8-22"></a>
-<a id="__codelineno-8-23"></a>    <span class="n">classes_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">all_objects</span><span class="p">)))</span>
-<a id="__codelineno-8-24"></a>
-<a id="__codelineno-8-25"></a>
-<a id="__codelineno-8-26"></a><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/depth/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
-<a id="__codelineno-8-27"></a>
-<a id="__codelineno-8-28"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-8-29"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Callback function to process depth image and RGB image."""</span>
+<span></span>    <span class="n">image</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">)</span>
+<span></span>    <span class="n">image</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span></span>    <span class="n">depth</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span>    <span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">all_objects</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
+<span></span>        <span class="n">class_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+<span></span>        <span class="n">name</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">class_index</span><span class="p">]</span>
+<span></span>        <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span>        <span class="n">obj</span> <span class="o">=</span> <span class="n">depth</span><span class="p">[</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span></span>        <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span>
+<span></span>        <span class="n">avg_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span></span>        <span class="n">all_objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">avg_distance</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">m"</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">classes_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">all_objects</span><span class="p">)))</span>
+<span></span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/depth/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span></span>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
 </code></pre></div>
 <details class="example">
 <summary>Complete code</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-9-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-9-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-9-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a id="__codelineno-9-7"></a><span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
-<a id="__codelineno-9-8"></a>
-<a id="__codelineno-9-9"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-9-10"></a>
-<a id="__codelineno-9-11"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-9-12"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-9-13"></a>
-<a id="__codelineno-9-14"></a><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-9-15"></a>
-<a id="__codelineno-9-16"></a><span class="n">classes_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/distance"</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-9-17"></a>
-<a id="__codelineno-9-18"></a>
-<a id="__codelineno-9-19"></a><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-9-20"></a><span class="w">    </span><span class="sd">"""Callback function to process depth image and RGB image."""</span>
-<a id="__codelineno-9-21"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">)</span>
-<a id="__codelineno-9-22"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<a id="__codelineno-9-23"></a>    <span class="n">depth</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-9-24"></a>    <span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
-<a id="__codelineno-9-25"></a>
-<a id="__codelineno-9-26"></a>    <span class="n">all_objects</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-9-27"></a>    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
-<a id="__codelineno-9-28"></a>        <span class="n">class_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
-<a id="__codelineno-9-29"></a>        <span class="n">name</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">class_index</span><span class="p">]</span>
-<a id="__codelineno-9-30"></a>        <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-9-31"></a>        <span class="n">obj</span> <span class="o">=</span> <span class="n">depth</span><span class="p">[</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-9-32"></a>        <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span>
-<a id="__codelineno-9-33"></a>        <span class="n">avg_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
-<a id="__codelineno-9-34"></a>        <span class="n">all_objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">avg_distance</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">m"</span><span class="p">)</span>
-<a id="__codelineno-9-35"></a>
-<a id="__codelineno-9-36"></a>    <span class="n">classes_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">all_objects</span><span class="p">)))</span>
-<a id="__codelineno-9-37"></a>
-<a id="__codelineno-9-38"></a>
-<a id="__codelineno-9-39"></a><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/depth/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
-<a id="__codelineno-9-40"></a>
-<a id="__codelineno-9-41"></a><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-<a id="__codelineno-9-42"></a>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">std_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">String</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">classes_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/distance"</span><span class="p">,</span> <span class="n">String</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Callback function to process depth image and RGB image."""</span>
+<span></span>    <span class="n">image</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">)</span>
+<span></span>    <span class="n">image</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span></span>    <span class="n">depth</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span>    <span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">all_objects</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>    <span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
+<span></span>        <span class="n">class_index</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">())</span>
+<span></span>        <span class="n">name</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">class_index</span><span class="p">]</span>
+<span></span>        <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span>        <span class="n">obj</span> <span class="o">=</span> <span class="n">depth</span><span class="p">[</span><span class="n">mask</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+<span></span>        <span class="n">obj</span> <span class="o">=</span> <span class="n">obj</span><span class="p">[</span><span class="o">~</span><span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">obj</span><span class="p">)]</span>
+<span></span>        <span class="n">avg_distance</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">inf</span>
+<span></span>        <span class="n">all_objects</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">avg_distance</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">m"</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">classes_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">String</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">all_objects</span><span class="p">)))</span>
+<span></span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/depth/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span></span>    <span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
 </code></pre></div>
 </details>
 <h2 id="use-ultralytics-with-ros-sensor_msgspointcloud2">Use Ultralytics with ROS <code>sensor_msgs/PointCloud2</code></h2>
@@ -1339,128 +1339,128 @@
 <p>For handling point clouds, we recommend using Open3D (<code>pip install open3d</code>), a user-friendly Python library. Open3D provides robust tools for managing point cloud data structures, visualizing them, and executing complex operations seamlessly. This library can significantly simplify the process and enhance our ability to manipulate and analyze point clouds in conjunction with YOLO-based segmentation.</p>
 <h4 id="point-clouds-step-by-step-usage">Point Clouds Step-by-Step Usage</h4>
 <p>Import the necessary libraries and instantiate the YOLO model for segmentation.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-10-2"></a>
-<a id="__codelineno-10-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-10-4"></a>
-<a id="__codelineno-10-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-10-6"></a>
-<a id="__codelineno-10-7"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-10-8"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-10-9"></a><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span></span><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
 </code></pre></div>
 <p>Create a function <code>pointcloud2_to_array</code>, which transforms a <code>sensor_msgs/PointCloud2</code> message into two numpy arrays. The <code>sensor_msgs/PointCloud2</code> messages contain <code>n</code> points based on the <code>width</code> and <code>height</code> of the acquired image. For instance, a <code>480 x 640</code> image will have <code>307,200</code> points. Each point includes three spatial coordinates (<code>xyz</code>) and the corresponding color in <code>RGB</code> format. These can be considered as two separate channels of information.</p>
 <p>The function returns the <code>xyz</code> coordinates and <code>RGB</code> values in the format of the original camera resolution (<code>width x height</code>). Most sensors have a maximum distance, known as the clip distance, beyond which values are represented as inf (<code>np.inf</code>). Before processing, it is important to filter out these null values and assign them a value of <code>0</code>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-11-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-11-3"></a>
-<a id="__codelineno-11-4"></a>
-<a id="__codelineno-11-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">:</span> <span class="n">PointCloud2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
-<a id="__codelineno-11-6"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-11-7"></a><span class="sd">    Convert a ROS PointCloud2 message to a numpy array.</span>
-<a id="__codelineno-11-8"></a>
-<a id="__codelineno-11-9"></a><span class="sd">    Args:</span>
-<a id="__codelineno-11-10"></a><span class="sd">        pointcloud2 (PointCloud2): the PointCloud2 message</span>
-<a id="__codelineno-11-11"></a>
-<a id="__codelineno-11-12"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-11-13"></a><span class="sd">        (tuple): tuple containing (xyz, rgb)</span>
-<a id="__codelineno-11-14"></a><span class="sd">    """</span>
-<a id="__codelineno-11-15"></a>    <span class="n">pc_array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">)</span>
-<a id="__codelineno-11-16"></a>    <span class="n">split</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">split_rgb_field</span><span class="p">(</span><span class="n">pc_array</span><span class="p">)</span>
-<a id="__codelineno-11-17"></a>    <span class="n">rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">split</span><span class="p">[</span><span class="s2">"b"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"g"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"r"</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-11-18"></a>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">get_xyz_points</span><span class="p">(</span><span class="n">pc_array</span><span class="p">,</span> <span class="n">remove_nans</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-11-19"></a>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">pointcloud2</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pointcloud2</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="__codelineno-11-20"></a>    <span class="n">nan_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-11-21"></a>    <span class="n">xyz</span><span class="p">[</span><span class="n">nan_rows</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-11-22"></a>    <span class="n">rgb</span><span class="p">[</span><span class="n">nan_rows</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-11-23"></a>    <span class="k">return</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">:</span> <span class="n">PointCloud2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Convert a ROS PointCloud2 message to a numpy array.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        pointcloud2 (PointCloud2): the PointCloud2 message</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (tuple): tuple containing (xyz, rgb)</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">pc_array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">)</span>
+<span></span>    <span class="n">split</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">split_rgb_field</span><span class="p">(</span><span class="n">pc_array</span><span class="p">)</span>
+<span></span>    <span class="n">rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">split</span><span class="p">[</span><span class="s2">"b"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"g"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"r"</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">get_xyz_points</span><span class="p">(</span><span class="n">pc_array</span><span class="p">,</span> <span class="n">remove_nans</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">pointcloud2</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pointcloud2</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span></span>    <span class="n">nan_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>    <span class="n">xyz</span><span class="p">[</span><span class="n">nan_rows</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span></span>    <span class="n">rgb</span><span class="p">[</span><span class="n">nan_rows</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span></span>    <span class="k">return</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span>
 </code></pre></div>
 <p>Next, subscribe to the <code>/camera/depth/points</code> topic to receive the point cloud message and convert the <code>sensor_msgs/PointCloud2</code> message into numpy arrays containing the XYZ coordinates and RGB values (using the <code>pointcloud2_to_array</code> function). Process the RGB image using the YOLO model to extract segmented objects. For each detected object, extract the segmentation mask and apply it to both the RGB image and the XYZ coordinates to isolate the object in 3D space.</p>
 <p>Processing the mask is straightforward since it consists of binary values, with <code>1</code> indicating the presence of the object and <code>0</code> indicating the absence. To apply the mask, simply multiply the original channels by the mask. This operation effectively isolates the object of interest within the image. Finally, create an Open3D point cloud object and visualize the segmented object in 3D space with associated colors.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-12-2"></a>
-<a id="__codelineno-12-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">open3d</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">o3d</span>
-<a id="__codelineno-12-4"></a>
-<a id="__codelineno-12-5"></a><span class="n">ros_cloud</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/depth/points"</span><span class="p">,</span> <span class="n">PointCloud2</span><span class="p">)</span>
-<a id="__codelineno-12-6"></a><span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">ros_cloud</span><span class="p">)</span>
-<a id="__codelineno-12-7"></a><span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
-<a id="__codelineno-12-8"></a>
-<a id="__codelineno-12-9"></a><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
-<a id="__codelineno-12-10"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"No objects detected"</span><span class="p">)</span>
-<a id="__codelineno-12-11"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-<a id="__codelineno-12-12"></a>
-<a id="__codelineno-12-13"></a><span class="n">classes</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-12-14"></a><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
-<a id="__codelineno-12-15"></a>    <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-12-16"></a>    <span class="n">mask_expanded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-12-17"></a>
-<a id="__codelineno-12-18"></a>    <span class="n">obj_rgb</span> <span class="o">=</span> <span class="n">rgb</span> <span class="o">*</span> <span class="n">mask_expanded</span>
-<a id="__codelineno-12-19"></a>    <span class="n">obj_xyz</span> <span class="o">=</span> <span class="n">xyz</span> <span class="o">*</span> <span class="n">mask_expanded</span>
-<a id="__codelineno-12-20"></a>
-<a id="__codelineno-12-21"></a>    <span class="n">pcd</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">PointCloud</span><span class="p">()</span>
-<a id="__codelineno-12-22"></a>    <span class="n">pcd</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_xyz</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ros_cloud</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">ros_cloud</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<a id="__codelineno-12-23"></a>    <span class="n">pcd</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ros_cloud</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">ros_cloud</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
-<a id="__codelineno-12-24"></a>    <span class="n">o3d</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">draw_geometries</span><span class="p">([</span><span class="n">pcd</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">open3d</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">o3d</span>
+<span></span>
+<span></span><span class="n">ros_cloud</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/depth/points"</span><span class="p">,</span> <span class="n">PointCloud2</span><span class="p">)</span>
+<span></span><span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">ros_cloud</span><span class="p">)</span>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
+<span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"No objects detected"</span><span class="p">)</span>
+<span></span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<span></span>
+<span></span><span class="n">classes</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
+<span></span>    <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span>    <span class="n">mask_expanded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">obj_rgb</span> <span class="o">=</span> <span class="n">rgb</span> <span class="o">*</span> <span class="n">mask_expanded</span>
+<span></span>    <span class="n">obj_xyz</span> <span class="o">=</span> <span class="n">xyz</span> <span class="o">*</span> <span class="n">mask_expanded</span>
+<span></span>
+<span></span>    <span class="n">pcd</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">PointCloud</span><span class="p">()</span>
+<span></span>    <span class="n">pcd</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_xyz</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ros_cloud</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">ros_cloud</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span></span>    <span class="n">pcd</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ros_cloud</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">ros_cloud</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+<span></span>    <span class="n">o3d</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">draw_geometries</span><span class="p">([</span><span class="n">pcd</span><span class="p">])</span>
 </code></pre></div>
 <details class="example">
 <summary>Complete code</summary>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-13-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-13-3"></a>
-<a id="__codelineno-13-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-13-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">open3d</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">o3d</span>
-<a id="__codelineno-13-6"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-13-7"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-13-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointCloud2</span>
-<a id="__codelineno-13-9"></a>
-<a id="__codelineno-13-10"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-13-11"></a>
-<a id="__codelineno-13-12"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-13-13"></a><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-13-14"></a><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-13-15"></a>
-<a id="__codelineno-13-16"></a>
-<a id="__codelineno-13-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">:</span> <span class="n">PointCloud2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
-<a id="__codelineno-13-18"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-13-19"></a><span class="sd">    Convert a ROS PointCloud2 message to a numpy array.</span>
-<a id="__codelineno-13-20"></a>
-<a id="__codelineno-13-21"></a><span class="sd">    Args:</span>
-<a id="__codelineno-13-22"></a><span class="sd">        pointcloud2 (PointCloud2): the PointCloud2 message</span>
-<a id="__codelineno-13-23"></a>
-<a id="__codelineno-13-24"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-13-25"></a><span class="sd">        (tuple): tuple containing (xyz, rgb)</span>
-<a id="__codelineno-13-26"></a><span class="sd">    """</span>
-<a id="__codelineno-13-27"></a>    <span class="n">pc_array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">)</span>
-<a id="__codelineno-13-28"></a>    <span class="n">split</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">split_rgb_field</span><span class="p">(</span><span class="n">pc_array</span><span class="p">)</span>
-<a id="__codelineno-13-29"></a>    <span class="n">rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">split</span><span class="p">[</span><span class="s2">"b"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"g"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"r"</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-13-30"></a>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">get_xyz_points</span><span class="p">(</span><span class="n">pc_array</span><span class="p">,</span> <span class="n">remove_nans</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-13-31"></a>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">pointcloud2</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pointcloud2</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="__codelineno-13-32"></a>    <span class="n">nan_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-13-33"></a>    <span class="n">xyz</span><span class="p">[</span><span class="n">nan_rows</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-13-34"></a>    <span class="n">rgb</span><span class="p">[</span><span class="n">nan_rows</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<a id="__codelineno-13-35"></a>    <span class="k">return</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span>
-<a id="__codelineno-13-36"></a>
-<a id="__codelineno-13-37"></a>
-<a id="__codelineno-13-38"></a><span class="n">ros_cloud</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/depth/points"</span><span class="p">,</span> <span class="n">PointCloud2</span><span class="p">)</span>
-<a id="__codelineno-13-39"></a><span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">ros_cloud</span><span class="p">)</span>
-<a id="__codelineno-13-40"></a><span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
-<a id="__codelineno-13-41"></a>
-<a id="__codelineno-13-42"></a><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
-<a id="__codelineno-13-43"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"No objects detected"</span><span class="p">)</span>
-<a id="__codelineno-13-44"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-<a id="__codelineno-13-45"></a>
-<a id="__codelineno-13-46"></a><span class="n">classes</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-13-47"></a><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
-<a id="__codelineno-13-48"></a>    <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-13-49"></a>    <span class="n">mask_expanded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-13-50"></a>
-<a id="__codelineno-13-51"></a>    <span class="n">obj_rgb</span> <span class="o">=</span> <span class="n">rgb</span> <span class="o">*</span> <span class="n">mask_expanded</span>
-<a id="__codelineno-13-52"></a>    <span class="n">obj_xyz</span> <span class="o">=</span> <span class="n">xyz</span> <span class="o">*</span> <span class="n">mask_expanded</span>
-<a id="__codelineno-13-53"></a>
-<a id="__codelineno-13-54"></a>    <span class="n">pcd</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">PointCloud</span><span class="p">()</span>
-<a id="__codelineno-13-55"></a>    <span class="n">pcd</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_xyz</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ros_cloud</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">ros_cloud</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<a id="__codelineno-13-56"></a>    <span class="n">pcd</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ros_cloud</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">ros_cloud</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
-<a id="__codelineno-13-57"></a>    <span class="n">o3d</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">draw_geometries</span><span class="p">([</span><span class="n">pcd</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">open3d</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">o3d</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointCloud2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span></span><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">:</span> <span class="n">PointCloud2</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Convert a ROS PointCloud2 message to a numpy array.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        pointcloud2 (PointCloud2): the PointCloud2 message</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (tuple): tuple containing (xyz, rgb)</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">pc_array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">)</span>
+<span></span>    <span class="n">split</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">split_rgb_field</span><span class="p">(</span><span class="n">pc_array</span><span class="p">)</span>
+<span></span>    <span class="n">rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">split</span><span class="p">[</span><span class="s2">"b"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"g"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"r"</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">get_xyz_points</span><span class="p">(</span><span class="n">pc_array</span><span class="p">,</span> <span class="n">remove_nans</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">pointcloud2</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pointcloud2</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span></span>    <span class="n">nan_rows</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">isnan</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">all</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>    <span class="n">xyz</span><span class="p">[</span><span class="n">nan_rows</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span></span>    <span class="n">rgb</span><span class="p">[</span><span class="n">nan_rows</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
+<span></span>    <span class="k">return</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span>
+<span></span>
+<span></span>
+<span></span><span class="n">ros_cloud</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/depth/points"</span><span class="p">,</span> <span class="n">PointCloud2</span><span class="p">)</span>
+<span></span><span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">ros_cloud</span><span class="p">)</span>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
+<span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"No objects detected"</span><span class="p">)</span>
+<span></span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<span></span>
+<span></span><span class="n">classes</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
+<span></span>    <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span>    <span class="n">mask_expanded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">obj_rgb</span> <span class="o">=</span> <span class="n">rgb</span> <span class="o">*</span> <span class="n">mask_expanded</span>
+<span></span>    <span class="n">obj_xyz</span> <span class="o">=</span> <span class="n">xyz</span> <span class="o">*</span> <span class="n">mask_expanded</span>
+<span></span>
+<span></span>    <span class="n">pcd</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">PointCloud</span><span class="p">()</span>
+<span></span>    <span class="n">pcd</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_xyz</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ros_cloud</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">ros_cloud</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span></span>    <span class="n">pcd</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">ros_cloud</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">ros_cloud</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+<span></span>    <span class="n">o3d</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">draw_geometries</span><span class="p">([</span><span class="n">pcd</span><span class="p">])</span>
 </code></pre></div>
 </details>
 <p align="center">
@@ -1471,34 +1471,34 @@
 <p>The <a href="https://www.ros.org/">Robot Operating System (ROS)</a> is an open-source framework commonly used in robotics to help developers create robust robot applications. It provides a collection of <a href="https://www.ros.org/blog/ecosystem/">libraries and tools</a> for building and interfacing with robotic systems, enabling easier development of complex applications. ROS supports communication between nodes using messages over <a href="https://wiki.ros.org/ROS/Tutorials/UnderstandingTopics">topics</a> or <a href="https://wiki.ros.org/ROS/Tutorials/UnderstandingServicesParams">services</a>.</p>
 <h3 id="how-do-i-integrate-ultralytics-yolo-with-ros-for-real-time-object-detection">How do I integrate Ultralytics YOLO with ROS for real-time object detection?</h3>
 <p>Integrating Ultralytics YOLO with ROS involves setting up a ROS environment and using YOLO for processing sensor data. Begin by installing the required dependencies like <code>ros_numpy</code> and Ultralytics YOLO:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ros_numpy<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>ros_numpy<span class="w"> </span>ultralytics
 </code></pre></div>
 <p>Next, create a ROS node and subscribe to an <a href="../../tasks/detect/">image topic</a> to process the incoming data. Here is a minimal example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-15-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-15-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a id="__codelineno-15-4"></a>
-<a id="__codelineno-15-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-15-6"></a>
-<a id="__codelineno-15-7"></a><span class="n">detection_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m.pt"</span><span class="p">)</span>
-<a id="__codelineno-15-8"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-15-9"></a><span class="n">det_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<a id="__codelineno-15-10"></a>
-<a id="__codelineno-15-11"></a>
-<a id="__codelineno-15-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
-<a id="__codelineno-15-13"></a>    <span class="n">array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-<a id="__codelineno-15-14"></a>    <span class="n">det_result</span> <span class="o">=</span> <span class="n">detection_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
-<a id="__codelineno-15-15"></a>    <span class="n">det_annotated</span> <span class="o">=</span> <span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-15-16"></a>    <span class="n">det_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">det_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
-<a id="__codelineno-15-17"></a>
-<a id="__codelineno-15-18"></a>
-<a id="__codelineno-15-19"></a><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
-<a id="__codelineno-15-20"></a><span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">detection_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m.pt"</span><span class="p">)</span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">det_image_pub</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">Publisher</span><span class="p">(</span><span class="s2">"/ultralytics/detection/image"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">queue_size</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+<span></span>    <span class="n">array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">numpify</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span></span>    <span class="n">det_result</span> <span class="o">=</span> <span class="n">detection_model</span><span class="p">(</span><span class="n">array</span><span class="p">)</span>
+<span></span>    <span class="n">det_annotated</span> <span class="o">=</span> <span class="n">det_result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>    <span class="n">det_image_pub</span><span class="o">.</span><span class="n">publish</span><span class="p">(</span><span class="n">ros_numpy</span><span class="o">.</span><span class="n">msgify</span><span class="p">(</span><span class="n">Image</span><span class="p">,</span> <span class="n">det_annotated</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"rgb8"</span><span class="p">))</span>
+<span></span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">spin</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="what-are-ros-topics-and-how-are-they-used-in-ultralytics-yolo">What are ROS topics and how are they used in Ultralytics YOLO?</h3>
 <p>ROS topics facilitate communication between nodes in a ROS network by using a publish-subscribe model. A topic is a named channel that nodes use to send and receive messages asynchronously. In the context of Ultralytics YOLO, you can make a node subscribe to an image topic, process the images using YOLO for tasks like <a href="https://docs.ultralytics.com/tasks/detect/">detection</a> or <a href="https://docs.ultralytics.com/tasks/segment/">segmentation</a>, and publish outcomes to new topics.</p>
 <p>For example, subscribe to a camera topic and process the incoming image for detection:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">rospy</span><span class="o">.</span><span class="n">Subscriber</span><span class="p">(</span><span class="s2">"/camera/color/image_raw"</span><span class="p">,</span> <span class="n">Image</span><span class="p">,</span> <span class="n">callback</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="why-use-depth-images-with-ultralytics-yolo-in-ros">Why use depth images with Ultralytics YOLO in ROS?</h3>
 <p>Depth images in ROS, represented by <code>sensor_msgs/Image</code>, provide the distance of objects from the camera, crucial for tasks like obstacle avoidance, 3D mapping, and localization. By <a href="https://en.wikipedia.org/wiki/Depth_map">using depth information</a> along with RGB images, robots can better understand their 3D environment.</p>
@@ -1511,48 +1511,48 @@
 <li>Apply the segmentation mask to the point cloud.</li>
 </ol>
 <p>Here's an example using <a href="https://www.open3d.org/">Open3D</a> for visualization:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
-<a id="__codelineno-17-2"></a>
-<a id="__codelineno-17-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">open3d</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">o3d</span>
-<a id="__codelineno-17-4"></a><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
-<a id="__codelineno-17-5"></a><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
-<a id="__codelineno-17-6"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointCloud2</span>
-<a id="__codelineno-17-7"></a>
-<a id="__codelineno-17-8"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-17-9"></a>
-<a id="__codelineno-17-10"></a><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
-<a id="__codelineno-17-11"></a><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-17-12"></a>
-<a id="__codelineno-17-13"></a>
-<a id="__codelineno-17-14"></a><span class="k">def</span><span class="w"> </span><span class="nf">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">):</span>
-<a id="__codelineno-17-15"></a>    <span class="n">pc_array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">)</span>
-<a id="__codelineno-17-16"></a>    <span class="n">split</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">split_rgb_field</span><span class="p">(</span><span class="n">pc_array</span><span class="p">)</span>
-<a id="__codelineno-17-17"></a>    <span class="n">rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">split</span><span class="p">[</span><span class="s2">"b"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"g"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"r"</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-17-18"></a>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">get_xyz_points</span><span class="p">(</span><span class="n">pc_array</span><span class="p">,</span> <span class="n">remove_nans</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-17-19"></a>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">pointcloud2</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pointcloud2</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
-<a id="__codelineno-17-20"></a>    <span class="k">return</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span>
-<a id="__codelineno-17-21"></a>
-<a id="__codelineno-17-22"></a>
-<a id="__codelineno-17-23"></a><span class="n">ros_cloud</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/depth/points"</span><span class="p">,</span> <span class="n">PointCloud2</span><span class="p">)</span>
-<a id="__codelineno-17-24"></a><span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">ros_cloud</span><span class="p">)</span>
-<a id="__codelineno-17-25"></a><span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
-<a id="__codelineno-17-26"></a>
-<a id="__codelineno-17-27"></a><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
-<a id="__codelineno-17-28"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"No objects detected"</span><span class="p">)</span>
-<a id="__codelineno-17-29"></a>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
-<a id="__codelineno-17-30"></a>
-<a id="__codelineno-17-31"></a><span class="n">classes</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-17-32"></a><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
-<a id="__codelineno-17-33"></a>    <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
-<a id="__codelineno-17-34"></a>    <span class="n">mask_expanded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<a id="__codelineno-17-35"></a>
-<a id="__codelineno-17-36"></a>    <span class="n">obj_rgb</span> <span class="o">=</span> <span class="n">rgb</span> <span class="o">*</span> <span class="n">mask_expanded</span>
-<a id="__codelineno-17-37"></a>    <span class="n">obj_xyz</span> <span class="o">=</span> <span class="n">xyz</span> <span class="o">*</span> <span class="n">mask_expanded</span>
-<a id="__codelineno-17-38"></a>
-<a id="__codelineno-17-39"></a>    <span class="n">pcd</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">PointCloud</span><span class="p">()</span>
-<a id="__codelineno-17-40"></a>    <span class="n">pcd</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_xyz</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
-<a id="__codelineno-17-41"></a>    <span class="n">pcd</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
-<a id="__codelineno-17-42"></a>    <span class="n">o3d</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">draw_geometries</span><span class="p">([</span><span class="n">pcd</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">open3d</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">o3d</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">ros_numpy</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">rospy</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sensor_msgs.msg</span><span class="w"> </span><span class="kn">import</span> <span class="n">PointCloud2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">rospy</span><span class="o">.</span><span class="n">init_node</span><span class="p">(</span><span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span><span class="n">segmentation_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11m-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">):</span>
+<span></span>    <span class="n">pc_array</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">pointcloud2</span><span class="p">)</span>
+<span></span>    <span class="n">split</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">split_rgb_field</span><span class="p">(</span><span class="n">pc_array</span><span class="p">)</span>
+<span></span>    <span class="n">rgb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">split</span><span class="p">[</span><span class="s2">"b"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"g"</span><span class="p">],</span> <span class="n">split</span><span class="p">[</span><span class="s2">"r"</span><span class="p">]],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">ros_numpy</span><span class="o">.</span><span class="n">point_cloud2</span><span class="o">.</span><span class="n">get_xyz_points</span><span class="p">(</span><span class="n">pc_array</span><span class="p">,</span> <span class="n">remove_nans</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>    <span class="n">xyz</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">xyz</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="n">pointcloud2</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">pointcloud2</span><span class="o">.</span><span class="n">width</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span></span>    <span class="k">return</span> <span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span>
+<span></span>
+<span></span>
+<span></span><span class="n">ros_cloud</span> <span class="o">=</span> <span class="n">rospy</span><span class="o">.</span><span class="n">wait_for_message</span><span class="p">(</span><span class="s2">"/camera/depth/points"</span><span class="p">,</span> <span class="n">PointCloud2</span><span class="p">)</span>
+<span></span><span class="n">xyz</span><span class="p">,</span> <span class="n">rgb</span> <span class="o">=</span> <span class="n">pointcloud2_to_array</span><span class="p">(</span><span class="n">ros_cloud</span><span class="p">)</span>
+<span></span><span class="n">result</span> <span class="o">=</span> <span class="n">segmentation_model</span><span class="p">(</span><span class="n">rgb</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">):</span>
+<span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"No objects detected"</span><span class="p">)</span>
+<span></span>    <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">()</span>
+<span></span>
+<span></span><span class="n">classes</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span><span class="k">for</span> <span class="n">index</span><span class="p">,</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">classes</span><span class="p">):</span>
+<span></span>    <span class="n">mask</span> <span class="o">=</span> <span class="n">result</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()[</span><span class="n">index</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+<span></span>    <span class="n">mask_expanded</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">,</span> <span class="n">mask</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">obj_rgb</span> <span class="o">=</span> <span class="n">rgb</span> <span class="o">*</span> <span class="n">mask_expanded</span>
+<span></span>    <span class="n">obj_xyz</span> <span class="o">=</span> <span class="n">xyz</span> <span class="o">*</span> <span class="n">mask_expanded</span>
+<span></span>
+<span></span>    <span class="n">pcd</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">geometry</span><span class="o">.</span><span class="n">PointCloud</span><span class="p">()</span>
+<span></span>    <span class="n">pcd</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_xyz</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)))</span>
+<span></span>    <span class="n">pcd</span><span class="o">.</span><span class="n">colors</span> <span class="o">=</span> <span class="n">o3d</span><span class="o">.</span><span class="n">utility</span><span class="o">.</span><span class="n">Vector3dVector</span><span class="p">(</span><span class="n">obj_rgb</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span> <span class="o">/</span> <span class="mi">255</span><span class="p">)</span>
+<span></span>    <span class="n">o3d</span><span class="o">.</span><span class="n">visualization</span><span class="o">.</span><span class="n">draw_geometries</span><span class="p">([</span><span class="n">pcd</span><span class="p">])</span>
 </code></pre></div>
 <p>This approach provides a 3D visualization of segmented objects, useful for tasks like navigation and manipulation in <a href="https://docs.ultralytics.com/guides/steps-of-a-cv-project/">robotics applications</a>.</p>
 <div class="git-info">

@@ -840,142 +840,142 @@
 <ul>
 <li>Docker installed on your machine</li>
 <li>Install <code>tritonclient</code>:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>tritonclient<span class="o">[</span>all<span class="o">]</span>
+    <div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>tritonclient<span class="o">[</span>all<span class="o">]</span>
 </code></pre></div></li>
 </ul>
 <h2 id="exporting-yolo11-to-onnx-format">Exporting YOLO11 to ONNX Format</h2>
 <p>Before deploying the model on Triton, it must be exported to the ONNX format. ONNX (Open Neural Network Exchange) is a format that allows models to be transferred between different deep learning frameworks. Use the <code>export</code> function from the <code>YOLO</code> class:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Retrieve metadata during export. Metadata needs to be added to config.pbtxt. See next section.</span>
-<a id="__codelineno-1-7"></a><span class="n">metadata</span> <span class="o">=</span> <span class="p">[]</span>
-<a id="__codelineno-1-8"></a>
-<a id="__codelineno-1-9"></a>
-<a id="__codelineno-1-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_cb</span><span class="p">(</span><span class="n">exporter</span><span class="p">):</span>
-<a id="__codelineno-1-11"></a>    <span class="n">metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exporter</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
-<a id="__codelineno-1-12"></a>
-<a id="__codelineno-1-13"></a>
-<a id="__codelineno-1-14"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_export_end"</span><span class="p">,</span> <span class="n">export_cb</span><span class="p">)</span>
-<a id="__codelineno-1-15"></a>
-<a id="__codelineno-1-16"></a><span class="c1"># Export the model</span>
-<a id="__codelineno-1-17"></a><span class="n">onnx_file</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
+<span></span>
+<span></span><span class="c1"># Retrieve metadata during export. Metadata needs to be added to config.pbtxt. See next section.</span>
+<span></span><span class="n">metadata</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_cb</span><span class="p">(</span><span class="n">exporter</span><span class="p">):</span>
+<span></span>    <span class="n">metadata</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">exporter</span><span class="o">.</span><span class="n">metadata</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_export_end"</span><span class="p">,</span> <span class="n">export_cb</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Export the model</span>
+<span></span><span class="n">onnx_file</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="setting-up-triton-model-repository">Setting Up Triton Model Repository</h2>
 <p>The Triton Model Repository is a storage location where Triton can access and load models.</p>
 <ol>
 <li>
 <p>Create the necessary directory structure:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="c1"># Define paths</span>
-<a id="__codelineno-2-4"></a><span class="n">model_name</span> <span class="o">=</span> <span class="s2">"yolo"</span>
-<a id="__codelineno-2-5"></a><span class="n">triton_repo_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"tmp"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"triton_repo"</span>
-<a id="__codelineno-2-6"></a><span class="n">triton_model_path</span> <span class="o">=</span> <span class="n">triton_repo_path</span> <span class="o">/</span> <span class="n">model_name</span>
-<a id="__codelineno-2-7"></a>
-<a id="__codelineno-2-8"></a><span class="c1"># Create directories</span>
-<a id="__codelineno-2-9"></a><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"1"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span></span>
+<span></span><span class="c1"># Define paths</span>
+<span></span><span class="n">model_name</span> <span class="o">=</span> <span class="s2">"yolo"</span>
+<span></span><span class="n">triton_repo_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"tmp"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"triton_repo"</span>
+<span></span><span class="n">triton_model_path</span> <span class="o">=</span> <span class="n">triton_repo_path</span> <span class="o">/</span> <span class="n">model_name</span>
+<span></span>
+<span></span><span class="c1"># Create directories</span>
+<span></span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"1"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p>Move the exported ONNX model to the Triton repository:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="c1"># Move ONNX model to Triton Model path</span>
-<a id="__codelineno-3-4"></a><span class="n">Path</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"1"</span> <span class="o">/</span> <span class="s2">"model.onnx"</span><span class="p">)</span>
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a><span class="c1"># Create config file</span>
-<a id="__codelineno-3-7"></a><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"config.pbtxt"</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
-<a id="__codelineno-3-8"></a>
-<a id="__codelineno-3-9"></a><span class="n">data</span> <span class="o">=</span> <span class="s2">"""</span>
-<a id="__codelineno-3-10"></a><span class="s2"># Add metadata</span>
-<a id="__codelineno-3-11"></a><span class="s2">parameters {</span>
-<a id="__codelineno-3-12"></a><span class="s2">  key: "metadata"</span>
-<a id="__codelineno-3-13"></a><span class="s2">  value {</span>
-<a id="__codelineno-3-14"></a><span class="s2">    string_value: "</span><span class="si">%s</span><span class="s2">"</span>
-<a id="__codelineno-3-15"></a><span class="s2">  }</span>
-<a id="__codelineno-3-16"></a><span class="s2">}</span>
-<a id="__codelineno-3-17"></a>
-<a id="__codelineno-3-18"></a><span class="s2"># (Optional) Enable TensorRT for GPU inference</span>
-<a id="__codelineno-3-19"></a><span class="s2"># First run will be slow due to TensorRT engine conversion</span>
-<a id="__codelineno-3-20"></a><span class="s2">optimization {</span>
-<a id="__codelineno-3-21"></a><span class="s2">  execution_accelerators {</span>
-<a id="__codelineno-3-22"></a><span class="s2">    gpu_execution_accelerator {</span>
-<a id="__codelineno-3-23"></a><span class="s2">      name: "tensorrt"</span>
-<a id="__codelineno-3-24"></a><span class="s2">      parameters {</span>
-<a id="__codelineno-3-25"></a><span class="s2">        key: "precision_mode"</span>
-<a id="__codelineno-3-26"></a><span class="s2">        value: "FP16"</span>
-<a id="__codelineno-3-27"></a><span class="s2">      }</span>
-<a id="__codelineno-3-28"></a><span class="s2">      parameters {</span>
-<a id="__codelineno-3-29"></a><span class="s2">        key: "max_workspace_size_bytes"</span>
-<a id="__codelineno-3-30"></a><span class="s2">        value: "3221225472"</span>
-<a id="__codelineno-3-31"></a><span class="s2">      }</span>
-<a id="__codelineno-3-32"></a><span class="s2">      parameters {</span>
-<a id="__codelineno-3-33"></a><span class="s2">        key: "trt_engine_cache_enable"</span>
-<a id="__codelineno-3-34"></a><span class="s2">        value: "1"</span>
-<a id="__codelineno-3-35"></a><span class="s2">      }</span>
-<a id="__codelineno-3-36"></a><span class="s2">      parameters {</span>
-<a id="__codelineno-3-37"></a><span class="s2">        key: "trt_engine_cache_path"</span>
-<a id="__codelineno-3-38"></a><span class="s2">        value: "/models/yolo/1"</span>
-<a id="__codelineno-3-39"></a><span class="s2">      }</span>
-<a id="__codelineno-3-40"></a><span class="s2">    }</span>
-<a id="__codelineno-3-41"></a><span class="s2">  }</span>
-<a id="__codelineno-3-42"></a><span class="s2">}</span>
-<a id="__codelineno-3-43"></a><span class="s2">"""</span> <span class="o">%</span> <span class="n">metadata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># noqa</span>
-<a id="__codelineno-3-44"></a>
-<a id="__codelineno-3-45"></a><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"config.pbtxt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<a id="__codelineno-3-46"></a>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span></span>
+<span></span><span class="c1"># Move ONNX model to Triton Model path</span>
+<span></span><span class="n">Path</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"1"</span> <span class="o">/</span> <span class="s2">"model.onnx"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Create config file</span>
+<span></span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"config.pbtxt"</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+<span></span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="s2">"""</span>
+<span></span><span class="s2"># Add metadata</span>
+<span></span><span class="s2">parameters {</span>
+<span></span><span class="s2">  key: "metadata"</span>
+<span></span><span class="s2">  value {</span>
+<span></span><span class="s2">    string_value: "</span><span class="si">%s</span><span class="s2">"</span>
+<span></span><span class="s2">  }</span>
+<span></span><span class="s2">}</span>
+<span></span>
+<span></span><span class="s2"># (Optional) Enable TensorRT for GPU inference</span>
+<span></span><span class="s2"># First run will be slow due to TensorRT engine conversion</span>
+<span></span><span class="s2">optimization {</span>
+<span></span><span class="s2">  execution_accelerators {</span>
+<span></span><span class="s2">    gpu_execution_accelerator {</span>
+<span></span><span class="s2">      name: "tensorrt"</span>
+<span></span><span class="s2">      parameters {</span>
+<span></span><span class="s2">        key: "precision_mode"</span>
+<span></span><span class="s2">        value: "FP16"</span>
+<span></span><span class="s2">      }</span>
+<span></span><span class="s2">      parameters {</span>
+<span></span><span class="s2">        key: "max_workspace_size_bytes"</span>
+<span></span><span class="s2">        value: "3221225472"</span>
+<span></span><span class="s2">      }</span>
+<span></span><span class="s2">      parameters {</span>
+<span></span><span class="s2">        key: "trt_engine_cache_enable"</span>
+<span></span><span class="s2">        value: "1"</span>
+<span></span><span class="s2">      }</span>
+<span></span><span class="s2">      parameters {</span>
+<span></span><span class="s2">        key: "trt_engine_cache_path"</span>
+<span></span><span class="s2">        value: "/models/yolo/1"</span>
+<span></span><span class="s2">      }</span>
+<span></span><span class="s2">    }</span>
+<span></span><span class="s2">  }</span>
+<span></span><span class="s2">}</span>
+<span></span><span class="s2">"""</span> <span class="o">%</span> <span class="n">metadata</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># noqa</span>
+<span></span>
+<span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"config.pbtxt"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span></span>    <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
 <h2 id="running-triton-inference-server">Running Triton Inference Server</h2>
 <p>Run the Triton Inference Server using Docker:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
-<a id="__codelineno-4-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
-<a id="__codelineno-4-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-4-4"></a>
-<a id="__codelineno-4-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tritonclient.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceServerClient</span>
-<a id="__codelineno-4-6"></a>
-<a id="__codelineno-4-7"></a><span class="c1"># Define image https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver</span>
-<a id="__codelineno-4-8"></a><span class="n">tag</span> <span class="o">=</span> <span class="s2">"nvcr.io/nvidia/tritonserver:24.09-py3"</span>  <span class="c1"># 8.57 GB</span>
-<a id="__codelineno-4-9"></a>
-<a id="__codelineno-4-10"></a><span class="c1"># Pull the image</span>
-<a id="__codelineno-4-11"></a><span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="sa">f</span><span class="s2">"docker pull </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-4-12"></a>
-<a id="__codelineno-4-13"></a><span class="c1"># Run the Triton server and capture the container ID</span>
-<a id="__codelineno-4-14"></a><span class="n">container_id</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-4-15"></a>    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
-<a id="__codelineno-4-16"></a>        <span class="sa">f</span><span class="s2">"docker run -d --rm --gpus 0 -v </span><span class="si">{</span><span class="n">triton_repo_path</span><span class="si">}</span><span class="s2">:/models -p 8000:8000 </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2"> tritonserver --model-repository=/models"</span><span class="p">,</span>
-<a id="__codelineno-4-17"></a>        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-4-18"></a>    <span class="p">)</span>
-<a id="__codelineno-4-19"></a>    <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<a id="__codelineno-4-20"></a>    <span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<a id="__codelineno-4-21"></a><span class="p">)</span>
-<a id="__codelineno-4-22"></a>
-<a id="__codelineno-4-23"></a><span class="c1"># Wait for the Triton server to start</span>
-<a id="__codelineno-4-24"></a><span class="n">triton_client</span> <span class="o">=</span> <span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-4-25"></a>
-<a id="__codelineno-4-26"></a><span class="c1"># Wait until model is ready</span>
-<a id="__codelineno-4-27"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-<a id="__codelineno-4-28"></a>    <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-<a id="__codelineno-4-29"></a>        <span class="k">assert</span> <span class="n">triton_client</span><span class="o">.</span><span class="n">is_model_ready</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
-<a id="__codelineno-4-30"></a>        <span class="k">break</span>
-<a id="__codelineno-4-31"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tritonclient.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceServerClient</span>
+<span></span>
+<span></span><span class="c1"># Define image https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver</span>
+<span></span><span class="n">tag</span> <span class="o">=</span> <span class="s2">"nvcr.io/nvidia/tritonserver:24.09-py3"</span>  <span class="c1"># 8.57 GB</span>
+<span></span>
+<span></span><span class="c1"># Pull the image</span>
+<span></span><span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="sa">f</span><span class="s2">"docker pull </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run the Triton server and capture the container ID</span>
+<span></span><span class="n">container_id</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+<span></span>        <span class="sa">f</span><span class="s2">"docker run -d --rm --gpus 0 -v </span><span class="si">{</span><span class="n">triton_repo_path</span><span class="si">}</span><span class="s2">:/models -p 8000:8000 </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2"> tritonserver --model-repository=/models"</span><span class="p">,</span>
+<span></span>        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
+<span></span>    <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span></span>    <span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Wait for the Triton server to start</span>
+<span></span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Wait until model is ready</span>
+<span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span></span>    <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span></span>        <span class="k">assert</span> <span class="n">triton_client</span><span class="o">.</span><span class="n">is_model_ready</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span></span>        <span class="k">break</span>
+<span></span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 <p>Then run inference using the Triton Server model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="c1"># Load the Triton Server model</span>
-<a id="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"http://localhost:8000/yolo"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
-<a id="__codelineno-5-5"></a>
-<a id="__codelineno-5-6"></a><span class="c1"># Run inference on the server</span>
-<a id="__codelineno-5-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the Triton Server model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"http://localhost:8000/yolo"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference on the server</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
 </code></pre></div>
 <p>Cleanup the container:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="c1"># Kill and remove the container at the end of the test</span>
-<a id="__codelineno-6-2"></a><span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="sa">f</span><span class="s2">"docker kill </span><span class="si">{</span><span class="n">container_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Kill and remove the container at the end of the test</span>
+<span></span><span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="sa">f</span><span class="s2">"docker kill </span><span class="si">{</span><span class="n">container_id</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="tensorrt-optimization-optional">TensorRT Optimization (Optional)</h2>
 <p>For even greater performance, you can use <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT</a> with Triton Inference Server. TensorRT is a high-performance deep learning optimizer built specifically for NVIDIA GPUs that can significantly increase inference speed.</p>
@@ -987,13 +987,13 @@
 <li>Layer fusion to reduce computational overhead</li>
 </ul>
 <p>To use TensorRT directly, you can export your YOLO11 model to TensorRT format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-7-2"></a>
-<a id="__codelineno-7-3"></a><span class="c1"># Load the YOLO11 model</span>
-<a id="__codelineno-7-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-7-5"></a>
-<a id="__codelineno-7-6"></a><span class="c1"># Export the model to TensorRT format</span>
-<a id="__codelineno-7-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">)</span>  <span class="c1"># creates 'yolo11n.engine'</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the YOLO11 model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Export the model to TensorRT format</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">)</span>  <span class="c1"># creates 'yolo11n.engine'</span>
 </code></pre></div>
 <p>For more information on TensorRT optimization, see the <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT integration guide</a>.</p>
 <hr/>
@@ -1004,59 +1004,59 @@
 <ol>
 <li>
 <p><strong>Export YOLO11 to ONNX format</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-8-2"></a>
-<a id="__codelineno-8-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-8-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
-<a id="__codelineno-8-5"></a>
-<a id="__codelineno-8-6"></a><span class="c1"># Export the model to ONNX format</span>
-<a id="__codelineno-8-7"></a><span class="n">onnx_file</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
+<span></span>
+<span></span><span class="c1"># Export the model to ONNX format</span>
+<span></span><span class="n">onnx_file</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Set up Triton Model Repository</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="c1"># Define paths</span>
-<a id="__codelineno-9-4"></a><span class="n">model_name</span> <span class="o">=</span> <span class="s2">"yolo"</span>
-<a id="__codelineno-9-5"></a><span class="n">triton_repo_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"tmp"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"triton_repo"</span>
-<a id="__codelineno-9-6"></a><span class="n">triton_model_path</span> <span class="o">=</span> <span class="n">triton_repo_path</span> <span class="o">/</span> <span class="n">model_name</span>
-<a id="__codelineno-9-7"></a>
-<a id="__codelineno-9-8"></a><span class="c1"># Create directories</span>
-<a id="__codelineno-9-9"></a><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"1"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-9-10"></a><span class="n">Path</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"1"</span> <span class="o">/</span> <span class="s2">"model.onnx"</span><span class="p">)</span>
-<a id="__codelineno-9-11"></a><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"config.pbtxt"</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
+<span></span>
+<span></span><span class="c1"># Define paths</span>
+<span></span><span class="n">model_name</span> <span class="o">=</span> <span class="s2">"yolo"</span>
+<span></span><span class="n">triton_repo_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"tmp"</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"triton_repo"</span>
+<span></span><span class="n">triton_model_path</span> <span class="o">=</span> <span class="n">triton_repo_path</span> <span class="o">/</span> <span class="n">model_name</span>
+<span></span>
+<span></span><span class="c1"># Create directories</span>
+<span></span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"1"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">Path</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"1"</span> <span class="o">/</span> <span class="s2">"model.onnx"</span><span class="p">)</span>
+<span></span><span class="p">(</span><span class="n">triton_model_path</span> <span class="o">/</span> <span class="s2">"config.pbtxt"</span><span class="p">)</span><span class="o">.</span><span class="n">touch</span><span class="p">()</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Run the Triton Server</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
-<a id="__codelineno-10-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
-<a id="__codelineno-10-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
-<a id="__codelineno-10-4"></a>
-<a id="__codelineno-10-5"></a><span class="kn">from</span><span class="w"> </span><span class="nn">tritonclient.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceServerClient</span>
-<a id="__codelineno-10-6"></a>
-<a id="__codelineno-10-7"></a><span class="c1"># Define image https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver</span>
-<a id="__codelineno-10-8"></a><span class="n">tag</span> <span class="o">=</span> <span class="s2">"nvcr.io/nvidia/tritonserver:24.09-py3"</span>
-<a id="__codelineno-10-9"></a>
-<a id="__codelineno-10-10"></a><span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="sa">f</span><span class="s2">"docker pull </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-10-11"></a>
-<a id="__codelineno-10-12"></a><span class="n">container_id</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-10-13"></a>    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
-<a id="__codelineno-10-14"></a>        <span class="sa">f</span><span class="s2">"docker run -d --rm --gpus 0 -v </span><span class="si">{</span><span class="n">triton_repo_path</span><span class="si">}</span><span class="s2">:/models -p 8000:8000 </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2"> tritonserver --model-repository=/models"</span><span class="p">,</span>
-<a id="__codelineno-10-15"></a>        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-10-16"></a>    <span class="p">)</span>
-<a id="__codelineno-10-17"></a>    <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
-<a id="__codelineno-10-18"></a>    <span class="o">.</span><span class="n">strip</span><span class="p">()</span>
-<a id="__codelineno-10-19"></a><span class="p">)</span>
-<a id="__codelineno-10-20"></a>
-<a id="__codelineno-10-21"></a><span class="n">triton_client</span> <span class="o">=</span> <span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-10-22"></a>
-<a id="__codelineno-10-23"></a><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
-<a id="__codelineno-10-24"></a>    <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
-<a id="__codelineno-10-25"></a>        <span class="k">assert</span> <span class="n">triton_client</span><span class="o">.</span><span class="n">is_model_ready</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
-<a id="__codelineno-10-26"></a>        <span class="k">break</span>
-<a id="__codelineno-10-27"></a>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">contextlib</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">subprocess</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">time</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">tritonclient.http</span><span class="w"> </span><span class="kn">import</span> <span class="n">InferenceServerClient</span>
+<span></span>
+<span></span><span class="c1"># Define image https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tritonserver</span>
+<span></span><span class="n">tag</span> <span class="o">=</span> <span class="s2">"nvcr.io/nvidia/tritonserver:24.09-py3"</span>
+<span></span>
+<span></span><span class="n">subprocess</span><span class="o">.</span><span class="n">call</span><span class="p">(</span><span class="sa">f</span><span class="s2">"docker pull </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">container_id</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>    <span class="n">subprocess</span><span class="o">.</span><span class="n">check_output</span><span class="p">(</span>
+<span></span>        <span class="sa">f</span><span class="s2">"docker run -d --rm --gpus 0 -v </span><span class="si">{</span><span class="n">triton_repo_path</span><span class="si">}</span><span class="s2">:/models -p 8000:8000 </span><span class="si">{</span><span class="n">tag</span><span class="si">}</span><span class="s2"> tritonserver --model-repository=/models"</span><span class="p">,</span>
+<span></span>        <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
+<span></span>    <span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"utf-8"</span><span class="p">)</span>
+<span></span>    <span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">triton_client</span> <span class="o">=</span> <span class="n">InferenceServerClient</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">"localhost:8000"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ssl</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+<span></span>    <span class="k">with</span> <span class="n">contextlib</span><span class="o">.</span><span class="n">suppress</span><span class="p">(</span><span class="ne">Exception</span><span class="p">):</span>
+<span></span>        <span class="k">assert</span> <span class="n">triton_client</span><span class="o">.</span><span class="n">is_model_ready</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span></span>        <span class="k">break</span>
+<span></span>    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1081,21 +1081,21 @@
 <li><strong>Standardization</strong>: ONNX provides a standardized representation that helps overcome compatibility issues between different AI frameworks.</li>
 </ul>
 <p>To export your model, use:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-11-2"></a>
-<a id="__codelineno-11-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-11-4"></a><span class="n">onnx_file</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">onnx_file</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>You can follow the steps in the <a href="https://docs.ultralytics.com/integrations/onnx/">ONNX integration guide</a> to complete the process.</p>
 <h3 id="can-i-run-inference-using-the-ultralytics-yolo11-model-on-triton-inference-server">Can I run inference using the Ultralytics YOLO11 model on Triton Inference Server?</h3>
 <p>Yes, you can run inference using the Ultralytics YOLO11 model on <a href="https://developer.nvidia.com/dynamo">NVIDIA Triton Inference Server</a>. Once your model is set up in the Triton Model Repository and the server is running, you can load and run inference on your model as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-12-2"></a>
-<a id="__codelineno-12-3"></a><span class="c1"># Load the Triton Server model</span>
-<a id="__codelineno-12-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"http://localhost:8000/yolo"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
-<a id="__codelineno-12-5"></a>
-<a id="__codelineno-12-6"></a><span class="c1"># Run inference on the server</span>
-<a id="__codelineno-12-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the Triton Server model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"http://localhost:8000/yolo"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference on the server</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
 </code></pre></div>
 <p>This approach allows you to leverage Triton's optimizations while using the familiar Ultralytics YOLO interface. For an in-depth guide on setting up and running Triton Server with YOLO11, refer to the <a href="#running-triton-inference-server">running triton inference server</a> section.</p>
 <h3 id="how-does-ultralytics-yolo11-compare-to-tensorflow-and-pytorch-models-for-deployment">How does Ultralytics YOLO11 compare to TensorFlow and PyTorch models for deployment?</h3>

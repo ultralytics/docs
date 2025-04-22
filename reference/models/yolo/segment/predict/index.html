@@ -1190,7 +1190,7 @@
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.segment.predict.SegmentationPredictor">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.segment.predict.SegmentationPredictor</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">SegmentationPredictor</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">SegmentationPredictor</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1279,11 +1279,11 @@ prediction results.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span>
-<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.segment</span><span class="w"> </span><span class="kn">import</span> <span class="n">SegmentationPredictor</span>
-<a id="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">ASSETS</span><span class="p">)</span>
-<a id="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">SegmentationPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.segment</span><span class="w"> </span><span class="kn">import</span> <span class="n">SegmentationPredictor</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">ASSETS</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">SegmentationPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
 </code></pre></div>
 <p>This class specializes in processing segmentation model outputs, handling both bounding boxes and masks in the
 prediction results.</p>
@@ -1350,33 +1350,33 @@ prediction results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>33</a></span>
-<span class="normal"><a>34</a></span>
-<span class="normal"><a>35</a></span>
-<span class="normal"><a>36</a></span>
-<span class="normal"><a>37</a></span>
-<span class="normal"><a>38</a></span>
-<span class="normal"><a>39</a></span>
-<span class="normal"><a>40</a></span>
-<span class="normal"><a>41</a></span>
-<span class="normal"><a>42</a></span>
-<span class="normal"><a>43</a></span>
-<span class="normal"><a>44</a></span>
-<span class="normal"><a>45</a></span>
-<span class="normal"><a>46</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-33"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-34"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-35"></a><span class="sd">    Initialize the SegmentationPredictor with configuration, overrides, and callbacks.</span>
-<a id="__codelineno-0-36"></a>
-<a id="__codelineno-0-37"></a><span class="sd">    This class specializes in processing segmentation model outputs, handling both bounding boxes and masks in the</span>
-<a id="__codelineno-0-38"></a><span class="sd">    prediction results.</span>
-<a id="__codelineno-0-39"></a>
-<a id="__codelineno-0-40"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-41"></a><span class="sd">        cfg (dict): Configuration for the predictor. Defaults to Ultralytics DEFAULT_CFG.</span>
-<a id="__codelineno-0-42"></a><span class="sd">        overrides (dict, optional): Configuration overrides that take precedence over cfg.</span>
-<a id="__codelineno-0-43"></a><span class="sd">        _callbacks (list, optional): List of callback functions to be invoked during prediction.</span>
-<a id="__codelineno-0-44"></a><span class="sd">    """</span>
-<a id="__codelineno-0-45"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-46"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"segment"</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>33</span></span>
+<span class="normal"><span>34</span></span>
+<span class="normal"><span>35</span></span>
+<span class="normal"><span>36</span></span>
+<span class="normal"><span>37</span></span>
+<span class="normal"><span>38</span></span>
+<span class="normal"><span>39</span></span>
+<span class="normal"><span>40</span></span>
+<span class="normal"><span>41</span></span>
+<span class="normal"><span>42</span></span>
+<span class="normal"><span>43</span></span>
+<span class="normal"><span>44</span></span>
+<span class="normal"><span>45</span></span>
+<span class="normal"><span>46</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Initialize the SegmentationPredictor with configuration, overrides, and callbacks.</span>
+<span></span>
+<span></span><span class="sd">    This class specializes in processing segmentation model outputs, handling both bounding boxes and masks in the</span>
+<span></span><span class="sd">    prediction results.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        cfg (dict): Configuration for the predictor. Defaults to Ultralytics DEFAULT_CFG.</span>
+<span></span><span class="sd">        overrides (dict, optional): Configuration overrides that take precedence over cfg.</span>
+<span></span><span class="sd">        _callbacks (list, optional): List of callback functions to be invoked during prediction.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"segment"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1384,7 +1384,7 @@ prediction results.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.predict.SegmentationPredictor.construct_result">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">construct_result</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">construct_result</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">proto</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">construct_result</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">proto</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Construct a single result object from the prediction.</p>
@@ -1504,57 +1504,57 @@ prediction results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a> 88</a></span>
-<span class="normal"><a> 89</a></span>
-<span class="normal"><a> 90</a></span>
-<span class="normal"><a> 91</a></span>
-<span class="normal"><a> 92</a></span>
-<span class="normal"><a> 93</a></span>
-<span class="normal"><a> 94</a></span>
-<span class="normal"><a> 95</a></span>
-<span class="normal"><a> 96</a></span>
-<span class="normal"><a> 97</a></span>
-<span class="normal"><a> 98</a></span>
-<span class="normal"><a> 99</a></span>
-<span class="normal"><a>100</a></span>
-<span class="normal"><a>101</a></span>
-<span class="normal"><a>102</a></span>
-<span class="normal"><a>103</a></span>
-<span class="normal"><a>104</a></span>
-<span class="normal"><a>105</a></span>
-<span class="normal"><a>106</a></span>
-<span class="normal"><a>107</a></span>
-<span class="normal"><a>108</a></span>
-<span class="normal"><a>109</a></span>
-<span class="normal"><a>110</a></span>
-<span class="normal"><a>111</a></span>
-<span class="normal"><a>112</a></span>
-<span class="normal"><a>113</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-88"></a><span class="k">def</span><span class="w"> </span><span class="nf">construct_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">proto</span><span class="p">):</span>
-<a id="__codelineno-0-89"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-90"></a><span class="sd">    Construct a single result object from the prediction.</span>
-<a id="__codelineno-0-91"></a>
-<a id="__codelineno-0-92"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-93"></a><span class="sd">        pred (np.ndarray): The predicted bounding boxes, scores, and masks.</span>
-<a id="__codelineno-0-94"></a><span class="sd">        img (torch.Tensor): The image after preprocessing.</span>
-<a id="__codelineno-0-95"></a><span class="sd">        orig_img (np.ndarray): The original image before preprocessing.</span>
-<a id="__codelineno-0-96"></a><span class="sd">        img_path (str): The path to the original image.</span>
-<a id="__codelineno-0-97"></a><span class="sd">        proto (torch.Tensor): The prototype masks.</span>
-<a id="__codelineno-0-98"></a>
-<a id="__codelineno-0-99"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-100"></a><span class="sd">        (Results): Result object containing the original image, image path, class names, bounding boxes, and masks.</span>
-<a id="__codelineno-0-101"></a><span class="sd">    """</span>
-<a id="__codelineno-0-102"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">):</span>  <span class="c1"># save empty boxes</span>
-<a id="__codelineno-0-103"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-104"></a>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">retina_masks</span><span class="p">:</span>
-<a id="__codelineno-0-105"></a>        <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a id="__codelineno-0-106"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">process_mask_native</span><span class="p">(</span><span class="n">proto</span><span class="p">,</span> <span class="n">pred</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># HWC</span>
-<a id="__codelineno-0-107"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-108"></a>        <span class="n">masks</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">process_mask</span><span class="p">(</span><span class="n">proto</span><span class="p">,</span> <span class="n">pred</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># HWC</span>
-<a id="__codelineno-0-109"></a>        <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
-<a id="__codelineno-0-110"></a>    <span class="k">if</span> <span class="n">masks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-111"></a>        <span class="n">keep</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span>  <span class="c1"># only keep predictions with masks</span>
-<a id="__codelineno-0-112"></a>        <span class="n">pred</span><span class="p">,</span> <span class="n">masks</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="n">keep</span><span class="p">],</span> <span class="n">masks</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span>
-<a id="__codelineno-0-113"></a>    <span class="k">return</span> <span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">masks</span><span class="o">=</span><span class="n">masks</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 88</span></span>
+<span class="normal"><span> 89</span></span>
+<span class="normal"><span> 90</span></span>
+<span class="normal"><span> 91</span></span>
+<span class="normal"><span> 92</span></span>
+<span class="normal"><span> 93</span></span>
+<span class="normal"><span> 94</span></span>
+<span class="normal"><span> 95</span></span>
+<span class="normal"><span> 96</span></span>
+<span class="normal"><span> 97</span></span>
+<span class="normal"><span> 98</span></span>
+<span class="normal"><span> 99</span></span>
+<span class="normal"><span>100</span></span>
+<span class="normal"><span>101</span></span>
+<span class="normal"><span>102</span></span>
+<span class="normal"><span>103</span></span>
+<span class="normal"><span>104</span></span>
+<span class="normal"><span>105</span></span>
+<span class="normal"><span>106</span></span>
+<span class="normal"><span>107</span></span>
+<span class="normal"><span>108</span></span>
+<span class="normal"><span>109</span></span>
+<span class="normal"><span>110</span></span>
+<span class="normal"><span>111</span></span>
+<span class="normal"><span>112</span></span>
+<span class="normal"><span>113</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construct_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">proto</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Construct a single result object from the prediction.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        pred (np.ndarray): The predicted bounding boxes, scores, and masks.</span>
+<span></span><span class="sd">        img (torch.Tensor): The image after preprocessing.</span>
+<span></span><span class="sd">        orig_img (np.ndarray): The original image before preprocessing.</span>
+<span></span><span class="sd">        img_path (str): The path to the original image.</span>
+<span></span><span class="sd">        proto (torch.Tensor): The prototype masks.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (Results): Result object containing the original image, image path, class names, bounding boxes, and masks.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">):</span>  <span class="c1"># save empty boxes</span>
+<span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">retina_masks</span><span class="p">:</span>
+<span></span>        <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">process_mask_native</span><span class="p">(</span><span class="n">proto</span><span class="p">,</span> <span class="n">pred</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">])</span>  <span class="c1"># HWC</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">process_mask</span><span class="p">(</span><span class="n">proto</span><span class="p">,</span> <span class="n">pred</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># HWC</span>
+<span></span>        <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">masks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>        <span class="n">keep</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">sum</span><span class="p">((</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span> <span class="o">&gt;</span> <span class="mi">0</span>  <span class="c1"># only keep predictions with masks</span>
+<span></span>        <span class="n">pred</span><span class="p">,</span> <span class="n">masks</span> <span class="o">=</span> <span class="n">pred</span><span class="p">[</span><span class="n">keep</span><span class="p">],</span> <span class="n">masks</span><span class="p">[</span><span class="n">keep</span><span class="p">]</span>
+<span></span>    <span class="k">return</span> <span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">6</span><span class="p">],</span> <span class="n">masks</span><span class="o">=</span><span class="n">masks</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1563,7 +1563,7 @@ prediction results.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.predict.SegmentationPredictor.construct_results">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">construct_results</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">construct_results</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="n">protos</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">construct_results</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="n">protos</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Construct a list of result objects from the predictions.</p>
@@ -1668,41 +1668,41 @@ bounding boxes, and masks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>69</a></span>
-<span class="normal"><a>70</a></span>
-<span class="normal"><a>71</a></span>
-<span class="normal"><a>72</a></span>
-<span class="normal"><a>73</a></span>
-<span class="normal"><a>74</a></span>
-<span class="normal"><a>75</a></span>
-<span class="normal"><a>76</a></span>
-<span class="normal"><a>77</a></span>
-<span class="normal"><a>78</a></span>
-<span class="normal"><a>79</a></span>
-<span class="normal"><a>80</a></span>
-<span class="normal"><a>81</a></span>
-<span class="normal"><a>82</a></span>
-<span class="normal"><a>83</a></span>
-<span class="normal"><a>84</a></span>
-<span class="normal"><a>85</a></span>
-<span class="normal"><a>86</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-69"></a><span class="k">def</span><span class="w"> </span><span class="nf">construct_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="n">protos</span><span class="p">):</span>
-<a id="__codelineno-0-70"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-71"></a><span class="sd">    Construct a list of result objects from the predictions.</span>
-<a id="__codelineno-0-72"></a>
-<a id="__codelineno-0-73"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-74"></a><span class="sd">        preds (List[torch.Tensor]): List of predicted bounding boxes, scores, and masks.</span>
-<a id="__codelineno-0-75"></a><span class="sd">        img (torch.Tensor): The image after preprocessing.</span>
-<a id="__codelineno-0-76"></a><span class="sd">        orig_imgs (List[np.ndarray]): List of original images before preprocessing.</span>
-<a id="__codelineno-0-77"></a><span class="sd">        protos (List[torch.Tensor]): List of prototype masks.</span>
-<a id="__codelineno-0-78"></a>
-<a id="__codelineno-0-79"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-80"></a><span class="sd">        (List[Results]): List of result objects containing the original images, image paths, class names,</span>
-<a id="__codelineno-0-81"></a><span class="sd">            bounding boxes, and masks.</span>
-<a id="__codelineno-0-82"></a><span class="sd">    """</span>
-<a id="__codelineno-0-83"></a>    <span class="k">return</span> <span class="p">[</span>
-<a id="__codelineno-0-84"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">construct_result</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">proto</span><span class="p">)</span>
-<a id="__codelineno-0-85"></a>        <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">proto</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">protos</span><span class="p">)</span>
-<a id="__codelineno-0-86"></a>    <span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>69</span></span>
+<span class="normal"><span>70</span></span>
+<span class="normal"><span>71</span></span>
+<span class="normal"><span>72</span></span>
+<span class="normal"><span>73</span></span>
+<span class="normal"><span>74</span></span>
+<span class="normal"><span>75</span></span>
+<span class="normal"><span>76</span></span>
+<span class="normal"><span>77</span></span>
+<span class="normal"><span>78</span></span>
+<span class="normal"><span>79</span></span>
+<span class="normal"><span>80</span></span>
+<span class="normal"><span>81</span></span>
+<span class="normal"><span>82</span></span>
+<span class="normal"><span>83</span></span>
+<span class="normal"><span>84</span></span>
+<span class="normal"><span>85</span></span>
+<span class="normal"><span>86</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construct_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="n">protos</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Construct a list of result objects from the predictions.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        preds (List[torch.Tensor]): List of predicted bounding boxes, scores, and masks.</span>
+<span></span><span class="sd">        img (torch.Tensor): The image after preprocessing.</span>
+<span></span><span class="sd">        orig_imgs (List[np.ndarray]): List of original images before preprocessing.</span>
+<span></span><span class="sd">        protos (List[torch.Tensor]): List of prototype masks.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (List[Results]): List of result objects containing the original images, image paths, class names,</span>
+<span></span><span class="sd">            bounding boxes, and masks.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">return</span> <span class="p">[</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">construct_result</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">proto</span><span class="p">)</span>
+<span></span>        <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">proto</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">protos</span><span class="p">)</span>
+<span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1711,7 +1711,7 @@ bounding boxes, and masks.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.predict.SegmentationPredictor.postprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">postprocess</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply non-max suppression and process segmentation detections for each image in the input batch.</p>
@@ -1799,50 +1799,50 @@ bounding boxes, and masks.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">SegmentationPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolov8n-seg.pt"</span><span class="p">))</span>
-<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">SegmentationPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolov8n-seg.pt"</span><span class="p">))</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>48</a></span>
-<span class="normal"><a>49</a></span>
-<span class="normal"><a>50</a></span>
-<span class="normal"><a>51</a></span>
-<span class="normal"><a>52</a></span>
-<span class="normal"><a>53</a></span>
-<span class="normal"><a>54</a></span>
-<span class="normal"><a>55</a></span>
-<span class="normal"><a>56</a></span>
-<span class="normal"><a>57</a></span>
-<span class="normal"><a>58</a></span>
-<span class="normal"><a>59</a></span>
-<span class="normal"><a>60</a></span>
-<span class="normal"><a>61</a></span>
-<span class="normal"><a>62</a></span>
-<span class="normal"><a>63</a></span>
-<span class="normal"><a>64</a></span>
-<span class="normal"><a>65</a></span>
-<span class="normal"><a>66</a></span>
-<span class="normal"><a>67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-48"></a><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-49"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-50"></a><span class="sd">    Apply non-max suppression and process segmentation detections for each image in the input batch.</span>
-<a id="__codelineno-0-51"></a>
-<a id="__codelineno-0-52"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-53"></a><span class="sd">        preds (tuple): Model predictions, containing bounding boxes, scores, classes, and mask coefficients.</span>
-<a id="__codelineno-0-54"></a><span class="sd">        img (torch.Tensor): Input image tensor in model format, with shape (B, C, H, W).</span>
-<a id="__codelineno-0-55"></a><span class="sd">        orig_imgs (list | torch.Tensor | np.ndarray): Original image or batch of images.</span>
-<a id="__codelineno-0-56"></a>
-<a id="__codelineno-0-57"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-58"></a><span class="sd">        (list): List of Results objects containing the segmentation predictions for each image in the batch.</span>
-<a id="__codelineno-0-59"></a><span class="sd">               Each Results object includes both bounding boxes and segmentation masks.</span>
-<a id="__codelineno-0-60"></a>
-<a id="__codelineno-0-61"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-62"></a><span class="sd">        &gt;&gt;&gt; predictor = SegmentationPredictor(overrides=dict(model="yolov8n-seg.pt"))</span>
-<a id="__codelineno-0-63"></a><span class="sd">        &gt;&gt;&gt; results = predictor.postprocess(preds, img, orig_img)</span>
-<a id="__codelineno-0-64"></a><span class="sd">    """</span>
-<a id="__codelineno-0-65"></a>    <span class="c1"># Extract protos - tuple if PyTorch model or array if exported</span>
-<a id="__codelineno-0-66"></a>    <span class="n">protos</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<a id="__codelineno-0-67"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="n">protos</span><span class="o">=</span><span class="n">protos</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>48</span></span>
+<span class="normal"><span>49</span></span>
+<span class="normal"><span>50</span></span>
+<span class="normal"><span>51</span></span>
+<span class="normal"><span>52</span></span>
+<span class="normal"><span>53</span></span>
+<span class="normal"><span>54</span></span>
+<span class="normal"><span>55</span></span>
+<span class="normal"><span>56</span></span>
+<span class="normal"><span>57</span></span>
+<span class="normal"><span>58</span></span>
+<span class="normal"><span>59</span></span>
+<span class="normal"><span>60</span></span>
+<span class="normal"><span>61</span></span>
+<span class="normal"><span>62</span></span>
+<span class="normal"><span>63</span></span>
+<span class="normal"><span>64</span></span>
+<span class="normal"><span>65</span></span>
+<span class="normal"><span>66</span></span>
+<span class="normal"><span>67</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Apply non-max suppression and process segmentation detections for each image in the input batch.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        preds (tuple): Model predictions, containing bounding boxes, scores, classes, and mask coefficients.</span>
+<span></span><span class="sd">        img (torch.Tensor): Input image tensor in model format, with shape (B, C, H, W).</span>
+<span></span><span class="sd">        orig_imgs (list | torch.Tensor | np.ndarray): Original image or batch of images.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (list): List of Results objects containing the segmentation predictions for each image in the batch.</span>
+<span></span><span class="sd">               Each Results object includes both bounding boxes and segmentation masks.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; predictor = SegmentationPredictor(overrides=dict(model="yolov8n-seg.pt"))</span>
+<span></span><span class="sd">        &gt;&gt;&gt; results = predictor.postprocess(preds, img, orig_img)</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="c1"># Extract protos - tuple if PyTorch model or array if exported</span>
+<span></span>    <span class="n">protos</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span></span>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="n">protos</span><span class="o">=</span><span class="n">protos</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

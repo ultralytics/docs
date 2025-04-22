@@ -906,9 +906,9 @@
 <p>📚 This guide explains how to export a trained YOLOv5 🚀 model from <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> to various deployment formats including ONNX, TensorRT, CoreML and more.</p>
 <h2 id="before-you-start">Before You Start</h2>
 <p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w"> </span><span class="c1"># clone</span>
-<a id="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a id="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># install</span>
+<div class="highlight"><pre><span></span><code><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w"> </span><span class="c1"># clone</span>
+<span></span><span class="nb">cd</span><span class="w"> </span>yolov5
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># install</span>
 </code></pre></div>
 <p>For <a href="https://developer.nvidia.com/tensorrt">TensorRT</a> export example (requires GPU) see our Colab <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb#scrollTo=VTRwsvA9u7ln&amp;line=2&amp;uniqifier=1">notebook</a> appendix section. <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a></p>
 <h2 id="supported-export-formats">Supported Export Formats</h2>
@@ -993,80 +993,80 @@
 </table>
 <h2 id="benchmarks">Benchmarks</h2>
 <p>Benchmarks below run on a Colab Pro with the YOLOv5 tutorial notebook <a href="https://colab.research.google.com/github/ultralytics/yolov5/blob/master/tutorial.ipynb"><img alt="Open In Colab" src="https://colab.research.google.com/assets/colab-badge.svg"/></a>. To reproduce:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>python<span class="w"> </span>benchmarks.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--imgsz<span class="w"> </span><span class="m">640</span><span class="w"> </span>--device<span class="w"> </span><span class="m">0</span>
+<div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>benchmarks.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--imgsz<span class="w"> </span><span class="m">640</span><span class="w"> </span>--device<span class="w"> </span><span class="m">0</span>
 </code></pre></div>
 <h3 id="colab-pro-v100-gpu">Colab Pro V100 GPU</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>benchmarks: weights=/content/yolov5/yolov5s.pt, imgsz=640, batch_size=1, data=/content/yolov5/data/coco128.yaml, device=0, half=False, test=False
-<a id="__codelineno-2-2"></a>Checking setup...
-<a id="__codelineno-2-3"></a>YOLOv5 🚀 v6.1-135-g7926afc torch 1.10.0+cu111 CUDA:0 (Tesla V100-SXM2-16GB, 16160MiB)
-<a id="__codelineno-2-4"></a>Setup complete ✅ (8 CPUs, 51.0 GB RAM, 46.7/166.8 GB disk)
-<a id="__codelineno-2-5"></a>
-<a id="__codelineno-2-6"></a>Benchmarks complete (458.07s)
-<a id="__codelineno-2-7"></a>                   Format  mAP@0.5:0.95  Inference time (ms)
-<a id="__codelineno-2-8"></a>0                 PyTorch        0.4623                10.19
-<a id="__codelineno-2-9"></a>1             TorchScript        0.4623                 6.85
-<a id="__codelineno-2-10"></a>2                    ONNX        0.4623                14.63
-<a id="__codelineno-2-11"></a>3                OpenVINO           NaN                  NaN
-<a id="__codelineno-2-12"></a>4                TensorRT        0.4617                 1.89
-<a id="__codelineno-2-13"></a>5                  CoreML           NaN                  NaN
-<a id="__codelineno-2-14"></a>6   TensorFlow SavedModel        0.4623                21.28
-<a id="__codelineno-2-15"></a>7     TensorFlow GraphDef        0.4623                21.22
-<a id="__codelineno-2-16"></a>8         TensorFlow Lite           NaN                  NaN
-<a id="__codelineno-2-17"></a>9     TensorFlow Edge TPU           NaN                  NaN
-<a id="__codelineno-2-18"></a>10          TensorFlow.js           NaN                  NaN
+<div class="highlight"><pre><span></span><code><span></span>benchmarks: weights=/content/yolov5/yolov5s.pt, imgsz=640, batch_size=1, data=/content/yolov5/data/coco128.yaml, device=0, half=False, test=False
+<span></span>Checking setup...
+<span></span>YOLOv5 🚀 v6.1-135-g7926afc torch 1.10.0+cu111 CUDA:0 (Tesla V100-SXM2-16GB, 16160MiB)
+<span></span>Setup complete ✅ (8 CPUs, 51.0 GB RAM, 46.7/166.8 GB disk)
+<span></span>
+<span></span>Benchmarks complete (458.07s)
+<span></span>                   Format  mAP@0.5:0.95  Inference time (ms)
+<span></span>0                 PyTorch        0.4623                10.19
+<span></span>1             TorchScript        0.4623                 6.85
+<span></span>2                    ONNX        0.4623                14.63
+<span></span>3                OpenVINO           NaN                  NaN
+<span></span>4                TensorRT        0.4617                 1.89
+<span></span>5                  CoreML           NaN                  NaN
+<span></span>6   TensorFlow SavedModel        0.4623                21.28
+<span></span>7     TensorFlow GraphDef        0.4623                21.22
+<span></span>8         TensorFlow Lite           NaN                  NaN
+<span></span>9     TensorFlow Edge TPU           NaN                  NaN
+<span></span>10          TensorFlow.js           NaN                  NaN
 </code></pre></div>
 <h3 id="colab-pro-cpu">Colab Pro CPU</h3>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a>benchmarks: weights=/content/yolov5/yolov5s.pt, imgsz=640, batch_size=1, data=/content/yolov5/data/coco128.yaml, device=cpu, half=False, test=False
-<a id="__codelineno-3-2"></a>Checking setup...
-<a id="__codelineno-3-3"></a>YOLOv5 🚀 v6.1-135-g7926afc torch 1.10.0+cu111 CPU
-<a id="__codelineno-3-4"></a>Setup complete ✅ (8 CPUs, 51.0 GB RAM, 41.5/166.8 GB disk)
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a>Benchmarks complete (241.20s)
-<a id="__codelineno-3-7"></a>                   Format  mAP@0.5:0.95  Inference time (ms)
-<a id="__codelineno-3-8"></a>0                 PyTorch        0.4623               127.61
-<a id="__codelineno-3-9"></a>1             TorchScript        0.4623               131.23
-<a id="__codelineno-3-10"></a>2                    ONNX        0.4623                69.34
-<a id="__codelineno-3-11"></a>3                OpenVINO        0.4623                66.52
-<a id="__codelineno-3-12"></a>4                TensorRT           NaN                  NaN
-<a id="__codelineno-3-13"></a>5                  CoreML           NaN                  NaN
-<a id="__codelineno-3-14"></a>6   TensorFlow SavedModel        0.4623               123.79
-<a id="__codelineno-3-15"></a>7     TensorFlow GraphDef        0.4623               121.57
-<a id="__codelineno-3-16"></a>8         TensorFlow Lite        0.4623               316.61
-<a id="__codelineno-3-17"></a>9     TensorFlow Edge TPU           NaN                  NaN
-<a id="__codelineno-3-18"></a>10          TensorFlow.js           NaN                  NaN
+<div class="highlight"><pre><span></span><code><span></span>benchmarks: weights=/content/yolov5/yolov5s.pt, imgsz=640, batch_size=1, data=/content/yolov5/data/coco128.yaml, device=cpu, half=False, test=False
+<span></span>Checking setup...
+<span></span>YOLOv5 🚀 v6.1-135-g7926afc torch 1.10.0+cu111 CPU
+<span></span>Setup complete ✅ (8 CPUs, 51.0 GB RAM, 41.5/166.8 GB disk)
+<span></span>
+<span></span>Benchmarks complete (241.20s)
+<span></span>                   Format  mAP@0.5:0.95  Inference time (ms)
+<span></span>0                 PyTorch        0.4623               127.61
+<span></span>1             TorchScript        0.4623               131.23
+<span></span>2                    ONNX        0.4623                69.34
+<span></span>3                OpenVINO        0.4623                66.52
+<span></span>4                TensorRT           NaN                  NaN
+<span></span>5                  CoreML           NaN                  NaN
+<span></span>6   TensorFlow SavedModel        0.4623               123.79
+<span></span>7     TensorFlow GraphDef        0.4623               121.57
+<span></span>8         TensorFlow Lite        0.4623               316.61
+<span></span>9     TensorFlow Edge TPU           NaN                  NaN
+<span></span>10          TensorFlow.js           NaN                  NaN
 </code></pre></div>
 <h2 id="export-a-trained-yolov5-model">Export a Trained YOLOv5 Model</h2>
 <p>This command exports a pretrained YOLOv5s model to TorchScript and ONNX formats. <code>yolov5s.pt</code> is the 'small' model, the second-smallest model available. Other options are <code>yolov5n.pt</code>, <code>yolov5m.pt</code>, <code>yolov5l.pt</code> and <code>yolov5x.pt</code>, along with their P6 counterparts i.e. <code>yolov5s6.pt</code> or you own custom training checkpoint i.e. <code>runs/exp/weights/best.pt</code>. For details on all available models please see our README <a href="https://github.com/ultralytics/yolov5#pretrained-checkpoints">table</a>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>torchscript<span class="w"> </span>onnx
+<div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>torchscript<span class="w"> </span>onnx
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Add <code>--half</code> to export models at FP16 half <a href="https://www.ultralytics.com/glossary/precision">precision</a> for smaller file sizes</p>
 </div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="go">export: data=data/coco128.yaml, weights=['yolov5s.pt'], imgsz=[640, 640], batch_size=1, device=cpu, half=False, inplace=False, train=False, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=12, verbose=False, workspace=4, nms=False, agnostic_nms=False, topk_per_class=100, topk_all=100, iou_thres=0.45, conf_thres=0.25, include=['torchscript', 'onnx']</span>
-<a id="__codelineno-5-2"></a><span class="go">YOLOv5 🚀 v6.2-104-ge3e5122 Python-3.8.0 torch-1.12.1+cu113 CPU</span>
-<a id="__codelineno-5-3"></a>
-<a id="__codelineno-5-4"></a><span class="go">Downloading https://github.com/ultralytics/yolov5/releases/download/v6.2/yolov5s.pt to yolov5s.pt...</span>
-<a id="__codelineno-5-5"></a><span class="go">100% 14.1M/14.1M [00:00&lt;00:00, 274MB/s]</span>
-<a id="__codelineno-5-6"></a>
-<a id="__codelineno-5-7"></a><span class="go">Fusing layers...</span>
-<a id="__codelineno-5-8"></a><span class="go">YOLOv5s summary: 213 layers, 7225885 parameters, 0 gradients</span>
-<a id="__codelineno-5-9"></a>
-<a id="__codelineno-5-10"></a><span class="go">PyTorch: starting from yolov5s.pt with output shape (1, 25200, 85) (14.1 MB)</span>
-<a id="__codelineno-5-11"></a>
-<a id="__codelineno-5-12"></a><span class="go">TorchScript: starting export with torch 1.12.1+cu113...</span>
-<a id="__codelineno-5-13"></a><span class="go">TorchScript: export success ✅ 1.7s, saved as yolov5s.torchscript (28.1 MB)</span>
-<a id="__codelineno-5-14"></a>
-<a id="__codelineno-5-15"></a><span class="go">ONNX: starting export with onnx 1.12.0...</span>
-<a id="__codelineno-5-16"></a><span class="go">ONNX: export success ✅ 2.3s, saved as yolov5s.onnx (28.0 MB)</span>
-<a id="__codelineno-5-17"></a>
-<a id="__codelineno-5-18"></a><span class="go">Export complete (5.5s)</span>
-<a id="__codelineno-5-19"></a><span class="go">Results saved to /content/yolov5</span>
-<a id="__codelineno-5-20"></a><span class="go">Detect:          python detect.py --weights yolov5s.onnx</span>
-<a id="__codelineno-5-21"></a><span class="go">Validate:        python val.py --weights yolov5s.onnx</span>
-<a id="__codelineno-5-22"></a><span class="go">PyTorch Hub:     model = torch.hub.load('ultralytics/yolov5', 'custom', 'yolov5s.onnx')</span>
-<a id="__codelineno-5-23"></a><span class="go">Visualize:       https://netron.app/</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="go">export: data=data/coco128.yaml, weights=['yolov5s.pt'], imgsz=[640, 640], batch_size=1, device=cpu, half=False, inplace=False, train=False, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=12, verbose=False, workspace=4, nms=False, agnostic_nms=False, topk_per_class=100, topk_all=100, iou_thres=0.45, conf_thres=0.25, include=['torchscript', 'onnx']</span>
+<span></span><span class="go">YOLOv5 🚀 v6.2-104-ge3e5122 Python-3.8.0 torch-1.12.1+cu113 CPU</span>
+<span></span>
+<span></span><span class="go">Downloading https://github.com/ultralytics/yolov5/releases/download/v6.2/yolov5s.pt to yolov5s.pt...</span>
+<span></span><span class="go">100% 14.1M/14.1M [00:00&lt;00:00, 274MB/s]</span>
+<span></span>
+<span></span><span class="go">Fusing layers...</span>
+<span></span><span class="go">YOLOv5s summary: 213 layers, 7225885 parameters, 0 gradients</span>
+<span></span>
+<span></span><span class="go">PyTorch: starting from yolov5s.pt with output shape (1, 25200, 85) (14.1 MB)</span>
+<span></span>
+<span></span><span class="go">TorchScript: starting export with torch 1.12.1+cu113...</span>
+<span></span><span class="go">TorchScript: export success ✅ 1.7s, saved as yolov5s.torchscript (28.1 MB)</span>
+<span></span>
+<span></span><span class="go">ONNX: starting export with onnx 1.12.0...</span>
+<span></span><span class="go">ONNX: export success ✅ 2.3s, saved as yolov5s.onnx (28.0 MB)</span>
+<span></span>
+<span></span><span class="go">Export complete (5.5s)</span>
+<span></span><span class="go">Results saved to /content/yolov5</span>
+<span></span><span class="go">Detect:          python detect.py --weights yolov5s.onnx</span>
+<span></span><span class="go">Validate:        python val.py --weights yolov5s.onnx</span>
+<span></span><span class="go">PyTorch Hub:     model = torch.hub.load('ultralytics/yolov5', 'custom', 'yolov5s.onnx')</span>
+<span></span><span class="go">Visualize:       https://netron.app/</span>
 </code></pre></div>
 <p>The 3 exported models will be saved alongside the original PyTorch model:</p>
 <p align="center"><img alt="YOLO export locations" src="https://github.com/ultralytics/docs/releases/download/0/yolo-export-locations.avif" width="700"/></p>
@@ -1074,62 +1074,62 @@
 <p align="center"><img alt="YOLO model visualization" src="https://github.com/ultralytics/docs/releases/download/0/yolo-model-visualization.avif" width="850"/></p>
 <h2 id="exported-model-usage-examples">Exported Model Usage Examples</h2>
 <p><code>detect.py</code> runs inference on exported models:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">             </span><span class="c1"># PyTorch</span>
-<a id="__codelineno-6-2"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.torchscript<span class="w">    </span><span class="c1"># TorchScript</span>
-<a id="__codelineno-6-3"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.onnx<span class="w">           </span><span class="c1"># ONNX Runtime or OpenCV DNN with dnn=True</span>
-<a id="__codelineno-6-4"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_openvino_model<span class="w"> </span><span class="c1"># OpenVINO</span>
-<a id="__codelineno-6-5"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.engine<span class="w">         </span><span class="c1"># TensorRT</span>
-<a id="__codelineno-6-6"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.mlmodel<span class="w">        </span><span class="c1"># CoreML (macOS only)</span>
-<a id="__codelineno-6-7"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_saved_model<span class="w">    </span><span class="c1"># TensorFlow SavedModel</span>
-<a id="__codelineno-6-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pb<span class="w">             </span><span class="c1"># TensorFlow GraphDef</span>
-<a id="__codelineno-6-9"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.tflite<span class="w">         </span><span class="c1"># TensorFlow Lite</span>
-<a id="__codelineno-6-10"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_edgetpu.tflite<span class="w"> </span><span class="c1"># TensorFlow Edge TPU</span>
-<a id="__codelineno-6-11"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_paddle_model<span class="w">   </span><span class="c1"># PaddlePaddle</span>
+<div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">             </span><span class="c1"># PyTorch</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.torchscript<span class="w">    </span><span class="c1"># TorchScript</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.onnx<span class="w">           </span><span class="c1"># ONNX Runtime or OpenCV DNN with dnn=True</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_openvino_model<span class="w"> </span><span class="c1"># OpenVINO</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.engine<span class="w">         </span><span class="c1"># TensorRT</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.mlmodel<span class="w">        </span><span class="c1"># CoreML (macOS only)</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_saved_model<span class="w">    </span><span class="c1"># TensorFlow SavedModel</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pb<span class="w">             </span><span class="c1"># TensorFlow GraphDef</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.tflite<span class="w">         </span><span class="c1"># TensorFlow Lite</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_edgetpu.tflite<span class="w"> </span><span class="c1"># TensorFlow Edge TPU</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_paddle_model<span class="w">   </span><span class="c1"># PaddlePaddle</span>
 </code></pre></div>
 <p><code>val.py</code> runs validation on exported models:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">             </span><span class="c1"># PyTorch</span>
-<a id="__codelineno-7-2"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.torchscript<span class="w">    </span><span class="c1"># TorchScript</span>
-<a id="__codelineno-7-3"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.onnx<span class="w">           </span><span class="c1"># ONNX Runtime or OpenCV DNN with dnn=True</span>
-<a id="__codelineno-7-4"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_openvino_model<span class="w"> </span><span class="c1"># OpenVINO</span>
-<a id="__codelineno-7-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.engine<span class="w">         </span><span class="c1"># TensorRT</span>
-<a id="__codelineno-7-6"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.mlmodel<span class="w">        </span><span class="c1"># CoreML (macOS Only)</span>
-<a id="__codelineno-7-7"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_saved_model<span class="w">    </span><span class="c1"># TensorFlow SavedModel</span>
-<a id="__codelineno-7-8"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pb<span class="w">             </span><span class="c1"># TensorFlow GraphDef</span>
-<a id="__codelineno-7-9"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.tflite<span class="w">         </span><span class="c1"># TensorFlow Lite</span>
-<a id="__codelineno-7-10"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_edgetpu.tflite<span class="w"> </span><span class="c1"># TensorFlow Edge TPU</span>
-<a id="__codelineno-7-11"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_paddle_model<span class="w">   </span><span class="c1"># PaddlePaddle</span>
+<div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w">             </span><span class="c1"># PyTorch</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.torchscript<span class="w">    </span><span class="c1"># TorchScript</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.onnx<span class="w">           </span><span class="c1"># ONNX Runtime or OpenCV DNN with dnn=True</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_openvino_model<span class="w"> </span><span class="c1"># OpenVINO</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.engine<span class="w">         </span><span class="c1"># TensorRT</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.mlmodel<span class="w">        </span><span class="c1"># CoreML (macOS Only)</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_saved_model<span class="w">    </span><span class="c1"># TensorFlow SavedModel</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pb<span class="w">             </span><span class="c1"># TensorFlow GraphDef</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.tflite<span class="w">         </span><span class="c1"># TensorFlow Lite</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_edgetpu.tflite<span class="w"> </span><span class="c1"># TensorFlow Edge TPU</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s_paddle_model<span class="w">   </span><span class="c1"># PaddlePaddle</span>
 </code></pre></div>
 <p>Use PyTorch Hub with exported YOLOv5 models:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<a id="__codelineno-8-2"></a>
-<a id="__codelineno-8-3"></a><span class="c1"># Model</span>
-<a id="__codelineno-8-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.pt"</span><span class="p">)</span>
-<a id="__codelineno-8-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.torchscript "</span><span class="p">)</span>  <span class="c1"># TorchScript</span>
-<a id="__codelineno-8-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.onnx"</span><span class="p">)</span>  <span class="c1"># ONNX Runtime</span>
-<a id="__codelineno-8-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s_openvino_model"</span><span class="p">)</span>  <span class="c1"># OpenVINO</span>
-<a id="__codelineno-8-8"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.engine"</span><span class="p">)</span>  <span class="c1"># TensorRT</span>
-<a id="__codelineno-8-9"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.mlmodel"</span><span class="p">)</span>  <span class="c1"># CoreML (macOS Only)</span>
-<a id="__codelineno-8-10"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s_saved_model"</span><span class="p">)</span>  <span class="c1"># TensorFlow SavedModel</span>
-<a id="__codelineno-8-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.pb"</span><span class="p">)</span>  <span class="c1"># TensorFlow GraphDef</span>
-<a id="__codelineno-8-12"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.tflite"</span><span class="p">)</span>  <span class="c1"># TensorFlow Lite</span>
-<a id="__codelineno-8-13"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s_edgetpu.tflite"</span><span class="p">)</span>  <span class="c1"># TensorFlow Edge TPU</span>
-<a id="__codelineno-8-14"></a><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s_paddle_model"</span><span class="p">)</span>  <span class="c1"># PaddlePaddle</span>
-<a id="__codelineno-8-15"></a>
-<a id="__codelineno-8-16"></a><span class="c1"># Images</span>
-<a id="__codelineno-8-17"></a><span class="n">img</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/zidane.jpg"</span>  <span class="c1"># or file, Path, PIL, OpenCV, numpy, list</span>
-<a id="__codelineno-8-18"></a>
-<a id="__codelineno-8-19"></a><span class="c1"># Inference</span>
-<a id="__codelineno-8-20"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-<a id="__codelineno-8-21"></a>
-<a id="__codelineno-8-22"></a><span class="c1"># Results</span>
-<a id="__codelineno-8-23"></a><span class="n">results</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>  <span class="c1"># or .show(), .save(), .crop(), .pandas(), etc.</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span></span>
+<span></span><span class="c1"># Model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.pt"</span><span class="p">)</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.torchscript "</span><span class="p">)</span>  <span class="c1"># TorchScript</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.onnx"</span><span class="p">)</span>  <span class="c1"># ONNX Runtime</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s_openvino_model"</span><span class="p">)</span>  <span class="c1"># OpenVINO</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.engine"</span><span class="p">)</span>  <span class="c1"># TensorRT</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.mlmodel"</span><span class="p">)</span>  <span class="c1"># CoreML (macOS Only)</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s_saved_model"</span><span class="p">)</span>  <span class="c1"># TensorFlow SavedModel</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.pb"</span><span class="p">)</span>  <span class="c1"># TensorFlow GraphDef</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s.tflite"</span><span class="p">)</span>  <span class="c1"># TensorFlow Lite</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s_edgetpu.tflite"</span><span class="p">)</span>  <span class="c1"># TensorFlow Edge TPU</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">hub</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ultralytics/yolov5"</span><span class="p">,</span> <span class="s2">"custom"</span><span class="p">,</span> <span class="s2">"yolov5s_paddle_model"</span><span class="p">)</span>  <span class="c1"># PaddlePaddle</span>
+<span></span>
+<span></span><span class="c1"># Images</span>
+<span></span><span class="n">img</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/zidane.jpg"</span>  <span class="c1"># or file, Path, PIL, OpenCV, numpy, list</span>
+<span></span>
+<span></span><span class="c1"># Inference</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Results</span>
+<span></span><span class="n">results</span><span class="o">.</span><span class="n">print</span><span class="p">()</span>  <span class="c1"># or .show(), .save(), .crop(), .pandas(), etc.</span>
 </code></pre></div>
 <h2 id="opencv-dnn-inference">OpenCV DNN inference</h2>
 <p><a href="https://www.ultralytics.com/glossary/opencv">OpenCV</a> inference with ONNX models:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.onnx<span class="w"> </span>--dnn<span class="w"> </span><span class="c1"># detect</span>
-<a id="__codelineno-9-4"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.onnx<span class="w"> </span>--dnn<span class="w">    </span><span class="c1"># validate</span>
+<div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx
+<span></span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.onnx<span class="w"> </span>--dnn<span class="w"> </span><span class="c1"># detect</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.onnx<span class="w"> </span>--dnn<span class="w">    </span><span class="c1"># validate</span>
 </code></pre></div>
 <h2 id="c-inference">C++ Inference</h2>
 <p>YOLOv5 OpenCV DNN C++ inference on exported ONNX model examples:</p>

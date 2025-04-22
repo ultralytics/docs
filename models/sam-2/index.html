@@ -1087,7 +1087,7 @@
 </table>
 <h2 id="installation">Installation</h2>
 <p>To install SAM 2, use the following command. All SAM 2 models will automatically download on first use.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 <h2 id="how-to-use-sam-2-versatility-in-image-and-video-segmentation">How to Use SAM 2: Versatility in Image and Video Segmentation</h2>
 <p>The following table details the available SAM 2 models, their pre-trained weights, supported tasks, and compatibility with different operating modes like <a href="../../modes/predict/">Inference</a>, <a href="../../modes/val/">Validation</a>, <a href="../../modes/train/">Training</a>, and <a href="../../modes/export/">Export</a>.</p>
@@ -1187,28 +1187,28 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam2.1_b.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Display model information (optional)</span>
-<a id="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a id="__codelineno-1-8"></a>
-<a id="__codelineno-1-9"></a><span class="c1"># Run inference with bboxes prompt</span>
-<a id="__codelineno-1-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
-<a id="__codelineno-1-11"></a>
-<a id="__codelineno-1-12"></a><span class="c1"># Run inference with single point</span>
-<a id="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-1-14"></a>
-<a id="__codelineno-1-15"></a><span class="c1"># Run inference with multiple points</span>
-<a id="__codelineno-1-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-1-17"></a>
-<a id="__codelineno-1-18"></a><span class="c1"># Run inference with multiple points prompt per object</span>
-<a id="__codelineno-1-19"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[[[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">]]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<a id="__codelineno-1-20"></a>
-<a id="__codelineno-1-21"></a><span class="c1"># Run inference with negative points prompt</span>
-<a id="__codelineno-1-22"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[[[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">]]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam2.1_b.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Display model information (optional)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Run inference with bboxes prompt</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span></span>
+<span></span><span class="c1"># Run inference with single point</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span></span>
+<span></span><span class="c1"># Run inference with multiple points</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span></span>
+<span></span><span class="c1"># Run inference with multiple points prompt per object</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[[[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">]]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span></span>
+<span></span><span class="c1"># Run inference with negative points prompt</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[[[</span><span class="mi">400</span><span class="p">,</span> <span class="mi">370</span><span class="p">],</span> <span class="p">[</span><span class="mi">900</span><span class="p">,</span> <span class="mi">370</span><span class="p">]]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 </code></pre></div>
 </div>
 </div>
@@ -1221,21 +1221,21 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam2.1_b.pt"</span><span class="p">)</span>
-<a id="__codelineno-2-5"></a>
-<a id="__codelineno-2-6"></a><span class="c1"># Display model information (optional)</span>
-<a id="__codelineno-2-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a id="__codelineno-2-8"></a>
-<a id="__codelineno-2-9"></a><span class="c1"># Run inference</span>
-<a id="__codelineno-2-10"></a><span class="n">model</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam2.1_b.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Display model information (optional)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Run inference</span>
+<span></span><span class="n">model</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Run inference with a SAM 2 model</span>
-<a id="__codelineno-3-2"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>sam2.1_b.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/video.mp4
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Run inference with a SAM 2 model</span>
+<span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>sam2.1_b.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/video.mp4
 </code></pre></div>
 </div>
 </div>
@@ -1248,23 +1248,23 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.sam</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM2VideoPredictor</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="c1"># Create SAM2VideoPredictor</span>
-<a id="__codelineno-4-4"></a><span class="n">overrides</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"segment"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"predict"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"sam2_b.pt"</span><span class="p">)</span>
-<a id="__codelineno-4-5"></a><span class="n">predictor</span> <span class="o">=</span> <span class="n">SAM2VideoPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">)</span>
-<a id="__codelineno-4-6"></a>
-<a id="__codelineno-4-7"></a><span class="c1"># Run inference with single point</span>
-<a id="__codelineno-4-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test.mp4"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[</span><span class="mi">920</span><span class="p">,</span> <span class="mi">470</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-4-9"></a>
-<a id="__codelineno-4-10"></a><span class="c1"># Run inference with multiple points</span>
-<a id="__codelineno-4-11"></a><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test.mp4"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">920</span><span class="p">,</span> <span class="mi">470</span><span class="p">],</span> <span class="p">[</span><span class="mi">909</span><span class="p">,</span> <span class="mi">138</span><span class="p">]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-4-12"></a>
-<a id="__codelineno-4-13"></a><span class="c1"># Run inference with multiple points prompt per object</span>
-<a id="__codelineno-4-14"></a><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test.mp4"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[[</span><span class="mi">920</span><span class="p">,</span> <span class="mi">470</span><span class="p">],</span> <span class="p">[</span><span class="mi">909</span><span class="p">,</span> <span class="mi">138</span><span class="p">]]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
-<a id="__codelineno-4-15"></a>
-<a id="__codelineno-4-16"></a><span class="c1"># Run inference with negative points prompt</span>
-<a id="__codelineno-4-17"></a><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test.mp4"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[[</span><span class="mi">920</span><span class="p">,</span> <span class="mi">470</span><span class="p">],</span> <span class="p">[</span><span class="mi">909</span><span class="p">,</span> <span class="mi">138</span><span class="p">]]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.sam</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM2VideoPredictor</span>
+<span></span>
+<span></span><span class="c1"># Create SAM2VideoPredictor</span>
+<span></span><span class="n">overrides</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">conf</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"segment"</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"predict"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"sam2_b.pt"</span><span class="p">)</span>
+<span></span><span class="n">predictor</span> <span class="o">=</span> <span class="n">SAM2VideoPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">overrides</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference with single point</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test.mp4"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[</span><span class="mi">920</span><span class="p">,</span> <span class="mi">470</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span></span>
+<span></span><span class="c1"># Run inference with multiple points</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test.mp4"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mi">920</span><span class="p">,</span> <span class="mi">470</span><span class="p">],</span> <span class="p">[</span><span class="mi">909</span><span class="p">,</span> <span class="mi">138</span><span class="p">]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span></span>
+<span></span><span class="c1"># Run inference with multiple points prompt per object</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test.mp4"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[[</span><span class="mi">920</span><span class="p">,</span> <span class="mi">470</span><span class="p">],</span> <span class="p">[</span><span class="mi">909</span><span class="p">,</span> <span class="mi">138</span><span class="p">]]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]])</span>
+<span></span>
+<span></span><span class="c1"># Run inference with negative points prompt</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test.mp4"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[[[</span><span class="mi">920</span><span class="p">,</span> <span class="mi">470</span><span class="p">],</span> <span class="p">[</span><span class="mi">909</span><span class="p">,</span> <span class="mi">138</span><span class="p">]]],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]])</span>
 </code></pre></div>
 </div>
 </div>
@@ -1336,24 +1336,24 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span><span class="p">,</span> <span class="n">SAM</span><span class="p">,</span> <span class="n">YOLO</span><span class="p">,</span> <span class="n">FastSAM</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="c1"># Profile SAM2-t, SAM2-b, SAM-b, MobileSAM</span>
-<a id="__codelineno-5-4"></a><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"sam_b.pt"</span><span class="p">,</span> <span class="s2">"sam2_b.pt"</span><span class="p">,</span> <span class="s2">"sam2_t.pt"</span><span class="p">,</span> <span class="s2">"mobile_sam.pt"</span><span class="p">]:</span>
-<a id="__codelineno-5-5"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
-<a id="__codelineno-5-6"></a>    <span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a id="__codelineno-5-7"></a>    <span class="n">model</span><span class="p">(</span><span class="n">ASSETS</span><span class="p">)</span>
-<a id="__codelineno-5-8"></a>
-<a id="__codelineno-5-9"></a><span class="c1"># Profile FastSAM-s</span>
-<a id="__codelineno-5-10"></a><span class="n">model</span> <span class="o">=</span> <span class="n">FastSAM</span><span class="p">(</span><span class="s2">"FastSAM-s.pt"</span><span class="p">)</span>
-<a id="__codelineno-5-11"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a id="__codelineno-5-12"></a><span class="n">model</span><span class="p">(</span><span class="n">ASSETS</span><span class="p">)</span>
-<a id="__codelineno-5-13"></a>
-<a id="__codelineno-5-14"></a><span class="c1"># Profile YOLO models</span>
-<a id="__codelineno-5-15"></a><span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"yolov8n-seg.pt"</span><span class="p">,</span> <span class="s2">"yolo11n-seg.pt"</span><span class="p">]:</span>
-<a id="__codelineno-5-16"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
-<a id="__codelineno-5-17"></a>    <span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a id="__codelineno-5-18"></a>    <span class="n">model</span><span class="p">(</span><span class="n">ASSETS</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span><span class="p">,</span> <span class="n">SAM</span><span class="p">,</span> <span class="n">YOLO</span><span class="p">,</span> <span class="n">FastSAM</span>
+<span></span>
+<span></span><span class="c1"># Profile SAM2-t, SAM2-b, SAM-b, MobileSAM</span>
+<span></span><span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"sam_b.pt"</span><span class="p">,</span> <span class="s2">"sam2_b.pt"</span><span class="p">,</span> <span class="s2">"sam2_t.pt"</span><span class="p">,</span> <span class="s2">"mobile_sam.pt"</span><span class="p">]:</span>
+<span></span>    <span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span></span>    <span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span></span>    <span class="n">model</span><span class="p">(</span><span class="n">ASSETS</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Profile FastSAM-s</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">FastSAM</span><span class="p">(</span><span class="s2">"FastSAM-s.pt"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span></span><span class="n">model</span><span class="p">(</span><span class="n">ASSETS</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Profile YOLO models</span>
+<span></span><span class="k">for</span> <span class="n">file_name</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"yolov8n-seg.pt"</span><span class="p">,</span> <span class="s2">"yolo11n-seg.pt"</span><span class="p">]:</span>
+<span></span>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">file_name</span><span class="p">)</span>
+<span></span>    <span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span></span>    <span class="n">model</span><span class="p">(</span><span class="n">ASSETS</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1372,9 +1372,9 @@
 <p>To auto-annotate your dataset using SAM 2, follow this example:</p>
 <div class="admonition example">
 <p class="admonition-title">Auto-Annotation Example</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
-<a id="__codelineno-6-2"></a>
-<a id="__codelineno-6-3"></a><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam2_b.pt"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
+<span></span>
+<span></span><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam2_b.pt"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <table>
@@ -1464,12 +1464,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">ravi2024sam2</span><span class="p">,</span>
-<a id="__codelineno-7-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{SAM 2: Segment Anything in Images and Videos}</span><span class="p">,</span>
-<a id="__codelineno-7-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Ravi, Nikhila and Gabeur, Valentin and Hu, Yuan-Ting and Hu, Ronghang and Ryali, Chaitanya and Ma, Tengyu and Khedr, Haitham and R{\"a}dle, Roman and Rolland, Chloe and Gustafson, Laura and Mintun, Eric and Pan, Junting and Alwala, Kalyan Vasudev and Carion, Nicolas and Wu, Chao-Yuan and Girshick, Ross and Doll{\'a}r, Piotr and Feichtenhofer, Christoph}</span><span class="p">,</span>
-<a id="__codelineno-7-4"></a><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{arXiv preprint}</span><span class="p">,</span>
-<a id="__codelineno-7-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2024}</span>
-<a id="__codelineno-7-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">ravi2024sam2</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{SAM 2: Segment Anything in Images and Videos}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Ravi, Nikhila and Gabeur, Valentin and Hu, Yuan-Ting and Hu, Ronghang and Ryali, Chaitanya and Ma, Tengyu and Khedr, Haitham and R{\"a}dle, Roman and Rolland, Chloe and Gustafson, Laura and Mintun, Eric and Pan, Junting and Alwala, Kalyan Vasudev and Carion, Nicolas and Wu, Chao-Yuan and Girshick, Ross and Doll{\'a}r, Piotr and Feichtenhofer, Christoph}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">journal</span><span class="p">=</span><span class="s">{arXiv preprint}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2024}</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -1495,19 +1495,19 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM</span>
-<a id="__codelineno-8-2"></a>
-<a id="__codelineno-8-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-8-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam2_b.pt"</span><span class="p">)</span>
-<a id="__codelineno-8-5"></a>
-<a id="__codelineno-8-6"></a><span class="c1"># Display model information (optional)</span>
-<a id="__codelineno-8-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a id="__codelineno-8-8"></a>
-<a id="__codelineno-8-9"></a><span class="c1"># Segment with bounding box prompt</span>
-<a id="__codelineno-8-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
-<a id="__codelineno-8-11"></a>
-<a id="__codelineno-8-12"></a><span class="c1"># Segment with point prompt</span>
-<a id="__codelineno-8-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">SAM</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">SAM</span><span class="p">(</span><span class="s2">"sam2_b.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Display model information (optional)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Segment with bounding box prompt</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">])</span>
+<span></span>
+<span></span><span class="c1"># Segment with point prompt</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="p">[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">],</span> <span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 </code></pre></div>
 </div>
 </div>

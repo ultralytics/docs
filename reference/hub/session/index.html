@@ -1130,7 +1130,7 @@
 <h2 class="doc doc-heading" id="ultralytics.hub.session.HUBTrainingSession">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.hub.session.HUBTrainingSession</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">HUBTrainingSession</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">HUBTrainingSession</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>HUB training session for Ultralytics HUB YOLO models. Handles model initialization, heartbeats, and checkpointing.</p>
@@ -1270,8 +1270,8 @@ model creation, metrics tracking, and checkpoint uploading.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">HUBTrainingSession</span><span class="p">(</span><span class="s2">"https://hub.ultralytics.com/models/example-model"</span><span class="p">)</span>
-<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">session</span> <span class="o">=</span> <span class="n">HUBTrainingSession</span><span class="p">(</span><span class="s2">"https://hub.ultralytics.com/models/example-model"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">session</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">()</span>
 </code></pre></div>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -1346,97 +1346,97 @@ It can be a URL string or a model key with specific format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>44</a></span>
-<span class="normal"><a>45</a></span>
-<span class="normal"><a>46</a></span>
-<span class="normal"><a>47</a></span>
-<span class="normal"><a>48</a></span>
-<span class="normal"><a>49</a></span>
-<span class="normal"><a>50</a></span>
-<span class="normal"><a>51</a></span>
-<span class="normal"><a>52</a></span>
-<span class="normal"><a>53</a></span>
-<span class="normal"><a>54</a></span>
-<span class="normal"><a>55</a></span>
-<span class="normal"><a>56</a></span>
-<span class="normal"><a>57</a></span>
-<span class="normal"><a>58</a></span>
-<span class="normal"><a>59</a></span>
-<span class="normal"><a>60</a></span>
-<span class="normal"><a>61</a></span>
-<span class="normal"><a>62</a></span>
-<span class="normal"><a>63</a></span>
-<span class="normal"><a>64</a></span>
-<span class="normal"><a>65</a></span>
-<span class="normal"><a>66</a></span>
-<span class="normal"><a>67</a></span>
-<span class="normal"><a>68</a></span>
-<span class="normal"><a>69</a></span>
-<span class="normal"><a>70</a></span>
-<span class="normal"><a>71</a></span>
-<span class="normal"><a>72</a></span>
-<span class="normal"><a>73</a></span>
-<span class="normal"><a>74</a></span>
-<span class="normal"><a>75</a></span>
-<span class="normal"><a>76</a></span>
-<span class="normal"><a>77</a></span>
-<span class="normal"><a>78</a></span>
-<span class="normal"><a>79</a></span>
-<span class="normal"><a>80</a></span>
-<span class="normal"><a>81</a></span>
-<span class="normal"><a>82</a></span>
-<span class="normal"><a>83</a></span>
-<span class="normal"><a>84</a></span>
-<span class="normal"><a>85</a></span>
-<span class="normal"><a>86</a></span>
-<span class="normal"><a>87</a></span>
-<span class="normal"><a>88</a></span>
-<span class="normal"><a>89</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-44"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
-<a id="__codelineno-0-45"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-46"></a><span class="sd">    Initialize the HUBTrainingSession with the provided model identifier.</span>
-<a id="__codelineno-0-47"></a>
-<a id="__codelineno-0-48"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-49"></a><span class="sd">        identifier (str): Model identifier used to initialize the HUB training session.</span>
-<a id="__codelineno-0-50"></a><span class="sd">            It can be a URL string or a model key with specific format.</span>
-<a id="__codelineno-0-51"></a>
-<a id="__codelineno-0-52"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-53"></a><span class="sd">        ValueError: If the provided model identifier is invalid.</span>
-<a id="__codelineno-0-54"></a><span class="sd">        ConnectionError: If connecting with global API key is not supported.</span>
-<a id="__codelineno-0-55"></a><span class="sd">        ModuleNotFoundError: If hub-sdk package is not installed.</span>
-<a id="__codelineno-0-56"></a><span class="sd">    """</span>
-<a id="__codelineno-0-57"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-0-58"></a>
-<a id="__codelineno-0-59"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"metrics"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"ckpt"</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span> <span class="s2">"heartbeat"</span><span class="p">:</span> <span class="mi">300</span><span class="p">}</span>  <span class="c1"># rate limits (seconds)</span>
-<a id="__codelineno-0-60"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># holds metrics for each epoch until upload</span>
-<a id="__codelineno-0-61"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># holds metrics for each epoch if upload failed</span>
-<a id="__codelineno-0-62"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">timers</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># holds timers in ultralytics/utils/callbacks/hub.py</span>
-<a id="__codelineno-0-63"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-64"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model_url</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-65"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model_file</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-66"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">train_args</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-67"></a>
-<a id="__codelineno-0-68"></a>    <span class="c1"># Parse input</span>
-<a id="__codelineno-0-69"></a>    <span class="n">api_key</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_identifier</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-<a id="__codelineno-0-70"></a>
-<a id="__codelineno-0-71"></a>    <span class="c1"># Get credentials</span>
-<a id="__codelineno-0-72"></a>    <span class="n">active_key</span> <span class="o">=</span> <span class="n">api_key</span> <span class="ow">or</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"api_key"</span><span class="p">)</span>
-<a id="__codelineno-0-73"></a>    <span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="n">active_key</span><span class="p">}</span> <span class="k">if</span> <span class="n">active_key</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># set credentials</span>
-<a id="__codelineno-0-74"></a>
-<a id="__codelineno-0-75"></a>    <span class="c1"># Initialize client</span>
-<a id="__codelineno-0-76"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-0-77"></a>
-<a id="__codelineno-0-78"></a>    <span class="c1"># Load models</span>
-<a id="__codelineno-0-79"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-80"></a>        <span class="k">if</span> <span class="n">model_id</span><span class="p">:</span>
-<a id="__codelineno-0-81"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>  <span class="c1"># load existing model</span>
-<a id="__codelineno-0-82"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-83"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>  <span class="c1"># load empty model</span>
-<a id="__codelineno-0-84"></a>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
-<a id="__codelineno-0-85"></a>        <span class="k">if</span> <span class="n">identifier</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/"</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">authenticated</span><span class="p">:</span>
-<a id="__codelineno-0-86"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-87"></a>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Please log in using 'yolo login API_KEY'. "</span>
-<a id="__codelineno-0-88"></a>                <span class="s2">"You can find your API Key at: https://hub.ultralytics.com/settings?tab=api+keys."</span>
-<a id="__codelineno-0-89"></a>            <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>44</span></span>
+<span class="normal"><span>45</span></span>
+<span class="normal"><span>46</span></span>
+<span class="normal"><span>47</span></span>
+<span class="normal"><span>48</span></span>
+<span class="normal"><span>49</span></span>
+<span class="normal"><span>50</span></span>
+<span class="normal"><span>51</span></span>
+<span class="normal"><span>52</span></span>
+<span class="normal"><span>53</span></span>
+<span class="normal"><span>54</span></span>
+<span class="normal"><span>55</span></span>
+<span class="normal"><span>56</span></span>
+<span class="normal"><span>57</span></span>
+<span class="normal"><span>58</span></span>
+<span class="normal"><span>59</span></span>
+<span class="normal"><span>60</span></span>
+<span class="normal"><span>61</span></span>
+<span class="normal"><span>62</span></span>
+<span class="normal"><span>63</span></span>
+<span class="normal"><span>64</span></span>
+<span class="normal"><span>65</span></span>
+<span class="normal"><span>66</span></span>
+<span class="normal"><span>67</span></span>
+<span class="normal"><span>68</span></span>
+<span class="normal"><span>69</span></span>
+<span class="normal"><span>70</span></span>
+<span class="normal"><span>71</span></span>
+<span class="normal"><span>72</span></span>
+<span class="normal"><span>73</span></span>
+<span class="normal"><span>74</span></span>
+<span class="normal"><span>75</span></span>
+<span class="normal"><span>76</span></span>
+<span class="normal"><span>77</span></span>
+<span class="normal"><span>78</span></span>
+<span class="normal"><span>79</span></span>
+<span class="normal"><span>80</span></span>
+<span class="normal"><span>81</span></span>
+<span class="normal"><span>82</span></span>
+<span class="normal"><span>83</span></span>
+<span class="normal"><span>84</span></span>
+<span class="normal"><span>85</span></span>
+<span class="normal"><span>86</span></span>
+<span class="normal"><span>87</span></span>
+<span class="normal"><span>88</span></span>
+<span class="normal"><span>89</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">identifier</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Initialize the HUBTrainingSession with the provided model identifier.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        identifier (str): Model identifier used to initialize the HUB training session.</span>
+<span></span><span class="sd">            It can be a URL string or a model key with specific format.</span>
+<span></span>
+<span></span><span class="sd">    Raises:</span>
+<span></span><span class="sd">        ValueError: If the provided model identifier is invalid.</span>
+<span></span><span class="sd">        ConnectionError: If connecting with global API key is not supported.</span>
+<span></span><span class="sd">        ModuleNotFoundError: If hub-sdk package is not installed.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"metrics"</span><span class="p">:</span> <span class="mi">3</span><span class="p">,</span> <span class="s2">"ckpt"</span><span class="p">:</span> <span class="mi">900</span><span class="p">,</span> <span class="s2">"heartbeat"</span><span class="p">:</span> <span class="mi">300</span><span class="p">}</span>  <span class="c1"># rate limits (seconds)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># holds metrics for each epoch until upload</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># holds metrics for each epoch if upload failed</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">timers</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># holds timers in ultralytics/utils/callbacks/hub.py</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model_url</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model_file</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">train_args</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>
+<span></span>    <span class="c1"># Parse input</span>
+<span></span>    <span class="n">api_key</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_parse_identifier</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># Get credentials</span>
+<span></span>    <span class="n">active_key</span> <span class="o">=</span> <span class="n">api_key</span> <span class="ow">or</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"api_key"</span><span class="p">)</span>
+<span></span>    <span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="n">active_key</span><span class="p">}</span> <span class="k">if</span> <span class="n">active_key</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># set credentials</span>
+<span></span>
+<span></span>    <span class="c1"># Initialize client</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># Load models</span>
+<span></span>    <span class="k">try</span><span class="p">:</span>
+<span></span>        <span class="k">if</span> <span class="n">model_id</span><span class="p">:</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">load_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>  <span class="c1"># load existing model</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>  <span class="c1"># load empty model</span>
+<span></span>    <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span></span>        <span class="k">if</span> <span class="n">identifier</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/"</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">authenticated</span><span class="p">:</span>
+<span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+<span></span>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Please log in using 'yolo login API_KEY'. "</span>
+<span></span>                <span class="s2">"You can find your API Key at: https://hub.ultralytics.com/settings?tab=api+keys."</span>
+<span></span>            <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1444,7 +1444,7 @@ It can be a URL string or a model key with specific format.</p>
 <h3 class="doc doc-heading" id="ultralytics.hub.session.HUBTrainingSession.create_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">create_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">create_model</span><span class="p">(</span><span class="n">model_args</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">create_model</span><span class="p">(</span><span class="n">model_args</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Initialize a HUB training session with the specified model arguments.</p>
@@ -1500,91 +1500,91 @@ It can be a URL string or a model key with specific format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>139</a></span>
-<span class="normal"><a>140</a></span>
-<span class="normal"><a>141</a></span>
-<span class="normal"><a>142</a></span>
-<span class="normal"><a>143</a></span>
-<span class="normal"><a>144</a></span>
-<span class="normal"><a>145</a></span>
-<span class="normal"><a>146</a></span>
-<span class="normal"><a>147</a></span>
-<span class="normal"><a>148</a></span>
-<span class="normal"><a>149</a></span>
-<span class="normal"><a>150</a></span>
-<span class="normal"><a>151</a></span>
-<span class="normal"><a>152</a></span>
-<span class="normal"><a>153</a></span>
-<span class="normal"><a>154</a></span>
-<span class="normal"><a>155</a></span>
-<span class="normal"><a>156</a></span>
-<span class="normal"><a>157</a></span>
-<span class="normal"><a>158</a></span>
-<span class="normal"><a>159</a></span>
-<span class="normal"><a>160</a></span>
-<span class="normal"><a>161</a></span>
-<span class="normal"><a>162</a></span>
-<span class="normal"><a>163</a></span>
-<span class="normal"><a>164</a></span>
-<span class="normal"><a>165</a></span>
-<span class="normal"><a>166</a></span>
-<span class="normal"><a>167</a></span>
-<span class="normal"><a>168</a></span>
-<span class="normal"><a>169</a></span>
-<span class="normal"><a>170</a></span>
-<span class="normal"><a>171</a></span>
-<span class="normal"><a>172</a></span>
-<span class="normal"><a>173</a></span>
-<span class="normal"><a>174</a></span>
-<span class="normal"><a>175</a></span>
-<span class="normal"><a>176</a></span>
-<span class="normal"><a>177</a></span>
-<span class="normal"><a>178</a></span>
-<span class="normal"><a>179</a></span>
-<span class="normal"><a>180</a></span>
-<span class="normal"><a>181</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-139"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_args</span><span class="p">):</span>
-<a id="__codelineno-0-140"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-141"></a><span class="sd">    Initialize a HUB training session with the specified model arguments.</span>
-<a id="__codelineno-0-142"></a>
-<a id="__codelineno-0-143"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-144"></a><span class="sd">        model_args (dict): Arguments for creating the model, including batch size, epochs, image size, etc.</span>
-<a id="__codelineno-0-145"></a>
-<a id="__codelineno-0-146"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-147"></a><span class="sd">        (None): If the model could not be created.</span>
-<a id="__codelineno-0-148"></a><span class="sd">    """</span>
-<a id="__codelineno-0-149"></a>    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-150"></a>        <span class="s2">"config"</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-151"></a>            <span class="s2">"batchSize"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"batch"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-<a id="__codelineno-0-152"></a>            <span class="s2">"epochs"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"epochs"</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
-<a id="__codelineno-0-153"></a>            <span class="s2">"imageSize"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"imgsz"</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span>
-<a id="__codelineno-0-154"></a>            <span class="s2">"patience"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"patience"</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
-<a id="__codelineno-0-155"></a>            <span class="s2">"device"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"device"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)),</span>  <span class="c1"># convert None to string</span>
-<a id="__codelineno-0-156"></a>            <span class="s2">"cache"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"cache"</span><span class="p">,</span> <span class="s2">"ram"</span><span class="p">)),</span>  <span class="c1"># convert True, False, None to string</span>
-<a id="__codelineno-0-157"></a>        <span class="p">},</span>
-<a id="__codelineno-0-158"></a>        <span class="s2">"dataset"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)},</span>
-<a id="__codelineno-0-159"></a>        <span class="s2">"lineage"</span><span class="p">:</span> <span class="p">{</span>
-<a id="__codelineno-0-160"></a>            <span class="s2">"architecture"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".pt"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)},</span>
-<a id="__codelineno-0-161"></a>            <span class="s2">"parent"</span><span class="p">:</span> <span class="p">{},</span>
-<a id="__codelineno-0-162"></a>        <span class="p">},</span>
-<a id="__codelineno-0-163"></a>        <span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">},</span>
-<a id="__codelineno-0-164"></a>    <span class="p">}</span>
-<a id="__codelineno-0-165"></a>
-<a id="__codelineno-0-166"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".pt"</span><span class="p">):</span>
-<a id="__codelineno-0-167"></a>        <span class="n">payload</span><span class="p">[</span><span class="s2">"lineage"</span><span class="p">][</span><span class="s2">"parent"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span>
-<a id="__codelineno-0-168"></a>
-<a id="__codelineno-0-169"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
-<a id="__codelineno-0-170"></a>
-<a id="__codelineno-0-171"></a>    <span class="c1"># Model could not be created</span>
-<a id="__codelineno-0-172"></a>    <span class="c1"># TODO: improve error handling</span>
-<a id="__codelineno-0-173"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
-<a id="__codelineno-0-174"></a>        <span class="k">return</span> <span class="kc">None</span>
-<a id="__codelineno-0-175"></a>
-<a id="__codelineno-0-176"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-177"></a>
-<a id="__codelineno-0-178"></a>    <span class="c1"># Start heartbeats for HUB to monitor agent</span>
-<a id="__codelineno-0-179"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">start_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s2">"heartbeat"</span><span class="p">])</span>
-<a id="__codelineno-0-180"></a>
-<a id="__codelineno-0-181"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">View model at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model_url</span><span class="si">}</span><span class="s2"> 🚀"</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>139</span></span>
+<span class="normal"><span>140</span></span>
+<span class="normal"><span>141</span></span>
+<span class="normal"><span>142</span></span>
+<span class="normal"><span>143</span></span>
+<span class="normal"><span>144</span></span>
+<span class="normal"><span>145</span></span>
+<span class="normal"><span>146</span></span>
+<span class="normal"><span>147</span></span>
+<span class="normal"><span>148</span></span>
+<span class="normal"><span>149</span></span>
+<span class="normal"><span>150</span></span>
+<span class="normal"><span>151</span></span>
+<span class="normal"><span>152</span></span>
+<span class="normal"><span>153</span></span>
+<span class="normal"><span>154</span></span>
+<span class="normal"><span>155</span></span>
+<span class="normal"><span>156</span></span>
+<span class="normal"><span>157</span></span>
+<span class="normal"><span>158</span></span>
+<span class="normal"><span>159</span></span>
+<span class="normal"><span>160</span></span>
+<span class="normal"><span>161</span></span>
+<span class="normal"><span>162</span></span>
+<span class="normal"><span>163</span></span>
+<span class="normal"><span>164</span></span>
+<span class="normal"><span>165</span></span>
+<span class="normal"><span>166</span></span>
+<span class="normal"><span>167</span></span>
+<span class="normal"><span>168</span></span>
+<span class="normal"><span>169</span></span>
+<span class="normal"><span>170</span></span>
+<span class="normal"><span>171</span></span>
+<span class="normal"><span>172</span></span>
+<span class="normal"><span>173</span></span>
+<span class="normal"><span>174</span></span>
+<span class="normal"><span>175</span></span>
+<span class="normal"><span>176</span></span>
+<span class="normal"><span>177</span></span>
+<span class="normal"><span>178</span></span>
+<span class="normal"><span>179</span></span>
+<span class="normal"><span>180</span></span>
+<span class="normal"><span>181</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_args</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Initialize a HUB training session with the specified model arguments.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        model_args (dict): Arguments for creating the model, including batch size, epochs, image size, etc.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (None): If the model could not be created.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">payload</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>        <span class="s2">"config"</span><span class="p">:</span> <span class="p">{</span>
+<span></span>            <span class="s2">"batchSize"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"batch"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+<span></span>            <span class="s2">"epochs"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"epochs"</span><span class="p">,</span> <span class="mi">300</span><span class="p">),</span>
+<span></span>            <span class="s2">"imageSize"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"imgsz"</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span>
+<span></span>            <span class="s2">"patience"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"patience"</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span>
+<span></span>            <span class="s2">"device"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"device"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)),</span>  <span class="c1"># convert None to string</span>
+<span></span>            <span class="s2">"cache"</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"cache"</span><span class="p">,</span> <span class="s2">"ram"</span><span class="p">)),</span>  <span class="c1"># convert True, False, None to string</span>
+<span></span>        <span class="p">},</span>
+<span></span>        <span class="s2">"dataset"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="n">model_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">)},</span>
+<span></span>        <span class="s2">"lineage"</span><span class="p">:</span> <span class="p">{</span>
+<span></span>            <span class="s2">"architecture"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".pt"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">""</span><span class="p">)},</span>
+<span></span>            <span class="s2">"parent"</span><span class="p">:</span> <span class="p">{},</span>
+<span></span>        <span class="p">},</span>
+<span></span>        <span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="p">},</span>
+<span></span>    <span class="p">}</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".pt"</span><span class="p">):</span>
+<span></span>        <span class="n">payload</span><span class="p">[</span><span class="s2">"lineage"</span><span class="p">][</span><span class="s2">"parent"</span><span class="p">][</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filename</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="n">payload</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># Model could not be created</span>
+<span></span>    <span class="c1"># TODO: improve error handling</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">:</span>
+<span></span>        <span class="k">return</span> <span class="kc">None</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span>
+<span></span>
+<span></span>    <span class="c1"># Start heartbeats for HUB to monitor agent</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">start_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s2">"heartbeat"</span><span class="p">])</span>
+<span></span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">View model at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model_url</span><span class="si">}</span><span class="s2"> 🚀"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1596,7 +1596,7 @@ It can be a URL string or a model key with specific format.</p>
 <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">create_session</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">create_session</span><span class="p">(</span><span class="n">identifier</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Create an authenticated HUBTrainingSession or return None.</p>
@@ -1668,47 +1668,47 @@ It can be a URL string or a model key with specific format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a> 91</a></span>
-<span class="normal"><a> 92</a></span>
-<span class="normal"><a> 93</a></span>
-<span class="normal"><a> 94</a></span>
-<span class="normal"><a> 95</a></span>
-<span class="normal"><a> 96</a></span>
-<span class="normal"><a> 97</a></span>
-<span class="normal"><a> 98</a></span>
-<span class="normal"><a> 99</a></span>
-<span class="normal"><a>100</a></span>
-<span class="normal"><a>101</a></span>
-<span class="normal"><a>102</a></span>
-<span class="normal"><a>103</a></span>
-<span class="normal"><a>104</a></span>
-<span class="normal"><a>105</a></span>
-<span class="normal"><a>106</a></span>
-<span class="normal"><a>107</a></span>
-<span class="normal"><a>108</a></span>
-<span class="normal"><a>109</a></span>
-<span class="normal"><a>110</a></span>
-<span class="normal"><a>111</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-91"></a><span class="nd">@classmethod</span>
-<a id="__codelineno-0-92"></a><span class="k">def</span><span class="w"> </span><span class="nf">create_session</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-93"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-94"></a><span class="sd">    Create an authenticated HUBTrainingSession or return None.</span>
-<a id="__codelineno-0-95"></a>
-<a id="__codelineno-0-96"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-97"></a><span class="sd">        identifier (str): Model identifier used to initialize the HUB training session.</span>
-<a id="__codelineno-0-98"></a><span class="sd">        args (dict, optional): Arguments for creating a new model if identifier is not a HUB model URL.</span>
-<a id="__codelineno-0-99"></a>
-<a id="__codelineno-0-100"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-101"></a><span class="sd">        (HUBTrainingSession | None): An authenticated session or None if creation fails.</span>
-<a id="__codelineno-0-102"></a><span class="sd">    """</span>
-<a id="__codelineno-0-103"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-104"></a>        <span class="n">session</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
-<a id="__codelineno-0-105"></a>        <span class="k">if</span> <span class="n">args</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">identifier</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/"</span><span class="p">):</span>  <span class="c1"># not a HUB model URL</span>
-<a id="__codelineno-0-106"></a>            <span class="n">session</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-107"></a>            <span class="k">assert</span> <span class="n">session</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"HUB model not loaded correctly"</span>
-<a id="__codelineno-0-108"></a>        <span class="k">return</span> <span class="n">session</span>
-<a id="__codelineno-0-109"></a>    <span class="c1"># PermissionError and ModuleNotFoundError indicate hub-sdk not installed</span>
-<a id="__codelineno-0-110"></a>    <span class="k">except</span> <span class="p">(</span><span class="ne">PermissionError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">,</span> <span class="ne">AssertionError</span><span class="p">):</span>
-<a id="__codelineno-0-111"></a>        <span class="k">return</span> <span class="kc">None</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 91</span></span>
+<span class="normal"><span> 92</span></span>
+<span class="normal"><span> 93</span></span>
+<span class="normal"><span> 94</span></span>
+<span class="normal"><span> 95</span></span>
+<span class="normal"><span> 96</span></span>
+<span class="normal"><span> 97</span></span>
+<span class="normal"><span> 98</span></span>
+<span class="normal"><span> 99</span></span>
+<span class="normal"><span>100</span></span>
+<span class="normal"><span>101</span></span>
+<span class="normal"><span>102</span></span>
+<span class="normal"><span>103</span></span>
+<span class="normal"><span>104</span></span>
+<span class="normal"><span>105</span></span>
+<span class="normal"><span>106</span></span>
+<span class="normal"><span>107</span></span>
+<span class="normal"><span>108</span></span>
+<span class="normal"><span>109</span></span>
+<span class="normal"><span>110</span></span>
+<span class="normal"><span>111</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">create_session</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">identifier</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Create an authenticated HUBTrainingSession or return None.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        identifier (str): Model identifier used to initialize the HUB training session.</span>
+<span></span><span class="sd">        args (dict, optional): Arguments for creating a new model if identifier is not a HUB model URL.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (HUBTrainingSession | None): An authenticated session or None if creation fails.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">try</span><span class="p">:</span>
+<span></span>        <span class="n">session</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">(</span><span class="n">identifier</span><span class="p">)</span>
+<span></span>        <span class="k">if</span> <span class="n">args</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">identifier</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/"</span><span class="p">):</span>  <span class="c1"># not a HUB model URL</span>
+<span></span>            <span class="n">session</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span></span>            <span class="k">assert</span> <span class="n">session</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="s2">"HUB model not loaded correctly"</span>
+<span></span>        <span class="k">return</span> <span class="n">session</span>
+<span></span>    <span class="c1"># PermissionError and ModuleNotFoundError indicate hub-sdk not installed</span>
+<span></span>    <span class="k">except</span> <span class="p">(</span><span class="ne">PermissionError</span><span class="p">,</span> <span class="ne">ModuleNotFoundError</span><span class="p">,</span> <span class="ne">AssertionError</span><span class="p">):</span>
+<span></span>        <span class="k">return</span> <span class="kc">None</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1717,7 +1717,7 @@ It can be a URL string or a model key with specific format.</p>
 <h3 class="doc doc-heading" id="ultralytics.hub.session.HUBTrainingSession.load_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">load_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">load_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">load_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Load an existing model from Ultralytics HUB using the provided model identifier.</p>
@@ -1773,55 +1773,55 @@ It can be a URL string or a model key with specific format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>113</a></span>
-<span class="normal"><a>114</a></span>
-<span class="normal"><a>115</a></span>
-<span class="normal"><a>116</a></span>
-<span class="normal"><a>117</a></span>
-<span class="normal"><a>118</a></span>
-<span class="normal"><a>119</a></span>
-<span class="normal"><a>120</a></span>
-<span class="normal"><a>121</a></span>
-<span class="normal"><a>122</a></span>
-<span class="normal"><a>123</a></span>
-<span class="normal"><a>124</a></span>
-<span class="normal"><a>125</a></span>
-<span class="normal"><a>126</a></span>
-<span class="normal"><a>127</a></span>
-<span class="normal"><a>128</a></span>
-<span class="normal"><a>129</a></span>
-<span class="normal"><a>130</a></span>
-<span class="normal"><a>131</a></span>
-<span class="normal"><a>132</a></span>
-<span class="normal"><a>133</a></span>
-<span class="normal"><a>134</a></span>
-<span class="normal"><a>135</a></span>
-<span class="normal"><a>136</a></span>
-<span class="normal"><a>137</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-113"></a><span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
-<a id="__codelineno-0-114"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-115"></a><span class="sd">    Load an existing model from Ultralytics HUB using the provided model identifier.</span>
-<a id="__codelineno-0-116"></a>
-<a id="__codelineno-0-117"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-118"></a><span class="sd">        model_id (str): The identifier of the model to load.</span>
-<a id="__codelineno-0-119"></a>
-<a id="__codelineno-0-120"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-121"></a><span class="sd">        ValueError: If the specified HUB model does not exist.</span>
-<a id="__codelineno-0-122"></a><span class="sd">    """</span>
-<a id="__codelineno-0-123"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
-<a id="__codelineno-0-124"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>  <span class="c1"># then model does not exist</span>
-<a id="__codelineno-0-125"></a>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">emojis</span><span class="p">(</span><span class="s2">"❌ The specified HUB model does not exist"</span><span class="p">))</span>  <span class="c1"># TODO: improve error handling</span>
-<a id="__codelineno-0-126"></a>
-<a id="__codelineno-0-127"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-128"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">is_trained</span><span class="p">():</span>
-<a id="__codelineno-0-129"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading trained HUB model </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model_url</span><span class="si">}</span><span class="s2"> 🚀"</span><span class="p">)</span>
-<a id="__codelineno-0-130"></a>        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_weights_url</span><span class="p">(</span><span class="s2">"best"</span><span class="p">)</span>  <span class="c1"># download URL with auth</span>
-<a id="__codelineno-0-131"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model_file</span> <span class="o">=</span> <span class="n">checks</span><span class="o">.</span><span class="n">check_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"weights_dir"</span><span class="p">])</span> <span class="o">/</span> <span class="s2">"hub"</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
-<a id="__codelineno-0-132"></a>        <span class="k">return</span>
-<a id="__codelineno-0-133"></a>
-<a id="__codelineno-0-134"></a>    <span class="c1"># Set training args and start heartbeats for HUB to monitor agent</span>
-<a id="__codelineno-0-135"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_set_train_args</span><span class="p">()</span>
-<a id="__codelineno-0-136"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">start_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s2">"heartbeat"</span><span class="p">])</span>
-<a id="__codelineno-0-137"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">View model at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model_url</span><span class="si">}</span><span class="s2"> 🚀"</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>113</span></span>
+<span class="normal"><span>114</span></span>
+<span class="normal"><span>115</span></span>
+<span class="normal"><span>116</span></span>
+<span class="normal"><span>117</span></span>
+<span class="normal"><span>118</span></span>
+<span class="normal"><span>119</span></span>
+<span class="normal"><span>120</span></span>
+<span class="normal"><span>121</span></span>
+<span class="normal"><span>122</span></span>
+<span class="normal"><span>123</span></span>
+<span class="normal"><span>124</span></span>
+<span class="normal"><span>125</span></span>
+<span class="normal"><span>126</span></span>
+<span class="normal"><span>127</span></span>
+<span class="normal"><span>128</span></span>
+<span class="normal"><span>129</span></span>
+<span class="normal"><span>130</span></span>
+<span class="normal"><span>131</span></span>
+<span class="normal"><span>132</span></span>
+<span class="normal"><span>133</span></span>
+<span class="normal"><span>134</span></span>
+<span class="normal"><span>135</span></span>
+<span class="normal"><span>136</span></span>
+<span class="normal"><span>137</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_id</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Load an existing model from Ultralytics HUB using the provided model identifier.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        model_id (str): The identifier of the model to load.</span>
+<span></span>
+<span></span><span class="sd">    Raises:</span>
+<span></span><span class="sd">        ValueError: If the specified HUB model does not exist.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">model_id</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">data</span><span class="p">:</span>  <span class="c1"># then model does not exist</span>
+<span></span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">emojis</span><span class="p">(</span><span class="s2">"❌ The specified HUB model does not exist"</span><span class="p">))</span>  <span class="c1"># TODO: improve error handling</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">"</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">is_trained</span><span class="p">():</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading trained HUB model </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model_url</span><span class="si">}</span><span class="s2"> 🚀"</span><span class="p">)</span>
+<span></span>        <span class="n">url</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">get_weights_url</span><span class="p">(</span><span class="s2">"best"</span><span class="p">)</span>  <span class="c1"># download URL with auth</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">model_file</span> <span class="o">=</span> <span class="n">checks</span><span class="o">.</span><span class="n">check_file</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"weights_dir"</span><span class="p">])</span> <span class="o">/</span> <span class="s2">"hub"</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span></span>        <span class="k">return</span>
+<span></span>
+<span></span>    <span class="c1"># Set training args and start heartbeats for HUB to monitor agent</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_set_train_args</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">start_heartbeat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">rate_limits</span><span class="p">[</span><span class="s2">"heartbeat"</span><span class="p">])</span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">View model at </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">model_url</span><span class="si">}</span><span class="s2"> 🚀"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1830,17 +1830,17 @@ It can be a URL string or a model key with specific format.</p>
 <h3 class="doc doc-heading" id="ultralytics.hub.session.HUBTrainingSession.request_queue">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">request_queue</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">request_queue</span><span class="p">(</span>
-<a id="__codelineno-0-2"></a>    <span class="n">request_func</span><span class="p">,</span>
-<a id="__codelineno-0-3"></a>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<a id="__codelineno-0-4"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-<a id="__codelineno-0-5"></a>    <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-6"></a>    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-7"></a>    <span class="n">progress_total</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-8"></a>    <span class="n">stream_response</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-9"></a>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<a id="__codelineno-0-10"></a>    <span class="o">**</span><span class="n">kwargs</span>
-<a id="__codelineno-0-11"></a><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">request_queue</span><span class="p">(</span>
+<span></span>    <span class="n">request_func</span><span class="p">,</span>
+<span></span>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span></span>    <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span></span>    <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">progress_total</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">stream_response</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<span></span>    <span class="o">**</span><span class="n">kwargs</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Attempt to execute <code>request_func</code> with retries, timeout handling, optional threading, and progress tracking.</p>
@@ -2024,167 +2024,167 @@ It can be a URL string or a model key with specific format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>246</a></span>
-<span class="normal"><a>247</a></span>
-<span class="normal"><a>248</a></span>
-<span class="normal"><a>249</a></span>
-<span class="normal"><a>250</a></span>
-<span class="normal"><a>251</a></span>
-<span class="normal"><a>252</a></span>
-<span class="normal"><a>253</a></span>
-<span class="normal"><a>254</a></span>
-<span class="normal"><a>255</a></span>
-<span class="normal"><a>256</a></span>
-<span class="normal"><a>257</a></span>
-<span class="normal"><a>258</a></span>
-<span class="normal"><a>259</a></span>
-<span class="normal"><a>260</a></span>
-<span class="normal"><a>261</a></span>
-<span class="normal"><a>262</a></span>
-<span class="normal"><a>263</a></span>
-<span class="normal"><a>264</a></span>
-<span class="normal"><a>265</a></span>
-<span class="normal"><a>266</a></span>
-<span class="normal"><a>267</a></span>
-<span class="normal"><a>268</a></span>
-<span class="normal"><a>269</a></span>
-<span class="normal"><a>270</a></span>
-<span class="normal"><a>271</a></span>
-<span class="normal"><a>272</a></span>
-<span class="normal"><a>273</a></span>
-<span class="normal"><a>274</a></span>
-<span class="normal"><a>275</a></span>
-<span class="normal"><a>276</a></span>
-<span class="normal"><a>277</a></span>
-<span class="normal"><a>278</a></span>
-<span class="normal"><a>279</a></span>
-<span class="normal"><a>280</a></span>
-<span class="normal"><a>281</a></span>
-<span class="normal"><a>282</a></span>
-<span class="normal"><a>283</a></span>
-<span class="normal"><a>284</a></span>
-<span class="normal"><a>285</a></span>
-<span class="normal"><a>286</a></span>
-<span class="normal"><a>287</a></span>
-<span class="normal"><a>288</a></span>
-<span class="normal"><a>289</a></span>
-<span class="normal"><a>290</a></span>
-<span class="normal"><a>291</a></span>
-<span class="normal"><a>292</a></span>
-<span class="normal"><a>293</a></span>
-<span class="normal"><a>294</a></span>
-<span class="normal"><a>295</a></span>
-<span class="normal"><a>296</a></span>
-<span class="normal"><a>297</a></span>
-<span class="normal"><a>298</a></span>
-<span class="normal"><a>299</a></span>
-<span class="normal"><a>300</a></span>
-<span class="normal"><a>301</a></span>
-<span class="normal"><a>302</a></span>
-<span class="normal"><a>303</a></span>
-<span class="normal"><a>304</a></span>
-<span class="normal"><a>305</a></span>
-<span class="normal"><a>306</a></span>
-<span class="normal"><a>307</a></span>
-<span class="normal"><a>308</a></span>
-<span class="normal"><a>309</a></span>
-<span class="normal"><a>310</a></span>
-<span class="normal"><a>311</a></span>
-<span class="normal"><a>312</a></span>
-<span class="normal"><a>313</a></span>
-<span class="normal"><a>314</a></span>
-<span class="normal"><a>315</a></span>
-<span class="normal"><a>316</a></span>
-<span class="normal"><a>317</a></span>
-<span class="normal"><a>318</a></span>
-<span class="normal"><a>319</a></span>
-<span class="normal"><a>320</a></span>
-<span class="normal"><a>321</a></span>
-<span class="normal"><a>322</a></span>
-<span class="normal"><a>323</a></span>
-<span class="normal"><a>324</a></span>
-<span class="normal"><a>325</a></span>
-<span class="normal"><a>326</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-246"></a><span class="k">def</span><span class="w"> </span><span class="nf">request_queue</span><span class="p">(</span>
-<a id="__codelineno-0-247"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-248"></a>    <span class="n">request_func</span><span class="p">,</span>
-<a id="__codelineno-0-249"></a>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<a id="__codelineno-0-250"></a>    <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-<a id="__codelineno-0-251"></a>    <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-252"></a>    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-253"></a>    <span class="n">progress_total</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-254"></a>    <span class="n">stream_response</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<a id="__codelineno-0-255"></a>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
-<a id="__codelineno-0-256"></a>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
-<a id="__codelineno-0-257"></a><span class="p">):</span>
-<a id="__codelineno-0-258"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-259"></a><span class="sd">    Attempt to execute `request_func` with retries, timeout handling, optional threading, and progress tracking.</span>
-<a id="__codelineno-0-260"></a>
-<a id="__codelineno-0-261"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-262"></a><span class="sd">        request_func (callable): The function to execute.</span>
-<a id="__codelineno-0-263"></a><span class="sd">        retry (int): Number of retry attempts.</span>
-<a id="__codelineno-0-264"></a><span class="sd">        timeout (int): Maximum time to wait for the request to complete.</span>
-<a id="__codelineno-0-265"></a><span class="sd">        thread (bool): Whether to run the request in a separate thread.</span>
-<a id="__codelineno-0-266"></a><span class="sd">        verbose (bool): Whether to log detailed messages.</span>
-<a id="__codelineno-0-267"></a><span class="sd">        progress_total (int, optional): Total size for progress tracking.</span>
-<a id="__codelineno-0-268"></a><span class="sd">        stream_response (bool, optional): Whether to stream the response.</span>
-<a id="__codelineno-0-269"></a><span class="sd">        *args (Any): Additional positional arguments for request_func.</span>
-<a id="__codelineno-0-270"></a><span class="sd">        **kwargs (Any): Additional keyword arguments for request_func.</span>
-<a id="__codelineno-0-271"></a>
-<a id="__codelineno-0-272"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-273"></a><span class="sd">        (requests.Response | None): The response object if thread=False, otherwise None.</span>
-<a id="__codelineno-0-274"></a><span class="sd">    """</span>
-<a id="__codelineno-0-275"></a>
-<a id="__codelineno-0-276"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">retry_request</span><span class="p">():</span>
-<a id="__codelineno-0-277"></a><span class="w">        </span><span class="sd">"""Attempt to call `request_func` with retries, timeout, and optional threading."""</span>
-<a id="__codelineno-0-278"></a>        <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># Record the start time for the timeout</span>
-<a id="__codelineno-0-279"></a>        <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-280"></a>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">retry</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-<a id="__codelineno-0-281"></a>            <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
-<a id="__codelineno-0-282"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Timeout for request reached. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-283"></a>                <span class="k">break</span>  <span class="c1"># Timeout reached, exit loop</span>
-<a id="__codelineno-0-284"></a>
-<a id="__codelineno-0-285"></a>            <span class="n">response</span> <span class="o">=</span> <span class="n">request_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<a id="__codelineno-0-286"></a>            <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-287"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Received no response from the request. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-288"></a>                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff before retrying</span>
-<a id="__codelineno-0-289"></a>                <span class="k">continue</span>  <span class="c1"># Skip further processing and retry</span>
-<a id="__codelineno-0-290"></a>
-<a id="__codelineno-0-291"></a>            <span class="k">if</span> <span class="n">progress_total</span><span class="p">:</span>
-<a id="__codelineno-0-292"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">_show_upload_progress</span><span class="p">(</span><span class="n">progress_total</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
-<a id="__codelineno-0-293"></a>            <span class="k">elif</span> <span class="n">stream_response</span><span class="p">:</span>
-<a id="__codelineno-0-294"></a>                <span class="bp">self</span><span class="o">.</span><span class="n">_iterate_content</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-<a id="__codelineno-0-295"></a>
-<a id="__codelineno-0-296"></a>            <span class="k">if</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span> <span class="o">&lt;=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">MULTIPLE_CHOICES</span><span class="p">:</span>
-<a id="__codelineno-0-297"></a>                <span class="c1"># if request related to metrics upload</span>
-<a id="__codelineno-0-298"></a>                <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
-<a id="__codelineno-0-299"></a>                    <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-300"></a>                <span class="k">return</span> <span class="n">response</span>  <span class="c1"># Success, no need to retry</span>
-<a id="__codelineno-0-301"></a>
-<a id="__codelineno-0-302"></a>            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-303"></a>                <span class="c1"># Initial attempt, check status code and provide messages</span>
-<a id="__codelineno-0-304"></a>                <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_failure_message</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">retry</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
-<a id="__codelineno-0-305"></a>
-<a id="__codelineno-0-306"></a>                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
-<a id="__codelineno-0-307"></a>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="n">message</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
-<a id="__codelineno-0-308"></a>
-<a id="__codelineno-0-309"></a>            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_retry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">):</span>
-<a id="__codelineno-0-310"></a>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Request failed. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-311"></a>                <span class="k">break</span>  <span class="c1"># Not an error that should be retried, exit loop</span>
-<a id="__codelineno-0-312"></a>
-<a id="__codelineno-0-313"></a>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff for retries</span>
-<a id="__codelineno-0-314"></a>
-<a id="__codelineno-0-315"></a>        <span class="c1"># if request related to metrics upload and exceed retries</span>
-<a id="__codelineno-0-316"></a>        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
-<a id="__codelineno-0-317"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">))</span>
-<a id="__codelineno-0-318"></a>
-<a id="__codelineno-0-319"></a>        <span class="k">return</span> <span class="n">response</span>
-<a id="__codelineno-0-320"></a>
-<a id="__codelineno-0-321"></a>    <span class="k">if</span> <span class="n">thread</span><span class="p">:</span>
-<a id="__codelineno-0-322"></a>        <span class="c1"># Start a new thread to run the retry_request function</span>
-<a id="__codelineno-0-323"></a>        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">retry_request</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-0-324"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-325"></a>        <span class="c1"># If running in the main thread, call retry_request directly</span>
-<a id="__codelineno-0-326"></a>        <span class="k">return</span> <span class="n">retry_request</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>246</span></span>
+<span class="normal"><span>247</span></span>
+<span class="normal"><span>248</span></span>
+<span class="normal"><span>249</span></span>
+<span class="normal"><span>250</span></span>
+<span class="normal"><span>251</span></span>
+<span class="normal"><span>252</span></span>
+<span class="normal"><span>253</span></span>
+<span class="normal"><span>254</span></span>
+<span class="normal"><span>255</span></span>
+<span class="normal"><span>256</span></span>
+<span class="normal"><span>257</span></span>
+<span class="normal"><span>258</span></span>
+<span class="normal"><span>259</span></span>
+<span class="normal"><span>260</span></span>
+<span class="normal"><span>261</span></span>
+<span class="normal"><span>262</span></span>
+<span class="normal"><span>263</span></span>
+<span class="normal"><span>264</span></span>
+<span class="normal"><span>265</span></span>
+<span class="normal"><span>266</span></span>
+<span class="normal"><span>267</span></span>
+<span class="normal"><span>268</span></span>
+<span class="normal"><span>269</span></span>
+<span class="normal"><span>270</span></span>
+<span class="normal"><span>271</span></span>
+<span class="normal"><span>272</span></span>
+<span class="normal"><span>273</span></span>
+<span class="normal"><span>274</span></span>
+<span class="normal"><span>275</span></span>
+<span class="normal"><span>276</span></span>
+<span class="normal"><span>277</span></span>
+<span class="normal"><span>278</span></span>
+<span class="normal"><span>279</span></span>
+<span class="normal"><span>280</span></span>
+<span class="normal"><span>281</span></span>
+<span class="normal"><span>282</span></span>
+<span class="normal"><span>283</span></span>
+<span class="normal"><span>284</span></span>
+<span class="normal"><span>285</span></span>
+<span class="normal"><span>286</span></span>
+<span class="normal"><span>287</span></span>
+<span class="normal"><span>288</span></span>
+<span class="normal"><span>289</span></span>
+<span class="normal"><span>290</span></span>
+<span class="normal"><span>291</span></span>
+<span class="normal"><span>292</span></span>
+<span class="normal"><span>293</span></span>
+<span class="normal"><span>294</span></span>
+<span class="normal"><span>295</span></span>
+<span class="normal"><span>296</span></span>
+<span class="normal"><span>297</span></span>
+<span class="normal"><span>298</span></span>
+<span class="normal"><span>299</span></span>
+<span class="normal"><span>300</span></span>
+<span class="normal"><span>301</span></span>
+<span class="normal"><span>302</span></span>
+<span class="normal"><span>303</span></span>
+<span class="normal"><span>304</span></span>
+<span class="normal"><span>305</span></span>
+<span class="normal"><span>306</span></span>
+<span class="normal"><span>307</span></span>
+<span class="normal"><span>308</span></span>
+<span class="normal"><span>309</span></span>
+<span class="normal"><span>310</span></span>
+<span class="normal"><span>311</span></span>
+<span class="normal"><span>312</span></span>
+<span class="normal"><span>313</span></span>
+<span class="normal"><span>314</span></span>
+<span class="normal"><span>315</span></span>
+<span class="normal"><span>316</span></span>
+<span class="normal"><span>317</span></span>
+<span class="normal"><span>318</span></span>
+<span class="normal"><span>319</span></span>
+<span class="normal"><span>320</span></span>
+<span class="normal"><span>321</span></span>
+<span class="normal"><span>322</span></span>
+<span class="normal"><span>323</span></span>
+<span class="normal"><span>324</span></span>
+<span class="normal"><span>325</span></span>
+<span class="normal"><span>326</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">request_queue</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">request_func</span><span class="p">,</span>
+<span></span>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
+<span></span>    <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span></span>    <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">progress_total</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">stream_response</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
+<span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span></span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Attempt to execute `request_func` with retries, timeout handling, optional threading, and progress tracking.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        request_func (callable): The function to execute.</span>
+<span></span><span class="sd">        retry (int): Number of retry attempts.</span>
+<span></span><span class="sd">        timeout (int): Maximum time to wait for the request to complete.</span>
+<span></span><span class="sd">        thread (bool): Whether to run the request in a separate thread.</span>
+<span></span><span class="sd">        verbose (bool): Whether to log detailed messages.</span>
+<span></span><span class="sd">        progress_total (int, optional): Total size for progress tracking.</span>
+<span></span><span class="sd">        stream_response (bool, optional): Whether to stream the response.</span>
+<span></span><span class="sd">        *args (Any): Additional positional arguments for request_func.</span>
+<span></span><span class="sd">        **kwargs (Any): Additional keyword arguments for request_func.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (requests.Response | None): The response object if thread=False, otherwise None.</span>
+<span></span><span class="sd">    """</span>
+<span></span>
+<span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">retry_request</span><span class="p">():</span>
+<span></span><span class="w">        </span><span class="sd">"""Attempt to call `request_func` with retries, timeout, and optional threading."""</span>
+<span></span>        <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>  <span class="c1"># Record the start time for the timeout</span>
+<span></span>        <span class="n">response</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">retry</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+<span></span>            <span class="k">if</span> <span class="p">(</span><span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">t0</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">timeout</span><span class="p">:</span>
+<span></span>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Timeout for request reached. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>                <span class="k">break</span>  <span class="c1"># Timeout reached, exit loop</span>
+<span></span>
+<span></span>            <span class="n">response</span> <span class="o">=</span> <span class="n">request_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span></span>            <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Received no response from the request. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>                <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff before retrying</span>
+<span></span>                <span class="k">continue</span>  <span class="c1"># Skip further processing and retry</span>
+<span></span>
+<span></span>            <span class="k">if</span> <span class="n">progress_total</span><span class="p">:</span>
+<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">_show_upload_progress</span><span class="p">(</span><span class="n">progress_total</span><span class="p">,</span> <span class="n">response</span><span class="p">)</span>
+<span></span>            <span class="k">elif</span> <span class="n">stream_response</span><span class="p">:</span>
+<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">_iterate_content</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+<span></span>
+<span></span>            <span class="k">if</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">OK</span> <span class="o">&lt;=</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span> <span class="o">&lt;</span> <span class="n">HTTPStatus</span><span class="o">.</span><span class="n">MULTIPLE_CHOICES</span><span class="p">:</span>
+<span></span>                <span class="c1"># if request related to metrics upload</span>
+<span></span>                <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
+<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>                <span class="k">return</span> <span class="n">response</span>  <span class="c1"># Success, no need to retry</span>
+<span></span>
+<span></span>            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>                <span class="c1"># Initial attempt, check status code and provide messages</span>
+<span></span>                <span class="n">message</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_failure_message</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">retry</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+<span></span>
+<span></span>                <span class="k">if</span> <span class="n">verbose</span><span class="p">:</span>
+<span></span>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="n">message</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">)"</span><span class="p">)</span>
+<span></span>
+<span></span>            <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">_should_retry</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">):</span>
+<span></span>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Request failed. </span><span class="si">{</span><span class="n">HELP_MSG</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>                <span class="k">break</span>  <span class="c1"># Not an error that should be retried, exit loop</span>
+<span></span>
+<span></span>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span>  <span class="c1"># Exponential backoff for retries</span>
+<span></span>
+<span></span>        <span class="c1"># if request related to metrics upload and exceed retries</span>
+<span></span>        <span class="k">if</span> <span class="n">response</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">):</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">metrics_upload_failed_queue</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"metrics"</span><span class="p">))</span>
+<span></span>
+<span></span>        <span class="k">return</span> <span class="n">response</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="n">thread</span><span class="p">:</span>
+<span></span>        <span class="c1"># Start a new thread to run the retry_request function</span>
+<span></span>        <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">retry_request</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="c1"># If running in the main thread, call retry_request directly</span>
+<span></span>        <span class="k">return</span> <span class="n">retry_request</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2193,17 +2193,17 @@ It can be a URL string or a model key with specific format.</p>
 <h3 class="doc doc-heading" id="ultralytics.hub.session.HUBTrainingSession.upload_metrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">upload_metrics</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">upload_metrics</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">upload_metrics</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Upload model metrics to Ultralytics HUB.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>372</a></span>
-<span class="normal"><a>373</a></span>
-<span class="normal"><a>374</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-372"></a><span class="k">def</span><span class="w"> </span><span class="nf">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-373"></a><span class="w">    </span><span class="sd">"""Upload model metrics to Ultralytics HUB."""</span>
-<a id="__codelineno-0-374"></a>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>372</span></span>
+<span class="normal"><span>373</span></span>
+<span class="normal"><span>374</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">upload_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Upload model metrics to Ultralytics HUB."""</span>
+<span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">,</span> <span class="n">metrics</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics_queue</span><span class="o">.</span><span class="n">copy</span><span class="p">(),</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2212,13 +2212,13 @@ It can be a URL string or a model key with specific format.</p>
 <h3 class="doc doc-heading" id="ultralytics.hub.session.HUBTrainingSession.upload_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">upload_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">upload_model</span><span class="p">(</span>
-<a id="__codelineno-0-2"></a>    <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-3"></a>    <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<a id="__codelineno-0-4"></a>    <span class="n">is_best</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-5"></a>    <span class="nb">map</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-0-6"></a>    <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-7"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">upload_model</span><span class="p">(</span>
+<span></span>    <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">is_best</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="nb">map</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span></span>    <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Upload a model checkpoint to Ultralytics HUB.</p>
@@ -2317,97 +2317,97 @@ It can be a URL string or a model key with specific format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/session.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>376</a></span>
-<span class="normal"><a>377</a></span>
-<span class="normal"><a>378</a></span>
-<span class="normal"><a>379</a></span>
-<span class="normal"><a>380</a></span>
-<span class="normal"><a>381</a></span>
-<span class="normal"><a>382</a></span>
-<span class="normal"><a>383</a></span>
-<span class="normal"><a>384</a></span>
-<span class="normal"><a>385</a></span>
-<span class="normal"><a>386</a></span>
-<span class="normal"><a>387</a></span>
-<span class="normal"><a>388</a></span>
-<span class="normal"><a>389</a></span>
-<span class="normal"><a>390</a></span>
-<span class="normal"><a>391</a></span>
-<span class="normal"><a>392</a></span>
-<span class="normal"><a>393</a></span>
-<span class="normal"><a>394</a></span>
-<span class="normal"><a>395</a></span>
-<span class="normal"><a>396</a></span>
-<span class="normal"><a>397</a></span>
-<span class="normal"><a>398</a></span>
-<span class="normal"><a>399</a></span>
-<span class="normal"><a>400</a></span>
-<span class="normal"><a>401</a></span>
-<span class="normal"><a>402</a></span>
-<span class="normal"><a>403</a></span>
-<span class="normal"><a>404</a></span>
-<span class="normal"><a>405</a></span>
-<span class="normal"><a>406</a></span>
-<span class="normal"><a>407</a></span>
-<span class="normal"><a>408</a></span>
-<span class="normal"><a>409</a></span>
-<span class="normal"><a>410</a></span>
-<span class="normal"><a>411</a></span>
-<span class="normal"><a>412</a></span>
-<span class="normal"><a>413</a></span>
-<span class="normal"><a>414</a></span>
-<span class="normal"><a>415</a></span>
-<span class="normal"><a>416</a></span>
-<span class="normal"><a>417</a></span>
-<span class="normal"><a>418</a></span>
-<span class="normal"><a>419</a></span>
-<span class="normal"><a>420</a></span>
-<span class="normal"><a>421</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-376"></a><span class="k">def</span><span class="w"> </span><span class="nf">upload_model</span><span class="p">(</span>
-<a id="__codelineno-0-377"></a>    <span class="bp">self</span><span class="p">,</span>
-<a id="__codelineno-0-378"></a>    <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<a id="__codelineno-0-379"></a>    <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<a id="__codelineno-0-380"></a>    <span class="n">is_best</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-381"></a>    <span class="nb">map</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-0-382"></a>    <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-383"></a><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-384"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-385"></a><span class="sd">    Upload a model checkpoint to Ultralytics HUB.</span>
-<a id="__codelineno-0-386"></a>
-<a id="__codelineno-0-387"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-388"></a><span class="sd">        epoch (int): The current training epoch.</span>
-<a id="__codelineno-0-389"></a><span class="sd">        weights (str): Path to the model weights file.</span>
-<a id="__codelineno-0-390"></a><span class="sd">        is_best (bool): Indicates if the current model is the best one so far.</span>
-<a id="__codelineno-0-391"></a><span class="sd">        map (float): Mean average precision of the model.</span>
-<a id="__codelineno-0-392"></a><span class="sd">        final (bool): Indicates if the model is the final model after training.</span>
-<a id="__codelineno-0-393"></a><span class="sd">    """</span>
-<a id="__codelineno-0-394"></a>    <span class="n">weights</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-<a id="__codelineno-0-395"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">weights</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-<a id="__codelineno-0-396"></a>        <span class="n">last</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="sa">f</span><span class="s2">"last</span><span class="si">{</span><span class="n">weights</span><span class="o">.</span><span class="n">suffix</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-397"></a>        <span class="k">if</span> <span class="n">final</span> <span class="ow">and</span> <span class="n">last</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
-<a id="__codelineno-0-398"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-399"></a>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2"> Model 'best.pt' not found, copying 'last.pt' to 'best.pt' and uploading. "</span>
-<a id="__codelineno-0-400"></a>                <span class="s2">"This often happens when resuming training in transient environments like Google Colab. "</span>
-<a id="__codelineno-0-401"></a>                <span class="s2">"For more reliable training, consider using Ultralytics HUB Cloud. "</span>
-<a id="__codelineno-0-402"></a>                <span class="s2">"Learn more at https://docs.ultralytics.com/hub/cloud-training."</span>
-<a id="__codelineno-0-403"></a>            <span class="p">)</span>
-<a id="__codelineno-0-404"></a>            <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">last</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>  <span class="c1"># copy last.pt to best.pt</span>
-<a id="__codelineno-0-405"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-406"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2"> Model upload issue. Missing model </span><span class="si">{</span><span class="n">weights</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
-<a id="__codelineno-0-407"></a>            <span class="k">return</span>
-<a id="__codelineno-0-408"></a>
-<a id="__codelineno-0-409"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span>
-<a id="__codelineno-0-410"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_model</span><span class="p">,</span>
-<a id="__codelineno-0-411"></a>        <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span>
-<a id="__codelineno-0-412"></a>        <span class="n">weights</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">weights</span><span class="p">),</span>
-<a id="__codelineno-0-413"></a>        <span class="n">is_best</span><span class="o">=</span><span class="n">is_best</span><span class="p">,</span>
-<a id="__codelineno-0-414"></a>        <span class="nb">map</span><span class="o">=</span><span class="nb">map</span><span class="p">,</span>
-<a id="__codelineno-0-415"></a>        <span class="n">final</span><span class="o">=</span><span class="n">final</span><span class="p">,</span>
-<a id="__codelineno-0-416"></a>        <span class="n">retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-0-417"></a>        <span class="n">timeout</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
-<a id="__codelineno-0-418"></a>        <span class="n">thread</span><span class="o">=</span><span class="ow">not</span> <span class="n">final</span><span class="p">,</span>
-<a id="__codelineno-0-419"></a>        <span class="n">progress_total</span><span class="o">=</span><span class="n">weights</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="k">if</span> <span class="n">final</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># only show progress if final</span>
-<a id="__codelineno-0-420"></a>        <span class="n">stream_response</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-421"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>376</span></span>
+<span class="normal"><span>377</span></span>
+<span class="normal"><span>378</span></span>
+<span class="normal"><span>379</span></span>
+<span class="normal"><span>380</span></span>
+<span class="normal"><span>381</span></span>
+<span class="normal"><span>382</span></span>
+<span class="normal"><span>383</span></span>
+<span class="normal"><span>384</span></span>
+<span class="normal"><span>385</span></span>
+<span class="normal"><span>386</span></span>
+<span class="normal"><span>387</span></span>
+<span class="normal"><span>388</span></span>
+<span class="normal"><span>389</span></span>
+<span class="normal"><span>390</span></span>
+<span class="normal"><span>391</span></span>
+<span class="normal"><span>392</span></span>
+<span class="normal"><span>393</span></span>
+<span class="normal"><span>394</span></span>
+<span class="normal"><span>395</span></span>
+<span class="normal"><span>396</span></span>
+<span class="normal"><span>397</span></span>
+<span class="normal"><span>398</span></span>
+<span class="normal"><span>399</span></span>
+<span class="normal"><span>400</span></span>
+<span class="normal"><span>401</span></span>
+<span class="normal"><span>402</span></span>
+<span class="normal"><span>403</span></span>
+<span class="normal"><span>404</span></span>
+<span class="normal"><span>405</span></span>
+<span class="normal"><span>406</span></span>
+<span class="normal"><span>407</span></span>
+<span class="normal"><span>408</span></span>
+<span class="normal"><span>409</span></span>
+<span class="normal"><span>410</span></span>
+<span class="normal"><span>411</span></span>
+<span class="normal"><span>412</span></span>
+<span class="normal"><span>413</span></span>
+<span class="normal"><span>414</span></span>
+<span class="normal"><span>415</span></span>
+<span class="normal"><span>416</span></span>
+<span class="normal"><span>417</span></span>
+<span class="normal"><span>418</span></span>
+<span class="normal"><span>419</span></span>
+<span class="normal"><span>420</span></span>
+<span class="normal"><span>421</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">upload_model</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">epoch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">weights</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">is_best</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="nb">map</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
+<span></span>    <span class="n">final</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Upload a model checkpoint to Ultralytics HUB.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        epoch (int): The current training epoch.</span>
+<span></span><span class="sd">        weights (str): Path to the model weights file.</span>
+<span></span><span class="sd">        is_best (bool): Indicates if the current model is the best one so far.</span>
+<span></span><span class="sd">        map (float): Mean average precision of the model.</span>
+<span></span><span class="sd">        final (bool): Indicates if the model is the final model after training.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">weights</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">weights</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+<span></span>        <span class="n">last</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">with_name</span><span class="p">(</span><span class="sa">f</span><span class="s2">"last</span><span class="si">{</span><span class="n">weights</span><span class="o">.</span><span class="n">suffix</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="k">if</span> <span class="n">final</span> <span class="ow">and</span> <span class="n">last</span><span class="o">.</span><span class="n">is_file</span><span class="p">():</span>
+<span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+<span></span>                <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2"> Model 'best.pt' not found, copying 'last.pt' to 'best.pt' and uploading. "</span>
+<span></span>                <span class="s2">"This often happens when resuming training in transient environments like Google Colab. "</span>
+<span></span>                <span class="s2">"For more reliable training, consider using Ultralytics HUB Cloud. "</span>
+<span></span>                <span class="s2">"Learn more at https://docs.ultralytics.com/hub/cloud-training."</span>
+<span></span>            <span class="p">)</span>
+<span></span>            <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">last</span><span class="p">,</span> <span class="n">weights</span><span class="p">)</span>  <span class="c1"># copy last.pt to best.pt</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2"> Model upload issue. Missing model </span><span class="si">{</span><span class="n">weights</span><span class="si">}</span><span class="s2">."</span><span class="p">)</span>
+<span></span>            <span class="k">return</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">request_queue</span><span class="p">(</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">upload_model</span><span class="p">,</span>
+<span></span>        <span class="n">epoch</span><span class="o">=</span><span class="n">epoch</span><span class="p">,</span>
+<span></span>        <span class="n">weights</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">weights</span><span class="p">),</span>
+<span></span>        <span class="n">is_best</span><span class="o">=</span><span class="n">is_best</span><span class="p">,</span>
+<span></span>        <span class="nb">map</span><span class="o">=</span><span class="nb">map</span><span class="p">,</span>
+<span></span>        <span class="n">final</span><span class="o">=</span><span class="n">final</span><span class="p">,</span>
+<span></span>        <span class="n">retry</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span></span>        <span class="n">timeout</span><span class="o">=</span><span class="mi">3600</span><span class="p">,</span>
+<span></span>        <span class="n">thread</span><span class="o">=</span><span class="ow">not</span> <span class="n">final</span><span class="p">,</span>
+<span></span>        <span class="n">progress_total</span><span class="o">=</span><span class="n">weights</span><span class="o">.</span><span class="n">stat</span><span class="p">()</span><span class="o">.</span><span class="n">st_size</span> <span class="k">if</span> <span class="n">final</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>  <span class="c1"># only show progress if final</span>
+<span></span>        <span class="n">stream_response</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

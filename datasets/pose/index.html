@@ -873,27 +873,27 @@
 </ol>
 <p>Here is an example of the label format for pose estimation task:</p>
 <p>Format with Dim = 2</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>&lt;class-index&gt; &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt; &lt;px1&gt; &lt;py1&gt; &lt;px2&gt; &lt;py2&gt; ... &lt;pxn&gt; &lt;pyn&gt;
+<div class="highlight"><pre><span></span><code><span></span>&lt;class-index&gt; &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt; &lt;px1&gt; &lt;py1&gt; &lt;px2&gt; &lt;py2&gt; ... &lt;pxn&gt; &lt;pyn&gt;
 </code></pre></div>
 <p>Format with Dim = 3</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>&lt;class-index&gt; &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt; &lt;px1&gt; &lt;py1&gt; &lt;p1-visibility&gt; &lt;px2&gt; &lt;py2&gt; &lt;p2-visibility&gt; &lt;pxn&gt; &lt;pyn&gt; &lt;pn-visibility&gt;
+<div class="highlight"><pre><span></span><code><span></span>&lt;class-index&gt; &lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt; &lt;px1&gt; &lt;py1&gt; &lt;p1-visibility&gt; &lt;px2&gt; &lt;py2&gt; &lt;p2-visibility&gt; &lt;pxn&gt; &lt;pyn&gt; &lt;pn-visibility&gt;
 </code></pre></div>
 <p>In this format, <code>&lt;class-index&gt;</code> is the index of the class for the object,<code>&lt;x&gt; &lt;y&gt; &lt;width&gt; &lt;height&gt;</code> are coordinates of <a href="https://www.ultralytics.com/glossary/bounding-box">bounding box</a>, and <code>&lt;px1&gt; &lt;py1&gt; &lt;px2&gt; &lt;py2&gt; ... &lt;pxn&gt; &lt;pyn&gt;</code> are the pixel coordinates of the keypoints. The coordinates are separated by spaces.</p>
 <h3 id="dataset-yaml-format">Dataset YAML format</h3>
 <p>The Ultralytics framework uses a YAML file format to define the dataset and model configuration for training pose estimation models. Here is an example of the YAML format used for defining a pose dataset:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a id="__codelineno-2-2"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-pose</span><span class="w"> </span><span class="c1"># dataset root dir (absolute or relative; if relative, it's relative to default datasets_dir)</span>
-<a id="__codelineno-2-3"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 4 images</span>
-<a id="__codelineno-2-4"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 4 images</span>
-<a id="__codelineno-2-5"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
-<a id="__codelineno-2-6"></a>
-<a id="__codelineno-2-7"></a><span class="c1"># Keypoints</span>
-<a id="__codelineno-2-8"></a><span class="nt">kpt_shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">17</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)</span>
-<a id="__codelineno-2-9"></a><span class="nt">flip_idx</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">10</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">9</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">12</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">14</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">13</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">16</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">15</span><span class="p p-Indicator">]</span>
-<a id="__codelineno-2-10"></a>
-<a id="__codelineno-2-11"></a><span class="c1"># Classes dictionary</span>
-<a id="__codelineno-2-12"></a><span class="nt">names</span><span class="p">:</span>
-<a id="__codelineno-2-13"></a><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
+<span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-pose</span><span class="w"> </span><span class="c1"># dataset root dir (absolute or relative; if relative, it's relative to default datasets_dir)</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 4 images</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 4 images</span>
+<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
+<span></span>
+<span></span><span class="c1"># Keypoints</span>
+<span></span><span class="nt">kpt_shape</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">17</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">]</span><span class="w"> </span><span class="c1"># number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)</span>
+<span></span><span class="nt">flip_idx</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">[</span><span class="nv">0</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">2</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">1</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">4</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">3</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">6</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">5</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">8</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">7</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">10</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">9</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">12</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">11</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">14</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">13</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">16</span><span class="p p-Indicator">,</span><span class="w"> </span><span class="nv">15</span><span class="p p-Indicator">]</span>
+<span></span>
+<span></span><span class="c1"># Classes dictionary</span>
+<span></span><span class="nt">names</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
 </code></pre></div>
 <p>The <code>train</code> and <code>val</code> fields specify the paths to the directories containing the training and validation images, respectively.</p>
 <p><code>names</code> is a dictionary of class names. The order of the names should match the order of the object class indices in the YOLO dataset files.</p>
@@ -904,18 +904,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8-pose.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8-pose.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a id="__codelineno-4-2"></a>yolo<span class="w"> </span>pose<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8-pose.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-pose.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
+<span></span>yolo<span class="w"> </span>pose<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8-pose.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-pose.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -979,9 +979,9 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_keypoints</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
+<span></span>
+<span></span><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_keypoints</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1005,10 +1005,10 @@
 <li>Create a YAML configuration file specifying paths to training and validation images, keypoint shape, and class names.</li>
 <li>
 <p>Use the configuration file for training:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-6-2"></a>
-<a id="__codelineno-6-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>  <span class="c1"># load pretrained model</span>
-<a id="__codelineno-6-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco-pose.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>  <span class="c1"># load pretrained model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco-pose.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 <p>For more information, visit <a href="coco/">COCO-Pose</a> and <a href="../../modes/train/">train</a> sections.</p>
 </li>
@@ -1020,28 +1020,28 @@
 <li>Create a YAML configuration file specifying the dataset paths, number of classes, and class names.</li>
 <li>
 <p>Use the configuration file to train your model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-7-2"></a>
-<a id="__codelineno-7-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>
-<a id="__codelineno-7-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"your-dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"your-dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 <p>For complete steps, check the <a href="#adding-your-own-dataset">Adding your own dataset</a> section.</p>
 </li>
 </ol>
 <h3 id="what-is-the-purpose-of-the-dataset-yaml-file-in-ultralytics-yolo">What is the purpose of the dataset YAML file in Ultralytics YOLO?</h3>
 <p>The dataset YAML file in Ultralytics YOLO defines the dataset and model configuration for training. It specifies paths to training, validation, and test images, keypoint shapes, class names, and other configuration options. This structured format helps streamline <a href="https://docs.ultralytics.com/datasets/explorer/">dataset management</a> and model training. Here is an example YAML format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-pose</span>
-<a id="__codelineno-8-2"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span>
-<a id="__codelineno-8-3"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span>
-<a id="__codelineno-8-4"></a><span class="nt">names</span><span class="p">:</span>
-<a id="__codelineno-8-5"></a><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-pose</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span>
+<span></span><span class="nt">names</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
 </code></pre></div>
 <p>Read more about creating YAML configuration files in <a href="#dataset-yaml-format">Dataset YAML format</a>.</p>
 <h3 id="how-can-i-convert-coco-dataset-labels-to-ultralytics-yolo-format-for-pose-estimation">How can I convert COCO dataset labels to Ultralytics YOLO format for pose estimation?</h3>
 <p>Ultralytics provides a conversion tool to convert COCO dataset labels to the YOLO format, including keypoint information:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_keypoints</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
+<span></span>
+<span></span><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_keypoints</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>This tool helps seamlessly integrate COCO datasets into YOLO projects. For details, refer to the <a href="#conversion-tool">Conversion Tool</a> section and the <a href="https://docs.ultralytics.com/guides/preprocessing_annotated_data/">data preprocessing guide</a>.</p>
 <div class="git-info">

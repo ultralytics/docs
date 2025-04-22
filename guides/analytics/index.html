@@ -650,63 +650,63 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="c1"># Pass the source</span>
-<a id="__codelineno-0-4"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
-<a id="__codelineno-0-5"></a>
-<a id="__codelineno-0-6"></a><span class="c1"># Generate the pie chart</span>
-<a id="__codelineno-0-7"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">analytics_type</span><span class="o">=</span><span class="s2">"pie"</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-0-8"></a>
-<a id="__codelineno-0-9"></a><span class="c1"># Generate the bar plots</span>
-<a id="__codelineno-0-10"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">analytics_type</span><span class="o">=</span><span class="s2">"bar"</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-0-11"></a>
-<a id="__codelineno-0-12"></a><span class="c1"># Generate the area plots</span>
-<a id="__codelineno-0-13"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">analytics_type</span><span class="o">=</span><span class="s2">"area"</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>
+<span></span><span class="c1"># Pass the source</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
+<span></span>
+<span></span><span class="c1"># Generate the pie chart</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">analytics_type</span><span class="o">=</span><span class="s2">"pie"</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>
+<span></span><span class="c1"># Generate the bar plots</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">analytics_type</span><span class="o">=</span><span class="s2">"bar"</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>
+<span></span><span class="c1"># Generate the area plots</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>analytics<span class="w"> </span><span class="nv">analytics_type</span><span class="o">=</span><span class="s2">"area"</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a id="__codelineno-1-4"></a>
-<a id="__codelineno-1-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a id="__codelineno-1-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a id="__codelineno-1-7"></a>
-<a id="__codelineno-1-8"></a><span class="c1"># Video writer</span>
-<a id="__codelineno-1-9"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a id="__codelineno-1-10"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
-<a id="__codelineno-1-11"></a>    <span class="s2">"analytics_output.avi"</span><span class="p">,</span>
-<a id="__codelineno-1-12"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
-<a id="__codelineno-1-13"></a>    <span class="n">fps</span><span class="p">,</span>
-<a id="__codelineno-1-14"></a>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
-<a id="__codelineno-1-15"></a><span class="p">)</span>
-<a id="__codelineno-1-16"></a>
-<a id="__codelineno-1-17"></a><span class="c1"># Initialize analytics object</span>
-<a id="__codelineno-1-18"></a><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
-<a id="__codelineno-1-19"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># display the output</span>
-<a id="__codelineno-1-20"></a>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span>  <span class="c1"># pass the analytics type, could be "pie", "bar" or "area".</span>
-<a id="__codelineno-1-21"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>  <span class="c1"># path to the YOLO11 model file</span>
-<a id="__codelineno-1-22"></a>    <span class="c1"># classes=[0, 2],  # display analytics for specific detection classes</span>
-<a id="__codelineno-1-23"></a><span class="p">)</span>
-<a id="__codelineno-1-24"></a>
-<a id="__codelineno-1-25"></a><span class="c1"># Process video</span>
-<a id="__codelineno-1-26"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-1-27"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a id="__codelineno-1-28"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-1-29"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a id="__codelineno-1-30"></a>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-1-31"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
-<a id="__codelineno-1-32"></a>
-<a id="__codelineno-1-33"></a>        <span class="c1"># print(results)  # access the output</span>
-<a id="__codelineno-1-34"></a>
-<a id="__codelineno-1-35"></a>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
-<a id="__codelineno-1-36"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-1-37"></a>        <span class="k">break</span>
-<a id="__codelineno-1-38"></a>
-<a id="__codelineno-1-39"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-1-40"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-1-41"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>  <span class="c1"># destroy all opened windows</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<span></span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<span></span><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<span></span>
+<span></span><span class="c1"># Video writer</span>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<span></span><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
+<span></span>    <span class="s2">"analytics_output.avi"</span><span class="p">,</span>
+<span></span>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
+<span></span>    <span class="n">fps</span><span class="p">,</span>
+<span></span>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Initialize analytics object</span>
+<span></span><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
+<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># display the output</span>
+<span></span>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span>  <span class="c1"># pass the analytics type, could be "pie", "bar" or "area".</span>
+<span></span>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>  <span class="c1"># path to the YOLO11 model file</span>
+<span></span>    <span class="c1"># classes=[0, 2],  # display analytics for specific detection classes</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Process video</span>
+<span></span><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
+<span></span>
+<span></span>        <span class="c1"># print(results)  # access the output</span>
+<span></span>
+<span></span>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>  <span class="c1"># destroy all opened windows</span>
 </code></pre></div>
 </div>
 </div>
@@ -824,40 +824,40 @@
 <li>Save the output video displaying the line graph.</li>
 </ol>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a id="__codelineno-2-4"></a>
-<a id="__codelineno-2-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a id="__codelineno-2-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a id="__codelineno-2-7"></a>
-<a id="__codelineno-2-8"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a id="__codelineno-2-9"></a>
-<a id="__codelineno-2-10"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
-<a id="__codelineno-2-11"></a>    <span class="s2">"ultralytics_analytics.avi"</span><span class="p">,</span>
-<a id="__codelineno-2-12"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
-<a id="__codelineno-2-13"></a>    <span class="n">fps</span><span class="p">,</span>
-<a id="__codelineno-2-14"></a>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
-<a id="__codelineno-2-15"></a><span class="p">)</span>
-<a id="__codelineno-2-16"></a>
-<a id="__codelineno-2-17"></a><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
-<a id="__codelineno-2-18"></a>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span>
-<a id="__codelineno-2-19"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-2-20"></a><span class="p">)</span>
-<a id="__codelineno-2-21"></a>
-<a id="__codelineno-2-22"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-2-23"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a id="__codelineno-2-24"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-2-25"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a id="__codelineno-2-26"></a>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-2-27"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
-<a id="__codelineno-2-28"></a>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
-<a id="__codelineno-2-29"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-2-30"></a>        <span class="k">break</span>
-<a id="__codelineno-2-31"></a>
-<a id="__codelineno-2-32"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-2-33"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-2-34"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<span></span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<span></span><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<span></span>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<span></span>
+<span></span><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
+<span></span>    <span class="s2">"ultralytics_analytics.avi"</span><span class="p">,</span>
+<span></span>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
+<span></span>    <span class="n">fps</span><span class="p">,</span>
+<span></span>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
+<span></span>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span>
+<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
+<span></span>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 <p>For further details on configuring the <code>Analytics</code> class, visit the <a href="#analytics-using-ultralytics-yolo11">Analytics using Ultralytics YOLO11</a> section.</p>
 <h3 id="what-are-the-benefits-of-using-ultralytics-yolo11-for-creating-bar-plots">What are the benefits of using Ultralytics YOLO11 for creating bar plots?</h3>
@@ -869,40 +869,40 @@
 <li><strong>Efficiency</strong>: Efficiently handle large amounts of data and update plots in real-time during video processing.</li>
 </ol>
 <p>Use the following example to generate a bar plot:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a id="__codelineno-3-4"></a>
-<a id="__codelineno-3-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a id="__codelineno-3-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a id="__codelineno-3-7"></a>
-<a id="__codelineno-3-8"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a id="__codelineno-3-9"></a>
-<a id="__codelineno-3-10"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
-<a id="__codelineno-3-11"></a>    <span class="s2">"ultralytics_analytics.avi"</span><span class="p">,</span>
-<a id="__codelineno-3-12"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
-<a id="__codelineno-3-13"></a>    <span class="n">fps</span><span class="p">,</span>
-<a id="__codelineno-3-14"></a>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
-<a id="__codelineno-3-15"></a><span class="p">)</span>
-<a id="__codelineno-3-16"></a>
-<a id="__codelineno-3-17"></a><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
-<a id="__codelineno-3-18"></a>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"bar"</span><span class="p">,</span>
-<a id="__codelineno-3-19"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-3-20"></a><span class="p">)</span>
-<a id="__codelineno-3-21"></a>
-<a id="__codelineno-3-22"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-3-23"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a id="__codelineno-3-24"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-3-25"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a id="__codelineno-3-26"></a>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-3-27"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
-<a id="__codelineno-3-28"></a>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
-<a id="__codelineno-3-29"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-3-30"></a>        <span class="k">break</span>
-<a id="__codelineno-3-31"></a>
-<a id="__codelineno-3-32"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-3-33"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-3-34"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<span></span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<span></span><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<span></span>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<span></span>
+<span></span><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
+<span></span>    <span class="s2">"ultralytics_analytics.avi"</span><span class="p">,</span>
+<span></span>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
+<span></span>    <span class="n">fps</span><span class="p">,</span>
+<span></span>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
+<span></span>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"bar"</span><span class="p">,</span>
+<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
+<span></span>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 <p>To learn more, visit the <a href="#visual-samples">Bar Plot</a> section in the guide.</p>
 <h3 id="why-should-i-use-ultralytics-yolo11-for-creating-pie-charts-in-my-data-visualization-projects">Why should I use Ultralytics YOLO11 for creating pie charts in my data visualization projects?</h3>
@@ -914,79 +914,79 @@
 <li><strong>Real-time Updates</strong>: Handle and visualize data in real-time, which is ideal for video analytics projects.</li>
 </ol>
 <p>Here's a quick example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a id="__codelineno-4-4"></a>
-<a id="__codelineno-4-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a id="__codelineno-4-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a id="__codelineno-4-7"></a>
-<a id="__codelineno-4-8"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a id="__codelineno-4-9"></a>
-<a id="__codelineno-4-10"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
-<a id="__codelineno-4-11"></a>    <span class="s2">"ultralytics_analytics.avi"</span><span class="p">,</span>
-<a id="__codelineno-4-12"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
-<a id="__codelineno-4-13"></a>    <span class="n">fps</span><span class="p">,</span>
-<a id="__codelineno-4-14"></a>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
-<a id="__codelineno-4-15"></a><span class="p">)</span>
-<a id="__codelineno-4-16"></a>
-<a id="__codelineno-4-17"></a><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
-<a id="__codelineno-4-18"></a>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"pie"</span><span class="p">,</span>
-<a id="__codelineno-4-19"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-4-20"></a><span class="p">)</span>
-<a id="__codelineno-4-21"></a>
-<a id="__codelineno-4-22"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-4-23"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a id="__codelineno-4-24"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-4-25"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a id="__codelineno-4-26"></a>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-4-27"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
-<a id="__codelineno-4-28"></a>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
-<a id="__codelineno-4-29"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-4-30"></a>        <span class="k">break</span>
-<a id="__codelineno-4-31"></a>
-<a id="__codelineno-4-32"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-4-33"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-4-34"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<span></span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<span></span><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<span></span>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<span></span>
+<span></span><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
+<span></span>    <span class="s2">"ultralytics_analytics.avi"</span><span class="p">,</span>
+<span></span>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
+<span></span>    <span class="n">fps</span><span class="p">,</span>
+<span></span>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
+<span></span>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"pie"</span><span class="p">,</span>
+<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
+<span></span>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 <p>For more information, refer to the <a href="#visual-samples">Pie Chart</a> section in the guide.</p>
 <h3 id="can-ultralytics-yolo11-be-used-to-track-objects-and-dynamically-update-visualizations">Can Ultralytics YOLO11 be used to track objects and dynamically update visualizations?</h3>
 <p>Yes, Ultralytics YOLO11 can be used to track objects and dynamically update visualizations. It supports tracking multiple objects in real-time and can update various visualizations like line graphs, bar plots, and pie charts based on the tracked objects' data.</p>
 <p>Example for tracking and updating a line graph:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a id="__codelineno-5-4"></a>
-<a id="__codelineno-5-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a id="__codelineno-5-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a id="__codelineno-5-7"></a>
-<a id="__codelineno-5-8"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a id="__codelineno-5-9"></a>
-<a id="__codelineno-5-10"></a><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
-<a id="__codelineno-5-11"></a>    <span class="s2">"ultralytics_analytics.avi"</span><span class="p">,</span>
-<a id="__codelineno-5-12"></a>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
-<a id="__codelineno-5-13"></a>    <span class="n">fps</span><span class="p">,</span>
-<a id="__codelineno-5-14"></a>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
-<a id="__codelineno-5-15"></a><span class="p">)</span>
-<a id="__codelineno-5-16"></a>
-<a id="__codelineno-5-17"></a><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
-<a id="__codelineno-5-18"></a>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span>
-<a id="__codelineno-5-19"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-5-20"></a><span class="p">)</span>
-<a id="__codelineno-5-21"></a>
-<a id="__codelineno-5-22"></a><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-5-23"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a id="__codelineno-5-24"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-5-25"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a id="__codelineno-5-26"></a>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
-<a id="__codelineno-5-27"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
-<a id="__codelineno-5-28"></a>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
-<a id="__codelineno-5-29"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-5-30"></a>        <span class="k">break</span>
-<a id="__codelineno-5-31"></a>
-<a id="__codelineno-5-32"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-5-33"></a><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-5-34"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<span></span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<span></span><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<span></span>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<span></span>
+<span></span><span class="n">out</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span>
+<span></span>    <span class="s2">"ultralytics_analytics.avi"</span><span class="p">,</span>
+<span></span>    <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"MJPG"</span><span class="p">),</span>
+<span></span>    <span class="n">fps</span><span class="p">,</span>
+<span></span>    <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span>  <span class="c1"># this is fixed</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">analytics</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Analytics</span><span class="p">(</span>
+<span></span>    <span class="n">analytics_type</span><span class="o">=</span><span class="s2">"line"</span><span class="p">,</span>
+<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">frame_count</span><span class="p">)</span>  <span class="c1"># update analytics graph every frame</span>
+<span></span>        <span class="n">out</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the video file</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">out</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 <p>To learn about the complete functionality, see the <a href="../../modes/track/">Tracking</a> section.</p>
 <h3 id="what-makes-ultralytics-yolo11-different-from-other-object-detection-solutions-like-opencv-and-tensorflow">What makes Ultralytics YOLO11 different from other object detection solutions like <a href="https://www.ultralytics.com/glossary/opencv">OpenCV</a> and <a href="https://www.ultralytics.com/glossary/tensorflow">TensorFlow</a>?</h3>

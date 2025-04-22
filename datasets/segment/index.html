@@ -872,12 +872,12 @@
 </li>
 </ol>
 <p>The format for a single row in the segmentation dataset file is as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>&lt;class-index&gt; &lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; ... &lt;xn&gt; &lt;yn&gt;
+<div class="highlight"><pre><span></span><code><span></span>&lt;class-index&gt; &lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; ... &lt;xn&gt; &lt;yn&gt;
 </code></pre></div>
 <p>In this format, <code>&lt;class-index&gt;</code> is the index of the class for the object, and <code>&lt;x1&gt; &lt;y1&gt; &lt;x2&gt; &lt;y2&gt; ... &lt;xn&gt; &lt;yn&gt;</code> are the bounding coordinates of the object's segmentation mask. The coordinates are separated by spaces.</p>
 <p>Here is an example of the YOLO dataset format for a single image with two objects made up of a 3-point segment and a 5-point segment.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>0 0.681 0.485 0.670 0.487 0.676 0.487
-<a id="__codelineno-1-2"></a>1 0.504 0.000 0.501 0.004 0.498 0.004 0.493 0.010 0.492 0.0104
+<div class="highlight"><pre><span></span><code><span></span>0 0.681 0.485 0.670 0.487 0.676 0.487
+<span></span>1 0.504 0.000 0.501 0.004 0.498 0.004 0.493 0.010 0.492 0.0104
 </code></pre></div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
@@ -888,21 +888,21 @@
 </div>
 <h3 id="dataset-yaml-format">Dataset YAML format</h3>
 <p>The Ultralytics framework uses a YAML file format to define the dataset and model configuration for training Detection Models. Here is an example of the YAML format used for defining a detection dataset:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a id="__codelineno-2-2"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-seg</span><span class="w"> </span><span class="c1"># dataset root dir (absolute or relative; if relative, it's relative to default datasets_dir)</span>
-<a id="__codelineno-2-3"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 4 images</span>
-<a id="__codelineno-2-4"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 4 images</span>
-<a id="__codelineno-2-5"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
-<a id="__codelineno-2-6"></a>
-<a id="__codelineno-2-7"></a><span class="c1"># Classes (80 COCO classes)</span>
-<a id="__codelineno-2-8"></a><span class="nt">names</span><span class="p">:</span>
-<a id="__codelineno-2-9"></a><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
-<a id="__codelineno-2-10"></a><span class="w">    </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
-<a id="__codelineno-2-11"></a><span class="w">    </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
-<a id="__codelineno-2-12"></a><span class="w">    </span><span class="c1"># ...</span>
-<a id="__codelineno-2-13"></a><span class="w">    </span><span class="nt">77</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teddy bear</span>
-<a id="__codelineno-2-14"></a><span class="w">    </span><span class="nt">78</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hair drier</span>
-<a id="__codelineno-2-15"></a><span class="w">    </span><span class="nt">79</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toothbrush</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
+<span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-seg</span><span class="w"> </span><span class="c1"># dataset root dir (absolute or relative; if relative, it's relative to default datasets_dir)</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 4 images</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 4 images</span>
+<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional)</span>
+<span></span>
+<span></span><span class="c1"># Classes (80 COCO classes)</span>
+<span></span><span class="nt">names</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<span></span><span class="w">    </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
+<span></span><span class="w">    </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
+<span></span><span class="w">    </span><span class="c1"># ...</span>
+<span></span><span class="w">    </span><span class="nt">77</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teddy bear</span>
+<span></span><span class="w">    </span><span class="nt">78</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hair drier</span>
+<span></span><span class="w">    </span><span class="nt">79</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toothbrush</span>
 </code></pre></div>
 <p>The <code>train</code> and <code>val</code> fields specify the paths to the directories containing the training and validation images, respectively.</p>
 <p><code>names</code> is a dictionary of class names. The order of the names should match the order of the object class indices in the YOLO dataset files.</p>
@@ -912,18 +912,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8-seg.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8-seg.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a id="__codelineno-4-2"></a>yolo<span class="w"> </span>segment<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8-seg.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
+<span></span>yolo<span class="w"> </span>segment<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8-seg.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -949,9 +949,9 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
+<span></span>
+<span></span><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -968,9 +968,9 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
-<a id="__codelineno-6-2"></a>
-<a id="__codelineno-6-3"></a><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
+<span></span>
+<span></span><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1052,27 +1052,27 @@
 <p>By leveraging the power of pre-trained models, auto-annotation can significantly reduce the time and effort required for creating high-quality segmentation datasets. This feature is particularly useful for researchers and developers working with large image collections, as it allows them to focus on model development and evaluation rather than manual annotation.</p>
 <h3 id="visualize-dataset-annotations">Visualize Dataset Annotations</h3>
 <p>Before training your model, it's often helpful to visualize your dataset annotations to ensure they're correct. Ultralytics provides a utility function for this purpose:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">visualize_image_annotations</span>
-<a id="__codelineno-7-2"></a>
-<a id="__codelineno-7-3"></a><span class="n">label_map</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># Define the label map with all annotated class labels.</span>
-<a id="__codelineno-7-4"></a>    <span class="mi">0</span><span class="p">:</span> <span class="s2">"person"</span><span class="p">,</span>
-<a id="__codelineno-7-5"></a>    <span class="mi">1</span><span class="p">:</span> <span class="s2">"car"</span><span class="p">,</span>
-<a id="__codelineno-7-6"></a><span class="p">}</span>
-<a id="__codelineno-7-7"></a>
-<a id="__codelineno-7-8"></a><span class="c1"># Visualize</span>
-<a id="__codelineno-7-9"></a><span class="n">visualize_image_annotations</span><span class="p">(</span>
-<a id="__codelineno-7-10"></a>    <span class="s2">"path/to/image.jpg"</span><span class="p">,</span>  <span class="c1"># Input image path.</span>
-<a id="__codelineno-7-11"></a>    <span class="s2">"path/to/annotations.txt"</span><span class="p">,</span>  <span class="c1"># Annotation file path for the image.</span>
-<a id="__codelineno-7-12"></a>    <span class="n">label_map</span><span class="p">,</span>
-<a id="__codelineno-7-13"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">visualize_image_annotations</span>
+<span></span>
+<span></span><span class="n">label_map</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># Define the label map with all annotated class labels.</span>
+<span></span>    <span class="mi">0</span><span class="p">:</span> <span class="s2">"person"</span><span class="p">,</span>
+<span></span>    <span class="mi">1</span><span class="p">:</span> <span class="s2">"car"</span><span class="p">,</span>
+<span></span><span class="p">}</span>
+<span></span>
+<span></span><span class="c1"># Visualize</span>
+<span></span><span class="n">visualize_image_annotations</span><span class="p">(</span>
+<span></span>    <span class="s2">"path/to/image.jpg"</span><span class="p">,</span>  <span class="c1"># Input image path.</span>
+<span></span>    <span class="s2">"path/to/annotations.txt"</span><span class="p">,</span>  <span class="c1"># Annotation file path for the image.</span>
+<span></span>    <span class="n">label_map</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <p>This function draws bounding boxes, labels objects with class names, and adjusts text color for better readability, helping you identify and correct any annotation errors before training.</p>
 <h3 id="converting-segmentation-masks-to-yolo-format">Converting Segmentation Masks to YOLO Format</h3>
 <p>If you have segmentation masks in binary format, you can convert them to the YOLO segmentation format using:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_segment_masks_to_yolo_seg</span>
-<a id="__codelineno-8-2"></a>
-<a id="__codelineno-8-3"></a><span class="c1"># For datasets like COCO with 80 classes</span>
-<a id="__codelineno-8-4"></a><span class="n">convert_segment_masks_to_yolo_seg</span><span class="p">(</span><span class="n">masks_dir</span><span class="o">=</span><span class="s2">"path/to/masks_dir"</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s2">"path/to/output_dir"</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_segment_masks_to_yolo_seg</span>
+<span></span>
+<span></span><span class="c1"># For datasets like COCO with 80 classes</span>
+<span></span><span class="n">convert_segment_masks_to_yolo_seg</span><span class="p">(</span><span class="n">masks_dir</span><span class="o">=</span><span class="s2">"path/to/masks_dir"</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s2">"path/to/output_dir"</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="mi">80</span><span class="p">)</span>
 </code></pre></div>
 <p>This utility converts binary mask images into the YOLO segmentation format and saves them in the specified output directory.</p>
 <h2 id="faq">FAQ</h2>
@@ -1080,29 +1080,29 @@
 <p>Ultralytics YOLO supports several dataset formats for instance segmentation, with the primary format being its own Ultralytics YOLO format. Each image in your dataset needs a corresponding text file with object information segmented into multiple rows (one row per object), listing the class index and normalized bounding coordinates. For more detailed instructions on the YOLO dataset format, visit the <a href="#instance-segmentation-datasets-overview">Instance Segmentation Datasets Overview</a>.</p>
 <h3 id="how-can-i-convert-coco-dataset-annotations-to-the-yolo-format">How can I convert COCO dataset annotations to the YOLO format?</h3>
 <p>Converting COCO format annotations to YOLO format is straightforward using Ultralytics tools. You can use the <code>convert_coco</code> function from the <code>ultralytics.data.converter</code> module:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_coco</span>
+<span></span>
+<span></span><span class="n">convert_coco</span><span class="p">(</span><span class="n">labels_dir</span><span class="o">=</span><span class="s2">"path/to/coco/annotations/"</span><span class="p">,</span> <span class="n">use_segments</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>This script converts your COCO dataset annotations to the required YOLO format, making it suitable for training your YOLO models. For more details, refer to <a href="#coco-dataset-format-to-yolo-format">Port or Convert Label Formats</a>.</p>
 <h3 id="how-do-i-prepare-a-yaml-file-for-training-ultralytics-yolo-models">How do I prepare a YAML file for training Ultralytics YOLO models?</h3>
 <p>To prepare a YAML file for training YOLO models with Ultralytics, you need to define the dataset paths and class names. Here's an example YAML configuration:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-seg</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<a id="__codelineno-10-2"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path')</span>
-<a id="__codelineno-10-3"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path')</span>
-<a id="__codelineno-10-4"></a>
-<a id="__codelineno-10-5"></a><span class="nt">names</span><span class="p">:</span>
-<a id="__codelineno-10-6"></a><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
-<a id="__codelineno-10-7"></a><span class="w">    </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
-<a id="__codelineno-10-8"></a><span class="w">    </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
-<a id="__codelineno-10-9"></a><span class="w">    </span><span class="c1"># ...</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco8-seg</span><span class="w"> </span><span class="c1"># dataset root dir</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path')</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path')</span>
+<span></span>
+<span></span><span class="nt">names</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<span></span><span class="w">    </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
+<span></span><span class="w">    </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
+<span></span><span class="w">    </span><span class="c1"># ...</span>
 </code></pre></div>
 <p>Ensure you update the paths and class names according to your dataset. For more information, check the <a href="#dataset-yaml-format">Dataset YAML Format</a> section.</p>
 <h3 id="what-is-the-auto-annotation-feature-in-ultralytics-yolo">What is the auto-annotation feature in Ultralytics YOLO?</h3>
 <p>Auto-annotation in Ultralytics YOLO allows you to generate segmentation annotations for your dataset using a pre-trained detection model. This significantly reduces the need for manual labeling. You can use the <code>auto_annotate</code> function as follows:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
-<a id="__codelineno-11-2"></a>
-<a id="__codelineno-11-3"></a><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>  <span class="c1"># or sam_model="mobile_sam.pt"</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.annotator</span><span class="w"> </span><span class="kn">import</span> <span class="n">auto_annotate</span>
+<span></span>
+<span></span><span class="n">auto_annotate</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">det_model</span><span class="o">=</span><span class="s2">"yolo11x.pt"</span><span class="p">,</span> <span class="n">sam_model</span><span class="o">=</span><span class="s2">"sam_b.pt"</span><span class="p">)</span>  <span class="c1"># or sam_model="mobile_sam.pt"</span>
 </code></pre></div>
 <p>This function automates the annotation process, making it faster and more efficient. For more details, explore the <a href="https://docs.ultralytics.com/reference/data/annotator/#ultralytics.data.annotator.auto_annotate">Auto-Annotate Reference</a>.</p>
 <div class="git-info">

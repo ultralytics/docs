@@ -1045,7 +1045,7 @@
 <p>We will walk through an example benchmarking and deploying a sparse version of YOLOv5s with DeepSparse.</p>
 <h3 id="install-deepsparse">Install DeepSparse</h3>
 <p>Run the following to install DeepSparse. We recommend you use a virtual environment with Python.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"deepsparse[server,yolo,onnxruntime]"</span>
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span><span class="s2">"deepsparse[server,yolo,onnxruntime]"</span>
 </code></pre></div>
 <h3 id="collect-an-onnx-file">Collect an ONNX File</h3>
 <p>DeepSparse accepts a model in the ONNX format, passed either as:</p>
@@ -1054,64 +1054,64 @@
 <li>A local path to an ONNX model in a filesystem</li>
 </ul>
 <p>The examples below use the standard dense and pruned-quantized YOLOv5s checkpoints, identified by the following SparseZoo stubs:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none
-<a id="__codelineno-1-2"></a>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none
+<div class="highlight"><pre><span></span><code><span></span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none
+<span></span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none
 </code></pre></div>
 <h3 id="deploy-a-model">Deploy a Model</h3>
 <p>DeepSparse offers convenient APIs for integrating your model into an application.</p>
 <p>To try the deployment examples below, pull down a sample image and save it as <code>basilica.jpg</code> with the following:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>wget<span class="w"> </span>-O<span class="w"> </span>basilica.jpg<span class="w"> </span>https://raw.githubusercontent.com/neuralmagic/deepsparse/main/src/deepsparse/yolo/sample_images/basilica.jpg
+<div class="highlight"><pre><span></span><code><span></span>wget<span class="w"> </span>-O<span class="w"> </span>basilica.jpg<span class="w"> </span>https://raw.githubusercontent.com/neuralmagic/deepsparse/main/src/deepsparse/yolo/sample_images/basilica.jpg
 </code></pre></div>
 <h4 id="python-api">Python API</h4>
 <p><code>Pipelines</code> wrap pre-processing and output post-processing around the runtime, providing a clean interface for adding DeepSparse to an application. The DeepSparse-Ultralytics integration includes an out-of-the-box <code>Pipeline</code> that accepts raw images and outputs the bounding boxes.</p>
 <p>Create a <code>Pipeline</code> and run inference:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">deepsparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="c1"># list of images in local filesystem</span>
-<a id="__codelineno-3-4"></a><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"basilica.jpg"</span><span class="p">]</span>
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a><span class="c1"># create Pipeline</span>
-<a id="__codelineno-3-7"></a><span class="n">model_stub</span> <span class="o">=</span> <span class="s2">"zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none"</span>
-<a id="__codelineno-3-8"></a><span class="n">yolo_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
-<a id="__codelineno-3-9"></a>    <span class="n">task</span><span class="o">=</span><span class="s2">"yolo"</span><span class="p">,</span>
-<a id="__codelineno-3-10"></a>    <span class="n">model_path</span><span class="o">=</span><span class="n">model_stub</span><span class="p">,</span>
-<a id="__codelineno-3-11"></a><span class="p">)</span>
-<a id="__codelineno-3-12"></a>
-<a id="__codelineno-3-13"></a><span class="c1"># run inference on images, receive bounding boxes + classes</span>
-<a id="__codelineno-3-14"></a><span class="n">pipeline_outputs</span> <span class="o">=</span> <span class="n">yolo_pipeline</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">images</span><span class="p">,</span> <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">conf_thres</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
-<a id="__codelineno-3-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">pipeline_outputs</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">deepsparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+<span></span>
+<span></span><span class="c1"># list of images in local filesystem</span>
+<span></span><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"basilica.jpg"</span><span class="p">]</span>
+<span></span>
+<span></span><span class="c1"># create Pipeline</span>
+<span></span><span class="n">model_stub</span> <span class="o">=</span> <span class="s2">"zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none"</span>
+<span></span><span class="n">yolo_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+<span></span>    <span class="n">task</span><span class="o">=</span><span class="s2">"yolo"</span><span class="p">,</span>
+<span></span>    <span class="n">model_path</span><span class="o">=</span><span class="n">model_stub</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># run inference on images, receive bounding boxes + classes</span>
+<span></span><span class="n">pipeline_outputs</span> <span class="o">=</span> <span class="n">yolo_pipeline</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">images</span><span class="p">,</span> <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">conf_thres</span><span class="o">=</span><span class="mf">0.001</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">pipeline_outputs</span><span class="p">)</span>
 </code></pre></div>
 <p>If you are running in the cloud, you may get an error that open-cv cannot find <code>libGL.so.1</code>. Running the following on Ubuntu installs it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>apt-get install libgl1
+<div class="highlight"><pre><span></span><code><span></span>apt-get install libgl1
 </code></pre></div>
 <h4 id="http-server">HTTP Server</h4>
 <p>DeepSparse Server runs on top of the popular <a href="https://fastapi.tiangolo.com/">FastAPI</a> web framework and <a href="https://www.uvicorn.org/">Uvicorn</a> web server. With just a single CLI command, you can easily setup a model service endpoint with DeepSparse. The Server supports any Pipeline from DeepSparse, including <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> with YOLOv5, enabling you to send raw images to the endpoint and receive the bounding boxes.</p>
 <p>Spin up the Server with the pruned-quantized YOLOv5s:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>deepsparse.server<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-2"></a><span class="w">  </span>--task<span class="w"> </span>yolo<span class="w"> </span><span class="se">\</span>
-<a id="__codelineno-5-3"></a><span class="w">  </span>--model_path<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none
+<div class="highlight"><pre><span></span><code><span></span>deepsparse.server<span class="w"> </span><span class="se">\</span>
+<span></span><span class="w">  </span>--task<span class="w"> </span>yolo<span class="w"> </span><span class="se">\</span>
+<span></span><span class="w">  </span>--model_path<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none
 </code></pre></div>
 <p>An example request, using Python's <code>requests</code> package:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<a id="__codelineno-6-2"></a>
-<a id="__codelineno-6-3"></a><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
-<a id="__codelineno-6-4"></a>
-<a id="__codelineno-6-5"></a><span class="c1"># list of images for inference (local files on client side)</span>
-<a id="__codelineno-6-6"></a><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"basilica.jpg"</span><span class="p">]</span>
-<a id="__codelineno-6-7"></a><span class="n">files</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"request"</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">))</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">path</span><span class="p">]</span>
-<a id="__codelineno-6-8"></a>
-<a id="__codelineno-6-9"></a><span class="c1"># send request over HTTP to /predict/from_files endpoint</span>
-<a id="__codelineno-6-10"></a><span class="n">url</span> <span class="o">=</span> <span class="s2">"http://0.0.0.0:5543/predict/from_files"</span>
-<a id="__codelineno-6-11"></a><span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
-<a id="__codelineno-6-12"></a>
-<a id="__codelineno-6-13"></a><span class="c1"># response is returned in JSON</span>
-<a id="__codelineno-6-14"></a><span class="n">annotations</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># dictionary of annotation results</span>
-<a id="__codelineno-6-15"></a><span class="n">bounding_boxes</span> <span class="o">=</span> <span class="n">annotations</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]</span>
-<a id="__codelineno-6-16"></a><span class="n">labels</span> <span class="o">=</span> <span class="n">annotations</span><span class="p">[</span><span class="s2">"labels"</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span></span>
+<span></span><span class="c1"># list of images for inference (local files on client side)</span>
+<span></span><span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"basilica.jpg"</span><span class="p">]</span>
+<span></span><span class="n">files</span> <span class="o">=</span> <span class="p">[(</span><span class="s2">"request"</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="s2">"rb"</span><span class="p">))</span> <span class="k">for</span> <span class="n">img</span> <span class="ow">in</span> <span class="n">path</span><span class="p">]</span>
+<span></span>
+<span></span><span class="c1"># send request over HTTP to /predict/from_files endpoint</span>
+<span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">"http://0.0.0.0:5543/predict/from_files"</span>
+<span></span><span class="n">resp</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="n">files</span><span class="o">=</span><span class="n">files</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># response is returned in JSON</span>
+<span></span><span class="n">annotations</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">resp</span><span class="o">.</span><span class="n">text</span><span class="p">)</span>  <span class="c1"># dictionary of annotation results</span>
+<span></span><span class="n">bounding_boxes</span> <span class="o">=</span> <span class="n">annotations</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]</span>
+<span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">annotations</span><span class="p">[</span><span class="s2">"labels"</span><span class="p">]</span>
 </code></pre></div>
 <h4 id="annotate-cli">Annotate CLI</h4>
 <p>You can also use the annotate command to have the engine save an annotated photo on disk. Try <code>--source 0</code> to annotate your live webcam feed!</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a>deepsparse.object_detection.annotate<span class="w"> </span>--model_filepath<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none<span class="w"> </span>--source<span class="w"> </span>basilica.jpg
+<div class="highlight"><pre><span></span><code><span></span>deepsparse.object_detection.annotate<span class="w"> </span>--model_filepath<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none<span class="w"> </span>--source<span class="w"> </span>basilica.jpg
 </code></pre></div>
 <p>Running the above command will create an <code>annotation-results</code> folder and save the annotated image inside.</p>
 <p align="center">
@@ -1123,61 +1123,61 @@
 <h3 id="batch-32-performance-comparison">Batch 32 Performance Comparison</h3>
 <h4 id="onnx-runtime-baseline">ONNX Runtime Baseline</h4>
 <p>At batch 32, ONNX Runtime achieves 42 images/sec with the standard dense YOLOv5s:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span>onnxruntime
-<a id="__codelineno-8-2"></a>
-<a id="__codelineno-8-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
-<a id="__codelineno-8-4"></a><span class="c1"># Batch Size: 32</span>
-<a id="__codelineno-8-5"></a><span class="c1"># Scenario: sync</span>
-<a id="__codelineno-8-6"></a><span class="c1"># Throughput (items/sec): 41.9025</span>
+<div class="highlight"><pre><span></span><code><span></span>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span>onnxruntime
+<span></span>
+<span></span><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
+<span></span><span class="c1"># Batch Size: 32</span>
+<span></span><span class="c1"># Scenario: sync</span>
+<span></span><span class="c1"># Throughput (items/sec): 41.9025</span>
 </code></pre></div>
 <h4 id="deepsparse-dense-performance">DeepSparse Dense Performance</h4>
 <p>While DeepSparse offers its best performance with optimized sparse models, it also performs well with the standard dense YOLOv5s.</p>
 <p>At batch 32, DeepSparse achieves 70 images/sec with the standard dense YOLOv5s, a <strong>1.7x performance improvement over ORT</strong>!</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
-<a id="__codelineno-9-4"></a><span class="c1"># Batch Size: 32</span>
-<a id="__codelineno-9-5"></a><span class="c1"># Scenario: sync</span>
-<a id="__codelineno-9-6"></a><span class="c1"># Throughput (items/sec): 69.5546</span>
+<div class="highlight"><pre><span></span><code><span></span>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
+<span></span>
+<span></span><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
+<span></span><span class="c1"># Batch Size: 32</span>
+<span></span><span class="c1"># Scenario: sync</span>
+<span></span><span class="c1"># Throughput (items/sec): 69.5546</span>
 </code></pre></div>
 <h4 id="deepsparse-sparse-performance">DeepSparse Sparse Performance</h4>
 <p>When sparsity is applied to the model, DeepSparse's performance gains over ONNX Runtime is even stronger.</p>
 <p>At batch 32, DeepSparse achieves 241 images/sec with the pruned-quantized YOLOv5s, a <strong>5.8x performance improvement over ORT</strong>!</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
-<a id="__codelineno-10-2"></a>
-<a id="__codelineno-10-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none</span>
-<a id="__codelineno-10-4"></a><span class="c1"># Batch Size: 32</span>
-<a id="__codelineno-10-5"></a><span class="c1"># Scenario: sync</span>
-<a id="__codelineno-10-6"></a><span class="c1"># Throughput (items/sec): 241.2452</span>
+<div class="highlight"><pre><span></span><code><span></span>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">32</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
+<span></span>
+<span></span><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none</span>
+<span></span><span class="c1"># Batch Size: 32</span>
+<span></span><span class="c1"># Scenario: sync</span>
+<span></span><span class="c1"># Throughput (items/sec): 241.2452</span>
 </code></pre></div>
 <h3 id="batch-1-performance-comparison">Batch 1 Performance Comparison</h3>
 <p>DeepSparse is also able to gain a speed-up over ONNX Runtime for the latency-sensitive, batch 1 scenario.</p>
 <h4 id="onnx-runtime-baseline_1">ONNX Runtime Baseline</h4>
 <p>At batch 1, ONNX Runtime achieves 48 images/sec with the standard, dense YOLOv5s.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span>onnxruntime
-<a id="__codelineno-11-2"></a>
-<a id="__codelineno-11-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
-<a id="__codelineno-11-4"></a><span class="c1"># Batch Size: 1</span>
-<a id="__codelineno-11-5"></a><span class="c1"># Scenario: sync</span>
-<a id="__codelineno-11-6"></a><span class="c1"># Throughput (items/sec): 48.0921</span>
+<div class="highlight"><pre><span></span><code><span></span>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span><span class="w"> </span>-e<span class="w"> </span>onnxruntime
+<span></span>
+<span></span><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/base-none</span>
+<span></span><span class="c1"># Batch Size: 1</span>
+<span></span><span class="c1"># Scenario: sync</span>
+<span></span><span class="c1"># Throughput (items/sec): 48.0921</span>
 </code></pre></div>
 <h4 id="deepsparse-sparse-performance_1">DeepSparse Sparse Performance</h4>
 <p>At batch 1, DeepSparse achieves 135 items/sec with a pruned-quantized YOLOv5s, <strong>a 2.8x performance gain over ONNX Runtime!</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
-<a id="__codelineno-12-2"></a>
-<a id="__codelineno-12-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none</span>
-<a id="__codelineno-12-4"></a><span class="c1"># Batch Size: 1</span>
-<a id="__codelineno-12-5"></a><span class="c1"># Scenario: sync</span>
-<a id="__codelineno-12-6"></a><span class="c1"># Throughput (items/sec): 134.9468</span>
+<div class="highlight"><pre><span></span><code><span></span>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
+<span></span>
+<span></span><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned65_quant-none</span>
+<span></span><span class="c1"># Batch Size: 1</span>
+<span></span><span class="c1"># Scenario: sync</span>
+<span></span><span class="c1"># Throughput (items/sec): 134.9468</span>
 </code></pre></div>
 <p>Since <code>c6i.8xlarge</code> instances have VNNI instructions, DeepSparse's throughput can be pushed further if weights are pruned in blocks of 4.</p>
 <p>At batch 1, DeepSparse achieves 180 items/sec with a 4-block pruned-quantized YOLOv5s, a <strong>3.7x performance gain over ONNX Runtime!</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned35_quant-none-vnni<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
-<a id="__codelineno-13-2"></a>
-<a id="__codelineno-13-3"></a><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned35_quant-none-vnni</span>
-<a id="__codelineno-13-4"></a><span class="c1"># Batch Size: 1</span>
-<a id="__codelineno-13-5"></a><span class="c1"># Scenario: sync</span>
-<a id="__codelineno-13-6"></a><span class="c1"># Throughput (items/sec): 179.7375</span>
+<div class="highlight"><pre><span></span><code><span></span>deepsparse.benchmark<span class="w"> </span>zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned35_quant-none-vnni<span class="w"> </span>-s<span class="w"> </span>sync<span class="w"> </span>-b<span class="w"> </span><span class="m">1</span><span class="w"> </span>-nstreams<span class="w"> </span><span class="m">1</span>
+<span></span>
+<span></span><span class="c1"># Original Model Path: zoo:cv/detection/yolov5-s/pytorch/ultralytics/coco/pruned35_quant-none-vnni</span>
+<span></span><span class="c1"># Batch Size: 1</span>
+<span></span><span class="c1"># Scenario: sync</span>
+<span></span><span class="c1"># Throughput (items/sec): 179.7375</span>
 </code></pre></div>
 <h2 id="get-started-with-deepsparse">Get Started With DeepSparse</h2>
 <p><strong>Research or Testing?</strong> DeepSparse Community is free for research and testing. Get started with their <a href="https://docs.neuralmagic.com/">Documentation</a>.</p>

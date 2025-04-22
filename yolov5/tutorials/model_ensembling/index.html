@@ -846,41 +846,41 @@
 </blockquote>
 <h2 id="before-you-start">Before You Start</h2>
 <p>Clone repo and install <a href="https://github.com/ultralytics/yolov5/blob/master/requirements.txt">requirements.txt</a> in a <a href="https://www.python.org/"><strong>Python&gt;=3.8.0</strong></a> environment, including <a href="https://pytorch.org/get-started/locally/"><strong>PyTorch&gt;=1.8</strong></a>. <a href="https://github.com/ultralytics/yolov5/tree/master/models">Models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> download automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w"> </span><span class="c1"># clone</span>
-<a id="__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a id="__codelineno-0-3"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># install</span>
+<div class="highlight"><pre><span></span><code><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w"> </span><span class="c1"># clone</span>
+<span></span><span class="nb">cd</span><span class="w"> </span>yolov5
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># install</span>
 </code></pre></div>
 <h2 id="test-normally">Test Normally</h2>
 <p>Before ensembling, establish the baseline performance of a single model. This command tests YOLOv5x on COCO val2017 at image size 640 pixels. <code>yolov5x.pt</code> is the largest and most accurate model available. Other options are <code>yolov5s.pt</code>, <code>yolov5m.pt</code> and <code>yolov5l.pt</code>, or your own checkpoint from training a custom dataset <code>./weights/best.pt</code>. For details on all available models, see the <a href="https://docs.ultralytics.com/models/yolov5/">pretrained checkpoints table</a>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
+<div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="go">val: data=./data/coco.yaml, weights=['yolov5x.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.65, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True</span>
-<a id="__codelineno-2-2"></a><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
-<a id="__codelineno-2-3"></a>
-<a id="__codelineno-2-4"></a><span class="go">Fusing layers...</span>
-<a id="__codelineno-2-5"></a><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients</span>
-<a id="__codelineno-2-6"></a>
-<a id="__codelineno-2-7"></a><span class="go">val: Scanning '../datasets/coco/val2017' images and labels...4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:01&lt;00:00, 2846.03it/s]</span>
-<a id="__codelineno-2-8"></a><span class="go">val: New cache created: ../datasets/coco/val2017.cache</span>
-<a id="__codelineno-2-9"></a><span class="go">               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [02:30&lt;00:00,  1.05it/s]</span>
-<a id="__codelineno-2-10"></a><span class="go">                 all       5000      36335      0.746      0.626       0.68       0.49</span>
-<a id="__codelineno-2-11"></a><span class="go">Speed: 0.1ms pre-process, 22.4ms inference, 1.4ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- baseline speed</span>
-<a id="__codelineno-2-12"></a>
-<a id="__codelineno-2-13"></a><span class="go">Evaluating pycocotools mAP... saving runs/val/exp/yolov5x_predictions.json...</span>
-<a id="__codelineno-2-14"></a><span class="go">...</span>
-<a id="__codelineno-2-15"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.504  # &lt;--- baseline mAP</span>
-<a id="__codelineno-2-16"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.688</span>
-<a id="__codelineno-2-17"></a><span class="go"> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.546</span>
-<a id="__codelineno-2-18"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.351</span>
-<a id="__codelineno-2-19"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.551</span>
-<a id="__codelineno-2-20"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.644</span>
-<a id="__codelineno-2-21"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.382</span>
-<a id="__codelineno-2-22"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.628</span>
-<a id="__codelineno-2-23"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.681  # &lt;--- baseline mAR</span>
-<a id="__codelineno-2-24"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.524</span>
-<a id="__codelineno-2-25"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.735</span>
-<a id="__codelineno-2-26"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.826</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="go">val: data=./data/coco.yaml, weights=['yolov5x.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.65, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True</span>
+<span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<span></span>
+<span></span><span class="go">Fusing layers...</span>
+<span></span><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients</span>
+<span></span>
+<span></span><span class="go">val: Scanning '../datasets/coco/val2017' images and labels...4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:01&lt;00:00, 2846.03it/s]</span>
+<span></span><span class="go">val: New cache created: ../datasets/coco/val2017.cache</span>
+<span></span><span class="go">               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [02:30&lt;00:00,  1.05it/s]</span>
+<span></span><span class="go">                 all       5000      36335      0.746      0.626       0.68       0.49</span>
+<span></span><span class="go">Speed: 0.1ms pre-process, 22.4ms inference, 1.4ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- baseline speed</span>
+<span></span>
+<span></span><span class="go">Evaluating pycocotools mAP... saving runs/val/exp/yolov5x_predictions.json...</span>
+<span></span><span class="go">...</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.504  # &lt;--- baseline mAP</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.688</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.546</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.351</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.551</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.644</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.382</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.628</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.681  # &lt;--- baseline mAR</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.524</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.735</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.826</span>
 </code></pre></div>
 <h2 id="ensemble-test">Ensemble Test</h2>
 <p>Multiple pretrained models can be ensembled together at test and inference time by simply appending extra models to the <code>--weights</code> argument in any existing val.py or detect.py command. This example tests an ensemble of 2 models together:</p>
@@ -888,55 +888,55 @@
 <li>YOLOv5x</li>
 <li>YOLOv5l6</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>yolov5l6.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
+<div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>yolov5l6.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="go">val: data=./data/coco.yaml, weights=['yolov5x.pt', 'yolov5l6.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.6, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True</span>
-<a id="__codelineno-4-2"></a><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
-<a id="__codelineno-4-3"></a>
-<a id="__codelineno-4-4"></a><span class="go">Fusing layers...</span>
-<a id="__codelineno-4-5"></a><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients  # Model 1</span>
-<a id="__codelineno-4-6"></a><span class="go">Fusing layers...</span>
-<a id="__codelineno-4-7"></a><span class="go">Model Summary: 501 layers, 77218620 parameters, 0 gradients  # Model 2</span>
-<a id="__codelineno-4-8"></a><span class="go">Ensemble created with ['yolov5x.pt', 'yolov5l6.pt']  # Ensemble notice</span>
-<a id="__codelineno-4-9"></a>
-<a id="__codelineno-4-10"></a><span class="go">val: Scanning '../datasets/coco/val2017.cache' images and labels... 4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:00&lt;00:00, 49695545.02it/s]</span>
-<a id="__codelineno-4-11"></a><span class="go">               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [03:58&lt;00:00,  1.52s/it]</span>
-<a id="__codelineno-4-12"></a><span class="go">                 all       5000      36335      0.747      0.637      0.692      0.502</span>
-<a id="__codelineno-4-13"></a><span class="go">Speed: 0.1ms pre-process, 39.5ms inference, 2.0ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- ensemble speed</span>
-<a id="__codelineno-4-14"></a>
-<a id="__codelineno-4-15"></a><span class="go">Evaluating pycocotools mAP... saving runs/val/exp3/yolov5x_predictions.json...</span>
-<a id="__codelineno-4-16"></a><span class="go">...</span>
-<a id="__codelineno-4-17"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.515  # &lt;--- ensemble mAP</span>
-<a id="__codelineno-4-18"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.699</span>
-<a id="__codelineno-4-19"></a><span class="go"> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.557</span>
-<a id="__codelineno-4-20"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.356</span>
-<a id="__codelineno-4-21"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.563</span>
-<a id="__codelineno-4-22"></a><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.668</span>
-<a id="__codelineno-4-23"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.387</span>
-<a id="__codelineno-4-24"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.638</span>
-<a id="__codelineno-4-25"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.689  # &lt;--- ensemble mAR</span>
-<a id="__codelineno-4-26"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.526</span>
-<a id="__codelineno-4-27"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.743</span>
-<a id="__codelineno-4-28"></a><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.844</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="go">val: data=./data/coco.yaml, weights=['yolov5x.pt', 'yolov5l6.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.6, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True</span>
+<span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<span></span>
+<span></span><span class="go">Fusing layers...</span>
+<span></span><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients  # Model 1</span>
+<span></span><span class="go">Fusing layers...</span>
+<span></span><span class="go">Model Summary: 501 layers, 77218620 parameters, 0 gradients  # Model 2</span>
+<span></span><span class="go">Ensemble created with ['yolov5x.pt', 'yolov5l6.pt']  # Ensemble notice</span>
+<span></span>
+<span></span><span class="go">val: Scanning '../datasets/coco/val2017.cache' images and labels... 4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:00&lt;00:00, 49695545.02it/s]</span>
+<span></span><span class="go">               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [03:58&lt;00:00,  1.52s/it]</span>
+<span></span><span class="go">                 all       5000      36335      0.747      0.637      0.692      0.502</span>
+<span></span><span class="go">Speed: 0.1ms pre-process, 39.5ms inference, 2.0ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- ensemble speed</span>
+<span></span>
+<span></span><span class="go">Evaluating pycocotools mAP... saving runs/val/exp3/yolov5x_predictions.json...</span>
+<span></span><span class="go">...</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.515  # &lt;--- ensemble mAP</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.699</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.557</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.356</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.563</span>
+<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.668</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.387</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.638</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.689  # &lt;--- ensemble mAR</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.526</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.743</span>
+<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.844</span>
 </code></pre></div>
 <h2 id="ensemble-inference">Ensemble Inference</h2>
 <p>Append extra models to the <code>--weights</code> argument to run ensemble inference:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>yolov5l6.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--source<span class="w"> </span>data/images
+<div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>yolov5l6.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--source<span class="w"> </span>data/images
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
-<a id="__codelineno-6-2"></a>
-<a id="__codelineno-6-3"></a><span class="go">Fusing layers...</span>
-<a id="__codelineno-6-4"></a><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients</span>
-<a id="__codelineno-6-5"></a><span class="go">Fusing layers...</span>
-<a id="__codelineno-6-6"></a><span class="go">Model Summary: 501 layers, 77218620 parameters, 0 gradients</span>
-<a id="__codelineno-6-7"></a><span class="go">Ensemble created with ['yolov5x.pt', 'yolov5l6.pt']</span>
-<a id="__codelineno-6-8"></a>
-<a id="__codelineno-6-9"></a><span class="go">image 1/2 /content/yolov5/data/images/bus.jpg: 640x512 4 persons, 1 bus, 1 tie, Done. (0.063s)</span>
-<a id="__codelineno-6-10"></a><span class="go">image 2/2 /content/yolov5/data/images/zidane.jpg: 384x640 3 persons, 2 ties, Done. (0.056s)</span>
-<a id="__codelineno-6-11"></a><span class="go">Results saved to runs/detect/exp2</span>
-<a id="__codelineno-6-12"></a><span class="go">Done. (0.223s)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<span></span>
+<span></span><span class="go">Fusing layers...</span>
+<span></span><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients</span>
+<span></span><span class="go">Fusing layers...</span>
+<span></span><span class="go">Model Summary: 501 layers, 77218620 parameters, 0 gradients</span>
+<span></span><span class="go">Ensemble created with ['yolov5x.pt', 'yolov5l6.pt']</span>
+<span></span>
+<span></span><span class="go">image 1/2 /content/yolov5/data/images/bus.jpg: 640x512 4 persons, 1 bus, 1 tie, Done. (0.063s)</span>
+<span></span><span class="go">image 2/2 /content/yolov5/data/images/zidane.jpg: 384x640 3 persons, 2 ties, Done. (0.056s)</span>
+<span></span><span class="go">Results saved to runs/detect/exp2</span>
+<span></span><span class="go">Done. (0.223s)</span>
 </code></pre></div>
 <p><img alt="YOLO inference result" src="https://github.com/ultralytics/docs/releases/download/0/yolo-inference-result.avif" width="500"/></p>
 <h2 id="benefits-of-model-ensembling">Benefits of Model Ensembling</h2>

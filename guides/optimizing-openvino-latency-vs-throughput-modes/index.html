@@ -905,10 +905,10 @@
 <ol>
 <li>
 <p><strong>OpenVINO Performance Hints:</strong> A high-level, future-proof method to enhance throughput across devices using performance hints.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">openvino.properties.hint</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hints</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="n">hints</span><span class="o">.</span><span class="n">performance_mode</span><span class="p">:</span> <span class="n">hints</span><span class="o">.</span><span class="n">PerformanceMode</span><span class="o">.</span><span class="n">THROUGHPUT</span><span class="p">}</span>
-<a id="__codelineno-0-4"></a><span class="n">compiled_model</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">compile_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"GPU"</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">openvino.properties.hint</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hints</span>
+<span></span>
+<span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="n">hints</span><span class="o">.</span><span class="n">performance_mode</span><span class="p">:</span> <span class="n">hints</span><span class="o">.</span><span class="n">PerformanceMode</span><span class="o">.</span><span class="n">THROUGHPUT</span><span class="p">}</span>
+<span></span><span class="n">compiled_model</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">compile_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"GPU"</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
@@ -929,20 +929,20 @@
 <p>For example, when running YOLOv8 models on Intel Xeon CPUs, the OpenVINO-optimized versions consistently outperform their PyTorch counterparts in terms of inference time per image, without compromising on <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>.</p>
 <h2 id="practical-implementation">Practical Implementation</h2>
 <p>To export and optimize your Ultralytics YOLO model for OpenVINO, you can use the <a href="https://docs.ultralytics.com/modes/export/">export</a> functionality:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Export the model to OpenVINO format</span>
-<a id="__codelineno-1-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"openvino"</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Export with FP16 precision</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Export the model to OpenVINO format</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"openvino"</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Export with FP16 precision</span>
 </code></pre></div>
 <p>After exporting, you can run inference with the optimized model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Load the OpenVINO model</span>
-<a id="__codelineno-2-2"></a><span class="n">ov_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n_openvino_model/"</span><span class="p">)</span>
-<a id="__codelineno-2-3"></a>
-<a id="__codelineno-2-4"></a><span class="c1"># Run inference with performance hints for latency</span>
-<a id="__codelineno-2-5"></a><span class="n">results</span> <span class="o">=</span> <span class="n">ov_model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Load the OpenVINO model</span>
+<span></span><span class="n">ov_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n_openvino_model/"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference with performance hints for latency</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">ov_model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 <p>Optimizing Ultralytics YOLO models for latency and throughput with OpenVINO can significantly enhance your application's performance. By carefully applying the strategies outlined in this guide, developers can ensure their models run efficiently, meeting the demands of various deployment scenarios. Remember, the choice between optimizing for latency or throughput depends on your specific application needs and the characteristics of the deployment environment.</p>
@@ -966,10 +966,10 @@
 <li><strong>Multi-Device Execution:</strong> Automated inference load balancing, easing application-level management.</li>
 </ul>
 <p>Example configuration:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">openvino.properties.hint</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hints</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="n">hints</span><span class="o">.</span><span class="n">performance_mode</span><span class="p">:</span> <span class="n">hints</span><span class="o">.</span><span class="n">PerformanceMode</span><span class="o">.</span><span class="n">THROUGHPUT</span><span class="p">}</span>
-<a id="__codelineno-3-4"></a><span class="n">compiled_model</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">compile_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"GPU"</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">openvino.properties.hint</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">hints</span>
+<span></span>
+<span></span><span class="n">config</span> <span class="o">=</span> <span class="p">{</span><span class="n">hints</span><span class="o">.</span><span class="n">performance_mode</span><span class="p">:</span> <span class="n">hints</span><span class="o">.</span><span class="n">PerformanceMode</span><span class="o">.</span><span class="n">THROUGHPUT</span><span class="p">}</span>
+<span></span><span class="n">compiled_model</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">compile_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"GPU"</span><span class="p">,</span> <span class="n">config</span><span class="p">)</span>
 </code></pre></div>
 <p>Learn more about throughput optimization in the <a href="#optimizing-for-throughput">Throughput Optimization section</a> of our detailed guide.</p>
 <h3 id="what-is-the-best-practice-for-reducing-first-inference-latency-in-openvino">What is the best practice for reducing first-inference latency in OpenVINO?</h3>

@@ -1201,7 +1201,7 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.clearml._log_debug_samples">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.clearml._log_debug_samples</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">_log_debug_samples</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'Debug Samples'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_log_debug_samples</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'Debug Samples'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Log files (images) as debug samples in the ClearML task.</p>
@@ -1252,41 +1252,41 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>17</a></span>
-<span class="normal"><a>18</a></span>
-<span class="normal"><a>19</a></span>
-<span class="normal"><a>20</a></span>
-<span class="normal"><a>21</a></span>
-<span class="normal"><a>22</a></span>
-<span class="normal"><a>23</a></span>
-<span class="normal"><a>24</a></span>
-<span class="normal"><a>25</a></span>
-<span class="normal"><a>26</a></span>
-<span class="normal"><a>27</a></span>
-<span class="normal"><a>28</a></span>
-<span class="normal"><a>29</a></span>
-<span class="normal"><a>30</a></span>
-<span class="normal"><a>31</a></span>
-<span class="normal"><a>32</a></span>
-<span class="normal"><a>33</a></span>
-<span class="normal"><a>34</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-17"></a><span class="k">def</span><span class="w"> </span><span class="nf">_log_debug_samples</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Debug Samples"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-18"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-19"></a><span class="sd">    Log files (images) as debug samples in the ClearML task.</span>
-<a id="__codelineno-0-20"></a>
-<a id="__codelineno-0-21"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-22"></a><span class="sd">        files (List[Path]): A list of file paths in PosixPath format.</span>
-<a id="__codelineno-0-23"></a><span class="sd">        title (str): A title that groups together images with the same values.</span>
-<a id="__codelineno-0-24"></a><span class="sd">    """</span>
-<a id="__codelineno-0-25"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
-<a id="__codelineno-0-26"></a>
-<a id="__codelineno-0-27"></a>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<a id="__codelineno-0-28"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-<a id="__codelineno-0-29"></a>            <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<a id="__codelineno-0-30"></a>                <span class="n">it</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"_batch(\d+)"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-<a id="__codelineno-0-31"></a>                <span class="n">iteration</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">it</span> <span class="k">else</span> <span class="mi">0</span>
-<a id="__codelineno-0-32"></a>                <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_image</span><span class="p">(</span>
-<a id="__codelineno-0-33"></a>                    <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">group</span><span class="p">(),</span> <span class="s2">""</span><span class="p">),</span> <span class="n">local_path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">iteration</span><span class="o">=</span><span class="n">iteration</span>
-<a id="__codelineno-0-34"></a>                <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>17</span></span>
+<span class="normal"><span>18</span></span>
+<span class="normal"><span>19</span></span>
+<span class="normal"><span>20</span></span>
+<span class="normal"><span>21</span></span>
+<span class="normal"><span>22</span></span>
+<span class="normal"><span>23</span></span>
+<span class="normal"><span>24</span></span>
+<span class="normal"><span>25</span></span>
+<span class="normal"><span>26</span></span>
+<span class="normal"><span>27</span></span>
+<span class="normal"><span>28</span></span>
+<span class="normal"><span>29</span></span>
+<span class="normal"><span>30</span></span>
+<span class="normal"><span>31</span></span>
+<span class="normal"><span>32</span></span>
+<span class="normal"><span>33</span></span>
+<span class="normal"><span>34</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_debug_samples</span><span class="p">(</span><span class="n">files</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Debug Samples"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Log files (images) as debug samples in the ClearML task.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        files (List[Path]): A list of file paths in PosixPath format.</span>
+<span></span><span class="sd">        title (str): A title that groups together images with the same values.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">re</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
+<span></span>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+<span></span>            <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
+<span></span>                <span class="n">it</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="sa">r</span><span class="s2">"_batch(\d+)"</span><span class="p">,</span> <span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span></span>                <span class="n">iteration</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">groups</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="k">if</span> <span class="n">it</span> <span class="k">else</span> <span class="mi">0</span>
+<span></span>                <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_image</span><span class="p">(</span>
+<span></span>                    <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">it</span><span class="o">.</span><span class="n">group</span><span class="p">(),</span> <span class="s2">""</span><span class="p">),</span> <span class="n">local_path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">),</span> <span class="n">iteration</span><span class="o">=</span><span class="n">iteration</span>
+<span></span>                <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1295,7 +1295,7 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.clearml._log_plot">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.clearml._log_plot</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Log an image as a plot in the plot section of ClearML.</p>
@@ -1346,43 +1346,43 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>37</a></span>
-<span class="normal"><a>38</a></span>
-<span class="normal"><a>39</a></span>
-<span class="normal"><a>40</a></span>
-<span class="normal"><a>41</a></span>
-<span class="normal"><a>42</a></span>
-<span class="normal"><a>43</a></span>
-<span class="normal"><a>44</a></span>
-<span class="normal"><a>45</a></span>
-<span class="normal"><a>46</a></span>
-<span class="normal"><a>47</a></span>
-<span class="normal"><a>48</a></span>
-<span class="normal"><a>49</a></span>
-<span class="normal"><a>50</a></span>
-<span class="normal"><a>51</a></span>
-<span class="normal"><a>52</a></span>
-<span class="normal"><a>53</a></span>
-<span class="normal"><a>54</a></span>
-<span class="normal"><a>55</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-37"></a><span class="k">def</span><span class="w"> </span><span class="nf">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-38"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-39"></a><span class="sd">    Log an image as a plot in the plot section of ClearML.</span>
-<a id="__codelineno-0-40"></a>
-<a id="__codelineno-0-41"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-42"></a><span class="sd">        title (str): The title of the plot.</span>
-<a id="__codelineno-0-43"></a><span class="sd">        plot_path (str): The path to the saved image file.</span>
-<a id="__codelineno-0-44"></a><span class="sd">    """</span>
-<a id="__codelineno-0-45"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.image</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpimg</span>
-<a id="__codelineno-0-46"></a>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<a id="__codelineno-0-47"></a>
-<a id="__codelineno-0-48"></a>    <span class="n">img</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">plot_path</span><span class="p">)</span>
-<a id="__codelineno-0-49"></a>    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
-<a id="__codelineno-0-50"></a>    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>  <span class="c1"># no ticks</span>
-<a id="__codelineno-0-51"></a>    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
-<a id="__codelineno-0-52"></a>
-<a id="__codelineno-0-53"></a>    <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">()</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_matplotlib_figure</span><span class="p">(</span>
-<a id="__codelineno-0-54"></a>        <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">report_interactive</span><span class="o">=</span><span class="kc">False</span>
-<a id="__codelineno-0-55"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>37</span></span>
+<span class="normal"><span>38</span></span>
+<span class="normal"><span>39</span></span>
+<span class="normal"><span>40</span></span>
+<span class="normal"><span>41</span></span>
+<span class="normal"><span>42</span></span>
+<span class="normal"><span>43</span></span>
+<span class="normal"><span>44</span></span>
+<span class="normal"><span>45</span></span>
+<span class="normal"><span>46</span></span>
+<span class="normal"><span>47</span></span>
+<span class="normal"><span>48</span></span>
+<span class="normal"><span>49</span></span>
+<span class="normal"><span>50</span></span>
+<span class="normal"><span>51</span></span>
+<span class="normal"><span>52</span></span>
+<span class="normal"><span>53</span></span>
+<span class="normal"><span>54</span></span>
+<span class="normal"><span>55</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Log an image as a plot in the plot section of ClearML.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        title (str): The title of the plot.</span>
+<span></span><span class="sd">        plot_path (str): The path to the saved image file.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.image</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpimg</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span></span>
+<span></span>    <span class="n">img</span> <span class="o">=</span> <span class="n">mpimg</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">plot_path</span><span class="p">)</span>
+<span></span>    <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+<span></span>    <span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">frameon</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">aspect</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span> <span class="n">xticks</span><span class="o">=</span><span class="p">[],</span> <span class="n">yticks</span><span class="o">=</span><span class="p">[])</span>  <span class="c1"># no ticks</span>
+<span></span>    <span class="n">ax</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">()</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_matplotlib_figure</span><span class="p">(</span>
+<span></span>        <span class="n">title</span><span class="o">=</span><span class="n">title</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">figure</span><span class="o">=</span><span class="n">fig</span><span class="p">,</span> <span class="n">report_interactive</span><span class="o">=</span><span class="kc">False</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1391,65 +1391,65 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.clearml.on_pretrain_routine_start">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.clearml.on_pretrain_routine_start</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Runs at start of pretraining routine; initializes and connects/logs task to ClearML.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>58</a></span>
-<span class="normal"><a>59</a></span>
-<span class="normal"><a>60</a></span>
-<span class="normal"><a>61</a></span>
-<span class="normal"><a>62</a></span>
-<span class="normal"><a>63</a></span>
-<span class="normal"><a>64</a></span>
-<span class="normal"><a>65</a></span>
-<span class="normal"><a>66</a></span>
-<span class="normal"><a>67</a></span>
-<span class="normal"><a>68</a></span>
-<span class="normal"><a>69</a></span>
-<span class="normal"><a>70</a></span>
-<span class="normal"><a>71</a></span>
-<span class="normal"><a>72</a></span>
-<span class="normal"><a>73</a></span>
-<span class="normal"><a>74</a></span>
-<span class="normal"><a>75</a></span>
-<span class="normal"><a>76</a></span>
-<span class="normal"><a>77</a></span>
-<span class="normal"><a>78</a></span>
-<span class="normal"><a>79</a></span>
-<span class="normal"><a>80</a></span>
-<span class="normal"><a>81</a></span>
-<span class="normal"><a>82</a></span>
-<span class="normal"><a>83</a></span>
-<span class="normal"><a>84</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-58"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-59"></a><span class="w">    </span><span class="sd">"""Runs at start of pretraining routine; initializes and connects/logs task to ClearML."""</span>
-<a id="__codelineno-0-60"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-61"></a>        <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<a id="__codelineno-0-62"></a>            <span class="c1"># WARNING: make sure the automatic pytorch and matplotlib bindings are disabled!</span>
-<a id="__codelineno-0-63"></a>            <span class="c1"># We are logging these plots and model files manually in the integration</span>
-<a id="__codelineno-0-64"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">clearml.binding.frameworks.pytorch_bind</span><span class="w"> </span><span class="kn">import</span> <span class="n">PatchPyTorchModelIO</span>
-<a id="__codelineno-0-65"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">clearml.binding.matplotlib_bind</span><span class="w"> </span><span class="kn">import</span> <span class="n">PatchedMatplotlib</span>
-<a id="__codelineno-0-66"></a>
-<a id="__codelineno-0-67"></a>            <span class="n">PatchPyTorchModelIO</span><span class="o">.</span><span class="n">update_current_task</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-0-68"></a>            <span class="n">PatchedMatplotlib</span><span class="o">.</span><span class="n">update_current_task</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
-<a id="__codelineno-0-69"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-70"></a>            <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
-<a id="__codelineno-0-71"></a>                <span class="n">project_name</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">project</span> <span class="ow">or</span> <span class="s2">"Ultralytics"</span><span class="p">,</span>
-<a id="__codelineno-0-72"></a>                <span class="n">task_name</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
-<a id="__codelineno-0-73"></a>                <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"Ultralytics"</span><span class="p">],</span>
-<a id="__codelineno-0-74"></a>                <span class="n">output_uri</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-0-75"></a>                <span class="n">reuse_last_task_id</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-76"></a>                <span class="n">auto_connect_frameworks</span><span class="o">=</span><span class="p">{</span><span class="s2">"pytorch"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"matplotlib"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
-<a id="__codelineno-0-77"></a>            <span class="p">)</span>
-<a id="__codelineno-0-78"></a>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<a id="__codelineno-0-79"></a>                <span class="s2">"ClearML Initialized a new task. If you want to run remotely, "</span>
-<a id="__codelineno-0-80"></a>                <span class="s2">"please add clearml-init and connect your arguments before initializing YOLO."</span>
-<a id="__codelineno-0-81"></a>            <span class="p">)</span>
-<a id="__codelineno-0-82"></a>        <span class="n">task</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"General"</span><span class="p">)</span>
-<a id="__codelineno-0-83"></a>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<a id="__codelineno-0-84"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ClearML installed but not initialized correctly, not logging this run. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>58</span></span>
+<span class="normal"><span>59</span></span>
+<span class="normal"><span>60</span></span>
+<span class="normal"><span>61</span></span>
+<span class="normal"><span>62</span></span>
+<span class="normal"><span>63</span></span>
+<span class="normal"><span>64</span></span>
+<span class="normal"><span>65</span></span>
+<span class="normal"><span>66</span></span>
+<span class="normal"><span>67</span></span>
+<span class="normal"><span>68</span></span>
+<span class="normal"><span>69</span></span>
+<span class="normal"><span>70</span></span>
+<span class="normal"><span>71</span></span>
+<span class="normal"><span>72</span></span>
+<span class="normal"><span>73</span></span>
+<span class="normal"><span>74</span></span>
+<span class="normal"><span>75</span></span>
+<span class="normal"><span>76</span></span>
+<span class="normal"><span>77</span></span>
+<span class="normal"><span>78</span></span>
+<span class="normal"><span>79</span></span>
+<span class="normal"><span>80</span></span>
+<span class="normal"><span>81</span></span>
+<span class="normal"><span>82</span></span>
+<span class="normal"><span>83</span></span>
+<span class="normal"><span>84</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Runs at start of pretraining routine; initializes and connects/logs task to ClearML."""</span>
+<span></span>    <span class="k">try</span><span class="p">:</span>
+<span></span>        <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
+<span></span>            <span class="c1"># WARNING: make sure the automatic pytorch and matplotlib bindings are disabled!</span>
+<span></span>            <span class="c1"># We are logging these plots and model files manually in the integration</span>
+<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">clearml.binding.frameworks.pytorch_bind</span><span class="w"> </span><span class="kn">import</span> <span class="n">PatchPyTorchModelIO</span>
+<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">clearml.binding.matplotlib_bind</span><span class="w"> </span><span class="kn">import</span> <span class="n">PatchedMatplotlib</span>
+<span></span>
+<span></span>            <span class="n">PatchPyTorchModelIO</span><span class="o">.</span><span class="n">update_current_task</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span></span>            <span class="n">PatchedMatplotlib</span><span class="o">.</span><span class="n">update_current_task</span><span class="p">(</span><span class="kc">None</span><span class="p">)</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
+<span></span>                <span class="n">project_name</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">project</span> <span class="ow">or</span> <span class="s2">"Ultralytics"</span><span class="p">,</span>
+<span></span>                <span class="n">task_name</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">,</span>
+<span></span>                <span class="n">tags</span><span class="o">=</span><span class="p">[</span><span class="s2">"Ultralytics"</span><span class="p">],</span>
+<span></span>                <span class="n">output_uri</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>                <span class="n">reuse_last_task_id</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>                <span class="n">auto_connect_frameworks</span><span class="o">=</span><span class="p">{</span><span class="s2">"pytorch"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">"matplotlib"</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+<span></span>            <span class="p">)</span>
+<span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
+<span></span>                <span class="s2">"ClearML Initialized a new task. If you want to run remotely, "</span>
+<span></span>                <span class="s2">"please add clearml-init and connect your arguments before initializing YOLO."</span>
+<span></span>            <span class="p">)</span>
+<span></span>        <span class="n">task</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="s2">"General"</span><span class="p">)</span>
+<span></span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"ClearML installed but not initialized correctly, not logging this run. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1458,33 +1458,33 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.clearml.on_train_epoch_end">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.clearml.on_train_epoch_end</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Logs debug samples for the first epoch of YOLO training and reports current training progress.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>87</a></span>
-<span class="normal"><a>88</a></span>
-<span class="normal"><a>89</a></span>
-<span class="normal"><a>90</a></span>
-<span class="normal"><a>91</a></span>
-<span class="normal"><a>92</a></span>
-<span class="normal"><a>93</a></span>
-<span class="normal"><a>94</a></span>
-<span class="normal"><a>95</a></span>
-<span class="normal"><a>96</a></span>
-<span class="normal"><a>97</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-87"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-88"></a><span class="w">    </span><span class="sd">"""Logs debug samples for the first epoch of YOLO training and reports current training progress."""</span>
-<a id="__codelineno-0-89"></a>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<a id="__codelineno-0-90"></a>        <span class="c1"># Log debug samples</span>
-<a id="__codelineno-0-91"></a>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-92"></a>            <span class="n">_log_debug_samples</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"train_batch*.jpg"</span><span class="p">)),</span> <span class="s2">"Mosaic"</span><span class="p">)</span>
-<a id="__codelineno-0-93"></a>        <span class="c1"># Report the current training progress</span>
-<a id="__codelineno-0-94"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-95"></a>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
-<a id="__codelineno-0-96"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-97"></a>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span><span class="s2">"lr"</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>87</span></span>
+<span class="normal"><span>88</span></span>
+<span class="normal"><span>89</span></span>
+<span class="normal"><span>90</span></span>
+<span class="normal"><span>91</span></span>
+<span class="normal"><span>92</span></span>
+<span class="normal"><span>93</span></span>
+<span class="normal"><span>94</span></span>
+<span class="normal"><span>95</span></span>
+<span class="normal"><span>96</span></span>
+<span class="normal"><span>97</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Logs debug samples for the first epoch of YOLO training and reports current training progress."""</span>
+<span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
+<span></span>        <span class="c1"># Log debug samples</span>
+<span></span>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+<span></span>            <span class="n">_log_debug_samples</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"train_batch*.jpg"</span><span class="p">)),</span> <span class="s2">"Mosaic"</span><span class="p">)</span>
+<span></span>        <span class="c1"># Report the current training progress</span>
+<span></span>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span></span>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
+<span></span>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span></span>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span><span class="s2">"lr"</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1493,39 +1493,39 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.clearml.on_fit_epoch_end">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.clearml.on_fit_epoch_end</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Reports model information to logger at the end of an epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>100</a></span>
-<span class="normal"><a>101</a></span>
-<span class="normal"><a>102</a></span>
-<span class="normal"><a>103</a></span>
-<span class="normal"><a>104</a></span>
-<span class="normal"><a>105</a></span>
-<span class="normal"><a>106</a></span>
-<span class="normal"><a>107</a></span>
-<span class="normal"><a>108</a></span>
-<span class="normal"><a>109</a></span>
-<span class="normal"><a>110</a></span>
-<span class="normal"><a>111</a></span>
-<span class="normal"><a>112</a></span>
-<span class="normal"><a>113</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-100"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-101"></a><span class="w">    </span><span class="sd">"""Reports model information to logger at the end of an epoch."""</span>
-<a id="__codelineno-0-102"></a>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<a id="__codelineno-0-103"></a>        <span class="c1"># Report epoch time and validation metrics</span>
-<a id="__codelineno-0-104"></a>        <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span>
-<a id="__codelineno-0-105"></a>            <span class="n">title</span><span class="o">=</span><span class="s2">"Epoch Time"</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="s2">"Epoch Time"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch_time</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span>
-<a id="__codelineno-0-106"></a>        <span class="p">)</span>
-<a id="__codelineno-0-107"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-108"></a>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span><span class="s2">"val"</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
-<a id="__codelineno-0-109"></a>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<a id="__codelineno-0-110"></a>            <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_info_for_loggers</span>
-<a id="__codelineno-0-111"></a>
-<a id="__codelineno-0-112"></a>            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model_info_for_loggers</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-113"></a>                <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_single_value</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>100</span></span>
+<span class="normal"><span>101</span></span>
+<span class="normal"><span>102</span></span>
+<span class="normal"><span>103</span></span>
+<span class="normal"><span>104</span></span>
+<span class="normal"><span>105</span></span>
+<span class="normal"><span>106</span></span>
+<span class="normal"><span>107</span></span>
+<span class="normal"><span>108</span></span>
+<span class="normal"><span>109</span></span>
+<span class="normal"><span>110</span></span>
+<span class="normal"><span>111</span></span>
+<span class="normal"><span>112</span></span>
+<span class="normal"><span>113</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Reports model information to logger at the end of an epoch."""</span>
+<span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
+<span></span>        <span class="c1"># Report epoch time and validation metrics</span>
+<span></span>        <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span>
+<span></span>            <span class="n">title</span><span class="o">=</span><span class="s2">"Epoch Time"</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="s2">"Epoch Time"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch_time</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span>
+<span></span>        <span class="p">)</span>
+<span></span>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span></span>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span><span class="s2">"val"</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
+<span></span>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_info_for_loggers</span>
+<span></span>
+<span></span>            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">model_info_for_loggers</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span></span>                <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_single_value</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1534,21 +1534,21 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.clearml.on_val_end">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.clearml.on_val_end</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Logs validation results including labels and predictions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>116</a></span>
-<span class="normal"><a>117</a></span>
-<span class="normal"><a>118</a></span>
-<span class="normal"><a>119</a></span>
-<span class="normal"><a>120</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-116"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-117"></a><span class="w">    </span><span class="sd">"""Logs validation results including labels and predictions."""</span>
-<a id="__codelineno-0-118"></a>    <span class="k">if</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<a id="__codelineno-0-119"></a>        <span class="c1"># Log val_labels and val_pred</span>
-<a id="__codelineno-0-120"></a>        <span class="n">_log_debug_samples</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"val*.jpg"</span><span class="p">)),</span> <span class="s2">"Validation"</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>116</span></span>
+<span class="normal"><span>117</span></span>
+<span class="normal"><span>118</span></span>
+<span class="normal"><span>119</span></span>
+<span class="normal"><span>120</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Logs validation results including labels and predictions."""</span>
+<span></span>    <span class="k">if</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
+<span></span>        <span class="c1"># Log val_labels and val_pred</span>
+<span></span>        <span class="n">_log_debug_samples</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"val*.jpg"</span><span class="p">)),</span> <span class="s2">"Validation"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1557,47 +1557,47 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.callbacks.clearml.on_train_end">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.callbacks.clearml.on_train_end</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Logs final model and its name on training completion.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>123</a></span>
-<span class="normal"><a>124</a></span>
-<span class="normal"><a>125</a></span>
-<span class="normal"><a>126</a></span>
-<span class="normal"><a>127</a></span>
-<span class="normal"><a>128</a></span>
-<span class="normal"><a>129</a></span>
-<span class="normal"><a>130</a></span>
-<span class="normal"><a>131</a></span>
-<span class="normal"><a>132</a></span>
-<span class="normal"><a>133</a></span>
-<span class="normal"><a>134</a></span>
-<span class="normal"><a>135</a></span>
-<span class="normal"><a>136</a></span>
-<span class="normal"><a>137</a></span>
-<span class="normal"><a>138</a></span>
-<span class="normal"><a>139</a></span>
-<span class="normal"><a>140</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-123"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-124"></a><span class="w">    </span><span class="sd">"""Logs final model and its name on training completion."""</span>
-<a id="__codelineno-0-125"></a>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<a id="__codelineno-0-126"></a>        <span class="c1"># Log final results, CM matrix + PR plots</span>
-<a id="__codelineno-0-127"></a>        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-128"></a>            <span class="s2">"results.png"</span><span class="p">,</span>
-<a id="__codelineno-0-129"></a>            <span class="s2">"confusion_matrix.png"</span><span class="p">,</span>
-<a id="__codelineno-0-130"></a>            <span class="s2">"confusion_matrix_normalized.png"</span><span class="p">,</span>
-<a id="__codelineno-0-131"></a>            <span class="o">*</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">_curve.png"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"F1"</span><span class="p">,</span> <span class="s2">"PR"</span><span class="p">,</span> <span class="s2">"P"</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">)),</span>
-<a id="__codelineno-0-132"></a>        <span class="p">]</span>
-<a id="__codelineno-0-133"></a>        <span class="n">files</span> <span class="o">=</span> <span class="p">[(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()]</span>  <span class="c1"># filter</span>
-<a id="__codelineno-0-134"></a>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-<a id="__codelineno-0-135"></a>            <span class="n">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">plot_path</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
-<a id="__codelineno-0-136"></a>        <span class="c1"># Report final metrics</span>
-<a id="__codelineno-0-137"></a>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">results_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<a id="__codelineno-0-138"></a>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_single_value</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<a id="__codelineno-0-139"></a>        <span class="c1"># Log the final model</span>
-<a id="__codelineno-0-140"></a>        <span class="n">task</span><span class="o">.</span><span class="n">update_output_model</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">),</span> <span class="n">model_name</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">auto_delete_file</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>123</span></span>
+<span class="normal"><span>124</span></span>
+<span class="normal"><span>125</span></span>
+<span class="normal"><span>126</span></span>
+<span class="normal"><span>127</span></span>
+<span class="normal"><span>128</span></span>
+<span class="normal"><span>129</span></span>
+<span class="normal"><span>130</span></span>
+<span class="normal"><span>131</span></span>
+<span class="normal"><span>132</span></span>
+<span class="normal"><span>133</span></span>
+<span class="normal"><span>134</span></span>
+<span class="normal"><span>135</span></span>
+<span class="normal"><span>136</span></span>
+<span class="normal"><span>137</span></span>
+<span class="normal"><span>138</span></span>
+<span class="normal"><span>139</span></span>
+<span class="normal"><span>140</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Logs final model and its name on training completion."""</span>
+<span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
+<span></span>        <span class="c1"># Log final results, CM matrix + PR plots</span>
+<span></span>        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span>
+<span></span>            <span class="s2">"results.png"</span><span class="p">,</span>
+<span></span>            <span class="s2">"confusion_matrix.png"</span><span class="p">,</span>
+<span></span>            <span class="s2">"confusion_matrix_normalized.png"</span><span class="p">,</span>
+<span></span>            <span class="o">*</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">_curve.png"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"F1"</span><span class="p">,</span> <span class="s2">"PR"</span><span class="p">,</span> <span class="s2">"P"</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">)),</span>
+<span></span>        <span class="p">]</span>
+<span></span>        <span class="n">files</span> <span class="o">=</span> <span class="p">[(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()]</span>  <span class="c1"># filter</span>
+<span></span>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+<span></span>            <span class="n">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">plot_path</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
+<span></span>        <span class="c1"># Report final metrics</span>
+<span></span>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">results_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span></span>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_single_value</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span></span>        <span class="c1"># Log the final model</span>
+<span></span>        <span class="n">task</span><span class="o">.</span><span class="n">update_output_model</span><span class="p">(</span><span class="n">model_path</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">),</span> <span class="n">model_name</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">auto_delete_file</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

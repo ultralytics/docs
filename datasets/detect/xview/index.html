@@ -977,161 +977,161 @@
 <p>A YAML (Yet Another Markup Language) file is used to define the dataset configuration. It contains information about the dataset's paths, classes, and other relevant information. In the case of the xView dataset, the <code>xView.yaml</code> file is maintained at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/xView.yaml">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/xView.yaml</a>.</p>
 <div class="admonition example">
 <p class="admonition-title">ultralytics/cfg/datasets/xView.yaml</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="c1"># DIUx xView 2018 Challenge https://challenge.xviewdataset.org by U.S. National Geospatial-Intelligence Agency (NGA)</span>
-<a id="__codelineno-0-4"></a><span class="c1"># --------  DOWNLOAD DATA MANUALLY and jar xf val_images.zip to 'datasets/xView' before running train command!  --------</span>
-<a id="__codelineno-0-5"></a><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/xview/</span>
-<a id="__codelineno-0-6"></a><span class="c1"># Example usage: yolo train data=xView.yaml</span>
-<a id="__codelineno-0-7"></a><span class="c1"># parent</span>
-<a id="__codelineno-0-8"></a><span class="c1"># ├── ultralytics</span>
-<a id="__codelineno-0-9"></a><span class="c1"># └── datasets</span>
-<a id="__codelineno-0-10"></a><span class="c1">#     └── xView  ← downloads here (20.7 GB)</span>
-<a id="__codelineno-0-11"></a>
-<a id="__codelineno-0-12"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a id="__codelineno-0-13"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/xView</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<a id="__codelineno-0-14"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/autosplit_train.txt</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 90% of 847 train images</span>
-<a id="__codelineno-0-15"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/autosplit_val.txt</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 10% of 847 train images</span>
-<a id="__codelineno-0-16"></a>
-<a id="__codelineno-0-17"></a><span class="c1"># Classes</span>
-<a id="__codelineno-0-18"></a><span class="nt">names</span><span class="p">:</span>
-<a id="__codelineno-0-19"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fixed-wing Aircraft</span>
-<a id="__codelineno-0-20"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Small Aircraft</span>
-<a id="__codelineno-0-21"></a><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cargo Plane</span>
-<a id="__codelineno-0-22"></a><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Helicopter</span>
-<a id="__codelineno-0-23"></a><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Passenger Vehicle</span>
-<a id="__codelineno-0-24"></a><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Small Car</span>
-<a id="__codelineno-0-25"></a><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bus</span>
-<a id="__codelineno-0-26"></a><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pickup Truck</span>
-<a id="__codelineno-0-27"></a><span class="w">  </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Utility Truck</span>
-<a id="__codelineno-0-28"></a><span class="w">  </span><span class="nt">9</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck</span>
-<a id="__codelineno-0-29"></a><span class="w">  </span><span class="nt">10</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cargo Truck</span>
-<a id="__codelineno-0-30"></a><span class="w">  </span><span class="nt">11</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck w/Box</span>
-<a id="__codelineno-0-31"></a><span class="w">  </span><span class="nt">12</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck Tractor</span>
-<a id="__codelineno-0-32"></a><span class="w">  </span><span class="nt">13</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trailer</span>
-<a id="__codelineno-0-33"></a><span class="w">  </span><span class="nt">14</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck w/Flatbed</span>
-<a id="__codelineno-0-34"></a><span class="w">  </span><span class="nt">15</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck w/Liquid</span>
-<a id="__codelineno-0-35"></a><span class="w">  </span><span class="nt">16</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Crane Truck</span>
-<a id="__codelineno-0-36"></a><span class="w">  </span><span class="nt">17</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Railway Vehicle</span>
-<a id="__codelineno-0-37"></a><span class="w">  </span><span class="nt">18</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Passenger Car</span>
-<a id="__codelineno-0-38"></a><span class="w">  </span><span class="nt">19</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cargo Car</span>
-<a id="__codelineno-0-39"></a><span class="w">  </span><span class="nt">20</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Flat Car</span>
-<a id="__codelineno-0-40"></a><span class="w">  </span><span class="nt">21</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tank car</span>
-<a id="__codelineno-0-41"></a><span class="w">  </span><span class="nt">22</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Locomotive</span>
-<a id="__codelineno-0-42"></a><span class="w">  </span><span class="nt">23</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Maritime Vessel</span>
-<a id="__codelineno-0-43"></a><span class="w">  </span><span class="nt">24</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Motorboat</span>
-<a id="__codelineno-0-44"></a><span class="w">  </span><span class="nt">25</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sailboat</span>
-<a id="__codelineno-0-45"></a><span class="w">  </span><span class="nt">26</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tugboat</span>
-<a id="__codelineno-0-46"></a><span class="w">  </span><span class="nt">27</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Barge</span>
-<a id="__codelineno-0-47"></a><span class="w">  </span><span class="nt">28</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fishing Vessel</span>
-<a id="__codelineno-0-48"></a><span class="w">  </span><span class="nt">29</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ferry</span>
-<a id="__codelineno-0-49"></a><span class="w">  </span><span class="nt">30</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yacht</span>
-<a id="__codelineno-0-50"></a><span class="w">  </span><span class="nt">31</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Container Ship</span>
-<a id="__codelineno-0-51"></a><span class="w">  </span><span class="nt">32</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Oil Tanker</span>
-<a id="__codelineno-0-52"></a><span class="w">  </span><span class="nt">33</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Engineering Vehicle</span>
-<a id="__codelineno-0-53"></a><span class="w">  </span><span class="nt">34</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tower crane</span>
-<a id="__codelineno-0-54"></a><span class="w">  </span><span class="nt">35</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Container Crane</span>
-<a id="__codelineno-0-55"></a><span class="w">  </span><span class="nt">36</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reach Stacker</span>
-<a id="__codelineno-0-56"></a><span class="w">  </span><span class="nt">37</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Straddle Carrier</span>
-<a id="__codelineno-0-57"></a><span class="w">  </span><span class="nt">38</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mobile Crane</span>
-<a id="__codelineno-0-58"></a><span class="w">  </span><span class="nt">39</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dump Truck</span>
-<a id="__codelineno-0-59"></a><span class="w">  </span><span class="nt">40</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Haul Truck</span>
-<a id="__codelineno-0-60"></a><span class="w">  </span><span class="nt">41</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scraper/Tractor</span>
-<a id="__codelineno-0-61"></a><span class="w">  </span><span class="nt">42</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Front loader/Bulldozer</span>
-<a id="__codelineno-0-62"></a><span class="w">  </span><span class="nt">43</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Excavator</span>
-<a id="__codelineno-0-63"></a><span class="w">  </span><span class="nt">44</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cement Mixer</span>
-<a id="__codelineno-0-64"></a><span class="w">  </span><span class="nt">45</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ground Grader</span>
-<a id="__codelineno-0-65"></a><span class="w">  </span><span class="nt">46</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hut/Tent</span>
-<a id="__codelineno-0-66"></a><span class="w">  </span><span class="nt">47</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Shed</span>
-<a id="__codelineno-0-67"></a><span class="w">  </span><span class="nt">48</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Building</span>
-<a id="__codelineno-0-68"></a><span class="w">  </span><span class="nt">49</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aircraft Hangar</span>
-<a id="__codelineno-0-69"></a><span class="w">  </span><span class="nt">50</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Damaged Building</span>
-<a id="__codelineno-0-70"></a><span class="w">  </span><span class="nt">51</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
-<a id="__codelineno-0-71"></a><span class="w">  </span><span class="nt">52</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Construction Site</span>
-<a id="__codelineno-0-72"></a><span class="w">  </span><span class="nt">53</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Vehicle Lot</span>
-<a id="__codelineno-0-73"></a><span class="w">  </span><span class="nt">54</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Helipad</span>
-<a id="__codelineno-0-74"></a><span class="w">  </span><span class="nt">55</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage Tank</span>
-<a id="__codelineno-0-75"></a><span class="w">  </span><span class="nt">56</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Shipping container lot</span>
-<a id="__codelineno-0-76"></a><span class="w">  </span><span class="nt">57</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Shipping Container</span>
-<a id="__codelineno-0-77"></a><span class="w">  </span><span class="nt">58</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pylon</span>
-<a id="__codelineno-0-78"></a><span class="w">  </span><span class="nt">59</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tower</span>
-<a id="__codelineno-0-79"></a>
-<a id="__codelineno-0-80"></a><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
-<a id="__codelineno-0-81"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-0-82"></a><span class="w">  </span><span class="no">import json</span>
-<a id="__codelineno-0-83"></a><span class="w">  </span><span class="no">import os</span>
-<a id="__codelineno-0-84"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
-<a id="__codelineno-0-85"></a>
-<a id="__codelineno-0-86"></a><span class="w">  </span><span class="no">import numpy as np</span>
-<a id="__codelineno-0-87"></a><span class="w">  </span><span class="no">from PIL import Image</span>
-<a id="__codelineno-0-88"></a><span class="w">  </span><span class="no">from tqdm import tqdm</span>
-<a id="__codelineno-0-89"></a>
-<a id="__codelineno-0-90"></a><span class="w">  </span><span class="no">from ultralytics.data.utils import autosplit</span>
-<a id="__codelineno-0-91"></a><span class="w">  </span><span class="no">from ultralytics.utils.ops import xyxy2xywhn</span>
-<a id="__codelineno-0-92"></a>
-<a id="__codelineno-0-93"></a>
-<a id="__codelineno-0-94"></a><span class="w">  </span><span class="no">def convert_labels(fname=Path("xView/xView_train.geojson")):</span>
-<a id="__codelineno-0-95"></a><span class="w">      </span><span class="no">"""Converts xView geoJSON labels to YOLO format, mapping classes to indices 0-59 and saving as text files."""</span>
-<a id="__codelineno-0-96"></a><span class="w">      </span><span class="no">path = fname.parent</span>
-<a id="__codelineno-0-97"></a><span class="w">      </span><span class="no">with open(fname, encoding="utf-8") as f:</span>
-<a id="__codelineno-0-98"></a><span class="w">          </span><span class="no">print(f"Loading {fname}...")</span>
-<a id="__codelineno-0-99"></a><span class="w">          </span><span class="no">data = json.load(f)</span>
-<a id="__codelineno-0-100"></a>
-<a id="__codelineno-0-101"></a><span class="w">      </span><span class="no"># Make dirs</span>
-<a id="__codelineno-0-102"></a><span class="w">      </span><span class="no">labels = Path(path / "labels" / "train")</span>
-<a id="__codelineno-0-103"></a><span class="w">      </span><span class="no">os.system(f"rm -rf {labels}")</span>
-<a id="__codelineno-0-104"></a><span class="w">      </span><span class="no">labels.mkdir(parents=True, exist_ok=True)</span>
-<a id="__codelineno-0-105"></a>
-<a id="__codelineno-0-106"></a><span class="w">      </span><span class="no"># xView classes 11-94 to 0-59</span>
-<a id="__codelineno-0-107"></a><span class="w">      </span><span class="no">xview_class2index = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, -1, 3, -1, 4, 5, 6, 7, 8, -1, 9, 10, 11,</span>
-<a id="__codelineno-0-108"></a><span class="w">                           </span><span class="no">12, 13, 14, 15, -1, -1, 16, 17, 18, 19, 20, 21, 22, -1, 23, 24, 25, -1, 26, 27, -1, 28, -1,</span>
-<a id="__codelineno-0-109"></a><span class="w">                           </span><span class="no">29, 30, 31, 32, 33, 34, 35, 36, 37, -1, 38, 39, 40, 41, 42, 43, 44, 45, -1, -1, -1, -1, 46,</span>
-<a id="__codelineno-0-110"></a><span class="w">                           </span><span class="no">47, 48, 49, -1, 50, 51, -1, 52, -1, -1, -1, 53, 54, -1, 55, -1, -1, 56, -1, 57, -1, 58, 59]</span>
-<a id="__codelineno-0-111"></a>
-<a id="__codelineno-0-112"></a><span class="w">      </span><span class="no">shapes = {}</span>
-<a id="__codelineno-0-113"></a><span class="w">      </span><span class="no">for feature in tqdm(data["features"], desc=f"Converting {fname}"):</span>
-<a id="__codelineno-0-114"></a><span class="w">          </span><span class="no">p = feature["properties"]</span>
-<a id="__codelineno-0-115"></a><span class="w">          </span><span class="no">if p["bounds_imcoords"]:</span>
-<a id="__codelineno-0-116"></a><span class="w">              </span><span class="no">id = p["image_id"]</span>
-<a id="__codelineno-0-117"></a><span class="w">              </span><span class="no">file = path / "train_images" / id</span>
-<a id="__codelineno-0-118"></a><span class="w">              </span><span class="no">if file.exists():  # 1395.tif missing</span>
-<a id="__codelineno-0-119"></a><span class="w">                  </span><span class="no">try:</span>
-<a id="__codelineno-0-120"></a><span class="w">                      </span><span class="no">box = np.array([int(num) for num in p["bounds_imcoords"].split(",")])</span>
-<a id="__codelineno-0-121"></a><span class="w">                      </span><span class="no">assert box.shape[0] == 4, f"incorrect box shape {box.shape[0]}"</span>
-<a id="__codelineno-0-122"></a><span class="w">                      </span><span class="no">cls = p["type_id"]</span>
-<a id="__codelineno-0-123"></a><span class="w">                      </span><span class="no">cls = xview_class2index[int(cls)]  # xView class to 0-60</span>
-<a id="__codelineno-0-124"></a><span class="w">                      </span><span class="no">assert 59 &gt;= cls &gt;= 0, f"incorrect class index {cls}"</span>
-<a id="__codelineno-0-125"></a>
-<a id="__codelineno-0-126"></a><span class="w">                      </span><span class="no"># Write YOLO label</span>
-<a id="__codelineno-0-127"></a><span class="w">                      </span><span class="no">if id not in shapes:</span>
-<a id="__codelineno-0-128"></a><span class="w">                          </span><span class="no">shapes[id] = Image.open(file).size</span>
-<a id="__codelineno-0-129"></a><span class="w">                      </span><span class="no">box = xyxy2xywhn(box[None].astype(np.float), w=shapes[id][0], h=shapes[id][1], clip=True)</span>
-<a id="__codelineno-0-130"></a><span class="w">                      </span><span class="no">with open((labels / id).with_suffix(".txt"), "a", encoding="utf-8") as f:</span>
-<a id="__codelineno-0-131"></a><span class="w">                          </span><span class="no">f.write(f"{cls} {' '.join(f'{x:.6f}' for x in box[0])}\n")  # write label.txt</span>
-<a id="__codelineno-0-132"></a><span class="w">                  </span><span class="no">except Exception as e:</span>
-<a id="__codelineno-0-133"></a><span class="w">                      </span><span class="no">print(f"WARNING: skipping one label for {file}: {e}")</span>
-<a id="__codelineno-0-134"></a>
-<a id="__codelineno-0-135"></a>
-<a id="__codelineno-0-136"></a><span class="w">  </span><span class="no"># Download manually from https://challenge.xviewdataset.org</span>
-<a id="__codelineno-0-137"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
-<a id="__codelineno-0-138"></a><span class="w">  </span><span class="no"># urls = [</span>
-<a id="__codelineno-0-139"></a><span class="w">  </span><span class="no">#     "https://d307kc0mrhucc3.cloudfront.net/train_labels.zip",  # train labels</span>
-<a id="__codelineno-0-140"></a><span class="w">  </span><span class="no">#     "https://d307kc0mrhucc3.cloudfront.net/train_images.zip",  # 15G, 847 train images</span>
-<a id="__codelineno-0-141"></a><span class="w">  </span><span class="no">#     "https://d307kc0mrhucc3.cloudfront.net/val_images.zip",  # 5G, 282 val images (no labels)</span>
-<a id="__codelineno-0-142"></a><span class="w">  </span><span class="no"># ]</span>
-<a id="__codelineno-0-143"></a><span class="w">  </span><span class="no"># download(urls, dir=dir)</span>
-<a id="__codelineno-0-144"></a>
-<a id="__codelineno-0-145"></a><span class="w">  </span><span class="no"># Convert labels</span>
-<a id="__codelineno-0-146"></a><span class="w">  </span><span class="no">convert_labels(dir / "xView_train.geojson")</span>
-<a id="__codelineno-0-147"></a>
-<a id="__codelineno-0-148"></a><span class="w">  </span><span class="no"># Move images</span>
-<a id="__codelineno-0-149"></a><span class="w">  </span><span class="no">images = Path(dir / "images")</span>
-<a id="__codelineno-0-150"></a><span class="w">  </span><span class="no">images.mkdir(parents=True, exist_ok=True)</span>
-<a id="__codelineno-0-151"></a><span class="w">  </span><span class="no">Path(dir / "train_images").rename(dir / "images" / "train")</span>
-<a id="__codelineno-0-152"></a><span class="w">  </span><span class="no">Path(dir / "val_images").rename(dir / "images" / "val")</span>
-<a id="__codelineno-0-153"></a>
-<a id="__codelineno-0-154"></a><span class="w">  </span><span class="no"># Split</span>
-<a id="__codelineno-0-155"></a><span class="w">  </span><span class="no">autosplit(dir / "images" / "train")</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
+<span></span>
+<span></span><span class="c1"># DIUx xView 2018 Challenge https://challenge.xviewdataset.org by U.S. National Geospatial-Intelligence Agency (NGA)</span>
+<span></span><span class="c1"># --------  DOWNLOAD DATA MANUALLY and jar xf val_images.zip to 'datasets/xView' before running train command!  --------</span>
+<span></span><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/xview/</span>
+<span></span><span class="c1"># Example usage: yolo train data=xView.yaml</span>
+<span></span><span class="c1"># parent</span>
+<span></span><span class="c1"># ├── ultralytics</span>
+<span></span><span class="c1"># └── datasets</span>
+<span></span><span class="c1">#     └── xView  ← downloads here (20.7 GB)</span>
+<span></span>
+<span></span><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
+<span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/xView</span><span class="w"> </span><span class="c1"># dataset root dir</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/autosplit_train.txt</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 90% of 847 train images</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/autosplit_val.txt</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 10% of 847 train images</span>
+<span></span>
+<span></span><span class="c1"># Classes</span>
+<span></span><span class="nt">names</span><span class="p">:</span>
+<span></span><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fixed-wing Aircraft</span>
+<span></span><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Small Aircraft</span>
+<span></span><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cargo Plane</span>
+<span></span><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Helicopter</span>
+<span></span><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Passenger Vehicle</span>
+<span></span><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Small Car</span>
+<span></span><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Bus</span>
+<span></span><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pickup Truck</span>
+<span></span><span class="w">  </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Utility Truck</span>
+<span></span><span class="w">  </span><span class="nt">9</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck</span>
+<span></span><span class="w">  </span><span class="nt">10</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cargo Truck</span>
+<span></span><span class="w">  </span><span class="nt">11</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck w/Box</span>
+<span></span><span class="w">  </span><span class="nt">12</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck Tractor</span>
+<span></span><span class="w">  </span><span class="nt">13</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Trailer</span>
+<span></span><span class="w">  </span><span class="nt">14</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck w/Flatbed</span>
+<span></span><span class="w">  </span><span class="nt">15</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Truck w/Liquid</span>
+<span></span><span class="w">  </span><span class="nt">16</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Crane Truck</span>
+<span></span><span class="w">  </span><span class="nt">17</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Railway Vehicle</span>
+<span></span><span class="w">  </span><span class="nt">18</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Passenger Car</span>
+<span></span><span class="w">  </span><span class="nt">19</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cargo Car</span>
+<span></span><span class="w">  </span><span class="nt">20</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Flat Car</span>
+<span></span><span class="w">  </span><span class="nt">21</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tank car</span>
+<span></span><span class="w">  </span><span class="nt">22</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Locomotive</span>
+<span></span><span class="w">  </span><span class="nt">23</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Maritime Vessel</span>
+<span></span><span class="w">  </span><span class="nt">24</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Motorboat</span>
+<span></span><span class="w">  </span><span class="nt">25</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Sailboat</span>
+<span></span><span class="w">  </span><span class="nt">26</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tugboat</span>
+<span></span><span class="w">  </span><span class="nt">27</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Barge</span>
+<span></span><span class="w">  </span><span class="nt">28</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Fishing Vessel</span>
+<span></span><span class="w">  </span><span class="nt">29</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ferry</span>
+<span></span><span class="w">  </span><span class="nt">30</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Yacht</span>
+<span></span><span class="w">  </span><span class="nt">31</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Container Ship</span>
+<span></span><span class="w">  </span><span class="nt">32</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Oil Tanker</span>
+<span></span><span class="w">  </span><span class="nt">33</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Engineering Vehicle</span>
+<span></span><span class="w">  </span><span class="nt">34</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tower crane</span>
+<span></span><span class="w">  </span><span class="nt">35</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Container Crane</span>
+<span></span><span class="w">  </span><span class="nt">36</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Reach Stacker</span>
+<span></span><span class="w">  </span><span class="nt">37</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Straddle Carrier</span>
+<span></span><span class="w">  </span><span class="nt">38</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Mobile Crane</span>
+<span></span><span class="w">  </span><span class="nt">39</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Dump Truck</span>
+<span></span><span class="w">  </span><span class="nt">40</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Haul Truck</span>
+<span></span><span class="w">  </span><span class="nt">41</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Scraper/Tractor</span>
+<span></span><span class="w">  </span><span class="nt">42</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Front loader/Bulldozer</span>
+<span></span><span class="w">  </span><span class="nt">43</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Excavator</span>
+<span></span><span class="w">  </span><span class="nt">44</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Cement Mixer</span>
+<span></span><span class="w">  </span><span class="nt">45</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Ground Grader</span>
+<span></span><span class="w">  </span><span class="nt">46</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Hut/Tent</span>
+<span></span><span class="w">  </span><span class="nt">47</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Shed</span>
+<span></span><span class="w">  </span><span class="nt">48</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Building</span>
+<span></span><span class="w">  </span><span class="nt">49</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Aircraft Hangar</span>
+<span></span><span class="w">  </span><span class="nt">50</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Damaged Building</span>
+<span></span><span class="w">  </span><span class="nt">51</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Facility</span>
+<span></span><span class="w">  </span><span class="nt">52</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Construction Site</span>
+<span></span><span class="w">  </span><span class="nt">53</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Vehicle Lot</span>
+<span></span><span class="w">  </span><span class="nt">54</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Helipad</span>
+<span></span><span class="w">  </span><span class="nt">55</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Storage Tank</span>
+<span></span><span class="w">  </span><span class="nt">56</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Shipping container lot</span>
+<span></span><span class="w">  </span><span class="nt">57</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Shipping Container</span>
+<span></span><span class="w">  </span><span class="nt">58</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Pylon</span>
+<span></span><span class="w">  </span><span class="nt">59</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">Tower</span>
+<span></span>
+<span></span><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
+<span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span></span><span class="w">  </span><span class="no">import json</span>
+<span></span><span class="w">  </span><span class="no">import os</span>
+<span></span><span class="w">  </span><span class="no">from pathlib import Path</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no">import numpy as np</span>
+<span></span><span class="w">  </span><span class="no">from PIL import Image</span>
+<span></span><span class="w">  </span><span class="no">from tqdm import tqdm</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.data.utils import autosplit</span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.utils.ops import xyxy2xywhn</span>
+<span></span>
+<span></span>
+<span></span><span class="w">  </span><span class="no">def convert_labels(fname=Path("xView/xView_train.geojson")):</span>
+<span></span><span class="w">      </span><span class="no">"""Converts xView geoJSON labels to YOLO format, mapping classes to indices 0-59 and saving as text files."""</span>
+<span></span><span class="w">      </span><span class="no">path = fname.parent</span>
+<span></span><span class="w">      </span><span class="no">with open(fname, encoding="utf-8") as f:</span>
+<span></span><span class="w">          </span><span class="no">print(f"Loading {fname}...")</span>
+<span></span><span class="w">          </span><span class="no">data = json.load(f)</span>
+<span></span>
+<span></span><span class="w">      </span><span class="no"># Make dirs</span>
+<span></span><span class="w">      </span><span class="no">labels = Path(path / "labels" / "train")</span>
+<span></span><span class="w">      </span><span class="no">os.system(f"rm -rf {labels}")</span>
+<span></span><span class="w">      </span><span class="no">labels.mkdir(parents=True, exist_ok=True)</span>
+<span></span>
+<span></span><span class="w">      </span><span class="no"># xView classes 11-94 to 0-59</span>
+<span></span><span class="w">      </span><span class="no">xview_class2index = [-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 0, 1, 2, -1, 3, -1, 4, 5, 6, 7, 8, -1, 9, 10, 11,</span>
+<span></span><span class="w">                           </span><span class="no">12, 13, 14, 15, -1, -1, 16, 17, 18, 19, 20, 21, 22, -1, 23, 24, 25, -1, 26, 27, -1, 28, -1,</span>
+<span></span><span class="w">                           </span><span class="no">29, 30, 31, 32, 33, 34, 35, 36, 37, -1, 38, 39, 40, 41, 42, 43, 44, 45, -1, -1, -1, -1, 46,</span>
+<span></span><span class="w">                           </span><span class="no">47, 48, 49, -1, 50, 51, -1, 52, -1, -1, -1, 53, 54, -1, 55, -1, -1, 56, -1, 57, -1, 58, 59]</span>
+<span></span>
+<span></span><span class="w">      </span><span class="no">shapes = {}</span>
+<span></span><span class="w">      </span><span class="no">for feature in tqdm(data["features"], desc=f"Converting {fname}"):</span>
+<span></span><span class="w">          </span><span class="no">p = feature["properties"]</span>
+<span></span><span class="w">          </span><span class="no">if p["bounds_imcoords"]:</span>
+<span></span><span class="w">              </span><span class="no">id = p["image_id"]</span>
+<span></span><span class="w">              </span><span class="no">file = path / "train_images" / id</span>
+<span></span><span class="w">              </span><span class="no">if file.exists():  # 1395.tif missing</span>
+<span></span><span class="w">                  </span><span class="no">try:</span>
+<span></span><span class="w">                      </span><span class="no">box = np.array([int(num) for num in p["bounds_imcoords"].split(",")])</span>
+<span></span><span class="w">                      </span><span class="no">assert box.shape[0] == 4, f"incorrect box shape {box.shape[0]}"</span>
+<span></span><span class="w">                      </span><span class="no">cls = p["type_id"]</span>
+<span></span><span class="w">                      </span><span class="no">cls = xview_class2index[int(cls)]  # xView class to 0-60</span>
+<span></span><span class="w">                      </span><span class="no">assert 59 &gt;= cls &gt;= 0, f"incorrect class index {cls}"</span>
+<span></span>
+<span></span><span class="w">                      </span><span class="no"># Write YOLO label</span>
+<span></span><span class="w">                      </span><span class="no">if id not in shapes:</span>
+<span></span><span class="w">                          </span><span class="no">shapes[id] = Image.open(file).size</span>
+<span></span><span class="w">                      </span><span class="no">box = xyxy2xywhn(box[None].astype(np.float), w=shapes[id][0], h=shapes[id][1], clip=True)</span>
+<span></span><span class="w">                      </span><span class="no">with open((labels / id).with_suffix(".txt"), "a", encoding="utf-8") as f:</span>
+<span></span><span class="w">                          </span><span class="no">f.write(f"{cls} {' '.join(f'{x:.6f}' for x in box[0])}\n")  # write label.txt</span>
+<span></span><span class="w">                  </span><span class="no">except Exception as e:</span>
+<span></span><span class="w">                      </span><span class="no">print(f"WARNING: skipping one label for {file}: {e}")</span>
+<span></span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Download manually from https://challenge.xviewdataset.org</span>
+<span></span><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
+<span></span><span class="w">  </span><span class="no"># urls = [</span>
+<span></span><span class="w">  </span><span class="no">#     "https://d307kc0mrhucc3.cloudfront.net/train_labels.zip",  # train labels</span>
+<span></span><span class="w">  </span><span class="no">#     "https://d307kc0mrhucc3.cloudfront.net/train_images.zip",  # 15G, 847 train images</span>
+<span></span><span class="w">  </span><span class="no">#     "https://d307kc0mrhucc3.cloudfront.net/val_images.zip",  # 5G, 282 val images (no labels)</span>
+<span></span><span class="w">  </span><span class="no"># ]</span>
+<span></span><span class="w">  </span><span class="no"># download(urls, dir=dir)</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Convert labels</span>
+<span></span><span class="w">  </span><span class="no">convert_labels(dir / "xView_train.geojson")</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Move images</span>
+<span></span><span class="w">  </span><span class="no">images = Path(dir / "images")</span>
+<span></span><span class="w">  </span><span class="no">images.mkdir(parents=True, exist_ok=True)</span>
+<span></span><span class="w">  </span><span class="no">Path(dir / "train_images").rename(dir / "images" / "train")</span>
+<span></span><span class="w">  </span><span class="no">Path(dir / "val_images").rename(dir / "images" / "val")</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Split</span>
+<span></span><span class="w">  </span><span class="no">autosplit(dir / "images" / "train")</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
@@ -1141,18 +1141,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"xView.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"xView.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a id="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>xView.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
+<span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>xView.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1178,14 +1178,14 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">lam2018xview</span><span class="p">,</span>
-<a id="__codelineno-3-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{xView: Objects in Context in Overhead Imagery}</span><span class="p">,</span>
-<a id="__codelineno-3-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Darius Lam and Richard Kuzma and Kevin McGee and Samuel Dooley and Michael Laielli and Matthew Klaric and Yaroslav Bulatov and Brendan McCord}</span><span class="p">,</span>
-<a id="__codelineno-3-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2018}</span><span class="p">,</span>
-<a id="__codelineno-3-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{1802.07856}</span><span class="p">,</span>
-<a id="__codelineno-3-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a id="__codelineno-3-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
-<a id="__codelineno-3-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">lam2018xview</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{xView: Objects in Context in Overhead Imagery}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Darius Lam and Richard Kuzma and Kevin McGee and Samuel Dooley and Michael Laielli and Matthew Klaric and Yaroslav Bulatov and Brendan McCord}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2018}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{1802.07856}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -1202,18 +1202,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a id="__codelineno-4-5"></a>
-<a id="__codelineno-4-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"xView.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"xView.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a id="__codelineno-5-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>xView.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
+<span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>xView.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1236,14 +1236,14 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">lam2018xview</span><span class="p">,</span>
-<a id="__codelineno-6-2"></a><span class="w">    </span><span class="na">title</span><span class="p">=</span><span class="s">{xView: Objects in Context in Overhead Imagery}</span><span class="p">,</span>
-<a id="__codelineno-6-3"></a><span class="w">    </span><span class="na">author</span><span class="p">=</span><span class="s">{Darius Lam and Richard Kuzma and Kevin McGee and Samuel Dooley and Michael Laielli and Matthew Klaric and Yaroslav Bulatov and Brendan McCord}</span><span class="p">,</span>
-<a id="__codelineno-6-4"></a><span class="w">    </span><span class="na">year</span><span class="p">=</span><span class="s">{2018}</span><span class="p">,</span>
-<a id="__codelineno-6-5"></a><span class="w">    </span><span class="na">eprint</span><span class="p">=</span><span class="s">{1802.07856}</span><span class="p">,</span>
-<a id="__codelineno-6-6"></a><span class="w">    </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a id="__codelineno-6-7"></a><span class="w">    </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
-<a id="__codelineno-6-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">lam2018xview</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">title</span><span class="p">=</span><span class="s">{xView: Objects in Context in Overhead Imagery}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">author</span><span class="p">=</span><span class="s">{Darius Lam and Richard Kuzma and Kevin McGee and Samuel Dooley and Michael Laielli and Matthew Klaric and Yaroslav Bulatov and Brendan McCord}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">year</span><span class="p">=</span><span class="s">{2018}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">eprint</span><span class="p">=</span><span class="s">{1802.07856}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
+<span></span><span class="w">    </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>

@@ -639,50 +639,50 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a id="__codelineno-0-4"></a>
-<a id="__codelineno-0-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a id="__codelineno-0-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a id="__codelineno-0-7"></a>
-<a id="__codelineno-0-8"></a><span class="c1"># Pass region as list</span>
-<a id="__codelineno-0-9"></a><span class="c1"># region_points = [(20, 400), (1080, 400), (1080, 360), (20, 360)]</span>
-<a id="__codelineno-0-10"></a>
-<a id="__codelineno-0-11"></a><span class="c1"># Pass region as dictionary</span>
-<a id="__codelineno-0-12"></a><span class="n">region_points</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-13"></a>    <span class="s2">"region-01"</span><span class="p">:</span> <span class="p">[(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">250</span><span class="p">),</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">250</span><span class="p">)],</span>
-<a id="__codelineno-0-14"></a>    <span class="s2">"region-02"</span><span class="p">:</span> <span class="p">[(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="p">(</span><span class="mi">780</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="p">(</span><span class="mi">780</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">720</span><span class="p">)],</span>
-<a id="__codelineno-0-15"></a><span class="p">}</span>
-<a id="__codelineno-0-16"></a>
-<a id="__codelineno-0-17"></a><span class="c1"># Video writer</span>
-<a id="__codelineno-0-18"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a id="__codelineno-0-19"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"region_counting.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-<a id="__codelineno-0-20"></a>
-<a id="__codelineno-0-21"></a><span class="c1"># Initialize region counter object</span>
-<a id="__codelineno-0-22"></a><span class="n">regioncounter</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">RegionCounter</span><span class="p">(</span>
-<a id="__codelineno-0-23"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># display the frame</span>
-<a id="__codelineno-0-24"></a>    <span class="n">region</span><span class="o">=</span><span class="n">region_points</span><span class="p">,</span>  <span class="c1"># pass region points</span>
-<a id="__codelineno-0-25"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>  <span class="c1"># model for counting in regions i.e yolo11s.pt</span>
-<a id="__codelineno-0-26"></a><span class="p">)</span>
-<a id="__codelineno-0-27"></a>
-<a id="__codelineno-0-28"></a><span class="c1"># Process video</span>
-<a id="__codelineno-0-29"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a id="__codelineno-0-30"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-0-31"></a>
-<a id="__codelineno-0-32"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a id="__codelineno-0-33"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or processing is complete."</span><span class="p">)</span>
-<a id="__codelineno-0-34"></a>        <span class="k">break</span>
-<a id="__codelineno-0-35"></a>
-<a id="__codelineno-0-36"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">regioncounter</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a id="__codelineno-0-37"></a>
-<a id="__codelineno-0-38"></a>    <span class="c1"># print(results)  # access the output</span>
-<a id="__codelineno-0-39"></a>
-<a id="__codelineno-0-40"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>
-<a id="__codelineno-0-41"></a>
-<a id="__codelineno-0-42"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-0-43"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-0-44"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>  <span class="c1"># destroy all opened windows</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<span></span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<span></span><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<span></span>
+<span></span><span class="c1"># Pass region as list</span>
+<span></span><span class="c1"># region_points = [(20, 400), (1080, 400), (1080, 360), (20, 360)]</span>
+<span></span>
+<span></span><span class="c1"># Pass region as dictionary</span>
+<span></span><span class="n">region_points</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>    <span class="s2">"region-01"</span><span class="p">:</span> <span class="p">[(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="mi">250</span><span class="p">,</span> <span class="mi">250</span><span class="p">),</span> <span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">250</span><span class="p">)],</span>
+<span></span>    <span class="s2">"region-02"</span><span class="p">:</span> <span class="p">[(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="p">(</span><span class="mi">780</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="p">(</span><span class="mi">780</span><span class="p">,</span> <span class="mi">720</span><span class="p">),</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">720</span><span class="p">)],</span>
+<span></span><span class="p">}</span>
+<span></span>
+<span></span><span class="c1"># Video writer</span>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<span></span><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"region_counting.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span></span>
+<span></span><span class="c1"># Initialize region counter object</span>
+<span></span><span class="n">regioncounter</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">RegionCounter</span><span class="p">(</span>
+<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># display the frame</span>
+<span></span>    <span class="n">region</span><span class="o">=</span><span class="n">region_points</span><span class="p">,</span>  <span class="c1"># pass region points</span>
+<span></span>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>  <span class="c1"># model for counting in regions i.e yolo11s.pt</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Process video</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or processing is complete."</span><span class="p">)</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">regioncounter</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># print(results)  # access the output</span>
+<span></span>
+<span></span>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>  <span class="c1"># destroy all opened windows</span>
 </code></pre></div>
 </div>
 </div>
@@ -800,13 +800,13 @@
 <ol>
 <li>
 <p>Clone the Ultralytics repository and navigate to the directory:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/ultralytics
-<a id="__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>ultralytics/examples/YOLOv8-Region-Counter
+<div class="highlight"><pre><span></span><code><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/ultralytics
+<span></span><span class="nb">cd</span><span class="w"> </span>ultralytics/examples/YOLOv8-Region-Counter
 </code></pre></div>
 </li>
 <li>
 <p>Execute the region counting script:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>python<span class="w"> </span>yolov8_region_counter.py<span class="w"> </span>--source<span class="w"> </span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span>--save-img
+    <div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>yolov8_region_counter.py<span class="w"> </span>--source<span class="w"> </span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span>--save-img
 </code></pre></div></p>
 </li>
 </ol>

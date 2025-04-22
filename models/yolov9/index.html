@@ -754,12 +754,12 @@
 <p>YOLOv9's advancements are deeply rooted in addressing the challenges posed by information loss in deep neural networks. The Information Bottleneck Principle and the innovative use of Reversible Functions are central to its design, ensuring YOLOv9 maintains high efficiency and accuracy.</p>
 <h3 id="information-bottleneck-principle">Information Bottleneck Principle</h3>
 <p>The Information Bottleneck Principle reveals a fundamental challenge in deep learning: as data passes through successive layers of a network, the potential for information loss increases. This phenomenon is mathematically represented as:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">f_theta</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">g_phi</span><span class="p">(</span><span class="n">f_theta</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">X</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">f_theta</span><span class="p">(</span><span class="n">X</span><span class="p">))</span> <span class="o">&gt;=</span> <span class="n">I</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">g_phi</span><span class="p">(</span><span class="n">f_theta</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
 </code></pre></div>
 <p>where <code>I</code> denotes mutual information, and <code>f</code> and <code>g</code> represent transformation functions with parameters <code>theta</code> and <code>phi</code>, respectively. YOLOv9 counters this challenge by implementing Programmable Gradient Information (PGI), which aids in preserving essential data across the network's depth, ensuring more reliable gradient generation and, consequently, better model convergence and performance.</p>
 <h3 id="reversible-functions">Reversible Functions</h3>
 <p>The concept of Reversible Functions is another cornerstone of YOLOv9's design. A function is deemed reversible if it can be inverted without any loss of information, as expressed by:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="n">X</span> <span class="o">=</span> <span class="n">v_zeta</span><span class="p">(</span><span class="n">r_psi</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">v_zeta</span><span class="p">(</span><span class="n">r_psi</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
 </code></pre></div>
 <p>with <code>psi</code> and <code>zeta</code> as parameters for the reversible and its inverse function, respectively. This property is crucial for <a href="https://www.ultralytics.com/glossary/deep-learning-dl">deep learning</a> architectures, as it allows the network to retain a complete information flow, thereby enabling more accurate updates to the model's parameters. YOLOv9 incorporates reversible functions within its architecture to mitigate the risk of information degradation, especially in deeper layers, ensuring the preservation of critical data for object detection tasks.</p>
 <h3 id="impact-on-lightweight-models">Impact on Lightweight Models</h3>
@@ -902,31 +902,31 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> pretrained <code>*.pt</code> models as well as configuration <code>*.yaml</code> files can be passed to the <code>YOLO()</code> class to create a model instance in python:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="c1"># Build a YOLOv9c model from scratch</span>
-<a id="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov9c.yaml"</span><span class="p">)</span>
-<a id="__codelineno-2-5"></a>
-<a id="__codelineno-2-6"></a><span class="c1"># Build a YOLOv9c model from pretrained weight</span>
-<a id="__codelineno-2-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov9c.pt"</span><span class="p">)</span>
-<a id="__codelineno-2-8"></a>
-<a id="__codelineno-2-9"></a><span class="c1"># Display model information (optional)</span>
-<a id="__codelineno-2-10"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a id="__codelineno-2-11"></a>
-<a id="__codelineno-2-12"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
-<a id="__codelineno-2-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a id="__codelineno-2-14"></a>
-<a id="__codelineno-2-15"></a><span class="c1"># Run inference with the YOLOv9c model on the 'bus.jpg' image</span>
-<a id="__codelineno-2-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Build a YOLOv9c model from scratch</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov9c.yaml"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Build a YOLOv9c model from pretrained weight</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov9c.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Display model information (optional)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference with the YOLOv9c model on the 'bus.jpg' image</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>CLI commands are available to directly run the models:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Build a YOLOv9c model from scratch and train it on the COCO8 example dataset for 100 epochs</span>
-<a id="__codelineno-3-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov9c.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a id="__codelineno-3-3"></a>
-<a id="__codelineno-3-4"></a><span class="c1"># Build a YOLOv9c model from scratch and run inference on the 'bus.jpg' image</span>
-<a id="__codelineno-3-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov9c.yaml<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Build a YOLOv9c model from scratch and train it on the COCO8 example dataset for 100 epochs</span>
+<span></span>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov9c.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<span></span>
+<span></span><span class="c1"># Build a YOLOv9c model from scratch and run inference on the 'bus.jpg' image</span>
+<span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov9c.yaml<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
 </code></pre></div>
 </div>
 </div>
@@ -978,12 +978,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">wang2024yolov9</span><span class="p">,</span>
-<a id="__codelineno-4-2"></a><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information}</span><span class="p">,</span>
-<a id="__codelineno-4-3"></a><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Wang, Chien-Yao  and Liao, Hong-Yuan Mark}</span><span class="p">,</span>
-<a id="__codelineno-4-4"></a><span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{arXiv preprint arXiv:2402.13616}</span><span class="p">,</span>
-<a id="__codelineno-4-5"></a><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2024}</span>
-<a id="__codelineno-4-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">wang2024yolov9</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">title</span><span class="p">=</span><span class="s">{YOLOv9: Learning What You Want to Learn Using Programmable Gradient Information}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">author</span><span class="p">=</span><span class="s">{Wang, Chien-Yao  and Liao, Hong-Yuan Mark}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">booktitle</span><span class="p">=</span><span class="s">{arXiv preprint arXiv:2402.13616}</span><span class="p">,</span>
+<span></span><span class="w">  </span><span class="na">year</span><span class="p">=</span><span class="s">{2024}</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -997,14 +997,14 @@
 <p>YOLOv9 outperforms state-of-the-art real-time object detectors by achieving higher accuracy and efficiency. On the <a href="../../datasets/detect/coco/">COCO dataset</a>, YOLOv9 models exhibit superior mAP scores across various sizes while maintaining or reducing computational overhead. For instance, YOLOv9c achieves comparable accuracy with 42% fewer parameters and 21% less computational demand than YOLOv7 AF. Explore <a href="#performance-on-ms-coco-dataset">performance comparisons</a> for detailed metrics.</p>
 <h3 id="how-can-i-train-a-yolov9-model-using-python-and-cli">How can I train a YOLOv9 model using Python and CLI?</h3>
 <p>You can train a YOLOv9 model using both Python and CLI commands. For Python, instantiate a model using the <code>YOLO</code> class and call the <code>train</code> method:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="c1"># Build a YOLOv9c model from pretrained weights and train</span>
-<a id="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov9c.pt"</span><span class="p">)</span>
-<a id="__codelineno-5-5"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Build a YOLOv9c model from pretrained weights and train</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov9c.pt"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 <p>For CLI training, execute:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov9c.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov9c.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 <p>Learn more about <a href="#usage-examples">usage examples</a> for training and inference.</p>
 <h3 id="what-are-the-advantages-of-using-ultralytics-yolov9-for-lightweight-models">What are the advantages of using Ultralytics YOLOv9 for lightweight models?</h3>

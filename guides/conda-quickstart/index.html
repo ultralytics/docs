@@ -877,43 +877,43 @@
 <hr/>
 <h2 id="setting-up-a-conda-environment">Setting up a Conda Environment</h2>
 <p>First, let's create a new Conda environment. Open your terminal and run the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>ultralytics-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>ultralytics-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
 </code></pre></div>
 <p>Activate the new environment:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>ultralytics-env
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>activate<span class="w"> </span>ultralytics-env
 </code></pre></div>
 <hr/>
 <h2 id="installing-ultralytics">Installing Ultralytics</h2>
 <p>You can install the Ultralytics package from the conda-forge channel. Execute the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
 </code></pre></div>
 <h3 id="note-on-cuda-environment">Note on CUDA Environment</h3>
 <p>If you're working in a CUDA-enabled environment, it's a good practice to install <code>ultralytics</code>, <code>pytorch</code>, and <code>pytorch-cuda</code> together to resolve any conflicts:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
 </code></pre></div>
 <hr/>
 <h2 id="using-ultralytics">Using Ultralytics</h2>
 <p>With Ultralytics installed, you can now start using its robust features for <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a>, <a href="https://www.ultralytics.com/glossary/instance-segmentation">instance segmentation</a>, and more. For example, to predict an image, you can run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># initialize model</span>
-<a id="__codelineno-4-4"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>  <span class="c1"># perform inference</span>
-<a id="__codelineno-4-5"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># display results for the first image</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># initialize model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>  <span class="c1"># perform inference</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># display results for the first image</span>
 </code></pre></div>
 <hr/>
 <h2 id="ultralytics-conda-docker-image">Ultralytics Conda Docker Image</h2>
 <p>If you prefer using Docker, Ultralytics offers Docker images with a Conda environment included. You can pull these images from <a href="https://hub.docker.com/r/ultralytics/ultralytics">DockerHub</a>.</p>
 <p>Pull the latest Ultralytics image:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Set image name as a variable</span>
-<a id="__codelineno-5-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest-conda
-<a id="__codelineno-5-3"></a>
-<a id="__codelineno-5-4"></a><span class="c1"># Pull the latest Ultralytics image from Docker Hub</span>
-<a id="__codelineno-5-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Set image name as a variable</span>
+<span></span><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest-conda
+<span></span>
+<span></span><span class="c1"># Pull the latest Ultralytics image from Docker Hub</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>Run the image:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="c1"># Run the Ultralytics image in a container with GPU support</span>
-<a id="__codelineno-6-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span><span class="w">            </span><span class="c1"># all GPUs</span>
-<a id="__codelineno-6-3"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="c1"># specify GPUs</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Run the Ultralytics image in a container with GPU support</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span><span class="w">            </span><span class="c1"># all GPUs</span>
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span><span class="w"> </span><span class="c1"># specify GPUs</span>
 </code></pre></div>
 <h2 id="speeding-up-installation-with-libmamba">Speeding Up Installation with Libmamba</h2>
 <p>If you're looking to <a href="https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community">speed up the package installation</a> process in Conda, you can opt to use <code>libmamba</code>, a fast, cross-platform, and dependency-aware package manager that serves as an alternative solver to Conda's default.</p>
@@ -922,12 +922,12 @@
 <ol>
 <li>
 <p>First, install the <code>conda-libmamba-solver</code> package. This can be skipped if your Conda version is 4.11 or above, as <code>libmamba</code> is included by default.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a>conda<span class="w"> </span>install<span class="w"> </span>conda-libmamba-solver
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>install<span class="w"> </span>conda-libmamba-solver
 </code></pre></div>
 </li>
 <li>
 <p>Next, configure Conda to use <code>libmamba</code> as the solver:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>solver<span class="w"> </span>libmamba
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>solver<span class="w"> </span>libmamba
 </code></pre></div>
 </li>
 </ol>
@@ -937,33 +937,33 @@
 <h2 id="faq">FAQ</h2>
 <h3 id="what-is-the-process-for-setting-up-a-conda-environment-for-ultralytics-projects">What is the process for setting up a Conda environment for Ultralytics projects?</h3>
 <p>Setting up a Conda environment for Ultralytics projects is straightforward and ensures smooth package management. First, create a new Conda environment using the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>ultralytics-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>ultralytics-env<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.11<span class="w"> </span>-y
 </code></pre></div>
 <p>Then, activate the new environment with:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a>conda<span class="w"> </span>activate<span class="w"> </span>ultralytics-env
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>activate<span class="w"> </span>ultralytics-env
 </code></pre></div>
 <p>Finally, install Ultralytics from the conda-forge channel:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>ultralytics
 </code></pre></div>
 <h3 id="why-should-i-use-conda-over-pip-for-managing-dependencies-in-ultralytics-projects">Why should I use Conda over pip for managing dependencies in Ultralytics projects?</h3>
 <p>Conda is a robust package and environment management system that offers several advantages over pip. It manages dependencies efficiently and ensures that all necessary libraries are compatible. Conda's isolated environments prevent conflicts between packages, which is crucial in data science and machine learning projects. Additionally, Conda supports binary package distribution, speeding up the installation process.</p>
 <h3 id="can-i-use-ultralytics-yolo-in-a-cuda-enabled-environment-for-faster-performance">Can I use Ultralytics YOLO in a CUDA-enabled environment for faster performance?</h3>
 <p>Yes, you can enhance performance by utilizing a CUDA-enabled environment. Ensure that you install <code>ultralytics</code>, <code>pytorch</code>, and <code>pytorch-cuda</code> together to avoid conflicts:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>install<span class="w"> </span>-c<span class="w"> </span>pytorch<span class="w"> </span>-c<span class="w"> </span>nvidia<span class="w"> </span>-c<span class="w"> </span>conda-forge<span class="w"> </span>pytorch<span class="w"> </span>torchvision<span class="w"> </span>pytorch-cuda<span class="o">=</span><span class="m">11</span>.8<span class="w"> </span>ultralytics
 </code></pre></div>
 <p>This setup enables GPU acceleration, crucial for intensive tasks like <a href="https://www.ultralytics.com/glossary/deep-learning-dl">deep learning</a> model training and inference. For more information, visit the <a href="../../quickstart/">Ultralytics installation guide</a>.</p>
 <h3 id="what-are-the-benefits-of-using-ultralytics-docker-images-with-a-conda-environment">What are the benefits of using Ultralytics Docker images with a Conda environment?</h3>
 <p>Using Ultralytics Docker images ensures a consistent and reproducible environment, eliminating "it works on my machine" issues. These images include a pre-configured Conda environment, simplifying the setup process. You can pull and run the latest Ultralytics Docker image with the following commands:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ultralytics/ultralytics:latest-conda
-<a id="__codelineno-13-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>ultralytics/ultralytics:latest-conda
+<div class="highlight"><pre><span></span><code><span></span>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ultralytics/ultralytics:latest-conda
+<span></span>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>ultralytics/ultralytics:latest-conda
 </code></pre></div>
 <p>This approach is ideal for deploying applications in production or running complex workflows without manual configuration. Learn more about <a href="../../quickstart/">Ultralytics Conda Docker Image</a>.</p>
 <h3 id="how-can-i-speed-up-conda-package-installation-in-my-ultralytics-environment">How can I speed up Conda package installation in my Ultralytics environment?</h3>
 <p>You can speed up the package installation process by using <code>libmamba</code>, a fast dependency solver for Conda. First, install the <code>conda-libmamba-solver</code> package:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a>conda<span class="w"> </span>install<span class="w"> </span>conda-libmamba-solver
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>install<span class="w"> </span>conda-libmamba-solver
 </code></pre></div>
 <p>Then configure Conda to use <code>libmamba</code> as the solver:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>solver<span class="w"> </span>libmamba
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>config<span class="w"> </span>--set<span class="w"> </span>solver<span class="w"> </span>libmamba
 </code></pre></div>
 <p>This setup provides faster and more efficient package management. For more tips on optimizing your environment, read about <a href="https://www.anaconda.com/blog/a-faster-conda-for-a-growing-community">libmamba installation</a>.</p>
 <div class="git-info">

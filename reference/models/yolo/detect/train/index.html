@@ -1316,7 +1316,7 @@
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.detect.train.DetectionTrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">DetectionTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">DetectionTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1477,140 +1477,140 @@ for object detection.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
-<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a> 96</a></span>
-<span class="normal"><a> 97</a></span>
-<span class="normal"><a> 98</a></span>
-<span class="normal"><a> 99</a></span>
-<span class="normal"><a>100</a></span>
-<span class="normal"><a>101</a></span>
-<span class="normal"><a>102</a></span>
-<span class="normal"><a>103</a></span>
-<span class="normal"><a>104</a></span>
-<span class="normal"><a>105</a></span>
-<span class="normal"><a>106</a></span>
-<span class="normal"><a>107</a></span>
-<span class="normal"><a>108</a></span>
-<span class="normal"><a>109</a></span>
-<span class="normal"><a>110</a></span>
-<span class="normal"><a>111</a></span>
-<span class="normal"><a>112</a></span>
-<span class="normal"><a>113</a></span>
-<span class="normal"><a>114</a></span>
-<span class="normal"><a>115</a></span>
-<span class="normal"><a>116</a></span>
-<span class="normal"><a>117</a></span>
-<span class="normal"><a>118</a></span>
-<span class="normal"><a>119</a></span>
-<span class="normal"><a>120</a></span>
-<span class="normal"><a>121</a></span>
-<span class="normal"><a>122</a></span>
-<span class="normal"><a>123</a></span>
-<span class="normal"><a>124</a></span>
-<span class="normal"><a>125</a></span>
-<span class="normal"><a>126</a></span>
-<span class="normal"><a>127</a></span>
-<span class="normal"><a>128</a></span>
-<span class="normal"><a>129</a></span>
-<span class="normal"><a>130</a></span>
-<span class="normal"><a>131</a></span>
-<span class="normal"><a>132</a></span>
-<span class="normal"><a>133</a></span>
-<span class="normal"><a>134</a></span>
-<span class="normal"><a>135</a></span>
-<span class="normal"><a>136</a></span>
-<span class="normal"><a>137</a></span>
-<span class="normal"><a>138</a></span>
-<span class="normal"><a>139</a></span>
-<span class="normal"><a>140</a></span>
-<span class="normal"><a>141</a></span>
-<span class="normal"><a>142</a></span>
-<span class="normal"><a>143</a></span>
-<span class="normal"><a>144</a></span>
-<span class="normal"><a>145</a></span>
-<span class="normal"><a>146</a></span>
-<span class="normal"><a>147</a></span>
-<span class="normal"><a>148</a></span>
-<span class="normal"><a>149</a></span>
-<span class="normal"><a>150</a></span>
-<span class="normal"><a>151</a></span>
-<span class="normal"><a>152</a></span>
-<span class="normal"><a>153</a></span>
-<span class="normal"><a>154</a></span>
-<span class="normal"><a>155</a></span>
-<span class="normal"><a>156</a></span>
-<span class="normal"><a>157</a></span>
-<span class="normal"><a>158</a></span>
-<span class="normal"><a>159</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-96"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-97"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-98"></a><span class="sd">    Initialize the BaseTrainer class.</span>
-<a id="__codelineno-0-99"></a>
-<a id="__codelineno-0-100"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-101"></a><span class="sd">        cfg (str, optional): Path to a configuration file. Defaults to DEFAULT_CFG.</span>
-<a id="__codelineno-0-102"></a><span class="sd">        overrides (dict, optional): Configuration overrides. Defaults to None.</span>
-<a id="__codelineno-0-103"></a><span class="sd">        _callbacks (list, optional): List of callback functions. Defaults to None.</span>
-<a id="__codelineno-0-104"></a><span class="sd">    """</span>
-<a id="__codelineno-0-105"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
-<a id="__codelineno-0-106"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">check_resume</span><span class="p">(</span><span class="n">overrides</span><span class="p">)</span>
-<a id="__codelineno-0-107"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">select_device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">batch</span><span class="p">)</span>
-<a id="__codelineno-0-108"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">validator</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-109"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-110"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plots</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-111"></a>    <span class="n">init_seeds</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">seed</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">RANK</span><span class="p">,</span> <span class="n">deterministic</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">deterministic</span><span class="p">)</span>
-<a id="__codelineno-0-112"></a>
-<a id="__codelineno-0-113"></a>    <span class="c1"># Dirs</span>
-<a id="__codelineno-0-114"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-115"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">name</span>  <span class="c1"># update name for loggers</span>
-<a id="__codelineno-0-116"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">wdir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"weights"</span>  <span class="c1"># weights dir</span>
-<a id="__codelineno-0-117"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
-<a id="__codelineno-0-118"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">wdir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># make dir</span>
-<a id="__codelineno-0-119"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>
-<a id="__codelineno-0-120"></a>        <span class="n">yaml_save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"args.yaml"</span><span class="p">,</span> <span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>  <span class="c1"># save run args</span>
-<a id="__codelineno-0-121"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wdir</span> <span class="o">/</span> <span class="s2">"last.pt"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wdir</span> <span class="o">/</span> <span class="s2">"best.pt"</span>  <span class="c1"># checkpoint paths</span>
-<a id="__codelineno-0-122"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">save_period</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_period</span>
-<a id="__codelineno-0-123"></a>
-<a id="__codelineno-0-124"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">batch</span>
-<a id="__codelineno-0-125"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">epochs</span> <span class="ow">or</span> <span class="mi">100</span>  <span class="c1"># in case users accidentally pass epochs=None with timed training</span>
-<a id="__codelineno-0-126"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">start_epoch</span> <span class="o">=</span> <span class="mi">0</span>
-<a id="__codelineno-0-127"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-128"></a>        <span class="n">print_args</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
-<a id="__codelineno-0-129"></a>
-<a id="__codelineno-0-130"></a>    <span class="c1"># Device</span>
-<a id="__codelineno-0-131"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"cpu"</span><span class="p">,</span> <span class="s2">"mps"</span><span class="p">}:</span>
-<a id="__codelineno-0-132"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">workers</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># faster CPU training as time dominated by inference, not dataloading</span>
-<a id="__codelineno-0-133"></a>
-<a id="__codelineno-0-134"></a>    <span class="c1"># Model and Dataset</span>
-<a id="__codelineno-0-135"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">check_model_file_from_stem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># add suffix, i.e. yolo11n -&gt; yolo11n.pt</span>
-<a id="__codelineno-0-136"></a>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">LOCAL_RANK</span><span class="p">):</span>  <span class="c1"># avoid auto-downloading dataset multiple times</span>
-<a id="__codelineno-0-137"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">trainset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">testset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
-<a id="__codelineno-0-138"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">ema</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-139"></a>
-<a id="__codelineno-0-140"></a>    <span class="c1"># Optimization utils init</span>
-<a id="__codelineno-0-141"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">lf</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-142"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-143"></a>
-<a id="__codelineno-0-144"></a>    <span class="c1"># Epoch level metrics</span>
-<a id="__codelineno-0-145"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-146"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-147"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-148"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">tloss</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-149"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Loss"</span><span class="p">]</span>
-<a id="__codelineno-0-150"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">csv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"results.csv"</span>
-<a id="__codelineno-0-151"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">plot_idx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<a id="__codelineno-0-152"></a>
-<a id="__codelineno-0-153"></a>    <span class="c1"># HUB</span>
-<a id="__codelineno-0-154"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_session</span> <span class="o">=</span> <span class="kc">None</span>
-<a id="__codelineno-0-155"></a>
-<a id="__codelineno-0-156"></a>    <span class="c1"># Callbacks</span>
-<a id="__codelineno-0-157"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">_callbacks</span> <span class="ow">or</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">get_default_callbacks</span><span class="p">()</span>
-<a id="__codelineno-0-158"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
-<a id="__codelineno-0-159"></a>        <span class="n">callbacks</span><span class="o">.</span><span class="n">add_integration_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 96</span></span>
+<span class="normal"><span> 97</span></span>
+<span class="normal"><span> 98</span></span>
+<span class="normal"><span> 99</span></span>
+<span class="normal"><span>100</span></span>
+<span class="normal"><span>101</span></span>
+<span class="normal"><span>102</span></span>
+<span class="normal"><span>103</span></span>
+<span class="normal"><span>104</span></span>
+<span class="normal"><span>105</span></span>
+<span class="normal"><span>106</span></span>
+<span class="normal"><span>107</span></span>
+<span class="normal"><span>108</span></span>
+<span class="normal"><span>109</span></span>
+<span class="normal"><span>110</span></span>
+<span class="normal"><span>111</span></span>
+<span class="normal"><span>112</span></span>
+<span class="normal"><span>113</span></span>
+<span class="normal"><span>114</span></span>
+<span class="normal"><span>115</span></span>
+<span class="normal"><span>116</span></span>
+<span class="normal"><span>117</span></span>
+<span class="normal"><span>118</span></span>
+<span class="normal"><span>119</span></span>
+<span class="normal"><span>120</span></span>
+<span class="normal"><span>121</span></span>
+<span class="normal"><span>122</span></span>
+<span class="normal"><span>123</span></span>
+<span class="normal"><span>124</span></span>
+<span class="normal"><span>125</span></span>
+<span class="normal"><span>126</span></span>
+<span class="normal"><span>127</span></span>
+<span class="normal"><span>128</span></span>
+<span class="normal"><span>129</span></span>
+<span class="normal"><span>130</span></span>
+<span class="normal"><span>131</span></span>
+<span class="normal"><span>132</span></span>
+<span class="normal"><span>133</span></span>
+<span class="normal"><span>134</span></span>
+<span class="normal"><span>135</span></span>
+<span class="normal"><span>136</span></span>
+<span class="normal"><span>137</span></span>
+<span class="normal"><span>138</span></span>
+<span class="normal"><span>139</span></span>
+<span class="normal"><span>140</span></span>
+<span class="normal"><span>141</span></span>
+<span class="normal"><span>142</span></span>
+<span class="normal"><span>143</span></span>
+<span class="normal"><span>144</span></span>
+<span class="normal"><span>145</span></span>
+<span class="normal"><span>146</span></span>
+<span class="normal"><span>147</span></span>
+<span class="normal"><span>148</span></span>
+<span class="normal"><span>149</span></span>
+<span class="normal"><span>150</span></span>
+<span class="normal"><span>151</span></span>
+<span class="normal"><span>152</span></span>
+<span class="normal"><span>153</span></span>
+<span class="normal"><span>154</span></span>
+<span class="normal"><span>155</span></span>
+<span class="normal"><span>156</span></span>
+<span class="normal"><span>157</span></span>
+<span class="normal"><span>158</span></span>
+<span class="normal"><span>159</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Initialize the BaseTrainer class.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        cfg (str, optional): Path to a configuration file. Defaults to DEFAULT_CFG.</span>
+<span></span><span class="sd">        overrides (dict, optional): Configuration overrides. Defaults to None.</span>
+<span></span><span class="sd">        _callbacks (list, optional): List of callback functions. Defaults to None.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">check_resume</span><span class="p">(</span><span class="n">overrides</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">select_device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">batch</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">validator</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">plots</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>    <span class="n">init_seeds</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">seed</span> <span class="o">+</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">RANK</span><span class="p">,</span> <span class="n">deterministic</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">deterministic</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># Dirs</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">name</span>  <span class="c1"># update name for loggers</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">wdir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"weights"</span>  <span class="c1"># weights dir</span>
+<span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">wdir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># make dir</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>
+<span></span>        <span class="n">yaml_save</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"args.yaml"</span><span class="p">,</span> <span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>  <span class="c1"># save run args</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">last</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">best</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">wdir</span> <span class="o">/</span> <span class="s2">"last.pt"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">wdir</span> <span class="o">/</span> <span class="s2">"best.pt"</span>  <span class="c1"># checkpoint paths</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">save_period</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_period</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">batch</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">epochs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">epochs</span> <span class="ow">or</span> <span class="mi">100</span>  <span class="c1"># in case users accidentally pass epochs=None with timed training</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">start_epoch</span> <span class="o">=</span> <span class="mi">0</span>
+<span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+<span></span>        <span class="n">print_args</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">))</span>
+<span></span>
+<span></span>    <span class="c1"># Device</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"cpu"</span><span class="p">,</span> <span class="s2">"mps"</span><span class="p">}:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">workers</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># faster CPU training as time dominated by inference, not dataloading</span>
+<span></span>
+<span></span>    <span class="c1"># Model and Dataset</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">check_model_file_from_stem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># add suffix, i.e. yolo11n -&gt; yolo11n.pt</span>
+<span></span>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">LOCAL_RANK</span><span class="p">):</span>  <span class="c1"># avoid auto-downloading dataset multiple times</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">trainset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">testset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">ema</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>
+<span></span>    <span class="c1"># Optimization utils init</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">lf</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">scheduler</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>
+<span></span>    <span class="c1"># Epoch level metrics</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">best_fitness</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fitness</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tloss</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Loss"</span><span class="p">]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">csv</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"results.csv"</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">plot_idx</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+<span></span>
+<span></span>    <span class="c1"># HUB</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">hub_session</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>
+<span></span>    <span class="c1"># Callbacks</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">_callbacks</span> <span class="ow">or</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">get_default_callbacks</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
+<span></span>        <span class="n">callbacks</span><span class="o">.</span><span class="n">add_integration_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1618,7 +1618,7 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.auto_batch">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">auto_batch</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">auto_batch</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">auto_batch</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Get optimal batch size by calculating memory occupation of model.</p>
@@ -1645,25 +1645,25 @@ for object detection.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>208</a></span>
-<span class="normal"><a>209</a></span>
-<span class="normal"><a>210</a></span>
-<span class="normal"><a>211</a></span>
-<span class="normal"><a>212</a></span>
-<span class="normal"><a>213</a></span>
-<span class="normal"><a>214</a></span>
-<span class="normal"><a>215</a></span>
-<span class="normal"><a>216</a></span>
-<span class="normal"><a>217</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-208"></a><span class="k">def</span><span class="w"> </span><span class="nf">auto_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-209"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-210"></a><span class="sd">    Get optimal batch size by calculating memory occupation of model.</span>
-<a id="__codelineno-0-211"></a>
-<a id="__codelineno-0-212"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-213"></a><span class="sd">        (int): Optimal batch size.</span>
-<a id="__codelineno-0-214"></a><span class="sd">    """</span>
-<a id="__codelineno-0-215"></a>    <span class="n">train_dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trainset</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a id="__codelineno-0-216"></a>    <span class="n">max_num_obj</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">])</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>  <span class="c1"># 4 for mosaic augmentation</span>
-<a id="__codelineno-0-217"></a>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">auto_batch</span><span class="p">(</span><span class="n">max_num_obj</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>208</span></span>
+<span class="normal"><span>209</span></span>
+<span class="normal"><span>210</span></span>
+<span class="normal"><span>211</span></span>
+<span class="normal"><span>212</span></span>
+<span class="normal"><span>213</span></span>
+<span class="normal"><span>214</span></span>
+<span class="normal"><span>215</span></span>
+<span class="normal"><span>216</span></span>
+<span class="normal"><span>217</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">auto_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Get optimal batch size by calculating memory occupation of model.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (int): Optimal batch size.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">train_dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trainset</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span></span>    <span class="n">max_num_obj</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">])</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>  <span class="c1"># 4 for mosaic augmentation</span>
+<span></span>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">auto_batch</span><span class="p">(</span><span class="n">max_num_obj</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1672,7 +1672,7 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.build_dataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_dataset</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Build YOLO Dataset for training or validation.</p>
@@ -1760,33 +1760,33 @@ for object detection.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>52</a></span>
-<span class="normal"><a>53</a></span>
-<span class="normal"><a>54</a></span>
-<span class="normal"><a>55</a></span>
-<span class="normal"><a>56</a></span>
-<span class="normal"><a>57</a></span>
-<span class="normal"><a>58</a></span>
-<span class="normal"><a>59</a></span>
-<span class="normal"><a>60</a></span>
-<span class="normal"><a>61</a></span>
-<span class="normal"><a>62</a></span>
-<span class="normal"><a>63</a></span>
-<span class="normal"><a>64</a></span>
-<span class="normal"><a>65</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-52"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-53"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-54"></a><span class="sd">    Build YOLO Dataset for training or validation.</span>
-<a id="__codelineno-0-55"></a>
-<a id="__codelineno-0-56"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-57"></a><span class="sd">        img_path (str): Path to the folder containing images.</span>
-<a id="__codelineno-0-58"></a><span class="sd">        mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
-<a id="__codelineno-0-59"></a><span class="sd">        batch (int, optional): Size of batches, this is for `rect`.</span>
-<a id="__codelineno-0-60"></a>
-<a id="__codelineno-0-61"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-62"></a><span class="sd">        (Dataset): YOLO dataset object configured for the specified mode.</span>
-<a id="__codelineno-0-63"></a><span class="sd">    """</span>
-<a id="__codelineno-0-64"></a>    <span class="n">gs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">de_parallel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stride</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">else</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">32</span><span class="p">)</span>
-<a id="__codelineno-0-65"></a>    <span class="k">return</span> <span class="n">build_yolo_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"val"</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">gs</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>52</span></span>
+<span class="normal"><span>53</span></span>
+<span class="normal"><span>54</span></span>
+<span class="normal"><span>55</span></span>
+<span class="normal"><span>56</span></span>
+<span class="normal"><span>57</span></span>
+<span class="normal"><span>58</span></span>
+<span class="normal"><span>59</span></span>
+<span class="normal"><span>60</span></span>
+<span class="normal"><span>61</span></span>
+<span class="normal"><span>62</span></span>
+<span class="normal"><span>63</span></span>
+<span class="normal"><span>64</span></span>
+<span class="normal"><span>65</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Build YOLO Dataset for training or validation.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        img_path (str): Path to the folder containing images.</span>
+<span></span><span class="sd">        mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
+<span></span><span class="sd">        batch (int, optional): Size of batches, this is for `rect`.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (Dataset): YOLO dataset object configured for the specified mode.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">gs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">de_parallel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stride</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">else</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">32</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">build_yolo_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"val"</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">gs</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1795,7 +1795,7 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.get_dataloader">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_dataloader</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">get_dataloader</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_dataloader</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Construct and return dataloader for the specified mode.</p>
@@ -1899,49 +1899,49 @@ for object detection.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>67</a></span>
-<span class="normal"><a>68</a></span>
-<span class="normal"><a>69</a></span>
-<span class="normal"><a>70</a></span>
-<span class="normal"><a>71</a></span>
-<span class="normal"><a>72</a></span>
-<span class="normal"><a>73</a></span>
-<span class="normal"><a>74</a></span>
-<span class="normal"><a>75</a></span>
-<span class="normal"><a>76</a></span>
-<span class="normal"><a>77</a></span>
-<span class="normal"><a>78</a></span>
-<span class="normal"><a>79</a></span>
-<span class="normal"><a>80</a></span>
-<span class="normal"><a>81</a></span>
-<span class="normal"><a>82</a></span>
-<span class="normal"><a>83</a></span>
-<span class="normal"><a>84</a></span>
-<span class="normal"><a>85</a></span>
-<span class="normal"><a>86</a></span>
-<span class="normal"><a>87</a></span>
-<span class="normal"><a>88</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-67"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">):</span>
-<a id="__codelineno-0-68"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-69"></a><span class="sd">    Construct and return dataloader for the specified mode.</span>
-<a id="__codelineno-0-70"></a>
-<a id="__codelineno-0-71"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-72"></a><span class="sd">        dataset_path (str): Path to the dataset.</span>
-<a id="__codelineno-0-73"></a><span class="sd">        batch_size (int): Number of images per batch.</span>
-<a id="__codelineno-0-74"></a><span class="sd">        rank (int): Process rank for distributed training.</span>
-<a id="__codelineno-0-75"></a><span class="sd">        mode (str): 'train' for training dataloader, 'val' for validation dataloader.</span>
-<a id="__codelineno-0-76"></a>
-<a id="__codelineno-0-77"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-78"></a><span class="sd">        (DataLoader): PyTorch dataloader object.</span>
-<a id="__codelineno-0-79"></a><span class="sd">    """</span>
-<a id="__codelineno-0-80"></a>    <span class="k">assert</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"Mode must be 'train' or 'val', not </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">."</span>
-<a id="__codelineno-0-81"></a>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">rank</span><span class="p">):</span>  <span class="c1"># init dataset *.cache only once if DDP</span>
-<a id="__codelineno-0-82"></a>        <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dataset</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
-<a id="__codelineno-0-83"></a>    <span class="n">shuffle</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"train"</span>
-<a id="__codelineno-0-84"></a>    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">"rect"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="n">shuffle</span><span class="p">:</span>
-<a id="__codelineno-0-85"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"'rect=True' is incompatible with DataLoader shuffle, setting shuffle=False"</span><span class="p">)</span>
-<a id="__codelineno-0-86"></a>        <span class="n">shuffle</span> <span class="o">=</span> <span class="kc">False</span>
-<a id="__codelineno-0-87"></a>    <span class="n">workers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">workers</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"train"</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">workers</span> <span class="o">*</span> <span class="mi">2</span>
-<a id="__codelineno-0-88"></a>    <span class="k">return</span> <span class="n">build_dataloader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">workers</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>  <span class="c1"># return dataloader</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>67</span></span>
+<span class="normal"><span>68</span></span>
+<span class="normal"><span>69</span></span>
+<span class="normal"><span>70</span></span>
+<span class="normal"><span>71</span></span>
+<span class="normal"><span>72</span></span>
+<span class="normal"><span>73</span></span>
+<span class="normal"><span>74</span></span>
+<span class="normal"><span>75</span></span>
+<span class="normal"><span>76</span></span>
+<span class="normal"><span>77</span></span>
+<span class="normal"><span>78</span></span>
+<span class="normal"><span>79</span></span>
+<span class="normal"><span>80</span></span>
+<span class="normal"><span>81</span></span>
+<span class="normal"><span>82</span></span>
+<span class="normal"><span>83</span></span>
+<span class="normal"><span>84</span></span>
+<span class="normal"><span>85</span></span>
+<span class="normal"><span>86</span></span>
+<span class="normal"><span>87</span></span>
+<span class="normal"><span>88</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span> <span class="n">rank</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Construct and return dataloader for the specified mode.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        dataset_path (str): Path to the dataset.</span>
+<span></span><span class="sd">        batch_size (int): Number of images per batch.</span>
+<span></span><span class="sd">        rank (int): Process rank for distributed training.</span>
+<span></span><span class="sd">        mode (str): 'train' for training dataloader, 'val' for validation dataloader.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (DataLoader): PyTorch dataloader object.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">assert</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"train"</span><span class="p">,</span> <span class="s2">"val"</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"Mode must be 'train' or 'val', not </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">."</span>
+<span></span>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">rank</span><span class="p">):</span>  <span class="c1"># init dataset *.cache only once if DDP</span>
+<span></span>        <span class="n">dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dataset</span><span class="p">(</span><span class="n">dataset_path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">)</span>
+<span></span>    <span class="n">shuffle</span> <span class="o">=</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"train"</span>
+<span></span>    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="s2">"rect"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">and</span> <span class="n">shuffle</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"'rect=True' is incompatible with DataLoader shuffle, setting shuffle=False"</span><span class="p">)</span>
+<span></span>        <span class="n">shuffle</span> <span class="o">=</span> <span class="kc">False</span>
+<span></span>    <span class="n">workers</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">workers</span> <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s2">"train"</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">workers</span> <span class="o">*</span> <span class="mi">2</span>
+<span></span>    <span class="k">return</span> <span class="n">build_dataloader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">workers</span><span class="p">,</span> <span class="n">shuffle</span><span class="p">,</span> <span class="n">rank</span><span class="p">)</span>  <span class="c1"># return dataloader</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1950,7 +1950,7 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.get_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a YOLO detection model.</p>
@@ -2038,37 +2038,37 @@ for object detection.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>128</a></span>
-<span class="normal"><a>129</a></span>
-<span class="normal"><a>130</a></span>
-<span class="normal"><a>131</a></span>
-<span class="normal"><a>132</a></span>
-<span class="normal"><a>133</a></span>
-<span class="normal"><a>134</a></span>
-<span class="normal"><a>135</a></span>
-<span class="normal"><a>136</a></span>
-<span class="normal"><a>137</a></span>
-<span class="normal"><a>138</a></span>
-<span class="normal"><a>139</a></span>
-<span class="normal"><a>140</a></span>
-<span class="normal"><a>141</a></span>
-<span class="normal"><a>142</a></span>
-<span class="normal"><a>143</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-128"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-129"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-130"></a><span class="sd">    Return a YOLO detection model.</span>
-<a id="__codelineno-0-131"></a>
-<a id="__codelineno-0-132"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-133"></a><span class="sd">        cfg (str, optional): Path to model configuration file.</span>
-<a id="__codelineno-0-134"></a><span class="sd">        weights (str, optional): Path to model weights.</span>
-<a id="__codelineno-0-135"></a><span class="sd">        verbose (bool): Whether to display model information.</span>
-<a id="__codelineno-0-136"></a>
-<a id="__codelineno-0-137"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-138"></a><span class="sd">        (DetectionModel): YOLO detection model.</span>
-<a id="__codelineno-0-139"></a><span class="sd">    """</span>
-<a id="__codelineno-0-140"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">DetectionModel</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">],</span> <span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span> <span class="ow">and</span> <span class="n">RANK</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<a id="__codelineno-0-141"></a>    <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
-<a id="__codelineno-0-142"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-<a id="__codelineno-0-143"></a>    <span class="k">return</span> <span class="n">model</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>128</span></span>
+<span class="normal"><span>129</span></span>
+<span class="normal"><span>130</span></span>
+<span class="normal"><span>131</span></span>
+<span class="normal"><span>132</span></span>
+<span class="normal"><span>133</span></span>
+<span class="normal"><span>134</span></span>
+<span class="normal"><span>135</span></span>
+<span class="normal"><span>136</span></span>
+<span class="normal"><span>137</span></span>
+<span class="normal"><span>138</span></span>
+<span class="normal"><span>139</span></span>
+<span class="normal"><span>140</span></span>
+<span class="normal"><span>141</span></span>
+<span class="normal"><span>142</span></span>
+<span class="normal"><span>143</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Return a YOLO detection model.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        cfg (str, optional): Path to model configuration file.</span>
+<span></span><span class="sd">        weights (str, optional): Path to model weights.</span>
+<span></span><span class="sd">        verbose (bool): Whether to display model information.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (DetectionModel): YOLO detection model.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">model</span> <span class="o">=</span> <span class="n">DetectionModel</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">],</span> <span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">],</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span> <span class="ow">and</span> <span class="n">RANK</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
+<span></span>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">model</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2077,23 +2077,23 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.get_validator">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_validator</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">get_validator</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_validator</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a DetectionValidator for YOLO model validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>145</a></span>
-<span class="normal"><a>146</a></span>
-<span class="normal"><a>147</a></span>
-<span class="normal"><a>148</a></span>
-<span class="normal"><a>149</a></span>
-<span class="normal"><a>150</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-145"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-146"></a><span class="w">    </span><span class="sd">"""Return a DetectionValidator for YOLO model validation."""</span>
-<a id="__codelineno-0-147"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box_loss"</span><span class="p">,</span> <span class="s2">"cls_loss"</span><span class="p">,</span> <span class="s2">"dfl_loss"</span>
-<a id="__codelineno-0-148"></a>    <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionValidator</span><span class="p">(</span>
-<a id="__codelineno-0-149"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">),</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span>
-<a id="__codelineno-0-150"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>145</span></span>
+<span class="normal"><span>146</span></span>
+<span class="normal"><span>147</span></span>
+<span class="normal"><span>148</span></span>
+<span class="normal"><span>149</span></span>
+<span class="normal"><span>150</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Return a DetectionValidator for YOLO model validation."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box_loss"</span><span class="p">,</span> <span class="s2">"cls_loss"</span><span class="p">,</span> <span class="s2">"dfl_loss"</span>
+<span></span>    <span class="k">return</span> <span class="n">yolo</span><span class="o">.</span><span class="n">detect</span><span class="o">.</span><span class="n">DetectionValidator</span><span class="p">(</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">),</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2102,7 +2102,7 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.label_loss_items">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">label_loss_items</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">label_loss_items</span><span class="p">(</span><span class="n">loss_items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">'train'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">label_loss_items</span><span class="p">(</span><span class="n">loss_items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">'train'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a loss dict with labeled training loss items tensor.</p>
@@ -2174,39 +2174,39 @@ for object detection.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>152</a></span>
-<span class="normal"><a>153</a></span>
-<span class="normal"><a>154</a></span>
-<span class="normal"><a>155</a></span>
-<span class="normal"><a>156</a></span>
-<span class="normal"><a>157</a></span>
-<span class="normal"><a>158</a></span>
-<span class="normal"><a>159</a></span>
-<span class="normal"><a>160</a></span>
-<span class="normal"><a>161</a></span>
-<span class="normal"><a>162</a></span>
-<span class="normal"><a>163</a></span>
-<span class="normal"><a>164</a></span>
-<span class="normal"><a>165</a></span>
-<span class="normal"><a>166</a></span>
-<span class="normal"><a>167</a></span>
-<span class="normal"><a>168</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-152"></a><span class="k">def</span><span class="w"> </span><span class="nf">label_loss_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">):</span>
-<a id="__codelineno-0-153"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-154"></a><span class="sd">    Return a loss dict with labeled training loss items tensor.</span>
-<a id="__codelineno-0-155"></a>
-<a id="__codelineno-0-156"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-157"></a><span class="sd">        loss_items (List[float], optional): List of loss values.</span>
-<a id="__codelineno-0-158"></a><span class="sd">        prefix (str): Prefix for keys in the returned dictionary.</span>
-<a id="__codelineno-0-159"></a>
-<a id="__codelineno-0-160"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-161"></a><span class="sd">        (Dict | List): Dictionary of labeled loss items if loss_items is provided, otherwise list of keys.</span>
-<a id="__codelineno-0-162"></a><span class="sd">    """</span>
-<a id="__codelineno-0-163"></a>    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span><span class="p">]</span>
-<a id="__codelineno-0-164"></a>    <span class="k">if</span> <span class="n">loss_items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-165"></a>        <span class="n">loss_items</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">loss_items</span><span class="p">]</span>  <span class="c1"># convert tensors to 5 decimal place floats</span>
-<a id="__codelineno-0-166"></a>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">loss_items</span><span class="p">))</span>
-<a id="__codelineno-0-167"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-168"></a>        <span class="k">return</span> <span class="n">keys</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>152</span></span>
+<span class="normal"><span>153</span></span>
+<span class="normal"><span>154</span></span>
+<span class="normal"><span>155</span></span>
+<span class="normal"><span>156</span></span>
+<span class="normal"><span>157</span></span>
+<span class="normal"><span>158</span></span>
+<span class="normal"><span>159</span></span>
+<span class="normal"><span>160</span></span>
+<span class="normal"><span>161</span></span>
+<span class="normal"><span>162</span></span>
+<span class="normal"><span>163</span></span>
+<span class="normal"><span>164</span></span>
+<span class="normal"><span>165</span></span>
+<span class="normal"><span>166</span></span>
+<span class="normal"><span>167</span></span>
+<span class="normal"><span>168</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">label_loss_items</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loss_items</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Return a loss dict with labeled training loss items tensor.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        loss_items (List[float], optional): List of loss values.</span>
+<span></span><span class="sd">        prefix (str): Prefix for keys in the returned dictionary.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (Dict | List): Dictionary of labeled loss items if loss_items is provided, otherwise list of keys.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">keys</span> <span class="o">=</span> <span class="p">[</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span><span class="p">]</span>
+<span></span>    <span class="k">if</span> <span class="n">loss_items</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>        <span class="n">loss_items</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">loss_items</span><span class="p">]</span>  <span class="c1"># convert tensors to 5 decimal place floats</span>
+<span></span>        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">keys</span><span class="p">,</span> <span class="n">loss_items</span><span class="p">))</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">return</span> <span class="n">keys</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2215,17 +2215,17 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.plot_metrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot_metrics</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">plot_metrics</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_metrics</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Plot metrics from a CSV file.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>198</a></span>
-<span class="normal"><a>199</a></span>
-<span class="normal"><a>200</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-198"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-199"></a><span class="w">    </span><span class="sd">"""Plot metrics from a CSV file."""</span>
-<a id="__codelineno-0-200"></a>    <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>198</span></span>
+<span class="normal"><span>199</span></span>
+<span class="normal"><span>200</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Plot metrics from a CSV file."""</span>
+<span></span>    <span class="n">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>  <span class="c1"># save results.png</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2234,21 +2234,21 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.plot_training_labels">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot_training_labels</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">plot_training_labels</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_training_labels</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Create a labeled training plot of the YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>202</a></span>
-<span class="normal"><a>203</a></span>
-<span class="normal"><a>204</a></span>
-<span class="normal"><a>205</a></span>
-<span class="normal"><a>206</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-202"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-203"></a><span class="w">    </span><span class="sd">"""Create a labeled training plot of the YOLO model."""</span>
-<a id="__codelineno-0-204"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">lb</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span> <span class="k">for</span> <span class="n">lb</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-205"></a>    <span class="bp">cls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">lb</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span> <span class="k">for</span> <span class="n">lb</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-206"></a>    <span class="n">plot_labels</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">],</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>202</span></span>
+<span class="normal"><span>203</span></span>
+<span class="normal"><span>204</span></span>
+<span class="normal"><span>205</span></span>
+<span class="normal"><span>206</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Create a labeled training plot of the YOLO model."""</span>
+<span></span>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">lb</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span> <span class="k">for</span> <span class="n">lb</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span></span>    <span class="bp">cls</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">lb</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span> <span class="k">for</span> <span class="n">lb</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+<span></span>    <span class="n">plot_labels</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">cls</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(),</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">],</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2257,7 +2257,7 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.plot_training_samples">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot_training_samples</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">plot_training_samples</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_training_samples</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Plot training samples with their annotations.</p>
@@ -2308,39 +2308,39 @@ for object detection.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>180</a></span>
-<span class="normal"><a>181</a></span>
-<span class="normal"><a>182</a></span>
-<span class="normal"><a>183</a></span>
-<span class="normal"><a>184</a></span>
-<span class="normal"><a>185</a></span>
-<span class="normal"><a>186</a></span>
-<span class="normal"><a>187</a></span>
-<span class="normal"><a>188</a></span>
-<span class="normal"><a>189</a></span>
-<span class="normal"><a>190</a></span>
-<span class="normal"><a>191</a></span>
-<span class="normal"><a>192</a></span>
-<span class="normal"><a>193</a></span>
-<span class="normal"><a>194</a></span>
-<span class="normal"><a>195</a></span>
-<span class="normal"><a>196</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-180"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
-<a id="__codelineno-0-181"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-182"></a><span class="sd">    Plot training samples with their annotations.</span>
-<a id="__codelineno-0-183"></a>
-<a id="__codelineno-0-184"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-185"></a><span class="sd">        batch (dict): Dictionary containing batch data.</span>
-<a id="__codelineno-0-186"></a><span class="sd">        ni (int): Number of iterations.</span>
-<a id="__codelineno-0-187"></a><span class="sd">    """</span>
-<a id="__codelineno-0-188"></a>    <span class="n">plot_images</span><span class="p">(</span>
-<a id="__codelineno-0-189"></a>        <span class="n">images</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">],</span>
-<a id="__codelineno-0-190"></a>        <span class="n">batch_idx</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">],</span>
-<a id="__codelineno-0-191"></a>        <span class="bp">cls</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-<a id="__codelineno-0-192"></a>        <span class="n">bboxes</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">],</span>
-<a id="__codelineno-0-193"></a>        <span class="n">paths</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">],</span>
-<a id="__codelineno-0-194"></a>        <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"train_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">,</span>
-<a id="__codelineno-0-195"></a>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
-<a id="__codelineno-0-196"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>180</span></span>
+<span class="normal"><span>181</span></span>
+<span class="normal"><span>182</span></span>
+<span class="normal"><span>183</span></span>
+<span class="normal"><span>184</span></span>
+<span class="normal"><span>185</span></span>
+<span class="normal"><span>186</span></span>
+<span class="normal"><span>187</span></span>
+<span class="normal"><span>188</span></span>
+<span class="normal"><span>189</span></span>
+<span class="normal"><span>190</span></span>
+<span class="normal"><span>191</span></span>
+<span class="normal"><span>192</span></span>
+<span class="normal"><span>193</span></span>
+<span class="normal"><span>194</span></span>
+<span class="normal"><span>195</span></span>
+<span class="normal"><span>196</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Plot training samples with their annotations.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        batch (dict): Dictionary containing batch data.</span>
+<span></span><span class="sd">        ni (int): Number of iterations.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">plot_images</span><span class="p">(</span>
+<span></span>        <span class="n">images</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">],</span>
+<span></span>        <span class="n">batch_idx</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">],</span>
+<span></span>        <span class="bp">cls</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+<span></span>        <span class="n">bboxes</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">],</span>
+<span></span>        <span class="n">paths</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">],</span>
+<span></span>        <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"train_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">,</span>
+<span></span>        <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2349,7 +2349,7 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.preprocess_batch">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">preprocess_batch</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Preprocess a batch of images by scaling and converting to float.</p>
@@ -2405,57 +2405,57 @@ for object detection.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a> 90</a></span>
-<span class="normal"><a> 91</a></span>
-<span class="normal"><a> 92</a></span>
-<span class="normal"><a> 93</a></span>
-<span class="normal"><a> 94</a></span>
-<span class="normal"><a> 95</a></span>
-<span class="normal"><a> 96</a></span>
-<span class="normal"><a> 97</a></span>
-<span class="normal"><a> 98</a></span>
-<span class="normal"><a> 99</a></span>
-<span class="normal"><a>100</a></span>
-<span class="normal"><a>101</a></span>
-<span class="normal"><a>102</a></span>
-<span class="normal"><a>103</a></span>
-<span class="normal"><a>104</a></span>
-<span class="normal"><a>105</a></span>
-<span class="normal"><a>106</a></span>
-<span class="normal"><a>107</a></span>
-<span class="normal"><a>108</a></span>
-<span class="normal"><a>109</a></span>
-<span class="normal"><a>110</a></span>
-<span class="normal"><a>111</a></span>
-<span class="normal"><a>112</a></span>
-<span class="normal"><a>113</a></span>
-<span class="normal"><a>114</a></span>
-<span class="normal"><a>115</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-90"></a><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-91"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-92"></a><span class="sd">    Preprocess a batch of images by scaling and converting to float.</span>
-<a id="__codelineno-0-93"></a>
-<a id="__codelineno-0-94"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-95"></a><span class="sd">        batch (dict): Dictionary containing batch data with 'img' tensor.</span>
-<a id="__codelineno-0-96"></a>
-<a id="__codelineno-0-97"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-98"></a><span class="sd">        (dict): Preprocessed batch with normalized images.</span>
-<a id="__codelineno-0-99"></a><span class="sd">    """</span>
-<a id="__codelineno-0-100"></a>    <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">non_blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">/</span> <span class="mi">255</span>
-<a id="__codelineno-0-101"></a>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">multi_scale</span><span class="p">:</span>
-<a id="__codelineno-0-102"></a>        <span class="n">imgs</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span>
-<a id="__codelineno-0-103"></a>        <span class="n">sz</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-104"></a>            <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span> <span class="o">*</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">))</span>
-<a id="__codelineno-0-105"></a>            <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span>
-<a id="__codelineno-0-106"></a>            <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span>
-<a id="__codelineno-0-107"></a>        <span class="p">)</span>  <span class="c1"># size</span>
-<a id="__codelineno-0-108"></a>        <span class="n">sf</span> <span class="o">=</span> <span class="n">sz</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">imgs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>  <span class="c1"># scale factor</span>
-<a id="__codelineno-0-109"></a>        <span class="k">if</span> <span class="n">sf</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
-<a id="__codelineno-0-110"></a>            <span class="n">ns</span> <span class="o">=</span> <span class="p">[</span>
-<a id="__codelineno-0-111"></a>                <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">sf</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
-<a id="__codelineno-0-112"></a>            <span class="p">]</span>  <span class="c1"># new shape (stretched to gs-multiple)</span>
-<a id="__codelineno-0-113"></a>            <span class="n">imgs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">ns</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-114"></a>        <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="n">imgs</span>
-<a id="__codelineno-0-115"></a>    <span class="k">return</span> <span class="n">batch</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 90</span></span>
+<span class="normal"><span> 91</span></span>
+<span class="normal"><span> 92</span></span>
+<span class="normal"><span> 93</span></span>
+<span class="normal"><span> 94</span></span>
+<span class="normal"><span> 95</span></span>
+<span class="normal"><span> 96</span></span>
+<span class="normal"><span> 97</span></span>
+<span class="normal"><span> 98</span></span>
+<span class="normal"><span> 99</span></span>
+<span class="normal"><span>100</span></span>
+<span class="normal"><span>101</span></span>
+<span class="normal"><span>102</span></span>
+<span class="normal"><span>103</span></span>
+<span class="normal"><span>104</span></span>
+<span class="normal"><span>105</span></span>
+<span class="normal"><span>106</span></span>
+<span class="normal"><span>107</span></span>
+<span class="normal"><span>108</span></span>
+<span class="normal"><span>109</span></span>
+<span class="normal"><span>110</span></span>
+<span class="normal"><span>111</span></span>
+<span class="normal"><span>112</span></span>
+<span class="normal"><span>113</span></span>
+<span class="normal"><span>114</span></span>
+<span class="normal"><span>115</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Preprocess a batch of images by scaling and converting to float.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        batch (dict): Dictionary containing batch data with 'img' tensor.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (dict): Preprocessed batch with normalized images.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">non_blocking</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">/</span> <span class="mi">255</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">multi_scale</span><span class="p">:</span>
+<span></span>        <span class="n">imgs</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span>
+<span></span>        <span class="n">sz</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>            <span class="n">random</span><span class="o">.</span><span class="n">randrange</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span> <span class="o">*</span> <span class="mf">1.5</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">))</span>
+<span></span>            <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span>
+<span></span>            <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span>
+<span></span>        <span class="p">)</span>  <span class="c1"># size</span>
+<span></span>        <span class="n">sf</span> <span class="o">=</span> <span class="n">sz</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">imgs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>  <span class="c1"># scale factor</span>
+<span></span>        <span class="k">if</span> <span class="n">sf</span> <span class="o">!=</span> <span class="mi">1</span><span class="p">:</span>
+<span></span>            <span class="n">ns</span> <span class="o">=</span> <span class="p">[</span>
+<span></span>                <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">sf</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span><span class="p">)</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">stride</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgs</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
+<span></span>            <span class="p">]</span>  <span class="c1"># new shape (stretched to gs-multiple)</span>
+<span></span>            <span class="n">imgs</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">functional</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">imgs</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="n">ns</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>        <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">=</span> <span class="n">imgs</span>
+<span></span>    <span class="k">return</span> <span class="n">batch</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2464,29 +2464,29 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.progress_string">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">progress_string</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">progress_string</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">progress_string</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a formatted string of training progress with epoch, GPU memory, loss, instances and size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>170</a></span>
-<span class="normal"><a>171</a></span>
-<span class="normal"><a>172</a></span>
-<span class="normal"><a>173</a></span>
-<span class="normal"><a>174</a></span>
-<span class="normal"><a>175</a></span>
-<span class="normal"><a>176</a></span>
-<span class="normal"><a>177</a></span>
-<span class="normal"><a>178</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-170"></a><span class="k">def</span><span class="w"> </span><span class="nf">progress_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-171"></a><span class="w">    </span><span class="sd">"""Return a formatted string of training progress with epoch, GPU memory, loss, instances and size."""</span>
-<a id="__codelineno-0-172"></a>    <span class="k">return</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"</span><span class="si">%11s</span><span class="s2">"</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span><span class="p">)))</span> <span class="o">%</span> <span class="p">(</span>
-<a id="__codelineno-0-173"></a>        <span class="s2">"Epoch"</span><span class="p">,</span>
-<a id="__codelineno-0-174"></a>        <span class="s2">"GPU_mem"</span><span class="p">,</span>
-<a id="__codelineno-0-175"></a>        <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span><span class="p">,</span>
-<a id="__codelineno-0-176"></a>        <span class="s2">"Instances"</span><span class="p">,</span>
-<a id="__codelineno-0-177"></a>        <span class="s2">"Size"</span><span class="p">,</span>
-<a id="__codelineno-0-178"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>170</span></span>
+<span class="normal"><span>171</span></span>
+<span class="normal"><span>172</span></span>
+<span class="normal"><span>173</span></span>
+<span class="normal"><span>174</span></span>
+<span class="normal"><span>175</span></span>
+<span class="normal"><span>176</span></span>
+<span class="normal"><span>177</span></span>
+<span class="normal"><span>178</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">progress_string</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Return a formatted string of training progress with epoch, GPU memory, loss, instances and size."""</span>
+<span></span>    <span class="k">return</span> <span class="p">(</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"</span><span class="si">%11s</span><span class="s2">"</span> <span class="o">*</span> <span class="p">(</span><span class="mi">4</span> <span class="o">+</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span><span class="p">)))</span> <span class="o">%</span> <span class="p">(</span>
+<span></span>        <span class="s2">"Epoch"</span><span class="p">,</span>
+<span></span>        <span class="s2">"GPU_mem"</span><span class="p">,</span>
+<span></span>        <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span><span class="p">,</span>
+<span></span>        <span class="s2">"Instances"</span><span class="p">,</span>
+<span></span>        <span class="s2">"Size"</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2495,29 +2495,29 @@ for object detection.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.train.DetectionTrainer.set_model_attributes">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">set_model_attributes</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">set_model_attributes</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_model_attributes</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Set model attributes based on dataset information.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>117</a></span>
-<span class="normal"><a>118</a></span>
-<span class="normal"><a>119</a></span>
-<span class="normal"><a>120</a></span>
-<span class="normal"><a>121</a></span>
-<span class="normal"><a>122</a></span>
-<span class="normal"><a>123</a></span>
-<span class="normal"><a>124</a></span>
-<span class="normal"><a>125</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-117"></a><span class="k">def</span><span class="w"> </span><span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a id="__codelineno-0-118"></a><span class="w">    </span><span class="sd">"""Set model attributes based on dataset information."""</span>
-<a id="__codelineno-0-119"></a>    <span class="c1"># Nl = de_parallel(self.model).model[-1].nl  # number of detection layers (to scale hyps)</span>
-<a id="__codelineno-0-120"></a>    <span class="c1"># self.args.box *= 3 / nl  # scale to layers</span>
-<a id="__codelineno-0-121"></a>    <span class="c1"># self.args.cls *= self.data["nc"] / 80 * 3 / nl  # scale to classes and layers</span>
-<a id="__codelineno-0-122"></a>    <span class="c1"># self.args.cls *= (self.args.imgsz / 640) ** 2 * 3 / nl  # scale to image size and layers</span>
-<a id="__codelineno-0-123"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">]</span>  <span class="c1"># attach number of classes to model</span>
-<a id="__codelineno-0-124"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span>  <span class="c1"># attach class names to model</span>
-<a id="__codelineno-0-125"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span>  <span class="c1"># attach hyperparameters to model</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>117</span></span>
+<span class="normal"><span>118</span></span>
+<span class="normal"><span>119</span></span>
+<span class="normal"><span>120</span></span>
+<span class="normal"><span>121</span></span>
+<span class="normal"><span>122</span></span>
+<span class="normal"><span>123</span></span>
+<span class="normal"><span>124</span></span>
+<span class="normal"><span>125</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_model_attributes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Set model attributes based on dataset information."""</span>
+<span></span>    <span class="c1"># Nl = de_parallel(self.model).model[-1].nl  # number of detection layers (to scale hyps)</span>
+<span></span>    <span class="c1"># self.args.box *= 3 / nl  # scale to layers</span>
+<span></span>    <span class="c1"># self.args.cls *= self.data["nc"] / 80 * 3 / nl  # scale to classes and layers</span>
+<span></span>    <span class="c1"># self.args.cls *= (self.args.imgsz / 640) ** 2 * 3 / nl  # scale to image size and layers</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">]</span>  <span class="c1"># attach number of classes to model</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span>  <span class="c1"># attach class names to model</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span>  <span class="c1"># attach hyperparameters to model</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

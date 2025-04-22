@@ -884,47 +884,47 @@
 <h3 id="1-create-a-virtual-environment">1. Create a Virtual Environment</h3>
 <p>It's best practice to use a virtual environment to manage dependencies. We'll use <a href="https://docs.conda.io/en/latest/">Conda</a>, which is pre-installed on AzureML compute instances. For a detailed Conda setup guide, see the Ultralytics <a href="../../../guides/conda-quickstart/">Conda Quickstart Guide</a>.</p>
 <p>Create a Conda environment (e.g., <code>yolov5env</code>) with a specific Python version and activate it:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>yolov5env<span class="w"> </span>-y<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10<span class="w"> </span><span class="c1"># Create a new Conda environment</span>
-<a id="__codelineno-0-2"></a>conda<span class="w"> </span>activate<span class="w"> </span>yolov5env<span class="w">                     </span><span class="c1"># Activate the environment</span>
-<a id="__codelineno-0-3"></a>conda<span class="w"> </span>install<span class="w"> </span>pip<span class="w"> </span>-y<span class="w">                         </span><span class="c1"># Ensure pip is installed</span>
+<div class="highlight"><pre><span></span><code><span></span>conda<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>yolov5env<span class="w"> </span>-y<span class="w"> </span><span class="nv">python</span><span class="o">=</span><span class="m">3</span>.10<span class="w"> </span><span class="c1"># Create a new Conda environment</span>
+<span></span>conda<span class="w"> </span>activate<span class="w"> </span>yolov5env<span class="w">                     </span><span class="c1"># Activate the environment</span>
+<span></span>conda<span class="w"> </span>install<span class="w"> </span>pip<span class="w"> </span>-y<span class="w">                         </span><span class="c1"># Ensure pip is installed</span>
 </code></pre></div>
 <h3 id="2-clone-yolov5-repository">2. Clone YOLOv5 Repository</h3>
 <p>Clone the official Ultralytics YOLOv5 repository from <a href="https://github.com/">GitHub</a> using <a href="https://git-scm.com/">Git</a>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w"> </span><span class="c1"># Clone the repository</span>
-<a id="__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>yolov5<span class="w">                                       </span><span class="c1"># Navigate into the directory</span>
-<a id="__codelineno-1-3"></a><span class="c1"># Initialize submodules (if any, though YOLOv5 typically doesn't require this step)</span>
-<a id="__codelineno-1-4"></a><span class="c1"># git submodule update --init --recursive</span>
+<div class="highlight"><pre><span></span><code><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5<span class="w"> </span><span class="c1"># Clone the repository</span>
+<span></span><span class="nb">cd</span><span class="w"> </span>yolov5<span class="w">                                       </span><span class="c1"># Navigate into the directory</span>
+<span></span><span class="c1"># Initialize submodules (if any, though YOLOv5 typically doesn't require this step)</span>
+<span></span><span class="c1"># git submodule update --init --recursive</span>
 </code></pre></div>
 <h3 id="3-install-dependencies">3. Install Dependencies</h3>
 <p>Install the necessary Python packages listed in the <code>requirements.txt</code> file. We also install <a href="https://www.ultralytics.com/glossary/onnx-open-neural-network-exchange">ONNX</a> for model export capabilities.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># Install core dependencies</span>
-<a id="__codelineno-2-2"></a>pip<span class="w"> </span>install<span class="w"> </span>onnx<span class="w"> </span>&gt;<span class="w"> </span><span class="o">=</span><span class="m">1</span>.12.0<span class="w">      </span><span class="c1"># Install ONNX for exporting</span>
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt<span class="w"> </span><span class="c1"># Install core dependencies</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>onnx<span class="w"> </span>&gt;<span class="w"> </span><span class="o">=</span><span class="m">1</span>.12.0<span class="w">      </span><span class="c1"># Install ONNX for exporting</span>
 </code></pre></div>
 <h3 id="4-perform-yolov5-tasks">4. Perform YOLOv5 Tasks</h3>
 <p>With the setup complete, you can now train, validate, perform inference, and export your YOLOv5 model.</p>
 <ul>
 <li>
 <p><strong>Train</strong> the model on a dataset like <a href="../../../datasets/detect/coco128/">COCO128</a>. Check the <a href="../../../modes/train/">Training Mode</a> documentation for more details.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Start training using yolov5s pretrained weights on the COCO128 dataset</span>
-<a id="__codelineno-3-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">10</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training using yolov5s pretrained weights on the COCO128 dataset</span>
+<span></span>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">10</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Validate</strong> the trained model's performance using metrics like <a href="https://www.ultralytics.com/glossary/precision">Precision</a>, <a href="https://www.ultralytics.com/glossary/recall">Recall</a>, and <a href="https://www.ultralytics.com/glossary/mean-average-precision-map">mAP</a>. See the <a href="../../../modes/val/">Validation Mode</a> guide for options.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># Validate the yolov5s model on the COCO128 validation set</span>
-<a id="__codelineno-4-2"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Validate the yolov5s model on the COCO128 validation set</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Run Inference</strong> on new images or videos. Explore the <a href="../../../modes/predict/">Prediction Mode</a> documentation for various inference sources.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Run inference with yolov5s on sample images</span>
-<a id="__codelineno-5-2"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>data/images<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Run inference with yolov5s on sample images</span>
+<span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>data/images<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Export</strong> the model to different formats like ONNX, <a href="https://www.ultralytics.com/glossary/tensorrt">TensorRT</a>, or <a href="https://docs.ultralytics.com/integrations/coreml/">CoreML</a> for deployment. Refer to the <a href="../../../modes/export/">Export Mode</a> guide and the <a href="../../../integrations/onnx/">ONNX Integration</a> page.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="c1"># Export yolov5s to ONNX format</span>
-<a id="__codelineno-6-2"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Export yolov5s to ONNX format</span>
+<span></span>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
 </code></pre></div>
 </li>
 </ul>
@@ -932,14 +932,14 @@
 <p>If you prefer an interactive experience, you can run these commands within an AzureML Notebook. You'll need to create a custom <a href="https://ipython.readthedocs.io/en/stable/install/kernel_install.html">IPython kernel</a> linked to your Conda environment.</p>
 <h3 id="create-a-new-ipython-kernel">Create a New IPython Kernel</h3>
 <p>Run the following commands in your compute instance terminal:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="c1"># Ensure your Conda environment is active</span>
-<a id="__codelineno-7-2"></a><span class="c1"># conda activate yolov5env</span>
-<a id="__codelineno-7-3"></a>
-<a id="__codelineno-7-4"></a><span class="c1"># Install ipykernel if not already present</span>
-<a id="__codelineno-7-5"></a>conda<span class="w"> </span>install<span class="w"> </span>ipykernel<span class="w"> </span>-y
-<a id="__codelineno-7-6"></a>
-<a id="__codelineno-7-7"></a><span class="c1"># Create a new kernel linked to your environment</span>
-<a id="__codelineno-7-8"></a>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="w"> </span>yolov5env<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">"Python (yolov5env)"</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Ensure your Conda environment is active</span>
+<span></span><span class="c1"># conda activate yolov5env</span>
+<span></span>
+<span></span><span class="c1"># Install ipykernel if not already present</span>
+<span></span>conda<span class="w"> </span>install<span class="w"> </span>ipykernel<span class="w"> </span>-y
+<span></span>
+<span></span><span class="c1"># Create a new kernel linked to your environment</span>
+<span></span>python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="w"> </span>yolov5env<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">"Python (yolov5env)"</span>
 </code></pre></div>
 <p>After creating the kernel, refresh your browser. When you open or create a <code>.ipynb</code> notebook file, select your new kernel ("Python (yolov5env)") from the kernel dropdown menu at the top right.</p>
 <h3 id="running-commands-in-notebook-cells">Running Commands in Notebook Cells</h3>
@@ -949,11 +949,11 @@
 </li>
 <li>
 <p><strong>Bash Cells:</strong> To run shell commands, use the <code>%%bash</code> magic command at the beginning of the cell. Remember to activate your Conda environment within each bash cell, as they don't automatically inherit the notebook's kernel environment context.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>%%bash
-<a id="__codelineno-8-2"></a><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>yolov5env<span class="w"> </span><span class="c1"># Activate environment within the cell</span>
-<a id="__codelineno-8-3"></a>
-<a id="__codelineno-8-4"></a><span class="c1"># Example: Run validation using the activated environment</span>
-<a id="__codelineno-8-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span>%%bash
+<span></span><span class="nb">source</span><span class="w"> </span>activate<span class="w"> </span>yolov5env<span class="w"> </span><span class="c1"># Activate environment within the cell</span>
+<span></span>
+<span></span><span class="c1"># Example: Run validation using the activated environment</span>
+<span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
 </code></pre></div>
 </li>
 </ul>

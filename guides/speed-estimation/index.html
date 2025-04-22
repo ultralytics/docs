@@ -632,57 +632,57 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Run a speed example</span>
-<a id="__codelineno-0-2"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>speed<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-0-3"></a>
-<a id="__codelineno-0-4"></a><span class="c1"># Pass a source video</span>
-<a id="__codelineno-0-5"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>speed<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
-<a id="__codelineno-0-6"></a>
-<a id="__codelineno-0-7"></a><span class="c1"># Pass region coordinates</span>
-<a id="__codelineno-0-8"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>speed<span class="w"> </span><span class="nv">region</span><span class="o">=</span><span class="s2">"[(20, 400), (1080, 400), (1080, 360), (20, 360)]"</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Run a speed example</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>speed<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>
+<span></span><span class="c1"># Pass a source video</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>speed<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
+<span></span>
+<span></span><span class="c1"># Pass region coordinates</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>speed<span class="w"> </span><span class="nv">region</span><span class="o">=</span><span class="s2">"[(20, 400), (1080, 400), (1080, 360), (20, 360)]"</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a id="__codelineno-1-4"></a>
-<a id="__codelineno-1-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a id="__codelineno-1-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a id="__codelineno-1-7"></a>
-<a id="__codelineno-1-8"></a><span class="c1"># Video writer</span>
-<a id="__codelineno-1-9"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a id="__codelineno-1-10"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"speed_management.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-<a id="__codelineno-1-11"></a>
-<a id="__codelineno-1-12"></a><span class="c1"># speed region points</span>
-<a id="__codelineno-1-13"></a><span class="n">speed_region</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">360</span><span class="p">)]</span>
-<a id="__codelineno-1-14"></a>
-<a id="__codelineno-1-15"></a><span class="c1"># Initialize speed estimation object</span>
-<a id="__codelineno-1-16"></a><span class="n">speedestimator</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">SpeedEstimator</span><span class="p">(</span>
-<a id="__codelineno-1-17"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># display the output</span>
-<a id="__codelineno-1-18"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>  <span class="c1"># path to the YOLO11 model file.</span>
-<a id="__codelineno-1-19"></a>    <span class="n">region</span><span class="o">=</span><span class="n">speed_region</span><span class="p">,</span>  <span class="c1"># pass region points</span>
-<a id="__codelineno-1-20"></a>    <span class="c1"># classes=[0, 2],  # estimate speed of specific classes.</span>
-<a id="__codelineno-1-21"></a>    <span class="c1"># line_width=2,  # adjust the line width for bounding boxes</span>
-<a id="__codelineno-1-22"></a><span class="p">)</span>
-<a id="__codelineno-1-23"></a>
-<a id="__codelineno-1-24"></a><span class="c1"># Process video</span>
-<a id="__codelineno-1-25"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a id="__codelineno-1-26"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-1-27"></a>
-<a id="__codelineno-1-28"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a id="__codelineno-1-29"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or processing is complete."</span><span class="p">)</span>
-<a id="__codelineno-1-30"></a>        <span class="k">break</span>
-<a id="__codelineno-1-31"></a>
-<a id="__codelineno-1-32"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">speedestimator</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a id="__codelineno-1-33"></a>
-<a id="__codelineno-1-34"></a>    <span class="c1"># print(results)  # access the output</span>
-<a id="__codelineno-1-35"></a>
-<a id="__codelineno-1-36"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the processed frame.</span>
-<a id="__codelineno-1-37"></a>
-<a id="__codelineno-1-38"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-1-39"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-1-40"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>  <span class="c1"># destroy all opened windows</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<span></span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<span></span><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<span></span>
+<span></span><span class="c1"># Video writer</span>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<span></span><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"speed_management.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span></span>
+<span></span><span class="c1"># speed region points</span>
+<span></span><span class="n">speed_region</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">360</span><span class="p">)]</span>
+<span></span>
+<span></span><span class="c1"># Initialize speed estimation object</span>
+<span></span><span class="n">speedestimator</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">SpeedEstimator</span><span class="p">(</span>
+<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># display the output</span>
+<span></span>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>  <span class="c1"># path to the YOLO11 model file.</span>
+<span></span>    <span class="n">region</span><span class="o">=</span><span class="n">speed_region</span><span class="p">,</span>  <span class="c1"># pass region points</span>
+<span></span>    <span class="c1"># classes=[0, 2],  # estimate speed of specific classes.</span>
+<span></span>    <span class="c1"># line_width=2,  # adjust the line width for bounding boxes</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Process video</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or processing is complete."</span><span class="p">)</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">speedestimator</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># print(results)  # access the output</span>
+<span></span>
+<span></span>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the processed frame.</span>
+<span></span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>  <span class="c1"># destroy all opened windows</span>
 </code></pre></div>
 </div>
 </div>
@@ -792,31 +792,31 @@
 <h3 id="how-do-i-estimate-object-speed-using-ultralytics-yolo11">How do I estimate object speed using Ultralytics YOLO11?</h3>
 <p>Estimating object speed with Ultralytics YOLO11 involves combining <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> and tracking techniques. First, you need to detect objects in each frame using the YOLO11 model. Then, track these objects across frames to calculate their movement over time. Finally, use the distance traveled by the object between frames and the frame rate to estimate its speed.</p>
 <p><strong>Example</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a id="__codelineno-2-4"></a>
-<a id="__codelineno-2-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a id="__codelineno-2-6"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a id="__codelineno-2-7"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"speed_estimation.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-<a id="__codelineno-2-8"></a>
-<a id="__codelineno-2-9"></a><span class="c1"># Initialize SpeedEstimator</span>
-<a id="__codelineno-2-10"></a><span class="n">speedestimator</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">SpeedEstimator</span><span class="p">(</span>
-<a id="__codelineno-2-11"></a>    <span class="n">region</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">360</span><span class="p">)],</span>
-<a id="__codelineno-2-12"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>
-<a id="__codelineno-2-13"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-2-14"></a><span class="p">)</span>
-<a id="__codelineno-2-15"></a>
-<a id="__codelineno-2-16"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a id="__codelineno-2-17"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a id="__codelineno-2-18"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a id="__codelineno-2-19"></a>        <span class="k">break</span>
-<a id="__codelineno-2-20"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">speedestimator</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a id="__codelineno-2-21"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>
-<a id="__codelineno-2-22"></a>
-<a id="__codelineno-2-23"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-2-24"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a id="__codelineno-2-25"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<span></span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<span></span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<span></span><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"speed_estimation.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<span></span>
+<span></span><span class="c1"># Initialize SpeedEstimator</span>
+<span></span><span class="n">speedestimator</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">SpeedEstimator</span><span class="p">(</span>
+<span></span>    <span class="n">region</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">360</span><span class="p">)],</span>
+<span></span>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>
+<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="k">break</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">speedestimator</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<span></span>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 <p>For more details, refer to our <a href="https://www.ultralytics.com/blog/ultralytics-yolov8-for-speed-estimation-in-computer-vision-projects">official blog post</a>.</p>
 <h3 id="what-are-the-benefits-of-using-ultralytics-yolo11-for-speed-estimation-in-traffic-management">What are the benefits of using Ultralytics YOLO11 for speed estimation in traffic management?</h3>
@@ -830,7 +830,7 @@
 <h3 id="can-yolo11-be-integrated-with-other-ai-frameworks-like-tensorflow-or-pytorch">Can YOLO11 be integrated with other AI frameworks like <a href="https://www.ultralytics.com/glossary/tensorflow">TensorFlow</a> or <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a>?</h3>
 <p>Yes, YOLO11 can be integrated with other AI frameworks like TensorFlow and PyTorch. Ultralytics provides support for exporting YOLO11 models to various formats like <a href="../../integrations/onnx/">ONNX</a>, <a href="../../integrations/tensorrt/">TensorRT</a>, and <a href="../../integrations/coreml/">CoreML</a>, ensuring smooth interoperability with other ML frameworks.</p>
 <p>To export a YOLO11 model to ONNX format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--weights<span class="w"> </span>yolo11n.pt<span class="w"> </span>--include<span class="w"> </span>onnx
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span>--weights<span class="w"> </span>yolo11n.pt<span class="w"> </span>--include<span class="w"> </span>onnx
 </code></pre></div>
 <p>Learn more about exporting models in our <a href="../../modes/export/">guide on export</a>.</p>
 <h3 id="how-accurate-is-the-speed-estimation-using-ultralytics-yolo11">How accurate is the speed estimation using Ultralytics YOLO11?</h3>

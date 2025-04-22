@@ -1197,7 +1197,7 @@
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.world.train.WorldTrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">WorldTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">WorldTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1273,10 +1273,10 @@ visual and textual features for improved object detection and understanding.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorldModel</span>
-<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolov8s-world.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a id="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">WorldTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorldModel</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolov8s-world.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">WorldTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -1341,45 +1341,45 @@ visual and textual features for improved object detection and understanding.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>45</a></span>
-<span class="normal"><a>46</a></span>
-<span class="normal"><a>47</a></span>
-<span class="normal"><a>48</a></span>
-<span class="normal"><a>49</a></span>
-<span class="normal"><a>50</a></span>
-<span class="normal"><a>51</a></span>
-<span class="normal"><a>52</a></span>
-<span class="normal"><a>53</a></span>
-<span class="normal"><a>54</a></span>
-<span class="normal"><a>55</a></span>
-<span class="normal"><a>56</a></span>
-<span class="normal"><a>57</a></span>
-<span class="normal"><a>58</a></span>
-<span class="normal"><a>59</a></span>
-<span class="normal"><a>60</a></span>
-<span class="normal"><a>61</a></span>
-<span class="normal"><a>62</a></span>
-<span class="normal"><a>63</a></span>
-<span class="normal"><a>64</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-45"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-46"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-47"></a><span class="sd">    Initialize a WorldTrainer object with given arguments.</span>
-<a id="__codelineno-0-48"></a>
-<a id="__codelineno-0-49"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-50"></a><span class="sd">        cfg (dict): Configuration for the trainer.</span>
-<a id="__codelineno-0-51"></a><span class="sd">        overrides (dict, optional): Configuration overrides.</span>
-<a id="__codelineno-0-52"></a><span class="sd">        _callbacks (list, optional): List of callback functions.</span>
-<a id="__codelineno-0-53"></a><span class="sd">    """</span>
-<a id="__codelineno-0-54"></a>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-55"></a>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-0-56"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-57"></a>
-<a id="__codelineno-0-58"></a>    <span class="c1"># Import and assign clip</span>
-<a id="__codelineno-0-59"></a>    <span class="k">try</span><span class="p">:</span>
-<a id="__codelineno-0-60"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">clip</span>
-<a id="__codelineno-0-61"></a>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
-<a id="__codelineno-0-62"></a>        <span class="n">checks</span><span class="o">.</span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"git+https://github.com/ultralytics/CLIP.git"</span><span class="p">)</span>
-<a id="__codelineno-0-63"></a>        <span class="kn">import</span><span class="w"> </span><span class="nn">clip</span>
-<a id="__codelineno-0-64"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">clip</span> <span class="o">=</span> <span class="n">clip</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>45</span></span>
+<span class="normal"><span>46</span></span>
+<span class="normal"><span>47</span></span>
+<span class="normal"><span>48</span></span>
+<span class="normal"><span>49</span></span>
+<span class="normal"><span>50</span></span>
+<span class="normal"><span>51</span></span>
+<span class="normal"><span>52</span></span>
+<span class="normal"><span>53</span></span>
+<span class="normal"><span>54</span></span>
+<span class="normal"><span>55</span></span>
+<span class="normal"><span>56</span></span>
+<span class="normal"><span>57</span></span>
+<span class="normal"><span>58</span></span>
+<span class="normal"><span>59</span></span>
+<span class="normal"><span>60</span></span>
+<span class="normal"><span>61</span></span>
+<span class="normal"><span>62</span></span>
+<span class="normal"><span>63</span></span>
+<span class="normal"><span>64</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Initialize a WorldTrainer object with given arguments.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        cfg (dict): Configuration for the trainer.</span>
+<span></span><span class="sd">        overrides (dict, optional): Configuration overrides.</span>
+<span></span><span class="sd">        _callbacks (list, optional): List of callback functions.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># Import and assign clip</span>
+<span></span>    <span class="k">try</span><span class="p">:</span>
+<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">clip</span>
+<span></span>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span></span>        <span class="n">checks</span><span class="o">.</span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"git+https://github.com/ultralytics/CLIP.git"</span><span class="p">)</span>
+<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">clip</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">clip</span> <span class="o">=</span> <span class="n">clip</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1387,7 +1387,7 @@ visual and textual features for improved object detection and understanding.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer.build_dataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_dataset</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Build YOLO Dataset for training or validation.</p>
@@ -1475,37 +1475,37 @@ visual and textual features for improved object detection and understanding.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a> 92</a></span>
-<span class="normal"><a> 93</a></span>
-<span class="normal"><a> 94</a></span>
-<span class="normal"><a> 95</a></span>
-<span class="normal"><a> 96</a></span>
-<span class="normal"><a> 97</a></span>
-<span class="normal"><a> 98</a></span>
-<span class="normal"><a> 99</a></span>
-<span class="normal"><a>100</a></span>
-<span class="normal"><a>101</a></span>
-<span class="normal"><a>102</a></span>
-<span class="normal"><a>103</a></span>
-<span class="normal"><a>104</a></span>
-<span class="normal"><a>105</a></span>
-<span class="normal"><a>106</a></span>
-<span class="normal"><a>107</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-92"></a><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-93"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-94"></a><span class="sd">    Build YOLO Dataset for training or validation.</span>
-<a id="__codelineno-0-95"></a>
-<a id="__codelineno-0-96"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-97"></a><span class="sd">        img_path (str): Path to the folder containing images.</span>
-<a id="__codelineno-0-98"></a><span class="sd">        mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
-<a id="__codelineno-0-99"></a><span class="sd">        batch (int, optional): Size of batches, this is for `rect`.</span>
-<a id="__codelineno-0-100"></a>
-<a id="__codelineno-0-101"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-102"></a><span class="sd">        (Dataset): YOLO dataset configured for training or validation.</span>
-<a id="__codelineno-0-103"></a><span class="sd">    """</span>
-<a id="__codelineno-0-104"></a>    <span class="n">gs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">de_parallel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stride</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">else</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">32</span><span class="p">)</span>
-<a id="__codelineno-0-105"></a>    <span class="k">return</span> <span class="n">build_yolo_dataset</span><span class="p">(</span>
-<a id="__codelineno-0-106"></a>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"val"</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">gs</span><span class="p">,</span> <span class="n">multi_modal</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"train"</span>
-<a id="__codelineno-0-107"></a>    <span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 92</span></span>
+<span class="normal"><span> 93</span></span>
+<span class="normal"><span> 94</span></span>
+<span class="normal"><span> 95</span></span>
+<span class="normal"><span> 96</span></span>
+<span class="normal"><span> 97</span></span>
+<span class="normal"><span> 98</span></span>
+<span class="normal"><span> 99</span></span>
+<span class="normal"><span>100</span></span>
+<span class="normal"><span>101</span></span>
+<span class="normal"><span>102</span></span>
+<span class="normal"><span>103</span></span>
+<span class="normal"><span>104</span></span>
+<span class="normal"><span>105</span></span>
+<span class="normal"><span>106</span></span>
+<span class="normal"><span>107</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Build YOLO Dataset for training or validation.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        img_path (str): Path to the folder containing images.</span>
+<span></span><span class="sd">        mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
+<span></span><span class="sd">        batch (int, optional): Size of batches, this is for `rect`.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (Dataset): YOLO dataset configured for training or validation.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">gs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">de_parallel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stride</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">else</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">32</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">build_yolo_dataset</span><span class="p">(</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">mode</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"val"</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">gs</span><span class="p">,</span> <span class="n">multi_modal</span><span class="o">=</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"train"</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1514,7 +1514,7 @@ visual and textual features for improved object detection and understanding.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer.get_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return WorldModel initialized with specified config and weights.</p>
@@ -1602,55 +1602,55 @@ visual and textual features for improved object detection and understanding.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>66</a></span>
-<span class="normal"><a>67</a></span>
-<span class="normal"><a>68</a></span>
-<span class="normal"><a>69</a></span>
-<span class="normal"><a>70</a></span>
-<span class="normal"><a>71</a></span>
-<span class="normal"><a>72</a></span>
-<span class="normal"><a>73</a></span>
-<span class="normal"><a>74</a></span>
-<span class="normal"><a>75</a></span>
-<span class="normal"><a>76</a></span>
-<span class="normal"><a>77</a></span>
-<span class="normal"><a>78</a></span>
-<span class="normal"><a>79</a></span>
-<span class="normal"><a>80</a></span>
-<span class="normal"><a>81</a></span>
-<span class="normal"><a>82</a></span>
-<span class="normal"><a>83</a></span>
-<span class="normal"><a>84</a></span>
-<span class="normal"><a>85</a></span>
-<span class="normal"><a>86</a></span>
-<span class="normal"><a>87</a></span>
-<span class="normal"><a>88</a></span>
-<span class="normal"><a>89</a></span>
-<span class="normal"><a>90</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-66"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
-<a id="__codelineno-0-67"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-68"></a><span class="sd">    Return WorldModel initialized with specified config and weights.</span>
-<a id="__codelineno-0-69"></a>
-<a id="__codelineno-0-70"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-71"></a><span class="sd">        cfg (Dict | str, optional): Model configuration.</span>
-<a id="__codelineno-0-72"></a><span class="sd">        weights (str, optional): Path to pretrained weights.</span>
-<a id="__codelineno-0-73"></a><span class="sd">        verbose (bool): Whether to display model info.</span>
-<a id="__codelineno-0-74"></a>
-<a id="__codelineno-0-75"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-76"></a><span class="sd">        (WorldModel): Initialized WorldModel.</span>
-<a id="__codelineno-0-77"></a><span class="sd">    """</span>
-<a id="__codelineno-0-78"></a>    <span class="c1"># NOTE: This `nc` here is the max number of different text samples in one image, rather than the actual `nc`.</span>
-<a id="__codelineno-0-79"></a>    <span class="c1"># NOTE: Following the official config, nc hard-coded to 80 for now.</span>
-<a id="__codelineno-0-80"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">WorldModel</span><span class="p">(</span>
-<a id="__codelineno-0-81"></a>        <span class="n">cfg</span><span class="p">[</span><span class="s2">"yaml_file"</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="n">cfg</span><span class="p">,</span>
-<a id="__codelineno-0-82"></a>        <span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">],</span>
-<a id="__codelineno-0-83"></a>        <span class="n">nc</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">],</span> <span class="mi">80</span><span class="p">),</span>
-<a id="__codelineno-0-84"></a>        <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span> <span class="ow">and</span> <span class="n">RANK</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-0-85"></a>    <span class="p">)</span>
-<a id="__codelineno-0-86"></a>    <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
-<a id="__codelineno-0-87"></a>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
-<a id="__codelineno-0-88"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_pretrain_routine_end"</span><span class="p">,</span> <span class="n">on_pretrain_routine_end</span><span class="p">)</span>
-<a id="__codelineno-0-89"></a>
-<a id="__codelineno-0-90"></a>    <span class="k">return</span> <span class="n">model</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>66</span></span>
+<span class="normal"><span>67</span></span>
+<span class="normal"><span>68</span></span>
+<span class="normal"><span>69</span></span>
+<span class="normal"><span>70</span></span>
+<span class="normal"><span>71</span></span>
+<span class="normal"><span>72</span></span>
+<span class="normal"><span>73</span></span>
+<span class="normal"><span>74</span></span>
+<span class="normal"><span>75</span></span>
+<span class="normal"><span>76</span></span>
+<span class="normal"><span>77</span></span>
+<span class="normal"><span>78</span></span>
+<span class="normal"><span>79</span></span>
+<span class="normal"><span>80</span></span>
+<span class="normal"><span>81</span></span>
+<span class="normal"><span>82</span></span>
+<span class="normal"><span>83</span></span>
+<span class="normal"><span>84</span></span>
+<span class="normal"><span>85</span></span>
+<span class="normal"><span>86</span></span>
+<span class="normal"><span>87</span></span>
+<span class="normal"><span>88</span></span>
+<span class="normal"><span>89</span></span>
+<span class="normal"><span>90</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Return WorldModel initialized with specified config and weights.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        cfg (Dict | str, optional): Model configuration.</span>
+<span></span><span class="sd">        weights (str, optional): Path to pretrained weights.</span>
+<span></span><span class="sd">        verbose (bool): Whether to display model info.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (WorldModel): Initialized WorldModel.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="c1"># NOTE: This `nc` here is the max number of different text samples in one image, rather than the actual `nc`.</span>
+<span></span>    <span class="c1"># NOTE: Following the official config, nc hard-coded to 80 for now.</span>
+<span></span>    <span class="n">model</span> <span class="o">=</span> <span class="n">WorldModel</span><span class="p">(</span>
+<span></span>        <span class="n">cfg</span><span class="p">[</span><span class="s2">"yaml_file"</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)</span> <span class="k">else</span> <span class="n">cfg</span><span class="p">,</span>
+<span></span>        <span class="n">ch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">],</span>
+<span></span>        <span class="n">nc</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">],</span> <span class="mi">80</span><span class="p">),</span>
+<span></span>        <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span> <span class="ow">and</span> <span class="n">RANK</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="n">weights</span><span class="p">:</span>
+<span></span>        <span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">weights</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_pretrain_routine_end"</span><span class="p">,</span> <span class="n">on_pretrain_routine_end</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="k">return</span> <span class="n">model</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1659,33 +1659,33 @@ visual and textual features for improved object detection and understanding.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer.preprocess_batch">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">preprocess_batch</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Preprocess a batch of images and text for YOLOWorld training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>109</a></span>
-<span class="normal"><a>110</a></span>
-<span class="normal"><a>111</a></span>
-<span class="normal"><a>112</a></span>
-<span class="normal"><a>113</a></span>
-<span class="normal"><a>114</a></span>
-<span class="normal"><a>115</a></span>
-<span class="normal"><a>116</a></span>
-<span class="normal"><a>117</a></span>
-<span class="normal"><a>118</a></span>
-<span class="normal"><a>119</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-109"></a><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<a id="__codelineno-0-110"></a><span class="w">    </span><span class="sd">"""Preprocess a batch of images and text for YOLOWorld training."""</span>
-<a id="__codelineno-0-111"></a>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
-<a id="__codelineno-0-112"></a>
-<a id="__codelineno-0-113"></a>    <span class="c1"># Add text features</span>
-<a id="__codelineno-0-114"></a>    <span class="n">texts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">batch</span><span class="p">[</span><span class="s2">"texts"</span><span class="p">]))</span>
-<a id="__codelineno-0-115"></a>    <span class="n">text_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clip</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-116"></a>    <span class="n">txt_feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_model</span><span class="o">.</span><span class="n">encode_text</span><span class="p">(</span><span class="n">text_token</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># torch.float32</span>
-<a id="__codelineno-0-117"></a>    <span class="n">txt_feats</span> <span class="o">=</span> <span class="n">txt_feats</span> <span class="o">/</span> <span class="n">txt_feats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-0-118"></a>    <span class="n">batch</span><span class="p">[</span><span class="s2">"txt_feats"</span><span class="p">]</span> <span class="o">=</span> <span class="n">txt_feats</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s2">"texts"</span><span class="p">]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">txt_feats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a id="__codelineno-0-119"></a>    <span class="k">return</span> <span class="n">batch</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>109</span></span>
+<span class="normal"><span>110</span></span>
+<span class="normal"><span>111</span></span>
+<span class="normal"><span>112</span></span>
+<span class="normal"><span>113</span></span>
+<span class="normal"><span>114</span></span>
+<span class="normal"><span>115</span></span>
+<span class="normal"><span>116</span></span>
+<span class="normal"><span>117</span></span>
+<span class="normal"><span>118</span></span>
+<span class="normal"><span>119</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Preprocess a batch of images and text for YOLOWorld training."""</span>
+<span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># Add text features</span>
+<span></span>    <span class="n">texts</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span><span class="o">*</span><span class="n">batch</span><span class="p">[</span><span class="s2">"texts"</span><span class="p">]))</span>
+<span></span>    <span class="n">text_token</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clip</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span></span>    <span class="n">txt_feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">text_model</span><span class="o">.</span><span class="n">encode_text</span><span class="p">(</span><span class="n">text_token</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">]</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># torch.float32</span>
+<span></span>    <span class="n">txt_feats</span> <span class="o">=</span> <span class="n">txt_feats</span> <span class="o">/</span> <span class="n">txt_feats</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdim</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"txt_feats"</span><span class="p">]</span> <span class="o">=</span> <span class="n">txt_feats</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">batch</span><span class="p">[</span><span class="s2">"texts"</span><span class="p">]),</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">txt_feats</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<span></span>    <span class="k">return</span> <span class="n">batch</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1697,31 +1697,31 @@ visual and textual features for improved object detection and understanding.</p>
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.world.train.on_pretrain_routine_end">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.models.yolo.world.train.on_pretrain_routine_end</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Callback to set up model classes and text encoder at the end of the pretrain routine.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>12</a></span>
-<span class="normal"><a>13</a></span>
-<span class="normal"><a>14</a></span>
-<span class="normal"><a>15</a></span>
-<span class="normal"><a>16</a></span>
-<span class="normal"><a>17</a></span>
-<span class="normal"><a>18</a></span>
-<span class="normal"><a>19</a></span>
-<span class="normal"><a>20</a></span>
-<span class="normal"><a>21</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-12"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a id="__codelineno-0-13"></a><span class="w">    </span><span class="sd">"""Callback to set up model classes and text encoder at the end of the pretrain routine."""</span>
-<a id="__codelineno-0-14"></a>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
-<a id="__codelineno-0-15"></a>        <span class="c1"># Set class names for evaluation</span>
-<a id="__codelineno-0-16"></a>        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>
-<a id="__codelineno-0-17"></a>        <span class="n">de_parallel</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">ema</span><span class="o">.</span><span class="n">ema</span><span class="p">)</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">cache_clip_model</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<a id="__codelineno-0-18"></a>    <span class="n">device</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span>
-<a id="__codelineno-0-19"></a>    <span class="n">trainer</span><span class="o">.</span><span class="n">text_model</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">clip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ViT-B/32"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-20"></a>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">text_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
-<a id="__codelineno-0-21"></a>        <span class="n">p</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>12</span></span>
+<span class="normal"><span>13</span></span>
+<span class="normal"><span>14</span></span>
+<span class="normal"><span>15</span></span>
+<span class="normal"><span>16</span></span>
+<span class="normal"><span>17</span></span>
+<span class="normal"><span>18</span></span>
+<span class="normal"><span>19</span></span>
+<span class="normal"><span>20</span></span>
+<span class="normal"><span>21</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Callback to set up model classes and text encoder at the end of the pretrain routine."""</span>
+<span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
+<span></span>        <span class="c1"># Set class names for evaluation</span>
+<span></span>        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>
+<span></span>        <span class="n">de_parallel</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">ema</span><span class="o">.</span><span class="n">ema</span><span class="p">)</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">cache_clip_model</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span></span>    <span class="n">device</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span>
+<span></span>    <span class="n">trainer</span><span class="o">.</span><span class="n">text_model</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">clip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"ViT-B/32"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
+<span></span>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">text_model</span><span class="o">.</span><span class="n">parameters</span><span class="p">():</span>
+<span></span>        <span class="n">p</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

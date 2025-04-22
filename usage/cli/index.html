@@ -788,7 +788,7 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Ultralytics <code>yolo</code> commands use the following syntax:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>yolo<span class="w"> </span>TASK<span class="w"> </span>MODE<span class="w"> </span>ARGS
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>TASK<span class="w"> </span>MODE<span class="w"> </span>ARGS
 </code></pre></div></p>
 <p>Where:
 - <code>TASK</code> (optional) is one of [detect, segment, classify, pose, obb]
@@ -798,32 +798,32 @@
 </div>
 <div class="tabbed-block">
 <p>Train a detection model for 10 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> with an initial <a href="https://www.ultralytics.com/glossary/learning-rate">learning rate</a> of 0.01:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Predict using a pretrained segmentation model on a YouTube video at image size 320:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://youtu.be/LNwODJXcvt4'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://youtu.be/LNwODJXcvt4'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Validate a pretrained detection model with a <a href="https://www.ultralytics.com/glossary/batch-size">batch size</a> of 1 and image size 640:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Export a YOLO classification model to ONNX format with image size 224x128 (no TASK required):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-cls.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>,128
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-cls.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>,128
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Run special commands to view version, settings, run checks, and more:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>yolo<span class="w"> </span><span class="nb">help</span>
-<a id="__codelineno-5-2"></a>yolo<span class="w"> </span>checks
-<a id="__codelineno-5-3"></a>yolo<span class="w"> </span>version
-<a id="__codelineno-5-4"></a>yolo<span class="w"> </span>settings
-<a id="__codelineno-5-5"></a>yolo<span class="w"> </span>copy-cfg
-<a id="__codelineno-5-6"></a>yolo<span class="w"> </span>cfg
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span><span class="nb">help</span>
+<span></span>yolo<span class="w"> </span>checks
+<span></span>yolo<span class="w"> </span>version
+<span></span>yolo<span class="w"> </span>settings
+<span></span>yolo<span class="w"> </span>copy-cfg
+<span></span>yolo<span class="w"> </span>cfg
 </code></pre></div>
 </div>
 </div>
@@ -852,12 +852,12 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Start training YOLO11n on COCO8 for 100 epochs at image size 640:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Resume an interrupted training session:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span>resume<span class="w"> </span><span class="nv">model</span><span class="o">=</span>last.pt
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span>resume<span class="w"> </span><span class="nv">model</span><span class="o">=</span>last.pt
 </code></pre></div>
 </div>
 </div>
@@ -871,12 +871,12 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Validate an official YOLO11n model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>yolo<span class="w"> </span>detect<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Validate a custom-trained model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a>yolo<span class="w"> </span>detect<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt
 </code></pre></div>
 </div>
 </div>
@@ -890,12 +890,12 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Predict with an official YOLO11n model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a>yolo<span class="w"> </span>detect<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Predict with a custom model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a>yolo<span class="w"> </span>detect<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
 </div>
 </div>
@@ -909,12 +909,12 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Export an official YOLO11n model to ONNX format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Export a custom-trained model to ONNX format:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx
 </code></pre></div>
 </div>
 </div>
@@ -1055,17 +1055,17 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Train a detection model for 10 epochs with a learning rate of 0.01:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Predict using a pretrained segmentation model on a YouTube video at image size 320:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a>yolo<span class="w"> </span>segment<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://youtu.be/LNwODJXcvt4'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>segment<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://youtu.be/LNwODJXcvt4'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Validate a pretrained detection model with a batch size of 1 and image size 640:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a>yolo<span class="w"> </span>detect<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>detect<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1080,8 +1080,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="7:1"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1"></a>yolo<span class="w"> </span>copy-cfg
-<a id="__codelineno-17-2"></a>yolo<span class="w"> </span><span class="nv">cfg</span><span class="o">=</span>default_copy.yaml<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>copy-cfg
+<span></span>yolo<span class="w"> </span><span class="nv">cfg</span><span class="o">=</span>default_copy.yaml<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">320</span>
 </code></pre></div>
 </div>
 </div>
@@ -1095,36 +1095,36 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Count objects in a video or live stream:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-18-2"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Monitor workout exercises using a pose model:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-19-2"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
-<a id="__codelineno-19-3"></a>
-<a id="__codelineno-19-4"></a><span class="c1"># Use keypoints for ab-workouts</span>
-<a id="__codelineno-19-5"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">kpts</span><span class="o">=[</span><span class="m">5</span>,<span class="w"> </span><span class="m">11</span>,<span class="w"> </span><span class="m">13</span><span class="o">]</span><span class="w"> </span><span class="c1"># left side</span>
-<a id="__codelineno-19-6"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">kpts</span><span class="o">=[</span><span class="m">6</span>,<span class="w"> </span><span class="m">12</span>,<span class="w"> </span><span class="m">14</span><span class="o">]</span><span class="w"> </span><span class="c1"># right side</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w"> </span><span class="c1"># specify video file path</span>
+<span></span>
+<span></span><span class="c1"># Use keypoints for ab-workouts</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">kpts</span><span class="o">=[</span><span class="m">5</span>,<span class="w"> </span><span class="m">11</span>,<span class="w"> </span><span class="m">13</span><span class="o">]</span><span class="w"> </span><span class="c1"># left side</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>workout<span class="w"> </span><span class="nv">kpts</span><span class="o">=[</span><span class="m">6</span>,<span class="w"> </span><span class="m">12</span>,<span class="w"> </span><span class="m">14</span><span class="o">]</span><span class="w"> </span><span class="c1"># right side</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Count objects in a designated queue or region:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a id="__codelineno-20-2"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w">                                </span><span class="c1"># specify video file path</span>
-<a id="__codelineno-20-3"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">region</span><span class="o">=</span><span class="s2">"[(20, 400), (1080, 400), (1080, 360), (20, 360)]"</span><span class="w"> </span><span class="c1"># configure queue coordinates</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="w">                                </span><span class="c1"># specify video file path</span>
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>queue<span class="w"> </span><span class="nv">region</span><span class="o">=</span><span class="s2">"[(20, 400), (1080, 400), (1080, 360), (20, 360)]"</span><span class="w"> </span><span class="c1"># configure queue coordinates</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Perform object detection, instance segmentation, or pose estimation in a web browser using Streamlit:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>inference
-<a id="__codelineno-21-2"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>inference<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s2">"path/to/model.pt"</span><span class="w"> </span><span class="c1"># use custom model</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>inference
+<span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>inference<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s2">"path/to/model.pt"</span><span class="w"> </span><span class="c1"># use custom model</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>View available solutions and their options:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span><span class="nb">help</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span><span class="nb">help</span>
 </code></pre></div>
 </div>
 </div>
@@ -1134,7 +1134,7 @@
 <h2 id="faq">FAQ</h2>
 <h3 id="how-do-i-use-the-ultralytics-yolo-command-line-interface-cli-for-model-training">How do I use the Ultralytics YOLO command line interface (CLI) for model training?</h3>
 <p>To train a model using the CLI, execute a single-line command in the terminal. For example, to train a detection model for 10 epochs with a <a href="https://www.ultralytics.com/glossary/learning-rate">learning rate</a> of 0.01, run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">10</span><span class="w"> </span><span class="nv">lr0</span><span class="o">=</span><span class="m">0</span>.01
 </code></pre></div>
 <p>This command uses the <code>train</code> mode with specific arguments. For a full list of available arguments, refer to the <a href="../cfg/">Configuration Guide</a>.</p>
 <h3 id="what-tasks-can-i-perform-with-the-ultralytics-yolo-cli">What tasks can I perform with the Ultralytics YOLO CLI?</h3>
@@ -1148,17 +1148,17 @@
 <p>Customize each task with various arguments. For detailed syntax and examples, see the respective sections like <a href="#train">Train</a>, <a href="#predict">Predict</a>, and <a href="#export">Export</a>.</p>
 <h3 id="how-can-i-validate-the-accuracy-of-a-trained-yolo-model-using-the-cli">How can I validate the accuracy of a trained YOLO model using the CLI?</h3>
 <p>To validate a model's <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>, use the <code>val</code> mode. For example, to validate a pretrained detection model with a <a href="https://www.ultralytics.com/glossary/batch-size">batch size</a> of 1 and an image size of 640, run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">batch</span><span class="o">=</span><span class="m">1</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 <p>This command evaluates the model on the specified dataset and provides performance metrics like <a href="https://www.ultralytics.com/glossary/mean-average-precision-map">mAP</a>, <a href="https://www.ultralytics.com/glossary/precision">precision</a>, and <a href="https://www.ultralytics.com/glossary/recall">recall</a>. For more details, refer to the <a href="#val">Val</a> section.</p>
 <h3 id="what-formats-can-i-export-my-yolo-models-to-using-the-cli">What formats can I export my YOLO models to using the CLI?</h3>
 <p>You can export YOLO models to various formats including ONNX, TensorRT, CoreML, TensorFlow, and more. For instance, to export a model to ONNX format, run:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx
 </code></pre></div>
 <p>The export command supports numerous options to optimize your model for specific deployment environments. For complete details on all available export formats and their specific parameters, visit the <a href="../../modes/export/">Export</a> page.</p>
 <h3 id="how-do-i-use-the-pre-built-solutions-in-the-ultralytics-cli">How do I use the pre-built solutions in the Ultralytics CLI?</h3>
 <p>Ultralytics provides ready-to-use solutions through the <code>solutions</code> command. For example, to count objects in a video:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>solutions<span class="w"> </span>count<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
 </code></pre></div>
 <p>These solutions require minimal configuration and provide immediate functionality for common computer vision tasks. To see all available solutions, run <code>yolo solutions help</code>. Each solution has specific parameters that can be customized to fit your needs.</p>
 <div class="git-info">

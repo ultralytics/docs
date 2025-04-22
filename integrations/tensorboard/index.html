@@ -897,8 +897,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Install the required package for YOLO11 and Tensorboard</span>
-<a id="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install the required package for YOLO11 and Tensorboard</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 </div>
 </div>
@@ -913,8 +913,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>%load_ext<span class="w"> </span>tensorboard
-<a id="__codelineno-1-2"></a>%tensorboard<span class="w"> </span>--logdir<span class="w"> </span>path/to/runs
+<div class="highlight"><pre><span></span><code><span></span>%load_ext<span class="w"> </span>tensorboard
+<span></span>%tensorboard<span class="w"> </span>--logdir<span class="w"> </span>path/to/runs
 </code></pre></div>
 </div>
 </div>
@@ -927,20 +927,20 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="c1"># Load a pre-trained model</span>
-<a id="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-2-5"></a>
-<a id="__codelineno-2-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a pre-trained model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
 </div>
 </div>
 <p>Upon running the usage code snippet above, you can expect the following output:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a>TensorBoard:<span class="w"> </span>Start<span class="w"> </span>with<span class="w"> </span><span class="s1">'tensorboard --logdir path_to_your_tensorboard_logs'</span>,<span class="w"> </span>view<span class="w"> </span>at<span class="w"> </span>http://localhost:6006/
+<div class="highlight"><pre><span></span><code><span></span>TensorBoard:<span class="w"> </span>Start<span class="w"> </span>with<span class="w"> </span><span class="s1">'tensorboard --logdir path_to_your_tensorboard_logs'</span>,<span class="w"> </span>view<span class="w"> </span>at<span class="w"> </span>http://localhost:6006/
 </code></pre></div>
 <p>This output indicates that TensorBoard is now actively monitoring your YOLO11 training session. You can access the TensorBoard dashboard by visiting the provided URL (<a href="http://localhost:6006/">http://localhost:6006/</a>) to view real-time training metrics and model performance. For users working in <a href="../google-colab/">Google Colab</a>, the TensorBoard will be displayed in the same cell where you executed the TensorBoard configuration commands.</p>
 <p>For more information related to the model training process, be sure to check our <a href="../../modes/train/">YOLO11 Model Training guide</a>. If you are interested in learning more about logging, checkpoints, plotting, and file management, read our <a href="../../usage/cfg/">usage guide on configuration</a>.</p>
@@ -1043,17 +1043,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>%load_ext<span class="w"> </span>tensorboard
-<a id="__codelineno-4-2"></a>%tensorboard<span class="w"> </span>--logdir<span class="w"> </span>path/to/runs
+<div class="highlight"><pre><span></span><code><span></span>%load_ext<span class="w"> </span>tensorboard
+<span></span>%tensorboard<span class="w"> </span>--logdir<span class="w"> </span>path/to/runs
 </code></pre></div>
 <p>Then, run the YOLO11 training script:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="c1"># Load a pre-trained model</span>
-<a id="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-5-5"></a>
-<a id="__codelineno-5-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-5-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a pre-trained model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>

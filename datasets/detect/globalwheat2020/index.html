@@ -944,74 +944,74 @@
 <p>A YAML (Yet Another Markup Language) file is used to define the dataset configuration. It contains information about the dataset's paths, classes, and other relevant information. For the case of the Global Wheat Head Dataset, the <code>GlobalWheat2020.yaml</code> file is maintained at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/GlobalWheat2020.yaml">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/GlobalWheat2020.yaml</a>.</p>
 <div class="admonition example">
 <p class="admonition-title">ultralytics/cfg/datasets/GlobalWheat2020.yaml</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="c1"># Global Wheat 2020 dataset https://www.global-wheat.com/ by University of Saskatchewan</span>
-<a id="__codelineno-0-4"></a><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/globalwheat2020/</span>
-<a id="__codelineno-0-5"></a><span class="c1"># Example usage: yolo train data=GlobalWheat2020.yaml</span>
-<a id="__codelineno-0-6"></a><span class="c1"># parent</span>
-<a id="__codelineno-0-7"></a><span class="c1"># ├── ultralytics</span>
-<a id="__codelineno-0-8"></a><span class="c1"># └── datasets</span>
-<a id="__codelineno-0-9"></a><span class="c1">#     └── GlobalWheat2020  ← downloads here (7.0 GB)</span>
-<a id="__codelineno-0-10"></a>
-<a id="__codelineno-0-11"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a id="__codelineno-0-12"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/GlobalWheat2020</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<a id="__codelineno-0-13"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 3422 images</span>
-<a id="__codelineno-0-14"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/arvalis_1</span>
-<a id="__codelineno-0-15"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/arvalis_2</span>
-<a id="__codelineno-0-16"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/arvalis_3</span>
-<a id="__codelineno-0-17"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/ethz_1</span>
-<a id="__codelineno-0-18"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/rres_1</span>
-<a id="__codelineno-0-19"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/inrae_1</span>
-<a id="__codelineno-0-20"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/usask_1</span>
-<a id="__codelineno-0-21"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 748 images (WARNING: train set contains ethz_1)</span>
-<a id="__codelineno-0-22"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/ethz_1</span>
-<a id="__codelineno-0-23"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional) 1276 images</span>
-<a id="__codelineno-0-24"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/utokyo_1</span>
-<a id="__codelineno-0-25"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/utokyo_2</span>
-<a id="__codelineno-0-26"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/nau_1</span>
-<a id="__codelineno-0-27"></a><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/uq_1</span>
-<a id="__codelineno-0-28"></a>
-<a id="__codelineno-0-29"></a><span class="c1"># Classes</span>
-<a id="__codelineno-0-30"></a><span class="nt">names</span><span class="p">:</span>
-<a id="__codelineno-0-31"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wheat_head</span>
-<a id="__codelineno-0-32"></a>
-<a id="__codelineno-0-33"></a><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
-<a id="__codelineno-0-34"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a id="__codelineno-0-35"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
-<a id="__codelineno-0-36"></a>
-<a id="__codelineno-0-37"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<a id="__codelineno-0-38"></a>
-<a id="__codelineno-0-39"></a><span class="w">  </span><span class="no"># Download</span>
-<a id="__codelineno-0-40"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
-<a id="__codelineno-0-41"></a><span class="w">  </span><span class="no">urls = [</span>
-<a id="__codelineno-0-42"></a><span class="w">      </span><span class="no">"https://zenodo.org/record/4298502/files/global-wheat-codalab-official.zip",</span>
-<a id="__codelineno-0-43"></a><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/GlobalWheat2020_labels.zip",</span>
-<a id="__codelineno-0-44"></a><span class="w">  </span><span class="no">]</span>
-<a id="__codelineno-0-45"></a><span class="w">  </span><span class="no">download(urls, dir=dir)</span>
-<a id="__codelineno-0-46"></a>
-<a id="__codelineno-0-47"></a><span class="w">  </span><span class="no"># Make Directories</span>
-<a id="__codelineno-0-48"></a><span class="w">  </span><span class="no">for p in "annotations", "images", "labels":</span>
-<a id="__codelineno-0-49"></a><span class="w">      </span><span class="no">(dir / p).mkdir(parents=True, exist_ok=True)</span>
-<a id="__codelineno-0-50"></a>
-<a id="__codelineno-0-51"></a><span class="w">  </span><span class="no"># Move</span>
-<a id="__codelineno-0-52"></a><span class="w">  </span><span class="no">for p in (</span>
-<a id="__codelineno-0-53"></a><span class="w">      </span><span class="no">"arvalis_1",</span>
-<a id="__codelineno-0-54"></a><span class="w">      </span><span class="no">"arvalis_2",</span>
-<a id="__codelineno-0-55"></a><span class="w">      </span><span class="no">"arvalis_3",</span>
-<a id="__codelineno-0-56"></a><span class="w">      </span><span class="no">"ethz_1",</span>
-<a id="__codelineno-0-57"></a><span class="w">      </span><span class="no">"rres_1",</span>
-<a id="__codelineno-0-58"></a><span class="w">      </span><span class="no">"inrae_1",</span>
-<a id="__codelineno-0-59"></a><span class="w">      </span><span class="no">"usask_1",</span>
-<a id="__codelineno-0-60"></a><span class="w">      </span><span class="no">"utokyo_1",</span>
-<a id="__codelineno-0-61"></a><span class="w">      </span><span class="no">"utokyo_2",</span>
-<a id="__codelineno-0-62"></a><span class="w">      </span><span class="no">"nau_1",</span>
-<a id="__codelineno-0-63"></a><span class="w">      </span><span class="no">"uq_1",</span>
-<a id="__codelineno-0-64"></a><span class="w">  </span><span class="no">):</span>
-<a id="__codelineno-0-65"></a><span class="w">      </span><span class="no">(dir / "global-wheat-codalab-official" / p).rename(dir / "images" / p)  # move to /images</span>
-<a id="__codelineno-0-66"></a><span class="w">      </span><span class="no">f = (dir / "global-wheat-codalab-official" / p).with_suffix(".json")  # json file</span>
-<a id="__codelineno-0-67"></a><span class="w">      </span><span class="no">if f.exists():</span>
-<a id="__codelineno-0-68"></a><span class="w">          </span><span class="no">f.rename((dir / "annotations" / p).with_suffix(".json"))  # move to /annotations</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
+<span></span>
+<span></span><span class="c1"># Global Wheat 2020 dataset https://www.global-wheat.com/ by University of Saskatchewan</span>
+<span></span><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/globalwheat2020/</span>
+<span></span><span class="c1"># Example usage: yolo train data=GlobalWheat2020.yaml</span>
+<span></span><span class="c1"># parent</span>
+<span></span><span class="c1"># ├── ultralytics</span>
+<span></span><span class="c1"># └── datasets</span>
+<span></span><span class="c1">#     └── GlobalWheat2020  ← downloads here (7.0 GB)</span>
+<span></span>
+<span></span><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
+<span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/GlobalWheat2020</span><span class="w"> </span><span class="c1"># dataset root dir</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 3422 images</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/arvalis_1</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/arvalis_2</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/arvalis_3</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/ethz_1</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/rres_1</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/inrae_1</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/usask_1</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 748 images (WARNING: train set contains ethz_1)</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/ethz_1</span>
+<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="c1"># test images (optional) 1276 images</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/utokyo_1</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/utokyo_2</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/nau_1</span>
+<span></span><span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/uq_1</span>
+<span></span>
+<span></span><span class="c1"># Classes</span>
+<span></span><span class="nt">names</span><span class="p">:</span>
+<span></span><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wheat_head</span>
+<span></span>
+<span></span><span class="c1"># Download script/URL (optional) ---------------------------------------------------------------------------------------</span>
+<span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<span></span><span class="w">  </span><span class="no">from pathlib import Path</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Download</span>
+<span></span><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
+<span></span><span class="w">  </span><span class="no">urls = [</span>
+<span></span><span class="w">      </span><span class="no">"https://zenodo.org/record/4298502/files/global-wheat-codalab-official.zip",</span>
+<span></span><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/GlobalWheat2020_labels.zip",</span>
+<span></span><span class="w">  </span><span class="no">]</span>
+<span></span><span class="w">  </span><span class="no">download(urls, dir=dir)</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Make Directories</span>
+<span></span><span class="w">  </span><span class="no">for p in "annotations", "images", "labels":</span>
+<span></span><span class="w">      </span><span class="no">(dir / p).mkdir(parents=True, exist_ok=True)</span>
+<span></span>
+<span></span><span class="w">  </span><span class="no"># Move</span>
+<span></span><span class="w">  </span><span class="no">for p in (</span>
+<span></span><span class="w">      </span><span class="no">"arvalis_1",</span>
+<span></span><span class="w">      </span><span class="no">"arvalis_2",</span>
+<span></span><span class="w">      </span><span class="no">"arvalis_3",</span>
+<span></span><span class="w">      </span><span class="no">"ethz_1",</span>
+<span></span><span class="w">      </span><span class="no">"rres_1",</span>
+<span></span><span class="w">      </span><span class="no">"inrae_1",</span>
+<span></span><span class="w">      </span><span class="no">"usask_1",</span>
+<span></span><span class="w">      </span><span class="no">"utokyo_1",</span>
+<span></span><span class="w">      </span><span class="no">"utokyo_2",</span>
+<span></span><span class="w">      </span><span class="no">"nau_1",</span>
+<span></span><span class="w">      </span><span class="no">"uq_1",</span>
+<span></span><span class="w">  </span><span class="no">):</span>
+<span></span><span class="w">      </span><span class="no">(dir / "global-wheat-codalab-official" / p).rename(dir / "images" / p)  # move to /images</span>
+<span></span><span class="w">      </span><span class="no">f = (dir / "global-wheat-codalab-official" / p).with_suffix(".json")  # json file</span>
+<span></span><span class="w">      </span><span class="no">if f.exists():</span>
+<span></span><span class="w">          </span><span class="no">f.rename((dir / "annotations" / p).with_suffix(".json"))  # move to /annotations</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
@@ -1021,18 +1021,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"GlobalWheat2020.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"GlobalWheat2020.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a id="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>GlobalWheat2020.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
+<span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>GlobalWheat2020.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1051,12 +1051,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">david2020global</span><span class="p">,</span>
-<a id="__codelineno-3-2"></a><span class="w">         </span><span class="na">title</span><span class="p">=</span><span class="s">{Global Wheat Head Detection (GWHD) Dataset: A Large and Diverse Dataset of High-Resolution RGB-Labelled Images to Develop and Benchmark Wheat Head Detection Methods}</span><span class="p">,</span>
-<a id="__codelineno-3-3"></a><span class="w">         </span><span class="na">author</span><span class="p">=</span><span class="s">{David, Etienne and Madec, Simon and Sadeghi-Tehran, Pouria and Aasen, Helge and Zheng, Bangyou and Liu, Shouyang and Kirchgessner, Norbert and Ishikawa, Goro and Nagasawa, Koichi and Badhon, Minhajul and others}</span><span class="p">,</span>
-<a id="__codelineno-3-4"></a><span class="w">         </span><span class="na">journal</span><span class="p">=</span><span class="s">{arXiv preprint arXiv:2005.02162}</span><span class="p">,</span>
-<a id="__codelineno-3-5"></a><span class="w">         </span><span class="na">year</span><span class="p">=</span><span class="s">{2020}</span>
-<a id="__codelineno-3-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@article</span><span class="p">{</span><span class="nl">david2020global</span><span class="p">,</span>
+<span></span><span class="w">         </span><span class="na">title</span><span class="p">=</span><span class="s">{Global Wheat Head Detection (GWHD) Dataset: A Large and Diverse Dataset of High-Resolution RGB-Labelled Images to Develop and Benchmark Wheat Head Detection Methods}</span><span class="p">,</span>
+<span></span><span class="w">         </span><span class="na">author</span><span class="p">=</span><span class="s">{David, Etienne and Madec, Simon and Sadeghi-Tehran, Pouria and Aasen, Helge and Zheng, Bangyou and Liu, Shouyang and Kirchgessner, Norbert and Ishikawa, Goro and Nagasawa, Koichi and Badhon, Minhajul and others}</span><span class="p">,</span>
+<span></span><span class="w">         </span><span class="na">journal</span><span class="p">=</span><span class="s">{arXiv preprint arXiv:2005.02162}</span><span class="p">,</span>
+<span></span><span class="w">         </span><span class="na">year</span><span class="p">=</span><span class="s">{2020}</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -1073,18 +1073,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="c1"># Load a pre-trained model (recommended for training)</span>
-<a id="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-4-5"></a>
-<a id="__codelineno-4-6"></a><span class="c1"># Train the model</span>
-<a id="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"GlobalWheat2020.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a pre-trained model (recommended for training)</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Train the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"GlobalWheat2020.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a id="__codelineno-5-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>GlobalWheat2020.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Start training from a pretrained *.pt model</span>
+<span></span>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>GlobalWheat2020.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>

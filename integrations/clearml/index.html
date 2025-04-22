@@ -897,8 +897,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Install the required packages for YOLO11 and ClearML</span>
-<a id="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="w"> </span>clearml
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install the required packages for YOLO11 and ClearML</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="w"> </span>clearml
 </code></pre></div>
 </div>
 </div>
@@ -913,8 +913,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Initialize your ClearML SDK setup process</span>
-<a id="__codelineno-1-2"></a>clearml-init
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Initialize your ClearML SDK setup process</span>
+<span></span>clearml-init
 </code></pre></div>
 </div>
 </div>
@@ -928,26 +928,26 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">clearml</span><span class="w"> </span><span class="kn">import</span> <span class="n">Task</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-2-4"></a>
-<a id="__codelineno-2-5"></a><span class="c1"># Step 1: Creating a ClearML Task</span>
-<a id="__codelineno-2-6"></a><span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"my_project"</span><span class="p">,</span> <span class="n">task_name</span><span class="o">=</span><span class="s2">"my_yolov8_task"</span><span class="p">)</span>
-<a id="__codelineno-2-7"></a>
-<a id="__codelineno-2-8"></a><span class="c1"># Step 2: Selecting the YOLO11 Model</span>
-<a id="__codelineno-2-9"></a><span class="n">model_variant</span> <span class="o">=</span> <span class="s2">"yolo11n"</span>
-<a id="__codelineno-2-10"></a><span class="n">task</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="s2">"model_variant"</span><span class="p">,</span> <span class="n">model_variant</span><span class="p">)</span>
-<a id="__codelineno-2-11"></a>
-<a id="__codelineno-2-12"></a><span class="c1"># Step 3: Loading the YOLO11 Model</span>
-<a id="__codelineno-2-13"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model_variant</span><span class="si">}</span><span class="s2">.pt"</span><span class="p">)</span>
-<a id="__codelineno-2-14"></a>
-<a id="__codelineno-2-15"></a><span class="c1"># Step 4: Setting Up Training Arguments</span>
-<a id="__codelineno-2-16"></a><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a id="__codelineno-2-17"></a><span class="n">task</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-2-18"></a>
-<a id="__codelineno-2-19"></a><span class="c1"># Step 5: Initiating Model Training</span>
-<a id="__codelineno-2-20"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">clearml</span><span class="w"> </span><span class="kn">import</span> <span class="n">Task</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Step 1: Creating a ClearML Task</span>
+<span></span><span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"my_project"</span><span class="p">,</span> <span class="n">task_name</span><span class="o">=</span><span class="s2">"my_yolov8_task"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Step 2: Selecting the YOLO11 Model</span>
+<span></span><span class="n">model_variant</span> <span class="o">=</span> <span class="s2">"yolo11n"</span>
+<span></span><span class="n">task</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="s2">"model_variant"</span><span class="p">,</span> <span class="n">model_variant</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Step 3: Loading the YOLO11 Model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model_variant</span><span class="si">}</span><span class="s2">.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Step 4: Setting Up Training Arguments</span>
+<span></span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span></span><span class="n">task</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Step 5: Initiating Model Training</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1023,7 +1023,7 @@
 <h4 id="remote-execution">Remote Execution</h4>
 <p>ClearML's remote execution feature facilitates the reproduction and manipulation of experiments on different machines. It logs essential details like installed packages and uncommitted changes. When a task is enqueued, the <a href="https://clear.ml/docs/latest/docs/clearml_agent/">ClearML Agent</a> pulls it, recreates the environment, and runs the experiment, reporting back with detailed results.</p>
 <p>Deploying a ClearML Agent is straightforward and can be done on various machines using the following command:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a>clearml-agent<span class="w"> </span>daemon<span class="w"> </span>--queue<span class="w"> </span>QUEUES_TO_LISTEN_TO<span class="w"> </span><span class="o">[</span>--docker<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><span></span>clearml-agent<span class="w"> </span>daemon<span class="w"> </span>--queue<span class="w"> </span>QUEUES_TO_LISTEN_TO<span class="w"> </span><span class="o">[</span>--docker<span class="o">]</span>
 </code></pre></div>
 <p>This setup is applicable to cloud VMs, local GPUs, or laptops. <a href="https://clear.ml/docs/latest/docs/cloud_autoscaling/autoscaling_overview/">ClearML Autoscalers</a> help manage cloud workloads on platforms like AWS, GCP, and Azure, automating the deployment of agents and adjusting resources based on your resource budget.</p>
 <h3 id="cloning-editing-and-enqueuing">Cloning, Editing, and Enqueuing</h3>
@@ -1044,8 +1044,8 @@
 <li>Copy the corresponding YAML file to the root of your dataset folder</li>
 <li>Upload your dataset using the ClearML Data tool:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="nb">cd</span><span class="w"> </span>your_dataset_folder
-<a id="__codelineno-4-2"></a>clearml-data<span class="w"> </span>sync<span class="w"> </span>--project<span class="w"> </span>YOLOv11<span class="w"> </span>--name<span class="w"> </span>your_dataset_name<span class="w"> </span>--folder<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><span></span><span class="nb">cd</span><span class="w"> </span>your_dataset_folder
+<span></span>clearml-data<span class="w"> </span>sync<span class="w"> </span>--project<span class="w"> </span>YOLOv11<span class="w"> </span>--name<span class="w"> </span>your_dataset_name<span class="w"> </span>--folder<span class="w"> </span>.
 </code></pre></div>
 <p>This command will create a versioned dataset in ClearML that can be referenced in your training scripts, ensuring reproducibility and easy access to your data.</p>
 <h2 id="summary">Summary</h2>
@@ -1055,10 +1055,10 @@
 <h2 id="faq">FAQ</h2>
 <h3 id="what-is-the-process-for-integrating-ultralytics-yolo11-with-clearml">What is the process for integrating Ultralytics YOLO11 with ClearML?</h3>
 <p>Integrating Ultralytics YOLO11 with ClearML involves a series of steps to streamline your MLOps workflow. First, install the necessary packages:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="w"> </span>clearml
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="w"> </span>clearml
 </code></pre></div>
 <p>Next, initialize the ClearML SDK in your environment using:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>clearml-init
+<div class="highlight"><pre><span></span><code><span></span>clearml-init
 </code></pre></div>
 <p>You then configure ClearML with your credentials from the <a href="https://app.clear.ml/settings/workspace-configuration">ClearML Settings page</a>. Detailed instructions on the entire setup process, including model selection and training configurations, can be found in our <a href="../../modes/train/">YOLO11 Model Training guide</a>.</p>
 <h3 id="why-should-i-use-clearml-with-ultralytics-yolo11-for-my-machine-learning-projects">Why should I use ClearML with Ultralytics YOLO11 for my machine learning projects?</h3>
@@ -1067,26 +1067,26 @@
 <p>If you encounter issues during the integration of YOLO11 with ClearML, consult our <a href="../../guides/yolo-common-issues/">Common Issues guide</a> for solutions and tips. Typical problems might involve package installation errors, credential setup, or configuration issues. This guide provides step-by-step troubleshooting instructions to resolve these common issues efficiently.</p>
 <h3 id="how-do-i-set-up-the-clearml-task-for-yolo11-model-training">How do I set up the ClearML task for YOLO11 model training?</h3>
 <p>Setting up a ClearML task for YOLO11 training involves initializing a task, selecting the model variant, loading the model, setting up training arguments, and finally, starting the model training. Here's a simplified example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">clearml</span><span class="w"> </span><span class="kn">import</span> <span class="n">Task</span>
-<a id="__codelineno-7-2"></a>
-<a id="__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-7-4"></a>
-<a id="__codelineno-7-5"></a><span class="c1"># Step 1: Creating a ClearML Task</span>
-<a id="__codelineno-7-6"></a><span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"my_project"</span><span class="p">,</span> <span class="n">task_name</span><span class="o">=</span><span class="s2">"my_yolov8_task"</span><span class="p">)</span>
-<a id="__codelineno-7-7"></a>
-<a id="__codelineno-7-8"></a><span class="c1"># Step 2: Selecting the YOLO11 Model</span>
-<a id="__codelineno-7-9"></a><span class="n">model_variant</span> <span class="o">=</span> <span class="s2">"yolo11n"</span>
-<a id="__codelineno-7-10"></a><span class="n">task</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="s2">"model_variant"</span><span class="p">,</span> <span class="n">model_variant</span><span class="p">)</span>
-<a id="__codelineno-7-11"></a>
-<a id="__codelineno-7-12"></a><span class="c1"># Step 3: Loading the YOLO11 Model</span>
-<a id="__codelineno-7-13"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model_variant</span><span class="si">}</span><span class="s2">.pt"</span><span class="p">)</span>
-<a id="__codelineno-7-14"></a>
-<a id="__codelineno-7-15"></a><span class="c1"># Step 4: Setting Up Training Arguments</span>
-<a id="__codelineno-7-16"></a><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
-<a id="__codelineno-7-17"></a><span class="n">task</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
-<a id="__codelineno-7-18"></a>
-<a id="__codelineno-7-19"></a><span class="c1"># Step 5: Initiating Model Training</span>
-<a id="__codelineno-7-20"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">clearml</span><span class="w"> </span><span class="kn">import</span> <span class="n">Task</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Step 1: Creating a ClearML Task</span>
+<span></span><span class="n">task</span> <span class="o">=</span> <span class="n">Task</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project_name</span><span class="o">=</span><span class="s2">"my_project"</span><span class="p">,</span> <span class="n">task_name</span><span class="o">=</span><span class="s2">"my_yolov8_task"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Step 2: Selecting the YOLO11 Model</span>
+<span></span><span class="n">model_variant</span> <span class="o">=</span> <span class="s2">"yolo11n"</span>
+<span></span><span class="n">task</span><span class="o">.</span><span class="n">set_parameter</span><span class="p">(</span><span class="s2">"model_variant"</span><span class="p">,</span> <span class="n">model_variant</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Step 3: Loading the YOLO11 Model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">model_variant</span><span class="si">}</span><span class="s2">.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Step 4: Setting Up Training Arguments</span>
+<span></span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span></span><span class="n">task</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Step 5: Initiating Model Training</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="o">**</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div>
 <p>Refer to our <a href="#usage">Usage guide</a> for a detailed breakdown of these steps.</p>
 <h3 id="where-can-i-view-the-results-of-my-yolo11-training-in-clearml">Where can I view the results of my YOLO11 training in ClearML?</h3>

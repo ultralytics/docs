@@ -904,11 +904,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Install and update Ultralytics and Ray Tune packages</span>
-<a id="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ultralytics<span class="w"> </span><span class="s2">"ray[tune]"</span>
-<a id="__codelineno-0-3"></a>
-<a id="__codelineno-0-4"></a><span class="c1"># Optionally install W&amp;B for logging</span>
-<a id="__codelineno-0-5"></a>pip<span class="w"> </span>install<span class="w"> </span>wandb
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Install and update Ultralytics and Ray Tune packages</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ultralytics<span class="w"> </span><span class="s2">"ray[tune]"</span>
+<span></span>
+<span></span><span class="c1"># Optionally install W&amp;B for logging</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>wandb
 </code></pre></div>
 </div>
 </div>
@@ -920,13 +920,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Load a YOLO11n model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Start tuning hyperparameters for YOLO11n training on the COCO8 dataset</span>
-<a id="__codelineno-1-7"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a YOLO11n model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Start tuning hyperparameters for YOLO11n training on the COCO8 dataset</span>
+<span></span><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1105,20 +1105,20 @@
 <p>In this example, we demonstrate how to use a custom search space for hyperparameter tuning with Ray Tune and YOLO11. By providing a custom search space, you can focus the tuning process on specific hyperparameters of interest.</p>
 <div class="admonition example">
 <p class="admonition-title">Usage</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ray</span><span class="w"> </span><span class="kn">import</span> <span class="n">tune</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-2-4"></a>
-<a id="__codelineno-2-5"></a><span class="c1"># Define a YOLO model</span>
-<a id="__codelineno-2-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-2-7"></a>
-<a id="__codelineno-2-8"></a><span class="c1"># Run Ray Tune on the model</span>
-<a id="__codelineno-2-9"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span>
-<a id="__codelineno-2-10"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span>
-<a id="__codelineno-2-11"></a>    <span class="n">space</span><span class="o">=</span><span class="p">{</span><span class="s2">"lr0"</span><span class="p">:</span> <span class="n">tune</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">)},</span>
-<a id="__codelineno-2-12"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
-<a id="__codelineno-2-13"></a>    <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a id="__codelineno-2-14"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ray</span><span class="w"> </span><span class="kn">import</span> <span class="n">tune</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Define a YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run Ray Tune on the model</span>
+<span></span><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span>
+<span></span>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span>
+<span></span>    <span class="n">space</span><span class="o">=</span><span class="p">{</span><span class="s2">"lr0"</span><span class="p">:</span> <span class="n">tune</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">)},</span>
+<span></span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+<span></span>    <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>In the code snippet above, we create a YOLO model with the "yolo11n.pt" pretrained weights. Then, we call the <code>tune()</code> method, specifying the dataset configuration with "coco8.yaml". We provide a custom search space for the initial learning rate <code>lr0</code> using a dictionary with the key "lr0" and the value <code>tune.uniform(1e-5, 1e-1)</code>. Finally, we pass additional training arguments, such as the number of epochs directly to the tune method as <code>epochs=50</code>.</p>
@@ -1126,55 +1126,55 @@
 <p>You can resume an interrupted Ray Tune session by passing <code>resume=True</code>. You can optionally pass the directory <code>name</code> used by Ray Tune under <code>runs/{task}</code> to resume. Otherwise, it would resume the last interrupted session. You don't need to provide the <code>iterations</code> and <code>space</code> again, but you need to provide the rest of the training arguments again including <code>data</code> and <code>epochs</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Using <code>resume=True</code> with <code>model.tune()</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="c1"># Define a YOLO model</span>
-<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a><span class="c1"># Resume previous run</span>
-<a id="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-3-8"></a>
-<a id="__codelineno-3-9"></a><span class="c1"># Resume Ray Tune run with name 'tune_exp_2'</span>
-<a id="__codelineno-3-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"tune_exp_2"</span><span class="p">,</span> <span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Define a YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Resume previous run</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Resume Ray Tune run with name 'tune_exp_2'</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"tune_exp_2"</span><span class="p">,</span> <span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h2 id="processing-ray-tune-results">Processing Ray Tune Results</h2>
 <p>After running a hyperparameter tuning experiment with Ray Tune, you might want to perform various analyses on the obtained results. This guide will take you through common workflows for processing and analyzing these results.</p>
 <h3 id="loading-tune-experiment-results-from-a-directory">Loading Tune Experiment Results from a Directory</h3>
 <p>After running the tuning experiment with <code>tuner.fit()</code>, you can load the results from a directory. This is useful, especially if you're performing the analysis after the initial training script has exited.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="n">experiment_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">storage_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">exp_name</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-4-2"></a><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading results from </span><span class="si">{</span><span class="n">experiment_path</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
-<a id="__codelineno-4-3"></a>
-<a id="__codelineno-4-4"></a><span class="n">restored_tuner</span> <span class="o">=</span> <span class="n">tune</span><span class="o">.</span><span class="n">Tuner</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">experiment_path</span><span class="p">,</span> <span class="n">trainable</span><span class="o">=</span><span class="n">train_mnist</span><span class="p">)</span>
-<a id="__codelineno-4-5"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">restored_tuner</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="n">experiment_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">storage_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">exp_name</span><span class="si">}</span><span class="s2">"</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading results from </span><span class="si">{</span><span class="n">experiment_path</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">restored_tuner</span> <span class="o">=</span> <span class="n">tune</span><span class="o">.</span><span class="n">Tuner</span><span class="o">.</span><span class="n">restore</span><span class="p">(</span><span class="n">experiment_path</span><span class="p">,</span> <span class="n">trainable</span><span class="o">=</span><span class="n">train_mnist</span><span class="p">)</span>
+<span></span><span class="n">result_grid</span> <span class="o">=</span> <span class="n">restored_tuner</span><span class="o">.</span><span class="n">get_results</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="basic-experiment-level-analysis">Basic Experiment-Level Analysis</h3>
 <p>Get an overview of how trials performed. You can quickly check if there were any errors during the trials.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="k">if</span> <span class="n">result_grid</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span>
-<a id="__codelineno-5-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"One or more trials failed!"</span><span class="p">)</span>
-<a id="__codelineno-5-3"></a><span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-5-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"No errors!"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="k">if</span> <span class="n">result_grid</span><span class="o">.</span><span class="n">errors</span><span class="p">:</span>
+<span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"One or more trials failed!"</span><span class="p">)</span>
+<span></span><span class="k">else</span><span class="p">:</span>
+<span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"No errors!"</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="basic-trial-level-analysis">Basic Trial-Level Analysis</h3>
 <p>Access individual trial hyperparameter configurations and the last reported metrics.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result_grid</span><span class="p">):</span>
-<a id="__codelineno-6-2"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Trial #</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: Configuration: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">config</span><span class="si">}</span><span class="s2">, Last Reported Metrics: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">metrics</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result_grid</span><span class="p">):</span>
+<span></span>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Trial #</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">: Configuration: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">config</span><span class="si">}</span><span class="s2">, Last Reported Metrics: </span><span class="si">{</span><span class="n">result</span><span class="o">.</span><span class="n">metrics</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="plotting-the-entire-history-of-reported-metrics-for-a-trial">Plotting the Entire History of Reported Metrics for a Trial</h3>
 <p>You can plot the history of reported metrics for each trial to see how the metrics evolved over time.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<a id="__codelineno-7-2"></a>
-<a id="__codelineno-7-3"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result_grid</span><span class="p">):</span>
-<a id="__codelineno-7-4"></a>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
-<a id="__codelineno-7-5"></a>        <span class="n">result</span><span class="o">.</span><span class="n">metrics_dataframe</span><span class="p">[</span><span class="s2">"training_iteration"</span><span class="p">],</span>
-<a id="__codelineno-7-6"></a>        <span class="n">result</span><span class="o">.</span><span class="n">metrics_dataframe</span><span class="p">[</span><span class="s2">"mean_accuracy"</span><span class="p">],</span>
-<a id="__codelineno-7-7"></a>        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Trial </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
-<a id="__codelineno-7-8"></a>    <span class="p">)</span>
-<a id="__codelineno-7-9"></a>
-<a id="__codelineno-7-10"></a><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Training Iterations"</span><span class="p">)</span>
-<a id="__codelineno-7-11"></a><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Mean Accuracy"</span><span class="p">)</span>
-<a id="__codelineno-7-12"></a><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
-<a id="__codelineno-7-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span></span>
+<span></span><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">result</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">result_grid</span><span class="p">):</span>
+<span></span>    <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+<span></span>        <span class="n">result</span><span class="o">.</span><span class="n">metrics_dataframe</span><span class="p">[</span><span class="s2">"training_iteration"</span><span class="p">],</span>
+<span></span>        <span class="n">result</span><span class="o">.</span><span class="n">metrics_dataframe</span><span class="p">[</span><span class="s2">"mean_accuracy"</span><span class="p">],</span>
+<span></span>        <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">"Trial </span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
+<span></span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Training Iterations"</span><span class="p">)</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Mean Accuracy"</span><span class="p">)</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+<span></span><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="summary">Summary</h2>
 <p>In this documentation, we covered common workflows to analyze the results of experiments run with Ray Tune using Ultralytics. The key steps include loading the experiment results from a directory, performing basic experiment-level and trial-level analysis and plotting metrics.</p>
@@ -1185,19 +1185,19 @@
 <ol>
 <li>
 <p><strong>Install the required packages:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ultralytics<span class="w"> </span><span class="s2">"ray[tune]"</span>
-<a id="__codelineno-8-2"></a>pip<span class="w"> </span>install<span class="w"> </span>wandb<span class="w"> </span><span class="c1"># optional for logging</span>
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ultralytics<span class="w"> </span><span class="s2">"ray[tune]"</span>
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>wandb<span class="w"> </span><span class="c1"># optional for logging</span>
 </code></pre></div>
 </li>
 <li>
 <p><strong>Load your YOLO11 model and start tuning:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="c1"># Load a YOLO11 model</span>
-<a id="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-9-5"></a>
-<a id="__codelineno-9-6"></a><span class="c1"># Start tuning with the COCO8 dataset</span>
-<a id="__codelineno-9-7"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load a YOLO11 model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Start tuning with the COCO8 dataset</span>
+<span></span><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1266,22 +1266,22 @@
 <ol>
 <li>
 <p><strong>Install W&amp;B:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a>pip<span class="w"> </span>install<span class="w"> </span>wandb
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>wandb
 </code></pre></div>
 </li>
 <li>
 <p><strong>Modify your tuning script:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">wandb</span>
-<a id="__codelineno-11-2"></a>
-<a id="__codelineno-11-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-11-4"></a>
-<a id="__codelineno-11-5"></a><span class="n">wandb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">"YOLO-Tuning"</span><span class="p">,</span> <span class="n">entity</span><span class="o">=</span><span class="s2">"your-entity"</span><span class="p">)</span>
-<a id="__codelineno-11-6"></a>
-<a id="__codelineno-11-7"></a><span class="c1"># Load YOLO model</span>
-<a id="__codelineno-11-8"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-11-9"></a>
-<a id="__codelineno-11-10"></a><span class="c1"># Tune hyperparameters</span>
-<a id="__codelineno-11-11"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">wandb</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">wandb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span><span class="n">project</span><span class="o">=</span><span class="s2">"YOLO-Tuning"</span><span class="p">,</span> <span class="n">entity</span><span class="o">=</span><span class="s2">"your-entity"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Load YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Tune hyperparameters</span>
+<span></span><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </li>
 </ol>
@@ -1296,13 +1296,13 @@
 <p>Ray Tune seamlessly integrates with Ultralytics YOLO11, providing an easy-to-use interface for tuning hyperparameters effectively. To get started, check out the <a href="../../guides/hyperparameter-tuning/">Hyperparameter Tuning</a> guide.</p>
 <h3 id="how-can-i-define-a-custom-search-space-for-yolo11-hyperparameter-tuning">How can I define a custom search space for YOLO11 hyperparameter tuning?</h3>
 <p>To define a custom search space for your YOLO11 hyperparameter tuning with Ray Tune:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ray</span><span class="w"> </span><span class="kn">import</span> <span class="n">tune</span>
-<a id="__codelineno-12-2"></a>
-<a id="__codelineno-12-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-12-4"></a>
-<a id="__codelineno-12-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-12-6"></a><span class="n">search_space</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"lr0"</span><span class="p">:</span> <span class="n">tune</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span> <span class="s2">"momentum"</span><span class="p">:</span> <span class="n">tune</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">)}</span>
-<a id="__codelineno-12-7"></a><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ray</span><span class="w"> </span><span class="kn">import</span> <span class="n">tune</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">search_space</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"lr0"</span><span class="p">:</span> <span class="n">tune</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span> <span class="s2">"momentum"</span><span class="p">:</span> <span class="n">tune</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">)}</span>
+<span></span><span class="n">result_grid</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span> <span class="n">use_ray</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>This customizes the range of hyperparameters like initial learning rate and momentum to be explored during the tuning process. For advanced configurations, refer to the <a href="#custom-search-space-example">Custom Search Space Example</a> section.</p>
 <div class="git-info">

@@ -1281,28 +1281,28 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="c1"># Initialize the YOLO model</span>
-<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-0-5"></a>
-<a id="__codelineno-0-6"></a><span class="c1"># Define search space</span>
-<a id="__codelineno-0-7"></a><span class="n">search_space</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-0-8"></a>    <span class="s2">"lr0"</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span>
-<a id="__codelineno-0-9"></a>    <span class="s2">"degrees"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">),</span>
-<a id="__codelineno-0-10"></a><span class="p">}</span>
-<a id="__codelineno-0-11"></a>
-<a id="__codelineno-0-12"></a><span class="c1"># Tune hyperparameters on COCO8 for 30 epochs</span>
-<a id="__codelineno-0-13"></a><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span>
-<a id="__codelineno-0-14"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span>
-<a id="__codelineno-0-15"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-<a id="__codelineno-0-16"></a>    <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
-<a id="__codelineno-0-17"></a>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
-<a id="__codelineno-0-18"></a>    <span class="n">space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span>
-<a id="__codelineno-0-19"></a>    <span class="n">plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-20"></a>    <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-21"></a>    <span class="n">val</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<a id="__codelineno-0-22"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Initialize the YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Define search space</span>
+<span></span><span class="n">search_space</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>    <span class="s2">"lr0"</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span>
+<span></span>    <span class="s2">"degrees"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">),</span>
+<span></span><span class="p">}</span>
+<span></span>
+<span></span><span class="c1"># Tune hyperparameters on COCO8 for 30 epochs</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span>
+<span></span>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span>
+<span></span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span></span>    <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span></span>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
+<span></span>    <span class="n">space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span>
+<span></span>    <span class="n">plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">val</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1312,41 +1312,41 @@
 <p>You can resume an interrupted hyperparameter tuning session by passing <code>resume=True</code>. You can optionally pass the directory <code>name</code> used under <code>runs/{task}</code> to resume. Otherwise, it would resume the last interrupted session. You also need to provide all the previous training arguments including <code>data</code>, <code>epochs</code>, <code>iterations</code> and <code>space</code>.</p>
 <div class="admonition example">
 <p class="admonition-title">Using <code>resume=True</code> with <code>model.tune()</code></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="c1"># Define a YOLO model</span>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Define search space</span>
-<a id="__codelineno-1-7"></a><span class="n">search_space</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-1-8"></a>    <span class="s2">"lr0"</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span>
-<a id="__codelineno-1-9"></a>    <span class="s2">"degrees"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">),</span>
-<a id="__codelineno-1-10"></a><span class="p">}</span>
-<a id="__codelineno-1-11"></a>
-<a id="__codelineno-1-12"></a><span class="c1"># Resume previous run</span>
-<a id="__codelineno-1-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span> <span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-1-14"></a>
-<a id="__codelineno-1-15"></a><span class="c1"># Resume tuning run with name 'tune_exp'</span>
-<a id="__codelineno-1-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"tune_exp"</span><span class="p">,</span> <span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Define a YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Define search space</span>
+<span></span><span class="n">search_space</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>    <span class="s2">"lr0"</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span>
+<span></span>    <span class="s2">"degrees"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">45.0</span><span class="p">),</span>
+<span></span><span class="p">}</span>
+<span></span>
+<span></span><span class="c1"># Resume previous run</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span> <span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Resume tuning run with name 'tune_exp'</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">space</span><span class="o">=</span><span class="n">search_space</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"tune_exp"</span><span class="p">,</span> <span class="n">resume</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h2 id="results">Results</h2>
 <p>After you've successfully completed the hyperparameter tuning process, you will obtain several files and directories that encapsulate the results of the tuning. The following describes each:</p>
 <h3 id="file-structure">File Structure</h3>
 <p>Here's what the directory structure of the results will look like. Training directories like <code>train1/</code> contain individual tuning iterations, i.e. one model trained with one set of hyperparameters. The <code>tune/</code> directory contains tuning results from all the individual model trainings:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>runs/
-<a id="__codelineno-2-2"></a>└── detect/
-<a id="__codelineno-2-3"></a>    ├── train1/
-<a id="__codelineno-2-4"></a>    ├── train2/
-<a id="__codelineno-2-5"></a>    ├── ...
-<a id="__codelineno-2-6"></a>    └── tune/
-<a id="__codelineno-2-7"></a>        ├── best_hyperparameters.yaml
-<a id="__codelineno-2-8"></a>        ├── best_fitness.png
-<a id="__codelineno-2-9"></a>        ├── tune_results.csv
-<a id="__codelineno-2-10"></a>        ├── tune_scatter_plots.png
-<a id="__codelineno-2-11"></a>        └── weights/
-<a id="__codelineno-2-12"></a>            ├── last.pt
-<a id="__codelineno-2-13"></a>            └── best.pt
+<div class="highlight"><pre><span></span><code><span></span>runs/
+<span></span>└── detect/
+<span></span>    ├── train1/
+<span></span>    ├── train2/
+<span></span>    ├── ...
+<span></span>    └── tune/
+<span></span>        ├── best_hyperparameters.yaml
+<span></span>        ├── best_fitness.png
+<span></span>        ├── tune_results.csv
+<span></span>        ├── tune_scatter_plots.png
+<span></span>        └── weights/
+<span></span>            ├── last.pt
+<span></span>            └── best.pt
 </code></pre></div>
 <h3 id="file-descriptions">File Descriptions</h3>
 <h4 id="best_hyperparametersyaml">best_hyperparameters.yaml</h4>
@@ -1356,35 +1356,35 @@
 <li><strong>Usage</strong>: Hyperparameter results</li>
 <li>
 <p><strong>Example</strong>:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># 558/900 iterations complete ✅ (45536.81s)</span>
-<a id="__codelineno-3-2"></a><span class="c1"># Results saved to /usr/src/ultralytics/runs/detect/tune</span>
-<a id="__codelineno-3-3"></a><span class="c1"># Best fitness=0.64297 observed at iteration 498</span>
-<a id="__codelineno-3-4"></a><span class="c1"># Best fitness metrics are {'metrics/precision(B)': 0.87247, 'metrics/recall(B)': 0.71387, 'metrics/mAP50(B)': 0.79106, 'metrics/mAP50-95(B)': 0.62651, 'val/box_loss': 2.79884, 'val/cls_loss': 2.72386, 'val/dfl_loss': 0.68503, 'fitness': 0.64297}</span>
-<a id="__codelineno-3-5"></a><span class="c1"># Best fitness model is /usr/src/ultralytics/runs/detect/train498</span>
-<a id="__codelineno-3-6"></a><span class="c1"># Best fitness hyperparameters are printed below.</span>
-<a id="__codelineno-3-7"></a>
-<a id="__codelineno-3-8"></a><span class="nt">lr0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00269</span>
-<a id="__codelineno-3-9"></a><span class="nt">lrf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00288</span>
-<a id="__codelineno-3-10"></a><span class="nt">momentum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.73375</span>
-<a id="__codelineno-3-11"></a><span class="nt">weight_decay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00015</span>
-<a id="__codelineno-3-12"></a><span class="nt">warmup_epochs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.22935</span>
-<a id="__codelineno-3-13"></a><span class="nt">warmup_momentum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1525</span>
-<a id="__codelineno-3-14"></a><span class="nt">box</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18.27875</span>
-<a id="__codelineno-3-15"></a><span class="nt">cls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.32899</span>
-<a id="__codelineno-3-16"></a><span class="nt">dfl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.56016</span>
-<a id="__codelineno-3-17"></a><span class="nt">hsv_h</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.01148</span>
-<a id="__codelineno-3-18"></a><span class="nt">hsv_s</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.53554</span>
-<a id="__codelineno-3-19"></a><span class="nt">hsv_v</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.13636</span>
-<a id="__codelineno-3-20"></a><span class="nt">degrees</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
-<a id="__codelineno-3-21"></a><span class="nt">translate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.12431</span>
-<a id="__codelineno-3-22"></a><span class="nt">scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.07643</span>
-<a id="__codelineno-3-23"></a><span class="nt">shear</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
-<a id="__codelineno-3-24"></a><span class="nt">perspective</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
-<a id="__codelineno-3-25"></a><span class="nt">flipud</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
-<a id="__codelineno-3-26"></a><span class="nt">fliplr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.08631</span>
-<a id="__codelineno-3-27"></a><span class="nt">mosaic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.42551</span>
-<a id="__codelineno-3-28"></a><span class="nt">mixup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
-<a id="__codelineno-3-29"></a><span class="nt">copy_paste</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># 558/900 iterations complete ✅ (45536.81s)</span>
+<span></span><span class="c1"># Results saved to /usr/src/ultralytics/runs/detect/tune</span>
+<span></span><span class="c1"># Best fitness=0.64297 observed at iteration 498</span>
+<span></span><span class="c1"># Best fitness metrics are {'metrics/precision(B)': 0.87247, 'metrics/recall(B)': 0.71387, 'metrics/mAP50(B)': 0.79106, 'metrics/mAP50-95(B)': 0.62651, 'val/box_loss': 2.79884, 'val/cls_loss': 2.72386, 'val/dfl_loss': 0.68503, 'fitness': 0.64297}</span>
+<span></span><span class="c1"># Best fitness model is /usr/src/ultralytics/runs/detect/train498</span>
+<span></span><span class="c1"># Best fitness hyperparameters are printed below.</span>
+<span></span>
+<span></span><span class="nt">lr0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00269</span>
+<span></span><span class="nt">lrf</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00288</span>
+<span></span><span class="nt">momentum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.73375</span>
+<span></span><span class="nt">weight_decay</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.00015</span>
+<span></span><span class="nt">warmup_epochs</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.22935</span>
+<span></span><span class="nt">warmup_momentum</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.1525</span>
+<span></span><span class="nt">box</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">18.27875</span>
+<span></span><span class="nt">cls</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">1.32899</span>
+<span></span><span class="nt">dfl</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.56016</span>
+<span></span><span class="nt">hsv_h</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.01148</span>
+<span></span><span class="nt">hsv_s</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.53554</span>
+<span></span><span class="nt">hsv_v</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.13636</span>
+<span></span><span class="nt">degrees</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span></span><span class="nt">translate</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.12431</span>
+<span></span><span class="nt">scale</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.07643</span>
+<span></span><span class="nt">shear</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span></span><span class="nt">perspective</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span></span><span class="nt">flipud</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span></span><span class="nt">fliplr</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.08631</span>
+<span></span><span class="nt">mosaic</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.42551</span>
+<span></span><span class="nt">mixup</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
+<span></span><span class="nt">copy_paste</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0.0</span>
 </code></pre></div>
 </li>
 </ul>
@@ -1403,10 +1403,10 @@
 <li><strong>Format</strong>: CSV</li>
 <li><strong>Usage</strong>: Per-iteration results tracking.</li>
 <li><strong>Example</strong>:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>  fitness,lr0,lrf,momentum,weight_decay,warmup_epochs,warmup_momentum,box,cls,dfl,hsv_h,hsv_s,hsv_v,degrees,translate,scale,shear,perspective,flipud,fliplr,mosaic,mixup,copy_paste
-<a id="__codelineno-4-2"></a>  0.05021,0.01,0.01,0.937,0.0005,3.0,0.8,7.5,0.5,1.5,0.015,0.7,0.4,0.0,0.1,0.5,0.0,0.0,0.0,0.5,1.0,0.0,0.0
-<a id="__codelineno-4-3"></a>  0.07217,0.01003,0.00967,0.93897,0.00049,2.79757,0.81075,7.5,0.50746,1.44826,0.01503,0.72948,0.40658,0.0,0.0987,0.4922,0.0,0.0,0.0,0.49729,1.0,0.0,0.0
-<a id="__codelineno-4-4"></a>  0.06584,0.01003,0.00855,0.91009,0.00073,3.42176,0.95,8.64301,0.54594,1.72261,0.01503,0.59179,0.40658,0.0,0.0987,0.46955,0.0,0.0,0.0,0.49729,0.80187,0.0,0.0
+    <div class="highlight"><pre><span></span><code><span></span>  fitness,lr0,lrf,momentum,weight_decay,warmup_epochs,warmup_momentum,box,cls,dfl,hsv_h,hsv_s,hsv_v,degrees,translate,scale,shear,perspective,flipud,fliplr,mosaic,mixup,copy_paste
+<span></span>  0.05021,0.01,0.01,0.937,0.0005,3.0,0.8,7.5,0.5,1.5,0.015,0.7,0.4,0.0,0.1,0.5,0.0,0.0,0.0,0.5,1.0,0.0,0.0
+<span></span>  0.07217,0.01003,0.00967,0.93897,0.00049,2.79757,0.81075,7.5,0.50746,1.44826,0.01503,0.72948,0.40658,0.0,0.0987,0.4922,0.0,0.0,0.0,0.49729,1.0,0.0,0.0
+<span></span>  0.06584,0.01003,0.00855,0.91009,0.00073,3.42176,0.95,8.64301,0.54594,1.72261,0.01503,0.59179,0.40658,0.0,0.0987,0.46955,0.0,0.0,0.0,0.49729,0.80187,0.0,0.0
 </code></pre></div></li>
 </ul>
 <h4 id="tune_scatter_plotspng">tune_scatter_plots.png</h4>
@@ -1442,13 +1442,13 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="c1"># Initialize the YOLO model</span>
-<a id="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-5-5"></a>
-<a id="__codelineno-5-6"></a><span class="c1"># Tune hyperparameters on COCO8 for 30 epochs</span>
-<a id="__codelineno-5-7"></a><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span> <span class="n">plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Initialize the YOLO model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Tune hyperparameters on COCO8 for 30 epochs</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span> <span class="n">plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>

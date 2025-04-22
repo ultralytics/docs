@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Model" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, HUB-SDK, model management, machine learning, create model, update model, deploy model, ML workflow" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/sdk/model" property="og:url"/><meta content="Model" property="og:title"/><meta content="Explore comprehensive steps to manage, create, update, and deploy your ML models with Ultralytics HUB-SDK. Elevate your machine learning workflows." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/sdk/model" property="twitter:url"/><meta content="Model" property="twitter:title"/><meta content="Explore comprehensive steps to manage, create, update, and deploy your ML models with Ultralytics HUB-SDK. Elevate your machine learning workflows." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Model", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-22 22:44:15 +0000", "dateModified": "2025-03-13 22:44:15 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore comprehensive steps to manage, create, update, and deploy your ML models with Ultralytics HUB-SDK. Elevate your machine learning workflows."}</script></head>
+<meta content="Model" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, HUB-SDK, model management, machine learning, create model, update model, deploy model, ML workflow" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/hub/sdk/model" property="og:url"/><meta content="Model" property="og:title"/><meta content="Explore comprehensive steps to manage, create, update, and deploy your ML models with Ultralytics HUB-SDK. Elevate your machine learning workflows." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/hub/sdk/model" property="twitter:url"/><meta content="Model" property="twitter:title"/><meta content="Explore comprehensive steps to manage, create, update, and deploy your ML models with Ultralytics HUB-SDK. Elevate your machine learning workflows." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Model", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-22 23:09:26 +0000", "dateModified": "2025-03-13 23:09:26 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore comprehensive steps to manage, create, update, and deploy your ML models with Ultralytics HUB-SDK. Elevate your machine learning workflows."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -682,132 +682,132 @@
 <p>Welcome to the Ultralytics HUB-SDK Model Management documentation! Whether you're just getting started with managing machine learning models or you're a seasoned data scientist looking for specific operation instructions, you've come to the right place. This guide provides a smooth journey through the HUB-SDK features, ensuring you gain the know-how to efficiently manage your models.</p>
 <h2 id="retrieve-a-model-by-its-unique-identifier">Retrieve a Model by its Unique Identifier</h2>
 <p>In machine learning workflows, accessing a specific model is a common requirement. With Ultralytics HUB-SDK, <a href="https://docs.ultralytics.com/hub/sdk/model/#retrieve-a-model-by-its-unique-identifier">fetching a model by its ID</a> is straightforward. This function sets up a model object based on the provided unique identifier, granting you full access to the model's details and operations.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-0-2"></a>
-<a id="__codelineno-0-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-0-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-0-5"></a>
-<a id="__codelineno-0-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
-<a id="__codelineno-0-7"></a><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Outputs the model's metadata and configuration</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Outputs the model's metadata and configuration</span>
 </code></pre></div>
 <h2 id="access-project-and-dataset-prerequisites">Access Project and Dataset Prerequisites</h2>
 <p>Before creating or training a model, it's crucial to ensure that both a <a href="https://docs.ultralytics.com/hub/sdk/project/">project</a> and a <a href="https://docs.ultralytics.com/hub/sdk/dataset/">dataset</a> are present. The following code snippet helps verify these components by initializing their objects. While utilizing a project and dataset to organize model training is beneficial, it's not mandatory. If either ID is missing, the object data (<code>project.data</code>, <code>dataset.data</code>) will be empty.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-1-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="n">project</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="s2">"&lt;Project ID&gt;"</span><span class="p">)</span>
-<a id="__codelineno-1-7"></a><span class="n">dataset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">dataset</span><span class="p">(</span><span class="s2">"&lt;Dataset ID&gt;"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">project</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">project</span><span class="p">(</span><span class="s2">"&lt;Project ID&gt;"</span><span class="p">)</span>
+<span></span><span class="n">dataset</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">dataset</span><span class="p">(</span><span class="s2">"&lt;Dataset ID&gt;"</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="create-a-new-model-with-custom-configuration">Create a New Model with Custom Configuration</h2>
 <p>Creating a <a href="https://docs.ultralytics.com/hub/sdk/model/#create-a-new-model-with-custom-configuration">new model</a> tailored to your project requirements is simple with this function. Specify the model's name and associate it with your project and dataset. You can also customize configurations, such as setting the batch size or device. Note that <code>projectId</code> and <code>datasetId</code> parameters are optional if you're not ready to tie the model to a project or dataset yet.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-2-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-2-5"></a>
-<a id="__codelineno-2-6"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-2-7"></a>    <span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"sdk model"</span><span class="p">},</span>  <span class="c1"># Model name</span>
-<a id="__codelineno-2-8"></a>    <span class="s2">"projectId"</span><span class="p">:</span> <span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>  <span class="c1"># Optional: Associate with an existing project</span>
-<a id="__codelineno-2-9"></a>    <span class="s2">"datasetId"</span><span class="p">:</span> <span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>  <span class="c1"># Optional: Associate with an existing dataset</span>
-<a id="__codelineno-2-10"></a>    <span class="s2">"config"</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Define hyperparameters and settings</span>
-<a id="__codelineno-2-11"></a>        <span class="s2">"batchSize"</span><span class="p">:</span> <span class="s2">"-1"</span><span class="p">,</span>
-<a id="__codelineno-2-12"></a>        <span class="s2">"cache"</span><span class="p">:</span> <span class="s2">"ram"</span><span class="p">,</span>
-<a id="__codelineno-2-13"></a>        <span class="s2">"device"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">,</span>
-<a id="__codelineno-2-14"></a>        <span class="s2">"epochs"</span><span class="p">:</span> <span class="s2">"5"</span><span class="p">,</span>
-<a id="__codelineno-2-15"></a>        <span class="s2">"imageSize"</span><span class="p">:</span> <span class="s2">"640"</span><span class="p">,</span>
-<a id="__codelineno-2-16"></a>        <span class="s2">"patience"</span><span class="p">:</span> <span class="s2">"5"</span><span class="p">,</span>  <span class="c1"># Stop training if validation doesn't improve</span>
-<a id="__codelineno-2-17"></a>    <span class="p">},</span>
-<a id="__codelineno-2-18"></a><span class="p">}</span>
-<a id="__codelineno-2-19"></a><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>
-<a id="__codelineno-2-20"></a><span class="n">model</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Creates the model with your specified details</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>    <span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"sdk model"</span><span class="p">},</span>  <span class="c1"># Model name</span>
+<span></span>    <span class="s2">"projectId"</span><span class="p">:</span> <span class="n">project</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>  <span class="c1"># Optional: Associate with an existing project</span>
+<span></span>    <span class="s2">"datasetId"</span><span class="p">:</span> <span class="n">dataset</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>  <span class="c1"># Optional: Associate with an existing dataset</span>
+<span></span>    <span class="s2">"config"</span><span class="p">:</span> <span class="p">{</span>  <span class="c1"># Define hyperparameters and settings</span>
+<span></span>        <span class="s2">"batchSize"</span><span class="p">:</span> <span class="s2">"-1"</span><span class="p">,</span>
+<span></span>        <span class="s2">"cache"</span><span class="p">:</span> <span class="s2">"ram"</span><span class="p">,</span>
+<span></span>        <span class="s2">"device"</span><span class="p">:</span> <span class="s2">"name"</span><span class="p">,</span>
+<span></span>        <span class="s2">"epochs"</span><span class="p">:</span> <span class="s2">"5"</span><span class="p">,</span>
+<span></span>        <span class="s2">"imageSize"</span><span class="p">:</span> <span class="s2">"640"</span><span class="p">,</span>
+<span></span>        <span class="s2">"patience"</span><span class="p">:</span> <span class="s2">"5"</span><span class="p">,</span>  <span class="c1"># Stop training if validation doesn't improve</span>
+<span></span>    <span class="p">},</span>
+<span></span><span class="p">}</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">()</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">create_model</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Creates the model with your specified details</span>
 </code></pre></div>
 <h2 id="update-an-existing-models-metadata-or-config">Update an Existing Model's Metadata or Config</h2>
 <p>As projects evolve, you might need to <a href="https://docs.ultralytics.com/hub/sdk/model/#update-an-existing-models-metadata-or-config">update a model's metadata</a>, such as renaming it for clarity. The SDK provides a method to refresh these details effortlessly, minimizing manual errors and saving time.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-3-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
-<a id="__codelineno-3-7"></a><span class="n">model</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Updated Model Name"</span><span class="p">}})</span>  <span class="c1"># Renames the specified model</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"meta"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Updated Model Name"</span><span class="p">}})</span>  <span class="c1"># Renames the specified model</span>
 </code></pre></div>
 <h2 id="delete-a-model-safely">Delete a Model Safely</h2>
 <p>Deleting a model is irreversible, so use this function with caution. When you're sure you want to <a href="https://docs.ultralytics.com/hub/sdk/model/#delete-a-model-safely">remove a model</a> from the system, the following command will permanently delete the specified model, along with all its associated data.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-4-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-4-5"></a>
-<a id="__codelineno-4-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
-<a id="__codelineno-4-7"></a><span class="n">model</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Permanently deletes the specified model</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Permanently deletes the specified model</span>
 </code></pre></div>
 <p>By default, the <code>delete</code> method performs a soft delete, marking the model as inactive without removing it permanently. If you want to perform a hard delete and remove the model along with its associated data permanently, pass the argument <code>hard=True</code> as shown above. Exercise caution when using the hard delete option, as it is irreversible.</p>
 <h2 id="listing-all-your-models-with-pagination">Listing All Your Models with Pagination</h2>
 <p>Ultralytics HUB-SDK streamlines fetching <a href="https://docs.ultralytics.com/hub/sdk/model/#listing-all-your-models-with-pagination">lists of models</a>, implementing pagination to efficiently navigate through potentially large collections. By customizing arguments such as <code>page_size</code>, you can tailor the output to your needs, including the ability to view both private and public projects.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-5-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-5-5"></a>
-<a id="__codelineno-5-6"></a><span class="n">model_list</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model_list</span><span class="p">(</span><span class="n">page_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Fetches the first page with 10 models</span>
-<a id="__codelineno-5-7"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Current result:"</span><span class="p">,</span> <span class="n">model_list</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>  <span class="c1"># Displays the current page's models</span>
-<a id="__codelineno-5-8"></a>
-<a id="__codelineno-5-9"></a><span class="n">model_list</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>  <span class="c1"># Move to the next page</span>
-<a id="__codelineno-5-10"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Next page result:"</span><span class="p">,</span> <span class="n">model_list</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
-<a id="__codelineno-5-11"></a>
-<a id="__codelineno-5-12"></a><span class="n">model_list</span><span class="o">.</span><span class="n">previous</span><span class="p">()</span>  <span class="c1"># Return to the previous page</span>
-<a id="__codelineno-5-13"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Previous page result:"</span><span class="p">,</span> <span class="n">model_list</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model_list</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model_list</span><span class="p">(</span><span class="n">page_size</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>  <span class="c1"># Fetches the first page with 10 models</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Current result:"</span><span class="p">,</span> <span class="n">model_list</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>  <span class="c1"># Displays the current page's models</span>
+<span></span>
+<span></span><span class="n">model_list</span><span class="o">.</span><span class="n">next</span><span class="p">()</span>  <span class="c1"># Move to the next page</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Next page result:"</span><span class="p">,</span> <span class="n">model_list</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model_list</span><span class="o">.</span><span class="n">previous</span><span class="p">()</span>  <span class="c1"># Return to the previous page</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Previous page result:"</span><span class="p">,</span> <span class="n">model_list</span><span class="o">.</span><span class="n">results</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="upload-and-visualize-training-metrics">Upload and Visualize Training Metrics</h2>
 <p>To track and visualize your <a href="https://docs.ultralytics.com/hub/sdk/model/#upload-and-visualize-training-metrics">model's performance metrics</a> throughout the training process, use this function to upload metrics such as loss and accuracy. This enables the continual monitoring of training progress and simplifies the analysis stage.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-6-2"></a>
-<a id="__codelineno-6-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-6-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-6-5"></a>
-<a id="__codelineno-6-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
-<a id="__codelineno-6-7"></a>
-<a id="__codelineno-6-8"></a><span class="c1"># Define your metrics structure. Keys are steps, and values are JSON strings of metrics.</span>
-<a id="__codelineno-6-9"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-<a id="__codelineno-6-10"></a>    <span class="mi">1</span><span class="p">:</span> <span class="s1">'{"loss/1": 0.5, "accuracy/1": 0.85}'</span><span class="p">,</span>
-<a id="__codelineno-6-11"></a>    <span class="mi">2</span><span class="p">:</span> <span class="s1">'{"loss/2": 0.4, "accuracy/2": 0.88}'</span><span class="p">,</span>
-<a id="__codelineno-6-12"></a>    <span class="mi">3</span><span class="p">:</span> <span class="s1">'{"loss/3": 0.3, "accuracy/3": 0.90}'</span><span class="p">,</span>
-<a id="__codelineno-6-13"></a><span class="p">}</span>
-<a id="__codelineno-6-14"></a>
-<a id="__codelineno-6-15"></a><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Uploads the specified metrics to the model</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Define your metrics structure. Keys are steps, and values are JSON strings of metrics.</span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>    <span class="mi">1</span><span class="p">:</span> <span class="s1">'{"loss/1": 0.5, "accuracy/1": 0.85}'</span><span class="p">,</span>
+<span></span>    <span class="mi">2</span><span class="p">:</span> <span class="s1">'{"loss/2": 0.4, "accuracy/2": 0.88}'</span><span class="p">,</span>
+<span></span>    <span class="mi">3</span><span class="p">:</span> <span class="s1">'{"loss/3": 0.3, "accuracy/3": 0.90}'</span><span class="p">,</span>
+<span></span><span class="p">}</span>
+<span></span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">upload_metrics</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>  <span class="c1"># Uploads the specified metrics to the model</span>
 </code></pre></div>
 <h2 id="export-your-model-for-deployment-or-analysis">Export Your Model for Deployment or Analysis</h2>
 <p><a href="https://docs.ultralytics.com/hub/sdk/model/#export-your-model-for-deployment-or-analysis">Exporting models</a> for various purposes, such as deployment or in-depth analysis, is straightforward. Specify the format you require, and this function will prepare the model accordingly. Whether you need a TensorFlow or PyTorch format, the SDK handles it seamlessly.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-7-2"></a>
-<a id="__codelineno-7-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-7-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-7-5"></a>
-<a id="__codelineno-7-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
-<a id="__codelineno-7-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"pyTorch"</span><span class="p">)</span>  <span class="c1"># Exports the model as a PyTorch file</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"pyTorch"</span><span class="p">)</span>  <span class="c1"># Exports the model as a PyTorch file</span>
 </code></pre></div>
 <h2 id="retrieve-a-direct-weight-url">Retrieve a Direct Weight URL</h2>
 <p>Occasionally, you might require direct access to your <a href="https://docs.ultralytics.com/hub/sdk/model/#retrieve-a-direct-weight-url">model's remotely-stored artifacts</a>. This function provides a URL to access specific files, like your best-performing model weights.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-8-2"></a>
-<a id="__codelineno-8-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-8-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-8-5"></a>
-<a id="__codelineno-8-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
-<a id="__codelineno-8-7"></a><span class="n">weight_url</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_weights_url</span><span class="p">(</span><span class="s2">"best"</span><span class="p">)</span>  <span class="c1"># or "last"</span>
-<a id="__codelineno-8-8"></a><span class="nb">print</span><span class="p">(</span><span class="s2">"Weight URL link:"</span><span class="p">,</span> <span class="n">weight_url</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
+<span></span><span class="n">weight_url</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_weights_url</span><span class="p">(</span><span class="s2">"best"</span><span class="p">)</span>  <span class="c1"># or "last"</span>
+<span></span><span class="nb">print</span><span class="p">(</span><span class="s2">"Weight URL link:"</span><span class="p">,</span> <span class="n">weight_url</span><span class="p">)</span>
 </code></pre></div>
 <h2 id="upload-a-model-checkpoint">Upload a Model Checkpoint</h2>
 <p>Uploading a <a href="https://docs.ultralytics.com/hub/sdk/reference/modules/models/#upload_model">model checkpoint</a> is straightforward with the <code>upload_model</code> function. Indicate the significance of the checkpoint with the <code>is_best</code> flag and the training epoch for clarity.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
-<a id="__codelineno-9-4"></a><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
-<a id="__codelineno-9-5"></a>
-<a id="__codelineno-9-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
-<a id="__codelineno-9-7"></a><span class="n">model</span><span class="o">.</span><span class="n">upload_model</span><span class="p">(</span><span class="n">is_best</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">"&lt;Weight File&gt;"</span><span class="p">)</span>  <span class="c1"># Uploads the specified model checkpoint</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<span></span>
+<span></span><span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="s2">"&lt;YOUR-API-KEY&gt;"</span><span class="p">}</span>
+<span></span><span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="s2">"&lt;Model ID&gt;"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">upload_model</span><span class="p">(</span><span class="n">is_best</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">epoch</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="s2">"&lt;Weight File&gt;"</span><span class="p">)</span>  <span class="c1"># Uploads the specified model checkpoint</span>
 </code></pre></div>
 <h2 id="conclusion">Conclusion</h2>
 <p>Ultralytics HUB-SDK offers a comprehensive set of operations for effective model management, enabling you to focus on achieving the best results in your machine learning endeavors. Should you have any further questions or require assistance, please reach out to our community or support team. Happy modeling! 🚀</p>

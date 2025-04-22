@@ -595,9 +595,9 @@
 <p>Provide a clear and concise description of the issue you're experiencing. Explain the expected behavior and the actual behavior you're encountering. If applicable, include any relevant error messages or logs.</p>
 <h2 id="5-format-your-code-properly">5. Format Your Code Properly</h2>
 <p>Format your code properly using code blocks in the issue description. This makes it easier for others to read and understand your code. In GitHub, you can create a code block by wrapping your code with triple backticks (```) and specifying the language:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="sb">```</span>python
-<a id="__codelineno-0-2"></a><span class="c1"># Your Python code goes here</span>
-<a id="__codelineno-0-3"></a><span class="sb">```</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="sb">```</span>python
+<span></span><span class="c1"># Your Python code goes here</span>
+<span></span><span class="sb">```</span>
 </code></pre></div>
 <h2 id="6-test-your-mre">6. Test Your MRE</h2>
 <p>Before submitting your MRE, test it to ensure that it accurately reproduces the issue. Make sure that others can run your example without any issues or modifications.</p>
@@ -606,21 +606,21 @@
 <p><strong>Bug description:</strong></p>
 <p>When running inference on a 0-channel image, I get an error related to the dimensions of the input tensor.</p>
 <p><strong>MRE:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<a id="__codelineno-1-2"></a>
-<a id="__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-4"></a>
-<a id="__codelineno-1-5"></a><span class="c1"># Load the model</span>
-<a id="__codelineno-1-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-7"></a>
-<a id="__codelineno-1-8"></a><span class="c1"># Load a 0-channel image</span>
-<a id="__codelineno-1-9"></a><span class="n">image</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
-<a id="__codelineno-1-10"></a>
-<a id="__codelineno-1-11"></a><span class="c1"># Run the model</span>
-<a id="__codelineno-1-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Load a 0-channel image</span>
+<span></span><span class="n">image</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 </code></pre></div>
 <p><strong>Error message:</strong></p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>RuntimeError: Expected input[1, 0, 640, 640] to have 3 channels, but got 0 channels instead
+<div class="highlight"><pre><span></span><code><span></span>RuntimeError: Expected input[1, 0, 640, 640] to have 3 channels, but got 0 channels instead
 </code></pre></div>
 <p><strong>Dependencies:</strong></p>
 <ul>
@@ -661,9 +661,9 @@
 <li>Ensure your code is indented correctly for readability.</li>
 </ul>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="sb">```</span>python
-<a id="__codelineno-3-2"></a><span class="c1"># Your Python code goes here</span>
-<a id="__codelineno-3-3"></a><span class="sb">```</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="sb">```</span>python
+<span></span><span class="c1"># Your Python code goes here</span>
+<span></span><span class="sb">```</span>
 </code></pre></div>
 <p>For more tips on code formatting, see <a href="#5-format-your-code-properly">Format Your Code Properly</a>.</p>
 <h3 id="what-are-some-common-errors-to-check-before-submitting-my-mre-for-a-bug-report">What are some common errors to check before submitting my MRE for a bug report?</h3>

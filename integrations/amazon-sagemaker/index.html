@@ -845,50 +845,50 @@
 <ul>
 <li>Clone the GitHub Repository: Execute the following command in your terminal to clone the host-yolov8-on-sagemaker-endpoint repository:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/aws-samples/host-yolov8-on-sagemaker-endpoint.git
+<div class="highlight"><pre><span></span><code><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/aws-samples/host-yolov8-on-sagemaker-endpoint.git
 </code></pre></div>
 <ul>
 <li>Navigate to the Cloned Directory: Change your directory to the cloned repository:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="nb">cd</span><span class="w"> </span>host-yolov8-on-sagemaker-endpoint/yolov8-pytorch-cdk
+<div class="highlight"><pre><span></span><code><span></span><span class="nb">cd</span><span class="w"> </span>host-yolov8-on-sagemaker-endpoint/yolov8-pytorch-cdk
 </code></pre></div>
 <h3 id="step-3-set-up-the-cdk-environment">Step 3: Set Up the CDK Environment</h3>
 <p>Now that you have the necessary code, set up your environment for deploying with AWS CDK.</p>
 <ul>
 <li>Create a Python Virtual Environment: This isolates your Python environment and dependencies. Run:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<div class="highlight"><pre><span></span><code><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
 </code></pre></div>
 <ul>
 <li>Activate the Virtual Environment:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<div class="highlight"><pre><span></span><code><span></span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
 </code></pre></div>
 <ul>
 <li>Install Dependencies: Install the required Python dependencies for the project:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<div class="highlight"><pre><span></span><code><span></span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
 <ul>
 <li>Upgrade AWS CDK Library: Ensure you have the latest version of the AWS CDK library:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>aws-cdk-lib
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>aws-cdk-lib
 </code></pre></div>
 <h3 id="step-4-create-the-aws-cloudformation-stack">Step 4: Create the AWS CloudFormation Stack</h3>
 <ul>
 <li>Synthesize the CDK Application: Generate the AWS CloudFormation template from your CDK code:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>cdk<span class="w"> </span>synth
+<div class="highlight"><pre><span></span><code><span></span>cdk<span class="w"> </span>synth
 </code></pre></div>
 <ul>
 <li>Bootstrap the CDK Application: Prepare your AWS environment for CDK deployment:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a>cdk<span class="w"> </span>bootstrap
+<div class="highlight"><pre><span></span><code><span></span>cdk<span class="w"> </span>bootstrap
 </code></pre></div>
 <ul>
 <li>Deploy the Stack: This will create the necessary AWS resources and deploy your model:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>cdk<span class="w"> </span>deploy
+<div class="highlight"><pre><span></span><code><span></span>cdk<span class="w"> </span>deploy
 </code></pre></div>
 <h3 id="step-5-deploy-the-yolo-model">Step 5: Deploy the YOLO Model</h3>
 <p>Before diving into the deployment instructions, be sure to check out the range of <a href="../../models/">YOLO11 models offered by Ultralytics</a>. This will help you choose the most appropriate model for your project requirements.</p>
@@ -901,25 +901,25 @@
 <p>Access and Modify inference.py: After opening the SageMaker notebook instance in Jupyter, locate the inference.py file. Edit the output_fn function in inference.py as shown below and save your changes to the script, ensuring that there are no syntax errors.</p>
 </li>
 </ul>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a>
-<a id="__codelineno-9-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">output_fn</span><span class="p">(</span><span class="n">prediction_output</span><span class="p">):</span>
-<a id="__codelineno-9-5"></a><span class="w">    </span><span class="sd">"""Formats model outputs as JSON string, extracting attributes like boxes, masks, keypoints."""</span>
-<a id="__codelineno-9-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Executing output_fn from inference.py ..."</span><span class="p">)</span>
-<a id="__codelineno-9-7"></a>    <span class="n">infer</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-9-8"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">prediction_output</span><span class="p">:</span>
-<a id="__codelineno-9-9"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-9-10"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-9-11"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-9-12"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-9-13"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-9-14"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-9-15"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-9-16"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"obb"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-9-17"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-9-18"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"probs"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-9-19"></a>    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">output_fn</span><span class="p">(</span><span class="n">prediction_output</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Formats model outputs as JSON string, extracting attributes like boxes, masks, keypoints."""</span>
+<span></span>    <span class="nb">print</span><span class="p">(</span><span class="s2">"Executing output_fn from inference.py ..."</span><span class="p">)</span>
+<span></span>    <span class="n">infer</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">prediction_output</span><span class="p">:</span>
+<span></span>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>            <span class="n">infer</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>            <span class="n">infer</span><span class="p">[</span><span class="s2">"masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>            <span class="n">infer</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>            <span class="n">infer</span><span class="p">[</span><span class="s2">"obb"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>            <span class="n">infer</span><span class="p">[</span><span class="s2">"probs"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
 </code></pre></div>
 <ul>
 <li>Deploy the Endpoint Using 1_DeployEndpoint.ipynb: In the Jupyter environment, open the 1_DeployEndpoint.ipynb notebook located in the sm-notebook directory. Follow the instructions in the notebook and run the cells to download the YOLO11 model, package it with the updated inference code, and upload it to an Amazon S3 bucket. The notebook will guide you through creating and deploying a SageMaker endpoint for the YOLO11 model.</li>
@@ -961,19 +961,19 @@
 <ol>
 <li><strong>Set Up Your AWS Environment</strong>: Ensure you have an AWS Account, IAM roles with necessary permissions, and the AWS CLI configured. Install AWS CDK if not already done (refer to the <a href="https://docs.aws.amazon.com/cdk/v2/guide/getting_started.html#getting_started_install">AWS CDK instructions</a>).</li>
 <li><strong>Clone the YOLO11 SageMaker Repository</strong>:
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/aws-samples/host-yolov8-on-sagemaker-endpoint.git
-<a id="__codelineno-10-2"></a><span class="nb">cd</span><span class="w"> </span>host-yolov8-on-sagemaker-endpoint/yolov8-pytorch-cdk
+    <div class="highlight"><pre><span></span><code><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/aws-samples/host-yolov8-on-sagemaker-endpoint.git
+<span></span><span class="nb">cd</span><span class="w"> </span>host-yolov8-on-sagemaker-endpoint/yolov8-pytorch-cdk
 </code></pre></div></li>
 <li><strong>Set Up the CDK Environment</strong>: Create a Python virtual environment, activate it, install dependencies, and upgrade AWS CDK library.
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
-<a id="__codelineno-11-2"></a><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
-<a id="__codelineno-11-3"></a>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
-<a id="__codelineno-11-4"></a>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>aws-cdk-lib
+    <div class="highlight"><pre><span></span><code><span></span>python3<span class="w"> </span>-m<span class="w"> </span>venv<span class="w"> </span>.venv
+<span></span><span class="nb">source</span><span class="w"> </span>.venv/bin/activate
+<span></span>pip3<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<span></span>pip<span class="w"> </span>install<span class="w"> </span>--upgrade<span class="w"> </span>aws-cdk-lib
 </code></pre></div></li>
 <li><strong>Deploy using AWS CDK</strong>: Synthesize and deploy the CloudFormation stack, bootstrap the environment.
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a>cdk<span class="w"> </span>synth
-<a id="__codelineno-12-2"></a>cdk<span class="w"> </span>bootstrap
-<a id="__codelineno-12-3"></a>cdk<span class="w"> </span>deploy
+    <div class="highlight"><pre><span></span><code><span></span>cdk<span class="w"> </span>synth
+<span></span>cdk<span class="w"> </span>bootstrap
+<span></span>cdk<span class="w"> </span>deploy
 </code></pre></div></li>
 </ol>
 <p>For further details, review the <a href="#step-5-deploy-the-yolo-model">documentation section</a>.</p>
@@ -1001,17 +1001,17 @@
 <ol>
 <li>
 <p><strong>Modify <code>inference.py</code></strong>: Locate and customize the <code>output_fn</code> function in the <code>inference.py</code> file to tailor output formats.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
-<a id="__codelineno-13-2"></a>
-<a id="__codelineno-13-3"></a>
-<a id="__codelineno-13-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">output_fn</span><span class="p">(</span><span class="n">prediction_output</span><span class="p">):</span>
-<a id="__codelineno-13-5"></a><span class="w">    </span><span class="sd">"""Formats model outputs as JSON string, extracting attributes like boxes, masks, keypoints."""</span>
-<a id="__codelineno-13-6"></a>    <span class="n">infer</span> <span class="o">=</span> <span class="p">{}</span>
-<a id="__codelineno-13-7"></a>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">prediction_output</span><span class="p">:</span>
-<a id="__codelineno-13-8"></a>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-13-9"></a>            <span class="n">infer</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<a id="__codelineno-13-10"></a>        <span class="c1"># Add more processing logic if necessary</span>
-<a id="__codelineno-13-11"></a>    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">json</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">output_fn</span><span class="p">(</span><span class="n">prediction_output</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Formats model outputs as JSON string, extracting attributes like boxes, masks, keypoints."""</span>
+<span></span>    <span class="n">infer</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">prediction_output</span><span class="p">:</span>
+<span></span>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>            <span class="n">infer</span><span class="p">[</span><span class="s2">"boxes"</span><span class="p">]</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>        <span class="c1"># Add more processing logic if necessary</span>
+<span></span>    <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>

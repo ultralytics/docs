@@ -1049,64 +1049,64 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Fine-Tuning</label><label for="__tabbed_1_2">Linear Probing</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEPESegTrainer</span>
-<a id="__codelineno-0-3"></a>
-<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11s-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-0-5"></a>
-<a id="__codelineno-0-6"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-<a id="__codelineno-0-7"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">,</span>
-<a id="__codelineno-0-8"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
-<a id="__codelineno-0-9"></a>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<a id="__codelineno-0-10"></a>    <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
-<a id="__codelineno-0-11"></a>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
-<a id="__codelineno-0-12"></a>    <span class="n">lr0</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
-<a id="__codelineno-0-13"></a>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-0-14"></a>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
-<a id="__codelineno-0-15"></a>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-<a id="__codelineno-0-16"></a>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-0-17"></a>    <span class="n">device</span><span class="o">=</span><span class="s2">"0"</span><span class="p">,</span>
-<a id="__codelineno-0-18"></a>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOEPESegTrainer</span><span class="p">,</span>
-<a id="__codelineno-0-19"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEPESegTrainer</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11s-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span></span>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">,</span>
+<span></span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+<span></span>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+<span></span>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
+<span></span>    <span class="n">lr0</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+<span></span>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<span></span>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
+<span></span>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+<span></span>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span></span>    <span class="n">device</span><span class="o">=</span><span class="s2">"0"</span><span class="p">,</span>
+<span></span>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOEPESegTrainer</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEPESegTrainer</span>
-<a id="__codelineno-1-3"></a>
-<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11s-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-5"></a><span class="n">head_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-<a id="__codelineno-1-6"></a><span class="n">freeze</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">head_index</span><span class="p">)]</span>
-<a id="__codelineno-1-7"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">named_children</span><span class="p">():</span>
-<a id="__codelineno-1-8"></a>    <span class="k">if</span> <span class="s2">"cv3"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
-<a id="__codelineno-1-9"></a>        <span class="n">freeze</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-1-10"></a>
-<a id="__codelineno-1-11"></a><span class="n">freeze</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-<a id="__codelineno-1-12"></a>    <span class="p">[</span>
-<a id="__codelineno-1-13"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.0.0"</span><span class="p">,</span>
-<a id="__codelineno-1-14"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.0.1"</span><span class="p">,</span>
-<a id="__codelineno-1-15"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.1.0"</span><span class="p">,</span>
-<a id="__codelineno-1-16"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.1.1"</span><span class="p">,</span>
-<a id="__codelineno-1-17"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.2.0"</span><span class="p">,</span>
-<a id="__codelineno-1-18"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.2.1"</span><span class="p">,</span>
-<a id="__codelineno-1-19"></a>    <span class="p">]</span>
-<a id="__codelineno-1-20"></a><span class="p">)</span>
-<a id="__codelineno-1-21"></a>
-<a id="__codelineno-1-22"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-<a id="__codelineno-1-23"></a>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">,</span>
-<a id="__codelineno-1-24"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-1-25"></a>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<a id="__codelineno-1-26"></a>    <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
-<a id="__codelineno-1-27"></a>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
-<a id="__codelineno-1-28"></a>    <span class="n">lr0</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
-<a id="__codelineno-1-29"></a>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-1-30"></a>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
-<a id="__codelineno-1-31"></a>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-<a id="__codelineno-1-32"></a>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-1-33"></a>    <span class="n">device</span><span class="o">=</span><span class="s2">"0"</span><span class="p">,</span>
-<a id="__codelineno-1-34"></a>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOEPESegTrainer</span><span class="p">,</span>
-<a id="__codelineno-1-35"></a>    <span class="n">freeze</span><span class="o">=</span><span class="n">freeze</span><span class="p">,</span>
-<a id="__codelineno-1-36"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEPESegTrainer</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11s-seg.pt"</span><span class="p">)</span>
+<span></span><span class="n">head_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span></span><span class="n">freeze</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">head_index</span><span class="p">)]</span>
+<span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">named_children</span><span class="p">():</span>
+<span></span>    <span class="k">if</span> <span class="s2">"cv3"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+<span></span>        <span class="n">freeze</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">freeze</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+<span></span>    <span class="p">[</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.0.0"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.0.1"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.1.0"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.1.1"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.2.0"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.2.1"</span><span class="p">,</span>
+<span></span>    <span class="p">]</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span></span>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">,</span>
+<span></span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span></span>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">,</span>
+<span></span>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
+<span></span>    <span class="n">lr0</span><span class="o">=</span><span class="mf">1e-3</span><span class="p">,</span>
+<span></span>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<span></span>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
+<span></span>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+<span></span>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span></span>    <span class="n">device</span><span class="o">=</span><span class="s2">"0"</span><span class="p">,</span>
+<span></span>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOEPESegTrainer</span><span class="p">,</span>
+<span></span>    <span class="n">freeze</span><span class="o">=</span><span class="n">freeze</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1120,20 +1120,20 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Text prompts allow you to specify the classes that you wish to detect through textual descriptions. The following code shows how you can use YOLOE to detect people and buses in an image:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-2-2"></a>
-<a id="__codelineno-2-3"></a><span class="c1"># Initialize a YOLOE model</span>
-<a id="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-11s/m-seg.pt for different sizes</span>
-<a id="__codelineno-2-5"></a>
-<a id="__codelineno-2-6"></a><span class="c1"># Set text prompt to detect person and bus. You only need to do this once after you load the model.</span>
-<a id="__codelineno-2-7"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">]</span>
-<a id="__codelineno-2-8"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">get_text_pe</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
-<a id="__codelineno-2-9"></a>
-<a id="__codelineno-2-10"></a><span class="c1"># Run detection on the given image</span>
-<a id="__codelineno-2-11"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a id="__codelineno-2-12"></a>
-<a id="__codelineno-2-13"></a><span class="c1"># Show results</span>
-<a id="__codelineno-2-14"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="c1"># Initialize a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-11s/m-seg.pt for different sizes</span>
+<span></span>
+<span></span><span class="c1"># Set text prompt to detect person and bus. You only need to do this once after you load the model.</span>
+<span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">]</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">model</span><span class="o">.</span><span class="n">get_text_pe</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>
+<span></span>
+<span></span><span class="c1"># Run detection on the given image</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Show results</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
@@ -1141,126 +1141,126 @@
 <p>The <code>visual_prompts</code> argument takes a dictionary with two keys: <code>bboxes</code> and <code>cls</code>. Each bounding box in <code>bboxes</code> should tightly enclose an example of the object you want the model to detect, and the corresponding entry in <code>cls</code> specifies the class label for that box. This pairing tells the model, "This is what class X looks like—now find more like it."</p>
 <p>Class IDs (<code>cls</code>) in <code>visual_prompts</code> are used to associate each bounding box with a specific category within your prompt. They aren't fixed labels, but temporary identifiers you assign to each example. The only requirement is that class IDs must be sequential, starting from 0. This helps the model correctly associate each box with its respective class.</p>
 <p>You can provide visual prompts directly within the same image you want to run inference on. For example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-3-2"></a>
-<a id="__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-3-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEVPSegPredictor</span>
-<a id="__codelineno-3-5"></a>
-<a id="__codelineno-3-6"></a><span class="c1"># Initialize a YOLOE model</span>
-<a id="__codelineno-3-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-3-8"></a>
-<a id="__codelineno-3-9"></a><span class="c1"># Define visual prompts using bounding boxes and their corresponding class IDs.</span>
-<a id="__codelineno-3-10"></a><span class="c1"># Each box highlights an example of the object you want the model to detect.</span>
-<a id="__codelineno-3-11"></a><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-3-12"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a id="__codelineno-3-13"></a>        <span class="p">[</span>
-<a id="__codelineno-3-14"></a>            <span class="p">[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">],</span>  <span class="c1"># Box enclosing person</span>
-<a id="__codelineno-3-15"></a>            <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">445</span><span class="p">],</span>  <span class="c1"># Box enclosing glasses</span>
-<a id="__codelineno-3-16"></a>        <span class="p">],</span>
-<a id="__codelineno-3-17"></a>    <span class="p">),</span>
-<a id="__codelineno-3-18"></a>    <span class="bp">cls</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a id="__codelineno-3-19"></a>        <span class="p">[</span>
-<a id="__codelineno-3-20"></a>            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># ID to be assigned for person</span>
-<a id="__codelineno-3-21"></a>            <span class="mi">1</span><span class="p">,</span>  <span class="c1"># ID to be assigned for glassses</span>
-<a id="__codelineno-3-22"></a>        <span class="p">]</span>
-<a id="__codelineno-3-23"></a>    <span class="p">),</span>
-<a id="__codelineno-3-24"></a><span class="p">)</span>
-<a id="__codelineno-3-25"></a>
-<a id="__codelineno-3-26"></a><span class="c1"># Run inference on an image, using the provided visual prompts as guidance</span>
-<a id="__codelineno-3-27"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a id="__codelineno-3-28"></a>    <span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span>
-<a id="__codelineno-3-29"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
-<a id="__codelineno-3-30"></a>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
-<a id="__codelineno-3-31"></a><span class="p">)</span>
-<a id="__codelineno-3-32"></a>
-<a id="__codelineno-3-33"></a><span class="c1"># Show results</span>
-<a id="__codelineno-3-34"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEVPSegPredictor</span>
+<span></span>
+<span></span><span class="c1"># Initialize a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Define visual prompts using bounding boxes and their corresponding class IDs.</span>
+<span></span><span class="c1"># Each box highlights an example of the object you want the model to detect.</span>
+<span></span><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span></span>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span></span>        <span class="p">[</span>
+<span></span>            <span class="p">[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">],</span>  <span class="c1"># Box enclosing person</span>
+<span></span>            <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">445</span><span class="p">],</span>  <span class="c1"># Box enclosing glasses</span>
+<span></span>        <span class="p">],</span>
+<span></span>    <span class="p">),</span>
+<span></span>    <span class="bp">cls</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span></span>        <span class="p">[</span>
+<span></span>            <span class="mi">0</span><span class="p">,</span>  <span class="c1"># ID to be assigned for person</span>
+<span></span>            <span class="mi">1</span><span class="p">,</span>  <span class="c1"># ID to be assigned for glassses</span>
+<span></span>        <span class="p">]</span>
+<span></span>    <span class="p">),</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference on an image, using the provided visual prompts as guidance</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<span></span>    <span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span>
+<span></span>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
+<span></span>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Show results</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p>Or you can provide examples from a separate reference image using the <code>refer_image</code> argument. In that case, the <code>bboxes</code> and <code>cls</code> in <code>visual_prompts</code> should describe objects in the reference image, not the target image you're making predictions on:</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If <code>source</code> is a video or stream, the model automatically uses the first frame as the <code>refer_image</code>. This means your <code>visual_prompts</code> are applied to that initial frame to help the model understand what to look for in the rest of the video. Alternatively, you can explicitly pass any specific frame as the <code>refer_image</code> to control which visual examples the model uses as reference.</p>
 </div>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-4-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEVPSegPredictor</span>
-<a id="__codelineno-4-5"></a>
-<a id="__codelineno-4-6"></a><span class="c1"># Initialize a YOLOE model</span>
-<a id="__codelineno-4-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-4-8"></a>
-<a id="__codelineno-4-9"></a><span class="c1"># Define visual prompts based on a separate reference image</span>
-<a id="__codelineno-4-10"></a><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-4-11"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">]]),</span>  <span class="c1"># Box enclosing person</span>
-<a id="__codelineno-4-12"></a>    <span class="bp">cls</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>  <span class="c1"># ID to be assigned for person</span>
-<a id="__codelineno-4-13"></a><span class="p">)</span>
-<a id="__codelineno-4-14"></a>
-<a id="__codelineno-4-15"></a><span class="c1"># Run prediction on a different image, using reference image to guide what to look for</span>
-<a id="__codelineno-4-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a id="__codelineno-4-17"></a>    <span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">,</span>  <span class="c1"># Target image for detection</span>
-<a id="__codelineno-4-18"></a>    <span class="n">refer_image</span><span class="o">=</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span>  <span class="c1"># Reference image used to get visual prompts</span>
-<a id="__codelineno-4-19"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
-<a id="__codelineno-4-20"></a>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
-<a id="__codelineno-4-21"></a><span class="p">)</span>
-<a id="__codelineno-4-22"></a>
-<a id="__codelineno-4-23"></a><span class="c1"># Show results</span>
-<a id="__codelineno-4-24"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEVPSegPredictor</span>
+<span></span>
+<span></span><span class="c1"># Initialize a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Define visual prompts based on a separate reference image</span>
+<span></span><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span></span>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">]]),</span>  <span class="c1"># Box enclosing person</span>
+<span></span>    <span class="bp">cls</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>  <span class="c1"># ID to be assigned for person</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run prediction on a different image, using reference image to guide what to look for</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<span></span>    <span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">,</span>  <span class="c1"># Target image for detection</span>
+<span></span>    <span class="n">refer_image</span><span class="o">=</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span>  <span class="c1"># Reference image used to get visual prompts</span>
+<span></span>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
+<span></span>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Show results</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p>You can also pass multiple target images to run prediction on:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-5-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEVPSegPredictor</span>
-<a id="__codelineno-5-5"></a>
-<a id="__codelineno-5-6"></a><span class="c1"># Initialize a YOLOE model</span>
-<a id="__codelineno-5-7"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-5-8"></a>
-<a id="__codelineno-5-9"></a><span class="c1"># Define visual prompts using bounding boxes and their corresponding class IDs.</span>
-<a id="__codelineno-5-10"></a><span class="c1"># Each box highlights an example of the object you want the model to detect.</span>
-<a id="__codelineno-5-11"></a><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-5-12"></a>    <span class="n">bboxes</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-5-13"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a id="__codelineno-5-14"></a>            <span class="p">[</span>
-<a id="__codelineno-5-15"></a>                <span class="p">[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">],</span>  <span class="c1"># Box enclosing person</span>
-<a id="__codelineno-5-16"></a>                <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">445</span><span class="p">],</span>  <span class="c1"># Box enclosing glasses</span>
-<a id="__codelineno-5-17"></a>            <span class="p">],</span>
-<a id="__codelineno-5-18"></a>        <span class="p">),</span>
-<a id="__codelineno-5-19"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1150</span><span class="p">,</span> <span class="mi">700</span><span class="p">]]),</span>
-<a id="__codelineno-5-20"></a>    <span class="p">],</span>
-<a id="__codelineno-5-21"></a>    <span class="bp">cls</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-5-22"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
-<a id="__codelineno-5-23"></a>            <span class="p">[</span>
-<a id="__codelineno-5-24"></a>                <span class="mi">0</span><span class="p">,</span>  <span class="c1"># ID to be assigned for person</span>
-<a id="__codelineno-5-25"></a>                <span class="mi">1</span><span class="p">,</span>  <span class="c1"># ID to be assigned for glasses</span>
-<a id="__codelineno-5-26"></a>            <span class="p">]</span>
-<a id="__codelineno-5-27"></a>        <span class="p">),</span>
-<a id="__codelineno-5-28"></a>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>
-<a id="__codelineno-5-29"></a>    <span class="p">],</span>
-<a id="__codelineno-5-30"></a><span class="p">)</span>
-<a id="__codelineno-5-31"></a>
-<a id="__codelineno-5-32"></a><span class="c1"># Run inference on multiple image, using the provided visual prompts as guidance</span>
-<a id="__codelineno-5-33"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a id="__codelineno-5-34"></a>    <span class="p">[</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span> <span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">],</span>
-<a id="__codelineno-5-35"></a>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
-<a id="__codelineno-5-36"></a>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
-<a id="__codelineno-5-37"></a><span class="p">)</span>
-<a id="__codelineno-5-38"></a>
-<a id="__codelineno-5-39"></a><span class="c1"># Show results</span>
-<a id="__codelineno-5-40"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEVPSegPredictor</span>
+<span></span>
+<span></span><span class="c1"># Initialize a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Define visual prompts using bounding boxes and their corresponding class IDs.</span>
+<span></span><span class="c1"># Each box highlights an example of the object you want the model to detect.</span>
+<span></span><span class="n">visual_prompts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span></span>    <span class="n">bboxes</span><span class="o">=</span><span class="p">[</span>
+<span></span>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span></span>            <span class="p">[</span>
+<span></span>                <span class="p">[</span><span class="mf">221.52</span><span class="p">,</span> <span class="mf">405.8</span><span class="p">,</span> <span class="mf">344.98</span><span class="p">,</span> <span class="mf">857.54</span><span class="p">],</span>  <span class="c1"># Box enclosing person</span>
+<span></span>                <span class="p">[</span><span class="mi">120</span><span class="p">,</span> <span class="mi">425</span><span class="p">,</span> <span class="mi">160</span><span class="p">,</span> <span class="mi">445</span><span class="p">],</span>  <span class="c1"># Box enclosing glasses</span>
+<span></span>            <span class="p">],</span>
+<span></span>        <span class="p">),</span>
+<span></span>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">1150</span><span class="p">,</span> <span class="mi">700</span><span class="p">]]),</span>
+<span></span>    <span class="p">],</span>
+<span></span>    <span class="bp">cls</span><span class="o">=</span><span class="p">[</span>
+<span></span>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span>
+<span></span>            <span class="p">[</span>
+<span></span>                <span class="mi">0</span><span class="p">,</span>  <span class="c1"># ID to be assigned for person</span>
+<span></span>                <span class="mi">1</span><span class="p">,</span>  <span class="c1"># ID to be assigned for glasses</span>
+<span></span>            <span class="p">]</span>
+<span></span>        <span class="p">),</span>
+<span></span>        <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">]),</span>
+<span></span>    <span class="p">],</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference on multiple image, using the provided visual prompts as guidance</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<span></span>    <span class="p">[</span><span class="s2">"ultralytics/assets/bus.jpg"</span><span class="p">,</span> <span class="s2">"ultralytics/assets/zidane.jpg"</span><span class="p">],</span>
+<span></span>    <span class="n">visual_prompts</span><span class="o">=</span><span class="n">visual_prompts</span><span class="p">,</span>
+<span></span>    <span class="n">predictor</span><span class="o">=</span><span class="n">YOLOEVPSegPredictor</span><span class="p">,</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Show results</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>YOLOE also includes prompt-free variants that come with a built-in vocabulary. These models don't require any prompts and work like traditional YOLO models. Instead of relying on user-provided labels or visual examples, they detect objects from a <a href="https://github.com/xinyu1205/recognize-anything/blob/main/ram/data/ram_tag_list.txt">predefined list of 4,585 classes</a> based on the tag set used by the <a href="https://arxiv.org/abs/2310.15200">Recognize Anything Model Plus (RAM++)</a>.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-6-2"></a>
-<a id="__codelineno-6-3"></a><span class="c1"># Initialize a YOLOE model</span>
-<a id="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-pf.pt"</span><span class="p">)</span>
-<a id="__codelineno-6-5"></a>
-<a id="__codelineno-6-6"></a><span class="c1"># Run prediction. No prompts required.</span>
-<a id="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a id="__codelineno-6-8"></a>
-<a id="__codelineno-6-9"></a><span class="c1"># Show results</span>
-<a id="__codelineno-6-10"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="c1"># Initialize a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-pf.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run prediction. No prompts required.</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Show results</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
@@ -1272,44 +1272,44 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:3"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><input id="__tabbed_3_3" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Text Prompt</label><label for="__tabbed_3_2">Visual Prompt</label><label for="__tabbed_3_3">Prompt Free</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-7-2"></a>
-<a id="__codelineno-7-3"></a><span class="c1"># Create a YOLOE model</span>
-<a id="__codelineno-7-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-m/l-seg.pt for different sizes</span>
-<a id="__codelineno-7-5"></a>
-<a id="__codelineno-7-6"></a><span class="c1"># Conduct model validation on the COCO128-seg example dataset</span>
-<a id="__codelineno-7-7"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="c1"># Create a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-m/l-seg.pt for different sizes</span>
+<span></span>
+<span></span><span class="c1"># Conduct model validation on the COCO128-seg example dataset</span>
+<span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Be default it's using the provided dataset to extract visual embeddings for each category.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-8-2"></a>
-<a id="__codelineno-8-3"></a><span class="c1"># Create a YOLOE model</span>
-<a id="__codelineno-8-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-m/l-seg.pt for different sizes</span>
-<a id="__codelineno-8-5"></a>
-<a id="__codelineno-8-6"></a><span class="c1"># Conduct model validation on the COCO128-seg example dataset</span>
-<a id="__codelineno-8-7"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">,</span> <span class="n">load_vp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="c1"># Create a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-m/l-seg.pt for different sizes</span>
+<span></span>
+<span></span><span class="c1"># Conduct model validation on the COCO128-seg example dataset</span>
+<span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">,</span> <span class="n">load_vp</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <p>Alternatively we could use another dataset as a reference dataset to extract visual embeddings for each category.
 Note this reference dataset should have exactly the same categories as provided dataset.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-9-2"></a>
-<a id="__codelineno-9-3"></a><span class="c1"># Create a YOLOE model</span>
-<a id="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-m/l-seg.pt for different sizes</span>
-<a id="__codelineno-9-5"></a>
-<a id="__codelineno-9-6"></a><span class="c1"># Conduct model validation on the COCO128-seg example dataset</span>
-<a id="__codelineno-9-7"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">,</span> <span class="n">load_vp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">refer_data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="c1"># Create a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-m/l-seg.pt for different sizes</span>
+<span></span>
+<span></span><span class="c1"># Conduct model validation on the COCO128-seg example dataset</span>
+<span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">,</span> <span class="n">load_vp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">refer_data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-10-2"></a>
-<a id="__codelineno-10-3"></a><span class="c1"># Create a YOLOE model</span>
-<a id="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-m/l-seg.pt for different sizes</span>
-<a id="__codelineno-10-5"></a>
-<a id="__codelineno-10-6"></a><span class="c1"># Conduct model validation on the COCO128-seg example dataset</span>
-<a id="__codelineno-10-7"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="c1"># Create a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>  <span class="c1"># or select yoloe-m/l-seg.pt for different sizes</span>
+<span></span>
+<span></span><span class="c1"># Conduct model validation on the COCO128-seg example dataset</span>
+<span></span><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128-seg.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1392,209 +1392,209 @@ Note this reference dataset should have exactly the same categories as provided 
 <div class="tabbed-set tabbed-alternate" data-tabs="4:3"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><input id="__tabbed_4_3" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Text Prompt</label><label for="__tabbed_4_2">Visual Prompt</label><label for="__tabbed_4_3">Prompt Free</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOESegTrainerFromScratch</span>
-<a id="__codelineno-11-3"></a>
-<a id="__codelineno-11-4"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-11-5"></a>    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-11-6"></a>        <span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
-<a id="__codelineno-11-7"></a>        <span class="n">grounding_data</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-11-8"></a>            <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-11-9"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/flickr/full_images/"</span><span class="p">,</span>
-<a id="__codelineno-11-10"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/flickr/annotations/final_flickr_separateGT_train_segm.json"</span><span class="p">,</span>
-<a id="__codelineno-11-11"></a>            <span class="p">),</span>
-<a id="__codelineno-11-12"></a>            <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-11-13"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/gqa/images"</span><span class="p">,</span>
-<a id="__codelineno-11-14"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/annotations/final_mixed_train_no_coco_segm.json"</span><span class="p">,</span>
-<a id="__codelineno-11-15"></a>            <span class="p">),</span>
-<a id="__codelineno-11-16"></a>        <span class="p">],</span>
-<a id="__codelineno-11-17"></a>    <span class="p">),</span>
-<a id="__codelineno-11-18"></a>    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]),</span>
-<a id="__codelineno-11-19"></a><span class="p">)</span>
-<a id="__codelineno-11-20"></a>
-<a id="__codelineno-11-21"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.yaml"</span><span class="p">)</span>
-<a id="__codelineno-11-22"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-<a id="__codelineno-11-23"></a>    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-<a id="__codelineno-11-24"></a>    <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
-<a id="__codelineno-11-25"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-<a id="__codelineno-11-26"></a>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-11-27"></a>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
-<a id="__codelineno-11-28"></a>    <span class="n">lr0</span><span class="o">=</span><span class="mf">2e-3</span><span class="p">,</span>
-<a id="__codelineno-11-29"></a>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-11-30"></a>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
-<a id="__codelineno-11-31"></a>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-<a id="__codelineno-11-32"></a>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-11-33"></a>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOESegTrainerFromScratch</span><span class="p">,</span>
-<a id="__codelineno-11-34"></a>    <span class="n">device</span><span class="o">=</span><span class="s2">"0,1,2,3,4,5,6,7"</span><span class="p">,</span>
-<a id="__codelineno-11-35"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOESegTrainerFromScratch</span>
+<span></span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span></span>    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<span></span>        <span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
+<span></span>        <span class="n">grounding_data</span><span class="o">=</span><span class="p">[</span>
+<span></span>            <span class="nb">dict</span><span class="p">(</span>
+<span></span>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/flickr/full_images/"</span><span class="p">,</span>
+<span></span>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/flickr/annotations/final_flickr_separateGT_train_segm.json"</span><span class="p">,</span>
+<span></span>            <span class="p">),</span>
+<span></span>            <span class="nb">dict</span><span class="p">(</span>
+<span></span>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/gqa/images"</span><span class="p">,</span>
+<span></span>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/annotations/final_mixed_train_no_coco_segm.json"</span><span class="p">,</span>
+<span></span>            <span class="p">),</span>
+<span></span>        <span class="p">],</span>
+<span></span>    <span class="p">),</span>
+<span></span>    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]),</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.yaml"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span></span>    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+<span></span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
+<span></span>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span></span>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
+<span></span>    <span class="n">lr0</span><span class="o">=</span><span class="mf">2e-3</span><span class="p">,</span>
+<span></span>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<span></span>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
+<span></span>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+<span></span>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span></span>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOESegTrainerFromScratch</span><span class="p">,</span>
+<span></span>    <span class="n">device</span><span class="o">=</span><span class="s2">"0,1,2,3,4,5,6,7"</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Since only the <code>SAVPE</code> module needs to be updating during training.
 Converting trained-well Text-prompt model to detection model and adopt detection pipeline with less training cost.
 Note this step is optional, you can directly start from segmentation as well.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<a id="__codelineno-12-2"></a>
-<a id="__codelineno-12-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-12-4"></a>
-<a id="__codelineno-12-5"></a><span class="n">det_model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l.yaml"</span><span class="p">)</span>
-<a id="__codelineno-12-6"></a><span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-12-7"></a><span class="n">det_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">"model"</span><span class="p">])</span>
-<a id="__codelineno-12-8"></a><span class="n">det_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-det.pt"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="n">det_model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l.yaml"</span><span class="p">)</span>
+<span></span><span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span><span class="n">det_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">"model"</span><span class="p">])</span>
+<span></span><span class="n">det_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-det.pt"</span><span class="p">)</span>
 </code></pre></div>
 <p>Start training:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-13-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEVPTrainer</span>
-<a id="__codelineno-13-3"></a>
-<a id="__codelineno-13-4"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-13-5"></a>    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-13-6"></a>        <span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
-<a id="__codelineno-13-7"></a>        <span class="n">grounding_data</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-13-8"></a>            <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-13-9"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/flickr/full_images/"</span><span class="p">,</span>
-<a id="__codelineno-13-10"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/flickr/annotations/final_flickr_separateGT_train_segm.json"</span><span class="p">,</span>
-<a id="__codelineno-13-11"></a>            <span class="p">),</span>
-<a id="__codelineno-13-12"></a>            <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-13-13"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/gqa/images"</span><span class="p">,</span>
-<a id="__codelineno-13-14"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/annotations/final_mixed_train_no_coco_segm.json"</span><span class="p">,</span>
-<a id="__codelineno-13-15"></a>            <span class="p">),</span>
-<a id="__codelineno-13-16"></a>        <span class="p">],</span>
-<a id="__codelineno-13-17"></a>    <span class="p">),</span>
-<a id="__codelineno-13-18"></a>    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]),</span>
-<a id="__codelineno-13-19"></a><span class="p">)</span>
-<a id="__codelineno-13-20"></a>
-<a id="__codelineno-13-21"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-13-22"></a><span class="c1"># replace to yoloe-11l-seg-det.pt if converted to detection model</span>
-<a id="__codelineno-13-23"></a><span class="c1"># model = YOLOE("yoloe-11l-seg-det.pt")</span>
-<a id="__codelineno-13-24"></a>
-<a id="__codelineno-13-25"></a><span class="c1"># freeze every layer except of the savpe module.</span>
-<a id="__codelineno-13-26"></a><span class="n">head_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-<a id="__codelineno-13-27"></a><span class="n">freeze</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">head_index</span><span class="p">))</span>
-<a id="__codelineno-13-28"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">named_children</span><span class="p">():</span>
-<a id="__codelineno-13-29"></a>    <span class="k">if</span> <span class="s2">"savpe"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
-<a id="__codelineno-13-30"></a>        <span class="n">freeze</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-13-31"></a>
-<a id="__codelineno-13-32"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-<a id="__codelineno-13-33"></a>    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-<a id="__codelineno-13-34"></a>    <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
-<a id="__codelineno-13-35"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-13-36"></a>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
-<a id="__codelineno-13-37"></a>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
-<a id="__codelineno-13-38"></a>    <span class="n">lr0</span><span class="o">=</span><span class="mf">16e-3</span><span class="p">,</span>
-<a id="__codelineno-13-39"></a>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-13-40"></a>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
-<a id="__codelineno-13-41"></a>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-<a id="__codelineno-13-42"></a>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-13-43"></a>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOEVPTrainer</span><span class="p">,</span>
-<a id="__codelineno-13-44"></a>    <span class="n">device</span><span class="o">=</span><span class="s2">"0,1,2,3,4,5,6,7"</span><span class="p">,</span>
-<a id="__codelineno-13-45"></a>    <span class="n">freeze</span><span class="o">=</span><span class="n">freeze</span><span class="p">,</span>
-<a id="__codelineno-13-46"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.yoloe</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOEVPTrainer</span>
+<span></span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span></span>    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<span></span>        <span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
+<span></span>        <span class="n">grounding_data</span><span class="o">=</span><span class="p">[</span>
+<span></span>            <span class="nb">dict</span><span class="p">(</span>
+<span></span>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/flickr/full_images/"</span><span class="p">,</span>
+<span></span>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/flickr/annotations/final_flickr_separateGT_train_segm.json"</span><span class="p">,</span>
+<span></span>            <span class="p">),</span>
+<span></span>            <span class="nb">dict</span><span class="p">(</span>
+<span></span>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/gqa/images"</span><span class="p">,</span>
+<span></span>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/annotations/final_mixed_train_no_coco_segm.json"</span><span class="p">,</span>
+<span></span>            <span class="p">),</span>
+<span></span>        <span class="p">],</span>
+<span></span>    <span class="p">),</span>
+<span></span>    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]),</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span><span class="c1"># replace to yoloe-11l-seg-det.pt if converted to detection model</span>
+<span></span><span class="c1"># model = YOLOE("yoloe-11l-seg-det.pt")</span>
+<span></span>
+<span></span><span class="c1"># freeze every layer except of the savpe module.</span>
+<span></span><span class="n">head_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span></span><span class="n">freeze</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">head_index</span><span class="p">))</span>
+<span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">named_children</span><span class="p">():</span>
+<span></span>    <span class="k">if</span> <span class="s2">"savpe"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+<span></span>        <span class="n">freeze</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span></span>    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+<span></span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span></span>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span>
+<span></span>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
+<span></span>    <span class="n">lr0</span><span class="o">=</span><span class="mf">16e-3</span><span class="p">,</span>
+<span></span>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<span></span>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
+<span></span>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+<span></span>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span></span>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOEVPTrainer</span><span class="p">,</span>
+<span></span>    <span class="n">device</span><span class="o">=</span><span class="s2">"0,1,2,3,4,5,6,7"</span><span class="p">,</span>
+<span></span>    <span class="n">freeze</span><span class="o">=</span><span class="n">freeze</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <p>Convert back to segmentation model after training. Only needed if you converted segmentation model to detection model before training.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
-<a id="__codelineno-14-2"></a>
-<a id="__codelineno-14-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-14-4"></a>
-<a id="__codelineno-14-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.yaml"</span><span class="p">)</span>
-<a id="__codelineno-14-6"></a><span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-14-7"></a>
-<a id="__codelineno-14-8"></a><span class="n">vp_model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-vp.pt"</span><span class="p">)</span>
-<a id="__codelineno-14-9"></a><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">savpe</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">vp_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">savpe</span><span class="p">)</span>
-<a id="__codelineno-14-10"></a><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-<a id="__codelineno-14-11"></a><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.yaml"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">vp_model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-vp.pt"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">savpe</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">vp_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">savpe</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>Similar to visual prompt training, for prompt-free model there's only the specialized prompt embedding needs to be updating during training.
 Converting trained-well Text-prompt model to detection model and adopt detection pipeline with less training cost.
 Note this step is optional, you can directly start from segmentation as well.</p>
-<p><div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<a id="__codelineno-15-2"></a>
-<a id="__codelineno-15-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-15-4"></a>
-<a id="__codelineno-15-5"></a><span class="n">det_model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l.yaml"</span><span class="p">)</span>
-<a id="__codelineno-15-6"></a><span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-15-7"></a><span class="n">det_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">"model"</span><span class="p">])</span>
-<a id="__codelineno-15-8"></a><span class="n">det_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-det.pt"</span><span class="p">)</span>
+<p><div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="n">det_model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l.yaml"</span><span class="p">)</span>
+<span></span><span class="n">state</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span><span class="n">det_model</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">state</span><span class="p">[</span><span class="s2">"model"</span><span class="p">])</span>
+<span></span><span class="n">det_model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-det.pt"</span><span class="p">)</span>
 </code></pre></div>
 Start training:
-<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-16-2"></a>
-<a id="__codelineno-16-3"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-16-4"></a>    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-16-5"></a>        <span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
-<a id="__codelineno-16-6"></a>        <span class="n">grounding_data</span><span class="o">=</span><span class="p">[</span>
-<a id="__codelineno-16-7"></a>            <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-16-8"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/flickr/full_images/"</span><span class="p">,</span>
-<a id="__codelineno-16-9"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/flickr/annotations/final_flickr_separateGT_train_segm.json"</span><span class="p">,</span>
-<a id="__codelineno-16-10"></a>            <span class="p">),</span>
-<a id="__codelineno-16-11"></a>            <span class="nb">dict</span><span class="p">(</span>
-<a id="__codelineno-16-12"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/gqa/images"</span><span class="p">,</span>
-<a id="__codelineno-16-13"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/annotations/final_mixed_train_no_coco_segm.json"</span><span class="p">,</span>
-<a id="__codelineno-16-14"></a>            <span class="p">),</span>
-<a id="__codelineno-16-15"></a>        <span class="p">],</span>
-<a id="__codelineno-16-16"></a>    <span class="p">),</span>
-<a id="__codelineno-16-17"></a>    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]),</span>
-<a id="__codelineno-16-18"></a><span class="p">)</span>
-<a id="__codelineno-16-19"></a>
-<a id="__codelineno-16-20"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-16-21"></a><span class="c1"># replace to yoloe-11l-seg-det.pt if converted to detection model</span>
-<a id="__codelineno-16-22"></a><span class="c1"># model = YOLOE("yoloe-11l-seg-det.pt")</span>
-<a id="__codelineno-16-23"></a>
-<a id="__codelineno-16-24"></a><span class="c1"># freeze layers.</span>
-<a id="__codelineno-16-25"></a><span class="n">head_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
-<a id="__codelineno-16-26"></a><span class="n">freeze</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">head_index</span><span class="p">)]</span>
-<a id="__codelineno-16-27"></a><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">named_children</span><span class="p">():</span>
-<a id="__codelineno-16-28"></a>    <span class="k">if</span> <span class="s2">"cv3"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
-<a id="__codelineno-16-29"></a>        <span class="n">freeze</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-16-30"></a>
-<a id="__codelineno-16-31"></a><span class="n">freeze</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
-<a id="__codelineno-16-32"></a>    <span class="p">[</span>
-<a id="__codelineno-16-33"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.0.0"</span><span class="p">,</span>
-<a id="__codelineno-16-34"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.0.1"</span><span class="p">,</span>
-<a id="__codelineno-16-35"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.1.0"</span><span class="p">,</span>
-<a id="__codelineno-16-36"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.1.1"</span><span class="p">,</span>
-<a id="__codelineno-16-37"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.2.0"</span><span class="p">,</span>
-<a id="__codelineno-16-38"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.2.1"</span><span class="p">,</span>
-<a id="__codelineno-16-39"></a>    <span class="p">]</span>
-<a id="__codelineno-16-40"></a><span class="p">)</span>
-<a id="__codelineno-16-41"></a>
-<a id="__codelineno-16-42"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
-<a id="__codelineno-16-43"></a>    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
-<a id="__codelineno-16-44"></a>    <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
-<a id="__codelineno-16-45"></a>    <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-16-46"></a>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-<a id="__codelineno-16-47"></a>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
-<a id="__codelineno-16-48"></a>    <span class="n">lr0</span><span class="o">=</span><span class="mf">2e-3</span><span class="p">,</span>
-<a id="__codelineno-16-49"></a>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
-<a id="__codelineno-16-50"></a>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
-<a id="__codelineno-16-51"></a>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
-<a id="__codelineno-16-52"></a>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-<a id="__codelineno-16-53"></a>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOEPEFreeTrainer</span><span class="p">,</span>
-<a id="__codelineno-16-54"></a>    <span class="n">device</span><span class="o">=</span><span class="s2">"0,1,2,3,4,5,6,7"</span><span class="p">,</span>
-<a id="__codelineno-16-55"></a>    <span class="n">freeze</span><span class="o">=</span><span class="n">freeze</span><span class="p">,</span>
-<a id="__codelineno-16-56"></a>    <span class="n">single_cls</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># this is needed</span>
-<a id="__codelineno-16-57"></a><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<span></span>    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<span></span>        <span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
+<span></span>        <span class="n">grounding_data</span><span class="o">=</span><span class="p">[</span>
+<span></span>            <span class="nb">dict</span><span class="p">(</span>
+<span></span>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/flickr/full_images/"</span><span class="p">,</span>
+<span></span>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/flickr/annotations/final_flickr_separateGT_train_segm.json"</span><span class="p">,</span>
+<span></span>            <span class="p">),</span>
+<span></span>            <span class="nb">dict</span><span class="p">(</span>
+<span></span>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/gqa/images"</span><span class="p">,</span>
+<span></span>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/mixed_grounding/annotations/final_mixed_train_no_coco_segm.json"</span><span class="p">,</span>
+<span></span>            <span class="p">),</span>
+<span></span>        <span class="p">],</span>
+<span></span>    <span class="p">),</span>
+<span></span>    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]),</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span><span class="c1"># replace to yoloe-11l-seg-det.pt if converted to detection model</span>
+<span></span><span class="c1"># model = YOLOE("yoloe-11l-seg-det.pt")</span>
+<span></span>
+<span></span><span class="c1"># freeze layers.</span>
+<span></span><span class="n">head_index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
+<span></span><span class="n">freeze</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">head_index</span><span class="p">)]</span>
+<span></span><span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">child</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">named_children</span><span class="p">():</span>
+<span></span>    <span class="k">if</span> <span class="s2">"cv3"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+<span></span>        <span class="n">freeze</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">freeze</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span>
+<span></span>    <span class="p">[</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.0.0"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.0.1"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.1.0"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.1.1"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.2.0"</span><span class="p">,</span>
+<span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">head_index</span><span class="si">}</span><span class="s2">.cv3.2.1"</span><span class="p">,</span>
+<span></span>    <span class="p">]</span>
+<span></span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span>
+<span></span>    <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span>
+<span></span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span></span>    <span class="n">close_mosaic</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span></span>    <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span>
+<span></span>    <span class="n">lr0</span><span class="o">=</span><span class="mf">2e-3</span><span class="p">,</span>
+<span></span>    <span class="n">warmup_bias_lr</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span>
+<span></span>    <span class="n">weight_decay</span><span class="o">=</span><span class="mf">0.025</span><span class="p">,</span>
+<span></span>    <span class="n">momentum</span><span class="o">=</span><span class="mf">0.9</span><span class="p">,</span>
+<span></span>    <span class="n">workers</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+<span></span>    <span class="n">trainer</span><span class="o">=</span><span class="n">YOLOEPEFreeTrainer</span><span class="p">,</span>
+<span></span>    <span class="n">device</span><span class="o">=</span><span class="s2">"0,1,2,3,4,5,6,7"</span><span class="p">,</span>
+<span></span>    <span class="n">freeze</span><span class="o">=</span><span class="n">freeze</span><span class="p">,</span>
+<span></span>    <span class="n">single_cls</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># this is needed</span>
+<span></span><span class="p">)</span>
 </code></pre></div></p>
 <p>Convert back to segmentation model after training. Only needed if you converted segmentation model to detection model before training.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
-<a id="__codelineno-17-2"></a>
-<a id="__codelineno-17-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
-<a id="__codelineno-17-4"></a>
-<a id="__codelineno-17-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
-<a id="__codelineno-17-6"></a><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-<a id="__codelineno-17-7"></a>
-<a id="__codelineno-17-8"></a><span class="n">pf_model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-pf.pt"</span><span class="p">)</span>
-<a id="__codelineno-17-9"></a><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"object"</span><span class="p">]</span>
-<a id="__codelineno-17-10"></a><span class="n">tpe</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_text_pe</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
-<a id="__codelineno-17-11"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">tpe</span><span class="p">)</span>
-<a id="__codelineno-17-12"></a><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pe</span><span class="p">)</span>
-<a id="__codelineno-17-13"></a>
-<a id="__codelineno-17-14"></a><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pf_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-17-15"></a><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pf_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-17-16"></a><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pf_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
-<a id="__codelineno-17-17"></a><span class="k">del</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pe</span>
-<a id="__codelineno-17-18"></a><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-pf.pt"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">copy</span><span class="w"> </span><span class="kn">import</span> <span class="n">deepcopy</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOE</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg.pt"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<span></span>
+<span></span><span class="n">pf_model</span> <span class="o">=</span> <span class="n">YOLOE</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-pf.pt"</span><span class="p">)</span>
+<span></span><span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"object"</span><span class="p">]</span>
+<span></span><span class="n">tpe</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">get_text_pe</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="n">tpe</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pe</span><span class="p">)</span>
+<span></span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pf_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pf_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">deepcopy</span><span class="p">(</span><span class="n">pf_model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="mi">2</span><span class="p">][</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">requires_grad_</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span></span><span class="k">del</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pe</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"yoloe-11l-seg-pf.pt"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1710,25 +1710,25 @@ Start training:
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-18-2"></a>
-<a id="__codelineno-18-3"></a><span class="c1"># Load pre-trained YOLOE model and train on custom data</span>
-<a id="__codelineno-18-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yoloe-11s.pt"</span><span class="p">)</span>
-<a id="__codelineno-18-5"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/data.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a id="__codelineno-18-6"></a>
-<a id="__codelineno-18-7"></a><span class="c1"># Run inference using text prompts ("person", "bus")</span>
-<a id="__codelineno-18-8"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
-<a id="__codelineno-18-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test_images/street.jpg"</span><span class="p">)</span>
-<a id="__codelineno-18-10"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># save annotated output</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load pre-trained YOLOE model and train on custom data</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yoloe-11s.pt"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/data.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Run inference using text prompts ("person", "bus")</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"test_images/street.jpg"</span><span class="p">)</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>  <span class="c1"># save annotated output</span>
 </code></pre></div>
 <p>Here, YOLOE behaves like a standard detector by default but easily switches to prompted detection by specifying classes (<code>set_classes</code>). Results contain bounding boxes, masks, and labels.</p>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1"></a><span class="c1"># Training YOLOE on custom dataset</span>
-<a id="__codelineno-19-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yoloe-11s.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/data.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">50</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a id="__codelineno-19-3"></a>
-<a id="__codelineno-19-4"></a><span class="c1"># Inference with text prompts</span>
-<a id="__codelineno-19-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yoloe-11s.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"test_images/street.jpg"</span><span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="s2">"person,bus"</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Training YOLOE on custom dataset</span>
+<span></span>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yoloe-11s.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/data.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">50</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<span></span>
+<span></span><span class="c1"># Inference with text prompts</span>
+<span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yoloe-11s.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"test_images/street.jpg"</span><span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="s2">"person,bus"</span>
 </code></pre></div>
 <p>CLI prompts (<code>classes</code>) guide YOLOE similarly to Python's <code>set_classes</code>. Visual prompting (image-based queries) currently requires the Python API.</p>
 </div>
@@ -1751,7 +1751,7 @@ Start training:
 <li>
 <p><strong>Installation</strong>:
    Install or update the Ultralytics package:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1"></a>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><span></span>pip<span class="w"> </span>install<span class="w"> </span>-U<span class="w"> </span>ultralytics
 </code></pre></div>
 </li>
 <li>
@@ -1773,19 +1773,19 @@ Start training:
 <p><strong>Running YOLOE</strong>:</p>
 <ul>
 <li><strong>Quick inference</strong> (prompt-free):
-    <div class="highlight"><pre><span></span><code><a id="__codelineno-21-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yoloe-s.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"image.jpg"</span>
+    <div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yoloe-s.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"image.jpg"</span>
 </code></pre></div></li>
 <li>
 <p><strong>Prompted detection</strong> (text prompt example):</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yoloe-s.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"kitchen.jpg"</span><span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="s2">"bowl,apple"</span>
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yoloe-s.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"kitchen.jpg"</span><span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="s2">"bowl,apple"</span>
 </code></pre></div>
 <p>In Python:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-23-2"></a>
-<a id="__codelineno-23-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yoloe-s.pt"</span><span class="p">)</span>
-<a id="__codelineno-23-4"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"bowl"</span><span class="p">,</span> <span class="s2">"apple"</span><span class="p">])</span>
-<a id="__codelineno-23-5"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"kitchen.jpg"</span><span class="p">)</span>
-<a id="__codelineno-23-6"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yoloe-s.pt"</span><span class="p">)</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"bowl"</span><span class="p">,</span> <span class="s2">"apple"</span><span class="p">])</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"kitchen.jpg"</span><span class="p">)</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 </code></pre></div>
 </li>
 </ul>
@@ -1811,15 +1811,15 @@ To maximize YOLOE's zero-shot accuracy, fine-tune from provided checkpoints rath
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">wang2025yoloerealtimeseeing</span><span class="p">,</span>
-<a id="__codelineno-24-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{YOLOE: Real-Time Seeing Anything}</span><span class="p">,</span>
-<a id="__codelineno-24-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Ao Wang and Lihao Liu and Hui Chen and Zijia Lin and Jungong Han and Guiguang Ding}</span><span class="p">,</span>
-<a id="__codelineno-24-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
-<a id="__codelineno-24-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2503.07465}</span><span class="p">,</span>
-<a id="__codelineno-24-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a id="__codelineno-24-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span><span class="p">,</span>
-<a id="__codelineno-24-8"></a><span class="w">      </span><span class="na">url</span><span class="p">=</span><span class="s">{https://arxiv.org/abs/2503.07465}</span><span class="p">,</span>
-<a id="__codelineno-24-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="nc">@misc</span><span class="p">{</span><span class="nl">wang2025yoloerealtimeseeing</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{YOLOE: Real-Time Seeing Anything}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Ao Wang and Lihao Liu and Hui Chen and Zijia Lin and Jungong Han and Guiguang Ding}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2025}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{2503.07465}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span><span class="p">,</span>
+<span></span><span class="w">      </span><span class="na">url</span><span class="p">=</span><span class="s">{https://arxiv.org/abs/2503.07465}</span><span class="p">,</span>
+<span></span><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -1843,19 +1843,19 @@ To maximize YOLOE's zero-shot accuracy, fine-tune from provided checkpoints rath
 <p>YOLOE integrates instance segmentation directly into its architecture by extending the detection head with a mask prediction branch. This approach is similar to YOLOv8-Seg but works for any prompted object class. Segmentation masks are automatically included in inference results and can be accessed via <code>results[0].masks</code>. This unified approach eliminates the need for separate detection and segmentation models, streamlining workflows for applications requiring pixel-precise object boundaries.</p>
 <h3 id="how-does-yoloe-handle-inference-with-custom-prompts">How does YOLOE handle inference with custom prompts?</h3>
 <p>Similar to <a href="../yolo-world/">YOLO-World</a>, YOLOE supports a "prompt-then-detect" strategy that utilizes an offline vocabulary to enhance efficiency. Custom prompts like captions or specific object categories are pre-encoded and stored as offline vocabulary embeddings. This approach streamlines the detection process without requiring retraining. You can dynamically set these prompts within the model to tailor it to specific detection tasks:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-25-2"></a>
-<a id="__codelineno-25-3"></a><span class="c1"># Initialize a YOLOE model</span>
-<a id="__codelineno-25-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yoloe-s.pt"</span><span class="p">)</span>
-<a id="__codelineno-25-5"></a>
-<a id="__codelineno-25-6"></a><span class="c1"># Define custom classes</span>
-<a id="__codelineno-25-7"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
-<a id="__codelineno-25-8"></a>
-<a id="__codelineno-25-9"></a><span class="c1"># Execute prediction on an image</span>
-<a id="__codelineno-25-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a id="__codelineno-25-11"></a>
-<a id="__codelineno-25-12"></a><span class="c1"># Show results</span>
-<a id="__codelineno-25-13"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Initialize a YOLOE model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yoloe-s.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Define custom classes</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
+<span></span>
+<span></span><span class="c1"># Execute prediction on an image</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Show results</span>
+<span></span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <div class="git-info">
 <div class="dates-container">

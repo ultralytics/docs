@@ -851,89 +851,89 @@
 <p>Instantiating a YOLO model outside your threads and sharing this instance across multiple threads can lead to <a href="https://www.ultralytics.com/glossary/algorithmic-bias">race conditions</a>, where the internal state of the model is inconsistently modified due to concurrent accesses. This is particularly problematic when the model or its components hold state that is not designed to be thread-safe.</p>
 <h3 id="non-thread-safe-example-single-model-instance">Non-Thread-Safe Example: Single Model Instance</h3>
 <p>When using threads in Python, it's important to recognize patterns that can lead to concurrency issues. Here is what you should avoid: sharing a single YOLO model instance across multiple threads.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Unsafe: Sharing a single model instance across threads</span>
-<a id="__codelineno-0-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
-<a id="__codelineno-0-3"></a>
-<a id="__codelineno-0-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-0-5"></a>
-<a id="__codelineno-0-6"></a><span class="c1"># Instantiate the model outside the thread</span>
-<a id="__codelineno-0-7"></a><span class="n">shared_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-0-8"></a>
-<a id="__codelineno-0-9"></a>
-<a id="__codelineno-0-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
-<a id="__codelineno-0-11"></a><span class="w">    </span><span class="sd">"""Predicts objects in an image using a preloaded YOLO model, take path string to image as argument."""</span>
-<a id="__codelineno-0-12"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">shared_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
-<a id="__codelineno-0-13"></a>    <span class="c1"># Process results</span>
-<a id="__codelineno-0-14"></a>
-<a id="__codelineno-0-15"></a>
-<a id="__codelineno-0-16"></a><span class="c1"># Starting threads that share the same model instance</span>
-<a id="__codelineno-0-17"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-0-18"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Unsafe: Sharing a single model instance across threads</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Instantiate the model outside the thread</span>
+<span></span><span class="n">shared_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Predicts objects in an image using a preloaded YOLO model, take path string to image as argument."""</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">shared_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<span></span>    <span class="c1"># Process results</span>
+<span></span>
+<span></span>
+<span></span><span class="c1"># Starting threads that share the same model instance</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
 <p>In the example above, the <code>shared_model</code> is used by multiple threads, which can lead to unpredictable results because <code>predict</code> could be executed simultaneously by multiple threads.</p>
 <h3 id="non-thread-safe-example-multiple-model-instances">Non-Thread-Safe Example: Multiple Model Instances</h3>
 <p>Similarly, here is an unsafe pattern with multiple YOLO model instances:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Unsafe: Sharing multiple model instances across threads can still lead to issues</span>
-<a id="__codelineno-1-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
-<a id="__codelineno-1-3"></a>
-<a id="__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-1-5"></a>
-<a id="__codelineno-1-6"></a><span class="c1"># Instantiate multiple models outside the thread</span>
-<a id="__codelineno-1-7"></a><span class="n">shared_model_1</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n_1.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-8"></a><span class="n">shared_model_2</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n_2.pt"</span><span class="p">)</span>
-<a id="__codelineno-1-9"></a>
-<a id="__codelineno-1-10"></a>
-<a id="__codelineno-1-11"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
-<a id="__codelineno-1-12"></a><span class="w">    </span><span class="sd">"""Runs prediction on an image using a specified YOLO model, returning the results."""</span>
-<a id="__codelineno-1-13"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
-<a id="__codelineno-1-14"></a>    <span class="c1"># Process results</span>
-<a id="__codelineno-1-15"></a>
-<a id="__codelineno-1-16"></a>
-<a id="__codelineno-1-17"></a><span class="c1"># Starting threads with individual model instances</span>
-<a id="__codelineno-1-18"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">shared_model_1</span><span class="p">,</span> <span class="s2">"image1.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-1-19"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">shared_model_2</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Unsafe: Sharing multiple model instances across threads can still lead to issues</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Instantiate multiple models outside the thread</span>
+<span></span><span class="n">shared_model_1</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n_1.pt"</span><span class="p">)</span>
+<span></span><span class="n">shared_model_2</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n_2.pt"</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Runs prediction on an image using a specified YOLO model, returning the results."""</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<span></span>    <span class="c1"># Process results</span>
+<span></span>
+<span></span>
+<span></span><span class="c1"># Starting threads with individual model instances</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">shared_model_1</span><span class="p">,</span> <span class="s2">"image1.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">shared_model_2</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
 <p>Even though there are two separate model instances, the risk of concurrency issues still exists. If the internal implementation of <code>YOLO</code> is not thread-safe, using separate instances might not prevent race conditions, especially if these instances share any underlying resources or states that are not thread-local.</p>
 <h2 id="thread-safe-inference">Thread-Safe Inference</h2>
 <p>To perform thread-safe inference, you should instantiate a separate YOLO model within each thread. This ensures that each thread has its own isolated model instance, eliminating the risk of race conditions.</p>
 <h3 id="thread-safe-example">Thread-Safe Example</h3>
 <p>Here's how to instantiate a YOLO model inside each thread for safe parallel inference:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Safe: Instantiating a single model inside each thread</span>
-<a id="__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
-<a id="__codelineno-2-3"></a>
-<a id="__codelineno-2-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-2-5"></a>
-<a id="__codelineno-2-6"></a>
-<a id="__codelineno-2-7"></a><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
-<a id="__codelineno-2-8"></a><span class="w">    </span><span class="sd">"""Predict on an image using a new YOLO model instance in a thread-safe manner; takes image path as input."""</span>
-<a id="__codelineno-2-9"></a>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-2-10"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
-<a id="__codelineno-2-11"></a>    <span class="c1"># Process results</span>
-<a id="__codelineno-2-12"></a>
-<a id="__codelineno-2-13"></a>
-<a id="__codelineno-2-14"></a><span class="c1"># Starting threads that each have their own model instance</span>
-<a id="__codelineno-2-15"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-2-16"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Safe: Instantiating a single model inside each thread</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Predict on an image using a new YOLO model instance in a thread-safe manner; takes image path as input."""</span>
+<span></span>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<span></span>    <span class="c1"># Process results</span>
+<span></span>
+<span></span>
+<span></span><span class="c1"># Starting threads that each have their own model instance</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
 <p>In this example, each thread creates its own <code>YOLO</code> instance. This prevents any thread from interfering with the model state of another, thus ensuring that each thread performs inference safely and without unexpected interactions with the other threads.</p>
 <h2 id="using-threadinglocked-decorator">Using ThreadingLocked Decorator</h2>
 <p>Ultralytics provides a <code>ThreadingLocked</code> decorator that can be used to ensure thread-safe execution of functions. This decorator uses a lock to ensure that only one thread at a time can execute the decorated function.</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadingLocked</span>
-<a id="__codelineno-3-3"></a>
-<a id="__codelineno-3-4"></a><span class="c1"># Create a model instance</span>
-<a id="__codelineno-3-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-3-6"></a>
-<a id="__codelineno-3-7"></a>
-<a id="__codelineno-3-8"></a><span class="c1"># Decorate the predict method to make it thread-safe</span>
-<a id="__codelineno-3-9"></a><span class="nd">@ThreadingLocked</span><span class="p">()</span>
-<a id="__codelineno-3-10"></a><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
-<a id="__codelineno-3-11"></a><span class="w">    </span><span class="sd">"""Thread-safe prediction using a shared model instance."""</span>
-<a id="__codelineno-3-12"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
-<a id="__codelineno-3-13"></a>    <span class="k">return</span> <span class="n">results</span>
-<a id="__codelineno-3-14"></a>
-<a id="__codelineno-3-15"></a>
-<a id="__codelineno-3-16"></a><span class="c1"># Now you can safely call this function from multiple threads</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ThreadingLocked</span>
+<span></span>
+<span></span><span class="c1"># Create a model instance</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span>
+<span></span><span class="c1"># Decorate the predict method to make it thread-safe</span>
+<span></span><span class="nd">@ThreadingLocked</span><span class="p">()</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Thread-safe prediction using a shared model instance."""</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">results</span>
+<span></span>
+<span></span>
+<span></span><span class="c1"># Now you can safely call this function from multiple threads</span>
 </code></pre></div>
 <p>The <code>ThreadingLocked</code> decorator is particularly useful when you need to share a model instance across threads but want to ensure that only one thread can access it at a time. This approach can save memory compared to creating a new model instance for each thread, but it may reduce concurrency as threads will need to wait for the lock to be released.</p>
 <h2 id="conclusion">Conclusion</h2>
@@ -943,20 +943,20 @@
 <h3 id="how-can-i-avoid-race-conditions-when-using-yolo-models-in-a-multi-threaded-python-environment">How can I avoid race conditions when using YOLO models in a multi-threaded Python environment?</h3>
 <p>To prevent race conditions when using Ultralytics YOLO models in a multi-threaded Python environment, instantiate a separate YOLO model within each thread. This ensures that each thread has its own isolated model instance, avoiding concurrent modification of the model state.</p>
 <p>Example:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
-<a id="__codelineno-4-2"></a>
-<a id="__codelineno-4-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-4-4"></a>
-<a id="__codelineno-4-5"></a>
-<a id="__codelineno-4-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
-<a id="__codelineno-4-7"></a><span class="w">    </span><span class="sd">"""Predict on an image in a thread-safe manner."""</span>
-<a id="__codelineno-4-8"></a>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-4-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
-<a id="__codelineno-4-10"></a>    <span class="c1"># Process results</span>
-<a id="__codelineno-4-11"></a>
-<a id="__codelineno-4-12"></a>
-<a id="__codelineno-4-13"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-4-14"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Predict on an image in a thread-safe manner."""</span>
+<span></span>    <span class="n">local_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">local_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<span></span>    <span class="c1"># Process results</span>
+<span></span>
+<span></span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
 <p>For more information on ensuring thread safety, visit the <a href="#thread-safe-inference">Thread-Safe Inference with YOLO Models</a>.</p>
 <h3 id="what-are-the-best-practices-for-running-multi-threaded-yolo-model-inference-in-python">What are the best practices for running multi-threaded YOLO model inference in Python?</h3>
@@ -968,21 +968,21 @@
 <li>Consider using the <code>ThreadingLocked</code> decorator for shared model instances when memory is a concern.</li>
 </ol>
 <p>Example for thread-safe model instantiation:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
-<a id="__codelineno-5-2"></a>
-<a id="__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a id="__codelineno-5-4"></a>
-<a id="__codelineno-5-5"></a>
-<a id="__codelineno-5-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
-<a id="__codelineno-5-7"></a><span class="w">    </span><span class="sd">"""Runs inference in a thread-safe manner with a new YOLO model instance."""</span>
-<a id="__codelineno-5-8"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a id="__codelineno-5-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
-<a id="__codelineno-5-10"></a>    <span class="c1"># Process results</span>
-<a id="__codelineno-5-11"></a>
-<a id="__codelineno-5-12"></a>
-<a id="__codelineno-5-13"></a><span class="c1"># Initiate multiple threads</span>
-<a id="__codelineno-5-14"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a id="__codelineno-5-15"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Runs inference in a thread-safe manner with a new YOLO model instance."""</span>
+<span></span>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<span></span>    <span class="c1"># Process results</span>
+<span></span>
+<span></span>
+<span></span><span class="c1"># Initiate multiple threads</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image1.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"image2.jpg"</span><span class="p">,))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div>
 <p>For additional context, refer to the section on <a href="#thread-safe-inference">Thread-Safe Inference</a>.</p>
 <h3 id="why-should-each-thread-have-its-own-yolo-model-instance">Why should each thread have its own YOLO model instance?</h3>
