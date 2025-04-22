@@ -926,25 +926,25 @@
 <p>To test a deep learning model on the ImageNet10 dataset with an image size of 224x224, you can use the following code snippets. For a comprehensive list of available arguments, refer to the model <a href="../../../modes/train/">Training</a> page.</p>
 <div class="admonition example">
 <p class="admonition-title">Test Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"imagenet10"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">224</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<a id="__codelineno-0-5"></a>
+<a id="__codelineno-0-6"></a><span class="c1"># Train the model</span>
+<a id="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"imagenet10"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">224</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>classify<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>imagenet10<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-cls.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
+<a id="__codelineno-1-2"></a>yolo<span class="w"> </span>classify<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>imagenet10<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-cls.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h2 id="sample-images-and-annotations">Sample Images and Annotations</h2>
 <p>The ImageNet10 dataset contains a subset of images from the original ImageNet dataset. These images are chosen to represent the first 10 classes in the dataset, providing a diverse yet compact dataset for quick testing and evaluation.</p>
@@ -953,22 +953,22 @@
 <h2 id="citations-and-acknowledgments">Citations and Acknowledgments</h2>
 <p>If you use the ImageNet10 dataset in your research or development work, please cite the original ImageNet paper:</p>
 <div class="admonition quote">
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">ILSVRC15</span><span class="p">,</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">         </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Olga Russakovsky and Jia Deng and Hao Su and Jonathan Krause and Sanjeev Satheesh and Sean Ma and Zhiheng Huang and Andrej Karpathy and Aditya Khosla and Michael Bernstein and Alexander C. Berg and Li Fei-Fei}</span><span class="p">,</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">         </span><span class="na">title</span><span class="p">=</span><span class="s">{ImageNet Large Scale Visual Recognition Challenge}</span><span class="p">,</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">         </span><span class="na">year</span><span class="p">=</span><span class="s">{2015}</span><span class="p">,</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">         </span><span class="na">journal</span><span class="p">=</span><span class="s">{International Journal of Computer Vision (IJCV)}</span><span class="p">,</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">         </span><span class="na">volume</span><span class="p">=</span><span class="s">{115}</span><span class="p">,</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">         </span><span class="na">number</span><span class="p">=</span><span class="s">{3}</span><span class="p">,</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">         </span><span class="na">pages</span><span class="p">=</span><span class="s">{211-252}</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">ILSVRC15</span><span class="p">,</span>
+<a id="__codelineno-2-2"></a><span class="w">         </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Olga Russakovsky and Jia Deng and Hao Su and Jonathan Krause and Sanjeev Satheesh and Sean Ma and Zhiheng Huang and Andrej Karpathy and Aditya Khosla and Michael Bernstein and Alexander C. Berg and Li Fei-Fei}</span><span class="p">,</span>
+<a id="__codelineno-2-3"></a><span class="w">         </span><span class="na">title</span><span class="p">=</span><span class="s">{ImageNet Large Scale Visual Recognition Challenge}</span><span class="p">,</span>
+<a id="__codelineno-2-4"></a><span class="w">         </span><span class="na">year</span><span class="p">=</span><span class="s">{2015}</span><span class="p">,</span>
+<a id="__codelineno-2-5"></a><span class="w">         </span><span class="na">journal</span><span class="p">=</span><span class="s">{International Journal of Computer Vision (IJCV)}</span><span class="p">,</span>
+<a id="__codelineno-2-6"></a><span class="w">         </span><span class="na">volume</span><span class="p">=</span><span class="s">{115}</span><span class="p">,</span>
+<a id="__codelineno-2-7"></a><span class="w">         </span><span class="na">number</span><span class="p">=</span><span class="s">{3}</span><span class="p">,</span>
+<a id="__codelineno-2-8"></a><span class="w">         </span><span class="na">pages</span><span class="p">=</span><span class="s">{211-252}</span>
+<a id="__codelineno-2-9"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>We would like to acknowledge the ImageNet team, led by Olga Russakovsky, Jia Deng, and Li Fei-Fei, for creating and maintaining the ImageNet dataset. The ImageNet10 dataset, while a compact subset, is a valuable resource for quick testing and debugging in the <a href="https://www.ultralytics.com/glossary/machine-learning-ml">machine learning</a> and computer vision research community. For more information about the ImageNet dataset and its creators, visit the <a href="https://www.image-net.org/">ImageNet website</a>.</p>
 <h2 id="faq">FAQ</h2>
@@ -978,25 +978,25 @@
 <p>To test your deep learning model on the ImageNet10 dataset with an image size of 224x224, use the following code snippets.</p>
 <div class="admonition example">
 <p class="admonition-title">Test Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"imagenet10"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">224</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<a id="__codelineno-3-5"></a>
+<a id="__codelineno-3-6"></a><span class="c1"># Train the model</span>
+<a id="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"imagenet10"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">224</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>yolo<span class="w"> </span>classify<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>imagenet10<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-cls.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
+<a id="__codelineno-4-2"></a>yolo<span class="w"> </span>classify<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>imagenet10<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-cls.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">5</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">224</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <p>Refer to the <a href="../../../modes/train/">Training</a> page for a comprehensive list of available arguments.</p>
 <h3 id="why-should-i-use-the-imagenet10-dataset-for-ci-tests-and-sanity-checks">Why should I use the ImageNet10 dataset for CI tests and sanity checks?</h3>

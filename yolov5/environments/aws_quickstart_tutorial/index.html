@@ -803,44 +803,44 @@
 <p><img alt="Connect to Instance" src="https://github.com/ultralytics/docs/releases/download/0/connect-to-instance.avif"/></p>
 <h2 id="step-4-running-ultralytics-yolov5">Step 4: Running Ultralytics YOLOv5</h2>
 <p>Now that you're connected via SSH, you can set up and run YOLOv5. First, clone the official YOLOv5 repository from <a href="https://github.com/ultralytics/yolov5">GitHub</a> and navigate into the directory. Then, install the required dependencies using <code>pip</code>. It's recommended to use a <a href="https://www.python.org/">Python</a> 3.8 environment or later. The necessary models and datasets will be downloaded automatically from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a> when you run commands like training or detection.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Clone the YOLOv5 repository</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># Install required packages</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Clone the YOLOv5 repository</span>
+<a id="__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
+<a id="__codelineno-0-3"></a><span class="nb">cd</span><span class="w"> </span>yolov5
+<a id="__codelineno-0-4"></a>
+<a id="__codelineno-0-5"></a><span class="c1"># Install required packages</span>
+<a id="__codelineno-0-6"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
 <p>With the environment ready, you can start using YOLOv5 for various tasks:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Train a YOLOv5 model on a custom dataset (e.g., coco128.yaml)</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Validate the performance (Precision, Recall, mAP) of a trained model (e.g., yolov5s.pt)</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Run inference (object detection) on images or videos using a trained model</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/your/images_or_videos/<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># Export the trained model to various formats like ONNX, CoreML, TFLite for deployment</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="c1"># See https://docs.ultralytics.com/modes/export/ for more details</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Train a YOLOv5 model on a custom dataset (e.g., coco128.yaml)</span>
+<a id="__codelineno-1-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<a id="__codelineno-1-3"></a>
+<a id="__codelineno-1-4"></a><span class="c1"># Validate the performance (Precision, Recall, mAP) of a trained model (e.g., yolov5s.pt)</span>
+<a id="__codelineno-1-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<a id="__codelineno-1-6"></a>
+<a id="__codelineno-1-7"></a><span class="c1"># Run inference (object detection) on images or videos using a trained model</span>
+<a id="__codelineno-1-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/your/images_or_videos/<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<a id="__codelineno-1-9"></a>
+<a id="__codelineno-1-10"></a><span class="c1"># Export the trained model to various formats like ONNX, CoreML, TFLite for deployment</span>
+<a id="__codelineno-1-11"></a><span class="c1"># See https://docs.ultralytics.com/modes/export/ for more details</span>
+<a id="__codelineno-1-12"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
 </code></pre></div>
 <p>Refer to the Ultralytics documentation for detailed guides on <a href="https://docs.ultralytics.com/modes/train/">Training</a>, <a href="https://docs.ultralytics.com/modes/val/">Validation</a>, <a href="https://docs.ultralytics.com/modes/predict/">Prediction (Inference)</a>, and <a href="https://docs.ultralytics.com/modes/export/">Exporting</a>.</p>
 <h2 id="optional-extras-increasing-swap-memory">Optional Extras: Increasing Swap Memory</h2>
 <p>If you're working with very large datasets or encounter memory limitations during training, increasing the swap memory on your instance can sometimes help. Swap space allows the system to use disk space as virtual RAM.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Allocate a 64GB swap file (adjust size as needed)</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>64G<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Set correct permissions</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># Set up the file as a Linux swap area</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># Enable the swap file</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1"># Verify the swap memory is active</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>free<span class="w"> </span>-h
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Allocate a 64GB swap file (adjust size as needed)</span>
+<a id="__codelineno-2-2"></a>sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>64G<span class="w"> </span>/swapfile
+<a id="__codelineno-2-3"></a>
+<a id="__codelineno-2-4"></a><span class="c1"># Set correct permissions</span>
+<a id="__codelineno-2-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+<a id="__codelineno-2-6"></a>
+<a id="__codelineno-2-7"></a><span class="c1"># Set up the file as a Linux swap area</span>
+<a id="__codelineno-2-8"></a>sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile
+<a id="__codelineno-2-9"></a>
+<a id="__codelineno-2-10"></a><span class="c1"># Enable the swap file</span>
+<a id="__codelineno-2-11"></a>sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
+<a id="__codelineno-2-12"></a>
+<a id="__codelineno-2-13"></a><span class="c1"># Verify the swap memory is active</span>
+<a id="__codelineno-2-14"></a>free<span class="w"> </span>-h
 </code></pre></div>
 <p>Congratulations! 🎉 You have successfully set up an AWS Deep Learning instance, installed Ultralytics YOLOv5, and are ready to perform <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> tasks. Whether you're experimenting with pre-trained models or <a href="https://docs.ultralytics.com/modes/train/">training</a> on your own data, this powerful setup provides a scalable foundation for your <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> projects. Should you encounter any issues, consult the extensive <a href="https://docs.aws.amazon.com/">AWS documentation</a> and the helpful Ultralytics community resources like the <a href="https://docs.ultralytics.com/help/FAQ/">FAQ</a>. Happy detecting!</p>
 <div class="git-info">
@@ -849,7 +849,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 12, 2025">
-<span class="hover-item">✏️</span> Updated 9 days ago
+<span class="hover-item">✏️</span> Updated 10 days ago
     </span>
 </div>
 <div class="authors-container">

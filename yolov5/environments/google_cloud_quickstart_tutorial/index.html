@@ -772,48 +772,48 @@
 <p><img alt="GCP Marketplace illustration of setting up a Deep Learning VM" src="https://github.com/ultralytics/docs/releases/download/0/gcp-deep-learning-vm-setup.avif"/></p>
 <h2 id="step-2-prepare-the-vm-for-yolov5">Step 2: Prepare the VM for YOLOv5</h2>
 <p>After setting up the environment, let's get YOLOv5 installed and ready:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Clone the YOLOv5 repository from GitHub</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Navigate into the cloned repository directory</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nb">cd</span><span class="w"> </span>yolov5
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># Install the required Python packages listed in requirements.txt</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Clone the YOLOv5 repository from GitHub</span>
+<a id="__codelineno-0-2"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/ultralytics/yolov5
+<a id="__codelineno-0-3"></a>
+<a id="__codelineno-0-4"></a><span class="c1"># Navigate into the cloned repository directory</span>
+<a id="__codelineno-0-5"></a><span class="nb">cd</span><span class="w"> </span>yolov5
+<a id="__codelineno-0-6"></a>
+<a id="__codelineno-0-7"></a><span class="c1"># Install the required Python packages listed in requirements.txt</span>
+<a id="__codelineno-0-8"></a>pip<span class="w"> </span>install<span class="w"> </span>-r<span class="w"> </span>requirements.txt
 </code></pre></div>
 <p>This setup process ensures you have a Python environment version 3.8.0 or newer and <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> 1.8 or later. Our scripts automatically download <a href="https://github.com/ultralytics/yolov5/tree/master/models">models</a> and <a href="https://github.com/ultralytics/yolov5/tree/master/data">datasets</a> from the latest YOLOv5 <a href="https://github.com/ultralytics/yolov5/releases">release</a>, simplifying the process of starting model training.</p>
 <h2 id="step-3-train-and-deploy-your-yolov5-models">Step 3: Train and Deploy Your YOLOv5 Models</h2>
 <p>With the setup complete, you are ready to <a href="../../../modes/train/">train</a>, <a href="../../../modes/val/">validate</a>, <a href="../../../modes/predict/">predict</a>, and <a href="../../../modes/export/">export</a> with YOLOv5 on your GCP VM:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Train a YOLOv5 model on your dataset (e.g., yolov5s)</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Validate the trained model to check Precision, Recall, and mAP</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--data<span class="w"> </span>coco128.yaml
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Run inference using the trained model on images or videos</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/your/images_or_videos
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># Export the trained model to various formats like ONNX, CoreML, TFLite for deployment</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Train a YOLOv5 model on your dataset (e.g., yolov5s)</span>
+<a id="__codelineno-1-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span>
+<a id="__codelineno-1-3"></a>
+<a id="__codelineno-1-4"></a><span class="c1"># Validate the trained model to check Precision, Recall, and mAP</span>
+<a id="__codelineno-1-5"></a>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--data<span class="w"> </span>coco128.yaml
+<a id="__codelineno-1-6"></a>
+<a id="__codelineno-1-7"></a><span class="c1"># Run inference using the trained model on images or videos</span>
+<a id="__codelineno-1-8"></a>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--source<span class="w"> </span>path/to/your/images_or_videos
+<a id="__codelineno-1-9"></a>
+<a id="__codelineno-1-10"></a><span class="c1"># Export the trained model to various formats like ONNX, CoreML, TFLite for deployment</span>
+<a id="__codelineno-1-11"></a>python<span class="w"> </span>export.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--include<span class="w"> </span>onnx<span class="w"> </span>coreml<span class="w"> </span>tflite
 </code></pre></div>
 <p>Using just a few commands, YOLOv5 enables you to train custom <a href="https://docs.ultralytics.com/tasks/detect/">object detection</a> models tailored to your specific needs or utilize pre-trained weights for rapid results across various tasks. Explore different <a href="../../../guides/model-deployment-options/">model deployment options</a> after exporting.</p>
 <p><img alt="Terminal command image illustrating model training on a GCP Deep Learning VM" src="https://github.com/ultralytics/docs/releases/download/0/terminal-command-model-training.avif"/></p>
 <h2 id="allocate-swap-space-optional">Allocate Swap Space (Optional)</h2>
 <p>If you are working with particularly large datasets that might exceed your VM's RAM, consider adding swap space to prevent memory errors:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Allocate a 64GB swap file</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>64G<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Set the correct permissions for the swap file</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># Set up the Linux swap area</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># Enable the swap file</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="c1"># Verify the swap space allocation (should show increased swap memory)</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>free<span class="w"> </span>-h
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Allocate a 64GB swap file</span>
+<a id="__codelineno-2-2"></a>sudo<span class="w"> </span>fallocate<span class="w"> </span>-l<span class="w"> </span>64G<span class="w"> </span>/swapfile
+<a id="__codelineno-2-3"></a>
+<a id="__codelineno-2-4"></a><span class="c1"># Set the correct permissions for the swap file</span>
+<a id="__codelineno-2-5"></a>sudo<span class="w"> </span>chmod<span class="w"> </span><span class="m">600</span><span class="w"> </span>/swapfile
+<a id="__codelineno-2-6"></a>
+<a id="__codelineno-2-7"></a><span class="c1"># Set up the Linux swap area</span>
+<a id="__codelineno-2-8"></a>sudo<span class="w"> </span>mkswap<span class="w"> </span>/swapfile
+<a id="__codelineno-2-9"></a>
+<a id="__codelineno-2-10"></a><span class="c1"># Enable the swap file</span>
+<a id="__codelineno-2-11"></a>sudo<span class="w"> </span>swapon<span class="w"> </span>/swapfile
+<a id="__codelineno-2-12"></a>
+<a id="__codelineno-2-13"></a><span class="c1"># Verify the swap space allocation (should show increased swap memory)</span>
+<a id="__codelineno-2-14"></a>free<span class="w"> </span>-h
 </code></pre></div>
 <h2 id="training-custom-datasets">Training Custom Datasets</h2>
 <p>To train YOLOv5 on your custom dataset within GCP, follow these general steps:</p>
@@ -823,21 +823,21 @@
 <li>Create a dataset configuration YAML file (<code>custom_dataset.yaml</code>) that specifies the paths to your training and validation data, the number of classes, and class names.</li>
 <li>Begin the <a href="../../../modes/train/">training process</a> using your custom dataset YAML and potentially starting from pre-trained weights:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Example: Train YOLOv5s on a custom dataset for 100 epochs</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">100</span><span class="w"> </span>--data<span class="w"> </span>custom_dataset.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Example: Train YOLOv5s on a custom dataset for 100 epochs</span>
+<a id="__codelineno-3-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">100</span><span class="w"> </span>--data<span class="w"> </span>custom_dataset.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
 </code></pre></div>
 <p>For comprehensive instructions on preparing data and training with custom datasets, consult the <a href="../../../modes/train/">Ultralytics YOLOv5 Train documentation</a>.</p>
 <h2 id="leveraging-cloud-storage">Leveraging Cloud Storage</h2>
 <p>For efficient data management, especially with large datasets or numerous experiments, integrate your YOLOv5 workflow with <a href="https://cloud.google.com/storage">Google Cloud Storage</a>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Ensure Google Cloud SDK is installed and initialized</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="c1"># If not installed: curl https://sdk.cloud.google.com/ | bash</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Then initialize: gcloud init</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="c1"># Example: Copy your dataset from a GCS bucket to your VM</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>gsutil<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>gs://your-data-bucket/my_dataset<span class="w"> </span>./datasets/
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="c1"># Example: Copy trained model weights from your VM to a GCS bucket</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>gsutil<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>./runs/train/exp/weights<span class="w"> </span>gs://your-models-bucket/yolov5_custom_weights/
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># Ensure Google Cloud SDK is installed and initialized</span>
+<a id="__codelineno-4-2"></a><span class="c1"># If not installed: curl https://sdk.cloud.google.com/ | bash</span>
+<a id="__codelineno-4-3"></a><span class="c1"># Then initialize: gcloud init</span>
+<a id="__codelineno-4-4"></a>
+<a id="__codelineno-4-5"></a><span class="c1"># Example: Copy your dataset from a GCS bucket to your VM</span>
+<a id="__codelineno-4-6"></a>gsutil<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>gs://your-data-bucket/my_dataset<span class="w"> </span>./datasets/
+<a id="__codelineno-4-7"></a>
+<a id="__codelineno-4-8"></a><span class="c1"># Example: Copy trained model weights from your VM to a GCS bucket</span>
+<a id="__codelineno-4-9"></a>gsutil<span class="w"> </span>cp<span class="w"> </span>-r<span class="w"> </span>./runs/train/exp/weights<span class="w"> </span>gs://your-models-bucket/yolov5_custom_weights/
 </code></pre></div>
 <p>This approach allows you to store large datasets and trained models securely and cost-effectively in the cloud, minimizing the storage requirements on your VM instance.</p>
 <h2 id="concluding-thoughts">Concluding Thoughts</h2>
@@ -851,7 +851,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 17, 2025">
-<span class="hover-item">✏️</span> Updated 4 days ago
+<span class="hover-item">✏️</span> Updated 5 days ago
     </span>
 </div>
 <div class="authors-container">

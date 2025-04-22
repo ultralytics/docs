@@ -740,33 +740,33 @@
 <p>Train YOLO11n-obb on the DOTA8 dataset for 100 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> at image size 640. For a full list of available arguments see the <a href="../../usage/cfg/">Configuration</a> page.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.yaml"</span><span class="p">)</span>  <span class="c1"># build a new model from YAML</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.yaml"</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># build from YAML and transfer weights</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"dota8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.yaml"</span><span class="p">)</span>  <span class="c1"># build a new model from YAML</span>
+<a id="__codelineno-0-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<a id="__codelineno-0-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.yaml"</span><span class="p">)</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># build from YAML and transfer weights</span>
+<a id="__codelineno-0-7"></a>
+<a id="__codelineno-0-8"></a><span class="c1"># Train the model</span>
+<a id="__codelineno-0-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"dota8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Build a new model from YAML and start training from scratch</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># Build a new model from YAML, transfer pretrained weights to it and start training</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.yaml<span class="w"> </span><span class="nv">pretrained</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Build a new model from YAML and start training from scratch</span>
+<a id="__codelineno-1-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<a id="__codelineno-1-3"></a>
+<a id="__codelineno-1-4"></a><span class="c1"># Start training from a pretrained *.pt model</span>
+<a id="__codelineno-1-5"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<a id="__codelineno-1-6"></a>
+<a id="__codelineno-1-7"></a><span class="c1"># Build a new model from YAML, transfer pretrained weights to it and start training</span>
+<a id="__codelineno-1-8"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.yaml<span class="w"> </span><span class="nv">pretrained</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <p align="center">
 <br/>
@@ -777,69 +777,69 @@
 </p>
 <h3 id="dataset-format">Dataset format</h3>
 <p>OBB dataset format can be found in detail in the <a href="../../datasets/obb/">Dataset Guide</a>. The YOLO OBB format designates bounding boxes by their four corner points with coordinates normalized between 0 and 1, following this structure:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>class_index x1 y1 x2 y2 x3 y3 x4 y4
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>class_index x1 y1 x2 y2 x3 y3 x4 y4
 </code></pre></div>
 <p>Internally, YOLO processes losses and outputs in the <code>xywhr</code> format, which represents the <a href="https://www.ultralytics.com/glossary/bounding-box">bounding box</a>'s center point (xy), width, height, and rotation.</p>
 <h2 id="val">Val</h2>
 <p>Validate trained YOLO11n-obb model <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> on the DOTA8 dataset. No arguments are needed as the <code>model</code> retains its training <code>data</code> and arguments as model attributes.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># load a custom model</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="c1"># Validate the model</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"dota8.yaml"</span><span class="p">)</span>  <span class="c1"># no arguments needed, dataset and settings remembered</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span>  <span class="c1"># map50-95(B)</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span>  <span class="c1"># map50(B)</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span>  <span class="c1"># map75(B)</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">maps</span>  <span class="c1"># a list contains map50-95(B) of each category</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
+<a id="__codelineno-3-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># load a custom model</span>
+<a id="__codelineno-3-6"></a>
+<a id="__codelineno-3-7"></a><span class="c1"># Validate the model</span>
+<a id="__codelineno-3-8"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"dota8.yaml"</span><span class="p">)</span>  <span class="c1"># no arguments needed, dataset and settings remembered</span>
+<a id="__codelineno-3-9"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span>  <span class="c1"># map50-95(B)</span>
+<a id="__codelineno-3-10"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span>  <span class="c1"># map50(B)</span>
+<a id="__codelineno-3-11"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span>  <span class="c1"># map75(B)</span>
+<a id="__codelineno-3-12"></a><span class="n">metrics</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">maps</span>  <span class="c1"># a list contains map50-95(B) of each category</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w">         </span><span class="c1"># val official model</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/data.yaml<span class="w"> </span><span class="c1"># val custom model</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml<span class="w">         </span><span class="c1"># val official model</span>
+<a id="__codelineno-4-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/data.yaml<span class="w"> </span><span class="c1"># val custom model</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h2 id="predict">Predict</h2>
 <p>Use a trained YOLO11n-obb model to run predictions on images.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># load a custom model</span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="c1"># Predict with the model</span>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/boats.jpg"</span><span class="p">)</span>  <span class="c1"># predict on an image</span>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="c1"># Access the results</span>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a>    <span class="n">xywhr</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">xy</span>  <span class="c1"># center-x, center-y, width, height, angle (radians)</span>
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a>    <span class="n">xyxyxyxy</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">xyxyxyxy</span>  <span class="c1"># polygon format with 4-points</span>
-<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>    <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">item</span><span class="p">()]</span> <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">int</span><span class="p">()]</span>  <span class="c1"># class name of each box</span>
-<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>    <span class="n">confs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># confidence score of each box</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-5-2"></a>
+<a id="__codelineno-5-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
+<a id="__codelineno-5-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># load a custom model</span>
+<a id="__codelineno-5-6"></a>
+<a id="__codelineno-5-7"></a><span class="c1"># Predict with the model</span>
+<a id="__codelineno-5-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/boats.jpg"</span><span class="p">)</span>  <span class="c1"># predict on an image</span>
+<a id="__codelineno-5-9"></a>
+<a id="__codelineno-5-10"></a><span class="c1"># Access the results</span>
+<a id="__codelineno-5-11"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-5-12"></a>    <span class="n">xywhr</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">xy</span>  <span class="c1"># center-x, center-y, width, height, angle (radians)</span>
+<a id="__codelineno-5-13"></a>    <span class="n">xyxyxyxy</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">xyxyxyxy</span>  <span class="c1"># polygon format with 4-points</span>
+<a id="__codelineno-5-14"></a>    <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">result</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">cls</span><span class="o">.</span><span class="n">item</span><span class="p">()]</span> <span class="k">for</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">int</span><span class="p">()]</span>  <span class="c1"># class name of each box</span>
+<a id="__codelineno-5-15"></a>    <span class="n">confs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span><span class="o">.</span><span class="n">conf</span>  <span class="c1"># confidence score of each box</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/boats.jpg'</span><span class="w">  </span><span class="c1"># predict with official model</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/boats.jpg'</span><span class="w"> </span><span class="c1"># predict with custom model</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/boats.jpg'</span><span class="w">  </span><span class="c1"># predict with official model</span>
+<a id="__codelineno-6-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/boats.jpg'</span><span class="w"> </span><span class="c1"># predict with custom model</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <p align="center">
 <br/>
@@ -853,26 +853,26 @@
 <p>Export a YOLO11n-obb model to a different format like ONNX, CoreML, etc.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># load a custom trained model</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="c1"># Export the model</span>
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-7-2"></a>
+<a id="__codelineno-7-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-7-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>  <span class="c1"># load an official model</span>
+<a id="__codelineno-7-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># load a custom trained model</span>
+<a id="__codelineno-7-6"></a>
+<a id="__codelineno-7-7"></a><span class="c1"># Export the model</span>
+<a id="__codelineno-7-8"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w">  </span><span class="c1"># export official model</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="c1"># export custom trained model</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w">  </span><span class="c1"># export official model</span>
+<a id="__codelineno-8-2"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="c1"># export custom trained model</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <p>Available YOLO11-obb export formats are in the table below. You can export to any format using the <code>format</code> argument, i.e. <code>format='onnx'</code> or <code>format='engine'</code>. You can predict or validate directly on exported models, i.e. <code>yolo predict model=yolo11n-obb.onnx</code>. Usage examples are shown for your model after export completes.</p>
 <table>
@@ -1021,17 +1021,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1"># Load a pretrained model</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/custom_dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-9-2"></a>
+<a id="__codelineno-9-3"></a><span class="c1"># Load a pretrained model</span>
+<a id="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>
+<a id="__codelineno-9-5"></a>
+<a id="__codelineno-9-6"></a><span class="c1"># Train the model</span>
+<a id="__codelineno-9-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/custom_dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/custom_dataset.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>path/to/custom_dataset.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1047,17 +1047,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><input id="__tabbed_6_2" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Python</label><label for="__tabbed_6_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="c1"># Export the model</span>
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-11-2"></a>
+<a id="__codelineno-11-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-11-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>
+<a id="__codelineno-11-5"></a>
+<a id="__codelineno-11-6"></a><span class="c1"># Export the model</span>
+<a id="__codelineno-11-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"onnx"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx
 </code></pre></div>
 </div>
 </div>
@@ -1071,17 +1071,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio"/><input id="__tabbed_7_2" name="__tabbed_7" type="radio"/><div class="tabbed-labels"><label for="__tabbed_7_1">Python</label><label for="__tabbed_7_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1"># Validate the model</span>
-<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"dota8.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-13-2"></a>
+<a id="__codelineno-13-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>
+<a id="__codelineno-13-5"></a>
+<a id="__codelineno-13-6"></a><span class="c1"># Validate the model</span>
+<a id="__codelineno-13-7"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"dota8.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a>yolo<span class="w"> </span>obb<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>dota8.yaml
 </code></pre></div>
 </div>
 </div>

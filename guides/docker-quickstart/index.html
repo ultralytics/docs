@@ -1005,25 +1005,25 @@
 <hr/>
 <h2 id="setting-up-docker-with-nvidia-support">Setting up Docker with NVIDIA Support</h2>
 <p>First, verify that the NVIDIA drivers are properly installed by running:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>nvidia-smi
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>nvidia-smi
 </code></pre></div>
 <h3 id="installing-nvidia-docker-runtime">Installing NVIDIA Docker Runtime</h3>
 <p>Now, let's install the NVIDIA Docker runtime to enable GPU support in Docker containers:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Add NVIDIA package repositories</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/gpgkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-docker.list
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Install NVIDIA Docker runtime</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-docker2
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="c1"># Restart Docker service to apply changes</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Add NVIDIA package repositories</span>
+<a id="__codelineno-1-2"></a>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/gpgkey<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>apt-key<span class="w"> </span>add<span class="w"> </span>-
+<a id="__codelineno-1-3"></a><span class="nv">distribution</span><span class="o">=</span><span class="k">$(</span>lsb_release<span class="w"> </span>-cs<span class="k">)</span>
+<a id="__codelineno-1-4"></a>curl<span class="w"> </span>-s<span class="w"> </span>-L<span class="w"> </span>https://nvidia.github.io/nvidia-docker/<span class="nv">$distribution</span>/nvidia-docker.list<span class="w"> </span><span class="p">|</span><span class="w"> </span>sudo<span class="w"> </span>tee<span class="w"> </span>/etc/apt/sources.list.d/nvidia-docker.list
+<a id="__codelineno-1-5"></a>
+<a id="__codelineno-1-6"></a><span class="c1"># Install NVIDIA Docker runtime</span>
+<a id="__codelineno-1-7"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>update
+<a id="__codelineno-1-8"></a>sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>nvidia-docker2
+<a id="__codelineno-1-9"></a>
+<a id="__codelineno-1-10"></a><span class="c1"># Restart Docker service to apply changes</span>
+<a id="__codelineno-1-11"></a>sudo<span class="w"> </span>systemctl<span class="w"> </span>restart<span class="w"> </span>docker
 </code></pre></div>
 <h3 id="verify-nvidia-runtime-with-docker">Verify NVIDIA Runtime with Docker</h3>
 <p>Run <code>docker info | grep -i runtime</code> to ensure that <code>nvidia</code> appears in the list of runtimes:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>docker<span class="w"> </span>info<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>runtime
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>docker<span class="w"> </span>info<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-i<span class="w"> </span>runtime
 </code></pre></div>
 <hr/>
 <h2 id="installing-ultralytics-docker-images">Installing Ultralytics Docker Images</h2>
@@ -1040,45 +1040,45 @@
 <li><strong>Dockerfile-conda:</strong> Includes <a href="https://www.anaconda.com/docs/main">Miniconda3</a> and Ultralytics package installed via Conda.</li>
 </ul>
 <p>To pull the latest image:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Set image name as a variable</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="c1"># Pull the latest Ultralytics image from Docker Hub</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Set image name as a variable</span>
+<a id="__codelineno-3-2"></a><span class="nv">t</span><span class="o">=</span>ultralytics/ultralytics:latest
+<a id="__codelineno-3-3"></a>
+<a id="__codelineno-3-4"></a><span class="c1"># Pull the latest Ultralytics image from Docker Hub</span>
+<a id="__codelineno-3-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <hr/>
 <h2 id="running-ultralytics-in-docker-container">Running Ultralytics in Docker Container</h2>
 <p>Here's how to execute the Ultralytics Docker container:</p>
 <h3 id="using-only-the-cpu">Using only the CPU</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># Run without GPU</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># Run without GPU</span>
+<a id="__codelineno-4-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <h3 id="using-gpus">Using GPUs</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Run with all GPUs</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Run specifying which GPUs to use</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Run with all GPUs</span>
+<a id="__codelineno-5-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
+<a id="__codelineno-5-3"></a>
+<a id="__codelineno-5-4"></a><span class="c1"># Run specifying which GPUs to use</span>
+<a id="__codelineno-5-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>The <code>-it</code> flag assigns a pseudo-TTY and keeps stdin open, allowing you to interact with the container. The <code>--ipc=host</code> flag enables sharing of host's IPC namespace, essential for sharing memory between processes. The <code>--gpus</code> flag allows the container to access the host's GPUs.</p>
 <h2 id="running-ultralytics-in-docker-container_1">Running Ultralytics in Docker Container</h2>
 <p>Here's how to execute the Ultralytics Docker container:</p>
 <h3 id="using-only-the-cpu_1">Using only the CPU</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1"># Run with all GPUs</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="c1"># Run with all GPUs</span>
+<a id="__codelineno-6-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <h3 id="using-gpus_1">Using GPUs</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Run with all GPUs</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="c1"># Run specifying which GPUs to use</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="c1"># Run with all GPUs</span>
+<a id="__codelineno-7-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span><span class="nv">$t</span>
+<a id="__codelineno-7-3"></a>
+<a id="__codelineno-7-4"></a><span class="c1"># Run specifying which GPUs to use</span>
+<a id="__codelineno-7-5"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span><span class="s1">'"device=2,3"'</span><span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>The <code>-it</code> flag assigns a pseudo-TTY and keeps stdin open, allowing you to interact with the container. The <code>--ipc=host</code> flag enables sharing of host's IPC namespace, essential for sharing memory between processes. The <code>--gpus</code> flag allows the container to access the host's GPUs.</p>
 <h3 id="note-on-file-accessibility">Note on File Accessibility</h3>
 <p>To work with files on your local machine within the container, you can use Docker volumes:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Mount a local directory into the container</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="c1"># Mount a local directory into the container</span>
+<a id="__codelineno-8-2"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>Replace <code>/path/on/host</code> with the directory path on your local machine and <code>/path/in/container</code> with the desired path inside the Docker container.</p>
 <h2 id="run-graphical-user-interface-gui-applications-in-a-docker-container">Run graphical user interface (GUI) applications in a Docker Container</h2>
@@ -1087,7 +1087,7 @@
 <p>The following instructions are experimental. Sharing a X11 socket with a Docker container poses potential security risks. Therefore, it's recommended to test this solution only in a controlled environment. For more information, refer to these resources on how to use <code>xhost</code><sup><a href="http://users.stat.umn.edu/~geyer/secure.html">(1)</a><a href="https://linux.die.net/man/1/xhost">(2)</a></sup>.</p>
 </div>
 <p>Docker is primarily used to containerize background applications and CLI programs, but it can also run graphical programs. In the Linux world, two main graphic servers handle graphical display: <a href="https://www.x.org/wiki/">X11</a> (also known as the X Window System) and <a href="https://en.wikipedia.org/wiki/Wayland_(protocol)">Wayland</a>. Before starting, it's essential to determine which graphics server you are currently using. Run this command to find out:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span>-i<span class="w"> </span><span class="s1">'x11|xorg|wayland'</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a>env<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>-E<span class="w"> </span>-i<span class="w"> </span><span class="s1">'x11|xorg|wayland'</span>
 </code></pre></div>
 <p>Setup and configuration of an X11 or Wayland display server is outside the scope of this guide. If the above command returns nothing, then you'll need to start by getting either working for your system before continuing.</p>
 <h3 id="running-a-docker-container-with-a-gui">Running a Docker Container with a GUI</h3>
@@ -1098,31 +1098,31 @@
 <div class="highlight"><pre><span></span><code>If you're using [GPUs](#using-gpus), you can add the `--gpus all` flag to the command.
 </code></pre></div>
 </details>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">X11</label><label for="__tabbed_1_2">Wayland</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">X11</label><label for="__tabbed_1_2">Wayland</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>If you're using X11, you can run the following command to allow the Docker container to access the X11 socket:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="w">  </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">  </span>-v<span class="w"> </span>~/.Xauthority:/root/.Xauthority<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">  </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-2"></a><span class="w">  </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-3"></a><span class="w">  </span>-v<span class="w"> </span>~/.Xauthority:/root/.Xauthority<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-10-4"></a><span class="w">  </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>This command sets the <code>DISPLAY</code> environment variable to the host's display, mounts the X11 socket, and maps the <code>.Xauthority</code> file to the container. The <code>xhost +local:docker</code> command allows the Docker container to access the X11 server.</p>
 </div>
 <div class="tabbed-block">
 <p>For Wayland, use the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">  </span>-v<span class="w"> </span><span class="nv">$XDG_RUNTIME_DIR</span>/<span class="nv">$WAYLAND_DISPLAY</span>:/tmp/<span class="nv">$WAYLAND_DISPLAY</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">  </span>--net<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-2"></a><span class="w">  </span>-v<span class="w"> </span><span class="nv">$XDG_RUNTIME_DIR</span>/<span class="nv">$WAYLAND_DISPLAY</span>:/tmp/<span class="nv">$WAYLAND_DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-3"></a><span class="w">  </span>--net<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span><span class="nv">$t</span>
 </code></pre></div>
 <p>This command sets the <code>DISPLAY</code> environment variable to the host's display, mounts the Wayland socket, and allows the Docker container to access the Wayland server.</p>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h3 id="using-docker-with-a-gui">Using Docker with a GUI</h3>
 <p>Now you can display graphical applications inside your Docker container. For example, you can run the following <a href="../../usage/cli/">CLI command</a> to visualize the <a href="../../modes/predict/">predictions</a> from a <a href="../../models/yolo11/">YOLO11 model</a>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
 </code></pre></div>
 <details class="info">
 <summary>Testing</summary>
@@ -1132,7 +1132,7 @@
 <div class="admonition warning">
 <p class="admonition-title">Revoke access</p>
 <p>In both cases, don't forget to revoke access from the Docker group when you're done.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>xhost<span class="w"> </span>-local:docker
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a>xhost<span class="w"> </span>-local:docker
 </code></pre></div>
 </div>
 <details class="question">
@@ -1144,32 +1144,32 @@
 <h2 id="faq">FAQ</h2>
 <h3 id="how-do-i-set-up-ultralytics-with-docker">How do I set up Ultralytics with Docker?</h3>
 <p>To set up Ultralytics with Docker, first ensure that Docker is installed on your system. If you have an NVIDIA GPU, install the NVIDIA Docker runtime to enable GPU support. Then, pull the latest Ultralytics Docker image from Docker Hub using the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ultralytics/ultralytics:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>pull<span class="w"> </span>ultralytics/ultralytics:latest
 </code></pre></div>
 <p>For detailed steps, refer to our Docker Quickstart Guide.</p>
 <h3 id="what-are-the-benefits-of-using-ultralytics-docker-images-for-machine-learning-projects">What are the benefits of using Ultralytics Docker images for machine learning projects?</h3>
 <p>Using Ultralytics Docker images ensures a consistent environment across different machines, replicating the same software and dependencies. This is particularly useful for <a href="https://www.ultralytics.com/blog/how-ultralytics-integration-can-enhance-your-workflow">collaborating across teams</a>, running models on various hardware, and maintaining reproducibility. For GPU-based training, Ultralytics provides optimized Docker images such as <code>Dockerfile</code> for general GPU usage and <code>Dockerfile-jetson</code> for NVIDIA Jetson devices. Explore <a href="https://hub.docker.com/r/ultralytics/ultralytics">Ultralytics Docker Hub</a> for more details.</p>
 <h3 id="how-can-i-run-ultralytics-yolo-in-a-docker-container-with-gpu-support">How can I run Ultralytics YOLO in a Docker container with GPU support?</h3>
 <p>First, ensure that the NVIDIA Docker runtime is installed and configured. Then, use the following command to run Ultralytics YOLO with GPU support:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>ultralytics/ultralytics:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>ultralytics/ultralytics:latest
 </code></pre></div>
 <p>This command sets up a Docker container with GPU access. For additional details, see the Docker Quickstart Guide.</p>
 <h3 id="how-do-i-visualize-yolo-prediction-results-in-a-docker-container-with-a-display-server">How do I visualize YOLO prediction results in a Docker container with a display server?</h3>
 <p>To visualize YOLO prediction results with a GUI in a Docker container, you need to allow Docker to access your display server. For systems running X11, the command is:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="w">  </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a><span class="w">  </span>-v<span class="w"> </span>~/.Xauthority:/root/.Xauthority<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="w">  </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>ultralytics/ultralytics:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-2"></a><span class="w">  </span>-v<span class="w"> </span>/tmp/.X11-unix:/tmp/.X11-unix<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-3"></a><span class="w">  </span>-v<span class="w"> </span>~/.Xauthority:/root/.Xauthority<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-16-4"></a><span class="w">  </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>ultralytics/ultralytics:latest
 </code></pre></div>
 <p>For systems running Wayland, use:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a><span class="w">  </span>-v<span class="w"> </span><span class="nv">$XDG_RUNTIME_DIR</span>/<span class="nv">$WAYLAND_DISPLAY</span>:/tmp/<span class="nv">$WAYLAND_DISPLAY</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="w">  </span>--net<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>ultralytics/ultralytics:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1"></a>xhost<span class="w"> </span>+local:docker<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-e<span class="w"> </span><span class="nv">DISPLAY</span><span class="o">=</span><span class="nv">$DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-17-2"></a><span class="w">  </span>-v<span class="w"> </span><span class="nv">$XDG_RUNTIME_DIR</span>/<span class="nv">$WAYLAND_DISPLAY</span>:/tmp/<span class="nv">$WAYLAND_DISPLAY</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-17-3"></a><span class="w">  </span>--net<span class="o">=</span>host<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>ultralytics/ultralytics:latest
 </code></pre></div>
 <p>More information can be found in the <a href="#run-graphical-user-interface-gui-applications-in-a-docker-container">Run graphical user interface (GUI) applications in a Docker Container</a> section.</p>
 <h3 id="can-i-mount-local-directories-into-the-ultralytics-docker-container">Can I mount local directories into the Ultralytics Docker container?</h3>
 <p>Yes, you can mount local directories into the Ultralytics Docker container using the <code>-v</code> flag:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span>ultralytics/ultralytics:latest
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1"></a>sudo<span class="w"> </span>docker<span class="w"> </span>run<span class="w"> </span>-it<span class="w"> </span>--ipc<span class="o">=</span>host<span class="w"> </span>--gpus<span class="w"> </span>all<span class="w"> </span>-v<span class="w"> </span>/path/on/host:/path/in/container<span class="w"> </span>ultralytics/ultralytics:latest
 </code></pre></div>
 <p>Replace <code>/path/on/host</code> with the directory on your local machine and <code>/path/in/container</code> with the desired path inside the container. This setup allows you to work with your local files within the container. For more information, refer to the <a href="#note-on-file-accessibility">Note on File Accessibility</a> section.</p>
 <div class="git-info">
@@ -1178,7 +1178,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 14, 2025">
-<span class="hover-item">✏️</span> Updated 7 days ago
+<span class="hover-item">✏️</span> Updated 8 days ago
     </span>
 </div>
 <div class="authors-container">

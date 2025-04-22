@@ -669,7 +669,7 @@
 </div>
 <h2 id="overview">Overview</h2>
 <p>Developed by Deci AI, YOLO-NAS is a groundbreaking object detection foundational model. It is the product of advanced <a href="https://www.ultralytics.com/glossary/neural-architecture-search-nas">Neural Architecture Search</a> technology, meticulously designed to address the limitations of previous YOLO models. With significant improvements in quantization support and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>-latency trade-offs, YOLO-NAS represents a major leap in object detection.</p>
-<p><img alt="Model example image" src="https://github.com/ultralytics/docs/releases/download/0/yolo-nas-coco-map-metrics.avif"> <strong>Overview of YOLO-NAS.</strong> YOLO-NAS employs quantization-aware blocks and selective quantization for optimal performance. The model, when converted to its INT8 quantized version, experiences a minimal precision drop, a significant improvement over other models. These advancements culminate in a superior architecture with unprecedented object detection capabilities and outstanding performance.</img></p>
+<p><img alt="Model example image" src="https://github.com/ultralytics/docs/releases/download/0/yolo-nas-coco-map-metrics.avif"/> <strong>Overview of YOLO-NAS.</strong> YOLO-NAS employs quantization-aware blocks and selective quantization for optimal performance. The model, when converted to its INT8 quantized version, experiences a minimal precision drop, a significant improvement over other models. These advancements culminate in a superior architecture with unprecedented object detection capabilities and outstanding performance.</p>
 <h3 id="key-features">Key Features</h3>
 <ul>
 <li><strong>Quantization-Friendly Basic Block:</strong> YOLO-NAS introduces a new basic block that is friendly to quantization, addressing one of the significant limitations of previous YOLO models.</li>
@@ -680,7 +680,7 @@
 <p>Experience the power of next-generation object detection with the pre-trained YOLO-NAS models provided by Ultralytics. These models are designed to deliver top-notch performance in terms of both speed and accuracy. Choose from a variety of options tailored to your specific needs:</p>
 <div class="admonition tip">
 <p class="admonition-title">Performance</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table>
@@ -726,7 +726,7 @@
 </table>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>Each model variant is designed to offer a balance between <a href="https://www.ultralytics.com/glossary/mean-average-precision-map">Mean Average Precision</a> (mAP) and latency, helping you optimize your object detection tasks for both performance and speed.</p>
 <h2 id="usage-examples">Usage Examples</h2>
@@ -737,36 +737,36 @@
 <div class="admonition example">
 <p class="admonition-title">Example</p>
 <p>This example provides simple inference and validation code for YOLO-NAS. For handling inference results see <a href="../../modes/predict/">Predict</a> mode. For using YOLO-NAS with additional modes see <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a>. YOLO-NAS on the <code>ultralytics</code> package does not support training.</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> pretrained <code>*.pt</code> models files can be passed to the <code>NAS()</code> class to create a model instance in python:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NAS</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a COCO-pretrained YOLO-NAS-s model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">NAS</span><span class="p">(</span><span class="s2">"yolo_nas_s.pt"</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Display model information (optional)</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Validate the model on the COCO8 example dataset</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Run inference with the YOLO-NAS-s model on the 'bus.jpg' image</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NAS</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="c1"># Load a COCO-pretrained YOLO-NAS-s model</span>
+<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">NAS</span><span class="p">(</span><span class="s2">"yolo_nas_s.pt"</span><span class="p">)</span>
+<a id="__codelineno-0-5"></a>
+<a id="__codelineno-0-6"></a><span class="c1"># Display model information (optional)</span>
+<a id="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<a id="__codelineno-0-8"></a>
+<a id="__codelineno-0-9"></a><span class="c1"># Validate the model on the COCO8 example dataset</span>
+<a id="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
+<a id="__codelineno-0-11"></a>
+<a id="__codelineno-0-12"></a><span class="c1"># Run inference with the YOLO-NAS-s model on the 'bus.jpg' image</span>
+<a id="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>CLI commands are available to directly run the models:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Load a COCO-pretrained YOLO-NAS-s model and validate it's performance on the COCO8 example dataset</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo_nas_s.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Load a COCO-pretrained YOLO-NAS-s model and run inference on the 'bus.jpg' image</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo_nas_s.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Load a COCO-pretrained YOLO-NAS-s model and validate it's performance on the COCO8 example dataset</span>
+<a id="__codelineno-1-2"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo_nas_s.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml
+<a id="__codelineno-1-3"></a>
+<a id="__codelineno-1-4"></a><span class="c1"># Load a COCO-pretrained YOLO-NAS-s model and run inference on the 'bus.jpg' image</span>
+<a id="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo_nas_s.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h2 id="supported-tasks-and-modes">Supported Tasks and Modes</h2>
 <p>We offer three variants of the YOLO-NAS models: Small (s), Medium (m), and Large (l). Each variant is designed to cater to different computational and performance needs:</p>
@@ -821,22 +821,22 @@
 <h2 id="citations-and-acknowledgements">Citations and Acknowledgements</h2>
 <p>If you employ YOLO-NAS in your research or development work, please cite SuperGradients:</p>
 <div class="admonition quote">
-<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">BibTeX</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">supergradients</span><span class="p">,</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">      </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{10.5281/ZENODO.7789328}</span><span class="p">,</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">      </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://zenodo.org/records/7789328}</span><span class="p">,</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">      </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Aharon,  Shay and {Louis-Dupont} and {Ofri Masad} and Yurkova,  Kate and {Lotem Fridman} and {Lkdci} and Khvedchenya,  Eugene and Rubin,  Ran and Bagrov,  Natan and Tymchenko,  Borys and Keren,  Tomer and Zhilko,  Alexander and {Eran-Deci}}</span><span class="p">,</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">      </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Super-Gradients}</span><span class="p">,</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">      </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{GitHub}</span><span class="p">,</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">      </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{GitHub repository}</span><span class="p">,</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">      </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2021}</span><span class="p">,</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">supergradients</span><span class="p">,</span>
+<a id="__codelineno-2-2"></a><span class="w">      </span><span class="na">doi</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{10.5281/ZENODO.7789328}</span><span class="p">,</span>
+<a id="__codelineno-2-3"></a><span class="w">      </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://zenodo.org/records/7789328}</span><span class="p">,</span>
+<a id="__codelineno-2-4"></a><span class="w">      </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Aharon,  Shay and {Louis-Dupont} and {Ofri Masad} and Yurkova,  Kate and {Lotem Fridman} and {Lkdci} and Khvedchenya,  Eugene and Rubin,  Ran and Bagrov,  Natan and Tymchenko,  Borys and Keren,  Tomer and Zhilko,  Alexander and {Eran-Deci}}</span><span class="p">,</span>
+<a id="__codelineno-2-5"></a><span class="w">      </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Super-Gradients}</span><span class="p">,</span>
+<a id="__codelineno-2-6"></a><span class="w">      </span><span class="na">publisher</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{GitHub}</span><span class="p">,</span>
+<a id="__codelineno-2-7"></a><span class="w">      </span><span class="na">journal</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{GitHub repository}</span><span class="p">,</span>
+<a id="__codelineno-2-8"></a><span class="w">      </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2021}</span><span class="p">,</span>
+<a id="__codelineno-2-9"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>We express our gratitude to Deci AI's <a href="https://github.com/Deci-AI/super-gradients/">SuperGradients</a> team for their efforts in creating and maintaining this valuable resource for the <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> community. We believe YOLO-NAS, with its innovative architecture and superior object detection capabilities, will become a critical tool for developers and researchers alike.</p>
 <h2 id="faq">FAQ</h2>
@@ -844,16 +844,16 @@
 <p>YOLO-NAS, developed by Deci AI, is a state-of-the-art object detection model leveraging advanced Neural Architecture Search (NAS) technology. It addresses the limitations of previous YOLO models by introducing features like quantization-friendly basic blocks and sophisticated training schemes. This results in significant improvements in performance, particularly in environments with limited computational resources. YOLO-NAS also supports quantization, maintaining high accuracy even when converted to its INT8 version, enhancing its suitability for production environments. For more details, see the <a href="#overview">Overview</a> section.</p>
 <h3 id="how-can-i-integrate-yolo-nas-models-into-my-python-application">How can I integrate YOLO-NAS models into my Python application?</h3>
 <p>You can easily integrate YOLO-NAS models into your Python application using the <code>ultralytics</code> package. Here's a simple example of how to load a pre-trained YOLO-NAS model and perform inference:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NAS</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Load a COCO-pretrained YOLO-NAS-s model</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">NAS</span><span class="p">(</span><span class="s2">"yolo_nas_s.pt"</span><span class="p">)</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Validate the model on the COCO8 example dataset</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># Run inference with the YOLO-NAS-s model on the 'bus.jpg' image</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NAS</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="c1"># Load a COCO-pretrained YOLO-NAS-s model</span>
+<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">NAS</span><span class="p">(</span><span class="s2">"yolo_nas_s.pt"</span><span class="p">)</span>
+<a id="__codelineno-3-5"></a>
+<a id="__codelineno-3-6"></a><span class="c1"># Validate the model on the COCO8 example dataset</span>
+<a id="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
+<a id="__codelineno-3-8"></a>
+<a id="__codelineno-3-9"></a><span class="c1"># Run inference with the YOLO-NAS-s model on the 'bus.jpg' image</span>
+<a id="__codelineno-3-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 <p>For more information, refer to the <a href="#inference-and-validation-examples">Inference and Validation Examples</a>.</p>
 <h3 id="what-are-the-key-features-of-yolo-nas-and-why-should-i-consider-using-it">What are the key features of YOLO-NAS and why should I consider using it?</h3>

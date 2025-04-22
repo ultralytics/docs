@@ -870,50 +870,50 @@
 <p>Ultralytics YOLO models return either a Python list of <code>Results</code> objects, or a memory-efficient Python generator of <code>Results</code> objects when <code>stream=True</code> is passed to the model during inference:</p>
 <div class="admonition example">
 <p class="admonition-title">Predict</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Return a list with <code>stream=False</code></label><label for="__tabbed_1_2">Return a generator with <code>stream=True</code></label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Return a list with <code>stream=False</code></label><label for="__tabbed_1_2">Return a generator with <code>stream=True</code></label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># pretrained YOLO11n model</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Run batched inference on a list of images</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s2">"image1.jpg"</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">])</span>  <span class="c1"># return a list of Results objects</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Process results list</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span>  <span class="c1"># Boxes object for bounding box outputs</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span>  <span class="c1"># Masks object for segmentation masks outputs</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>    <span class="n">keypoints</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span>  <span class="c1"># Keypoints object for pose outputs</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>    <span class="n">probs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># Probs object for classification outputs</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a>    <span class="n">obb</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span>  <span class="c1"># Oriented boxes object for OBB outputs</span>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>    <span class="n">result</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># display to screen</span>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>    <span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"result.jpg"</span><span class="p">)</span>  <span class="c1"># save to disk</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># pretrained YOLO11n model</span>
+<a id="__codelineno-0-5"></a>
+<a id="__codelineno-0-6"></a><span class="c1"># Run batched inference on a list of images</span>
+<a id="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s2">"image1.jpg"</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">])</span>  <span class="c1"># return a list of Results objects</span>
+<a id="__codelineno-0-8"></a>
+<a id="__codelineno-0-9"></a><span class="c1"># Process results list</span>
+<a id="__codelineno-0-10"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-0-11"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span>  <span class="c1"># Boxes object for bounding box outputs</span>
+<a id="__codelineno-0-12"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span>  <span class="c1"># Masks object for segmentation masks outputs</span>
+<a id="__codelineno-0-13"></a>    <span class="n">keypoints</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span>  <span class="c1"># Keypoints object for pose outputs</span>
+<a id="__codelineno-0-14"></a>    <span class="n">probs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># Probs object for classification outputs</span>
+<a id="__codelineno-0-15"></a>    <span class="n">obb</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span>  <span class="c1"># Oriented boxes object for OBB outputs</span>
+<a id="__codelineno-0-16"></a>    <span class="n">result</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># display to screen</span>
+<a id="__codelineno-0-17"></a>    <span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"result.jpg"</span><span class="p">)</span>  <span class="c1"># save to disk</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># pretrained YOLO11n model</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Run batched inference on a list of images</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s2">"image1.jpg"</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">],</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># return a generator of Results objects</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Process results generator</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span>  <span class="c1"># Boxes object for bounding box outputs</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span>  <span class="c1"># Masks object for segmentation masks outputs</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>    <span class="n">keypoints</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span>  <span class="c1"># Keypoints object for pose outputs</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="n">probs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># Probs object for classification outputs</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>    <span class="n">obb</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span>  <span class="c1"># Oriented boxes object for OBB outputs</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>    <span class="n">result</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># display to screen</span>
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>    <span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"result.jpg"</span><span class="p">)</span>  <span class="c1"># save to disk</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-1-2"></a>
+<a id="__codelineno-1-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># pretrained YOLO11n model</span>
+<a id="__codelineno-1-5"></a>
+<a id="__codelineno-1-6"></a><span class="c1"># Run batched inference on a list of images</span>
+<a id="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s2">"image1.jpg"</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">],</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># return a generator of Results objects</span>
+<a id="__codelineno-1-8"></a>
+<a id="__codelineno-1-9"></a><span class="c1"># Process results generator</span>
+<a id="__codelineno-1-10"></a><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-1-11"></a>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span>  <span class="c1"># Boxes object for bounding box outputs</span>
+<a id="__codelineno-1-12"></a>    <span class="n">masks</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">masks</span>  <span class="c1"># Masks object for segmentation masks outputs</span>
+<a id="__codelineno-1-13"></a>    <span class="n">keypoints</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">keypoints</span>  <span class="c1"># Keypoints object for pose outputs</span>
+<a id="__codelineno-1-14"></a>    <span class="n">probs</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">probs</span>  <span class="c1"># Probs object for classification outputs</span>
+<a id="__codelineno-1-15"></a>    <span class="n">obb</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">obb</span>  <span class="c1"># Oriented boxes object for OBB outputs</span>
+<a id="__codelineno-1-16"></a>    <span class="n">result</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>  <span class="c1"># display to screen</span>
+<a id="__codelineno-1-17"></a>    <span class="n">result</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s2">"result.jpg"</span><span class="p">)</span>  <span class="c1"># save to disk</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h2 id="inference-sources">Inference Sources</h2>
 <p>YOLO11 can process different types of input sources for inference, as shown in the table below. The sources include static images, video streams, and various data formats. The table also indicates whether each source can be used in streaming mode with the argument <code>stream=True</code> ✅. Streaming mode is beneficial for processing videos or live streams as it creates a generator of results instead of loading all frames into memory.</p>
@@ -1026,233 +1026,233 @@
 <p>Below are code examples for using each source type:</p>
 <div class="admonition example">
 <p class="admonition-title">Prediction sources</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:15"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><input id="__tabbed_2_3" name="__tabbed_2" type="radio"><input id="__tabbed_2_4" name="__tabbed_2" type="radio"><input id="__tabbed_2_5" name="__tabbed_2" type="radio"><input id="__tabbed_2_6" name="__tabbed_2" type="radio"><input id="__tabbed_2_7" name="__tabbed_2" type="radio"/><input id="__tabbed_2_8" name="__tabbed_2" type="radio"/><input id="__tabbed_2_9" name="__tabbed_2" type="radio"/><input id="__tabbed_2_10" name="__tabbed_2" type="radio"/><input id="__tabbed_2_11" name="__tabbed_2" type="radio"/><input id="__tabbed_2_12" name="__tabbed_2" type="radio"/><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><input id="__tabbed_2_14" name="__tabbed_2" type="radio"/><input id="__tabbed_2_15" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">image</label><label for="__tabbed_2_2">screenshot</label><label for="__tabbed_2_3">URL</label><label for="__tabbed_2_4">PIL</label><label for="__tabbed_2_5">OpenCV</label><label for="__tabbed_2_6">numpy</label><label for="__tabbed_2_7">torch</label><label for="__tabbed_2_8">CSV</label><label for="__tabbed_2_9">video</label><label for="__tabbed_2_10">directory</label><label for="__tabbed_2_11">glob</label><label for="__tabbed_2_12">YouTube</label><label for="__tabbed_2_13">Stream</label><label for="__tabbed_2_14">Multi-Stream</label><label for="__tabbed_2_15">Webcam</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:15"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><input id="__tabbed_2_3" name="__tabbed_2" type="radio"/><input id="__tabbed_2_4" name="__tabbed_2" type="radio"/><input id="__tabbed_2_5" name="__tabbed_2" type="radio"/><input id="__tabbed_2_6" name="__tabbed_2" type="radio"/><input id="__tabbed_2_7" name="__tabbed_2" type="radio"><input id="__tabbed_2_8" name="__tabbed_2" type="radio"><input id="__tabbed_2_9" name="__tabbed_2" type="radio"><input id="__tabbed_2_10" name="__tabbed_2" type="radio"><input id="__tabbed_2_11" name="__tabbed_2" type="radio"><input id="__tabbed_2_12" name="__tabbed_2" type="radio"><input id="__tabbed_2_13" name="__tabbed_2" type="radio"/><input id="__tabbed_2_14" name="__tabbed_2" type="radio"/><input id="__tabbed_2_15" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">image</label><label for="__tabbed_2_2">screenshot</label><label for="__tabbed_2_3">URL</label><label for="__tabbed_2_4">PIL</label><label for="__tabbed_2_5">OpenCV</label><label for="__tabbed_2_6">numpy</label><label for="__tabbed_2_7">torch</label><label for="__tabbed_2_8">CSV</label><label for="__tabbed_2_9">video</label><label for="__tabbed_2_10">directory</label><label for="__tabbed_2_11">glob</label><label for="__tabbed_2_12">YouTube</label><label for="__tabbed_2_13">Stream</label><label for="__tabbed_2_14">Multi-Stream</label><label for="__tabbed_2_15">Webcam</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>Run inference on an image file.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Define path to the image file</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/image.jpg"</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-2-5"></a>
+<a id="__codelineno-2-6"></a><span class="c1"># Define path to the image file</span>
+<a id="__codelineno-2-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/image.jpg"</span>
+<a id="__codelineno-2-8"></a>
+<a id="__codelineno-2-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-2-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on the current screen content as a screenshot.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Define current screenshot as source</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"screen"</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-3-5"></a>
+<a id="__codelineno-3-6"></a><span class="c1"># Define current screenshot as source</span>
+<a id="__codelineno-3-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"screen"</span>
+<a id="__codelineno-3-8"></a>
+<a id="__codelineno-3-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-3-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on an image or video hosted remotely via URL.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Define remote image or video URL</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/bus.jpg"</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-4-2"></a>
+<a id="__codelineno-4-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-4-5"></a>
+<a id="__codelineno-4-6"></a><span class="c1"># Define remote image or video URL</span>
+<a id="__codelineno-4-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/bus.jpg"</span>
+<a id="__codelineno-4-8"></a>
+<a id="__codelineno-4-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-4-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on an image opened with Python Imaging Library (PIL).
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="c1"># Open an image using PIL</span>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="n">source</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<a id="__codelineno-5-2"></a>
+<a id="__codelineno-5-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-5-4"></a>
+<a id="__codelineno-5-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-5-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-5-7"></a>
+<a id="__codelineno-5-8"></a><span class="c1"># Open an image using PIL</span>
+<a id="__codelineno-5-9"></a><span class="n">source</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-5-10"></a>
+<a id="__codelineno-5-11"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-5-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on an image read with OpenCV.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>
-<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="c1"># Read an image using OpenCV</span>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="n">source</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>
-<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<a id="__codelineno-6-2"></a>
+<a id="__codelineno-6-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-6-4"></a>
+<a id="__codelineno-6-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-6-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-6-7"></a>
+<a id="__codelineno-6-8"></a><span class="c1"># Read an image using OpenCV</span>
+<a id="__codelineno-6-9"></a><span class="n">source</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-6-10"></a>
+<a id="__codelineno-6-11"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-6-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on an image represented as a numpy array.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a>
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="c1"># Create a random numpy array of HWC shape (640, 640, 3) with values in range [0, 255] and type uint8</span>
-<a href="#__codelineno-7-9" id="__codelineno-7-9" name="__codelineno-7-9"></a><span class="n">source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"uint8"</span><span class="p">)</span>
-<a href="#__codelineno-7-10" id="__codelineno-7-10" name="__codelineno-7-10"></a>
-<a href="#__codelineno-7-11" id="__codelineno-7-11" name="__codelineno-7-11"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-7-12" id="__codelineno-7-12" name="__codelineno-7-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-7-2"></a>
+<a id="__codelineno-7-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-7-4"></a>
+<a id="__codelineno-7-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-7-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-7-7"></a>
+<a id="__codelineno-7-8"></a><span class="c1"># Create a random numpy array of HWC shape (640, 640, 3) with values in range [0, 255] and type uint8</span>
+<a id="__codelineno-7-9"></a><span class="n">source</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="n">low</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">high</span><span class="o">=</span><span class="mi">255</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="s2">"uint8"</span><span class="p">)</span>
+<a id="__codelineno-7-10"></a>
+<a id="__codelineno-7-11"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-7-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on an image represented as a <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> tensor.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="c1"># Create a random torch tensor of BCHW shape (1, 3, 640, 640) with values in range [0, 1] and type float32</span>
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="n">source</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a>
-<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">torch</span>
+<a id="__codelineno-8-2"></a>
+<a id="__codelineno-8-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-8-4"></a>
+<a id="__codelineno-8-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-8-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-8-7"></a>
+<a id="__codelineno-8-8"></a><span class="c1"># Create a random torch tensor of BCHW shape (1, 3, 640, 640) with values in range [0, 1] and type float32</span>
+<a id="__codelineno-8-9"></a><span class="n">source</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<a id="__codelineno-8-10"></a>
+<a id="__codelineno-8-11"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-8-12"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on a collection of images, URLs, videos and directories listed in a CSV file.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="c1"># Define a path to a CSV file with images, URLs, videos and directories</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/file.csv"</span>
-<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-9-2"></a>
+<a id="__codelineno-9-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-9-5"></a>
+<a id="__codelineno-9-6"></a><span class="c1"># Define a path to a CSV file with images, URLs, videos and directories</span>
+<a id="__codelineno-9-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/file.csv"</span>
+<a id="__codelineno-9-8"></a>
+<a id="__codelineno-9-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-9-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># list of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on a video file. By using <code>stream=True</code>, you can create a generator of Results objects to reduce memory usage.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># Define path to video file</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/video.mp4"</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-10-2"></a>
+<a id="__codelineno-10-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-10-5"></a>
+<a id="__codelineno-10-6"></a><span class="c1"># Define path to video file</span>
+<a id="__codelineno-10-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/video.mp4"</span>
+<a id="__codelineno-10-8"></a>
+<a id="__codelineno-10-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-10-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on all images and videos in a directory. To also capture images and videos in subdirectories use a glob pattern, i.e. <code>path/to/dir/**/*</code>.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="c1"># Define path to directory containing images and videos for inference</span>
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/dir"</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-11-2"></a>
+<a id="__codelineno-11-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-11-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-11-5"></a>
+<a id="__codelineno-11-6"></a><span class="c1"># Define path to directory containing images and videos for inference</span>
+<a id="__codelineno-11-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/dir"</span>
+<a id="__codelineno-11-8"></a>
+<a id="__codelineno-11-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-11-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on all images and videos that match a glob expression with <code>*</code> characters.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="c1"># Define a glob search for all JPG files in a directory</span>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/dir/*.jpg"</span>
-<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a><span class="c1"># OR define a recursive glob search for all JPG files including subdirectories</span>
-<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/dir/**/*.jpg"</span>
-<a href="#__codelineno-12-11" id="__codelineno-12-11" name="__codelineno-12-11"></a>
-<a href="#__codelineno-12-12" id="__codelineno-12-12" name="__codelineno-12-12"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-12-13" id="__codelineno-12-13" name="__codelineno-12-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-12-2"></a>
+<a id="__codelineno-12-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-12-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-12-5"></a>
+<a id="__codelineno-12-6"></a><span class="c1"># Define a glob search for all JPG files in a directory</span>
+<a id="__codelineno-12-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/dir/*.jpg"</span>
+<a id="__codelineno-12-8"></a>
+<a id="__codelineno-12-9"></a><span class="c1"># OR define a recursive glob search for all JPG files including subdirectories</span>
+<a id="__codelineno-12-10"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/dir/**/*.jpg"</span>
+<a id="__codelineno-12-11"></a>
+<a id="__codelineno-12-12"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-12-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Run inference on a YouTube video. By using <code>stream=True</code>, you can create a generator of Results objects to reduce memory usage for long videos.
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1"># Define source as YouTube video URL</span>
-<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"https://youtu.be/LNwODJXcvt4"</span>
-<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>
-<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-13-2"></a>
+<a id="__codelineno-13-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-13-5"></a>
+<a id="__codelineno-13-6"></a><span class="c1"># Define source as YouTube video URL</span>
+<a id="__codelineno-13-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"https://youtu.be/LNwODJXcvt4"</span>
+<a id="__codelineno-13-8"></a>
+<a id="__codelineno-13-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-13-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
 </code></pre></div></p>
 </div>
 <div class="tabbed-block">
 <p>Use the stream mode to run inference on live video streams using RTSP, RTMP, TCP, or IP address protocols. If a single stream is provided, the model runs inference with a <a href="https://www.ultralytics.com/glossary/batch-size">batch size</a> of 1. For multiple streams, a <code>.streams</code> text file can be used to perform batched inference, where the batch size is determined by the number of streams provided (e.g., batch-size 8 for 8 streams).</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
-<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1"># Single stream with batch-size 1 inference</span>
-<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"rtsp://example.com/media.mp4"</span>  <span class="c1"># RTSP, RTMP, TCP, or IP streaming address</span>
-<a href="#__codelineno-14-8" id="__codelineno-14-8" name="__codelineno-14-8"></a>
-<a href="#__codelineno-14-9" id="__codelineno-14-9" name="__codelineno-14-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-14-10" id="__codelineno-14-10" name="__codelineno-14-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-14-2"></a>
+<a id="__codelineno-14-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-14-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-14-5"></a>
+<a id="__codelineno-14-6"></a><span class="c1"># Single stream with batch-size 1 inference</span>
+<a id="__codelineno-14-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"rtsp://example.com/media.mp4"</span>  <span class="c1"># RTSP, RTMP, TCP, or IP streaming address</span>
+<a id="__codelineno-14-8"></a>
+<a id="__codelineno-14-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-14-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
 </code></pre></div>
 <p>For single stream usage, the batch size is set to 1 by default, allowing efficient real-time processing of the video feed.</p>
 </div>
 <div class="tabbed-block">
 <p>To handle multiple video streams simultaneously, use a <code>.streams</code> text file containing the streaming sources. The model will run batched inference where the batch size equals the number of streams. This setup enables efficient processing of multiple feeds concurrently.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a>
-<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a>
-<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="c1"># Multiple streams with batched inference (e.g., batch-size 8 for 8 streams)</span>
-<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/list.streams"</span>  <span class="c1"># *.streams text file with one streaming address per line</span>
-<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a>
-<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-15-2"></a>
+<a id="__codelineno-15-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-15-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-15-5"></a>
+<a id="__codelineno-15-6"></a><span class="c1"># Multiple streams with batched inference (e.g., batch-size 8 for 8 streams)</span>
+<a id="__codelineno-15-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"path/to/list.streams"</span>  <span class="c1"># *.streams text file with one streaming address per line</span>
+<a id="__codelineno-15-8"></a>
+<a id="__codelineno-15-9"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-15-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
 </code></pre></div>
 <p>Example <code>.streams</code> text file:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>rtsp://example.com/media1.mp4
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a>rtsp://example.com/media2.mp4
-<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>rtmp://example2.com/live
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a>tcp://192.168.1.100:554
-<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>...
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a>rtsp://example.com/media1.mp4
+<a id="__codelineno-16-2"></a>rtsp://example.com/media2.mp4
+<a id="__codelineno-16-3"></a>rtmp://example2.com/live
+<a id="__codelineno-16-4"></a>tcp://192.168.1.100:554
+<a id="__codelineno-16-5"></a>...
 </code></pre></div>
 <p>Each row in the file represents a streaming source, allowing you to monitor and perform inference on several video streams at once.</p>
 </div>
 <div class="tabbed-block">
 <p>You can run inference on a connected camera device by passing the index of that particular camera to <code>source</code>.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
-<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a>
-<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a><span class="c1"># Run inference on the source</span>
-<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-17-2"></a>
+<a id="__codelineno-17-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-17-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-17-5"></a>
+<a id="__codelineno-17-6"></a><span class="c1"># Run inference on the source</span>
+<a id="__codelineno-17-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># generator of Results objects</span>
 </code></pre></div>
 </div>
 </div>
@@ -1262,13 +1262,13 @@
 <p><code>model.predict()</code> accepts multiple arguments that can be passed at inference time to override defaults:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>
-<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a>
-<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a><span class="c1"># Run inference on 'bus.jpg' with arguments</span>
-<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-18-2"></a>
+<a id="__codelineno-18-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-18-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-18-5"></a>
+<a id="__codelineno-18-6"></a><span class="c1"># Run inference on 'bus.jpg' with arguments</span>
+<a id="__codelineno-18-7"></a><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <p>Inference arguments:</p>
@@ -1688,19 +1688,19 @@
 <p>All Ultralytics <code>predict()</code> calls will return a list of <code>Results</code> objects:</p>
 <div class="admonition example">
 <p class="admonition-title">Results</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-19-1" id="__codelineno-19-1" name="__codelineno-19-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-19-2" id="__codelineno-19-2" name="__codelineno-19-2"></a>
-<a href="#__codelineno-19-3" id="__codelineno-19-3" name="__codelineno-19-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-19-4" id="__codelineno-19-4" name="__codelineno-19-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-19-5" id="__codelineno-19-5" name="__codelineno-19-5"></a>
-<a href="#__codelineno-19-6" id="__codelineno-19-6" name="__codelineno-19-6"></a><span class="c1"># Run inference on an image</span>
-<a href="#__codelineno-19-7" id="__codelineno-19-7" name="__codelineno-19-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-19-8" id="__codelineno-19-8" name="__codelineno-19-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span>
-<a href="#__codelineno-19-9" id="__codelineno-19-9" name="__codelineno-19-9"></a>    <span class="p">[</span>
-<a href="#__codelineno-19-10" id="__codelineno-19-10" name="__codelineno-19-10"></a>        <span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span>
-<a href="#__codelineno-19-11" id="__codelineno-19-11" name="__codelineno-19-11"></a>        <span class="s2">"https://ultralytics.com/images/zidane.jpg"</span><span class="p">,</span>
-<a href="#__codelineno-19-12" id="__codelineno-19-12" name="__codelineno-19-12"></a>    <span class="p">]</span>
-<a href="#__codelineno-19-13" id="__codelineno-19-13" name="__codelineno-19-13"></a><span class="p">)</span>  <span class="c1"># batch inference</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-19-2"></a>
+<a id="__codelineno-19-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-19-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-19-5"></a>
+<a id="__codelineno-19-6"></a><span class="c1"># Run inference on an image</span>
+<a id="__codelineno-19-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<a id="__codelineno-19-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span>
+<a id="__codelineno-19-9"></a>    <span class="p">[</span>
+<a id="__codelineno-19-10"></a>        <span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span>
+<a id="__codelineno-19-11"></a>        <span class="s2">"https://ultralytics.com/images/zidane.jpg"</span><span class="p">,</span>
+<a id="__codelineno-19-12"></a>    <span class="p">]</span>
+<a id="__codelineno-19-13"></a><span class="p">)</span>  <span class="c1"># batch inference</span>
 </code></pre></div>
 </div>
 <p><code>Results</code> objects have the following attributes:</p>
@@ -1882,17 +1882,17 @@
 <p><code>Boxes</code> object can be used to index, manipulate, and convert bounding boxes to different formats.</p>
 <div class="admonition example">
 <p class="admonition-title">Boxes</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-20-1" id="__codelineno-20-1" name="__codelineno-20-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-20-2" id="__codelineno-20-2" name="__codelineno-20-2"></a>
-<a href="#__codelineno-20-3" id="__codelineno-20-3" name="__codelineno-20-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-20-4" id="__codelineno-20-4" name="__codelineno-20-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-20-5" id="__codelineno-20-5" name="__codelineno-20-5"></a>
-<a href="#__codelineno-20-6" id="__codelineno-20-6" name="__codelineno-20-6"></a><span class="c1"># Run inference on an image</span>
-<a href="#__codelineno-20-7" id="__codelineno-20-7" name="__codelineno-20-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
-<a href="#__codelineno-20-8" id="__codelineno-20-8" name="__codelineno-20-8"></a>
-<a href="#__codelineno-20-9" id="__codelineno-20-9" name="__codelineno-20-9"></a><span class="c1"># View results</span>
-<a href="#__codelineno-20-10" id="__codelineno-20-10" name="__codelineno-20-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-20-11" id="__codelineno-20-11" name="__codelineno-20-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span>  <span class="c1"># print the Boxes object containing the detection bounding boxes</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-20-2"></a>
+<a id="__codelineno-20-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-20-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-20-5"></a>
+<a id="__codelineno-20-6"></a><span class="c1"># Run inference on an image</span>
+<a id="__codelineno-20-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a id="__codelineno-20-8"></a>
+<a id="__codelineno-20-9"></a><span class="c1"># View results</span>
+<a id="__codelineno-20-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-20-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span>  <span class="c1"># print the Boxes object containing the detection bounding boxes</span>
 </code></pre></div>
 </div>
 <p>Here is a table for the <code>Boxes</code> class methods and properties, including their name, type, and description:</p>
@@ -1967,17 +1967,17 @@
 <p><code>Masks</code> object can be used index, manipulate and convert masks to segments.</p>
 <div class="admonition example">
 <p class="admonition-title">Masks</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-21-1" id="__codelineno-21-1" name="__codelineno-21-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-21-2" id="__codelineno-21-2" name="__codelineno-21-2"></a>
-<a href="#__codelineno-21-3" id="__codelineno-21-3" name="__codelineno-21-3"></a><span class="c1"># Load a pretrained YOLO11n-seg Segment model</span>
-<a href="#__codelineno-21-4" id="__codelineno-21-4" name="__codelineno-21-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>
-<a href="#__codelineno-21-5" id="__codelineno-21-5" name="__codelineno-21-5"></a>
-<a href="#__codelineno-21-6" id="__codelineno-21-6" name="__codelineno-21-6"></a><span class="c1"># Run inference on an image</span>
-<a href="#__codelineno-21-7" id="__codelineno-21-7" name="__codelineno-21-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
-<a href="#__codelineno-21-8" id="__codelineno-21-8" name="__codelineno-21-8"></a>
-<a href="#__codelineno-21-9" id="__codelineno-21-9" name="__codelineno-21-9"></a><span class="c1"># View results</span>
-<a href="#__codelineno-21-10" id="__codelineno-21-10" name="__codelineno-21-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-21-11" id="__codelineno-21-11" name="__codelineno-21-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span>  <span class="c1"># print the Masks object containing the detected instance masks</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-21-2"></a>
+<a id="__codelineno-21-3"></a><span class="c1"># Load a pretrained YOLO11n-seg Segment model</span>
+<a id="__codelineno-21-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>
+<a id="__codelineno-21-5"></a>
+<a id="__codelineno-21-6"></a><span class="c1"># Run inference on an image</span>
+<a id="__codelineno-21-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a id="__codelineno-21-8"></a>
+<a id="__codelineno-21-9"></a><span class="c1"># View results</span>
+<a id="__codelineno-21-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-21-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span>  <span class="c1"># print the Masks object containing the detected instance masks</span>
 </code></pre></div>
 </div>
 <p>Here is a table for the <code>Masks</code> class methods and properties, including their name, type, and description:</p>
@@ -2027,17 +2027,17 @@
 <p><code>Keypoints</code> object can be used index, manipulate and normalize coordinates.</p>
 <div class="admonition example">
 <p class="admonition-title">Keypoints</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-22-1" id="__codelineno-22-1" name="__codelineno-22-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-22-2" id="__codelineno-22-2" name="__codelineno-22-2"></a>
-<a href="#__codelineno-22-3" id="__codelineno-22-3" name="__codelineno-22-3"></a><span class="c1"># Load a pretrained YOLO11n-pose Pose model</span>
-<a href="#__codelineno-22-4" id="__codelineno-22-4" name="__codelineno-22-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>
-<a href="#__codelineno-22-5" id="__codelineno-22-5" name="__codelineno-22-5"></a>
-<a href="#__codelineno-22-6" id="__codelineno-22-6" name="__codelineno-22-6"></a><span class="c1"># Run inference on an image</span>
-<a href="#__codelineno-22-7" id="__codelineno-22-7" name="__codelineno-22-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
-<a href="#__codelineno-22-8" id="__codelineno-22-8" name="__codelineno-22-8"></a>
-<a href="#__codelineno-22-9" id="__codelineno-22-9" name="__codelineno-22-9"></a><span class="c1"># View results</span>
-<a href="#__codelineno-22-10" id="__codelineno-22-10" name="__codelineno-22-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-22-11" id="__codelineno-22-11" name="__codelineno-22-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">keypoints</span><span class="p">)</span>  <span class="c1"># print the Keypoints object containing the detected keypoints</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-22-2"></a>
+<a id="__codelineno-22-3"></a><span class="c1"># Load a pretrained YOLO11n-pose Pose model</span>
+<a id="__codelineno-22-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>
+<a id="__codelineno-22-5"></a>
+<a id="__codelineno-22-6"></a><span class="c1"># Run inference on an image</span>
+<a id="__codelineno-22-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a id="__codelineno-22-8"></a>
+<a id="__codelineno-22-9"></a><span class="c1"># View results</span>
+<a id="__codelineno-22-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-22-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">keypoints</span><span class="p">)</span>  <span class="c1"># print the Keypoints object containing the detected keypoints</span>
 </code></pre></div>
 </div>
 <p>Here is a table for the <code>Keypoints</code> class methods and properties, including their name, type, and description:</p>
@@ -2092,17 +2092,17 @@
 <p><code>Probs</code> object can be used index, get <code>top1</code> and <code>top5</code> indices and scores of classification.</p>
 <div class="admonition example">
 <p class="admonition-title">Probs</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-23-1" id="__codelineno-23-1" name="__codelineno-23-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-23-2" id="__codelineno-23-2" name="__codelineno-23-2"></a>
-<a href="#__codelineno-23-3" id="__codelineno-23-3" name="__codelineno-23-3"></a><span class="c1"># Load a pretrained YOLO11n-cls Classify model</span>
-<a href="#__codelineno-23-4" id="__codelineno-23-4" name="__codelineno-23-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">)</span>
-<a href="#__codelineno-23-5" id="__codelineno-23-5" name="__codelineno-23-5"></a>
-<a href="#__codelineno-23-6" id="__codelineno-23-6" name="__codelineno-23-6"></a><span class="c1"># Run inference on an image</span>
-<a href="#__codelineno-23-7" id="__codelineno-23-7" name="__codelineno-23-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
-<a href="#__codelineno-23-8" id="__codelineno-23-8" name="__codelineno-23-8"></a>
-<a href="#__codelineno-23-9" id="__codelineno-23-9" name="__codelineno-23-9"></a><span class="c1"># View results</span>
-<a href="#__codelineno-23-10" id="__codelineno-23-10" name="__codelineno-23-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-23-11" id="__codelineno-23-11" name="__codelineno-23-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span>  <span class="c1"># print the Probs object containing the detected class probabilities</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-23-2"></a>
+<a id="__codelineno-23-3"></a><span class="c1"># Load a pretrained YOLO11n-cls Classify model</span>
+<a id="__codelineno-23-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">)</span>
+<a id="__codelineno-23-5"></a>
+<a id="__codelineno-23-6"></a><span class="c1"># Run inference on an image</span>
+<a id="__codelineno-23-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a id="__codelineno-23-8"></a>
+<a id="__codelineno-23-9"></a><span class="c1"># View results</span>
+<a id="__codelineno-23-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-23-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span>  <span class="c1"># print the Probs object containing the detected class probabilities</span>
 </code></pre></div>
 </div>
 <p>Here's a table summarizing the methods and properties for the <code>Probs</code> class:</p>
@@ -2162,17 +2162,17 @@
 <p><code>OBB</code> object can be used to index, manipulate, and convert oriented bounding boxes to different formats.</p>
 <div class="admonition example">
 <p class="admonition-title">OBB</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-24-1" id="__codelineno-24-1" name="__codelineno-24-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-24-2" id="__codelineno-24-2" name="__codelineno-24-2"></a>
-<a href="#__codelineno-24-3" id="__codelineno-24-3" name="__codelineno-24-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-24-4" id="__codelineno-24-4" name="__codelineno-24-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>
-<a href="#__codelineno-24-5" id="__codelineno-24-5" name="__codelineno-24-5"></a>
-<a href="#__codelineno-24-6" id="__codelineno-24-6" name="__codelineno-24-6"></a><span class="c1"># Run inference on an image</span>
-<a href="#__codelineno-24-7" id="__codelineno-24-7" name="__codelineno-24-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/boats.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
-<a href="#__codelineno-24-8" id="__codelineno-24-8" name="__codelineno-24-8"></a>
-<a href="#__codelineno-24-9" id="__codelineno-24-9" name="__codelineno-24-9"></a><span class="c1"># View results</span>
-<a href="#__codelineno-24-10" id="__codelineno-24-10" name="__codelineno-24-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-24-11" id="__codelineno-24-11" name="__codelineno-24-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">obb</span><span class="p">)</span>  <span class="c1"># print the OBB object containing the oriented detection bounding boxes</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-24-2"></a>
+<a id="__codelineno-24-3"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-24-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.pt"</span><span class="p">)</span>
+<a id="__codelineno-24-5"></a>
+<a id="__codelineno-24-6"></a><span class="c1"># Run inference on an image</span>
+<a id="__codelineno-24-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/boats.jpg"</span><span class="p">)</span>  <span class="c1"># results list</span>
+<a id="__codelineno-24-8"></a>
+<a id="__codelineno-24-9"></a><span class="c1"># View results</span>
+<a id="__codelineno-24-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-24-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">obb</span><span class="p">)</span>  <span class="c1"># print the OBB object containing the oriented detection bounding boxes</span>
 </code></pre></div>
 </div>
 <p>Here is a table for the <code>OBB</code> class methods and properties, including their name, type, and description:</p>
@@ -2247,27 +2247,27 @@
 <p>The <code>plot()</code> method in <code>Results</code> objects facilitates visualization of predictions by overlaying detected objects (such as bounding boxes, masks, keypoints, and probabilities) onto the original image. This method returns the annotated image as a NumPy array, allowing for easy display or saving.</p>
 <div class="admonition example">
 <p class="admonition-title">Plotting</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-25-1" id="__codelineno-25-1" name="__codelineno-25-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
-<a href="#__codelineno-25-2" id="__codelineno-25-2" name="__codelineno-25-2"></a>
-<a href="#__codelineno-25-3" id="__codelineno-25-3" name="__codelineno-25-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-25-4" id="__codelineno-25-4" name="__codelineno-25-4"></a>
-<a href="#__codelineno-25-5" id="__codelineno-25-5" name="__codelineno-25-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
-<a href="#__codelineno-25-6" id="__codelineno-25-6" name="__codelineno-25-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-25-7" id="__codelineno-25-7" name="__codelineno-25-7"></a>
-<a href="#__codelineno-25-8" id="__codelineno-25-8" name="__codelineno-25-8"></a><span class="c1"># Run inference on 'bus.jpg'</span>
-<a href="#__codelineno-25-9" id="__codelineno-25-9" name="__codelineno-25-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="s2">"https://ultralytics.com/images/zidane.jpg"</span><span class="p">])</span>  <span class="c1"># results list</span>
-<a href="#__codelineno-25-10" id="__codelineno-25-10" name="__codelineno-25-10"></a>
-<a href="#__codelineno-25-11" id="__codelineno-25-11" name="__codelineno-25-11"></a><span class="c1"># Visualize the results</span>
-<a href="#__codelineno-25-12" id="__codelineno-25-12" name="__codelineno-25-12"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
-<a href="#__codelineno-25-13" id="__codelineno-25-13" name="__codelineno-25-13"></a>    <span class="c1"># Plot results image</span>
-<a href="#__codelineno-25-14" id="__codelineno-25-14" name="__codelineno-25-14"></a>    <span class="n">im_bgr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># BGR-order numpy array</span>
-<a href="#__codelineno-25-15" id="__codelineno-25-15" name="__codelineno-25-15"></a>    <span class="n">im_rgb</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im_bgr</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># RGB-order PIL image</span>
-<a href="#__codelineno-25-16" id="__codelineno-25-16" name="__codelineno-25-16"></a>
-<a href="#__codelineno-25-17" id="__codelineno-25-17" name="__codelineno-25-17"></a>    <span class="c1"># Show results to screen (in supported environments)</span>
-<a href="#__codelineno-25-18" id="__codelineno-25-18" name="__codelineno-25-18"></a>    <span class="n">r</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-<a href="#__codelineno-25-19" id="__codelineno-25-19" name="__codelineno-25-19"></a>
-<a href="#__codelineno-25-20" id="__codelineno-25-20" name="__codelineno-25-20"></a>    <span class="c1"># Save results to disk</span>
-<a href="#__codelineno-25-21" id="__codelineno-25-21" name="__codelineno-25-21"></a>    <span class="n">r</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">f</span><span class="s2">"results</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span>
+<a id="__codelineno-25-2"></a>
+<a id="__codelineno-25-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-25-4"></a>
+<a id="__codelineno-25-5"></a><span class="c1"># Load a pretrained YOLO11n model</span>
+<a id="__codelineno-25-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-25-7"></a>
+<a id="__codelineno-25-8"></a><span class="c1"># Run inference on 'bus.jpg'</span>
+<a id="__codelineno-25-9"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">([</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="s2">"https://ultralytics.com/images/zidane.jpg"</span><span class="p">])</span>  <span class="c1"># results list</span>
+<a id="__codelineno-25-10"></a>
+<a id="__codelineno-25-11"></a><span class="c1"># Visualize the results</span>
+<a id="__codelineno-25-12"></a><span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">results</span><span class="p">):</span>
+<a id="__codelineno-25-13"></a>    <span class="c1"># Plot results image</span>
+<a id="__codelineno-25-14"></a>    <span class="n">im_bgr</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>  <span class="c1"># BGR-order numpy array</span>
+<a id="__codelineno-25-15"></a>    <span class="n">im_rgb</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im_bgr</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># RGB-order PIL image</span>
+<a id="__codelineno-25-16"></a>
+<a id="__codelineno-25-17"></a>    <span class="c1"># Show results to screen (in supported environments)</span>
+<a id="__codelineno-25-18"></a>    <span class="n">r</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<a id="__codelineno-25-19"></a>
+<a id="__codelineno-25-20"></a>    <span class="c1"># Save results to disk</span>
+<a id="__codelineno-25-21"></a>    <span class="n">r</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="sa">f</span><span class="s2">"results</span><span class="si">{</span><span class="n">i</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h3 id="plot-method-parameters"><code>plot()</code> Method Parameters</h3>
@@ -2392,21 +2392,21 @@
 <div class="admonition example">
 <p class="admonition-title">Thread-Safe Inference</p>
 <p>Instantiate a single model inside each thread for thread-safe inference:
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-26-1" id="__codelineno-26-1" name="__codelineno-26-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
-<a href="#__codelineno-26-2" id="__codelineno-26-2" name="__codelineno-26-2"></a>
-<a href="#__codelineno-26-3" id="__codelineno-26-3" name="__codelineno-26-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-26-4" id="__codelineno-26-4" name="__codelineno-26-4"></a>
-<a href="#__codelineno-26-5" id="__codelineno-26-5" name="__codelineno-26-5"></a>
-<a href="#__codelineno-26-6" id="__codelineno-26-6" name="__codelineno-26-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
-<a href="#__codelineno-26-7" id="__codelineno-26-7" name="__codelineno-26-7"></a><span class="w">    </span><span class="sd">"""Performs thread-safe prediction on an image using a locally instantiated YOLO model."""</span>
-<a href="#__codelineno-26-8" id="__codelineno-26-8" name="__codelineno-26-8"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
-<a href="#__codelineno-26-9" id="__codelineno-26-9" name="__codelineno-26-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
-<a href="#__codelineno-26-10" id="__codelineno-26-10" name="__codelineno-26-10"></a>    <span class="c1"># Process results</span>
-<a href="#__codelineno-26-11" id="__codelineno-26-11" name="__codelineno-26-11"></a>
-<a href="#__codelineno-26-12" id="__codelineno-26-12" name="__codelineno-26-12"></a>
-<a href="#__codelineno-26-13" id="__codelineno-26-13" name="__codelineno-26-13"></a><span class="c1"># Starting threads that each have their own model instance</span>
-<a href="#__codelineno-26-14" id="__codelineno-26-14" name="__codelineno-26-14"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="s2">"image1.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
-<a href="#__codelineno-26-15" id="__codelineno-26-15" name="__codelineno-26-15"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">threading</span><span class="w"> </span><span class="kn">import</span> <span class="n">Thread</span>
+<a id="__codelineno-26-2"></a>
+<a id="__codelineno-26-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-26-4"></a>
+<a id="__codelineno-26-5"></a>
+<a id="__codelineno-26-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">thread_safe_predict</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">image_path</span><span class="p">):</span>
+<a id="__codelineno-26-7"></a><span class="w">    </span><span class="sd">"""Performs thread-safe prediction on an image using a locally instantiated YOLO model."""</span>
+<a id="__codelineno-26-8"></a>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
+<a id="__codelineno-26-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">image_path</span><span class="p">)</span>
+<a id="__codelineno-26-10"></a>    <span class="c1"># Process results</span>
+<a id="__codelineno-26-11"></a>
+<a id="__codelineno-26-12"></a>
+<a id="__codelineno-26-13"></a><span class="c1"># Starting threads that each have their own model instance</span>
+<a id="__codelineno-26-14"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="s2">"image1.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<a id="__codelineno-26-15"></a><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">thread_safe_predict</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="s2">"image2.jpg"</span><span class="p">))</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
 </code></pre></div></p>
 </div>
 <p>For an in-depth look at thread-safe inference with YOLO models and step-by-step instructions, please refer to our <a href="../../guides/yolo-thread-safe-inference/">YOLO Thread-Safe Inference Guide</a>. This guide will provide you with all the necessary information to avoid common pitfalls and ensure that your multi-threaded inference runs smoothly.</p>
@@ -2414,42 +2414,42 @@
 <p>Here's a Python script using OpenCV (<code>cv2</code>) and YOLO to run inference on video frames. This script assumes you have already installed the necessary packages (<code>opencv-python</code> and <code>ultralytics</code>).</p>
 <div class="admonition example">
 <p class="admonition-title">Streaming for-loop</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-27-1" id="__codelineno-27-1" name="__codelineno-27-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a href="#__codelineno-27-2" id="__codelineno-27-2" name="__codelineno-27-2"></a>
-<a href="#__codelineno-27-3" id="__codelineno-27-3" name="__codelineno-27-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-27-4" id="__codelineno-27-4" name="__codelineno-27-4"></a>
-<a href="#__codelineno-27-5" id="__codelineno-27-5" name="__codelineno-27-5"></a><span class="c1"># Load the YOLO model</span>
-<a href="#__codelineno-27-6" id="__codelineno-27-6" name="__codelineno-27-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-27-7" id="__codelineno-27-7" name="__codelineno-27-7"></a>
-<a href="#__codelineno-27-8" id="__codelineno-27-8" name="__codelineno-27-8"></a><span class="c1"># Open the video file</span>
-<a href="#__codelineno-27-9" id="__codelineno-27-9" name="__codelineno-27-9"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
-<a href="#__codelineno-27-10" id="__codelineno-27-10" name="__codelineno-27-10"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
-<a href="#__codelineno-27-11" id="__codelineno-27-11" name="__codelineno-27-11"></a>
-<a href="#__codelineno-27-12" id="__codelineno-27-12" name="__codelineno-27-12"></a><span class="c1"># Loop through the video frames</span>
-<a href="#__codelineno-27-13" id="__codelineno-27-13" name="__codelineno-27-13"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-27-14" id="__codelineno-27-14" name="__codelineno-27-14"></a>    <span class="c1"># Read a frame from the video</span>
-<a href="#__codelineno-27-15" id="__codelineno-27-15" name="__codelineno-27-15"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-27-16" id="__codelineno-27-16" name="__codelineno-27-16"></a>
-<a href="#__codelineno-27-17" id="__codelineno-27-17" name="__codelineno-27-17"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-27-18" id="__codelineno-27-18" name="__codelineno-27-18"></a>        <span class="c1"># Run YOLO inference on the frame</span>
-<a href="#__codelineno-27-19" id="__codelineno-27-19" name="__codelineno-27-19"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<a href="#__codelineno-27-20" id="__codelineno-27-20" name="__codelineno-27-20"></a>
-<a href="#__codelineno-27-21" id="__codelineno-27-21" name="__codelineno-27-21"></a>        <span class="c1"># Visualize the results on the frame</span>
-<a href="#__codelineno-27-22" id="__codelineno-27-22" name="__codelineno-27-22"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<a href="#__codelineno-27-23" id="__codelineno-27-23" name="__codelineno-27-23"></a>
-<a href="#__codelineno-27-24" id="__codelineno-27-24" name="__codelineno-27-24"></a>        <span class="c1"># Display the annotated frame</span>
-<a href="#__codelineno-27-25" id="__codelineno-27-25" name="__codelineno-27-25"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLO Inference"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
-<a href="#__codelineno-27-26" id="__codelineno-27-26" name="__codelineno-27-26"></a>
-<a href="#__codelineno-27-27" id="__codelineno-27-27" name="__codelineno-27-27"></a>        <span class="c1"># Break the loop if 'q' is pressed</span>
-<a href="#__codelineno-27-28" id="__codelineno-27-28" name="__codelineno-27-28"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
-<a href="#__codelineno-27-29" id="__codelineno-27-29" name="__codelineno-27-29"></a>            <span class="k">break</span>
-<a href="#__codelineno-27-30" id="__codelineno-27-30" name="__codelineno-27-30"></a>    <span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-27-31" id="__codelineno-27-31" name="__codelineno-27-31"></a>        <span class="c1"># Break the loop if the end of the video is reached</span>
-<a href="#__codelineno-27-32" id="__codelineno-27-32" name="__codelineno-27-32"></a>        <span class="k">break</span>
-<a href="#__codelineno-27-33" id="__codelineno-27-33" name="__codelineno-27-33"></a>
-<a href="#__codelineno-27-34" id="__codelineno-27-34" name="__codelineno-27-34"></a><span class="c1"># Release the video capture object and close the display window</span>
-<a href="#__codelineno-27-35" id="__codelineno-27-35" name="__codelineno-27-35"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-27-36" id="__codelineno-27-36" name="__codelineno-27-36"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<a id="__codelineno-27-2"></a>
+<a id="__codelineno-27-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-27-4"></a>
+<a id="__codelineno-27-5"></a><span class="c1"># Load the YOLO model</span>
+<a id="__codelineno-27-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-27-7"></a>
+<a id="__codelineno-27-8"></a><span class="c1"># Open the video file</span>
+<a id="__codelineno-27-9"></a><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/your/video/file.mp4"</span>
+<a id="__codelineno-27-10"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+<a id="__codelineno-27-11"></a>
+<a id="__codelineno-27-12"></a><span class="c1"># Loop through the video frames</span>
+<a id="__codelineno-27-13"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a id="__codelineno-27-14"></a>    <span class="c1"># Read a frame from the video</span>
+<a id="__codelineno-27-15"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-27-16"></a>
+<a id="__codelineno-27-17"></a>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<a id="__codelineno-27-18"></a>        <span class="c1"># Run YOLO inference on the frame</span>
+<a id="__codelineno-27-19"></a>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
+<a id="__codelineno-27-20"></a>
+<a id="__codelineno-27-21"></a>        <span class="c1"># Visualize the results on the frame</span>
+<a id="__codelineno-27-22"></a>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<a id="__codelineno-27-23"></a>
+<a id="__codelineno-27-24"></a>        <span class="c1"># Display the annotated frame</span>
+<a id="__codelineno-27-25"></a>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLO Inference"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
+<a id="__codelineno-27-26"></a>
+<a id="__codelineno-27-27"></a>        <span class="c1"># Break the loop if 'q' is pressed</span>
+<a id="__codelineno-27-28"></a>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<a id="__codelineno-27-29"></a>            <span class="k">break</span>
+<a id="__codelineno-27-30"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-27-31"></a>        <span class="c1"># Break the loop if the end of the video is reached</span>
+<a id="__codelineno-27-32"></a>        <span class="k">break</span>
+<a id="__codelineno-27-33"></a>
+<a id="__codelineno-27-34"></a><span class="c1"># Release the video capture object and close the display window</span>
+<a id="__codelineno-27-35"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a id="__codelineno-27-36"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <p>This script will run predictions on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>

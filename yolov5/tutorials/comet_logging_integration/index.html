@@ -1068,24 +1068,24 @@
 <p>Track and visualize model metrics in real time, save your hyperparameters, datasets, and model checkpoints, and visualize your model predictions with <a href="https://www.comet.com/docs/v2/guides/comet-dashboard/code-panels/about-panels/?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">Comet Custom Panels</a>! Comet ensures you never lose track of your work and makes it easy to share results and collaborate across teams of all sizes!</p>
 <h2 id="getting-started">Getting Started</h2>
 <h3 id="install-comet">Install Comet</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>comet_ml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>comet_ml
 </code></pre></div>
 <h3 id="configure-comet-credentials">Configure Comet Credentials</h3>
 <p>There are two ways to configure Comet with YOLOv5.</p>
 <p>You can either set your credentials through environment variables:</p>
 <p><strong>Environment Variables</strong></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_API_KEY</span><span class="o">=</span>YOUR_API_KEY
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_PROJECT_NAME</span><span class="o">=</span>YOUR_COMET_PROJECT_NAME<span class="w"> </span><span class="c1"># This will default to 'yolov5'</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_API_KEY</span><span class="o">=</span>YOUR_API_KEY
+<a id="__codelineno-1-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_PROJECT_NAME</span><span class="o">=</span>YOUR_COMET_PROJECT_NAME<span class="w"> </span><span class="c1"># This will default to 'yolov5'</span>
 </code></pre></div>
 <p>Or create a <code>.comet.config</code> file in your working directory and set your credentials there:</p>
 <p><strong>Comet Configuration File</strong></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>[comet]
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>api_key=YOUR_API_KEY
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>project_name=YOUR_COMET_PROJECT_NAME # This will default to 'yolov5'
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>[comet]
+<a id="__codelineno-2-2"></a>api_key=YOUR_API_KEY
+<a id="__codelineno-2-3"></a>project_name=YOUR_COMET_PROJECT_NAME # This will default to 'yolov5'
 </code></pre></div>
 <h3 id="run-the-training-script">Run the Training Script</h3>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Train YOLOv5s on COCO128 for 5 epochs</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Train YOLOv5s on COCO128 for 5 epochs</span>
+<a id="__codelineno-3-2"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt
 </code></pre></div>
 <p>That's it! Comet will automatically log your hyperparameters, command line arguments, training and validation metrics. You can visualize and analyze your runs in the Comet UI.</p>
 <p><img alt="Comet UI with YOLOv5 training" src="https://github.com/ultralytics/docs/releases/download/0/yolo-ui.avif"/></p>
@@ -1114,67 +1114,67 @@
 </ul>
 <h2 id="configure-comet-logging">Configure Comet Logging</h2>
 <p>Comet can be configured to log additional data either through command line flags passed to the training script or through environment variables:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MODE</span><span class="o">=</span>online<span class="w">                           </span><span class="c1"># Set whether to run Comet in 'online' or 'offline' mode. Defaults to online</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MODEL_NAME</span><span class="o">=</span><span class="s2">"yolov5"</span><span class="w">                   </span><span class="c1"># Set the name for the saved model. Defaults to yolov5</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_CONFUSION_MATRIX</span><span class="o">=</span><span class="nb">false</span><span class="w">            </span><span class="c1"># Set to disable logging a Comet Confusion Matrix. Defaults to true</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MAX_IMAGE_UPLOADS</span><span class="o">=</span><span class="m">30</span><span class="w">                  </span><span class="c1"># Controls how many total image predictions to log to Comet. Defaults to 100.</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_PER_CLASS_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w">            </span><span class="c1"># Set to log evaluation metrics for each detected class at the end of training. Defaults to false</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_DEFAULT_CHECKPOINT_FILENAME</span><span class="o">=</span><span class="s2">"last.pt"</span><span class="w"> </span><span class="c1"># Set this if you would like to resume training from a different checkpoint. Defaults to 'last.pt'</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_BATCH_LEVEL_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w">          </span><span class="c1"># Set this if you would like to log training metrics at the batch level. Defaults to false.</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_PREDICTIONS</span><span class="o">=</span><span class="nb">true</span><span class="w">                  </span><span class="c1"># Set this to false to disable logging model predictions</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MODE</span><span class="o">=</span>online<span class="w">                           </span><span class="c1"># Set whether to run Comet in 'online' or 'offline' mode. Defaults to online</span>
+<a id="__codelineno-4-2"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MODEL_NAME</span><span class="o">=</span><span class="s2">"yolov5"</span><span class="w">                   </span><span class="c1"># Set the name for the saved model. Defaults to yolov5</span>
+<a id="__codelineno-4-3"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_CONFUSION_MATRIX</span><span class="o">=</span><span class="nb">false</span><span class="w">            </span><span class="c1"># Set to disable logging a Comet Confusion Matrix. Defaults to true</span>
+<a id="__codelineno-4-4"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_MAX_IMAGE_UPLOADS</span><span class="o">=</span><span class="m">30</span><span class="w">                  </span><span class="c1"># Controls how many total image predictions to log to Comet. Defaults to 100.</span>
+<a id="__codelineno-4-5"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_PER_CLASS_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w">            </span><span class="c1"># Set to log evaluation metrics for each detected class at the end of training. Defaults to false</span>
+<a id="__codelineno-4-6"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_DEFAULT_CHECKPOINT_FILENAME</span><span class="o">=</span><span class="s2">"last.pt"</span><span class="w"> </span><span class="c1"># Set this if you would like to resume training from a different checkpoint. Defaults to 'last.pt'</span>
+<a id="__codelineno-4-7"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_BATCH_LEVEL_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w">          </span><span class="c1"># Set this if you would like to log training metrics at the batch level. Defaults to false.</span>
+<a id="__codelineno-4-8"></a><span class="nb">export</span><span class="w"> </span><span class="nv">COMET_LOG_PREDICTIONS</span><span class="o">=</span><span class="nb">true</span><span class="w">                  </span><span class="c1"># Set this to false to disable logging model predictions</span>
 </code></pre></div>
 <h2 id="logging-checkpoints-with-comet">Logging Checkpoints with Comet</h2>
 <p>Logging Models to Comet is disabled by default. To enable it, pass the <code>save-period</code> argument to the training script. This will save the logged checkpoints to Comet based on the interval value provided by <code>save-period</code>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">  </span>--save-period<span class="w"> </span><span class="m">1</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-5-7"></a><span class="w">  </span>--save-period<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <h2 id="logging-model-predictions">Logging Model Predictions</h2>
 <p>By default, model predictions (images, ground truth labels and bounding boxes) will be logged to Comet.</p>
 <p>You can control the frequency of logged predictions and the associated images by passing the <code>bbox_interval</code> command line argument. Predictions can be visualized using Comet's <a href="https://www.ultralytics.com/glossary/object-detection">Object Detection</a> Custom Panel. This frequency corresponds to every Nth batch of data per <a href="https://www.ultralytics.com/glossary/epoch">epoch</a>. In the example below, we are logging every 2nd batch of data for each epoch.</p>
 <p><strong>Note:</strong> The YOLOv5 validation dataloader will default to a <a href="https://www.ultralytics.com/glossary/batch-size">batch size</a> of 32, so you will have to set the logging frequency accordingly.</p>
 <p>Here is an <a href="https://www.comet.com/examples/comet-example-yolov5?shareable=YcwMiJaZSXfcEXpGOHDD12vA1&amp;utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">example project using the Panel</a></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">  </span>--bbox_interval<span class="w"> </span><span class="m">2</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-6-7"></a><span class="w">  </span>--bbox_interval<span class="w"> </span><span class="m">2</span>
 </code></pre></div>
 <h3 id="controlling-the-number-of-prediction-images-logged-to-comet">Controlling the number of Prediction Images logged to Comet</h3>
 <p>When logging predictions from YOLOv5, Comet will log the images associated with each set of predictions. By default, a maximum of 100 validation images are logged. You can increase or decrease this number using the <code>COMET_MAX_IMAGE_UPLOADS</code> environment variable:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>env<span class="w"> </span><span class="nv">COMET_MAX_IMAGE_UPLOADS</span><span class="o">=</span><span class="m">200</span><span class="w"> </span>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="w">  </span>--bbox_interval<span class="w"> </span><span class="m">1</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a>env<span class="w"> </span><span class="nv">COMET_MAX_IMAGE_UPLOADS</span><span class="o">=</span><span class="m">200</span><span class="w"> </span>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-7-7"></a><span class="w">  </span>--bbox_interval<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <h3 id="logging-class-level-metrics">Logging Class Level Metrics</h3>
 <p>Use the <code>COMET_LOG_PER_CLASS_METRICS</code> environment variable to log mAP, precision, recall, f1 for each class:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a>env<span class="w"> </span><span class="nv">COMET_LOG_PER_CLASS_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a>env<span class="w"> </span><span class="nv">COMET_LOG_PER_CLASS_METRICS</span><span class="o">=</span><span class="nb">true</span><span class="w"> </span>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-8-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt
 </code></pre></div>
 <h2 id="uploading-a-dataset-to-comet-artifacts">Uploading a Dataset to Comet Artifacts</h2>
 <p>If you would like to store your data using <a href="https://www.comet.com/docs/v2/guides/data-management/using-artifacts/#learn-more?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">Comet Artifacts</a>, you can do so using the <code>upload_dataset</code> flag.</p>
 <p>The dataset should be organized as described in the <a href="../train_custom_data/">YOLOv5 documentation</a>. The dataset config <code>yaml</code> file must follow the same format as that of the <code>coco128.yaml</code> file.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">  </span>--upload_dataset
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-5"></a><span class="w">  </span>--data<span class="w"> </span>coco128.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-9-7"></a><span class="w">  </span>--upload_dataset
 </code></pre></div>
 <p>You can find the uploaded dataset in the Artifacts tab in your Comet Workspace:</p>
 <p><img alt="Comet Artifacts Tab" src="https://github.com/ultralytics/docs/releases/download/0/artifact-1.avif"/></p>
@@ -1184,16 +1184,16 @@
 <p><img alt="Comet Artifact Metadata" src="https://github.com/ultralytics/docs/releases/download/0/artifact-metadata-logging.avif"/></p>
 <h3 id="using-a-saved-artifact">Using a saved Artifact</h3>
 <p>If you would like to use a dataset from Comet Artifacts, set the <code>path</code> variable in your dataset <code>yaml</code> file to point to the following Artifact resource URL:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># Contents of artifact.yaml file</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">"comet://WORKSPACE_NAME&gt;/ARTIFACT_NAME:ARTIFACT_VERSION_OR_ALIAS"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="c1"># Contents of artifact.yaml file</span>
+<a id="__codelineno-10-2"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="s">"comet://WORKSPACE_NAME&gt;/ARTIFACT_NAME:ARTIFACT_VERSION_OR_ALIAS"</span>
 </code></pre></div>
 <p>Then pass this file to your training script in the following way:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">  </span>--data<span class="w"> </span>artifact.yaml<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-2"></a><span class="w">  </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-3"></a><span class="w">  </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-4"></a><span class="w">  </span>--epochs<span class="w"> </span><span class="m">5</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-5"></a><span class="w">  </span>--data<span class="w"> </span>artifact.yaml<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-11-6"></a><span class="w">  </span>--weights<span class="w"> </span>yolov5s.pt
 </code></pre></div>
 <p>Artifacts also allow you to track the lineage of data as it flows through your experimentation workflow. Here you can see a graph that shows you all the experiments that have used your uploaded dataset:</p>
 <p><img alt="Comet Artifact Lineage Graph" src="https://github.com/ultralytics/docs/releases/download/0/artifact-lineage-graph.avif"/></p>
@@ -1201,21 +1201,21 @@
 <p>If your training run is interrupted for any reason, e.g., disrupted internet connection, you can resume the run using the <code>resume</code> flag and the Comet Run Path.</p>
 <p>The Run Path has the following format <code>comet://WORKSPACE_NAME/PROJECT_NAME/EXPERIMENT_ID</code>.</p>
 <p>This will restore the run to its state before the interruption, which includes restoring the model from a checkpoint, restoring all hyperparameters and training arguments, and downloading Comet dataset Artifacts if they were used in the original run. The resumed run will continue logging to the existing Experiment in the Comet UI:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="w">  </span>--resume<span class="w"> </span><span class="s2">"comet://YOUR_RUN_PATH"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a>python<span class="w"> </span>train.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-12-2"></a><span class="w">  </span>--resume<span class="w"> </span><span class="s2">"comet://YOUR_RUN_PATH"</span>
 </code></pre></div>
 <h2 id="hyperparameter-search-with-the-comet-optimizer">Hyperparameter Search with the Comet Optimizer</h2>
 <p>YOLOv5 is also integrated with <a href="https://www.comet.com/docs/v2/guides/optimizer/configure-optimizer/">Comet's Optimizer</a>, making it simple to visualize hyperparameter sweeps in the Comet UI.</p>
 <h3 id="configuring-an-optimizer-sweep">Configuring an Optimizer Sweep</h3>
 <p>To configure the Comet Optimizer, you will have to create a JSON file with the information about the sweep. An example file has been provided in <code>utils/loggers/comet/optimizer_config.json</code>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a>python<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a><span class="w">  </span>--comet_optimizer_config<span class="w"> </span><span class="s2">"utils/loggers/comet/optimizer_config.json"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a>python<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-13-2"></a><span class="w">  </span>--comet_optimizer_config<span class="w"> </span><span class="s2">"utils/loggers/comet/optimizer_config.json"</span>
 </code></pre></div>
 <p>The <code>hpo.py</code> script accepts the same arguments as <code>train.py</code>. If you wish to pass additional arguments to your sweep simply add them after the script:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a>python<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a><span class="w">  </span>--comet_optimizer_config<span class="w"> </span><span class="s2">"utils/loggers/comet/optimizer_config.json"</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="w">  </span>--save-period<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="w">  </span>--bbox_interval<span class="w"> </span><span class="m">1</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a>python<span class="w"> </span>utils/loggers/comet/hpo.py<span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-2"></a><span class="w">  </span>--comet_optimizer_config<span class="w"> </span><span class="s2">"utils/loggers/comet/optimizer_config.json"</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-3"></a><span class="w">  </span>--save-period<span class="w"> </span><span class="m">1</span><span class="w"> </span><span class="se">\</span>
+<a id="__codelineno-14-4"></a><span class="w">  </span>--bbox_interval<span class="w"> </span><span class="m">1</span>
 </code></pre></div>
 <h2 id="visualizing-results">Visualizing Results</h2>
 <p>Comet provides a number of ways to visualize the results of your sweep. Take a look at a <a href="https://www.comet.com/examples/comet-example-yolov5/view/PrlArHGuuhDTKC1UuBmTtOSXD/panels?utm_source=yolov5&amp;utm_medium=partner&amp;utm_campaign=partner_yolov5_2022&amp;utm_content=github">project with a completed sweep here</a>.</p>

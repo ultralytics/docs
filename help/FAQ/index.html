@@ -639,10 +639,10 @@
 </ul>
 <h3 id="how-do-i-install-the-ultralytics-package">How do I install the Ultralytics package?</h3>
 <p>Installing the Ultralytics package is straightforward using pip:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip install ultralytics
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip install ultralytics
 </code></pre></div>
 <p>For the latest development version, install directly from the GitHub repository:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>pip install git+https://github.com/ultralytics/ultralytics.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>pip install git+https://github.com/ultralytics/ultralytics.git
 </code></pre></div>
 <p>Detailed installation instructions can be found in the <a href="https://docs.ultralytics.com/quickstart/">quickstart guide</a>.</p>
 <h3 id="what-are-the-system-requirements-for-running-ultralytics-models">What are the system requirements for running Ultralytics models?</h3>
@@ -668,14 +668,14 @@
 <li>Create a YAML file describing your dataset structure and classes.</li>
 <li>Use the following Python code to start training:</li>
 </ol>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.yaml"</span><span class="p">)</span>  <span class="c1"># build a new model from scratch</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.yaml"</span><span class="p">)</span>  <span class="c1"># build a new model from scratch</span>
+<a id="__codelineno-2-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<a id="__codelineno-2-6"></a>
+<a id="__codelineno-2-7"></a><span class="c1"># Train the model</span>
+<a id="__codelineno-2-8"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 <p>For a more in-depth guide, including data preparation and advanced training options, refer to the comprehensive <a href="https://docs.ultralytics.com/modes/train/">training guide</a>.</p>
 <h3 id="what-pretrained-models-are-available-in-ultralytics">What pretrained models are available in Ultralytics?</h3>
@@ -689,19 +689,19 @@
 <p>These models vary in size and complexity, offering different trade-offs between speed and <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>. Explore the full range of <a href="https://docs.ultralytics.com/models/">pretrained models</a> to find the best fit for your project.</p>
 <h3 id="how-do-i-perform-inference-using-a-trained-ultralytics-model">How do I perform inference using a trained Ultralytics model?</h3>
 <p>To perform inference with a trained model:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/your/model.pt"</span><span class="p">)</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Perform inference</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="c1"># Process results</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span>  <span class="c1"># print bbox predictions</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span>  <span class="c1"># print mask predictions</span>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span>  <span class="c1"># print class probabilities</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/your/model.pt"</span><span class="p">)</span>
+<a id="__codelineno-3-5"></a>
+<a id="__codelineno-3-6"></a><span class="c1"># Perform inference</span>
+<a id="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-3-8"></a>
+<a id="__codelineno-3-9"></a><span class="c1"># Process results</span>
+<a id="__codelineno-3-10"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-3-11"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span>  <span class="c1"># print bbox predictions</span>
+<a id="__codelineno-3-12"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span>  <span class="c1"># print mask predictions</span>
+<a id="__codelineno-3-13"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span>  <span class="c1"># print class probabilities</span>
 </code></pre></div>
 <p>For advanced inference options, including batch processing and video inference, check out the detailed <a href="https://docs.ultralytics.com/modes/predict/">prediction guide</a>.</p>
 <h3 id="can-ultralytics-models-be-deployed-on-edge-devices-or-in-production-environments">Can Ultralytics models be deployed on edge devices or in production environments?</h3>
@@ -735,10 +735,10 @@
 <p>You can also contribute by reporting bugs, suggesting features, or improving documentation. For detailed guidelines and best practices, refer to the <a href="https://docs.ultralytics.com/help/contributing/">contributing guide</a>.</p>
 <h3 id="how-do-i-install-the-ultralytics-package-in-python">How do I install the Ultralytics package in Python?</h3>
 <p>Installing the Ultralytics package in Python is simple. Use pip by running the following command in your terminal or command prompt:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 <p>For the cutting-edge development version, install directly from the GitHub repository:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/ultralytics/ultralytics.git
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/ultralytics/ultralytics.git
 </code></pre></div>
 <p>For environment-specific installation instructions and troubleshooting tips, consult the comprehensive <a href="https://docs.ultralytics.com/quickstart/">quickstart guide</a>.</p>
 <h3 id="what-are-the-main-features-of-ultralytics-yolo">What are the main features of Ultralytics YOLO?</h3>
@@ -772,19 +772,19 @@
 <ol>
 <li>
 <p>Load the Model:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/your/model.pt"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-6-2"></a>
+<a id="__codelineno-6-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/your/model.pt"</span><span class="p">)</span>
 </code></pre></div>
 </li>
 <li>
 <p>Run Inference:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span>  <span class="c1"># print bounding box predictions</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span>  <span class="c1"># print mask predictions</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span>  <span class="c1"># print class probabilities</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-7-2"></a>
+<a id="__codelineno-7-3"></a><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-7-4"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="p">)</span>  <span class="c1"># print bounding box predictions</span>
+<a id="__codelineno-7-5"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">masks</span><span class="p">)</span>  <span class="c1"># print mask predictions</span>
+<a id="__codelineno-7-6"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">probs</span><span class="p">)</span>  <span class="c1"># print class probabilities</span>
 </code></pre></div>
 </li>
 </ol>

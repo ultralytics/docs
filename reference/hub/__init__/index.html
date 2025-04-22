@@ -1122,7 +1122,7 @@
 <h2 class="doc doc-heading" id="ultralytics.hub.login">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.login</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">login</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">login</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Log in to the Ultralytics HUB API using the provided API key.</p>
@@ -1197,89 +1197,89 @@ or HUB_API_KEY environment variable.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-26">26</a></span>
-<span class="normal"><a href="#__codelineno-0-27">27</a></span>
-<span class="normal"><a href="#__codelineno-0-28">28</a></span>
-<span class="normal"><a href="#__codelineno-0-29">29</a></span>
-<span class="normal"><a href="#__codelineno-0-30">30</a></span>
-<span class="normal"><a href="#__codelineno-0-31">31</a></span>
-<span class="normal"><a href="#__codelineno-0-32">32</a></span>
-<span class="normal"><a href="#__codelineno-0-33">33</a></span>
-<span class="normal"><a href="#__codelineno-0-34">34</a></span>
-<span class="normal"><a href="#__codelineno-0-35">35</a></span>
-<span class="normal"><a href="#__codelineno-0-36">36</a></span>
-<span class="normal"><a href="#__codelineno-0-37">37</a></span>
-<span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span>
-<span class="normal"><a href="#__codelineno-0-53">53</a></span>
-<span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
-<span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span>
-<span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<a id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="sd">    Log in to the Ultralytics HUB API using the provided API key.</span>
-<a id="__codelineno-0-29" name="__codelineno-0-29"></a>
-<a id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="sd">    The session is not stored; a new session is created when needed using the saved SETTINGS or the HUB_API_KEY</span>
-<a id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="sd">    environment variable if successfully authenticated.</span>
-<a id="__codelineno-0-32" name="__codelineno-0-32"></a>
-<a id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="sd">        api_key (str, optional): API key to use for authentication. If not provided, it will be retrieved from SETTINGS</span>
-<a id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="sd">            or HUB_API_KEY environment variable.</span>
-<a id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="sd">        save (bool, optional): Whether to save the API key to SETTINGS if authentication is successful.</span>
-<a id="__codelineno-0-37" name="__codelineno-0-37"></a>
-<a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="sd">        (bool): True if authentication is successful, False otherwise.</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    """</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>    <span class="n">checks</span><span class="o">.</span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"hub-sdk&gt;=0.0.12"</span><span class="p">)</span>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>    <span class="n">api_key_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/settings?tab=api+keys"</span>  <span class="c1"># set the redirect URL</span>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a>    <span class="n">saved_key</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"api_key"</span><span class="p">)</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a>    <span class="n">active_key</span> <span class="o">=</span> <span class="n">api_key</span> <span class="ow">or</span> <span class="n">saved_key</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a>    <span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="n">active_key</span><span class="p">}</span> <span class="k">if</span> <span class="n">active_key</span> <span class="ow">and</span> <span class="n">active_key</span> <span class="o">!=</span> <span class="s2">""</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># set credentials</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>  <span class="c1"># initialize HUBClient</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">authenticated</span><span class="p">:</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>        <span class="c1"># Successfully authenticated with HUB</span>
-<a id="__codelineno-0-53" name="__codelineno-0-53"></a>
-<a id="__codelineno-0-54" name="__codelineno-0-54"></a>        <span class="k">if</span> <span class="n">save</span> <span class="ow">and</span> <span class="n">client</span><span class="o">.</span><span class="n">api_key</span> <span class="o">!=</span> <span class="n">saved_key</span><span class="p">:</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a>            <span class="n">SETTINGS</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="n">client</span><span class="o">.</span><span class="n">api_key</span><span class="p">})</span>  <span class="c1"># update settings with valid API key</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="c1"># Set message based on whether key was provided or retrieved from settings</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>        <span class="n">log_message</span> <span class="o">=</span> <span class="p">(</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>            <span class="s2">"New authentication successful ✅"</span> <span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">api_key</span> <span class="o">==</span> <span class="n">api_key</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">credentials</span> <span class="k">else</span> <span class="s2">"Authenticated ✅"</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="p">)</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="n">log_message</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>        <span class="k">return</span> <span class="kc">True</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>    <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>        <span class="c1"># Failed to authenticate with HUB</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Get API key from </span><span class="si">{</span><span class="n">api_key_url</span><span class="si">}</span><span class="s2"> and then run 'yolo login API_KEY'"</span><span class="p">)</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>        <span class="k">return</span> <span class="kc">False</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>26</a></span>
+<span class="normal"><a>27</a></span>
+<span class="normal"><a>28</a></span>
+<span class="normal"><a>29</a></span>
+<span class="normal"><a>30</a></span>
+<span class="normal"><a>31</a></span>
+<span class="normal"><a>32</a></span>
+<span class="normal"><a>33</a></span>
+<span class="normal"><a>34</a></span>
+<span class="normal"><a>35</a></span>
+<span class="normal"><a>36</a></span>
+<span class="normal"><a>37</a></span>
+<span class="normal"><a>38</a></span>
+<span class="normal"><a>39</a></span>
+<span class="normal"><a>40</a></span>
+<span class="normal"><a>41</a></span>
+<span class="normal"><a>42</a></span>
+<span class="normal"><a>43</a></span>
+<span class="normal"><a>44</a></span>
+<span class="normal"><a>45</a></span>
+<span class="normal"><a>46</a></span>
+<span class="normal"><a>47</a></span>
+<span class="normal"><a>48</a></span>
+<span class="normal"><a>49</a></span>
+<span class="normal"><a>50</a></span>
+<span class="normal"><a>51</a></span>
+<span class="normal"><a>52</a></span>
+<span class="normal"><a>53</a></span>
+<span class="normal"><a>54</a></span>
+<span class="normal"><a>55</a></span>
+<span class="normal"><a>56</a></span>
+<span class="normal"><a>57</a></span>
+<span class="normal"><a>58</a></span>
+<span class="normal"><a>59</a></span>
+<span class="normal"><a>60</a></span>
+<span class="normal"><a>61</a></span>
+<span class="normal"><a>62</a></span>
+<span class="normal"><a>63</a></span>
+<span class="normal"><a>64</a></span>
+<span class="normal"><a>65</a></span>
+<span class="normal"><a>66</a></span>
+<span class="normal"><a>67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-26"></a><span class="k">def</span><span class="w"> </span><span class="nf">login</span><span class="p">(</span><span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<a id="__codelineno-0-27"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-28"></a><span class="sd">    Log in to the Ultralytics HUB API using the provided API key.</span>
+<a id="__codelineno-0-29"></a>
+<a id="__codelineno-0-30"></a><span class="sd">    The session is not stored; a new session is created when needed using the saved SETTINGS or the HUB_API_KEY</span>
+<a id="__codelineno-0-31"></a><span class="sd">    environment variable if successfully authenticated.</span>
+<a id="__codelineno-0-32"></a>
+<a id="__codelineno-0-33"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-34"></a><span class="sd">        api_key (str, optional): API key to use for authentication. If not provided, it will be retrieved from SETTINGS</span>
+<a id="__codelineno-0-35"></a><span class="sd">            or HUB_API_KEY environment variable.</span>
+<a id="__codelineno-0-36"></a><span class="sd">        save (bool, optional): Whether to save the API key to SETTINGS if authentication is successful.</span>
+<a id="__codelineno-0-37"></a>
+<a id="__codelineno-0-38"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-39"></a><span class="sd">        (bool): True if authentication is successful, False otherwise.</span>
+<a id="__codelineno-0-40"></a><span class="sd">    """</span>
+<a id="__codelineno-0-41"></a>    <span class="n">checks</span><span class="o">.</span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"hub-sdk&gt;=0.0.12"</span><span class="p">)</span>
+<a id="__codelineno-0-42"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">hub_sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBClient</span>
+<a id="__codelineno-0-43"></a>
+<a id="__codelineno-0-44"></a>    <span class="n">api_key_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/settings?tab=api+keys"</span>  <span class="c1"># set the redirect URL</span>
+<a id="__codelineno-0-45"></a>    <span class="n">saved_key</span> <span class="o">=</span> <span class="n">SETTINGS</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"api_key"</span><span class="p">)</span>
+<a id="__codelineno-0-46"></a>    <span class="n">active_key</span> <span class="o">=</span> <span class="n">api_key</span> <span class="ow">or</span> <span class="n">saved_key</span>
+<a id="__codelineno-0-47"></a>    <span class="n">credentials</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="n">active_key</span><span class="p">}</span> <span class="k">if</span> <span class="n">active_key</span> <span class="ow">and</span> <span class="n">active_key</span> <span class="o">!=</span> <span class="s2">""</span> <span class="k">else</span> <span class="kc">None</span>  <span class="c1"># set credentials</span>
+<a id="__codelineno-0-48"></a>
+<a id="__codelineno-0-49"></a>    <span class="n">client</span> <span class="o">=</span> <span class="n">HUBClient</span><span class="p">(</span><span class="n">credentials</span><span class="p">)</span>  <span class="c1"># initialize HUBClient</span>
+<a id="__codelineno-0-50"></a>
+<a id="__codelineno-0-51"></a>    <span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">authenticated</span><span class="p">:</span>
+<a id="__codelineno-0-52"></a>        <span class="c1"># Successfully authenticated with HUB</span>
+<a id="__codelineno-0-53"></a>
+<a id="__codelineno-0-54"></a>        <span class="k">if</span> <span class="n">save</span> <span class="ow">and</span> <span class="n">client</span><span class="o">.</span><span class="n">api_key</span> <span class="o">!=</span> <span class="n">saved_key</span><span class="p">:</span>
+<a id="__codelineno-0-55"></a>            <span class="n">SETTINGS</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s2">"api_key"</span><span class="p">:</span> <span class="n">client</span><span class="o">.</span><span class="n">api_key</span><span class="p">})</span>  <span class="c1"># update settings with valid API key</span>
+<a id="__codelineno-0-56"></a>
+<a id="__codelineno-0-57"></a>        <span class="c1"># Set message based on whether key was provided or retrieved from settings</span>
+<a id="__codelineno-0-58"></a>        <span class="n">log_message</span> <span class="o">=</span> <span class="p">(</span>
+<a id="__codelineno-0-59"></a>            <span class="s2">"New authentication successful ✅"</span> <span class="k">if</span> <span class="n">client</span><span class="o">.</span><span class="n">api_key</span> <span class="o">==</span> <span class="n">api_key</span> <span class="ow">or</span> <span class="ow">not</span> <span class="n">credentials</span> <span class="k">else</span> <span class="s2">"Authenticated ✅"</span>
+<a id="__codelineno-0-60"></a>        <span class="p">)</span>
+<a id="__codelineno-0-61"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="n">log_message</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<a id="__codelineno-0-62"></a>
+<a id="__codelineno-0-63"></a>        <span class="k">return</span> <span class="kc">True</span>
+<a id="__codelineno-0-64"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-65"></a>        <span class="c1"># Failed to authenticate with HUB</span>
+<a id="__codelineno-0-66"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Get API key from </span><span class="si">{</span><span class="n">api_key_url</span><span class="si">}</span><span class="s2"> and then run 'yolo login API_KEY'"</span><span class="p">)</span>
+<a id="__codelineno-0-67"></a>        <span class="k">return</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1288,35 +1288,35 @@ or HUB_API_KEY environment variable.</p>
 <h2 class="doc doc-heading" id="ultralytics.hub.logout">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.logout</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">logout</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">logout</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Log out of Ultralytics HUB by removing the API key from the settings file. To log in again, use 'yolo login'.</p>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hub</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
+<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hub</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span>
-<span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="k">def</span><span class="w"> </span><span class="nf">logout</span><span class="p">():</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="sd">    Log out of Ultralytics HUB by removing the API key from the settings file. To log in again, use 'yolo login'.</span>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">        &gt;&gt;&gt; from ultralytics import hub</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        &gt;&gt;&gt; hub.logout()</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="sd">    """</span>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a>    <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"api_key"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">logged out ✅. To log in again, use 'yolo login'."</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>70</a></span>
+<span class="normal"><a>71</a></span>
+<span class="normal"><a>72</a></span>
+<span class="normal"><a>73</a></span>
+<span class="normal"><a>74</a></span>
+<span class="normal"><a>75</a></span>
+<span class="normal"><a>76</a></span>
+<span class="normal"><a>77</a></span>
+<span class="normal"><a>78</a></span>
+<span class="normal"><a>79</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-70"></a><span class="k">def</span><span class="w"> </span><span class="nf">logout</span><span class="p">():</span>
+<a id="__codelineno-0-71"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-72"></a><span class="sd">    Log out of Ultralytics HUB by removing the API key from the settings file. To log in again, use 'yolo login'.</span>
+<a id="__codelineno-0-73"></a>
+<a id="__codelineno-0-74"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-75"></a><span class="sd">        &gt;&gt;&gt; from ultralytics import hub</span>
+<a id="__codelineno-0-76"></a><span class="sd">        &gt;&gt;&gt; hub.logout()</span>
+<a id="__codelineno-0-77"></a><span class="sd">    """</span>
+<a id="__codelineno-0-78"></a>    <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"api_key"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
+<a id="__codelineno-0-79"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">logged out ✅. To log in again, use 'yolo login'."</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1325,25 +1325,25 @@ or HUB_API_KEY environment variable.</p>
 <h2 class="doc doc-heading" id="ultralytics.hub.reset_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.reset_model</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">reset_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">reset_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Reset a trained model to an untrained state.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-82">82</a></span>
-<span class="normal"><a href="#__codelineno-0-83">83</a></span>
-<span class="normal"><a href="#__codelineno-0-84">84</a></span>
-<span class="normal"><a href="#__codelineno-0-85">85</a></span>
-<span class="normal"><a href="#__codelineno-0-86">86</a></span>
-<span class="normal"><a href="#__codelineno-0-87">87</a></span>
-<span class="normal"><a href="#__codelineno-0-88">88</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">    </span><span class="sd">"""Reset a trained model to an untrained state."""</span>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/model-reset"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"modelId"</span><span class="p">:</span> <span class="n">model_id</span><span class="p">},</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">})</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Model reset successfully"</span><span class="p">)</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>        <span class="k">return</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Model reset failure </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>82</a></span>
+<span class="normal"><a>83</a></span>
+<span class="normal"><a>84</a></span>
+<span class="normal"><a>85</a></span>
+<span class="normal"><a>86</a></span>
+<span class="normal"><a>87</a></span>
+<span class="normal"><a>88</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-82"></a><span class="k">def</span><span class="w"> </span><span class="nf">reset_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+<a id="__codelineno-0-83"></a><span class="w">    </span><span class="sd">"""Reset a trained model to an untrained state."""</span>
+<a id="__codelineno-0-84"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/model-reset"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"modelId"</span><span class="p">:</span> <span class="n">model_id</span><span class="p">},</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">})</span>
+<a id="__codelineno-0-85"></a>    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
+<a id="__codelineno-0-86"></a>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Model reset successfully"</span><span class="p">)</span>
+<a id="__codelineno-0-87"></a>        <span class="k">return</span>
+<a id="__codelineno-0-88"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">Model reset failure </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1352,21 +1352,21 @@ or HUB_API_KEY environment variable.</p>
 <h2 class="doc doc-heading" id="ultralytics.hub.export_fmts_hub">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.export_fmts_hub</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">export_fmts_hub</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">export_fmts_hub</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Returns a list of HUB-supported export formats.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-91">91</a></span>
-<span class="normal"><a href="#__codelineno-0-92">92</a></span>
-<span class="normal"><a href="#__codelineno-0-93">93</a></span>
-<span class="normal"><a href="#__codelineno-0-94">94</a></span>
-<span class="normal"><a href="#__codelineno-0-95">95</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_fmts_hub</span><span class="p">():</span>
-<a id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">    </span><span class="sd">"""Returns a list of HUB-supported export formats."""</span>
-<a id="__codelineno-0-93" name="__codelineno-0-93"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.engine.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_formats</span>
-<a id="__codelineno-0-94" name="__codelineno-0-94"></a>
-<a id="__codelineno-0-95" name="__codelineno-0-95"></a>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">export_formats</span><span class="p">()[</span><span class="s2">"Argument"</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"ultralytics_tflite"</span><span class="p">,</span> <span class="s2">"ultralytics_coreml"</span><span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>91</a></span>
+<span class="normal"><a>92</a></span>
+<span class="normal"><a>93</a></span>
+<span class="normal"><a>94</a></span>
+<span class="normal"><a>95</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-91"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_fmts_hub</span><span class="p">():</span>
+<a id="__codelineno-0-92"></a><span class="w">    </span><span class="sd">"""Returns a list of HUB-supported export formats."""</span>
+<a id="__codelineno-0-93"></a>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.engine.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_formats</span>
+<a id="__codelineno-0-94"></a>
+<a id="__codelineno-0-95"></a>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">export_formats</span><span class="p">()[</span><span class="s2">"Argument"</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"ultralytics_tflite"</span><span class="p">,</span> <span class="s2">"ultralytics_coreml"</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1375,7 +1375,7 @@ or HUB_API_KEY environment variable.</p>
 <h2 class="doc doc-heading" id="ultralytics.hub.export_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.export_model</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">export_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'torchscript'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">export_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'torchscript'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Export a model to a specified format for deployment via the Ultralytics HUB API.</p>
@@ -1447,54 +1447,54 @@ export_fmts_hub().</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hub</span><span class="o">.</span><span class="n">export_model</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">"your_model_id"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"torchscript"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
+<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hub</span><span class="o">.</span><span class="n">export_model</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">"your_model_id"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"torchscript"</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-98"> 98</a></span>
-<span class="normal"><a href="#__codelineno-0-99"> 99</a></span>
-<span class="normal"><a href="#__codelineno-0-100">100</a></span>
-<span class="normal"><a href="#__codelineno-0-101">101</a></span>
-<span class="normal"><a href="#__codelineno-0-102">102</a></span>
-<span class="normal"><a href="#__codelineno-0-103">103</a></span>
-<span class="normal"><a href="#__codelineno-0-104">104</a></span>
-<span class="normal"><a href="#__codelineno-0-105">105</a></span>
-<span class="normal"><a href="#__codelineno-0-106">106</a></span>
-<span class="normal"><a href="#__codelineno-0-107">107</a></span>
-<span class="normal"><a href="#__codelineno-0-108">108</a></span>
-<span class="normal"><a href="#__codelineno-0-109">109</a></span>
-<span class="normal"><a href="#__codelineno-0-110">110</a></span>
-<span class="normal"><a href="#__codelineno-0-111">111</a></span>
-<span class="normal"><a href="#__codelineno-0-112">112</a></span>
-<span class="normal"><a href="#__codelineno-0-113">113</a></span>
-<span class="normal"><a href="#__codelineno-0-114">114</a></span>
-<span class="normal"><a href="#__codelineno-0-115">115</a></span>
-<span class="normal"><a href="#__codelineno-0-116">116</a></span>
-<span class="normal"><a href="#__codelineno-0-117">117</a></span>
-<span class="normal"><a href="#__codelineno-0-118">118</a></span>
-<span class="normal"><a href="#__codelineno-0-119">119</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"torchscript"</span><span class="p">):</span>
-<a id="__codelineno-0-99" name="__codelineno-0-99"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="sd">    Export a model to a specified format for deployment via the Ultralytics HUB API.</span>
-<a id="__codelineno-0-101" name="__codelineno-0-101"></a>
-<a id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-103" name="__codelineno-0-103"></a><span class="sd">        model_id (str): The ID of the model to export. An empty string will use the default model.</span>
-<a id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="sd">        format (str): The format to export the model to. Must be one of the supported formats returned by</span>
-<a id="__codelineno-0-105" name="__codelineno-0-105"></a><span class="sd">            export_fmts_hub().</span>
-<a id="__codelineno-0-106" name="__codelineno-0-106"></a>
-<a id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="sd">        AssertionError: If the specified format is not supported or if the export request fails.</span>
-<a id="__codelineno-0-109" name="__codelineno-0-109"></a>
-<a id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="sd">        &gt;&gt;&gt; from ultralytics import hub</span>
-<a id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="sd">        &gt;&gt;&gt; hub.export_model(model_id="your_model_id", format="torchscript")</span>
-<a id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="sd">    """</span>
-<a id="__codelineno-0-114" name="__codelineno-0-114"></a>    <span class="k">assert</span> <span class="nb">format</span> <span class="ow">in</span> <span class="n">export_fmts_hub</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"Unsupported export format '</span><span class="si">{</span><span class="nb">format</span><span class="si">}</span><span class="s2">', valid formats are </span><span class="si">{</span><span class="n">export_fmts_hub</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-115" name="__codelineno-0-115"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-0-116" name="__codelineno-0-116"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/v1/models/</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">/export"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"format"</span><span class="p">:</span> <span class="nb">format</span><span class="p">},</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">}</span>
-<a id="__codelineno-0-117" name="__codelineno-0-117"></a>    <span class="p">)</span>
-<a id="__codelineno-0-118" name="__codelineno-0-118"></a>    <span class="k">assert</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="nb">format</span><span class="si">}</span><span class="s2"> export failure </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-119" name="__codelineno-0-119"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="nb">format</span><span class="si">}</span><span class="s2"> export started ✅"</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a> 98</a></span>
+<span class="normal"><a> 99</a></span>
+<span class="normal"><a>100</a></span>
+<span class="normal"><a>101</a></span>
+<span class="normal"><a>102</a></span>
+<span class="normal"><a>103</a></span>
+<span class="normal"><a>104</a></span>
+<span class="normal"><a>105</a></span>
+<span class="normal"><a>106</a></span>
+<span class="normal"><a>107</a></span>
+<span class="normal"><a>108</a></span>
+<span class="normal"><a>109</a></span>
+<span class="normal"><a>110</a></span>
+<span class="normal"><a>111</a></span>
+<span class="normal"><a>112</a></span>
+<span class="normal"><a>113</a></span>
+<span class="normal"><a>114</a></span>
+<span class="normal"><a>115</a></span>
+<span class="normal"><a>116</a></span>
+<span class="normal"><a>117</a></span>
+<span class="normal"><a>118</a></span>
+<span class="normal"><a>119</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-98"></a><span class="k">def</span><span class="w"> </span><span class="nf">export_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"torchscript"</span><span class="p">):</span>
+<a id="__codelineno-0-99"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-100"></a><span class="sd">    Export a model to a specified format for deployment via the Ultralytics HUB API.</span>
+<a id="__codelineno-0-101"></a>
+<a id="__codelineno-0-102"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-103"></a><span class="sd">        model_id (str): The ID of the model to export. An empty string will use the default model.</span>
+<a id="__codelineno-0-104"></a><span class="sd">        format (str): The format to export the model to. Must be one of the supported formats returned by</span>
+<a id="__codelineno-0-105"></a><span class="sd">            export_fmts_hub().</span>
+<a id="__codelineno-0-106"></a>
+<a id="__codelineno-0-107"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-108"></a><span class="sd">        AssertionError: If the specified format is not supported or if the export request fails.</span>
+<a id="__codelineno-0-109"></a>
+<a id="__codelineno-0-110"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-111"></a><span class="sd">        &gt;&gt;&gt; from ultralytics import hub</span>
+<a id="__codelineno-0-112"></a><span class="sd">        &gt;&gt;&gt; hub.export_model(model_id="your_model_id", format="torchscript")</span>
+<a id="__codelineno-0-113"></a><span class="sd">    """</span>
+<a id="__codelineno-0-114"></a>    <span class="k">assert</span> <span class="nb">format</span> <span class="ow">in</span> <span class="n">export_fmts_hub</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"Unsupported export format '</span><span class="si">{</span><span class="nb">format</span><span class="si">}</span><span class="s2">', valid formats are </span><span class="si">{</span><span class="n">export_fmts_hub</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-115"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-0-116"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/v1/models/</span><span class="si">{</span><span class="n">model_id</span><span class="si">}</span><span class="s2">/export"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"format"</span><span class="p">:</span> <span class="nb">format</span><span class="p">},</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">}</span>
+<a id="__codelineno-0-117"></a>    <span class="p">)</span>
+<a id="__codelineno-0-118"></a>    <span class="k">assert</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="nb">format</span><span class="si">}</span><span class="s2"> export failure </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-119"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="nb">format</span><span class="si">}</span><span class="s2"> export started ✅"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1503,7 +1503,7 @@ export_fmts_hub().</p>
 <h2 class="doc doc-heading" id="ultralytics.hub.get_export">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.get_export</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'torchscript'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'torchscript'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Retrieve an exported model in the specified format from Ultralytics HUB using the model ID.</p>
@@ -1574,56 +1574,56 @@ export_fmts_hub().</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hub</span><span class="o">.</span><span class="n">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">"your_model_id"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"torchscript"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
+<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">hub</span><span class="o">.</span><span class="n">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">"your_model_id"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"torchscript"</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-122">122</a></span>
-<span class="normal"><a href="#__codelineno-0-123">123</a></span>
-<span class="normal"><a href="#__codelineno-0-124">124</a></span>
-<span class="normal"><a href="#__codelineno-0-125">125</a></span>
-<span class="normal"><a href="#__codelineno-0-126">126</a></span>
-<span class="normal"><a href="#__codelineno-0-127">127</a></span>
-<span class="normal"><a href="#__codelineno-0-128">128</a></span>
-<span class="normal"><a href="#__codelineno-0-129">129</a></span>
-<span class="normal"><a href="#__codelineno-0-130">130</a></span>
-<span class="normal"><a href="#__codelineno-0-131">131</a></span>
-<span class="normal"><a href="#__codelineno-0-132">132</a></span>
-<span class="normal"><a href="#__codelineno-0-133">133</a></span>
-<span class="normal"><a href="#__codelineno-0-134">134</a></span>
-<span class="normal"><a href="#__codelineno-0-135">135</a></span>
-<span class="normal"><a href="#__codelineno-0-136">136</a></span>
-<span class="normal"><a href="#__codelineno-0-137">137</a></span>
-<span class="normal"><a href="#__codelineno-0-138">138</a></span>
-<span class="normal"><a href="#__codelineno-0-139">139</a></span>
-<span class="normal"><a href="#__codelineno-0-140">140</a></span>
-<span class="normal"><a href="#__codelineno-0-141">141</a></span>
-<span class="normal"><a href="#__codelineno-0-142">142</a></span>
-<span class="normal"><a href="#__codelineno-0-143">143</a></span>
-<span class="normal"><a href="#__codelineno-0-144">144</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-122" name="__codelineno-0-122"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"torchscript"</span><span class="p">):</span>
-<a id="__codelineno-0-123" name="__codelineno-0-123"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-124" name="__codelineno-0-124"></a><span class="sd">    Retrieve an exported model in the specified format from Ultralytics HUB using the model ID.</span>
-<a id="__codelineno-0-125" name="__codelineno-0-125"></a>
-<a id="__codelineno-0-126" name="__codelineno-0-126"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-127" name="__codelineno-0-127"></a><span class="sd">        model_id (str): The ID of the model to retrieve from Ultralytics HUB.</span>
-<a id="__codelineno-0-128" name="__codelineno-0-128"></a><span class="sd">        format (str): The export format to retrieve. Must be one of the supported formats returned by export_fmts_hub().</span>
-<a id="__codelineno-0-129" name="__codelineno-0-129"></a>
-<a id="__codelineno-0-130" name="__codelineno-0-130"></a><span class="sd">    Raises:</span>
-<a id="__codelineno-0-131" name="__codelineno-0-131"></a><span class="sd">        AssertionError: If the specified format is not supported or if the API request fails.</span>
-<a id="__codelineno-0-132" name="__codelineno-0-132"></a>
-<a id="__codelineno-0-133" name="__codelineno-0-133"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-134" name="__codelineno-0-134"></a><span class="sd">        &gt;&gt;&gt; from ultralytics import hub</span>
-<a id="__codelineno-0-135" name="__codelineno-0-135"></a><span class="sd">        &gt;&gt;&gt; hub.get_export(model_id="your_model_id", format="torchscript")</span>
-<a id="__codelineno-0-136" name="__codelineno-0-136"></a><span class="sd">    """</span>
-<a id="__codelineno-0-137" name="__codelineno-0-137"></a>    <span class="k">assert</span> <span class="nb">format</span> <span class="ow">in</span> <span class="n">export_fmts_hub</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"Unsupported export format '</span><span class="si">{</span><span class="nb">format</span><span class="si">}</span><span class="s2">', valid formats are </span><span class="si">{</span><span class="n">export_fmts_hub</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-138" name="__codelineno-0-138"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
-<a id="__codelineno-0-139" name="__codelineno-0-139"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/get-export"</span><span class="p">,</span>
-<a id="__codelineno-0-140" name="__codelineno-0-140"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"apiKey"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">,</span> <span class="s2">"modelId"</span><span class="p">:</span> <span class="n">model_id</span><span class="p">,</span> <span class="s2">"format"</span><span class="p">:</span> <span class="nb">format</span><span class="p">},</span>
-<a id="__codelineno-0-141" name="__codelineno-0-141"></a>        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">},</span>
-<a id="__codelineno-0-142" name="__codelineno-0-142"></a>    <span class="p">)</span>
-<a id="__codelineno-0-143" name="__codelineno-0-143"></a>    <span class="k">assert</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="nb">format</span><span class="si">}</span><span class="s2"> get_export failure </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span>
-<a id="__codelineno-0-144" name="__codelineno-0-144"></a>    <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>122</a></span>
+<span class="normal"><a>123</a></span>
+<span class="normal"><a>124</a></span>
+<span class="normal"><a>125</a></span>
+<span class="normal"><a>126</a></span>
+<span class="normal"><a>127</a></span>
+<span class="normal"><a>128</a></span>
+<span class="normal"><a>129</a></span>
+<span class="normal"><a>130</a></span>
+<span class="normal"><a>131</a></span>
+<span class="normal"><a>132</a></span>
+<span class="normal"><a>133</a></span>
+<span class="normal"><a>134</a></span>
+<span class="normal"><a>135</a></span>
+<span class="normal"><a>136</a></span>
+<span class="normal"><a>137</a></span>
+<span class="normal"><a>138</a></span>
+<span class="normal"><a>139</a></span>
+<span class="normal"><a>140</a></span>
+<span class="normal"><a>141</a></span>
+<span class="normal"><a>142</a></span>
+<span class="normal"><a>143</a></span>
+<span class="normal"><a>144</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-122"></a><span class="k">def</span><span class="w"> </span><span class="nf">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"torchscript"</span><span class="p">):</span>
+<a id="__codelineno-0-123"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-124"></a><span class="sd">    Retrieve an exported model in the specified format from Ultralytics HUB using the model ID.</span>
+<a id="__codelineno-0-125"></a>
+<a id="__codelineno-0-126"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-127"></a><span class="sd">        model_id (str): The ID of the model to retrieve from Ultralytics HUB.</span>
+<a id="__codelineno-0-128"></a><span class="sd">        format (str): The export format to retrieve. Must be one of the supported formats returned by export_fmts_hub().</span>
+<a id="__codelineno-0-129"></a>
+<a id="__codelineno-0-130"></a><span class="sd">    Raises:</span>
+<a id="__codelineno-0-131"></a><span class="sd">        AssertionError: If the specified format is not supported or if the API request fails.</span>
+<a id="__codelineno-0-132"></a>
+<a id="__codelineno-0-133"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-134"></a><span class="sd">        &gt;&gt;&gt; from ultralytics import hub</span>
+<a id="__codelineno-0-135"></a><span class="sd">        &gt;&gt;&gt; hub.get_export(model_id="your_model_id", format="torchscript")</span>
+<a id="__codelineno-0-136"></a><span class="sd">    """</span>
+<a id="__codelineno-0-137"></a>    <span class="k">assert</span> <span class="nb">format</span> <span class="ow">in</span> <span class="n">export_fmts_hub</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"Unsupported export format '</span><span class="si">{</span><span class="nb">format</span><span class="si">}</span><span class="s2">', valid formats are </span><span class="si">{</span><span class="n">export_fmts_hub</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-138"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-0-139"></a>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/get-export"</span><span class="p">,</span>
+<a id="__codelineno-0-140"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"apiKey"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">,</span> <span class="s2">"modelId"</span><span class="p">:</span> <span class="n">model_id</span><span class="p">,</span> <span class="s2">"format"</span><span class="p">:</span> <span class="nb">format</span><span class="p">},</span>
+<a id="__codelineno-0-141"></a>        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">},</span>
+<a id="__codelineno-0-142"></a>    <span class="p">)</span>
+<a id="__codelineno-0-143"></a>    <span class="k">assert</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}{</span><span class="nb">format</span><span class="si">}</span><span class="s2"> get_export failure </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">status_code</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">r</span><span class="o">.</span><span class="n">reason</span><span class="si">}</span><span class="s2">"</span>
+<a id="__codelineno-0-144"></a>    <span class="k">return</span> <span class="n">r</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1632,7 +1632,7 @@ export_fmts_hub().</p>
 <h2 class="doc doc-heading" id="ultralytics.hub.check_dataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.check_dataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">check_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">check_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check HUB dataset Zip file for errors before upload.</p>
@@ -1682,12 +1682,12 @@ export_fmts_hub().</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_dataset</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/coco8.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>  <span class="c1"># detect dataset</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/coco8-seg.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"segment"</span><span class="p">)</span>  <span class="c1"># segment dataset</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/coco8-pose.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"pose"</span><span class="p">)</span>  <span class="c1"># pose dataset</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/dota8.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"obb"</span><span class="p">)</span>  <span class="c1"># OBB dataset</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/imagenet10.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"classify"</span><span class="p">)</span>  <span class="c1"># classification dataset</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_dataset</span>
+<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/coco8.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>  <span class="c1"># detect dataset</span>
+<a id="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/coco8-seg.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"segment"</span><span class="p">)</span>  <span class="c1"># segment dataset</span>
+<a id="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/coco8-pose.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"pose"</span><span class="p">)</span>  <span class="c1"># pose dataset</span>
+<a id="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/dota8.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"obb"</span><span class="p">)</span>  <span class="c1"># OBB dataset</span>
+<a id="__codelineno-0-6"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/imagenet10.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"classify"</span><span class="p">)</span>  <span class="c1"># classification dataset</span>
 </code></pre></div>
 <details class="note" open="">
 <summary>Note</summary>
@@ -1696,49 +1696,49 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-147">147</a></span>
-<span class="normal"><a href="#__codelineno-0-148">148</a></span>
-<span class="normal"><a href="#__codelineno-0-149">149</a></span>
-<span class="normal"><a href="#__codelineno-0-150">150</a></span>
-<span class="normal"><a href="#__codelineno-0-151">151</a></span>
-<span class="normal"><a href="#__codelineno-0-152">152</a></span>
-<span class="normal"><a href="#__codelineno-0-153">153</a></span>
-<span class="normal"><a href="#__codelineno-0-154">154</a></span>
-<span class="normal"><a href="#__codelineno-0-155">155</a></span>
-<span class="normal"><a href="#__codelineno-0-156">156</a></span>
-<span class="normal"><a href="#__codelineno-0-157">157</a></span>
-<span class="normal"><a href="#__codelineno-0-158">158</a></span>
-<span class="normal"><a href="#__codelineno-0-159">159</a></span>
-<span class="normal"><a href="#__codelineno-0-160">160</a></span>
-<span class="normal"><a href="#__codelineno-0-161">161</a></span>
-<span class="normal"><a href="#__codelineno-0-162">162</a></span>
-<span class="normal"><a href="#__codelineno-0-163">163</a></span>
-<span class="normal"><a href="#__codelineno-0-164">164</a></span>
-<span class="normal"><a href="#__codelineno-0-165">165</a></span>
-<span class="normal"><a href="#__codelineno-0-166">166</a></span>
-<span class="normal"><a href="#__codelineno-0-167">167</a></span>
-<span class="normal"><a href="#__codelineno-0-168">168</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-147" name="__codelineno-0-147"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<a id="__codelineno-0-148" name="__codelineno-0-148"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-149" name="__codelineno-0-149"></a><span class="sd">    Check HUB dataset Zip file for errors before upload.</span>
-<a id="__codelineno-0-150" name="__codelineno-0-150"></a>
-<a id="__codelineno-0-151" name="__codelineno-0-151"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-152" name="__codelineno-0-152"></a><span class="sd">        path (str): Path to data.zip (with data.yaml inside data.zip).</span>
-<a id="__codelineno-0-153" name="__codelineno-0-153"></a><span class="sd">        task (str): Dataset task. Options are 'detect', 'segment', 'pose', 'classify', 'obb'.</span>
-<a id="__codelineno-0-154" name="__codelineno-0-154"></a>
-<a id="__codelineno-0-155" name="__codelineno-0-155"></a><span class="sd">    Examples:</span>
-<a id="__codelineno-0-156" name="__codelineno-0-156"></a><span class="sd">        &gt;&gt;&gt; from ultralytics.hub import check_dataset</span>
-<a id="__codelineno-0-157" name="__codelineno-0-157"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/coco8.zip", task="detect")  # detect dataset</span>
-<a id="__codelineno-0-158" name="__codelineno-0-158"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/coco8-seg.zip", task="segment")  # segment dataset</span>
-<a id="__codelineno-0-159" name="__codelineno-0-159"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/coco8-pose.zip", task="pose")  # pose dataset</span>
-<a id="__codelineno-0-160" name="__codelineno-0-160"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/dota8.zip", task="obb")  # OBB dataset</span>
-<a id="__codelineno-0-161" name="__codelineno-0-161"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/imagenet10.zip", task="classify")  # classification dataset</span>
-<a id="__codelineno-0-162" name="__codelineno-0-162"></a>
-<a id="__codelineno-0-163" name="__codelineno-0-163"></a><span class="sd">    Note:</span>
-<a id="__codelineno-0-164" name="__codelineno-0-164"></a><span class="sd">        Download *.zip files from https://github.com/ultralytics/hub/tree/main/example_datasets</span>
-<a id="__codelineno-0-165" name="__codelineno-0-165"></a><span class="sd">        i.e. https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip for coco8.zip.</span>
-<a id="__codelineno-0-166" name="__codelineno-0-166"></a><span class="sd">    """</span>
-<a id="__codelineno-0-167" name="__codelineno-0-167"></a>    <span class="n">HUBDatasetStats</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
-<a id="__codelineno-0-168" name="__codelineno-0-168"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Checks completed correctly ✅. Upload this dataset to </span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/datasets/."</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>147</a></span>
+<span class="normal"><a>148</a></span>
+<span class="normal"><a>149</a></span>
+<span class="normal"><a>150</a></span>
+<span class="normal"><a>151</a></span>
+<span class="normal"><a>152</a></span>
+<span class="normal"><a>153</a></span>
+<span class="normal"><a>154</a></span>
+<span class="normal"><a>155</a></span>
+<span class="normal"><a>156</a></span>
+<span class="normal"><a>157</a></span>
+<span class="normal"><a>158</a></span>
+<span class="normal"><a>159</a></span>
+<span class="normal"><a>160</a></span>
+<span class="normal"><a>161</a></span>
+<span class="normal"><a>162</a></span>
+<span class="normal"><a>163</a></span>
+<span class="normal"><a>164</a></span>
+<span class="normal"><a>165</a></span>
+<span class="normal"><a>166</a></span>
+<span class="normal"><a>167</a></span>
+<span class="normal"><a>168</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-147"></a><span class="k">def</span><span class="w"> </span><span class="nf">check_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<a id="__codelineno-0-148"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-149"></a><span class="sd">    Check HUB dataset Zip file for errors before upload.</span>
+<a id="__codelineno-0-150"></a>
+<a id="__codelineno-0-151"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-152"></a><span class="sd">        path (str): Path to data.zip (with data.yaml inside data.zip).</span>
+<a id="__codelineno-0-153"></a><span class="sd">        task (str): Dataset task. Options are 'detect', 'segment', 'pose', 'classify', 'obb'.</span>
+<a id="__codelineno-0-154"></a>
+<a id="__codelineno-0-155"></a><span class="sd">    Examples:</span>
+<a id="__codelineno-0-156"></a><span class="sd">        &gt;&gt;&gt; from ultralytics.hub import check_dataset</span>
+<a id="__codelineno-0-157"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/coco8.zip", task="detect")  # detect dataset</span>
+<a id="__codelineno-0-158"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/coco8-seg.zip", task="segment")  # segment dataset</span>
+<a id="__codelineno-0-159"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/coco8-pose.zip", task="pose")  # pose dataset</span>
+<a id="__codelineno-0-160"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/dota8.zip", task="obb")  # OBB dataset</span>
+<a id="__codelineno-0-161"></a><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/imagenet10.zip", task="classify")  # classification dataset</span>
+<a id="__codelineno-0-162"></a>
+<a id="__codelineno-0-163"></a><span class="sd">    Note:</span>
+<a id="__codelineno-0-164"></a><span class="sd">        Download *.zip files from https://github.com/ultralytics/hub/tree/main/example_datasets</span>
+<a id="__codelineno-0-165"></a><span class="sd">        i.e. https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip for coco8.zip.</span>
+<a id="__codelineno-0-166"></a><span class="sd">    """</span>
+<a id="__codelineno-0-167"></a>    <span class="n">HUBDatasetStats</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">path</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span><span class="o">.</span><span class="n">get_json</span><span class="p">()</span>
+<a id="__codelineno-0-168"></a>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Checks completed correctly ✅. Upload this dataset to </span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/datasets/."</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

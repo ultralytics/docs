@@ -1027,149 +1027,149 @@
 <p>A YAML (Yet Another Markup Language) file is used to define the dataset configuration. It contains information about the dataset's paths, classes, and other relevant information. In the case of the COCO dataset, the <code>coco.yaml</code> file is maintained at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/datasets/coco.yaml</a>.</p>
 <div class="admonition example">
 <p class="admonition-title">ultralytics/cfg/datasets/coco.yaml</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># COCO 2017 dataset https://cocodataset.org by Microsoft</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/coco/</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c1"># Example usage: yolo train data=coco.yaml</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># parent</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># ├── ultralytics</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a><span class="c1"># └── datasets</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1">#     └── coco  ← downloads here (20.1 GB)</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">train2017.txt</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 118287 images</span>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">val2017.txt</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 5000 images</span>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test-dev2017.txt</span><span class="w"> </span><span class="c1"># 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794</span>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a><span class="c1"># Classes</span>
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="nt">names</span><span class="p">:</span>
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motorcycle</span>
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">airplane</span>
-<a href="#__codelineno-0-24" id="__codelineno-0-24" name="__codelineno-0-24"></a><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bus</span>
-<a href="#__codelineno-0-25" id="__codelineno-0-25" name="__codelineno-0-25"></a><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">train</span>
-<a href="#__codelineno-0-26" id="__codelineno-0-26" name="__codelineno-0-26"></a><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truck</span>
-<a href="#__codelineno-0-27" id="__codelineno-0-27" name="__codelineno-0-27"></a><span class="w">  </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boat</span>
-<a href="#__codelineno-0-28" id="__codelineno-0-28" name="__codelineno-0-28"></a><span class="w">  </span><span class="nt">9</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traffic light</span>
-<a href="#__codelineno-0-29" id="__codelineno-0-29" name="__codelineno-0-29"></a><span class="w">  </span><span class="nt">10</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fire hydrant</span>
-<a href="#__codelineno-0-30" id="__codelineno-0-30" name="__codelineno-0-30"></a><span class="w">  </span><span class="nt">11</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stop sign</span>
-<a href="#__codelineno-0-31" id="__codelineno-0-31" name="__codelineno-0-31"></a><span class="w">  </span><span class="nt">12</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parking meter</span>
-<a href="#__codelineno-0-32" id="__codelineno-0-32" name="__codelineno-0-32"></a><span class="w">  </span><span class="nt">13</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bench</span>
-<a href="#__codelineno-0-33" id="__codelineno-0-33" name="__codelineno-0-33"></a><span class="w">  </span><span class="nt">14</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bird</span>
-<a href="#__codelineno-0-34" id="__codelineno-0-34" name="__codelineno-0-34"></a><span class="w">  </span><span class="nt">15</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cat</span>
-<a href="#__codelineno-0-35" id="__codelineno-0-35" name="__codelineno-0-35"></a><span class="w">  </span><span class="nt">16</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dog</span>
-<a href="#__codelineno-0-36" id="__codelineno-0-36" name="__codelineno-0-36"></a><span class="w">  </span><span class="nt">17</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">horse</span>
-<a href="#__codelineno-0-37" id="__codelineno-0-37" name="__codelineno-0-37"></a><span class="w">  </span><span class="nt">18</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sheep</span>
-<a href="#__codelineno-0-38" id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="w">  </span><span class="nt">19</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cow</span>
-<a href="#__codelineno-0-39" id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">  </span><span class="nt">20</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">elephant</span>
-<a href="#__codelineno-0-40" id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="w">  </span><span class="nt">21</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bear</span>
-<a href="#__codelineno-0-41" id="__codelineno-0-41" name="__codelineno-0-41"></a><span class="w">  </span><span class="nt">22</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zebra</span>
-<a href="#__codelineno-0-42" id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="w">  </span><span class="nt">23</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">giraffe</span>
-<a href="#__codelineno-0-43" id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="w">  </span><span class="nt">24</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backpack</span>
-<a href="#__codelineno-0-44" id="__codelineno-0-44" name="__codelineno-0-44"></a><span class="w">  </span><span class="nt">25</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">umbrella</span>
-<a href="#__codelineno-0-45" id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="w">  </span><span class="nt">26</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">handbag</span>
-<a href="#__codelineno-0-46" id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="w">  </span><span class="nt">27</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tie</span>
-<a href="#__codelineno-0-47" id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="w">  </span><span class="nt">28</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">suitcase</span>
-<a href="#__codelineno-0-48" id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="w">  </span><span class="nt">29</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frisbee</span>
-<a href="#__codelineno-0-49" id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="w">  </span><span class="nt">30</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skis</span>
-<a href="#__codelineno-0-50" id="__codelineno-0-50" name="__codelineno-0-50"></a><span class="w">  </span><span class="nt">31</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snowboard</span>
-<a href="#__codelineno-0-51" id="__codelineno-0-51" name="__codelineno-0-51"></a><span class="w">  </span><span class="nt">32</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sports ball</span>
-<a href="#__codelineno-0-52" id="__codelineno-0-52" name="__codelineno-0-52"></a><span class="w">  </span><span class="nt">33</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kite</span>
-<a href="#__codelineno-0-53" id="__codelineno-0-53" name="__codelineno-0-53"></a><span class="w">  </span><span class="nt">34</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseball bat</span>
-<a href="#__codelineno-0-54" id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="w">  </span><span class="nt">35</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseball glove</span>
-<a href="#__codelineno-0-55" id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">  </span><span class="nt">36</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skateboard</span>
-<a href="#__codelineno-0-56" id="__codelineno-0-56" name="__codelineno-0-56"></a><span class="w">  </span><span class="nt">37</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">surfboard</span>
-<a href="#__codelineno-0-57" id="__codelineno-0-57" name="__codelineno-0-57"></a><span class="w">  </span><span class="nt">38</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tennis racket</span>
-<a href="#__codelineno-0-58" id="__codelineno-0-58" name="__codelineno-0-58"></a><span class="w">  </span><span class="nt">39</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bottle</span>
-<a href="#__codelineno-0-59" id="__codelineno-0-59" name="__codelineno-0-59"></a><span class="w">  </span><span class="nt">40</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wine glass</span>
-<a href="#__codelineno-0-60" id="__codelineno-0-60" name="__codelineno-0-60"></a><span class="w">  </span><span class="nt">41</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cup</span>
-<a href="#__codelineno-0-61" id="__codelineno-0-61" name="__codelineno-0-61"></a><span class="w">  </span><span class="nt">42</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fork</span>
-<a href="#__codelineno-0-62" id="__codelineno-0-62" name="__codelineno-0-62"></a><span class="w">  </span><span class="nt">43</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">knife</span>
-<a href="#__codelineno-0-63" id="__codelineno-0-63" name="__codelineno-0-63"></a><span class="w">  </span><span class="nt">44</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spoon</span>
-<a href="#__codelineno-0-64" id="__codelineno-0-64" name="__codelineno-0-64"></a><span class="w">  </span><span class="nt">45</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bowl</span>
-<a href="#__codelineno-0-65" id="__codelineno-0-65" name="__codelineno-0-65"></a><span class="w">  </span><span class="nt">46</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">banana</span>
-<a href="#__codelineno-0-66" id="__codelineno-0-66" name="__codelineno-0-66"></a><span class="w">  </span><span class="nt">47</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apple</span>
-<a href="#__codelineno-0-67" id="__codelineno-0-67" name="__codelineno-0-67"></a><span class="w">  </span><span class="nt">48</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sandwich</span>
-<a href="#__codelineno-0-68" id="__codelineno-0-68" name="__codelineno-0-68"></a><span class="w">  </span><span class="nt">49</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">orange</span>
-<a href="#__codelineno-0-69" id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="w">  </span><span class="nt">50</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">broccoli</span>
-<a href="#__codelineno-0-70" id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">  </span><span class="nt">51</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">carrot</span>
-<a href="#__codelineno-0-71" id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="w">  </span><span class="nt">52</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hot dog</span>
-<a href="#__codelineno-0-72" id="__codelineno-0-72" name="__codelineno-0-72"></a><span class="w">  </span><span class="nt">53</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pizza</span>
-<a href="#__codelineno-0-73" id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="w">  </span><span class="nt">54</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">donut</span>
-<a href="#__codelineno-0-74" id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="w">  </span><span class="nt">55</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cake</span>
-<a href="#__codelineno-0-75" id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="w">  </span><span class="nt">56</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chair</span>
-<a href="#__codelineno-0-76" id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="w">  </span><span class="nt">57</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">couch</span>
-<a href="#__codelineno-0-77" id="__codelineno-0-77" name="__codelineno-0-77"></a><span class="w">  </span><span class="nt">58</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">potted plant</span>
-<a href="#__codelineno-0-78" id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="w">  </span><span class="nt">59</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bed</span>
-<a href="#__codelineno-0-79" id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="w">  </span><span class="nt">60</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dining table</span>
-<a href="#__codelineno-0-80" id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="w">  </span><span class="nt">61</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toilet</span>
-<a href="#__codelineno-0-81" id="__codelineno-0-81" name="__codelineno-0-81"></a><span class="w">  </span><span class="nt">62</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tv</span>
-<a href="#__codelineno-0-82" id="__codelineno-0-82" name="__codelineno-0-82"></a><span class="w">  </span><span class="nt">63</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">laptop</span>
-<a href="#__codelineno-0-83" id="__codelineno-0-83" name="__codelineno-0-83"></a><span class="w">  </span><span class="nt">64</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mouse</span>
-<a href="#__codelineno-0-84" id="__codelineno-0-84" name="__codelineno-0-84"></a><span class="w">  </span><span class="nt">65</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remote</span>
-<a href="#__codelineno-0-85" id="__codelineno-0-85" name="__codelineno-0-85"></a><span class="w">  </span><span class="nt">66</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyboard</span>
-<a href="#__codelineno-0-86" id="__codelineno-0-86" name="__codelineno-0-86"></a><span class="w">  </span><span class="nt">67</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cell phone</span>
-<a href="#__codelineno-0-87" id="__codelineno-0-87" name="__codelineno-0-87"></a><span class="w">  </span><span class="nt">68</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microwave</span>
-<a href="#__codelineno-0-88" id="__codelineno-0-88" name="__codelineno-0-88"></a><span class="w">  </span><span class="nt">69</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oven</span>
-<a href="#__codelineno-0-89" id="__codelineno-0-89" name="__codelineno-0-89"></a><span class="w">  </span><span class="nt">70</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toaster</span>
-<a href="#__codelineno-0-90" id="__codelineno-0-90" name="__codelineno-0-90"></a><span class="w">  </span><span class="nt">71</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sink</span>
-<a href="#__codelineno-0-91" id="__codelineno-0-91" name="__codelineno-0-91"></a><span class="w">  </span><span class="nt">72</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">refrigerator</span>
-<a href="#__codelineno-0-92" id="__codelineno-0-92" name="__codelineno-0-92"></a><span class="w">  </span><span class="nt">73</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">book</span>
-<a href="#__codelineno-0-93" id="__codelineno-0-93" name="__codelineno-0-93"></a><span class="w">  </span><span class="nt">74</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clock</span>
-<a href="#__codelineno-0-94" id="__codelineno-0-94" name="__codelineno-0-94"></a><span class="w">  </span><span class="nt">75</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vase</span>
-<a href="#__codelineno-0-95" id="__codelineno-0-95" name="__codelineno-0-95"></a><span class="w">  </span><span class="nt">76</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scissors</span>
-<a href="#__codelineno-0-96" id="__codelineno-0-96" name="__codelineno-0-96"></a><span class="w">  </span><span class="nt">77</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teddy bear</span>
-<a href="#__codelineno-0-97" id="__codelineno-0-97" name="__codelineno-0-97"></a><span class="w">  </span><span class="nt">78</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hair drier</span>
-<a href="#__codelineno-0-98" id="__codelineno-0-98" name="__codelineno-0-98"></a><span class="w">  </span><span class="nt">79</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toothbrush</span>
-<a href="#__codelineno-0-99" id="__codelineno-0-99" name="__codelineno-0-99"></a>
-<a href="#__codelineno-0-100" id="__codelineno-0-100" name="__codelineno-0-100"></a><span class="c1"># Download script/URL (optional)</span>
-<a href="#__codelineno-0-101" id="__codelineno-0-101" name="__codelineno-0-101"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
-<a href="#__codelineno-0-102" id="__codelineno-0-102" name="__codelineno-0-102"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
-<a href="#__codelineno-0-103" id="__codelineno-0-103" name="__codelineno-0-103"></a>
-<a href="#__codelineno-0-104" id="__codelineno-0-104" name="__codelineno-0-104"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
-<a href="#__codelineno-0-105" id="__codelineno-0-105" name="__codelineno-0-105"></a>
-<a href="#__codelineno-0-106" id="__codelineno-0-106" name="__codelineno-0-106"></a><span class="w">  </span><span class="no"># Download labels</span>
-<a href="#__codelineno-0-107" id="__codelineno-0-107" name="__codelineno-0-107"></a><span class="w">  </span><span class="no">segments = True  # segment or box labels</span>
-<a href="#__codelineno-0-108" id="__codelineno-0-108" name="__codelineno-0-108"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
-<a href="#__codelineno-0-109" id="__codelineno-0-109" name="__codelineno-0-109"></a><span class="w">  </span><span class="no">url = "https://github.com/ultralytics/assets/releases/download/v0.0.0/"</span>
-<a href="#__codelineno-0-110" id="__codelineno-0-110" name="__codelineno-0-110"></a><span class="w">  </span><span class="no">urls = [url + ("coco2017labels-segments.zip" if segments else "coco2017labels.zip")]  # labels</span>
-<a href="#__codelineno-0-111" id="__codelineno-0-111" name="__codelineno-0-111"></a><span class="w">  </span><span class="no">download(urls, dir=dir.parent)</span>
-<a href="#__codelineno-0-112" id="__codelineno-0-112" name="__codelineno-0-112"></a><span class="w">  </span><span class="no"># Download data</span>
-<a href="#__codelineno-0-113" id="__codelineno-0-113" name="__codelineno-0-113"></a><span class="w">  </span><span class="no">urls = [</span>
-<a href="#__codelineno-0-114" id="__codelineno-0-114" name="__codelineno-0-114"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/train2017.zip",  # 19G, 118k images</span>
-<a href="#__codelineno-0-115" id="__codelineno-0-115" name="__codelineno-0-115"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/val2017.zip",  # 1G, 5k images</span>
-<a href="#__codelineno-0-116" id="__codelineno-0-116" name="__codelineno-0-116"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/test2017.zip",  # 7G, 41k images (optional)</span>
-<a href="#__codelineno-0-117" id="__codelineno-0-117" name="__codelineno-0-117"></a><span class="w">  </span><span class="no">]</span>
-<a href="#__codelineno-0-118" id="__codelineno-0-118" name="__codelineno-0-118"></a><span class="w">  </span><span class="no">download(urls, dir=dir / "images", threads=3)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="c1"># COCO 2017 dataset https://cocodataset.org by Microsoft</span>
+<a id="__codelineno-0-4"></a><span class="c1"># Documentation: https://docs.ultralytics.com/datasets/detect/coco/</span>
+<a id="__codelineno-0-5"></a><span class="c1"># Example usage: yolo train data=coco.yaml</span>
+<a id="__codelineno-0-6"></a><span class="c1"># parent</span>
+<a id="__codelineno-0-7"></a><span class="c1"># ├── ultralytics</span>
+<a id="__codelineno-0-8"></a><span class="c1"># └── datasets</span>
+<a id="__codelineno-0-9"></a><span class="c1">#     └── coco  ← downloads here (20.1 GB)</span>
+<a id="__codelineno-0-10"></a>
+<a id="__codelineno-0-11"></a><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
+<a id="__codelineno-0-12"></a><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">../datasets/coco</span><span class="w"> </span><span class="c1"># dataset root dir</span>
+<a id="__codelineno-0-13"></a><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">train2017.txt</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 118287 images</span>
+<a id="__codelineno-0-14"></a><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">val2017.txt</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 5000 images</span>
+<a id="__codelineno-0-15"></a><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">test-dev2017.txt</span><span class="w"> </span><span class="c1"># 20288 of 40670 images, submit to https://competitions.codalab.org/competitions/20794</span>
+<a id="__codelineno-0-16"></a>
+<a id="__codelineno-0-17"></a><span class="c1"># Classes</span>
+<a id="__codelineno-0-18"></a><span class="nt">names</span><span class="p">:</span>
+<a id="__codelineno-0-19"></a><span class="w">  </span><span class="nt">0</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">person</span>
+<a id="__codelineno-0-20"></a><span class="w">  </span><span class="nt">1</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bicycle</span>
+<a id="__codelineno-0-21"></a><span class="w">  </span><span class="nt">2</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">car</span>
+<a id="__codelineno-0-22"></a><span class="w">  </span><span class="nt">3</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">motorcycle</span>
+<a id="__codelineno-0-23"></a><span class="w">  </span><span class="nt">4</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">airplane</span>
+<a id="__codelineno-0-24"></a><span class="w">  </span><span class="nt">5</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bus</span>
+<a id="__codelineno-0-25"></a><span class="w">  </span><span class="nt">6</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">train</span>
+<a id="__codelineno-0-26"></a><span class="w">  </span><span class="nt">7</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">truck</span>
+<a id="__codelineno-0-27"></a><span class="w">  </span><span class="nt">8</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">boat</span>
+<a id="__codelineno-0-28"></a><span class="w">  </span><span class="nt">9</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">traffic light</span>
+<a id="__codelineno-0-29"></a><span class="w">  </span><span class="nt">10</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fire hydrant</span>
+<a id="__codelineno-0-30"></a><span class="w">  </span><span class="nt">11</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">stop sign</span>
+<a id="__codelineno-0-31"></a><span class="w">  </span><span class="nt">12</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">parking meter</span>
+<a id="__codelineno-0-32"></a><span class="w">  </span><span class="nt">13</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bench</span>
+<a id="__codelineno-0-33"></a><span class="w">  </span><span class="nt">14</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bird</span>
+<a id="__codelineno-0-34"></a><span class="w">  </span><span class="nt">15</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cat</span>
+<a id="__codelineno-0-35"></a><span class="w">  </span><span class="nt">16</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dog</span>
+<a id="__codelineno-0-36"></a><span class="w">  </span><span class="nt">17</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">horse</span>
+<a id="__codelineno-0-37"></a><span class="w">  </span><span class="nt">18</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sheep</span>
+<a id="__codelineno-0-38"></a><span class="w">  </span><span class="nt">19</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cow</span>
+<a id="__codelineno-0-39"></a><span class="w">  </span><span class="nt">20</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">elephant</span>
+<a id="__codelineno-0-40"></a><span class="w">  </span><span class="nt">21</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bear</span>
+<a id="__codelineno-0-41"></a><span class="w">  </span><span class="nt">22</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">zebra</span>
+<a id="__codelineno-0-42"></a><span class="w">  </span><span class="nt">23</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">giraffe</span>
+<a id="__codelineno-0-43"></a><span class="w">  </span><span class="nt">24</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">backpack</span>
+<a id="__codelineno-0-44"></a><span class="w">  </span><span class="nt">25</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">umbrella</span>
+<a id="__codelineno-0-45"></a><span class="w">  </span><span class="nt">26</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">handbag</span>
+<a id="__codelineno-0-46"></a><span class="w">  </span><span class="nt">27</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tie</span>
+<a id="__codelineno-0-47"></a><span class="w">  </span><span class="nt">28</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">suitcase</span>
+<a id="__codelineno-0-48"></a><span class="w">  </span><span class="nt">29</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">frisbee</span>
+<a id="__codelineno-0-49"></a><span class="w">  </span><span class="nt">30</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skis</span>
+<a id="__codelineno-0-50"></a><span class="w">  </span><span class="nt">31</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">snowboard</span>
+<a id="__codelineno-0-51"></a><span class="w">  </span><span class="nt">32</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sports ball</span>
+<a id="__codelineno-0-52"></a><span class="w">  </span><span class="nt">33</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">kite</span>
+<a id="__codelineno-0-53"></a><span class="w">  </span><span class="nt">34</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseball bat</span>
+<a id="__codelineno-0-54"></a><span class="w">  </span><span class="nt">35</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">baseball glove</span>
+<a id="__codelineno-0-55"></a><span class="w">  </span><span class="nt">36</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">skateboard</span>
+<a id="__codelineno-0-56"></a><span class="w">  </span><span class="nt">37</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">surfboard</span>
+<a id="__codelineno-0-57"></a><span class="w">  </span><span class="nt">38</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tennis racket</span>
+<a id="__codelineno-0-58"></a><span class="w">  </span><span class="nt">39</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bottle</span>
+<a id="__codelineno-0-59"></a><span class="w">  </span><span class="nt">40</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">wine glass</span>
+<a id="__codelineno-0-60"></a><span class="w">  </span><span class="nt">41</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cup</span>
+<a id="__codelineno-0-61"></a><span class="w">  </span><span class="nt">42</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">fork</span>
+<a id="__codelineno-0-62"></a><span class="w">  </span><span class="nt">43</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">knife</span>
+<a id="__codelineno-0-63"></a><span class="w">  </span><span class="nt">44</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">spoon</span>
+<a id="__codelineno-0-64"></a><span class="w">  </span><span class="nt">45</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bowl</span>
+<a id="__codelineno-0-65"></a><span class="w">  </span><span class="nt">46</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">banana</span>
+<a id="__codelineno-0-66"></a><span class="w">  </span><span class="nt">47</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">apple</span>
+<a id="__codelineno-0-67"></a><span class="w">  </span><span class="nt">48</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sandwich</span>
+<a id="__codelineno-0-68"></a><span class="w">  </span><span class="nt">49</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">orange</span>
+<a id="__codelineno-0-69"></a><span class="w">  </span><span class="nt">50</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">broccoli</span>
+<a id="__codelineno-0-70"></a><span class="w">  </span><span class="nt">51</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">carrot</span>
+<a id="__codelineno-0-71"></a><span class="w">  </span><span class="nt">52</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hot dog</span>
+<a id="__codelineno-0-72"></a><span class="w">  </span><span class="nt">53</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pizza</span>
+<a id="__codelineno-0-73"></a><span class="w">  </span><span class="nt">54</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">donut</span>
+<a id="__codelineno-0-74"></a><span class="w">  </span><span class="nt">55</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cake</span>
+<a id="__codelineno-0-75"></a><span class="w">  </span><span class="nt">56</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">chair</span>
+<a id="__codelineno-0-76"></a><span class="w">  </span><span class="nt">57</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">couch</span>
+<a id="__codelineno-0-77"></a><span class="w">  </span><span class="nt">58</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">potted plant</span>
+<a id="__codelineno-0-78"></a><span class="w">  </span><span class="nt">59</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">bed</span>
+<a id="__codelineno-0-79"></a><span class="w">  </span><span class="nt">60</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">dining table</span>
+<a id="__codelineno-0-80"></a><span class="w">  </span><span class="nt">61</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toilet</span>
+<a id="__codelineno-0-81"></a><span class="w">  </span><span class="nt">62</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">tv</span>
+<a id="__codelineno-0-82"></a><span class="w">  </span><span class="nt">63</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">laptop</span>
+<a id="__codelineno-0-83"></a><span class="w">  </span><span class="nt">64</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">mouse</span>
+<a id="__codelineno-0-84"></a><span class="w">  </span><span class="nt">65</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">remote</span>
+<a id="__codelineno-0-85"></a><span class="w">  </span><span class="nt">66</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">keyboard</span>
+<a id="__codelineno-0-86"></a><span class="w">  </span><span class="nt">67</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">cell phone</span>
+<a id="__codelineno-0-87"></a><span class="w">  </span><span class="nt">68</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">microwave</span>
+<a id="__codelineno-0-88"></a><span class="w">  </span><span class="nt">69</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">oven</span>
+<a id="__codelineno-0-89"></a><span class="w">  </span><span class="nt">70</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toaster</span>
+<a id="__codelineno-0-90"></a><span class="w">  </span><span class="nt">71</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">sink</span>
+<a id="__codelineno-0-91"></a><span class="w">  </span><span class="nt">72</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">refrigerator</span>
+<a id="__codelineno-0-92"></a><span class="w">  </span><span class="nt">73</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">book</span>
+<a id="__codelineno-0-93"></a><span class="w">  </span><span class="nt">74</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">clock</span>
+<a id="__codelineno-0-94"></a><span class="w">  </span><span class="nt">75</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">vase</span>
+<a id="__codelineno-0-95"></a><span class="w">  </span><span class="nt">76</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">scissors</span>
+<a id="__codelineno-0-96"></a><span class="w">  </span><span class="nt">77</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">teddy bear</span>
+<a id="__codelineno-0-97"></a><span class="w">  </span><span class="nt">78</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">hair drier</span>
+<a id="__codelineno-0-98"></a><span class="w">  </span><span class="nt">79</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">toothbrush</span>
+<a id="__codelineno-0-99"></a>
+<a id="__codelineno-0-100"></a><span class="c1"># Download script/URL (optional)</span>
+<a id="__codelineno-0-101"></a><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
+<a id="__codelineno-0-102"></a><span class="w">  </span><span class="no">from pathlib import Path</span>
+<a id="__codelineno-0-103"></a>
+<a id="__codelineno-0-104"></a><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
+<a id="__codelineno-0-105"></a>
+<a id="__codelineno-0-106"></a><span class="w">  </span><span class="no"># Download labels</span>
+<a id="__codelineno-0-107"></a><span class="w">  </span><span class="no">segments = True  # segment or box labels</span>
+<a id="__codelineno-0-108"></a><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
+<a id="__codelineno-0-109"></a><span class="w">  </span><span class="no">url = "https://github.com/ultralytics/assets/releases/download/v0.0.0/"</span>
+<a id="__codelineno-0-110"></a><span class="w">  </span><span class="no">urls = [url + ("coco2017labels-segments.zip" if segments else "coco2017labels.zip")]  # labels</span>
+<a id="__codelineno-0-111"></a><span class="w">  </span><span class="no">download(urls, dir=dir.parent)</span>
+<a id="__codelineno-0-112"></a><span class="w">  </span><span class="no"># Download data</span>
+<a id="__codelineno-0-113"></a><span class="w">  </span><span class="no">urls = [</span>
+<a id="__codelineno-0-114"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/train2017.zip",  # 19G, 118k images</span>
+<a id="__codelineno-0-115"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/val2017.zip",  # 1G, 5k images</span>
+<a id="__codelineno-0-116"></a><span class="w">      </span><span class="no">"http://images.cocodataset.org/zips/test2017.zip",  # 7G, 41k images (optional)</span>
+<a id="__codelineno-0-117"></a><span class="w">  </span><span class="no">]</span>
+<a id="__codelineno-0-118"></a><span class="w">  </span><span class="no">download(urls, dir=dir / "images", threads=3)</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
 <p>To train a YOLO11n model on the COCO dataset for 100 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a> with an image size of 640, you can use the following code snippets. For a comprehensive list of available arguments, refer to the model <a href="../../../modes/train/">Training</a> page.</p>
 <div class="admonition example">
 <p class="admonition-title">Train Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-1-2"></a>
+<a id="__codelineno-1-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<a id="__codelineno-1-5"></a>
+<a id="__codelineno-1-6"></a><span class="c1"># Train the model</span>
+<a id="__codelineno-1-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
+<a id="__codelineno-2-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h2 id="sample-images-and-annotations">Sample Images and Annotations</h2>
 <p>The COCO dataset contains a diverse set of images with various object categories and complex scenes. Here are some examples of images from the dataset, along with their corresponding annotations:</p>
@@ -1181,21 +1181,21 @@
 <h2 id="citations-and-acknowledgments">Citations and Acknowledgments</h2>
 <p>If you use the COCO dataset in your research or development work, please cite the following paper:</p>
 <div class="admonition quote">
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">lin2015microsoft</span><span class="p">,</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{Microsoft COCO: Common Objects in Context}</span><span class="p">,</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Tsung-Yi Lin and Michael Maire and Serge Belongie and Lubomir Bourdev and Ross Girshick and James Hays and Pietro Perona and Deva Ramanan and C. Lawrence Zitnick and Piotr Dollár}</span><span class="p">,</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2015}</span><span class="p">,</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{1405.0312}</span><span class="p">,</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="nc">@misc</span><span class="p">{</span><span class="nl">lin2015microsoft</span><span class="p">,</span>
+<a id="__codelineno-3-2"></a><span class="w">      </span><span class="na">title</span><span class="p">=</span><span class="s">{Microsoft COCO: Common Objects in Context}</span><span class="p">,</span>
+<a id="__codelineno-3-3"></a><span class="w">      </span><span class="na">author</span><span class="p">=</span><span class="s">{Tsung-Yi Lin and Michael Maire and Serge Belongie and Lubomir Bourdev and Ross Girshick and James Hays and Pietro Perona and Deva Ramanan and C. Lawrence Zitnick and Piotr Dollár}</span><span class="p">,</span>
+<a id="__codelineno-3-4"></a><span class="w">      </span><span class="na">year</span><span class="p">=</span><span class="s">{2015}</span><span class="p">,</span>
+<a id="__codelineno-3-5"></a><span class="w">      </span><span class="na">eprint</span><span class="p">=</span><span class="s">{1405.0312}</span><span class="p">,</span>
+<a id="__codelineno-3-6"></a><span class="w">      </span><span class="na">archivePrefix</span><span class="p">=</span><span class="s">{arXiv}</span><span class="p">,</span>
+<a id="__codelineno-3-7"></a><span class="w">      </span><span class="na">primaryClass</span><span class="p">=</span><span class="s">{cs.CV}</span>
+<a id="__codelineno-3-8"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>We would like to acknowledge the COCO Consortium for creating and maintaining this valuable resource for the computer vision community. For more information about the COCO dataset and its creators, visit the <a href="https://cocodataset.org/#home">COCO dataset website</a>.</p>
 <h2 id="faq">FAQ</h2>
@@ -1205,25 +1205,25 @@
 <p>To train a YOLO11 model using the COCO dataset, you can use the following code snippets:</p>
 <div class="admonition example">
 <p class="admonition-title">Train Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load a model</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Train the model</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-4-2"></a>
+<a id="__codelineno-4-3"></a><span class="c1"># Load a model</span>
+<a id="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># load a pretrained model (recommended for training)</span>
+<a id="__codelineno-4-5"></a>
+<a id="__codelineno-4-6"></a><span class="c1"># Train the model</span>
+<a id="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Start training from a pretrained *.pt model</span>
+<a id="__codelineno-5-2"></a>yolo<span class="w"> </span>detect<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <p>Refer to the <a href="../../../modes/train/">Training page</a> for more details on available arguments.</p>
 <h3 id="what-are-the-key-features-of-the-coco-dataset">What are the key features of the COCO dataset?</h3>

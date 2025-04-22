@@ -720,7 +720,7 @@
 <canvas active-models='["YOLOv8"]' height="400" id="modelComparisonChart" width="1024"></canvas>
 <div class="admonition tip">
 <p class="admonition-title">Performance</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><input id="__tabbed_1_3" name="__tabbed_1" type="radio"><input id="__tabbed_1_4" name="__tabbed_1" type="radio"><input id="__tabbed_1_5" name="__tabbed_1" type="radio"><input id="__tabbed_1_6" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label><label for="__tabbed_1_2">Detection (Open Images V7)</label><label for="__tabbed_1_3">Segmentation (COCO)</label><label for="__tabbed_1_4">Classification (ImageNet)</label><label for="__tabbed_1_5">Pose (COCO)</label><label for="__tabbed_1_6">OBB (DOTAv1)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:6"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><input id="__tabbed_1_3" name="__tabbed_1" type="radio"/><input id="__tabbed_1_4" name="__tabbed_1" type="radio"/><input id="__tabbed_1_5" name="__tabbed_1" type="radio"/><input id="__tabbed_1_6" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label><label for="__tabbed_1_2">Detection (Open Images V7)</label><label for="__tabbed_1_3">Segmentation (COCO)</label><label for="__tabbed_1_4">Classification (ImageNet)</label><label for="__tabbed_1_5">Pose (COCO)</label><label for="__tabbed_1_6">OBB (DOTAv1)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>See <a href="../../tasks/detect/">Detection Docs</a> for usage examples with these models trained on <a href="../../datasets/detect/coco/">COCO</a>, which include 80 pre-trained classes.</p>
@@ -1129,39 +1129,39 @@
 </table>
 </div>
 </div>
-</input></input></input></input></input></input></div>
+</div>
 </div>
 <h2 id="yolov8-usage-examples">YOLOv8 Usage Examples</h2>
 <p>This example provides simple YOLOv8 training and inference examples. For full documentation on these and other <a href="../../modes/">modes</a> see the <a href="../../modes/predict/">Predict</a>, <a href="../../modes/train/">Train</a>, <a href="../../modes/val/">Val</a> and <a href="../../modes/export/">Export</a> docs pages.</p>
 <p>Note the below example is for YOLOv8 <a href="../../tasks/detect/">Detect</a> models for object detection. For additional supported tasks see the <a href="../../tasks/segment/">Segment</a>, <a href="../../tasks/classify/">Classify</a>, <a href="../../tasks/obb/">OBB</a> docs and <a href="../../tasks/pose/">Pose</a> docs.</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> pretrained <code>*.pt</code> models as well as configuration <code>*.yaml</code> files can be passed to the <code>YOLO()</code> class to create a model instance in python:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a COCO-pretrained YOLOv8n model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Display model information (optional)</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c1"># Run inference with the YOLOv8n model on the 'bus.jpg' image</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="c1"># Load a COCO-pretrained YOLOv8n model</span>
+<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a id="__codelineno-0-5"></a>
+<a id="__codelineno-0-6"></a><span class="c1"># Display model information (optional)</span>
+<a id="__codelineno-0-7"></a><span class="n">model</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+<a id="__codelineno-0-8"></a>
+<a id="__codelineno-0-9"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
+<a id="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a id="__codelineno-0-11"></a>
+<a id="__codelineno-0-12"></a><span class="c1"># Run inference with the YOLOv8n model on the 'bus.jpg' image</span>
+<a id="__codelineno-0-13"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
 <p>CLI commands are available to directly run the models:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Load a COCO-pretrained YOLOv8n model and train it on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="c1"># Load a COCO-pretrained YOLOv8n model and run inference on the 'bus.jpg' image</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Load a COCO-pretrained YOLOv8n model and train it on the COCO8 example dataset for 100 epochs</span>
+<a id="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<a id="__codelineno-1-3"></a>
+<a id="__codelineno-1-4"></a><span class="c1"># Load a COCO-pretrained YOLOv8n model and run inference on the 'bus.jpg' image</span>
+<a id="__codelineno-1-5"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/bus.jpg
 </code></pre></div>
 </div>
 </div>
@@ -1177,15 +1177,15 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nc">@software</span><span class="p">{</span><span class="nl">yolov8_ultralytics</span><span class="p">,</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Glenn Jocher and Ayush Chaurasia and Jing Qiu}</span><span class="p">,</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Ultralytics YOLOv8}</span><span class="p">,</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{8.0.0}</span><span class="p">,</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2023}</span><span class="p">,</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/ultralytics/ultralytics}</span><span class="p">,</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">  </span><span class="na">orcid</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{0000-0001-5950-6979, 0000-0002-7603-6750, 0000-0003-3783-7069}</span><span class="p">,</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="w">  </span><span class="na">license</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{AGPL-3.0}</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="nc">@software</span><span class="p">{</span><span class="nl">yolov8_ultralytics</span><span class="p">,</span>
+<a id="__codelineno-2-2"></a><span class="w">  </span><span class="na">author</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Glenn Jocher and Ayush Chaurasia and Jing Qiu}</span><span class="p">,</span>
+<a id="__codelineno-2-3"></a><span class="w">  </span><span class="na">title</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{Ultralytics YOLOv8}</span><span class="p">,</span>
+<a id="__codelineno-2-4"></a><span class="w">  </span><span class="na">version</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{8.0.0}</span><span class="p">,</span>
+<a id="__codelineno-2-5"></a><span class="w">  </span><span class="na">year</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{2023}</span><span class="p">,</span>
+<a id="__codelineno-2-6"></a><span class="w">  </span><span class="na">url</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{https://github.com/ultralytics/ultralytics}</span><span class="p">,</span>
+<a id="__codelineno-2-7"></a><span class="w">  </span><span class="na">orcid</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{0000-0001-5950-6979, 0000-0002-7603-6750, 0000-0003-3783-7069}</span><span class="p">,</span>
+<a id="__codelineno-2-8"></a><span class="w">  </span><span class="na">license</span><span class="w"> </span><span class="p">=</span><span class="w"> </span><span class="s">{AGPL-3.0}</span>
+<a id="__codelineno-2-9"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -1206,17 +1206,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># Load a COCO-pretrained YOLOv8n model</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="c1"># Load a COCO-pretrained YOLOv8n model</span>
+<a id="__codelineno-3-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8n.pt"</span><span class="p">)</span>
+<a id="__codelineno-3-5"></a>
+<a id="__codelineno-3-6"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
+<a id="__codelineno-3-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
@@ -1230,14 +1230,14 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">benchmark</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># Benchmark on GPU</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">benchmark</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolov8n.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.benchmarks</span><span class="w"> </span><span class="kn">import</span> <span class="n">benchmark</span>
+<a id="__codelineno-5-2"></a>
+<a id="__codelineno-5-3"></a><span class="c1"># Benchmark on GPU</span>
+<a id="__codelineno-5-4"></a><span class="n">benchmark</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolov8n.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>yolo<span class="w"> </span>benchmark<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span><span class="w"> </span><span class="nv">half</span><span class="o">=</span>False<span class="w"> </span><span class="nv">device</span><span class="o">=</span><span class="m">0</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>yolo<span class="w"> </span>benchmark<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8n.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span><span class="s1">'coco8.yaml'</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span><span class="w"> </span><span class="nv">half</span><span class="o">=</span>False<span class="w"> </span><span class="nv">device</span><span class="o">=</span><span class="m">0</span>
 </code></pre></div>
 </div>
 </div>

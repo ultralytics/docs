@@ -771,92 +771,92 @@
 <p>For more details and source code, see the <a href="../../reference/engine/trainer/"><code>BaseTrainer</code> Reference</a>.</p>
 <h2 id="detectiontrainer">DetectionTrainer</h2>
 <p>Here's how to use and customize the Ultralytics YOLO <code>DetectionTrainer</code>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>  <span class="c1"># Get the best model</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
+<a id="__codelineno-0-4"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<a id="__codelineno-0-5"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>  <span class="c1"># Get the best model</span>
 </code></pre></div>
 <h3 id="customizing-the-detectiontrainer">Customizing the DetectionTrainer</h3>
 <p>To train a custom detection model not directly supported, overload the existing <code>get_model</code> functionality:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">CustomTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="w">        </span><span class="sd">"""Loads a custom detection model given configuration and weight files."""</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>        <span class="o">...</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
+<a id="__codelineno-1-2"></a>
+<a id="__codelineno-1-3"></a>
+<a id="__codelineno-1-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">CustomTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
+<a id="__codelineno-1-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+<a id="__codelineno-1-6"></a><span class="w">        </span><span class="sd">"""Loads a custom detection model given configuration and weight files."""</span>
+<a id="__codelineno-1-7"></a>        <span class="o">...</span>
+<a id="__codelineno-1-8"></a>
+<a id="__codelineno-1-9"></a>
+<a id="__codelineno-1-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
+<a id="__codelineno-1-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
 <p>Further customize the trainer by modifying the <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a> or adding a <a href="../callbacks/">callback</a> to upload the model to Google Drive every 10 <a href="https://www.ultralytics.com/glossary/epoch">epochs</a>. Here's an example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.nn.tasks</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionModel</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomModel</span><span class="p">(</span><span class="n">DetectionModel</span><span class="p">):</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">init_criterion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="w">        </span><span class="sd">"""Initializes the loss function and adds a callback for uploading the model to Google Drive every 10 epochs."""</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>        <span class="o">...</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="k">class</span><span class="w"> </span><span class="nc">CustomTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="w">        </span><span class="sd">"""Returns a customized detection model instance configured with specified config and weights."""</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>        <span class="k">return</span> <span class="n">MyCustomModel</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="c1"># Callback to upload model weights</span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_model</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="w">    </span><span class="sd">"""Logs the path of the last model weight used by the trainer."""</span>
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>    <span class="n">last_weight_path</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">last_weight_path</span><span class="p">)</span>
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a><span class="n">trainer</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_end"</span><span class="p">,</span> <span class="n">log_model</span><span class="p">)</span>  <span class="c1"># Adds to existing callbacks</span>
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
+<a id="__codelineno-2-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.nn.tasks</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionModel</span>
+<a id="__codelineno-2-3"></a>
+<a id="__codelineno-2-4"></a>
+<a id="__codelineno-2-5"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomModel</span><span class="p">(</span><span class="n">DetectionModel</span><span class="p">):</span>
+<a id="__codelineno-2-6"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">init_criterion</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<a id="__codelineno-2-7"></a><span class="w">        </span><span class="sd">"""Initializes the loss function and adds a callback for uploading the model to Google Drive every 10 epochs."""</span>
+<a id="__codelineno-2-8"></a>        <span class="o">...</span>
+<a id="__codelineno-2-9"></a>
+<a id="__codelineno-2-10"></a>
+<a id="__codelineno-2-11"></a><span class="k">class</span><span class="w"> </span><span class="nc">CustomTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
+<a id="__codelineno-2-12"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+<a id="__codelineno-2-13"></a><span class="w">        </span><span class="sd">"""Returns a customized detection model instance configured with specified config and weights."""</span>
+<a id="__codelineno-2-14"></a>        <span class="k">return</span> <span class="n">MyCustomModel</span><span class="p">(</span><span class="o">...</span><span class="p">)</span>
+<a id="__codelineno-2-15"></a>
+<a id="__codelineno-2-16"></a>
+<a id="__codelineno-2-17"></a><span class="c1"># Callback to upload model weights</span>
+<a id="__codelineno-2-18"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_model</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-2-19"></a><span class="w">    </span><span class="sd">"""Logs the path of the last model weight used by the trainer."""</span>
+<a id="__codelineno-2-20"></a>    <span class="n">last_weight_path</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
+<a id="__codelineno-2-21"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">last_weight_path</span><span class="p">)</span>
+<a id="__codelineno-2-22"></a>
+<a id="__codelineno-2-23"></a>
+<a id="__codelineno-2-24"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
+<a id="__codelineno-2-25"></a><span class="n">trainer</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_end"</span><span class="p">,</span> <span class="n">log_model</span><span class="p">)</span>  <span class="c1"># Adds to existing callbacks</span>
+<a id="__codelineno-2-26"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
 <p>For more information on callback triggering events and entry points, see the <a href="../callbacks/">Callbacks Guide</a>.</p>
 <h2 id="other-engine-components">Other Engine Components</h2>
 <p>Customize other components like <code>Validators</code> and <code>Predictors</code> similarly. For more information, refer to the documentation for <a href="../../reference/engine/validator/">Validators</a> and <a href="../../reference/engine/predictor/">Predictors</a>.</p>
 <h2 id="using-yolo-with-custom-trainers">Using YOLO with Custom Trainers</h2>
 <p>The <code>YOLO</code> model class provides a high-level wrapper for the Trainer classes. You can leverage this architecture for greater flexibility in your machine learning workflows:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="c1"># Create a custom trainer</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">        </span><span class="sd">"""Custom code implementation."""</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>        <span class="o">...</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="c1"># Initialize YOLO model</span>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="c1"># Train with custom trainer</span>
-<a href="#__codelineno-3-16" id="__codelineno-3-16" name="__codelineno-3-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">trainer</span><span class="o">=</span><span class="n">MyCustomTrainer</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-3-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
+<a id="__codelineno-3-3"></a>
+<a id="__codelineno-3-4"></a>
+<a id="__codelineno-3-5"></a><span class="c1"># Create a custom trainer</span>
+<a id="__codelineno-3-6"></a><span class="k">class</span><span class="w"> </span><span class="nc">MyCustomTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
+<a id="__codelineno-3-7"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+<a id="__codelineno-3-8"></a><span class="w">        </span><span class="sd">"""Custom code implementation."""</span>
+<a id="__codelineno-3-9"></a>        <span class="o">...</span>
+<a id="__codelineno-3-10"></a>
+<a id="__codelineno-3-11"></a>
+<a id="__codelineno-3-12"></a><span class="c1"># Initialize YOLO model</span>
+<a id="__codelineno-3-13"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-3-14"></a>
+<a id="__codelineno-3-15"></a><span class="c1"># Train with custom trainer</span>
+<a id="__codelineno-3-16"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">trainer</span><span class="o">=</span><span class="n">MyCustomTrainer</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
 <p>This approach allows you to maintain the simplicity of the YOLO interface while customizing the underlying training process to suit your specific requirements.</p>
 <h2 id="faq">FAQ</h2>
 <h3 id="how-do-i-customize-the-ultralytics-yolo-detectiontrainer-for-specific-tasks">How do I customize the Ultralytics YOLO DetectionTrainer for specific tasks?</h3>
 <p>Customize the <code>DetectionTrainer</code> for specific tasks by overriding its methods to adapt to your custom model and dataloader. Start by inheriting from <code>DetectionTrainer</code> and redefine methods like <code>get_model</code> to implement custom functionalities. Here's an example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">CustomTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="w">        </span><span class="sd">"""Loads a custom detection model given configuration and weight files."""</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>        <span class="o">...</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>  <span class="c1"># Get the best model</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
+<a id="__codelineno-4-2"></a>
+<a id="__codelineno-4-3"></a>
+<a id="__codelineno-4-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">CustomTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
+<a id="__codelineno-4-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+<a id="__codelineno-4-6"></a><span class="w">        </span><span class="sd">"""Loads a custom detection model given configuration and weight files."""</span>
+<a id="__codelineno-4-7"></a>        <span class="o">...</span>
+<a id="__codelineno-4-8"></a>
+<a id="__codelineno-4-9"></a>
+<a id="__codelineno-4-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
+<a id="__codelineno-4-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<a id="__codelineno-4-12"></a><span class="n">trained_model</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">best</span>  <span class="c1"># Get the best model</span>
 </code></pre></div>
 <p>For further customization, such as changing the <a href="https://www.ultralytics.com/glossary/loss-function">loss function</a> or adding a <a href="https://www.ultralytics.com/glossary/callback">callback</a>, refer to the <a href="../callbacks/">Callbacks Guide</a>.</p>
 <h3 id="what-are-the-key-components-of-the-basetrainer-in-ultralytics-yolo">What are the key components of the BaseTrainer in Ultralytics YOLO?</h3>
@@ -871,19 +871,19 @@
 <p>For more details on customization and source code, see the <a href="../../reference/engine/trainer/"><code>BaseTrainer</code> Reference</a>.</p>
 <h3 id="how-can-i-add-a-callback-to-the-ultralytics-yolo-detectiontrainer">How can I add a callback to the Ultralytics YOLO DetectionTrainer?</h3>
 <p>Add callbacks to monitor and modify the training process in <code>DetectionTrainer</code>. Here's how to add a callback to log model weights after every training <a href="https://www.ultralytics.com/glossary/epoch">epoch</a>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="c1"># Callback to upload model weights</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_model</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">    </span><span class="sd">"""Logs the path of the last model weight used by the trainer."""</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">last_weight_path</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">last_weight_path</span><span class="p">)</span>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="n">trainer</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_end"</span><span class="p">,</span> <span class="n">log_model</span><span class="p">)</span>  <span class="c1"># Adds to existing callbacks</span>
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
+<a id="__codelineno-5-2"></a>
+<a id="__codelineno-5-3"></a>
+<a id="__codelineno-5-4"></a><span class="c1"># Callback to upload model weights</span>
+<a id="__codelineno-5-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">log_model</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-5-6"></a><span class="w">    </span><span class="sd">"""Logs the path of the last model weight used by the trainer."""</span>
+<a id="__codelineno-5-7"></a>    <span class="n">last_weight_path</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">last</span>
+<a id="__codelineno-5-8"></a>    <span class="nb">print</span><span class="p">(</span><span class="n">last_weight_path</span><span class="p">)</span>
+<a id="__codelineno-5-9"></a>
+<a id="__codelineno-5-10"></a>
+<a id="__codelineno-5-11"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
+<a id="__codelineno-5-12"></a><span class="n">trainer</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_end"</span><span class="p">,</span> <span class="n">log_model</span><span class="p">)</span>  <span class="c1"># Adds to existing callbacks</span>
+<a id="__codelineno-5-13"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
 <p>For more details on callback events and entry points, refer to the <a href="../callbacks/">Callbacks Guide</a>.</p>
 <h3 id="why-should-i-use-ultralytics-yolo-for-model-training">Why should I use Ultralytics YOLO for model training?</h3>
@@ -898,17 +898,17 @@
 <p>Learn more about YOLO's capabilities by exploring the main <a href="https://www.ultralytics.com/yolo">Ultralytics YOLO</a> page.</p>
 <h3 id="can-i-use-the-ultralytics-yolo-detectiontrainer-for-non-standard-models">Can I use the Ultralytics YOLO DetectionTrainer for non-standard models?</h3>
 <p>Yes, the <code>DetectionTrainer</code> is highly flexible and customizable for non-standard models. Inherit from <code>DetectionTrainer</code> and overload methods to support your specific model's needs. Here's a simple example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">CustomDetectionTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">        </span><span class="sd">"""Loads a custom detection model."""</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>        <span class="o">...</span>
-<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>
-<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomDetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
-<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.detect</span><span class="w"> </span><span class="kn">import</span> <span class="n">DetectionTrainer</span>
+<a id="__codelineno-6-2"></a>
+<a id="__codelineno-6-3"></a>
+<a id="__codelineno-6-4"></a><span class="k">class</span><span class="w"> </span><span class="nc">CustomDetectionTrainer</span><span class="p">(</span><span class="n">DetectionTrainer</span><span class="p">):</span>
+<a id="__codelineno-6-5"></a>    <span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">weights</span><span class="p">):</span>
+<a id="__codelineno-6-6"></a><span class="w">        </span><span class="sd">"""Loads a custom detection model."""</span>
+<a id="__codelineno-6-7"></a>        <span class="o">...</span>
+<a id="__codelineno-6-8"></a>
+<a id="__codelineno-6-9"></a>
+<a id="__codelineno-6-10"></a><span class="n">trainer</span> <span class="o">=</span> <span class="n">CustomDetectionTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="p">{</span><span class="o">...</span><span class="p">})</span>
+<a id="__codelineno-6-11"></a><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
 </code></pre></div>
 <p>For comprehensive instructions and examples, review the <a href="../../reference/models/yolo/detect/train/"><code>DetectionTrainer</code> Reference</a>.</p>
 <div class="git-info">

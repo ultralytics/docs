@@ -830,36 +830,36 @@
 <h2 id="supported-obb-dataset-formats">Supported OBB Dataset Formats</h2>
 <h3 id="yolo-obb-format">YOLO OBB Format</h3>
 <p>The YOLO OBB format designates bounding boxes by their four corner points with coordinates normalized between 0 and 1. It follows this format:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>class_index<span class="w"> </span>x1<span class="w"> </span>y1<span class="w"> </span>x2<span class="w"> </span>y2<span class="w"> </span>x3<span class="w"> </span>y3<span class="w"> </span>x4<span class="w"> </span>y4
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>class_index<span class="w"> </span>x1<span class="w"> </span>y1<span class="w"> </span>x2<span class="w"> </span>y2<span class="w"> </span>x3<span class="w"> </span>y3<span class="w"> </span>x4<span class="w"> </span>y4
 </code></pre></div>
 <p>Internally, YOLO processes losses and outputs in the <code>xywhr</code> format, which represents the <a href="https://www.ultralytics.com/glossary/bounding-box">bounding box</a>'s center point (xy), width, height, and rotation.</p>
 <p align="center"><img alt="OBB format examples" src="https://github.com/ultralytics/docs/releases/download/0/obb-format-examples.avif" width="800"/></p>
 <p>An example of a <code>*.txt</code> label file for the above image, which contains an object of class <code>0</code> in OBB format, could look like:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="m">0</span><span class="w"> </span><span class="m">0</span>.780811<span class="w"> </span><span class="m">0</span>.743961<span class="w"> </span><span class="m">0</span>.782371<span class="w"> </span><span class="m">0</span>.74686<span class="w"> </span><span class="m">0</span>.777691<span class="w"> </span><span class="m">0</span>.752174<span class="w"> </span><span class="m">0</span>.776131<span class="w"> </span><span class="m">0</span>.749758
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="m">0</span><span class="w"> </span><span class="m">0</span>.780811<span class="w"> </span><span class="m">0</span>.743961<span class="w"> </span><span class="m">0</span>.782371<span class="w"> </span><span class="m">0</span>.74686<span class="w"> </span><span class="m">0</span>.777691<span class="w"> </span><span class="m">0</span>.752174<span class="w"> </span><span class="m">0</span>.776131<span class="w"> </span><span class="m">0</span>.749758
 </code></pre></div>
 <h2 id="usage">Usage</h2>
 <p>To train a model using these OBB formats:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Create a new YOLO11n-OBB model from scratch</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.yaml"</span><span class="p">)</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Train the model on the DOTAv1 dataset</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"DOTAv1.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a><span class="c1"># Create a new YOLO11n-OBB model from scratch</span>
+<a id="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.yaml"</span><span class="p">)</span>
+<a id="__codelineno-2-5"></a>
+<a id="__codelineno-2-6"></a><span class="c1"># Train the model on the DOTAv1 dataset</span>
+<a id="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"DOTAv1.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">1024</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Train a new YOLO11n-OBB model on the DOTAv1 dataset</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>DOTAv1.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">1024</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Train a new YOLO11n-OBB model on the DOTAv1 dataset</span>
+<a id="__codelineno-3-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>DOTAv1.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.pt<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">1024</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h2 id="supported-datasets">Supported Datasets</h2>
 <p>Currently, the following datasets with Oriented Bounding Boxes are supported:</p>
@@ -876,16 +876,16 @@
 <p>Transitioning labels from the DOTA dataset format to the YOLO OBB format can be achieved with this script:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_dota_to_yolo_obb</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">convert_dota_to_yolo_obb</span><span class="p">(</span><span class="s2">"path/to/DOTA"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_dota_to_yolo_obb</span>
+<a id="__codelineno-4-2"></a>
+<a id="__codelineno-4-3"></a><span class="n">convert_dota_to_yolo_obb</span><span class="p">(</span><span class="s2">"path/to/DOTA"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <p>This conversion mechanism is instrumental for datasets in the DOTA format, ensuring alignment with the <a href="../../models/yolo11/">Ultralytics YOLO</a> OBB format.</p>
 <p>It's imperative to validate the compatibility of the dataset with your model and adhere to the necessary format conventions. Properly structured datasets are pivotal for training efficient object detection models with oriented bounding boxes.</p>
@@ -894,34 +894,34 @@
 <p>Oriented Bounding Boxes (OBB) are a type of bounding box annotation where the box can be rotated to align more closely with the object being detected, rather than just being axis-aligned. This is particularly useful in aerial or satellite imagery where objects might not be aligned with the image axes. In <a href="../../tasks/obb/">Ultralytics YOLO</a> models, OBBs are represented by their four corner points in the YOLO OBB format. This allows for more accurate object detection since the bounding boxes can rotate to fit the objects better.</p>
 <h3 id="how-do-i-convert-my-existing-dota-dataset-labels-to-yolo-obb-format-for-use-with-ultralytics-yolo11">How do I convert my existing DOTA dataset labels to YOLO OBB format for use with Ultralytics YOLO11?</h3>
 <p>You can convert DOTA dataset labels to YOLO OBB format using the <a href="../../reference/data/converter/"><code>convert_dota_to_yolo_obb</code></a> function from Ultralytics. This conversion ensures compatibility with the Ultralytics YOLO models, enabling you to leverage the OBB capabilities for enhanced object detection. Here's a quick example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_dota_to_yolo_obb</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="n">convert_dota_to_yolo_obb</span><span class="p">(</span><span class="s2">"path/to/DOTA"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.converter</span><span class="w"> </span><span class="kn">import</span> <span class="n">convert_dota_to_yolo_obb</span>
+<a id="__codelineno-5-2"></a>
+<a id="__codelineno-5-3"></a><span class="n">convert_dota_to_yolo_obb</span><span class="p">(</span><span class="s2">"path/to/DOTA"</span><span class="p">)</span>
 </code></pre></div>
 <p>This script will reformat your DOTA annotations into a YOLO-compatible format.</p>
 <h3 id="how-do-i-train-a-yolo11-model-with-oriented-bounding-boxes-obb-on-my-dataset">How do I train a YOLO11 model with oriented bounding boxes (OBB) on my dataset?</h3>
 <p>Training a YOLO11 model with OBBs involves ensuring your dataset is in the YOLO OBB format and then using the <a href="../../usage/python/">Ultralytics API</a> to train the model. Here's an example in both Python and CLI:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Create a new YOLO11n-OBB model from scratch</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.yaml"</span><span class="p">)</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Train the model on the custom dataset</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"your_dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-6-2"></a>
+<a id="__codelineno-6-3"></a><span class="c1"># Create a new YOLO11n-OBB model from scratch</span>
+<a id="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-obb.yaml"</span><span class="p">)</span>
+<a id="__codelineno-6-5"></a>
+<a id="__codelineno-6-6"></a><span class="c1"># Train the model on the custom dataset</span>
+<a id="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"your_dataset.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Train a new YOLO11n-OBB model on the custom dataset</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>your_dataset.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="c1"># Train a new YOLO11n-OBB model on the custom dataset</span>
+<a id="__codelineno-7-2"></a>yolo<span class="w"> </span>obb<span class="w"> </span>train<span class="w"> </span><span class="nv">data</span><span class="o">=</span>your_dataset.yaml<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-obb.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <p>This ensures your model leverages the detailed OBB annotations for improved detection <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>.</p>
 <h3 id="what-datasets-are-currently-supported-for-obb-training-in-ultralytics-yolo-models">What datasets are currently supported for OBB training in Ultralytics YOLO models?</h3>

@@ -884,8 +884,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required packages</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>deepsparse<span class="o">[</span>yolov8<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Install the required packages</span>
+<a id="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>deepsparse<span class="o">[</span>yolov8<span class="o">]</span>
 </code></pre></div>
 </div>
 </div>
@@ -898,8 +898,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Export YOLO11 model to ONNX format</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">13</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Export YOLO11 model to ONNX format</span>
+<a id="__codelineno-1-2"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">13</span>
 </code></pre></div>
 </div>
 </div>
@@ -913,17 +913,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">deepsparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Specify the path to your YOLO11 ONNX model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model_path</span> <span class="o">=</span> <span class="s2">"path/to/yolo11n.onnx"</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Set up the DeepSparse Pipeline</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">yolo_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">)</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># Run the model on your images</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"path/to/image.jpg"</span><span class="p">]</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">pipeline_outputs</span> <span class="o">=</span> <span class="n">yolo_pipeline</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">images</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">deepsparse</span><span class="w"> </span><span class="kn">import</span> <span class="n">Pipeline</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a><span class="c1"># Specify the path to your YOLO11 ONNX model</span>
+<a id="__codelineno-2-4"></a><span class="n">model_path</span> <span class="o">=</span> <span class="s2">"path/to/yolo11n.onnx"</span>
+<a id="__codelineno-2-5"></a>
+<a id="__codelineno-2-6"></a><span class="c1"># Set up the DeepSparse Pipeline</span>
+<a id="__codelineno-2-7"></a><span class="n">yolo_pipeline</span> <span class="o">=</span> <span class="n">Pipeline</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">task</span><span class="o">=</span><span class="s2">"yolov8"</span><span class="p">,</span> <span class="n">model_path</span><span class="o">=</span><span class="n">model_path</span><span class="p">)</span>
+<a id="__codelineno-2-8"></a>
+<a id="__codelineno-2-9"></a><span class="c1"># Run the model on your images</span>
+<a id="__codelineno-2-10"></a><span class="n">images</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"path/to/image.jpg"</span><span class="p">]</span>
+<a id="__codelineno-2-11"></a><span class="n">pipeline_outputs</span> <span class="o">=</span> <span class="n">yolo_pipeline</span><span class="p">(</span><span class="n">images</span><span class="o">=</span><span class="n">images</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -936,8 +936,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:1"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Benchmark performance</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>deepsparse.benchmark<span class="w"> </span><span class="nv">model_path</span><span class="o">=</span><span class="s2">"path/to/yolo11n.onnx"</span><span class="w"> </span>--scenario<span class="o">=</span>sync<span class="w"> </span>--input_shapes<span class="o">=</span><span class="s2">"[1,3,640,640]"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Benchmark performance</span>
+<a id="__codelineno-3-2"></a>deepsparse.benchmark<span class="w"> </span><span class="nv">model_path</span><span class="o">=</span><span class="s2">"path/to/yolo11n.onnx"</span><span class="w"> </span>--scenario<span class="o">=</span>sync<span class="w"> </span>--input_shapes<span class="o">=</span><span class="s2">"[1,3,640,640]"</span>
 </code></pre></div>
 </div>
 </div>
@@ -950,11 +950,11 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:1"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="c1"># For image annotation</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>deepsparse.yolov8.annotate<span class="w"> </span>--source<span class="w"> </span><span class="s2">"path/to/image.jpg"</span><span class="w"> </span>--model_filepath<span class="w"> </span><span class="s2">"path/to/yolo11n.onnx"</span>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="c1"># For evaluating model performance on a dataset</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>deepsparse.yolov8.eval<span class="w"> </span>--model_path<span class="w"> </span><span class="s2">"path/to/yolo11n.onnx"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="c1"># For image annotation</span>
+<a id="__codelineno-4-2"></a>deepsparse.yolov8.annotate<span class="w"> </span>--source<span class="w"> </span><span class="s2">"path/to/image.jpg"</span><span class="w"> </span>--model_filepath<span class="w"> </span><span class="s2">"path/to/yolo11n.onnx"</span>
+<a id="__codelineno-4-3"></a>
+<a id="__codelineno-4-4"></a><span class="c1"># For evaluating model performance on a dataset</span>
+<a id="__codelineno-4-5"></a>deepsparse.yolov8.eval<span class="w"> </span>--model_path<span class="w"> </span><span class="s2">"path/to/yolo11n.onnx"</span>
 </code></pre></div>
 </div>
 </div>
@@ -974,17 +974,17 @@
 <p>Neural Magic's DeepSparse Engine is an inference runtime designed to optimize the execution of neural networks on CPUs through advanced techniques such as sparsity, pruning, and quantization. By integrating DeepSparse with YOLO11, you can achieve GPU-like performance on standard CPUs, significantly enhancing inference speed, model efficiency, and overall performance while maintaining accuracy. For more details, check out the <a href="#neural-magics-deepsparse">Neural Magic's DeepSparse section</a>.</p>
 <h3 id="how-can-i-install-the-needed-packages-to-deploy-yolo11-using-neural-magics-deepsparse">How can I install the needed packages to deploy YOLO11 using Neural Magic's DeepSparse?</h3>
 <p>Installing the required packages for deploying YOLO11 with Neural Magic's DeepSparse is straightforward. You can easily install them using the CLI. Here's the command you need to run:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>deepsparse<span class="o">[</span>yolov8<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>pip<span class="w"> </span>install<span class="w"> </span>deepsparse<span class="o">[</span>yolov8<span class="o">]</span>
 </code></pre></div>
 <p>Once installed, follow the steps provided in the <a href="#step-1-installation">Installation section</a> to set up your environment and start using DeepSparse with YOLO11.</p>
 <h3 id="how-do-i-convert-yolo11-models-to-onnx-format-for-use-with-deepsparse">How do I convert YOLO11 models to ONNX format for use with DeepSparse?</h3>
 <p>To convert YOLO11 models to the ONNX format, which is required for compatibility with DeepSparse, you can use the following CLI command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">13</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>onnx<span class="w"> </span><span class="nv">opset</span><span class="o">=</span><span class="m">13</span>
 </code></pre></div>
 <p>This command will export your YOLO11 model (<code>yolo11n.pt</code>) to a format (<code>yolo11n.onnx</code>) that can be utilized by the DeepSparse Engine. More information about model export can be found in the <a href="#step-2-exporting-yolo11-to-onnx-format">Model Export section</a>.</p>
 <h3 id="how-do-i-benchmark-yolo11-performance-on-the-deepsparse-engine">How do I benchmark YOLO11 performance on the DeepSparse Engine?</h3>
 <p>Benchmarking YOLO11 performance on DeepSparse helps you analyze throughput and latency to ensure your model is optimized. You can use the following CLI command to run a benchmark:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>deepsparse.benchmark<span class="w"> </span><span class="nv">model_path</span><span class="o">=</span><span class="s2">"path/to/yolo11n.onnx"</span><span class="w"> </span>--scenario<span class="o">=</span>sync<span class="w"> </span>--input_shapes<span class="o">=</span><span class="s2">"[1,3,640,640]"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a>deepsparse.benchmark<span class="w"> </span><span class="nv">model_path</span><span class="o">=</span><span class="s2">"path/to/yolo11n.onnx"</span><span class="w"> </span>--scenario<span class="o">=</span>sync<span class="w"> </span>--input_shapes<span class="o">=</span><span class="s2">"[1,3,640,640]"</span>
 </code></pre></div>
 <p>This command will provide you with vital performance metrics. For more details, see the <a href="#step-4-benchmarking-performance">Benchmarking Performance section</a>.</p>
 <h3 id="why-should-i-use-neural-magics-deepsparse-with-yolo11-for-object-detection-tasks">Why should I use Neural Magic's DeepSparse with YOLO11 for object detection tasks?</h3>
@@ -1004,7 +1004,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 05, 2025">
-<span class="hover-item">✏️</span> Updated 16 days ago
+<span class="hover-item">✏️</span> Updated 17 days ago
     </span>
 </div>
 <div class="authors-container">

@@ -675,62 +675,62 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label><label for="__tabbed_1_2">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Run a heatmap example</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>heatmap<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="c1"># Pass a source video</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>heatmap<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="c1"># Pass a custom colormap</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>heatmap<span class="w"> </span><span class="nv">colormap</span><span class="o">=</span>cv2.COLORMAP_INFERNO
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="c1"># Heatmaps + object counting</span>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>heatmap<span class="w"> </span><span class="nv">region</span><span class="o">=</span><span class="s2">"[(20, 400), (1080, 400), (1080, 360), (20, 360)]"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Run a heatmap example</span>
+<a id="__codelineno-0-2"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>heatmap<span class="w"> </span><span class="nv">show</span><span class="o">=</span>True
+<a id="__codelineno-0-3"></a>
+<a id="__codelineno-0-4"></a><span class="c1"># Pass a source video</span>
+<a id="__codelineno-0-5"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>heatmap<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
+<a id="__codelineno-0-6"></a>
+<a id="__codelineno-0-7"></a><span class="c1"># Pass a custom colormap</span>
+<a id="__codelineno-0-8"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>heatmap<span class="w"> </span><span class="nv">colormap</span><span class="o">=</span>cv2.COLORMAP_INFERNO
+<a id="__codelineno-0-9"></a>
+<a id="__codelineno-0-10"></a><span class="c1"># Heatmaps + object counting</span>
+<a id="__codelineno-0-11"></a>yolo<span class="w"> </span>solutions<span class="w"> </span>heatmap<span class="w"> </span><span class="nv">region</span><span class="o">=</span><span class="s2">"[(20, 400), (1080, 400), (1080, 360), (20, 360)]"</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="c1"># Video writer</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"heatmap_output.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># For object counting with heatmap, you can pass region points.</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="c1"># region_points = [(20, 400), (1080, 400)]                                      # line points</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a><span class="c1"># region_points = [(20, 400), (1080, 400), (1080, 360), (20, 360)]              # rectangle region</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a><span class="c1"># region_points = [(20, 400), (1080, 400), (1080, 360), (20, 360), (20, 400)]   # polygon points</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a><span class="c1"># Initialize heatmap object</span>
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a><span class="n">heatmap</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">(</span>
-<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># display the output</span>
-<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>  <span class="c1"># path to the YOLO11 model file</span>
-<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>    <span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_PARULA</span><span class="p">,</span>  <span class="c1"># colormap of heatmap</span>
-<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>    <span class="c1"># region=region_points,  # object counting with heatmaps, you can pass region_points</span>
-<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>    <span class="c1"># classes=[0, 2],  # generate heatmap for specific classes i.e person and car.</span>
-<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a><span class="p">)</span>
-<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>
-<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a><span class="c1"># Process video</span>
-<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>
-<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or processing is complete."</span><span class="p">)</span>
-<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>        <span class="k">break</span>
-<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>
-<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>
-<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>    <span class="c1"># print(results)  # access the output</span>
-<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>
-<a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the processed frame.</span>
-<a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a>
-<a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>  <span class="c1"># destroy all opened windows</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<a id="__codelineno-1-2"></a>
+<a id="__codelineno-1-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<a id="__codelineno-1-4"></a>
+<a id="__codelineno-1-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<a id="__codelineno-1-6"></a><span class="k">assert</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">(),</span> <span class="s2">"Error reading video file"</span>
+<a id="__codelineno-1-7"></a>
+<a id="__codelineno-1-8"></a><span class="c1"># Video writer</span>
+<a id="__codelineno-1-9"></a><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">fps</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">cap</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_WIDTH</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FRAME_HEIGHT</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">CAP_PROP_FPS</span><span class="p">))</span>
+<a id="__codelineno-1-10"></a><span class="n">video_writer</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter</span><span class="p">(</span><span class="s2">"heatmap_output.avi"</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoWriter_fourcc</span><span class="p">(</span><span class="o">*</span><span class="s2">"mp4v"</span><span class="p">),</span> <span class="n">fps</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">))</span>
+<a id="__codelineno-1-11"></a>
+<a id="__codelineno-1-12"></a><span class="c1"># For object counting with heatmap, you can pass region points.</span>
+<a id="__codelineno-1-13"></a><span class="c1"># region_points = [(20, 400), (1080, 400)]                                      # line points</span>
+<a id="__codelineno-1-14"></a><span class="c1"># region_points = [(20, 400), (1080, 400), (1080, 360), (20, 360)]              # rectangle region</span>
+<a id="__codelineno-1-15"></a><span class="c1"># region_points = [(20, 400), (1080, 400), (1080, 360), (20, 360), (20, 400)]   # polygon points</span>
+<a id="__codelineno-1-16"></a>
+<a id="__codelineno-1-17"></a><span class="c1"># Initialize heatmap object</span>
+<a id="__codelineno-1-18"></a><span class="n">heatmap</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">(</span>
+<a id="__codelineno-1-19"></a>    <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>  <span class="c1"># display the output</span>
+<a id="__codelineno-1-20"></a>    <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span>  <span class="c1"># path to the YOLO11 model file</span>
+<a id="__codelineno-1-21"></a>    <span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_PARULA</span><span class="p">,</span>  <span class="c1"># colormap of heatmap</span>
+<a id="__codelineno-1-22"></a>    <span class="c1"># region=region_points,  # object counting with heatmaps, you can pass region_points</span>
+<a id="__codelineno-1-23"></a>    <span class="c1"># classes=[0, 2],  # generate heatmap for specific classes i.e person and car.</span>
+<a id="__codelineno-1-24"></a><span class="p">)</span>
+<a id="__codelineno-1-25"></a>
+<a id="__codelineno-1-26"></a><span class="c1"># Process video</span>
+<a id="__codelineno-1-27"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a id="__codelineno-1-28"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-1-29"></a>
+<a id="__codelineno-1-30"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a id="__codelineno-1-31"></a>        <span class="nb">print</span><span class="p">(</span><span class="s2">"Video frame is empty or processing is complete."</span><span class="p">)</span>
+<a id="__codelineno-1-32"></a>        <span class="k">break</span>
+<a id="__codelineno-1-33"></a>
+<a id="__codelineno-1-34"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<a id="__codelineno-1-35"></a>
+<a id="__codelineno-1-36"></a>    <span class="c1"># print(results)  # access the output</span>
+<a id="__codelineno-1-37"></a>
+<a id="__codelineno-1-38"></a>    <span class="n">video_writer</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">results</span><span class="o">.</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># write the processed frame.</span>
+<a id="__codelineno-1-39"></a>
+<a id="__codelineno-1-40"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a id="__codelineno-1-41"></a><span class="n">video_writer</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a id="__codelineno-1-42"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>  <span class="c1"># destroy all opened windows</span>
 </code></pre></div>
 </div>
 </div>
@@ -969,40 +969,40 @@
 <p>Ultralytics YOLO11 generates heatmaps by transforming complex data into a color-coded matrix where different hues represent data intensities. Heatmaps make it easier to visualize patterns, correlations, and anomalies in the data. Warmer hues indicate higher values, while cooler tones represent lower values. The primary benefits include intuitive visualization of data distribution, efficient pattern detection, and enhanced spatial analysis for decision-making. For more details and configuration options, refer to the <a href="#heatmap-arguments">Heatmap Configuration</a> section.</p>
 <h3 id="can-i-use-ultralytics-yolo11-to-perform-object-tracking-and-generate-a-heatmap-simultaneously">Can I use Ultralytics YOLO11 to perform object tracking and generate a heatmap simultaneously?</h3>
 <p>Yes, Ultralytics YOLO11 supports object tracking and heatmap generation concurrently. This can be achieved through its <code>Heatmap</code> solution integrated with object tracking models. To do so, you need to initialize the heatmap object and use YOLO11's tracking capabilities. Here's a simple example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="n">heatmap</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_PARULA</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span class="k">break</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<a id="__codelineno-2-4"></a>
+<a id="__codelineno-2-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<a id="__codelineno-2-6"></a><span class="n">heatmap</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">(</span><span class="n">colormap</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_PARULA</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-2-7"></a>
+<a id="__codelineno-2-8"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a id="__codelineno-2-9"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-2-10"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a id="__codelineno-2-11"></a>        <span class="k">break</span>
+<a id="__codelineno-2-12"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<a id="__codelineno-2-13"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a id="__codelineno-2-14"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 <p>For further guidance, check the <a href="../../modes/track/">Tracking Mode</a> page.</p>
 <h3 id="what-makes-ultralytics-yolo11-heatmaps-different-from-other-data-visualization-tools-like-those-from-opencv-or-matplotlib">What makes Ultralytics YOLO11 heatmaps different from other data visualization tools like those from <a href="https://www.ultralytics.com/glossary/opencv">OpenCV</a> or Matplotlib?</h3>
 <p>Ultralytics YOLO11 heatmaps are specifically designed for integration with its <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> and tracking models, providing an end-to-end solution for real-time data analysis. Unlike generic visualization tools like OpenCV or Matplotlib, YOLO11 heatmaps are optimized for performance and automated processing, supporting features like persistent tracking, decay factor adjustment, and real-time video overlay. For more information on YOLO11's unique features, visit the <a href="https://www.ultralytics.com/blog/introducing-ultralytics-yolov8">Ultralytics YOLO11 Introduction</a>.</p>
 <h3 id="how-can-i-visualize-only-specific-object-classes-in-heatmaps-using-ultralytics-yolo11">How can I visualize only specific object classes in heatmaps using Ultralytics YOLO11?</h3>
 <p>You can visualize specific object classes by specifying the desired classes in the <code>track()</code> method of the YOLO model. For instance, if you only want to visualize cars and persons (assuming their class indices are 0 and 2), you can set the <code>classes</code> parameter accordingly.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="n">heatmap</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>        <span class="k">break</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">solutions</span>
+<a id="__codelineno-3-4"></a>
+<a id="__codelineno-3-5"></a><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<a id="__codelineno-3-6"></a><span class="n">heatmap</span> <span class="o">=</span> <span class="n">solutions</span><span class="o">.</span><span class="n">Heatmap</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+<a id="__codelineno-3-7"></a>
+<a id="__codelineno-3-8"></a><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<a id="__codelineno-3-9"></a>    <span class="n">success</span><span class="p">,</span> <span class="n">im0</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<a id="__codelineno-3-10"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="n">success</span><span class="p">:</span>
+<a id="__codelineno-3-11"></a>        <span class="k">break</span>
+<a id="__codelineno-3-12"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">heatmap</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<a id="__codelineno-3-13"></a><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<a id="__codelineno-3-14"></a><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="why-should-businesses-choose-ultralytics-yolo11-for-heatmap-generation-in-data-analysis">Why should businesses choose Ultralytics YOLO11 for heatmap generation in data analysis?</h3>
 <p>Ultralytics YOLO11 offers seamless integration of advanced object detection and real-time heatmap generation, making it an ideal choice for businesses looking to visualize data more effectively. The key advantages include intuitive data distribution visualization, efficient pattern detection, and enhanced spatial analysis for better decision-making. Additionally, YOLO11's cutting-edge features such as persistent tracking, customizable colormaps, and support for various export formats make it superior to other tools like <a href="https://www.ultralytics.com/glossary/tensorflow">TensorFlow</a> and OpenCV for comprehensive data analysis. Learn more about business applications at <a href="https://www.ultralytics.com/plans">Ultralytics Plans</a>.</p>

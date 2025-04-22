@@ -1133,7 +1133,7 @@
 <li>Confirm that the path to your <code>.yaml</code> configuration file is correct.</li>
 <li>Make sure you pass the path to your <code>.yaml</code> file as the <code>data</code> argument when calling <code>model.train()</code>, as shown below:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"/path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"/path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="accelerating-training-with-multiple-gpus">Accelerating Training with Multiple GPUs</h4>
 <p><strong>Issue</strong>: Training is slow on a single GPU, and you want to speed up the process using multiple GPUs.</p>
@@ -1144,8 +1144,8 @@
 <li>Increase the batch size accordingly to fully utilize the multiple GPUs without exceeding memory limits.</li>
 <li>Modify your training command to utilize multiple GPUs:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Adjust the batch size and other settings as needed to optimize training speed</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"/path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">multi_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Adjust the batch size and other settings as needed to optimize training speed</span>
+<a id="__codelineno-1-2"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"/path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">multi_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h4 id="continuous-monitoring-parameters">Continuous Monitoring Parameters</h4>
 <p><strong>Issue</strong>: You want to know which parameters should be continuously monitored during training, apart from loss.</p>
@@ -1168,7 +1168,7 @@
 <h4 id="how-to-check-if-training-is-happening-on-the-gpu">How to Check if Training is Happening on the GPU</h4>
 <p><strong>Issue</strong>: The 'device' value in the training logs is 'null,' and you're unsure if training is happening on the GPU.</p>
 <p><strong>Solution</strong>: The 'device' value being 'null' typically means that the training process is set to automatically use an available GPU, which is the default behavior. To ensure training occurs on a specific GPU, you can manually set the 'device' value to the GPU index (e.g., '0' for the first GPU) in your .yaml configuration file:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </code></pre></div>
 <p>This will explicitly assign the training process to the specified GPU. If you wish to train on the CPU, set 'device' to 'cpu'.</p>
 <p>Keep an eye on the 'runs' folder for logs and metrics to monitor training progress effectively.</p>
@@ -1207,11 +1207,11 @@
 <ul>
 <li>Coordinate Format: YOLO11 provides bounding box coordinates in absolute pixel values. To convert these to relative coordinates (ranging from 0 to 1), you need to divide by the image dimensions. For example, let's say your image size is 640x640. Then you would do the following:</li>
 </ul>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Convert absolute coordinates to relative coordinates</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">/</span> <span class="mi">640</span>  <span class="c1"># Divide x-coordinates by image width</span>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="n">x2</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">/</span> <span class="mi">640</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">/</span> <span class="mi">640</span>  <span class="c1"># Divide y-coordinates by image height</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">/</span> <span class="mi">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Convert absolute coordinates to relative coordinates</span>
+<a id="__codelineno-3-2"></a><span class="n">x1</span> <span class="o">=</span> <span class="n">x1</span> <span class="o">/</span> <span class="mi">640</span>  <span class="c1"># Divide x-coordinates by image width</span>
+<a id="__codelineno-3-3"></a><span class="n">x2</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">/</span> <span class="mi">640</span>
+<a id="__codelineno-3-4"></a><span class="n">y1</span> <span class="o">=</span> <span class="n">y1</span> <span class="o">/</span> <span class="mi">640</span>  <span class="c1"># Divide y-coordinates by image height</span>
+<a id="__codelineno-3-5"></a><span class="n">y2</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">/</span> <span class="mi">640</span>
 </code></pre></div>
 <ul>
 <li>File Name: To obtain the file name of the image you're predicting on, access the image file path directly from the result object within your prediction loop.</li>
@@ -1219,7 +1219,7 @@
 <h4 id="filtering-objects-in-yolo11-predictions">Filtering Objects in YOLO11 Predictions</h4>
 <p><strong>Issue</strong>: Facing issues with how to filter and display only specific objects in the prediction results when running YOLO11 using the Ultralytics library.</p>
 <p><strong>Solution</strong>: To detect specific classes use the classes argument to specify the classes you want to include in the output. For instance, to detect only cars (assuming 'cars' have class index 2):</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>segment<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'path/to/car.mp4'</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True<span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="m">2</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>yolo<span class="w"> </span><span class="nv">task</span><span class="o">=</span>detect<span class="w"> </span><span class="nv">mode</span><span class="o">=</span>segment<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'path/to/car.mp4'</span><span class="w"> </span><span class="nv">show</span><span class="o">=</span>True<span class="w"> </span><span class="nv">classes</span><span class="o">=</span><span class="m">2</span>
 </code></pre></div>
 <h4 id="understanding-precision-metrics-in-yolo11">Understanding Precision Metrics in YOLO11</h4>
 <p><strong>Issue</strong>: Confusion regarding the difference between box precision, mask precision, and <a href="https://www.ultralytics.com/glossary/confusion-matrix">confusion matrix</a> precision in YOLO11.</p>
@@ -1227,22 +1227,22 @@
 <h4 id="extracting-object-dimensions-in-yolo11">Extracting Object Dimensions in YOLO11</h4>
 <p><strong>Issue</strong>: Difficulty in retrieving the length and height of detected objects in YOLO11, especially when multiple objects are detected in an image.</p>
 <p><strong>Solution</strong>: To retrieve the bounding box dimensions, first use the Ultralytics YOLO11 model to predict objects in an image. Then, extract the width and height information of bounding boxes from the prediction results.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># Load a pre-trained YOLO11 model</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="c1"># Specify the source image</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/bus.jpg"</span>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a><span class="c1"># Make predictions</span>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="c1"># Extract bounding box dimensions</span>
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywh</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
-<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a><span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">boxes</span><span class="p">:</span>
-<a href="#__codelineno-5-15" id="__codelineno-5-15" name="__codelineno-5-15"></a>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">box</span>
-<a href="#__codelineno-5-16" id="__codelineno-5-16" name="__codelineno-5-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Width of Box: </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">, Height of Box: </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-5-2"></a>
+<a id="__codelineno-5-3"></a><span class="c1"># Load a pre-trained YOLO11 model</span>
+<a id="__codelineno-5-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-5-5"></a>
+<a id="__codelineno-5-6"></a><span class="c1"># Specify the source image</span>
+<a id="__codelineno-5-7"></a><span class="n">source</span> <span class="o">=</span> <span class="s2">"https://ultralytics.com/images/bus.jpg"</span>
+<a id="__codelineno-5-8"></a>
+<a id="__codelineno-5-9"></a><span class="c1"># Make predictions</span>
+<a id="__codelineno-5-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">320</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<a id="__codelineno-5-11"></a>
+<a id="__codelineno-5-12"></a><span class="c1"># Extract bounding box dimensions</span>
+<a id="__codelineno-5-13"></a><span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywh</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<a id="__codelineno-5-14"></a><span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">boxes</span><span class="p">:</span>
+<a id="__codelineno-5-15"></a>    <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">box</span>
+<a id="__codelineno-5-16"></a>    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Width of Box: </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">, Height of Box: </span><span class="si">{</span><span class="n">h</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="deployment-challenges">Deployment Challenges</h3>
 <h4 id="gpu-deployment-issues">GPU Deployment Issues</h4>
@@ -1276,11 +1276,11 @@
 <p>Installation errors can often be due to compatibility issues or missing dependencies. Ensure you use Python 3.8 or later and have PyTorch 1.8 or later installed. It's beneficial to use virtual environments to avoid conflicts. For a step-by-step installation guide, follow our <a href="../../quickstart/">official installation guide</a>. If you encounter import errors, try a fresh installation or update the library to the latest version.</p>
 <h3 id="why-is-my-yolo11-model-training-slow-on-a-single-gpu">Why is my YOLO11 model training slow on a single GPU?</h3>
 <p>Training on a single GPU might be slow due to large batch sizes or insufficient memory. To speed up training, use multiple GPUs. Ensure your system has multiple GPUs available and adjust your <code>.yaml</code> configuration file to specify the number of GPUs, e.g., <code>gpus: 4</code>. Increase the batch size accordingly to fully utilize the GPUs without exceeding memory limits. Example command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"/path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">multi_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"/path/to/your/data.yaml"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">multi_scale</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <h3 id="how-can-i-ensure-my-yolo11-model-is-training-on-the-gpu">How can I ensure my YOLO11 model is training on the GPU?</h3>
 <p>If the 'device' value shows 'null' in the training logs, it generally means the training process is set to automatically use an available GPU. To explicitly assign a specific GPU, set the 'device' value in your <code>.yaml</code> configuration file. For instance:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="nt">device</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">0</span>
 </code></pre></div>
 <p>This sets the training process to the first GPU. Consult the <code>nvidia-smi</code> command to confirm your CUDA setup.</p>
 <h3 id="how-can-i-monitor-and-track-my-yolo11-model-training-progress">How can I monitor and track my YOLO11 model training progress?</h3>

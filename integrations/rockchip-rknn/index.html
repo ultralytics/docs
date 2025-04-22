@@ -912,8 +912,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1"># Install the required package for YOLO11</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="c1"># Install the required package for YOLO11</span>
+<a id="__codelineno-0-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 </div>
 </div>
@@ -930,20 +930,20 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Load the YOLO11 model</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Export the model to RKNN format</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="c1"># 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"rknn"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"rk3588"</span><span class="p">)</span>  <span class="c1"># creates '/yolo11n_rknn_model'</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-1-2"></a>
+<a id="__codelineno-1-3"></a><span class="c1"># Load the YOLO11 model</span>
+<a id="__codelineno-1-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-1-5"></a>
+<a id="__codelineno-1-6"></a><span class="c1"># Export the model to RKNN format</span>
+<a id="__codelineno-1-7"></a><span class="c1"># 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118</span>
+<a id="__codelineno-1-8"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"rknn"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"rk3588"</span><span class="p">)</span>  <span class="c1"># creates '/yolo11n_rknn_model'</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1"># Export a YOLO11n PyTorch model to RKNN format</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="c1"># 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118</span>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>rknn<span class="w"> </span><span class="nv">name</span><span class="o">=</span>rk3588<span class="w"> </span><span class="c1"># creates '/yolo11n_rknn_model'</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="c1"># Export a YOLO11n PyTorch model to RKNN format</span>
+<a id="__codelineno-2-2"></a><span class="c1"># 'name' can be one of rk3588, rk3576, rk3566, rk3568, rk3562, rv1103, rv1106, rv1103b, rv1106b, rk2118</span>
+<a id="__codelineno-2-3"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>rknn<span class="w"> </span><span class="nv">name</span><span class="o">=</span>rk3588<span class="w"> </span><span class="c1"># creates '/yolo11n_rknn_model'</span>
 </code></pre></div>
 </div>
 </div>
@@ -1006,8 +1006,8 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="3:1"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Install the required package for YOLO11</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Install the required package for YOLO11</span>
+<a id="__codelineno-3-2"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics
 </code></pre></div>
 </div>
 </div>
@@ -1019,18 +1019,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Load the exported RKNN model</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">rknn_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"./yolo11n_rknn_model"</span><span class="p">)</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Run inference</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">rknn_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-4-2"></a>
+<a id="__codelineno-4-3"></a><span class="c1"># Load the exported RKNN model</span>
+<a id="__codelineno-4-4"></a><span class="n">rknn_model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"./yolo11n_rknn_model"</span><span class="p">)</span>
+<a id="__codelineno-4-5"></a>
+<a id="__codelineno-4-6"></a><span class="c1"># Run inference</span>
+<a id="__codelineno-4-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">rknn_model</span><span class="p">(</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Run inference with the exported model</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'./yolo11n_rknn_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Run inference with the exported model</span>
+<a id="__codelineno-5-2"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span><span class="s1">'./yolo11n_rknn_model'</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s1">'https://ultralytics.com/images/bus.jpg'</span>
 </code></pre></div>
 </div>
 </div>
@@ -1123,17 +1123,17 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Load your YOLO model</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Export to RKNN format for a specific Rockchip platform</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"rknn"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"rk3588"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-6-2"></a>
+<a id="__codelineno-6-3"></a><span class="c1"># Load your YOLO model</span>
+<a id="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-6-5"></a>
+<a id="__codelineno-6-6"></a><span class="c1"># Export to RKNN format for a specific Rockchip platform</span>
+<a id="__codelineno-6-7"></a><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"rknn"</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"rk3588"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>rknn<span class="w"> </span><span class="nv">name</span><span class="o">=</span>rk3588
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a>yolo<span class="w"> </span><span class="nb">export</span><span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">format</span><span class="o">=</span>rknn<span class="w"> </span><span class="nv">name</span><span class="o">=</span>rk3588
 </code></pre></div>
 </div>
 </div>
@@ -1153,7 +1153,7 @@
 <span class="hover-item">📅</span> Created 3 months ago
     </span>
 <span class="date-item" title="This page was last updated on April 08, 2025">
-<span class="hover-item">✏️</span> Updated 13 days ago
+<span class="hover-item">✏️</span> Updated 14 days ago
     </span>
 </div>
 <div class="authors-container">

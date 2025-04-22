@@ -1176,7 +1176,7 @@
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.classify.predict.ClassificationPredictor">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.classify.predict.ClassificationPredictor</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">ClassificationPredictor</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">ClassificationPredictor</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1252,11 +1252,11 @@ and postprocessing predictions to generate classification results.</p>
 </ul>
 </details>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.classify</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassificationPredictor</span>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">ASSETS</span><span class="p">)</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">ClassificationPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span>
+<a id="__codelineno-0-2"></a><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.classify</span><span class="w"> </span><span class="kn">import</span> <span class="n">ClassificationPredictor</span>
+<a id="__codelineno-0-3"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="n">ASSETS</span><span class="p">)</span>
+<a id="__codelineno-0-4"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">ClassificationPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
+<a id="__codelineno-0-5"></a><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
 </code></pre></div>
 <p>This constructor initializes a ClassificationPredictor instance, which extends BasePredictor for classification
 tasks. It ensures the task is set to 'classify' regardless of input configuration.</p>
@@ -1323,35 +1323,35 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-38">38</a></span>
-<span class="normal"><a href="#__codelineno-0-39">39</a></span>
-<span class="normal"><a href="#__codelineno-0-40">40</a></span>
-<span class="normal"><a href="#__codelineno-0-41">41</a></span>
-<span class="normal"><a href="#__codelineno-0-42">42</a></span>
-<span class="normal"><a href="#__codelineno-0-43">43</a></span>
-<span class="normal"><a href="#__codelineno-0-44">44</a></span>
-<span class="normal"><a href="#__codelineno-0-45">45</a></span>
-<span class="normal"><a href="#__codelineno-0-46">46</a></span>
-<span class="normal"><a href="#__codelineno-0-47">47</a></span>
-<span class="normal"><a href="#__codelineno-0-48">48</a></span>
-<span class="normal"><a href="#__codelineno-0-49">49</a></span>
-<span class="normal"><a href="#__codelineno-0-50">50</a></span>
-<span class="normal"><a href="#__codelineno-0-51">51</a></span>
-<span class="normal"><a href="#__codelineno-0-52">52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-38" name="__codelineno-0-38"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<a id="__codelineno-0-39" name="__codelineno-0-39"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-40" name="__codelineno-0-40"></a><span class="sd">    Initialize the ClassificationPredictor with the specified configuration and set task to 'classify'.</span>
-<a id="__codelineno-0-41" name="__codelineno-0-41"></a>
-<a id="__codelineno-0-42" name="__codelineno-0-42"></a><span class="sd">    This constructor initializes a ClassificationPredictor instance, which extends BasePredictor for classification</span>
-<a id="__codelineno-0-43" name="__codelineno-0-43"></a><span class="sd">    tasks. It ensures the task is set to 'classify' regardless of input configuration.</span>
-<a id="__codelineno-0-44" name="__codelineno-0-44"></a>
-<a id="__codelineno-0-45" name="__codelineno-0-45"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-46" name="__codelineno-0-46"></a><span class="sd">        cfg (dict): Default configuration dictionary containing prediction settings. Defaults to DEFAULT_CFG.</span>
-<a id="__codelineno-0-47" name="__codelineno-0-47"></a><span class="sd">        overrides (dict, optional): Configuration overrides that take precedence over cfg.</span>
-<a id="__codelineno-0-48" name="__codelineno-0-48"></a><span class="sd">        _callbacks (list, optional): List of callback functions to be executed during prediction.</span>
-<a id="__codelineno-0-49" name="__codelineno-0-49"></a><span class="sd">    """</span>
-<a id="__codelineno-0-50" name="__codelineno-0-50"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
-<a id="__codelineno-0-51" name="__codelineno-0-51"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"classify"</span>
-<a id="__codelineno-0-52" name="__codelineno-0-52"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_legacy_transform_name</span> <span class="o">=</span> <span class="s2">"ultralytics.yolo.data.augment.ToTensor"</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>38</a></span>
+<span class="normal"><a>39</a></span>
+<span class="normal"><a>40</a></span>
+<span class="normal"><a>41</a></span>
+<span class="normal"><a>42</a></span>
+<span class="normal"><a>43</a></span>
+<span class="normal"><a>44</a></span>
+<span class="normal"><a>45</a></span>
+<span class="normal"><a>46</a></span>
+<span class="normal"><a>47</a></span>
+<span class="normal"><a>48</a></span>
+<span class="normal"><a>49</a></span>
+<span class="normal"><a>50</a></span>
+<span class="normal"><a>51</a></span>
+<span class="normal"><a>52</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-38"></a><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<a id="__codelineno-0-39"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-40"></a><span class="sd">    Initialize the ClassificationPredictor with the specified configuration and set task to 'classify'.</span>
+<a id="__codelineno-0-41"></a>
+<a id="__codelineno-0-42"></a><span class="sd">    This constructor initializes a ClassificationPredictor instance, which extends BasePredictor for classification</span>
+<a id="__codelineno-0-43"></a><span class="sd">    tasks. It ensures the task is set to 'classify' regardless of input configuration.</span>
+<a id="__codelineno-0-44"></a>
+<a id="__codelineno-0-45"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-46"></a><span class="sd">        cfg (dict): Default configuration dictionary containing prediction settings. Defaults to DEFAULT_CFG.</span>
+<a id="__codelineno-0-47"></a><span class="sd">        overrides (dict, optional): Configuration overrides that take precedence over cfg.</span>
+<a id="__codelineno-0-48"></a><span class="sd">        _callbacks (list, optional): List of callback functions to be executed during prediction.</span>
+<a id="__codelineno-0-49"></a><span class="sd">    """</span>
+<a id="__codelineno-0-50"></a>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
+<a id="__codelineno-0-51"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"classify"</span>
+<a id="__codelineno-0-52"></a>    <span class="bp">self</span><span class="o">.</span><span class="n">_legacy_transform_name</span> <span class="o">=</span> <span class="s2">"ultralytics.yolo.data.augment.ToTensor"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1359,7 +1359,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.classify.predict.ClassificationPredictor.postprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">postprocess</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process predictions to return Results objects with classification probabilities.</p>
@@ -1447,45 +1447,45 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-69">69</a></span>
-<span class="normal"><a href="#__codelineno-0-70">70</a></span>
-<span class="normal"><a href="#__codelineno-0-71">71</a></span>
-<span class="normal"><a href="#__codelineno-0-72">72</a></span>
-<span class="normal"><a href="#__codelineno-0-73">73</a></span>
-<span class="normal"><a href="#__codelineno-0-74">74</a></span>
-<span class="normal"><a href="#__codelineno-0-75">75</a></span>
-<span class="normal"><a href="#__codelineno-0-76">76</a></span>
-<span class="normal"><a href="#__codelineno-0-77">77</a></span>
-<span class="normal"><a href="#__codelineno-0-78">78</a></span>
-<span class="normal"><a href="#__codelineno-0-79">79</a></span>
-<span class="normal"><a href="#__codelineno-0-80">80</a></span>
-<span class="normal"><a href="#__codelineno-0-81">81</a></span>
-<span class="normal"><a href="#__codelineno-0-82">82</a></span>
-<span class="normal"><a href="#__codelineno-0-83">83</a></span>
-<span class="normal"><a href="#__codelineno-0-84">84</a></span>
-<span class="normal"><a href="#__codelineno-0-85">85</a></span>
-<span class="normal"><a href="#__codelineno-0-86">86</a></span>
-<span class="normal"><a href="#__codelineno-0-87">87</a></span>
-<span class="normal"><a href="#__codelineno-0-88">88</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-69" name="__codelineno-0-69"></a><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
-<a id="__codelineno-0-70" name="__codelineno-0-70"></a><span class="w">    </span><span class="sd">"""</span>
-<a id="__codelineno-0-71" name="__codelineno-0-71"></a><span class="sd">    Process predictions to return Results objects with classification probabilities.</span>
-<a id="__codelineno-0-72" name="__codelineno-0-72"></a>
-<a id="__codelineno-0-73" name="__codelineno-0-73"></a><span class="sd">    Args:</span>
-<a id="__codelineno-0-74" name="__codelineno-0-74"></a><span class="sd">        preds (torch.Tensor): Raw predictions from the model.</span>
-<a id="__codelineno-0-75" name="__codelineno-0-75"></a><span class="sd">        img (torch.Tensor): Input images after preprocessing.</span>
-<a id="__codelineno-0-76" name="__codelineno-0-76"></a><span class="sd">        orig_imgs (List[np.ndarray] | torch.Tensor): Original images before preprocessing.</span>
-<a id="__codelineno-0-77" name="__codelineno-0-77"></a>
-<a id="__codelineno-0-78" name="__codelineno-0-78"></a><span class="sd">    Returns:</span>
-<a id="__codelineno-0-79" name="__codelineno-0-79"></a><span class="sd">        (List[Results]): List of Results objects containing classification results for each image.</span>
-<a id="__codelineno-0-80" name="__codelineno-0-80"></a><span class="sd">    """</span>
-<a id="__codelineno-0-81" name="__codelineno-0-81"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
-<a id="__codelineno-0-82" name="__codelineno-0-82"></a>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
-<a id="__codelineno-0-83" name="__codelineno-0-83"></a>
-<a id="__codelineno-0-84" name="__codelineno-0-84"></a>    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="n">preds</span>
-<a id="__codelineno-0-85" name="__codelineno-0-85"></a>    <span class="k">return</span> <span class="p">[</span>
-<a id="__codelineno-0-86" name="__codelineno-0-86"></a>        <span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">pred</span><span class="p">)</span>
-<a id="__codelineno-0-87" name="__codelineno-0-87"></a>        <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
-<a id="__codelineno-0-88" name="__codelineno-0-88"></a>    <span class="p">]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>69</a></span>
+<span class="normal"><a>70</a></span>
+<span class="normal"><a>71</a></span>
+<span class="normal"><a>72</a></span>
+<span class="normal"><a>73</a></span>
+<span class="normal"><a>74</a></span>
+<span class="normal"><a>75</a></span>
+<span class="normal"><a>76</a></span>
+<span class="normal"><a>77</a></span>
+<span class="normal"><a>78</a></span>
+<span class="normal"><a>79</a></span>
+<span class="normal"><a>80</a></span>
+<span class="normal"><a>81</a></span>
+<span class="normal"><a>82</a></span>
+<span class="normal"><a>83</a></span>
+<span class="normal"><a>84</a></span>
+<span class="normal"><a>85</a></span>
+<span class="normal"><a>86</a></span>
+<span class="normal"><a>87</a></span>
+<span class="normal"><a>88</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-69"></a><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<a id="__codelineno-0-70"></a><span class="w">    </span><span class="sd">"""</span>
+<a id="__codelineno-0-71"></a><span class="sd">    Process predictions to return Results objects with classification probabilities.</span>
+<a id="__codelineno-0-72"></a>
+<a id="__codelineno-0-73"></a><span class="sd">    Args:</span>
+<a id="__codelineno-0-74"></a><span class="sd">        preds (torch.Tensor): Raw predictions from the model.</span>
+<a id="__codelineno-0-75"></a><span class="sd">        img (torch.Tensor): Input images after preprocessing.</span>
+<a id="__codelineno-0-76"></a><span class="sd">        orig_imgs (List[np.ndarray] | torch.Tensor): Original images before preprocessing.</span>
+<a id="__codelineno-0-77"></a>
+<a id="__codelineno-0-78"></a><span class="sd">    Returns:</span>
+<a id="__codelineno-0-79"></a><span class="sd">        (List[Results]): List of Results objects containing classification results for each image.</span>
+<a id="__codelineno-0-80"></a><span class="sd">    """</span>
+<a id="__codelineno-0-81"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
+<a id="__codelineno-0-82"></a>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
+<a id="__codelineno-0-83"></a>
+<a id="__codelineno-0-84"></a>    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="n">preds</span>
+<a id="__codelineno-0-85"></a>    <span class="k">return</span> <span class="p">[</span>
+<a id="__codelineno-0-86"></a>        <span class="n">Results</span><span class="p">(</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="n">pred</span><span class="p">)</span>
+<a id="__codelineno-0-87"></a>        <span class="k">for</span> <span class="n">pred</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<a id="__codelineno-0-88"></a>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1494,39 +1494,39 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.classify.predict.ClassificationPredictor.preprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">preprocess</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="nf">preprocess</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="nf">preprocess</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert input images to model-compatible tensor format with appropriate normalization.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-54">54</a></span>
-<span class="normal"><a href="#__codelineno-0-55">55</a></span>
-<span class="normal"><a href="#__codelineno-0-56">56</a></span>
-<span class="normal"><a href="#__codelineno-0-57">57</a></span>
-<span class="normal"><a href="#__codelineno-0-58">58</a></span>
-<span class="normal"><a href="#__codelineno-0-59">59</a></span>
-<span class="normal"><a href="#__codelineno-0-60">60</a></span>
-<span class="normal"><a href="#__codelineno-0-61">61</a></span>
-<span class="normal"><a href="#__codelineno-0-62">62</a></span>
-<span class="normal"><a href="#__codelineno-0-63">63</a></span>
-<span class="normal"><a href="#__codelineno-0-64">64</a></span>
-<span class="normal"><a href="#__codelineno-0-65">65</a></span>
-<span class="normal"><a href="#__codelineno-0-66">66</a></span>
-<span class="normal"><a href="#__codelineno-0-67">67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-54" name="__codelineno-0-54"></a><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
-<a id="__codelineno-0-55" name="__codelineno-0-55"></a><span class="w">    </span><span class="sd">"""Convert input images to model-compatible tensor format with appropriate normalization."""</span>
-<a id="__codelineno-0-56" name="__codelineno-0-56"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-<a id="__codelineno-0-57" name="__codelineno-0-57"></a>        <span class="n">is_legacy_transform</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
-<a id="__codelineno-0-58" name="__codelineno-0-58"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_legacy_transform_name</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> <span class="k">for</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">transforms</span>
-<a id="__codelineno-0-59" name="__codelineno-0-59"></a>        <span class="p">)</span>
-<a id="__codelineno-0-60" name="__codelineno-0-60"></a>        <span class="k">if</span> <span class="n">is_legacy_transform</span><span class="p">:</span>  <span class="c1"># to handle legacy transforms</span>
-<a id="__codelineno-0-61" name="__codelineno-0-61"></a>            <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<a id="__codelineno-0-62" name="__codelineno-0-62"></a>        <span class="k">else</span><span class="p">:</span>
-<a id="__codelineno-0-63" name="__codelineno-0-63"></a>            <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
-<a id="__codelineno-0-64" name="__codelineno-0-64"></a>                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)))</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span>
-<a id="__codelineno-0-65" name="__codelineno-0-65"></a>            <span class="p">)</span>
-<a id="__codelineno-0-66" name="__codelineno-0-66"></a>    <span class="n">img</span> <span class="o">=</span> <span class="p">(</span><span class="n">img</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<a id="__codelineno-0-67" name="__codelineno-0-67"></a>    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">img</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a>54</a></span>
+<span class="normal"><a>55</a></span>
+<span class="normal"><a>56</a></span>
+<span class="normal"><a>57</a></span>
+<span class="normal"><a>58</a></span>
+<span class="normal"><a>59</a></span>
+<span class="normal"><a>60</a></span>
+<span class="normal"><a>61</a></span>
+<span class="normal"><a>62</a></span>
+<span class="normal"><a>63</a></span>
+<span class="normal"><a>64</a></span>
+<span class="normal"><a>65</a></span>
+<span class="normal"><a>66</a></span>
+<span class="normal"><a>67</a></span></pre></div></td><td class="code"><div><pre><span></span><code><a id="__codelineno-0-54"></a><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
+<a id="__codelineno-0-55"></a><span class="w">    </span><span class="sd">"""Convert input images to model-compatible tensor format with appropriate normalization."""</span>
+<a id="__codelineno-0-56"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<a id="__codelineno-0-57"></a>        <span class="n">is_legacy_transform</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
+<a id="__codelineno-0-58"></a>            <span class="bp">self</span><span class="o">.</span><span class="n">_legacy_transform_name</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> <span class="k">for</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">transforms</span>
+<a id="__codelineno-0-59"></a>        <span class="p">)</span>
+<a id="__codelineno-0-60"></a>        <span class="k">if</span> <span class="n">is_legacy_transform</span><span class="p">:</span>  <span class="c1"># to handle legacy transforms</span>
+<a id="__codelineno-0-61"></a>            <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-0-62"></a>        <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-0-63"></a>            <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+<a id="__codelineno-0-64"></a>                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)))</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span>
+<a id="__codelineno-0-65"></a>            <span class="p">)</span>
+<a id="__codelineno-0-66"></a>    <span class="n">img</span> <span class="o">=</span> <span class="p">(</span><span class="n">img</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<a id="__codelineno-0-67"></a>    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">img</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

@@ -800,7 +800,7 @@
 <img alt="Gradio example screenshot" src="https://github.com/ultralytics/docs/releases/download/0/gradio-example-screenshot.avif" width="800"/>
 </p>
 <h2 id="how-to-install-gradio">How to Install Gradio</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>gradio
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>gradio
 </code></pre></div>
 <h2 id="how-to-use-the-interface">How to Use the Interface</h2>
 <ol>
@@ -819,50 +819,50 @@
 </ul>
 <h2 id="usage-example">Usage Example</h2>
 <p>This section provides the Python code used to create the Gradio interface with the Ultralytics YOLO11 model. The code supports classification tasks, detection tasks, segmentation tasks, and key point tasks.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">gradio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gr</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">PIL.Image</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">Image</span>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span><span class="p">,</span> <span class="n">YOLO</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="p">):</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="w">    </span><span class="sd">"""Predicts objects in an image using a YOLO11 model with adjustable confidence and IOU thresholds."""</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a>        <span class="n">source</span><span class="o">=</span><span class="n">img</span><span class="p">,</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a>        <span class="n">conf</span><span class="o">=</span><span class="n">conf_threshold</span><span class="p">,</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>        <span class="n">iou</span><span class="o">=</span><span class="n">iou_threshold</span><span class="p">,</span>
-<a href="#__codelineno-1-15" id="__codelineno-1-15" name="__codelineno-1-15"></a>        <span class="n">show_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a href="#__codelineno-1-16" id="__codelineno-1-16" name="__codelineno-1-16"></a>        <span class="n">show_conf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a href="#__codelineno-1-17" id="__codelineno-1-17" name="__codelineno-1-17"></a>        <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span>
-<a href="#__codelineno-1-18" id="__codelineno-1-18" name="__codelineno-1-18"></a>    <span class="p">)</span>
-<a href="#__codelineno-1-19" id="__codelineno-1-19" name="__codelineno-1-19"></a>
-<a href="#__codelineno-1-20" id="__codelineno-1-20" name="__codelineno-1-20"></a>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-1-21" id="__codelineno-1-21" name="__codelineno-1-21"></a>        <span class="n">im_array</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<a href="#__codelineno-1-22" id="__codelineno-1-22" name="__codelineno-1-22"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im_array</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-<a href="#__codelineno-1-23" id="__codelineno-1-23" name="__codelineno-1-23"></a>
-<a href="#__codelineno-1-24" id="__codelineno-1-24" name="__codelineno-1-24"></a>    <span class="k">return</span> <span class="n">im</span>
-<a href="#__codelineno-1-25" id="__codelineno-1-25" name="__codelineno-1-25"></a>
-<a href="#__codelineno-1-26" id="__codelineno-1-26" name="__codelineno-1-26"></a>
-<a href="#__codelineno-1-27" id="__codelineno-1-27" name="__codelineno-1-27"></a><span class="n">iface</span> <span class="o">=</span> <span class="n">gr</span><span class="o">.</span><span class="n">Interface</span><span class="p">(</span>
-<a href="#__codelineno-1-28" id="__codelineno-1-28" name="__codelineno-1-28"></a>    <span class="n">fn</span><span class="o">=</span><span class="n">predict_image</span><span class="p">,</span>
-<a href="#__codelineno-1-29" id="__codelineno-1-29" name="__codelineno-1-29"></a>    <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
-<a href="#__codelineno-1-30" id="__codelineno-1-30" name="__codelineno-1-30"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"pil"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Upload Image"</span><span class="p">),</span>
-<a href="#__codelineno-1-31" id="__codelineno-1-31" name="__codelineno-1-31"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Confidence threshold"</span><span class="p">),</span>
-<a href="#__codelineno-1-32" id="__codelineno-1-32" name="__codelineno-1-32"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"IoU threshold"</span><span class="p">),</span>
-<a href="#__codelineno-1-33" id="__codelineno-1-33" name="__codelineno-1-33"></a>    <span class="p">],</span>
-<a href="#__codelineno-1-34" id="__codelineno-1-34" name="__codelineno-1-34"></a>    <span class="n">outputs</span><span class="o">=</span><span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"pil"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Result"</span><span class="p">),</span>
-<a href="#__codelineno-1-35" id="__codelineno-1-35" name="__codelineno-1-35"></a>    <span class="n">title</span><span class="o">=</span><span class="s2">"Ultralytics Gradio"</span><span class="p">,</span>
-<a href="#__codelineno-1-36" id="__codelineno-1-36" name="__codelineno-1-36"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">"Upload images for inference. The Ultralytics YOLO11n model is used by default."</span><span class="p">,</span>
-<a href="#__codelineno-1-37" id="__codelineno-1-37" name="__codelineno-1-37"></a>    <span class="n">examples</span><span class="o">=</span><span class="p">[</span>
-<a href="#__codelineno-1-38" id="__codelineno-1-38" name="__codelineno-1-38"></a>        <span class="p">[</span><span class="n">ASSETS</span> <span class="o">/</span> <span class="s2">"bus.jpg"</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span>
-<a href="#__codelineno-1-39" id="__codelineno-1-39" name="__codelineno-1-39"></a>        <span class="p">[</span><span class="n">ASSETS</span> <span class="o">/</span> <span class="s2">"zidane.jpg"</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span>
-<a href="#__codelineno-1-40" id="__codelineno-1-40" name="__codelineno-1-40"></a>    <span class="p">],</span>
-<a href="#__codelineno-1-41" id="__codelineno-1-41" name="__codelineno-1-41"></a><span class="p">)</span>
-<a href="#__codelineno-1-42" id="__codelineno-1-42" name="__codelineno-1-42"></a>
-<a href="#__codelineno-1-43" id="__codelineno-1-43" name="__codelineno-1-43"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
-<a href="#__codelineno-1-44" id="__codelineno-1-44" name="__codelineno-1-44"></a>    <span class="n">iface</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">gradio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gr</span>
+<a id="__codelineno-1-2"></a><span class="kn">import</span><span class="w"> </span><span class="nn">PIL.Image</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">Image</span>
+<a id="__codelineno-1-3"></a>
+<a id="__codelineno-1-4"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">ASSETS</span><span class="p">,</span> <span class="n">YOLO</span>
+<a id="__codelineno-1-5"></a>
+<a id="__codelineno-1-6"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-1-7"></a>
+<a id="__codelineno-1-8"></a>
+<a id="__codelineno-1-9"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="p">):</span>
+<a id="__codelineno-1-10"></a><span class="w">    </span><span class="sd">"""Predicts objects in an image using a YOLO11 model with adjustable confidence and IOU thresholds."""</span>
+<a id="__codelineno-1-11"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<a id="__codelineno-1-12"></a>        <span class="n">source</span><span class="o">=</span><span class="n">img</span><span class="p">,</span>
+<a id="__codelineno-1-13"></a>        <span class="n">conf</span><span class="o">=</span><span class="n">conf_threshold</span><span class="p">,</span>
+<a id="__codelineno-1-14"></a>        <span class="n">iou</span><span class="o">=</span><span class="n">iou_threshold</span><span class="p">,</span>
+<a id="__codelineno-1-15"></a>        <span class="n">show_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-1-16"></a>        <span class="n">show_conf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-1-17"></a>        <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span>
+<a id="__codelineno-1-18"></a>    <span class="p">)</span>
+<a id="__codelineno-1-19"></a>
+<a id="__codelineno-1-20"></a>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-1-21"></a>        <span class="n">im_array</span> <span class="o">=</span> <span class="n">r</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<a id="__codelineno-1-22"></a>        <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im_array</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<a id="__codelineno-1-23"></a>
+<a id="__codelineno-1-24"></a>    <span class="k">return</span> <span class="n">im</span>
+<a id="__codelineno-1-25"></a>
+<a id="__codelineno-1-26"></a>
+<a id="__codelineno-1-27"></a><span class="n">iface</span> <span class="o">=</span> <span class="n">gr</span><span class="o">.</span><span class="n">Interface</span><span class="p">(</span>
+<a id="__codelineno-1-28"></a>    <span class="n">fn</span><span class="o">=</span><span class="n">predict_image</span><span class="p">,</span>
+<a id="__codelineno-1-29"></a>    <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-1-30"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"pil"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Upload Image"</span><span class="p">),</span>
+<a id="__codelineno-1-31"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Confidence threshold"</span><span class="p">),</span>
+<a id="__codelineno-1-32"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"IoU threshold"</span><span class="p">),</span>
+<a id="__codelineno-1-33"></a>    <span class="p">],</span>
+<a id="__codelineno-1-34"></a>    <span class="n">outputs</span><span class="o">=</span><span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"pil"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Result"</span><span class="p">),</span>
+<a id="__codelineno-1-35"></a>    <span class="n">title</span><span class="o">=</span><span class="s2">"Ultralytics Gradio"</span><span class="p">,</span>
+<a id="__codelineno-1-36"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">"Upload images for inference. The Ultralytics YOLO11n model is used by default."</span><span class="p">,</span>
+<a id="__codelineno-1-37"></a>    <span class="n">examples</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-1-38"></a>        <span class="p">[</span><span class="n">ASSETS</span> <span class="o">/</span> <span class="s2">"bus.jpg"</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span>
+<a id="__codelineno-1-39"></a>        <span class="p">[</span><span class="n">ASSETS</span> <span class="o">/</span> <span class="s2">"zidane.jpg"</span><span class="p">,</span> <span class="mf">0.25</span><span class="p">,</span> <span class="mf">0.45</span><span class="p">],</span>
+<a id="__codelineno-1-40"></a>    <span class="p">],</span>
+<a id="__codelineno-1-41"></a><span class="p">)</span>
+<a id="__codelineno-1-42"></a>
+<a id="__codelineno-1-43"></a><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">"__main__"</span><span class="p">:</span>
+<a id="__codelineno-1-44"></a>    <span class="n">iface</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
 </code></pre></div>
 <h2 id="parameters-explanation">Parameters Explanation</h2>
 <table>
@@ -923,36 +923,36 @@
 <li><strong>Upload and Adjust:</strong> Upload your image and adjust the confidence and IoU thresholds on the Gradio interface to get real-time object detection results.</li>
 </ol>
 <p>Here's a minimal code snippet for reference:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">gradio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gr</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="p">):</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>        <span class="n">source</span><span class="o">=</span><span class="n">img</span><span class="p">,</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span class="n">conf</span><span class="o">=</span><span class="n">conf_threshold</span><span class="p">,</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>        <span class="n">iou</span><span class="o">=</span><span class="n">iou_threshold</span><span class="p">,</span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>        <span class="n">show_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>        <span class="n">show_conf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>    <span class="p">)</span>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a>    <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="k">if</span> <span class="n">results</span> <span class="k">else</span> <span class="kc">None</span>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a>
-<a href="#__codelineno-2-19" id="__codelineno-2-19" name="__codelineno-2-19"></a><span class="n">iface</span> <span class="o">=</span> <span class="n">gr</span><span class="o">.</span><span class="n">Interface</span><span class="p">(</span>
-<a href="#__codelineno-2-20" id="__codelineno-2-20" name="__codelineno-2-20"></a>    <span class="n">fn</span><span class="o">=</span><span class="n">predict_image</span><span class="p">,</span>
-<a href="#__codelineno-2-21" id="__codelineno-2-21" name="__codelineno-2-21"></a>    <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
-<a href="#__codelineno-2-22" id="__codelineno-2-22" name="__codelineno-2-22"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"pil"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Upload Image"</span><span class="p">),</span>
-<a href="#__codelineno-2-23" id="__codelineno-2-23" name="__codelineno-2-23"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Confidence threshold"</span><span class="p">),</span>
-<a href="#__codelineno-2-24" id="__codelineno-2-24" name="__codelineno-2-24"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"IoU threshold"</span><span class="p">),</span>
-<a href="#__codelineno-2-25" id="__codelineno-2-25" name="__codelineno-2-25"></a>    <span class="p">],</span>
-<a href="#__codelineno-2-26" id="__codelineno-2-26" name="__codelineno-2-26"></a>    <span class="n">outputs</span><span class="o">=</span><span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"pil"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Result"</span><span class="p">),</span>
-<a href="#__codelineno-2-27" id="__codelineno-2-27" name="__codelineno-2-27"></a>    <span class="n">title</span><span class="o">=</span><span class="s2">"Ultralytics Gradio YOLO11"</span><span class="p">,</span>
-<a href="#__codelineno-2-28" id="__codelineno-2-28" name="__codelineno-2-28"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">"Upload images for YOLO11 object detection."</span><span class="p">,</span>
-<a href="#__codelineno-2-29" id="__codelineno-2-29" name="__codelineno-2-29"></a><span class="p">)</span>
-<a href="#__codelineno-2-30" id="__codelineno-2-30" name="__codelineno-2-30"></a><span class="n">iface</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">gradio</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">gr</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-2-4"></a>
+<a id="__codelineno-2-5"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-2-6"></a>
+<a id="__codelineno-2-7"></a>
+<a id="__codelineno-2-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">predict_image</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">conf_threshold</span><span class="p">,</span> <span class="n">iou_threshold</span><span class="p">):</span>
+<a id="__codelineno-2-9"></a>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<a id="__codelineno-2-10"></a>        <span class="n">source</span><span class="o">=</span><span class="n">img</span><span class="p">,</span>
+<a id="__codelineno-2-11"></a>        <span class="n">conf</span><span class="o">=</span><span class="n">conf_threshold</span><span class="p">,</span>
+<a id="__codelineno-2-12"></a>        <span class="n">iou</span><span class="o">=</span><span class="n">iou_threshold</span><span class="p">,</span>
+<a id="__codelineno-2-13"></a>        <span class="n">show_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-2-14"></a>        <span class="n">show_conf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<a id="__codelineno-2-15"></a>    <span class="p">)</span>
+<a id="__codelineno-2-16"></a>    <span class="k">return</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span> <span class="k">if</span> <span class="n">results</span> <span class="k">else</span> <span class="kc">None</span>
+<a id="__codelineno-2-17"></a>
+<a id="__codelineno-2-18"></a>
+<a id="__codelineno-2-19"></a><span class="n">iface</span> <span class="o">=</span> <span class="n">gr</span><span class="o">.</span><span class="n">Interface</span><span class="p">(</span>
+<a id="__codelineno-2-20"></a>    <span class="n">fn</span><span class="o">=</span><span class="n">predict_image</span><span class="p">,</span>
+<a id="__codelineno-2-21"></a>    <span class="n">inputs</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-2-22"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"pil"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Upload Image"</span><span class="p">),</span>
+<a id="__codelineno-2-23"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Confidence threshold"</span><span class="p">),</span>
+<a id="__codelineno-2-24"></a>        <span class="n">gr</span><span class="o">.</span><span class="n">Slider</span><span class="p">(</span><span class="n">minimum</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">maximum</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"IoU threshold"</span><span class="p">),</span>
+<a id="__codelineno-2-25"></a>    <span class="p">],</span>
+<a id="__codelineno-2-26"></a>    <span class="n">outputs</span><span class="o">=</span><span class="n">gr</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="nb">type</span><span class="o">=</span><span class="s2">"pil"</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">"Result"</span><span class="p">),</span>
+<a id="__codelineno-2-27"></a>    <span class="n">title</span><span class="o">=</span><span class="s2">"Ultralytics Gradio YOLO11"</span><span class="p">,</span>
+<a id="__codelineno-2-28"></a>    <span class="n">description</span><span class="o">=</span><span class="s2">"Upload images for YOLO11 object detection."</span><span class="p">,</span>
+<a id="__codelineno-2-29"></a><span class="p">)</span>
+<a id="__codelineno-2-30"></a><span class="n">iface</span><span class="o">.</span><span class="n">launch</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="what-are-the-benefits-of-using-gradio-for-ultralytics-yolo11-object-detection">What are the benefits of using Gradio for Ultralytics YOLO11 object detection?</h3>
 <p>Using Gradio for Ultralytics YOLO11 object detection offers several benefits:</p>

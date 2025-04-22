@@ -946,12 +946,12 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <ul>
 <li>
 <p>Install the <code>clearml</code> python package:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>clearml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>clearml
 </code></pre></div>
 </li>
 <li>
 <p>Connect the ClearML SDK to the server by <a href="https://app.clear.ml/settings/workspace-configuration">creating credentials</a> (go right top to Settings -&gt; Workspace -&gt; Create new credentials), then execute the command below and follow the instructions:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a>clearml-init
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a>clearml-init
 </code></pre></div>
 </li>
 </ul>
@@ -959,14 +959,14 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <p><br/></p>
 <h2 id="training-yolov5-with-clearml">🚀 Training YOLOv5 With ClearML</h2>
 <p>To enable ClearML experiment tracking, simply install the ClearML pip package.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>clearml
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a>pip<span class="w"> </span>install<span class="w"> </span>clearml
 </code></pre></div>
 <p>This will enable integration with the YOLOv5 training script. Every training run from now on will be captured and stored by the ClearML <a href="https://docs.ultralytics.com/integrations/clearml/">experiment manager</a>.</p>
 <p>If you want to change the <code>project_name</code> or <code>task_name</code>, use the <code>--project</code> and <code>--name</code> arguments of the <code>train.py</code> script, by default the project will be called <code>YOLOv5</code> and the task <code>Training</code>. PLEASE NOTE: ClearML uses <code>/</code> as a delimiter for subprojects, so be careful when using <code>/</code> in your project name!</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco8.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco8.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
 </code></pre></div>
 <p>or with custom project and task name:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--project<span class="w"> </span>my_project<span class="w"> </span>--name<span class="w"> </span>my_training<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco8.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--project<span class="w"> </span>my_project<span class="w"> </span>--name<span class="w"> </span>my_training<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>coco8.yaml<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
 </code></pre></div>
 <p>This will capture:</p>
 <ul>
@@ -989,43 +989,43 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <p><img alt="ClearML Dataset Interface" src="https://github.com/ultralytics/docs/releases/download/0/clearml-dataset-interface.avif"/></p>
 <h3 id="prepare-your-dataset">Prepare Your Dataset</h3>
 <p>The YOLOv5 repository supports a number of different datasets by using YAML files containing their information. By default, datasets are downloaded to the <code>../datasets</code> folder in relation to the repository root folder. So if you downloaded the <code>coco128</code> dataset using the link in the YAML or with the scripts provided by yolov5, you get this folder structure:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a>..
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>|_ yolov5
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>|_ datasets
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a>    |_ coco128
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a>        |_ images
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>        |_ labels
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>        |_ LICENSE
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>        |_ README.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a>..
+<a id="__codelineno-5-2"></a>|_ yolov5
+<a id="__codelineno-5-3"></a>|_ datasets
+<a id="__codelineno-5-4"></a>    |_ coco128
+<a id="__codelineno-5-5"></a>        |_ images
+<a id="__codelineno-5-6"></a>        |_ labels
+<a id="__codelineno-5-7"></a>        |_ LICENSE
+<a id="__codelineno-5-8"></a>        |_ README.txt
 </code></pre></div>
 <p>But this can be any dataset you wish. Feel free to use your own, as long as you keep to this folder structure.</p>
 <p>Next, ⚠️<strong>copy the corresponding YAML file to the root of the dataset folder</strong>⚠️. This YAML file contains the information ClearML will need to properly use the dataset. You can make this yourself too, of course, just follow the structure of the example YAMLs.</p>
 <p>Basically we need the following keys: <code>path</code>, <code>train</code>, <code>test</code>, <code>val</code>, <code>nc</code>, <code>names</code>.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a>..
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>|_ yolov5
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>|_ datasets
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a>    |_ coco128
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>        |_ images
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a>        |_ labels
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>        |_ coco128.yaml  # &lt;---- HERE!
-<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a>        |_ LICENSE
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a>        |_ README.txt
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a>..
+<a id="__codelineno-6-2"></a>|_ yolov5
+<a id="__codelineno-6-3"></a>|_ datasets
+<a id="__codelineno-6-4"></a>    |_ coco128
+<a id="__codelineno-6-5"></a>        |_ images
+<a id="__codelineno-6-6"></a>        |_ labels
+<a id="__codelineno-6-7"></a>        |_ coco128.yaml  # &lt;---- HERE!
+<a id="__codelineno-6-8"></a>        |_ LICENSE
+<a id="__codelineno-6-9"></a>        |_ README.txt
 </code></pre></div>
 <h3 id="upload-your-dataset">Upload Your Dataset</h3>
 <p>To get this dataset into ClearML as a versioned dataset, go to the dataset root folder and run the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>coco128
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>clearml-data<span class="w"> </span>sync<span class="w"> </span>--project<span class="w"> </span>YOLOv5<span class="w"> </span>--name<span class="w"> </span>coco128<span class="w"> </span>--folder<span class="w"> </span>.
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="nb">cd</span><span class="w"> </span>coco128
+<a id="__codelineno-7-2"></a>clearml-data<span class="w"> </span>sync<span class="w"> </span>--project<span class="w"> </span>YOLOv5<span class="w"> </span>--name<span class="w"> </span>coco128<span class="w"> </span>--folder<span class="w"> </span>.
 </code></pre></div>
 <p>The command <code>clearml-data sync</code> is actually a shorthand command. You could also run these commands one after the other:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1"># Optionally add --parent &lt;parent_dataset_id&gt; if you want to base</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="c1"># this version on another dataset version, so no duplicate files are uploaded!</span>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a>clearml-data<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>coco128<span class="w"> </span>--project<span class="w"> </span>YOLOv5
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a>clearml-data<span class="w"> </span>add<span class="w"> </span>--files<span class="w"> </span>.
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>clearml-data<span class="w"> </span>close
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="c1"># Optionally add --parent &lt;parent_dataset_id&gt; if you want to base</span>
+<a id="__codelineno-8-2"></a><span class="c1"># this version on another dataset version, so no duplicate files are uploaded!</span>
+<a id="__codelineno-8-3"></a>clearml-data<span class="w"> </span>create<span class="w"> </span>--name<span class="w"> </span>coco128<span class="w"> </span>--project<span class="w"> </span>YOLOv5
+<a id="__codelineno-8-4"></a>clearml-data<span class="w"> </span>add<span class="w"> </span>--files<span class="w"> </span>.
+<a id="__codelineno-8-5"></a>clearml-data<span class="w"> </span>close
 </code></pre></div>
 <h3 id="run-training-using-a-clearml-dataset">Run Training Using A ClearML Dataset</h3>
 <p>Now that you have a ClearML dataset, you can very simply use it to train custom YOLOv5 🚀 models!</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>clearml://YOUR_DATASET_ID<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a>python<span class="w"> </span>train.py<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--batch<span class="w"> </span><span class="m">16</span><span class="w"> </span>--epochs<span class="w"> </span><span class="m">3</span><span class="w"> </span>--data<span class="w"> </span>clearml://YOUR_DATASET_ID<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--cache
 </code></pre></div>
 <p><br/></p>
 <h3 id="hyperparameter-optimization">👀 Hyperparameter Optimization</h3>
@@ -1033,9 +1033,9 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <p>Using the code information, installed packages and environment details, the experiment itself is now <strong>completely reproducible</strong>. In fact, ClearML allows you to clone an experiment and even change its parameters. We can then just rerun it with these new parameters automatically, this is basically what HPO does!</p>
 <p>To <strong>run hyperparameter optimization locally</strong>, we've included a pre-made script for you. Just make sure a training task has been run at least once, so it is in the ClearML experiment manager, we will essentially clone it and change its hyperparameters.</p>
 <p>You'll need to fill in the ID of this <code>template task</code> in the script found at <code>utils/loggers/clearml/hpo.py</code> and then just run it. You can change <code>task.execute_locally()</code> to <code>task.execute()</code> to put it in a ClearML queue and have a remote agent work on it instead.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1"># To use optuna, install it first, otherwise you can change the optimizer to just be RandomSearch</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>pip<span class="w"> </span>install<span class="w"> </span>optuna
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a>python<span class="w"> </span>utils/loggers/clearml/hpo.py
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="c1"># To use optuna, install it first, otherwise you can change the optimizer to just be RandomSearch</span>
+<a id="__codelineno-10-2"></a>pip<span class="w"> </span>install<span class="w"> </span>optuna
+<a id="__codelineno-10-3"></a>python<span class="w"> </span>utils/loggers/clearml/hpo.py
 </code></pre></div>
 <p><img alt="HPO" src="https://github.com/ultralytics/docs/releases/download/0/hpo-clearml-experiment.avif"/></p>
 <h2 id="remote-execution-advanced">🤯 Remote Execution (advanced)</h2>
@@ -1046,7 +1046,7 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 </ul>
 <p>In short: every experiment tracked by the experiment manager contains enough information to reproduce it on a different machine (installed packages, uncommitted changes etc.). So a ClearML agent does just that: it listens to a queue for incoming tasks and when it finds one, it recreates the environment and runs it while still reporting scalars, plots etc. to the experiment manager.</p>
 <p>You can turn any machine (a cloud VM, a local GPU machine, your own laptop...) into a ClearML agent by simply running:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a>clearml-agent<span class="w"> </span>daemon<span class="w"> </span>--queue<span class="w"> </span>QUEUES_TO_LISTEN_TO<span class="w"> </span><span class="o">[</span>--docker<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a>clearml-agent<span class="w"> </span>daemon<span class="w"> </span>--queue<span class="w"> </span>QUEUES_TO_LISTEN_TO<span class="w"> </span><span class="o">[</span>--docker<span class="o">]</span>
 </code></pre></div>
 <h3 id="cloning-editing-and-enqueuing">Cloning, Editing And Enqueuing</h3>
 <p>With our agent running, we can give it some work. Remember from the HPO section that we can clone a task and edit the hyperparameters? We can do that from the interface too!</p>
@@ -1057,16 +1057,16 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <h3 id="executing-a-task-remotely">Executing A Task Remotely</h3>
 <p>Now you can clone a task like we explained above, or simply mark your current script by adding <code>task.execute_remotely()</code> and on execution it will be put into a queue, for the agent to start working on!</p>
 <p>To run the YOLOv5 training script remotely, all you have to do is add this line to the training.py script after the clearml logger has been instantiated:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="c1"># ...</span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="c1"># Loggers</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="n">data_dict</span> <span class="o">=</span> <span class="kc">None</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a>    <span class="n">loggers</span> <span class="o">=</span> <span class="n">Loggers</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">LOGGER</span><span class="p">)</span>  <span class="c1"># loggers instance</span>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a>    <span class="k">if</span> <span class="n">loggers</span><span class="o">.</span><span class="n">clearml</span><span class="p">:</span>
-<a href="#__codelineno-12-7" id="__codelineno-12-7" name="__codelineno-12-7"></a>        <span class="n">loggers</span><span class="o">.</span><span class="n">clearml</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">execute_remotely</span><span class="p">(</span><span class="n">queue</span><span class="o">=</span><span class="s2">"my_queue"</span><span class="p">)</span>  <span class="c1"># &lt;------ ADD THIS LINE</span>
-<a href="#__codelineno-12-8" id="__codelineno-12-8" name="__codelineno-12-8"></a>        <span class="c1"># Data_dict is either None is user did not choose for ClearML dataset or is filled in by ClearML</span>
-<a href="#__codelineno-12-9" id="__codelineno-12-9" name="__codelineno-12-9"></a>        <span class="n">data_dict</span> <span class="o">=</span> <span class="n">loggers</span><span class="o">.</span><span class="n">clearml</span><span class="o">.</span><span class="n">data_dict</span>
-<a href="#__codelineno-12-10" id="__codelineno-12-10" name="__codelineno-12-10"></a><span class="c1"># ...</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="c1"># ...</span>
+<a id="__codelineno-12-2"></a><span class="c1"># Loggers</span>
+<a id="__codelineno-12-3"></a><span class="n">data_dict</span> <span class="o">=</span> <span class="kc">None</span>
+<a id="__codelineno-12-4"></a><span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
+<a id="__codelineno-12-5"></a>    <span class="n">loggers</span> <span class="o">=</span> <span class="n">Loggers</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">weights</span><span class="p">,</span> <span class="n">opt</span><span class="p">,</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">LOGGER</span><span class="p">)</span>  <span class="c1"># loggers instance</span>
+<a id="__codelineno-12-6"></a>    <span class="k">if</span> <span class="n">loggers</span><span class="o">.</span><span class="n">clearml</span><span class="p">:</span>
+<a id="__codelineno-12-7"></a>        <span class="n">loggers</span><span class="o">.</span><span class="n">clearml</span><span class="o">.</span><span class="n">task</span><span class="o">.</span><span class="n">execute_remotely</span><span class="p">(</span><span class="n">queue</span><span class="o">=</span><span class="s2">"my_queue"</span><span class="p">)</span>  <span class="c1"># &lt;------ ADD THIS LINE</span>
+<a id="__codelineno-12-8"></a>        <span class="c1"># Data_dict is either None is user did not choose for ClearML dataset or is filled in by ClearML</span>
+<a id="__codelineno-12-9"></a>        <span class="n">data_dict</span> <span class="o">=</span> <span class="n">loggers</span><span class="o">.</span><span class="n">clearml</span><span class="o">.</span><span class="n">data_dict</span>
+<a id="__codelineno-12-10"></a><span class="c1"># ...</span>
 </code></pre></div>
 <p>When running the training script after this change, python will run the script up until that line, after which it will package the code and send it to the queue instead!</p>
 <h3 id="autoscaling-workers">Autoscaling workers</h3>
@@ -1081,7 +1081,7 @@ And so much more. It's up to you how many of these tools you want to use, you ca
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 05, 2025">
-<span class="hover-item">✏️</span> Updated 16 days ago
+<span class="hover-item">✏️</span> Updated 17 days ago
     </span>
 </div>
 <div class="authors-container">

@@ -917,7 +917,7 @@
 <h2 id="zero-shot-transfer-on-coco-dataset">Zero-shot Transfer on COCO Dataset</h2>
 <div class="admonition tip">
 <p class="admonition-title">Performance</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Detection (COCO)</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <table>
@@ -982,7 +982,7 @@
 </table>
 </div>
 </div>
-</input></div>
+</div>
 </div>
 <h2 id="usage-examples">Usage Examples</h2>
 <p>The YOLO-World models are easy to integrate into your Python applications. Ultralytics provides user-friendly <a href="../../usage/python/">Python API</a> and <a href="../../usage/cli/">CLI commands</a> to streamline development.</p>
@@ -994,81 +994,81 @@
 <p><a href="https://www.ultralytics.com/glossary/object-detection">Object detection</a> is straightforward with the <code>train</code> method, as illustrated below:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p><a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> pretrained <code>*.pt</code> models as well as configuration <code>*.yaml</code> files can be passed to the <code>YOLOWorld()</code> class to create a model instance in python:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="c1"># Load a pretrained YOLOv8s-worldv2 model</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-worldv2.pt"</span><span class="p">)</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c1"># Run inference with the YOLOv8n model on the 'bus.jpg' image</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="c1"># Load a pretrained YOLOv8s-worldv2 model</span>
+<a id="__codelineno-0-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-worldv2.pt"</span><span class="p">)</span>
+<a id="__codelineno-0-5"></a>
+<a id="__codelineno-0-6"></a><span class="c1"># Train the model on the COCO8 example dataset for 100 epochs</span>
+<a id="__codelineno-0-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<a id="__codelineno-0-8"></a>
+<a id="__codelineno-0-9"></a><span class="c1"># Run inference with the YOLOv8n model on the 'bus.jpg' image</span>
+<a id="__codelineno-0-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"path/to/bus.jpg"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1"># Load a pretrained YOLOv8s-worldv2 model and train it on the COCO8 example dataset for 100 epochs</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-worldv2.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="c1"># Load a pretrained YOLOv8s-worldv2 model and train it on the COCO8 example dataset for 100 epochs</span>
+<a id="__codelineno-1-2"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-worldv2.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h3 id="predict-usage">Predict Usage</h3>
 <p>Object detection is straightforward with the <code>predict</code> method, as illustrated below:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"><input id="__tabbed_3_2" name="__tabbed_3" type="radio"><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># Initialize a YOLO-World model</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or select yolov8m/l-world.pt for different sizes</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a><span class="c1"># Execute inference with the YOLOv8s-world model on the specified image</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a><span class="c1"># Show results</span>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a><span class="c1"># Initialize a YOLO-World model</span>
+<a id="__codelineno-2-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or select yolov8m/l-world.pt for different sizes</span>
+<a id="__codelineno-2-5"></a>
+<a id="__codelineno-2-6"></a><span class="c1"># Execute inference with the YOLOv8s-world model on the specified image</span>
+<a id="__codelineno-2-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-2-8"></a>
+<a id="__codelineno-2-9"></a><span class="c1"># Show results</span>
+<a id="__codelineno-2-10"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1"># Perform object detection using a YOLO-World model</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-world.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/image.jpg<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="c1"># Perform object detection using a YOLO-World model</span>
+<a id="__codelineno-3-2"></a>yolo<span class="w"> </span>predict<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-world.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span>path/to/image.jpg<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <p>This snippet demonstrates the simplicity of loading a pre-trained model and running a prediction on an image.</p>
 <h3 id="val-usage">Val Usage</h3>
 <p>Model validation on a dataset is streamlined as follows:</p>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"><input id="__tabbed_4_2" name="__tabbed_4" type="radio"><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># Create a YOLO-World model</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or select yolov8m/l-world.pt for different sizes</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="c1"># Conduct model validation on the COCO8 example dataset</span>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-4-2"></a>
+<a id="__codelineno-4-3"></a><span class="c1"># Create a YOLO-World model</span>
+<a id="__codelineno-4-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or select yolov8m/l-world.pt for different sizes</span>
+<a id="__codelineno-4-5"></a>
+<a id="__codelineno-4-6"></a><span class="c1"># Conduct model validation on the COCO8 example dataset</span>
+<a id="__codelineno-4-7"></a><span class="n">metrics</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="c1"># Validate a YOLO-World model on the COCO8 dataset with a specified image size</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-world.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="c1"># Validate a YOLO-World model on the COCO8 dataset with a specified image size</span>
+<a id="__codelineno-5-2"></a>yolo<span class="w"> </span>val<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-world.pt<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h3 id="track-usage">Track Usage</h3>
 <p><a href="https://www.ultralytics.com/glossary/object-tracking">Object tracking</a> with YOLO-World model on a video/images is streamlined as follows:</p>
@@ -1077,18 +1077,18 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio"/><input id="__tabbed_5_2" name="__tabbed_5" type="radio"/><div class="tabbed-labels"><label for="__tabbed_5_1">Python</label><label for="__tabbed_5_2">CLI</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="c1"># Create a YOLO-World model</span>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or select yolov8m/l-world.pt for different sizes</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="c1"># Track with a YOLO-World model on a video</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-6-2"></a>
+<a id="__codelineno-6-3"></a><span class="c1"># Create a YOLO-World model</span>
+<a id="__codelineno-6-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or select yolov8m/l-world.pt for different sizes</span>
+<a id="__codelineno-6-5"></a>
+<a id="__codelineno-6-6"></a><span class="c1"># Track with a YOLO-World model on a video</span>
+<a id="__codelineno-6-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="c1"># Track with a YOLO-World model on the video with a specified image size</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-world.pt<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="c1"># Track with a YOLO-World model on the video with a specified image size</span>
+<a id="__codelineno-7-2"></a>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-world.pt<span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span><span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"path/to/video.mp4"</span>
 </code></pre></div>
 </div>
 </div>
@@ -1107,19 +1107,19 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="6:1"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio"/><div class="tabbed-labels"><label for="__tabbed_6_1">Custom Inference Prompts</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1"># Initialize a YOLO-World model</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or choose yolov8m/l-world.pt</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a><span class="c1"># Define custom classes</span>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a>
-<a href="#__codelineno-8-9" id="__codelineno-8-9" name="__codelineno-8-9"></a><span class="c1"># Execute prediction for specified categories on an image</span>
-<a href="#__codelineno-8-10" id="__codelineno-8-10" name="__codelineno-8-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-8-11" id="__codelineno-8-11" name="__codelineno-8-11"></a>
-<a href="#__codelineno-8-12" id="__codelineno-8-12" name="__codelineno-8-12"></a><span class="c1"># Show results</span>
-<a href="#__codelineno-8-13" id="__codelineno-8-13" name="__codelineno-8-13"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-8-2"></a>
+<a id="__codelineno-8-3"></a><span class="c1"># Initialize a YOLO-World model</span>
+<a id="__codelineno-8-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or choose yolov8m/l-world.pt</span>
+<a id="__codelineno-8-5"></a>
+<a id="__codelineno-8-6"></a><span class="c1"># Define custom classes</span>
+<a id="__codelineno-8-7"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
+<a id="__codelineno-8-8"></a>
+<a id="__codelineno-8-9"></a><span class="c1"># Execute prediction for specified categories on an image</span>
+<a id="__codelineno-8-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-8-11"></a>
+<a id="__codelineno-8-12"></a><span class="c1"># Show results</span>
+<a id="__codelineno-8-13"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
@@ -1132,28 +1132,28 @@
 <div class="tabbed-content">
 <div class="tabbed-block">
 <p>First load a YOLO-World model, set custom classes for it and save it:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="c1"># Initialize a YOLO-World model</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or select yolov8m/l-world.pt</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a>
-<a href="#__codelineno-9-6" id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="c1"># Define custom classes</span>
-<a href="#__codelineno-9-7" id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
-<a href="#__codelineno-9-8" id="__codelineno-9-8" name="__codelineno-9-8"></a>
-<a href="#__codelineno-9-9" id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="c1"># Save the model with the defined offline vocabulary</span>
-<a href="#__codelineno-9-10" id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"custom_yolov8s.pt"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-9-2"></a>
+<a id="__codelineno-9-3"></a><span class="c1"># Initialize a YOLO-World model</span>
+<a id="__codelineno-9-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>  <span class="c1"># or select yolov8m/l-world.pt</span>
+<a id="__codelineno-9-5"></a>
+<a id="__codelineno-9-6"></a><span class="c1"># Define custom classes</span>
+<a id="__codelineno-9-7"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
+<a id="__codelineno-9-8"></a>
+<a id="__codelineno-9-9"></a><span class="c1"># Save the model with the defined offline vocabulary</span>
+<a id="__codelineno-9-10"></a><span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="s2">"custom_yolov8s.pt"</span><span class="p">)</span>
 </code></pre></div>
 <p>After saving, the custom_yolov8s.pt model behaves like any other pre-trained YOLOv8 model but with a key difference: it is now optimized to detect only the classes you have defined. This customization can significantly improve detection performance and efficiency for your specific application scenarios.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="c1"># Load your custom model</span>
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"custom_yolov8s.pt"</span><span class="p">)</span>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="c1"># Run inference to detect your custom classes</span>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a>
-<a href="#__codelineno-10-9" id="__codelineno-10-9" name="__codelineno-10-9"></a><span class="c1"># Show results</span>
-<a href="#__codelineno-10-10" id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-10-2"></a>
+<a id="__codelineno-10-3"></a><span class="c1"># Load your custom model</span>
+<a id="__codelineno-10-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"custom_yolov8s.pt"</span><span class="p">)</span>
+<a id="__codelineno-10-5"></a>
+<a id="__codelineno-10-6"></a><span class="c1"># Run inference to detect your custom classes</span>
+<a id="__codelineno-10-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-10-8"></a>
+<a id="__codelineno-10-9"></a><span class="c1"># Show results</span>
+<a id="__codelineno-10-10"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
@@ -1235,27 +1235,27 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="8:1"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio"/><div class="tabbed-labels"><label for="__tabbed_8_1">Python</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.world.train_world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorldTrainerFromScratch</span>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a>    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>        <span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a>        <span class="n">grounding_data</span><span class="o">=</span><span class="p">[</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a>            <span class="nb">dict</span><span class="p">(</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/flickr30k/images"</span><span class="p">,</span>
-<a href="#__codelineno-11-10" id="__codelineno-11-10" name="__codelineno-11-10"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/flickr30k/final_flickr_separateGT_train.json"</span><span class="p">,</span>
-<a href="#__codelineno-11-11" id="__codelineno-11-11" name="__codelineno-11-11"></a>            <span class="p">),</span>
-<a href="#__codelineno-11-12" id="__codelineno-11-12" name="__codelineno-11-12"></a>            <span class="nb">dict</span><span class="p">(</span>
-<a href="#__codelineno-11-13" id="__codelineno-11-13" name="__codelineno-11-13"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/GQA/images"</span><span class="p">,</span>
-<a href="#__codelineno-11-14" id="__codelineno-11-14" name="__codelineno-11-14"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/GQA/final_mixed_train_no_coco.json"</span><span class="p">,</span>
-<a href="#__codelineno-11-15" id="__codelineno-11-15" name="__codelineno-11-15"></a>            <span class="p">),</span>
-<a href="#__codelineno-11-16" id="__codelineno-11-16" name="__codelineno-11-16"></a>        <span class="p">],</span>
-<a href="#__codelineno-11-17" id="__codelineno-11-17" name="__codelineno-11-17"></a>    <span class="p">),</span>
-<a href="#__codelineno-11-18" id="__codelineno-11-18" name="__codelineno-11-18"></a>    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]),</span>
-<a href="#__codelineno-11-19" id="__codelineno-11-19" name="__codelineno-11-19"></a><span class="p">)</span>
-<a href="#__codelineno-11-20" id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-worldv2.yaml"</span><span class="p">)</span>
-<a href="#__codelineno-11-21" id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">WorldTrainerFromScratch</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
+<a id="__codelineno-11-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.world.train_world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorldTrainerFromScratch</span>
+<a id="__codelineno-11-3"></a>
+<a id="__codelineno-11-4"></a><span class="n">data</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-11-5"></a>    <span class="n">train</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-11-6"></a>        <span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
+<a id="__codelineno-11-7"></a>        <span class="n">grounding_data</span><span class="o">=</span><span class="p">[</span>
+<a id="__codelineno-11-8"></a>            <span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-11-9"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/flickr30k/images"</span><span class="p">,</span>
+<a id="__codelineno-11-10"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/flickr30k/final_flickr_separateGT_train.json"</span><span class="p">,</span>
+<a id="__codelineno-11-11"></a>            <span class="p">),</span>
+<a id="__codelineno-11-12"></a>            <span class="nb">dict</span><span class="p">(</span>
+<a id="__codelineno-11-13"></a>                <span class="n">img_path</span><span class="o">=</span><span class="s2">"../datasets/GQA/images"</span><span class="p">,</span>
+<a id="__codelineno-11-14"></a>                <span class="n">json_file</span><span class="o">=</span><span class="s2">"../datasets/GQA/final_mixed_train_no_coco.json"</span><span class="p">,</span>
+<a id="__codelineno-11-15"></a>            <span class="p">),</span>
+<a id="__codelineno-11-16"></a>        <span class="p">],</span>
+<a id="__codelineno-11-17"></a>    <span class="p">),</span>
+<a id="__codelineno-11-18"></a>    <span class="n">val</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">yolo_data</span><span class="o">=</span><span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]),</span>
+<a id="__codelineno-11-19"></a><span class="p">)</span>
+<a id="__codelineno-11-20"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-worldv2.yaml"</span><span class="p">)</span>
+<a id="__codelineno-11-21"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">WorldTrainerFromScratch</span><span class="p">)</span>
 </code></pre></div>
 </div>
 </div>
@@ -1267,12 +1267,12 @@
 <div class="tabbed-set tabbed-alternate" data-tabs="9:1"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio"/><div class="tabbed-labels"><label for="__tabbed_9_1">BibTeX</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">cheng2024yolow</span><span class="p">,</span>
-<a href="#__codelineno-12-2" id="__codelineno-12-2" name="__codelineno-12-2"></a><span class="na">title</span><span class="p">=</span><span class="s">{YOLO-World: Real-Time Open-Vocabulary Object Detection}</span><span class="p">,</span>
-<a href="#__codelineno-12-3" id="__codelineno-12-3" name="__codelineno-12-3"></a><span class="na">author</span><span class="p">=</span><span class="s">{Cheng, Tianheng and Song, Lin and Ge, Yixiao and Liu, Wenyu and Wang, Xinggang and Shan, Ying}</span><span class="p">,</span>
-<a href="#__codelineno-12-4" id="__codelineno-12-4" name="__codelineno-12-4"></a><span class="na">journal</span><span class="p">=</span><span class="s">{arXiv preprint arXiv:2401.17270}</span><span class="p">,</span>
-<a href="#__codelineno-12-5" id="__codelineno-12-5" name="__codelineno-12-5"></a><span class="na">year</span><span class="p">=</span><span class="s">{2024}</span>
-<a href="#__codelineno-12-6" id="__codelineno-12-6" name="__codelineno-12-6"></a><span class="p">}</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="nc">@article</span><span class="p">{</span><span class="nl">cheng2024yolow</span><span class="p">,</span>
+<a id="__codelineno-12-2"></a><span class="na">title</span><span class="p">=</span><span class="s">{YOLO-World: Real-Time Open-Vocabulary Object Detection}</span><span class="p">,</span>
+<a id="__codelineno-12-3"></a><span class="na">author</span><span class="p">=</span><span class="s">{Cheng, Tianheng and Song, Lin and Ge, Yixiao and Liu, Wenyu and Wang, Xinggang and Shan, Ying}</span><span class="p">,</span>
+<a id="__codelineno-12-4"></a><span class="na">journal</span><span class="p">=</span><span class="s">{arXiv preprint arXiv:2401.17270}</span><span class="p">,</span>
+<a id="__codelineno-12-5"></a><span class="na">year</span><span class="p">=</span><span class="s">{2024}</span>
+<a id="__codelineno-12-6"></a><span class="p">}</span>
 </code></pre></div>
 </div>
 </div>
@@ -1284,19 +1284,19 @@
 <p>The YOLO-World model is an advanced, real-time object detection approach based on the <a href="../yolov8/">Ultralytics YOLOv8</a> framework. It excels in Open-Vocabulary Detection tasks by identifying objects within an image based on descriptive texts. Using vision-language modeling and pre-training on large datasets, YOLO-World achieves high efficiency and performance with significantly reduced computational demands, making it ideal for real-time applications across various industries.</p>
 <h3 id="how-does-yolo-world-handle-inference-with-custom-prompts">How does YOLO-World handle inference with custom prompts?</h3>
 <p>YOLO-World supports a "prompt-then-detect" strategy, which utilizes an offline vocabulary to enhance efficiency. Custom prompts like captions or specific object categories are pre-encoded and stored as offline vocabulary <a href="https://www.ultralytics.com/glossary/embeddings">embeddings</a>. This approach streamlines the detection process without the need for retraining. You can dynamically set these prompts within the model to tailor it to specific detection tasks, as shown below:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="c1"># Initialize a YOLO-World model</span>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="c1"># Define custom classes</span>
-<a href="#__codelineno-13-7" id="__codelineno-13-7" name="__codelineno-13-7"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
-<a href="#__codelineno-13-8" id="__codelineno-13-8" name="__codelineno-13-8"></a>
-<a href="#__codelineno-13-9" id="__codelineno-13-9" name="__codelineno-13-9"></a><span class="c1"># Execute prediction on an image</span>
-<a href="#__codelineno-13-10" id="__codelineno-13-10" name="__codelineno-13-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-13-11" id="__codelineno-13-11" name="__codelineno-13-11"></a>
-<a href="#__codelineno-13-12" id="__codelineno-13-12" name="__codelineno-13-12"></a><span class="c1"># Show results</span>
-<a href="#__codelineno-13-13" id="__codelineno-13-13" name="__codelineno-13-13"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
+<a id="__codelineno-13-2"></a>
+<a id="__codelineno-13-3"></a><span class="c1"># Initialize a YOLO-World model</span>
+<a id="__codelineno-13-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-world.pt"</span><span class="p">)</span>
+<a id="__codelineno-13-5"></a>
+<a id="__codelineno-13-6"></a><span class="c1"># Define custom classes</span>
+<a id="__codelineno-13-7"></a><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">([</span><span class="s2">"person"</span><span class="p">,</span> <span class="s2">"bus"</span><span class="p">])</span>
+<a id="__codelineno-13-8"></a>
+<a id="__codelineno-13-9"></a><span class="c1"># Execute prediction on an image</span>
+<a id="__codelineno-13-10"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-13-11"></a>
+<a id="__codelineno-13-12"></a><span class="c1"># Show results</span>
+<a id="__codelineno-13-13"></a><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <h3 id="why-should-i-choose-yolo-world-over-traditional-open-vocabulary-detection-models">Why should I choose YOLO-World over traditional Open-Vocabulary detection models?</h3>
 <p>YOLO-World provides several advantages over traditional Open-Vocabulary detection models:</p>
@@ -1308,16 +1308,16 @@
 </ul>
 <h3 id="how-do-i-train-a-yolo-world-model-on-my-dataset">How do I train a YOLO-World model on my dataset?</h3>
 <p>Training a YOLO-World model on your dataset is straightforward through the provided Python API or CLI commands. Here's how to start training using Python:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="c1"># Load a pretrained YOLOv8s-worldv2 model</span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-worldv2.pt"</span><span class="p">)</span>
-<a href="#__codelineno-14-5" id="__codelineno-14-5" name="__codelineno-14-5"></a>
-<a href="#__codelineno-14-6" id="__codelineno-14-6" name="__codelineno-14-6"></a><span class="c1"># Train the model on the COCO8 dataset for 100 epochs</span>
-<a href="#__codelineno-14-7" id="__codelineno-14-7" name="__codelineno-14-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
+<a id="__codelineno-14-2"></a>
+<a id="__codelineno-14-3"></a><span class="c1"># Load a pretrained YOLOv8s-worldv2 model</span>
+<a id="__codelineno-14-4"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-worldv2.pt"</span><span class="p">)</span>
+<a id="__codelineno-14-5"></a>
+<a id="__codelineno-14-6"></a><span class="c1"># Train the model on the COCO8 dataset for 100 epochs</span>
+<a id="__codelineno-14-7"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div>
 <p>Or using CLI:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-worldv2.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a>yolo<span class="w"> </span>train<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolov8s-worldv2.yaml<span class="w"> </span><span class="nv">data</span><span class="o">=</span>coco8.yaml<span class="w"> </span><span class="nv">epochs</span><span class="o">=</span><span class="m">100</span><span class="w"> </span><span class="nv">imgsz</span><span class="o">=</span><span class="m">640</span>
 </code></pre></div>
 <h3 id="what-are-the-available-pre-trained-yolo-world-models-and-their-supported-tasks">What are the available pre-trained YOLO-World models and their supported tasks?</h3>
 <p>Ultralytics offers multiple pre-trained YOLO-World models supporting various tasks and operating modes:</p>
@@ -1410,28 +1410,28 @@
 </table>
 <h3 id="how-do-i-reproduce-the-official-results-of-yolo-world-from-scratch">How do I reproduce the official results of YOLO-World from scratch?</h3>
 <p>To reproduce the official results from scratch, you need to prepare the datasets and launch the training using the provided code. The training procedure involves creating a data dictionary and running the <code>train</code> method with a custom trainer:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
-<a href="#__codelineno-16-2" id="__codelineno-16-2" name="__codelineno-16-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.world.train_world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorldTrainerFromScratch</span>
-<a href="#__codelineno-16-3" id="__codelineno-16-3" name="__codelineno-16-3"></a>
-<a href="#__codelineno-16-4" id="__codelineno-16-4" name="__codelineno-16-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
-<a href="#__codelineno-16-5" id="__codelineno-16-5" name="__codelineno-16-5"></a>    <span class="s2">"train"</span><span class="p">:</span> <span class="p">{</span>
-<a href="#__codelineno-16-6" id="__codelineno-16-6" name="__codelineno-16-6"></a>        <span class="s2">"yolo_data"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
-<a href="#__codelineno-16-7" id="__codelineno-16-7" name="__codelineno-16-7"></a>        <span class="s2">"grounding_data"</span><span class="p">:</span> <span class="p">[</span>
-<a href="#__codelineno-16-8" id="__codelineno-16-8" name="__codelineno-16-8"></a>            <span class="p">{</span>
-<a href="#__codelineno-16-9" id="__codelineno-16-9" name="__codelineno-16-9"></a>                <span class="s2">"img_path"</span><span class="p">:</span> <span class="s2">"../datasets/flickr30k/images"</span><span class="p">,</span>
-<a href="#__codelineno-16-10" id="__codelineno-16-10" name="__codelineno-16-10"></a>                <span class="s2">"json_file"</span><span class="p">:</span> <span class="s2">"../datasets/flickr30k/final_flickr_separateGT_train.json"</span><span class="p">,</span>
-<a href="#__codelineno-16-11" id="__codelineno-16-11" name="__codelineno-16-11"></a>            <span class="p">},</span>
-<a href="#__codelineno-16-12" id="__codelineno-16-12" name="__codelineno-16-12"></a>            <span class="p">{</span>
-<a href="#__codelineno-16-13" id="__codelineno-16-13" name="__codelineno-16-13"></a>                <span class="s2">"img_path"</span><span class="p">:</span> <span class="s2">"../datasets/GQA/images"</span><span class="p">,</span>
-<a href="#__codelineno-16-14" id="__codelineno-16-14" name="__codelineno-16-14"></a>                <span class="s2">"json_file"</span><span class="p">:</span> <span class="s2">"../datasets/GQA/final_mixed_train_no_coco.json"</span><span class="p">,</span>
-<a href="#__codelineno-16-15" id="__codelineno-16-15" name="__codelineno-16-15"></a>            <span class="p">},</span>
-<a href="#__codelineno-16-16" id="__codelineno-16-16" name="__codelineno-16-16"></a>        <span class="p">],</span>
-<a href="#__codelineno-16-17" id="__codelineno-16-17" name="__codelineno-16-17"></a>    <span class="p">},</span>
-<a href="#__codelineno-16-18" id="__codelineno-16-18" name="__codelineno-16-18"></a>    <span class="s2">"val"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"yolo_data"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]},</span>
-<a href="#__codelineno-16-19" id="__codelineno-16-19" name="__codelineno-16-19"></a><span class="p">}</span>
-<a href="#__codelineno-16-20" id="__codelineno-16-20" name="__codelineno-16-20"></a>
-<a href="#__codelineno-16-21" id="__codelineno-16-21" name="__codelineno-16-21"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-worldv2.yaml"</span><span class="p">)</span>
-<a href="#__codelineno-16-22" id="__codelineno-16-22" name="__codelineno-16-22"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">WorldTrainerFromScratch</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLOWorld</span>
+<a id="__codelineno-16-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.world.train_world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorldTrainerFromScratch</span>
+<a id="__codelineno-16-3"></a>
+<a id="__codelineno-16-4"></a><span class="n">data</span> <span class="o">=</span> <span class="p">{</span>
+<a id="__codelineno-16-5"></a>    <span class="s2">"train"</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-16-6"></a>        <span class="s2">"yolo_data"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"Objects365.yaml"</span><span class="p">],</span>
+<a id="__codelineno-16-7"></a>        <span class="s2">"grounding_data"</span><span class="p">:</span> <span class="p">[</span>
+<a id="__codelineno-16-8"></a>            <span class="p">{</span>
+<a id="__codelineno-16-9"></a>                <span class="s2">"img_path"</span><span class="p">:</span> <span class="s2">"../datasets/flickr30k/images"</span><span class="p">,</span>
+<a id="__codelineno-16-10"></a>                <span class="s2">"json_file"</span><span class="p">:</span> <span class="s2">"../datasets/flickr30k/final_flickr_separateGT_train.json"</span><span class="p">,</span>
+<a id="__codelineno-16-11"></a>            <span class="p">},</span>
+<a id="__codelineno-16-12"></a>            <span class="p">{</span>
+<a id="__codelineno-16-13"></a>                <span class="s2">"img_path"</span><span class="p">:</span> <span class="s2">"../datasets/GQA/images"</span><span class="p">,</span>
+<a id="__codelineno-16-14"></a>                <span class="s2">"json_file"</span><span class="p">:</span> <span class="s2">"../datasets/GQA/final_mixed_train_no_coco.json"</span><span class="p">,</span>
+<a id="__codelineno-16-15"></a>            <span class="p">},</span>
+<a id="__codelineno-16-16"></a>        <span class="p">],</span>
+<a id="__codelineno-16-17"></a>    <span class="p">},</span>
+<a id="__codelineno-16-18"></a>    <span class="s2">"val"</span><span class="p">:</span> <span class="p">{</span><span class="s2">"yolo_data"</span><span class="p">:</span> <span class="p">[</span><span class="s2">"lvis.yaml"</span><span class="p">]},</span>
+<a id="__codelineno-16-19"></a><span class="p">}</span>
+<a id="__codelineno-16-20"></a>
+<a id="__codelineno-16-21"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLOWorld</span><span class="p">(</span><span class="s2">"yolov8s-worldv2.yaml"</span><span class="p">)</span>
+<a id="__codelineno-16-22"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">128</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">trainer</span><span class="o">=</span><span class="n">WorldTrainerFromScratch</span><span class="p">)</span>
 </code></pre></div>
 <div class="git-info">
 <div class="dates-container">

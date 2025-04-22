@@ -801,29 +801,29 @@
 <h2 id="examples">Examples</h2>
 <h3 id="returning-additional-information-with-prediction">Returning Additional Information with Prediction</h3>
 <p>In this example, we demonstrate how to return the original frame along with each result object:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="w">    </span><span class="sd">"""Combine prediction results with corresponding frames."""</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">batch</span>
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a>
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>    <span class="c1"># Ensure that image is a list</span>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a>
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>    <span class="c1"># Combine the prediction results with the corresponding frames</span>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a>
-<a href="#__codelineno-0-14" id="__codelineno-0-14" name="__codelineno-0-14"></a>
-<a href="#__codelineno-0-15" id="__codelineno-0-15" name="__codelineno-0-15"></a><span class="c1"># Create a YOLO model instance</span>
-<a href="#__codelineno-0-16" id="__codelineno-0-16" name="__codelineno-0-16"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-0-17" id="__codelineno-0-17" name="__codelineno-0-17"></a>
-<a href="#__codelineno-0-18" id="__codelineno-0-18" name="__codelineno-0-18"></a><span class="c1"># Add the custom callback to the model</span>
-<a href="#__codelineno-0-19" id="__codelineno-0-19" name="__codelineno-0-19"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_batch_end"</span><span class="p">,</span> <span class="n">on_predict_batch_end</span><span class="p">)</span>
-<a href="#__codelineno-0-20" id="__codelineno-0-20" name="__codelineno-0-20"></a>
-<a href="#__codelineno-0-21" id="__codelineno-0-21" name="__codelineno-0-21"></a><span class="c1"># Iterate through the results and frames</span>
-<a href="#__codelineno-0-22" id="__codelineno-0-22" name="__codelineno-0-22"></a><span class="k">for</span> <span class="n">result</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">():</span>  <span class="c1"># or model.track()</span>
-<a href="#__codelineno-0-23" id="__codelineno-0-23" name="__codelineno-0-23"></a>    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a>
+<a id="__codelineno-0-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<a id="__codelineno-0-5"></a><span class="w">    </span><span class="sd">"""Combine prediction results with corresponding frames."""</span>
+<a id="__codelineno-0-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">batch</span>
+<a id="__codelineno-0-7"></a>
+<a id="__codelineno-0-8"></a>    <span class="c1"># Ensure that image is a list</span>
+<a id="__codelineno-0-9"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+<a id="__codelineno-0-10"></a>
+<a id="__codelineno-0-11"></a>    <span class="c1"># Combine the prediction results with the corresponding frames</span>
+<a id="__codelineno-0-12"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+<a id="__codelineno-0-13"></a>
+<a id="__codelineno-0-14"></a>
+<a id="__codelineno-0-15"></a><span class="c1"># Create a YOLO model instance</span>
+<a id="__codelineno-0-16"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-0-17"></a>
+<a id="__codelineno-0-18"></a><span class="c1"># Add the custom callback to the model</span>
+<a id="__codelineno-0-19"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_batch_end"</span><span class="p">,</span> <span class="n">on_predict_batch_end</span><span class="p">)</span>
+<a id="__codelineno-0-20"></a>
+<a id="__codelineno-0-21"></a><span class="c1"># Iterate through the results and frames</span>
+<a id="__codelineno-0-22"></a><span class="k">for</span> <span class="n">result</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">():</span>  <span class="c1"># or model.track()</span>
+<a id="__codelineno-0-23"></a>    <span class="k">pass</span>
 </code></pre></div>
 <h2 id="all-callbacks">All Callbacks</h2>
 <p>Below are all the supported callbacks. For more details, refer to the callbacks <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/callbacks/base.py">source code</a>.</p>
@@ -975,87 +975,87 @@
 <h3 id="what-are-ultralytics-callbacks-and-how-can-i-use-them">What are Ultralytics callbacks and how can I use them?</h3>
 <p>Ultralytics callbacks are specialized entry points that are triggered during key stages of model operations such as training, validation, exporting, and prediction. These callbacks enable custom functionality at specific points in the process, allowing for enhancements and modifications to the workflow. Each callback accepts a <code>Trainer</code>, <code>Validator</code>, or <code>Predictor</code> object, depending on the operation type. For detailed properties of these objects, refer to the <a href="../../reference/cfg/__init__/">Reference section</a>.</p>
 <p>To use a callback, define a function and add it to the model using the <a href="../../reference/engine/model/#ultralytics.engine.model.Model.add_callback"><code>model.add_callback()</code></a> method. Here is an example of returning additional information during prediction:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="w">    </span><span class="sd">"""Handle prediction batch end by combining results with corresponding frames; modifies predictor results."""</span>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">batch</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_batch_end"</span><span class="p">,</span> <span class="n">on_predict_batch_end</span><span class="p">)</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="k">for</span> <span class="n">result</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">():</span>
-<a href="#__codelineno-1-14" id="__codelineno-1-14" name="__codelineno-1-14"></a>    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-1-2"></a>
+<a id="__codelineno-1-3"></a>
+<a id="__codelineno-1-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<a id="__codelineno-1-5"></a><span class="w">    </span><span class="sd">"""Handle prediction batch end by combining results with corresponding frames; modifies predictor results."""</span>
+<a id="__codelineno-1-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">batch</span>
+<a id="__codelineno-1-7"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+<a id="__codelineno-1-8"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+<a id="__codelineno-1-9"></a>
+<a id="__codelineno-1-10"></a>
+<a id="__codelineno-1-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-1-12"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_batch_end"</span><span class="p">,</span> <span class="n">on_predict_batch_end</span><span class="p">)</span>
+<a id="__codelineno-1-13"></a><span class="k">for</span> <span class="n">result</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">():</span>
+<a id="__codelineno-1-14"></a>    <span class="k">pass</span>
 </code></pre></div>
 <h3 id="how-can-i-customize-the-ultralytics-training-routine-using-callbacks">How can I customize the Ultralytics training routine using callbacks?</h3>
 <p>Customize your Ultralytics training routine by injecting logic at specific stages of the training process. Ultralytics YOLO provides a variety of training callbacks, such as <code>on_train_start</code>, <code>on_train_end</code>, and <code>on_train_batch_end</code>, which allow you to add custom metrics, processing, or logging.</p>
 <p>Here's how to freeze BatchNorm statistics when freezing layers with callbacks:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="c1"># Add a callback to put the frozen layers in eval mode to prevent BN values from changing</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">put_in_eval_mode</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>    <span class="n">n_layers</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">freeze</span>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_layers</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a>        <span class="k">return</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">module</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">named_modules</span><span class="p">()):</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a>        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"bn"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">n_layers</span><span class="p">:</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>            <span class="n">module</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>            <span class="n">module</span><span class="o">.</span><span class="n">track_running_stats</span> <span class="o">=</span> <span class="kc">False</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a>
-<a href="#__codelineno-2-16" id="__codelineno-2-16" name="__codelineno-2-16"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-2-17" id="__codelineno-2-17" name="__codelineno-2-17"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_start"</span><span class="p">,</span> <span class="n">put_in_eval_mode</span><span class="p">)</span>
-<a href="#__codelineno-2-18" id="__codelineno-2-18" name="__codelineno-2-18"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a>
+<a id="__codelineno-2-4"></a><span class="c1"># Add a callback to put the frozen layers in eval mode to prevent BN values from changing</span>
+<a id="__codelineno-2-5"></a><span class="k">def</span><span class="w"> </span><span class="nf">put_in_eval_mode</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<a id="__codelineno-2-6"></a>    <span class="n">n_layers</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">freeze</span>
+<a id="__codelineno-2-7"></a>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">n_layers</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+<a id="__codelineno-2-8"></a>        <span class="k">return</span>
+<a id="__codelineno-2-9"></a>
+<a id="__codelineno-2-10"></a>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">module</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">named_modules</span><span class="p">()):</span>
+<a id="__codelineno-2-11"></a>        <span class="k">if</span> <span class="n">name</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">"bn"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">int</span><span class="p">(</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">1</span><span class="p">])</span> <span class="o">&lt;</span> <span class="n">n_layers</span><span class="p">:</span>
+<a id="__codelineno-2-12"></a>            <span class="n">module</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
+<a id="__codelineno-2-13"></a>            <span class="n">module</span><span class="o">.</span><span class="n">track_running_stats</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-2-14"></a>
+<a id="__codelineno-2-15"></a>
+<a id="__codelineno-2-16"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-2-17"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_train_epoch_start"</span><span class="p">,</span> <span class="n">put_in_eval_mode</span><span class="p">)</span>
+<a id="__codelineno-2-18"></a><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 <p>For more details on effectively using training callbacks, see the <a href="../../modes/train/">Training Guide</a>.</p>
 <h3 id="why-should-i-use-callbacks-during-validation-in-ultralytics-yolo">Why should I use callbacks during validation in Ultralytics YOLO?</h3>
 <p>Using callbacks during validation in Ultralytics YOLO enhances model evaluation by enabling custom processing, logging, or metrics calculation. Callbacks like <code>on_val_start</code>, <code>on_val_batch_end</code>, and <code>on_val_end</code> provide entry points to inject custom logic, ensuring detailed and comprehensive validation processes.</p>
 <p>For example, to plot all validation batches instead of just the first three:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_samples</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a>    <span class="n">frame</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_back</span><span class="o">.</span><span class="n">f_back</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a>    <span class="n">v</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>    <span class="n">validator</span><span class="o">.</span><span class="n">plot_val_samples</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s2">"batch"</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s2">"batch_i"</span><span class="p">])</span>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a>    <span class="n">validator</span><span class="o">.</span><span class="n">plot_predictions</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s2">"batch"</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s2">"preds"</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s2">"batch_i"</span><span class="p">])</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a>
-<a href="#__codelineno-3-13" id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-3-14" id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_val_batch_end"</span><span class="p">,</span> <span class="n">plot_samples</span><span class="p">)</span>
-<a href="#__codelineno-3-15" id="__codelineno-3-15" name="__codelineno-3-15"></a><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">inspect</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-3-4"></a>
+<a id="__codelineno-3-5"></a>
+<a id="__codelineno-3-6"></a><span class="k">def</span><span class="w"> </span><span class="nf">plot_samples</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
+<a id="__codelineno-3-7"></a>    <span class="n">frame</span> <span class="o">=</span> <span class="n">inspect</span><span class="o">.</span><span class="n">currentframe</span><span class="p">()</span><span class="o">.</span><span class="n">f_back</span><span class="o">.</span><span class="n">f_back</span>
+<a id="__codelineno-3-8"></a>    <span class="n">v</span> <span class="o">=</span> <span class="n">frame</span><span class="o">.</span><span class="n">f_locals</span>
+<a id="__codelineno-3-9"></a>    <span class="n">validator</span><span class="o">.</span><span class="n">plot_val_samples</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s2">"batch"</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s2">"batch_i"</span><span class="p">])</span>
+<a id="__codelineno-3-10"></a>    <span class="n">validator</span><span class="o">.</span><span class="n">plot_predictions</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="s2">"batch"</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s2">"preds"</span><span class="p">],</span> <span class="n">v</span><span class="p">[</span><span class="s2">"batch_i"</span><span class="p">])</span>
+<a id="__codelineno-3-11"></a>
+<a id="__codelineno-3-12"></a>
+<a id="__codelineno-3-13"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-3-14"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_val_batch_end"</span><span class="p">,</span> <span class="n">plot_samples</span><span class="p">)</span>
+<a id="__codelineno-3-15"></a><span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco.yaml"</span><span class="p">)</span>
 </code></pre></div>
 <p>For more insights on incorporating callbacks into your validation process, see the <a href="../../modes/val/">Validation Guide</a>.</p>
 <h3 id="how-do-i-attach-a-custom-callback-for-the-prediction-mode-in-ultralytics-yolo">How do I attach a custom callback for the prediction mode in Ultralytics YOLO?</h3>
 <p>To attach a custom callback for prediction mode in Ultralytics YOLO, define a callback function and register it with the prediction process. Common prediction callbacks include <code>on_predict_start</code>, <code>on_predict_batch_end</code>, and <code>on_predict_end</code>. These allow for the modification of prediction outputs and the integration of additional functionalities, like data logging or result transformation.</p>
 <p>Here is an example where a custom callback saves predictions based on whether an object of a particular class is present:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">class_id</span> <span class="o">=</span> <span class="mi">2</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">save_on_object</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
-<a href="#__codelineno-4-9" id="__codelineno-4-9" name="__codelineno-4-9"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<a href="#__codelineno-4-10" id="__codelineno-4-10" name="__codelineno-4-10"></a>    <span class="k">if</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">:</span>
-<a href="#__codelineno-4-11" id="__codelineno-4-11" name="__codelineno-4-11"></a>        <span class="n">predictor</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="kc">True</span>
-<a href="#__codelineno-4-12" id="__codelineno-4-12" name="__codelineno-4-12"></a>    <span class="k">else</span><span class="p">:</span>
-<a href="#__codelineno-4-13" id="__codelineno-4-13" name="__codelineno-4-13"></a>        <span class="n">predictor</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="kc">False</span>
-<a href="#__codelineno-4-14" id="__codelineno-4-14" name="__codelineno-4-14"></a>
-<a href="#__codelineno-4-15" id="__codelineno-4-15" name="__codelineno-4-15"></a>
-<a href="#__codelineno-4-16" id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_postprocess_end"</span><span class="p">,</span> <span class="n">save_on_object</span><span class="p">)</span>
-<a href="#__codelineno-4-17" id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"pedestrians.mp4"</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<a href="#__codelineno-4-18" id="__codelineno-4-18" name="__codelineno-4-18"></a>
-<a href="#__codelineno-4-19" id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
-<a href="#__codelineno-4-20" id="__codelineno-4-20" name="__codelineno-4-20"></a>    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-4-2"></a>
+<a id="__codelineno-4-3"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-4-4"></a>
+<a id="__codelineno-4-5"></a><span class="n">class_id</span> <span class="o">=</span> <span class="mi">2</span>
+<a id="__codelineno-4-6"></a>
+<a id="__codelineno-4-7"></a>
+<a id="__codelineno-4-8"></a><span class="k">def</span><span class="w"> </span><span class="nf">save_on_object</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<a id="__codelineno-4-9"></a>    <span class="n">r</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<a id="__codelineno-4-10"></a>    <span class="k">if</span> <span class="n">class_id</span> <span class="ow">in</span> <span class="n">r</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="p">:</span>
+<a id="__codelineno-4-11"></a>        <span class="n">predictor</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="kc">True</span>
+<a id="__codelineno-4-12"></a>    <span class="k">else</span><span class="p">:</span>
+<a id="__codelineno-4-13"></a>        <span class="n">predictor</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save</span> <span class="o">=</span> <span class="kc">False</span>
+<a id="__codelineno-4-14"></a>
+<a id="__codelineno-4-15"></a>
+<a id="__codelineno-4-16"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_postprocess_end"</span><span class="p">,</span> <span class="n">save_on_object</span><span class="p">)</span>
+<a id="__codelineno-4-17"></a><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"pedestrians.mp4"</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<a id="__codelineno-4-18"></a>
+<a id="__codelineno-4-19"></a><span class="k">for</span> <span class="n">results</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<a id="__codelineno-4-20"></a>    <span class="k">pass</span>
 </code></pre></div>
 <p>For more comprehensive usage, refer to the <a href="../../modes/predict/">Prediction Guide</a>, which includes detailed instructions and additional customization options.</p>
 <h3 id="what-are-some-practical-examples-of-using-callbacks-in-ultralytics-yolo">What are some practical examples of using callbacks in Ultralytics YOLO?</h3>
@@ -1066,20 +1066,20 @@
 <li><strong>Intermediate Results</strong>: Save intermediate results, such as predictions or frames, for further analysis or visualization.</li>
 </ul>
 <p>Example: Combining frames with prediction results during prediction using <code>on_predict_batch_end</code>:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="w">    </span><span class="sd">"""Combine prediction results with frames."""</span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">batch</span>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
-<a href="#__codelineno-5-9" id="__codelineno-5-9" name="__codelineno-5-9"></a>
-<a href="#__codelineno-5-10" id="__codelineno-5-10" name="__codelineno-5-10"></a>
-<a href="#__codelineno-5-11" id="__codelineno-5-11" name="__codelineno-5-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-5-12" id="__codelineno-5-12" name="__codelineno-5-12"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_batch_end"</span><span class="p">,</span> <span class="n">on_predict_batch_end</span><span class="p">)</span>
-<a href="#__codelineno-5-13" id="__codelineno-5-13" name="__codelineno-5-13"></a><span class="k">for</span> <span class="n">result</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">():</span>
-<a href="#__codelineno-5-14" id="__codelineno-5-14" name="__codelineno-5-14"></a>    <span class="k">pass</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<a id="__codelineno-5-2"></a>
+<a id="__codelineno-5-3"></a>
+<a id="__codelineno-5-4"></a><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_batch_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<a id="__codelineno-5-5"></a><span class="w">    </span><span class="sd">"""Combine prediction results with frames."""</span>
+<a id="__codelineno-5-6"></a>    <span class="n">_</span><span class="p">,</span> <span class="n">image</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">predictor</span><span class="o">.</span><span class="n">batch</span>
+<a id="__codelineno-5-7"></a>    <span class="n">image</span> <span class="o">=</span> <span class="n">image</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="p">[</span><span class="n">image</span><span class="p">]</span>
+<a id="__codelineno-5-8"></a>    <span class="n">predictor</span><span class="o">.</span><span class="n">results</span> <span class="o">=</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">results</span><span class="p">,</span> <span class="n">image</span><span class="p">)</span>
+<a id="__codelineno-5-9"></a>
+<a id="__codelineno-5-10"></a>
+<a id="__codelineno-5-11"></a><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-5-12"></a><span class="n">model</span><span class="o">.</span><span class="n">add_callback</span><span class="p">(</span><span class="s2">"on_predict_batch_end"</span><span class="p">,</span> <span class="n">on_predict_batch_end</span><span class="p">)</span>
+<a id="__codelineno-5-13"></a><span class="k">for</span> <span class="n">result</span><span class="p">,</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">():</span>
+<a id="__codelineno-5-14"></a>    <span class="k">pass</span>
 </code></pre></div>
 <p>Explore the <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/callbacks/base.py">callback source code</a> for more options and examples.</p>
 <div class="git-info">
@@ -1088,7 +1088,7 @@
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 18, 2025">
-<span class="hover-item">✏️</span> Updated 3 days ago
+<span class="hover-item">✏️</span> Updated 4 days ago
     </span>
 </div>
 <div class="authors-container">

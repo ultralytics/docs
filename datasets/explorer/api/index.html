@@ -998,22 +998,22 @@ The Explorer API is a Python API for exploring your datasets. It supports filter
 </p>
 <h2 id="installation">Installation</h2>
 <p>Explorer depends on external libraries for some of its functionality. These are automatically installed on usage. To manually install these dependencies, use the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>explorer<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>explorer<span class="o">]</span>
 </code></pre></div>
 <h2 id="usage">Usage</h2>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-1-1" id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-1-2" id="__codelineno-1-2" name="__codelineno-1-2"></a>
-<a href="#__codelineno-1-3" id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="c1"># Create an Explorer object</span>
-<a href="#__codelineno-1-4" id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="n">explorer</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-1-5" id="__codelineno-1-5" name="__codelineno-1-5"></a>
-<a href="#__codelineno-1-6" id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="c1"># Create embeddings for your dataset</span>
-<a href="#__codelineno-1-7" id="__codelineno-1-7" name="__codelineno-1-7"></a><span class="n">explorer</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-1-8" id="__codelineno-1-8" name="__codelineno-1-8"></a>
-<a href="#__codelineno-1-9" id="__codelineno-1-9" name="__codelineno-1-9"></a><span class="c1"># Search for similar images to a given image/images</span>
-<a href="#__codelineno-1-10" id="__codelineno-1-10" name="__codelineno-1-10"></a><span class="n">dataframe</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-1-11" id="__codelineno-1-11" name="__codelineno-1-11"></a>
-<a href="#__codelineno-1-12" id="__codelineno-1-12" name="__codelineno-1-12"></a><span class="c1"># Or search for similar images to a given index/indices</span>
-<a href="#__codelineno-1-13" id="__codelineno-1-13" name="__codelineno-1-13"></a><span class="n">dataframe</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-1-2"></a>
+<a id="__codelineno-1-3"></a><span class="c1"># Create an Explorer object</span>
+<a id="__codelineno-1-4"></a><span class="n">explorer</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-1-5"></a>
+<a id="__codelineno-1-6"></a><span class="c1"># Create embeddings for your dataset</span>
+<a id="__codelineno-1-7"></a><span class="n">explorer</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-1-8"></a>
+<a id="__codelineno-1-9"></a><span class="c1"># Search for similar images to a given image/images</span>
+<a id="__codelineno-1-10"></a><span class="n">dataframe</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-1-11"></a>
+<a id="__codelineno-1-12"></a><span class="c1"># Or search for similar images to a given index/indices</span>
+<a id="__codelineno-1-13"></a><span class="n">dataframe</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
@@ -1031,121 +1031,121 @@ The Explorer API is a Python API for exploring your datasets. It supports filter
 <p>You get a pandas dataframe with the <code>limit</code> number of most similar data points to the input, along with their distance in the embedding space. You can use this dataset to perform further filtering</p>
 <div class="admonition example">
 <p class="admonition-title">Semantic Search</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"><input id="__tabbed_1_2" name="__tabbed_1" type="radio"><div class="tabbed-labels"><label for="__tabbed_1_1">Using Images</label><label for="__tabbed_1_2">Using Dataset Indices</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Using Images</label><label for="__tabbed_1_2">Using Dataset Indices</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-2-1" id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-2-2" id="__codelineno-2-2" name="__codelineno-2-2"></a>
-<a href="#__codelineno-2-3" id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="c1"># create an Explorer object</span>
-<a href="#__codelineno-2-4" id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-2-5" id="__codelineno-2-5" name="__codelineno-2-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-2-6" id="__codelineno-2-6" name="__codelineno-2-6"></a>
-<a href="#__codelineno-2-7" id="__codelineno-2-7" name="__codelineno-2-7"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a href="#__codelineno-2-8" id="__codelineno-2-8" name="__codelineno-2-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<a href="#__codelineno-2-9" id="__codelineno-2-9" name="__codelineno-2-9"></a>
-<a href="#__codelineno-2-10" id="__codelineno-2-10" name="__codelineno-2-10"></a><span class="c1"># Search using multiple indices</span>
-<a href="#__codelineno-2-11" id="__codelineno-2-11" name="__codelineno-2-11"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span>
-<a href="#__codelineno-2-12" id="__codelineno-2-12" name="__codelineno-2-12"></a>    <span class="n">img</span><span class="o">=</span><span class="p">[</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">],</span>
-<a href="#__codelineno-2-13" id="__codelineno-2-13" name="__codelineno-2-13"></a>    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
-<a href="#__codelineno-2-14" id="__codelineno-2-14" name="__codelineno-2-14"></a><span class="p">)</span>
-<a href="#__codelineno-2-15" id="__codelineno-2-15" name="__codelineno-2-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-2-2"></a>
+<a id="__codelineno-2-3"></a><span class="c1"># create an Explorer object</span>
+<a id="__codelineno-2-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-2-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-2-6"></a>
+<a id="__codelineno-2-7"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-2-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<a id="__codelineno-2-9"></a>
+<a id="__codelineno-2-10"></a><span class="c1"># Search using multiple indices</span>
+<a id="__codelineno-2-11"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span>
+<a id="__codelineno-2-12"></a>    <span class="n">img</span><span class="o">=</span><span class="p">[</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">],</span>
+<a id="__codelineno-2-13"></a>    <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<a id="__codelineno-2-14"></a><span class="p">)</span>
+<a id="__codelineno-2-15"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-3-1" id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-3-2" id="__codelineno-3-2" name="__codelineno-3-2"></a>
-<a href="#__codelineno-3-3" id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1"># create an Explorer object</span>
-<a href="#__codelineno-3-4" id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-3-5" id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-3-6" id="__codelineno-3-6" name="__codelineno-3-6"></a>
-<a href="#__codelineno-3-7" id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a href="#__codelineno-3-8" id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<a href="#__codelineno-3-9" id="__codelineno-3-9" name="__codelineno-3-9"></a>
-<a href="#__codelineno-3-10" id="__codelineno-3-10" name="__codelineno-3-10"></a><span class="c1"># Search using multiple indices</span>
-<a href="#__codelineno-3-11" id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a href="#__codelineno-3-12" id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-3-2"></a>
+<a id="__codelineno-3-3"></a><span class="c1"># create an Explorer object</span>
+<a id="__codelineno-3-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-3-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-3-6"></a>
+<a id="__codelineno-3-7"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-3-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<a id="__codelineno-3-9"></a>
+<a id="__codelineno-3-10"></a><span class="c1"># Search using multiple indices</span>
+<a id="__codelineno-3-11"></a><span class="n">similar</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-3-12"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h3 id="plotting-similar-images">Plotting Similar Images</h3>
 <p>You can also plot the similar images using the <code>plot_similar</code> method. This method takes the same arguments as <code>get_similar</code> and plots the similar images in a grid.</p>
 <div class="admonition example">
 <p class="admonition-title">Plotting Similar Images</p>
-<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"><input id="__tabbed_2_2" name="__tabbed_2" type="radio"><div class="tabbed-labels"><label for="__tabbed_2_1">Using Images</label><label for="__tabbed_2_2">Using Dataset Indices</label></div>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Using Images</label><label for="__tabbed_2_2">Using Dataset Indices</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-4-1" id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-4-2" id="__codelineno-4-2" name="__codelineno-4-2"></a>
-<a href="#__codelineno-4-3" id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="c1"># create an Explorer object</span>
-<a href="#__codelineno-4-4" id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-4-5" id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-4-6" id="__codelineno-4-6" name="__codelineno-4-6"></a>
-<a href="#__codelineno-4-7" id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a href="#__codelineno-4-8" id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-4-2"></a>
+<a id="__codelineno-4-3"></a><span class="c1"># create an Explorer object</span>
+<a id="__codelineno-4-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-4-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-4-6"></a>
+<a id="__codelineno-4-7"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"https://ultralytics.com/images/bus.jpg"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-4-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <div class="tabbed-block">
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-5-1" id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-5-2" id="__codelineno-5-2" name="__codelineno-5-2"></a>
-<a href="#__codelineno-5-3" id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="c1"># create an Explorer object</span>
-<a href="#__codelineno-5-4" id="__codelineno-5-4" name="__codelineno-5-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-5-5" id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-5-6" id="__codelineno-5-6" name="__codelineno-5-6"></a>
-<a href="#__codelineno-5-7" id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
-<a href="#__codelineno-5-8" id="__codelineno-5-8" name="__codelineno-5-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-5-2"></a>
+<a id="__codelineno-5-3"></a><span class="c1"># create an Explorer object</span>
+<a id="__codelineno-5-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-5-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-5-6"></a>
+<a id="__codelineno-5-7"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">plot_similar</span><span class="p">(</span><span class="n">idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<a id="__codelineno-5-8"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 </div>
-</input></input></div>
+</div>
 </div>
 <h2 id="2-ask-ai-natural-language-querying">2. Ask AI (Natural Language Querying)</h2>
 <p>This allows you to write how you want to filter your dataset using natural language. You don't have to be proficient in writing SQL queries. Our AI powered query generator will automatically do that under the hood. For example - you can say - "show me 100 images with exactly one person and 2 dogs. There can be other objects too" and it'll internally generate the query and show you those results.
 Note: This works using LLMs under the hood so the results are probabilistic and might get things wrong sometimes</p>
 <div class="admonition example">
 <p class="admonition-title">Ask AI</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-6-1" id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-6-2" id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.explorer</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_query_result</span>
-<a href="#__codelineno-6-3" id="__codelineno-6-3" name="__codelineno-6-3"></a>
-<a href="#__codelineno-6-4" id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="c1"># create an Explorer object</span>
-<a href="#__codelineno-6-5" id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-6-6" id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-6-7" id="__codelineno-6-7" name="__codelineno-6-7"></a>
-<a href="#__codelineno-6-8" id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="n">df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 100 images with exactly one person and 2 dogs. There can be other objects too"</span><span class="p">)</span>
-<a href="#__codelineno-6-9" id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<a href="#__codelineno-6-10" id="__codelineno-6-10" name="__codelineno-6-10"></a>
-<a href="#__codelineno-6-11" id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="c1"># plot the results</span>
-<a href="#__codelineno-6-12" id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-<a href="#__codelineno-6-13" id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-6-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.explorer</span><span class="w"> </span><span class="kn">import</span> <span class="n">plot_query_result</span>
+<a id="__codelineno-6-3"></a>
+<a id="__codelineno-6-4"></a><span class="c1"># create an Explorer object</span>
+<a id="__codelineno-6-5"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-6-6"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-6-7"></a>
+<a id="__codelineno-6-8"></a><span class="n">df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 100 images with exactly one person and 2 dogs. There can be other objects too"</span><span class="p">)</span>
+<a id="__codelineno-6-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<a id="__codelineno-6-10"></a>
+<a id="__codelineno-6-11"></a><span class="c1"># plot the results</span>
+<a id="__codelineno-6-12"></a><span class="n">plt</span> <span class="o">=</span> <span class="n">plot_query_result</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<a id="__codelineno-6-13"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <h2 id="3-sql-querying">3. SQL Querying</h2>
 <p>You can run SQL queries on your dataset using the <code>sql_query</code> method. This method takes a SQL query as input and returns a pandas dataframe with the results.</p>
 <div class="admonition example">
 <p class="admonition-title">SQL Query</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-7-1" id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-7-2" id="__codelineno-7-2" name="__codelineno-7-2"></a>
-<a href="#__codelineno-7-3" id="__codelineno-7-3" name="__codelineno-7-3"></a><span class="c1"># create an Explorer object</span>
-<a href="#__codelineno-7-4" id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-7-5" id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-7-6" id="__codelineno-7-6" name="__codelineno-7-6"></a>
-<a href="#__codelineno-7-7" id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%'"</span><span class="p">)</span>
-<a href="#__codelineno-7-8" id="__codelineno-7-8" name="__codelineno-7-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-7-2"></a>
+<a id="__codelineno-7-3"></a><span class="c1"># create an Explorer object</span>
+<a id="__codelineno-7-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-7-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-7-6"></a>
+<a id="__codelineno-7-7"></a><span class="n">df</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%'"</span><span class="p">)</span>
+<a id="__codelineno-7-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </code></pre></div>
 </div>
 <h3 id="plotting-sql-query-results">Plotting SQL Query Results</h3>
 <p>You can also plot the results of a SQL query using the <code>plot_sql_query</code> method. This method takes the same arguments as <code>sql_query</code> and plots the results in a grid.</p>
 <div class="admonition example">
 <p class="admonition-title">Plotting SQL Query Results</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-8-1" id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-8-2" id="__codelineno-8-2" name="__codelineno-8-2"></a>
-<a href="#__codelineno-8-3" id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="c1"># create an Explorer object</span>
-<a href="#__codelineno-8-4" id="__codelineno-8-4" name="__codelineno-8-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-8-5" id="__codelineno-8-5" name="__codelineno-8-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-8-6" id="__codelineno-8-6" name="__codelineno-8-6"></a>
-<a href="#__codelineno-8-7" id="__codelineno-8-7" name="__codelineno-8-7"></a><span class="c1"># plot the SQL Query</span>
-<a href="#__codelineno-8-8" id="__codelineno-8-8" name="__codelineno-8-8"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-8-2"></a>
+<a id="__codelineno-8-3"></a><span class="c1"># create an Explorer object</span>
+<a id="__codelineno-8-4"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-8-5"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-8-6"></a>
+<a id="__codelineno-8-7"></a><span class="c1"># plot the SQL Query</span>
+<a id="__codelineno-8-8"></a><span class="n">exp</span><span class="o">.</span><span class="n">plot_sql_query</span><span class="p">(</span><span class="s2">"WHERE labels LIKE '%person%' AND labels LIKE '</span><span class="si">%d</span><span class="s2">og%' LIMIT 10"</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h2 id="4-working-with-embeddings-table">4. Working with Embeddings Table</h2>
@@ -1153,44 +1153,44 @@ Note: This works using LLMs under the hood so the results are probabilistic and 
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Explorer works on <a href="https://lancedb.github.io/lancedb/">LanceDB</a> tables internally. You can access this table directly, using <code>Explorer.table</code> object and run raw queries, push down pre- and post-filters, etc.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-9-1" id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-9-2" id="__codelineno-9-2" name="__codelineno-9-2"></a>
-<a href="#__codelineno-9-3" id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">()</span>
-<a href="#__codelineno-9-4" id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-9-5" id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">table</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-9-2"></a>
+<a id="__codelineno-9-3"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">()</span>
+<a id="__codelineno-9-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-9-5"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">table</span>
 </code></pre></div>
 </div>
 <p>Here are some examples of what you can do with the table:</p>
 <h3 id="get-raw-embeddings">Get raw Embeddings</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-10-1" id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-10-2" id="__codelineno-10-2" name="__codelineno-10-2"></a>
-<a href="#__codelineno-10-3" id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">()</span>
-<a href="#__codelineno-10-4" id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-10-5" id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">table</span>
-<a href="#__codelineno-10-6" id="__codelineno-10-6" name="__codelineno-10-6"></a>
-<a href="#__codelineno-10-7" id="__codelineno-10-7" name="__codelineno-10-7"></a><span class="n">embeddings</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()[</span><span class="s2">"vector"</span><span class="p">]</span>
-<a href="#__codelineno-10-8" id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-10-2"></a>
+<a id="__codelineno-10-3"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">()</span>
+<a id="__codelineno-10-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-10-5"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">table</span>
+<a id="__codelineno-10-6"></a>
+<a id="__codelineno-10-7"></a><span class="n">embeddings</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">to_pandas</span><span class="p">()[</span><span class="s2">"vector"</span><span class="p">]</span>
+<a id="__codelineno-10-8"></a><span class="nb">print</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h3 id="advanced-querying-with-pre-and-post-filters">Advanced Querying with pre- and post-filters</h3>
 <div class="admonition example">
 <p class="admonition-title">Example</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-11-1" id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-11-2" id="__codelineno-11-2" name="__codelineno-11-2"></a>
-<a href="#__codelineno-11-3" id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-11-4" id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-11-5" id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">table</span>
-<a href="#__codelineno-11-6" id="__codelineno-11-6" name="__codelineno-11-6"></a>
-<a href="#__codelineno-11-7" id="__codelineno-11-7" name="__codelineno-11-7"></a><span class="c1"># Dummy embedding</span>
-<a href="#__codelineno-11-8" id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="n">embedding</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">)]</span>
-<a href="#__codelineno-11-9" id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="n">rs</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="s2">"cosine"</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-11-2"></a>
+<a id="__codelineno-11-3"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-11-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-11-5"></a><span class="n">table</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">table</span>
+<a id="__codelineno-11-6"></a>
+<a id="__codelineno-11-7"></a><span class="c1"># Dummy embedding</span>
+<a id="__codelineno-11-8"></a><span class="n">embedding</span> <span class="o">=</span> <span class="p">[</span><span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">256</span><span class="p">)]</span>
+<a id="__codelineno-11-9"></a><span class="n">rs</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">embedding</span><span class="p">)</span><span class="o">.</span><span class="n">metric</span><span class="p">(</span><span class="s2">"cosine"</span><span class="p">)</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="s2">""</span><span class="p">)</span><span class="o">.</span><span class="n">limit</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </code></pre></div>
 </div>
 <h3 id="create-vector-index">Create Vector Index</h3>
 <p>When using large datasets, you can also create a dedicated vector index for faster querying. This is done using the <code>create_index</code> method on LanceDB table.</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-12-1" id="__codelineno-12-1" name="__codelineno-12-1"></a><span class="n">table</span><span class="o">.</span><span class="n">create_index</span><span class="p">(</span><span class="n">num_partitions</span><span class="o">=...</span><span class="p">,</span> <span class="n">num_sub_vectors</span><span class="o">=...</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1"></a><span class="n">table</span><span class="o">.</span><span class="n">create_index</span><span class="p">(</span><span class="n">num_partitions</span><span class="o">=...</span><span class="p">,</span> <span class="n">num_sub_vectors</span><span class="o">=...</span><span class="p">)</span>
 </code></pre></div>
 <p>Find more details on the available vector index types and configuration parameters in the <a href="https://lancedb.github.io/lancedb/ann_indexes/#types-of-index">LanceDB indexing documentation</a>. In the future, we plan to support creating vector indices directly through the Explorer API.</p>
 <h2 id="5-embeddings-applications">5. Embeddings Applications</h2>
@@ -1214,41 +1214,41 @@ Note: This works using LLMs under the hood so the results are probabilistic and 
 </div>
 <div class="admonition example">
 <p class="admonition-title">Similarity Index</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-13-1" id="__codelineno-13-1" name="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-13-2" id="__codelineno-13-2" name="__codelineno-13-2"></a>
-<a href="#__codelineno-13-3" id="__codelineno-13-3" name="__codelineno-13-3"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">()</span>
-<a href="#__codelineno-13-4" id="__codelineno-13-4" name="__codelineno-13-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-13-5" id="__codelineno-13-5" name="__codelineno-13-5"></a>
-<a href="#__codelineno-13-6" id="__codelineno-13-6" name="__codelineno-13-6"></a><span class="n">sim_idx</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-13-2"></a>
+<a id="__codelineno-13-3"></a><span class="n">exp</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">()</span>
+<a id="__codelineno-13-4"></a><span class="n">exp</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-13-5"></a>
+<a id="__codelineno-13-6"></a><span class="n">sim_idx</span> <span class="o">=</span> <span class="n">exp</span><span class="o">.</span><span class="n">similarity_index</span><span class="p">()</span>
 </code></pre></div>
 </div>
 <p>You can use similarity index to build custom conditions to filter out the dataset. For example, you can filter out images that are not similar to any other image in the dataset using the following code:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-14-1" id="__codelineno-14-1" name="__codelineno-14-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
-<a href="#__codelineno-14-2" id="__codelineno-14-2" name="__codelineno-14-2"></a>
-<a href="#__codelineno-14-3" id="__codelineno-14-3" name="__codelineno-14-3"></a><span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">])</span>
-<a href="#__codelineno-14-4" id="__codelineno-14-4" name="__codelineno-14-4"></a><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">][</span><span class="n">sim_count</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<a id="__codelineno-14-2"></a>
+<a id="__codelineno-14-3"></a><span class="n">sim_count</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"count"</span><span class="p">])</span>
+<a id="__codelineno-14-4"></a><span class="n">sim_idx</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">][</span><span class="n">sim_count</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">]</span>
 </code></pre></div>
 <h3 id="visualize-embedding-space">Visualize Embedding Space</h3>
 <p>You can also visualize the embedding space using the plotting tool of your choice. For example here is a simple example using matplotlib:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-15-1" id="__codelineno-15-1" name="__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
-<a href="#__codelineno-15-2" id="__codelineno-15-2" name="__codelineno-15-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
-<a href="#__codelineno-15-3" id="__codelineno-15-3" name="__codelineno-15-3"></a>
-<a href="#__codelineno-15-4" id="__codelineno-15-4" name="__codelineno-15-4"></a><span class="c1"># Reduce dimensions using PCA to 3 components for visualization in 3D</span>
-<a href="#__codelineno-15-5" id="__codelineno-15-5" name="__codelineno-15-5"></a><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<a href="#__codelineno-15-6" id="__codelineno-15-6" name="__codelineno-15-6"></a><span class="n">reduced_data</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
-<a href="#__codelineno-15-7" id="__codelineno-15-7" name="__codelineno-15-7"></a>
-<a href="#__codelineno-15-8" id="__codelineno-15-8" name="__codelineno-15-8"></a><span class="c1"># Create a 3D scatter plot using Matplotlib Axes3D</span>
-<a href="#__codelineno-15-9" id="__codelineno-15-9" name="__codelineno-15-9"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<a href="#__codelineno-15-10" id="__codelineno-15-10" name="__codelineno-15-10"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"3d"</span><span class="p">)</span>
-<a href="#__codelineno-15-11" id="__codelineno-15-11" name="__codelineno-15-11"></a>
-<a href="#__codelineno-15-12" id="__codelineno-15-12" name="__codelineno-15-12"></a><span class="c1"># Scatter plot</span>
-<a href="#__codelineno-15-13" id="__codelineno-15-13" name="__codelineno-15-13"></a><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
-<a href="#__codelineno-15-14" id="__codelineno-15-14" name="__codelineno-15-14"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"3D Scatter Plot of Reduced 256-Dimensional Data (PCA)"</span><span class="p">)</span>
-<a href="#__codelineno-15-15" id="__codelineno-15-15" name="__codelineno-15-15"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Component 1"</span><span class="p">)</span>
-<a href="#__codelineno-15-16" id="__codelineno-15-16" name="__codelineno-15-16"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Component 2"</span><span class="p">)</span>
-<a href="#__codelineno-15-17" id="__codelineno-15-17" name="__codelineno-15-17"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"Component 3"</span><span class="p">)</span>
-<a href="#__codelineno-15-18" id="__codelineno-15-18" name="__codelineno-15-18"></a>
-<a href="#__codelineno-15-19" id="__codelineno-15-19" name="__codelineno-15-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1"></a><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<a id="__codelineno-15-2"></a><span class="kn">from</span><span class="w"> </span><span class="nn">sklearn.decomposition</span><span class="w"> </span><span class="kn">import</span> <span class="n">PCA</span>
+<a id="__codelineno-15-3"></a>
+<a id="__codelineno-15-4"></a><span class="c1"># Reduce dimensions using PCA to 3 components for visualization in 3D</span>
+<a id="__codelineno-15-5"></a><span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<a id="__codelineno-15-6"></a><span class="n">reduced_data</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">embeddings</span><span class="p">)</span>
+<a id="__codelineno-15-7"></a>
+<a id="__codelineno-15-8"></a><span class="c1"># Create a 3D scatter plot using Matplotlib Axes3D</span>
+<a id="__codelineno-15-9"></a><span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+<a id="__codelineno-15-10"></a><span class="n">ax</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_subplot</span><span class="p">(</span><span class="mi">111</span><span class="p">,</span> <span class="n">projection</span><span class="o">=</span><span class="s2">"3d"</span><span class="p">)</span>
+<a id="__codelineno-15-11"></a>
+<a id="__codelineno-15-12"></a><span class="c1"># Scatter plot</span>
+<a id="__codelineno-15-13"></a><span class="n">ax</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">reduced_data</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
+<a id="__codelineno-15-14"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">"3D Scatter Plot of Reduced 256-Dimensional Data (PCA)"</span><span class="p">)</span>
+<a id="__codelineno-15-15"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"Component 1"</span><span class="p">)</span>
+<a id="__codelineno-15-16"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"Component 2"</span><span class="p">)</span>
+<a id="__codelineno-15-17"></a><span class="n">ax</span><span class="o">.</span><span class="n">set_zlabel</span><span class="p">(</span><span class="s2">"Component 3"</span><span class="p">)</span>
+<a id="__codelineno-15-18"></a>
+<a id="__codelineno-15-19"></a><span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </code></pre></div>
 <p>Start creating your own CV dataset exploration reports using the Explorer API. For inspiration, check out the <a href="../explorer/">VOC Exploration Example</a>.</p>
 <h2 id="apps-built-using-ultralytics-explorer">Apps Built Using Ultralytics Explorer</h2>
@@ -1265,35 +1265,35 @@ Note: This works using LLMs under the hood so the results are probabilistic and 
 <p>The Ultralytics Explorer API is designed for comprehensive dataset exploration. It allows users to filter and search datasets using SQL queries, vector similarity search, and semantic search. This powerful Python API can handle large datasets, making it ideal for various <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> tasks using Ultralytics models.</p>
 <h3 id="how-do-i-install-the-ultralytics-explorer-api">How do I install the Ultralytics Explorer API?</h3>
 <p>To install the Ultralytics Explorer API along with its dependencies, use the following command:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-16-1" id="__codelineno-16-1" name="__codelineno-16-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>explorer<span class="o">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1"></a>pip<span class="w"> </span>install<span class="w"> </span>ultralytics<span class="o">[</span>explorer<span class="o">]</span>
 </code></pre></div>
 <p>This will automatically install all necessary external libraries for the Explorer API functionality. For additional setup details, refer to the <a href="#installation">installation section</a> of our documentation.</p>
 <h3 id="how-can-i-use-the-ultralytics-explorer-api-for-similarity-search">How can I use the Ultralytics Explorer API for similarity search?</h3>
 <p>You can use the Ultralytics Explorer API to perform similarity searches by creating an embeddings table and querying it for similar images. Here's a basic example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-17-1" id="__codelineno-17-1" name="__codelineno-17-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-17-2" id="__codelineno-17-2" name="__codelineno-17-2"></a>
-<a href="#__codelineno-17-3" id="__codelineno-17-3" name="__codelineno-17-3"></a><span class="c1"># Create an Explorer object</span>
-<a href="#__codelineno-17-4" id="__codelineno-17-4" name="__codelineno-17-4"></a><span class="n">explorer</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-17-5" id="__codelineno-17-5" name="__codelineno-17-5"></a><span class="n">explorer</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-17-6" id="__codelineno-17-6" name="__codelineno-17-6"></a>
-<a href="#__codelineno-17-7" id="__codelineno-17-7" name="__codelineno-17-7"></a><span class="c1"># Search for similar images to a given image</span>
-<a href="#__codelineno-17-8" id="__codelineno-17-8" name="__codelineno-17-8"></a><span class="n">similar_images_df</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
-<a href="#__codelineno-17-9" id="__codelineno-17-9" name="__codelineno-17-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar_images_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-17-2"></a>
+<a id="__codelineno-17-3"></a><span class="c1"># Create an Explorer object</span>
+<a id="__codelineno-17-4"></a><span class="n">explorer</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-17-5"></a><span class="n">explorer</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-17-6"></a>
+<a id="__codelineno-17-7"></a><span class="c1"># Search for similar images to a given image</span>
+<a id="__codelineno-17-8"></a><span class="n">similar_images_df</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">get_similar</span><span class="p">(</span><span class="n">img</span><span class="o">=</span><span class="s2">"path/to/image.jpg"</span><span class="p">)</span>
+<a id="__codelineno-17-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">similar_images_df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </code></pre></div>
 <p>For more details, please visit the <a href="#1-similarity-search">Similarity Search section</a>.</p>
 <h3 id="what-are-the-benefits-of-using-lancedb-with-ultralytics-explorer">What are the benefits of using LanceDB with Ultralytics Explorer?</h3>
 <p>LanceDB, used under the hood by Ultralytics Explorer, provides scalable, on-disk embeddings tables. This ensures that you can create and reuse embeddings for large datasets like COCO without running out of memory. These tables are only created once and can be reused, enhancing efficiency in data handling.</p>
 <h3 id="how-does-the-ask-ai-feature-work-in-the-ultralytics-explorer-api">How does the Ask AI feature work in the Ultralytics Explorer API?</h3>
 <p>The Ask AI feature allows users to filter datasets using natural language queries. This feature leverages LLMs to convert these queries into SQL queries behind the scenes. Here's an example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-18-1" id="__codelineno-18-1" name="__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
-<a href="#__codelineno-18-2" id="__codelineno-18-2" name="__codelineno-18-2"></a>
-<a href="#__codelineno-18-3" id="__codelineno-18-3" name="__codelineno-18-3"></a><span class="c1"># Create an Explorer object</span>
-<a href="#__codelineno-18-4" id="__codelineno-18-4" name="__codelineno-18-4"></a><span class="n">explorer</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
-<a href="#__codelineno-18-5" id="__codelineno-18-5" name="__codelineno-18-5"></a><span class="n">explorer</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
-<a href="#__codelineno-18-6" id="__codelineno-18-6" name="__codelineno-18-6"></a>
-<a href="#__codelineno-18-7" id="__codelineno-18-7" name="__codelineno-18-7"></a><span class="c1"># Query with natural language</span>
-<a href="#__codelineno-18-8" id="__codelineno-18-8" name="__codelineno-18-8"></a><span class="n">query_result</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 100 images with exactly one person and 2 dogs. There can be other objects too"</span><span class="p">)</span>
-<a href="#__codelineno-18-9" id="__codelineno-18-9" name="__codelineno-18-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">query_result</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1"></a><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">Explorer</span>
+<a id="__codelineno-18-2"></a>
+<a id="__codelineno-18-3"></a><span class="c1"># Create an Explorer object</span>
+<a id="__codelineno-18-4"></a><span class="n">explorer</span> <span class="o">=</span> <span class="n">Explorer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco128.yaml"</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<a id="__codelineno-18-5"></a><span class="n">explorer</span><span class="o">.</span><span class="n">create_embeddings_table</span><span class="p">()</span>
+<a id="__codelineno-18-6"></a>
+<a id="__codelineno-18-7"></a><span class="c1"># Query with natural language</span>
+<a id="__codelineno-18-8"></a><span class="n">query_result</span> <span class="o">=</span> <span class="n">explorer</span><span class="o">.</span><span class="n">ask_ai</span><span class="p">(</span><span class="s2">"show me 100 images with exactly one person and 2 dogs. There can be other objects too"</span><span class="p">)</span>
+<a id="__codelineno-18-9"></a><span class="nb">print</span><span class="p">(</span><span class="n">query_result</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </code></pre></div>
 <p>For more examples, check out the <a href="#2-ask-ai-natural-language-querying">Ask AI section</a>.</p>
 <div class="git-info">
@@ -1302,7 +1302,7 @@ Note: This works using LLMs under the hood so the results are probabilistic and 
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 05, 2025">
-<span class="hover-item">✏️</span> Updated 16 days ago
+<span class="hover-item">✏️</span> Updated 17 days ago
     </span>
 </div>
 <div class="authors-container">

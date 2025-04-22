@@ -1141,19 +1141,19 @@
 </ul>
 <h3 id="implementing-docker-for-yolo11-deployment">Implementing Docker for YOLO11 Deployment</h3>
 <p>To containerize your YOLO11 model, you can create a Dockerfile that specifies all the necessary dependencies and configurations. Here's a basic example:</p>
-<div class="highlight"><pre><span></span><code><a href="#__codelineno-0-1" id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ultralytics/ultralytics:latest</span>
-<a href="#__codelineno-0-2" id="__codelineno-0-2" name="__codelineno-0-2"></a>
-<a href="#__codelineno-0-3" id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
-<a href="#__codelineno-0-4" id="__codelineno-0-4" name="__codelineno-0-4"></a>
-<a href="#__codelineno-0-5" id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="c"># Copy your model and any additional files</span>
-<a href="#__codelineno-0-6" id="__codelineno-0-6" name="__codelineno-0-6"></a><span class="k">COPY</span><span class="w"> </span>./models/yolo11.pt<span class="w"> </span>/app/models/
-<a href="#__codelineno-0-7" id="__codelineno-0-7" name="__codelineno-0-7"></a><span class="k">COPY</span><span class="w"> </span>./scripts<span class="w"> </span>/app/scripts/
-<a href="#__codelineno-0-8" id="__codelineno-0-8" name="__codelineno-0-8"></a>
-<a href="#__codelineno-0-9" id="__codelineno-0-9" name="__codelineno-0-9"></a><span class="c"># Set up any environment variables</span>
-<a href="#__codelineno-0-10" id="__codelineno-0-10" name="__codelineno-0-10"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">MODEL_PATH</span><span class="o">=</span>/app/models/yolo11.pt
-<a href="#__codelineno-0-11" id="__codelineno-0-11" name="__codelineno-0-11"></a>
-<a href="#__codelineno-0-12" id="__codelineno-0-12" name="__codelineno-0-12"></a><span class="c"># Command to run when the container starts</span>
-<a href="#__codelineno-0-13" id="__codelineno-0-13" name="__codelineno-0-13"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/app/scripts/predict.py"</span><span class="p">]</span>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1"></a><span class="k">FROM</span><span class="w"> </span><span class="s">ultralytics/ultralytics:latest</span>
+<a id="__codelineno-0-2"></a>
+<a id="__codelineno-0-3"></a><span class="k">WORKDIR</span><span class="w"> </span><span class="s">/app</span>
+<a id="__codelineno-0-4"></a>
+<a id="__codelineno-0-5"></a><span class="c"># Copy your model and any additional files</span>
+<a id="__codelineno-0-6"></a><span class="k">COPY</span><span class="w"> </span>./models/yolo11.pt<span class="w"> </span>/app/models/
+<a id="__codelineno-0-7"></a><span class="k">COPY</span><span class="w"> </span>./scripts<span class="w"> </span>/app/scripts/
+<a id="__codelineno-0-8"></a>
+<a id="__codelineno-0-9"></a><span class="c"># Set up any environment variables</span>
+<a id="__codelineno-0-10"></a><span class="k">ENV</span><span class="w"> </span><span class="nv">MODEL_PATH</span><span class="o">=</span>/app/models/yolo11.pt
+<a id="__codelineno-0-11"></a>
+<a id="__codelineno-0-12"></a><span class="c"># Command to run when the container starts</span>
+<a id="__codelineno-0-13"></a><span class="k">CMD</span><span class="w"> </span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span><span class="w"> </span><span class="s2">"/app/scripts/predict.py"</span><span class="p">]</span>
 </code></pre></div>
 <p>This approach ensures that your model deployment is reproducible and consistent across different environments, significantly reducing the "works on my machine" problem that often plagues deployment processes.</p>
 <h2 id="model-optimization-techniques">Model Optimization Techniques</h2>
@@ -1237,7 +1237,7 @@
 <span class="hover-item">📅</span> Created 9 months ago
     </span>
 <span class="date-item" title="This page was last updated on April 05, 2025">
-<span class="hover-item">✏️</span> Updated 16 days ago
+<span class="hover-item">✏️</span> Updated 17 days ago
     </span>
 </div>
 <div class="authors-container">
