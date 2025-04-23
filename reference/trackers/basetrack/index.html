@@ -1489,27 +1489,27 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span>
-<span class="normal"><span>72</span></span>
-<span class="normal"><span>73</span></span>
-<span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span>
-<span class="normal"><span>76</span></span>
-<span class="normal"><span>77</span></span>
-<span class="normal"><span>78</span></span>
-<span class="normal"><span>79</span></span>
-<span class="normal"><span>80</span></span>
-<span class="normal"><span>81</span></span>
-<span class="normal"><span>82</span></span>
-<span class="normal"><span>83</span></span>
-<span class="normal"><span>84</span></span>
-<span class="normal"><span>85</span></span>
-<span class="normal"><span>86</span></span>
-<span class="normal"><span>87</span></span>
-<span class="normal"><span>88</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a new track with a unique ID and foundational tracking attributes.</span>
 <span></span>
@@ -1556,9 +1556,9 @@
 <p>Activates the track with provided arguments, initializing necessary attributes for tracking.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>101</span></span>
-<span class="normal"><span>102</span></span>
-<span class="normal"><span>103</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>101</span>
+<span>102</span>
+<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Activates the track with provided arguments, initializing necessary attributes for tracking."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </code></pre></div></td></tr></table></div>
@@ -1575,9 +1575,9 @@
 <p>Marks the track as lost by updating its state to TrackState.Lost.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>113</span></span>
-<span class="normal"><span>114</span></span>
-<span class="normal"><span>115</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mark_lost</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
+<span>114</span>
+<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mark_lost</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Marks the track as lost by updating its state to TrackState.Lost."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">TrackState</span><span class="o">.</span><span class="n">Lost</span>
 </code></pre></div></td></tr></table></div>
@@ -1594,9 +1594,9 @@
 <p>Marks the track as removed by setting its state to TrackState.Removed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>117</span></span>
-<span class="normal"><span>118</span></span>
-<span class="normal"><span>119</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mark_removed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>117</span>
+<span>118</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mark_removed</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Marks the track as removed by setting its state to TrackState.Removed."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">=</span> <span class="n">TrackState</span><span class="o">.</span><span class="n">Removed</span>
 </code></pre></div></td></tr></table></div>
@@ -1616,11 +1616,11 @@
 <p>Increment and return the next unique global track ID for object tracking.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>95</span></span>
-<span class="normal"><span>96</span></span>
-<span class="normal"><span>97</span></span>
-<span class="normal"><span>98</span></span>
-<span class="normal"><span>99</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>95</span>
+<span>96</span>
+<span>97</span>
+<span>98</span>
+<span>99</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">next_id</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""Increment and return the next unique global track ID for object tracking."""</span>
 <span></span>    <span class="n">BaseTrack</span><span class="o">.</span><span class="n">_count</span> <span class="o">+=</span> <span class="mi">1</span>
@@ -1639,9 +1639,9 @@
 <p>Predicts the next state of the track based on the current state and tracking model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>105</span></span>
-<span class="normal"><span>106</span></span>
-<span class="normal"><span>107</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
+<span>106</span>
+<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Predicts the next state of the track based on the current state and tracking model."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </code></pre></div></td></tr></table></div>
@@ -1661,10 +1661,10 @@
 <p>Reset the global track ID counter to its initial value.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>121</span></span>
-<span class="normal"><span>122</span></span>
-<span class="normal"><span>123</span></span>
-<span class="normal"><span>124</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_id</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the global track ID counter to its initial value."""</span>
 <span></span>    <span class="n">BaseTrack</span><span class="o">.</span><span class="n">_count</span> <span class="o">=</span> <span class="mi">0</span>
@@ -1682,9 +1682,9 @@
 <p>Updates the track with new observations and data, modifying its state and attributes accordingly.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/basetrack.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>109</span></span>
-<span class="normal"><span>110</span></span>
-<span class="normal"><span>111</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
+<span>110</span>
+<span>111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Updates the track with new observations and data, modifying its state and attributes accordingly."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span>
 </code></pre></div></td></tr></table></div>

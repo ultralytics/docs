@@ -1309,11 +1309,11 @@ for training loops that need to iterate through the dataset multiple times.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>46</span></span>
-<span class="normal"><span>47</span></span>
-<span class="normal"><span>48</span></span>
-<span class="normal"><span>49</span></span>
-<span class="normal"><span>50</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the InfiniteDataLoader with the same arguments as DataLoader."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>    <span class="nb">object</span><span class="o">.</span><span class="fm">__setattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"batch_sampler"</span><span class="p">,</span> <span class="n">_RepeatSampler</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler</span><span class="p">))</span>
@@ -1331,17 +1331,17 @@ for training loops that need to iterate through the dataset multiple times.</p>
 <p>Ensure that workers are properly terminated when the dataloader is deleted.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span>
-<span class="normal"><span>64</span></span>
-<span class="normal"><span>65</span></span>
-<span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Ensure that workers are properly terminated when the dataloader is deleted."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">,</span> <span class="s2">"_workers"</span><span class="p">):</span>
@@ -1366,10 +1366,10 @@ for training loops that need to iterate through the dataset multiple times.</p>
 <p>Create an iterator that yields indefinitely from the underlying iterator.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>56</span></span>
-<span class="normal"><span>57</span></span>
-<span class="normal"><span>58</span></span>
-<span class="normal"><span>59</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Create an iterator that yields indefinitely from the underlying iterator."""</span>
 <span></span>    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="p">)):</span>
 <span></span>        <span class="k">yield</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">iterator</span><span class="p">)</span>
@@ -1387,9 +1387,9 @@ for training loops that need to iterate through the dataset multiple times.</p>
 <p>Return the length of the batch sampler's sampler.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>52</span>
+<span>53</span>
+<span>54</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the length of the batch sampler's sampler."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch_sampler</span><span class="o">.</span><span class="n">sampler</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1406,9 +1406,9 @@ for training loops that need to iterate through the dataset multiple times.</p>
 <p>Reset the iterator to allow modifications to the dataset during training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>73</span></span>
-<span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>73</span>
+<span>74</span>
+<span>75</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the iterator to allow modifications to the dataset during training."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">iterator</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_iterator</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -1453,9 +1453,9 @@ over a dataset.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>89</span></span>
-<span class="normal"><span>90</span></span>
-<span class="normal"><span>91</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sampler</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>89</span>
+<span>90</span>
+<span>91</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sampler</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the _RepeatSampler with a sampler to repeat indefinitely."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sampler</span> <span class="o">=</span> <span class="n">sampler</span>
 </code></pre></div></td></tr></table></div>
@@ -1471,10 +1471,10 @@ over a dataset.</p>
 <p>Iterate over the sampler indefinitely, yielding its contents.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>93</span></span>
-<span class="normal"><span>94</span></span>
-<span class="normal"><span>95</span></span>
-<span class="normal"><span>96</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Iterate over the sampler indefinitely, yielding its contents."""</span>
 <span></span>    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
 <span></span>        <span class="k">yield from</span> <span class="nb">iter</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">sampler</span><span class="p">)</span>
@@ -1495,11 +1495,11 @@ over a dataset.</p>
 <p>Set dataloader worker seed for reproducibility across worker processes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span>
-<span class="normal"><span>102</span></span>
-<span class="normal"><span>103</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>  <span class="c1"># noqa</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">seed_worker</span><span class="p">(</span><span class="n">worker_id</span><span class="p">):</span>  <span class="c1"># noqa</span>
 <span></span><span class="w">    </span><span class="sd">"""Set dataloader worker seed for reproducibility across worker processes."""</span>
 <span></span>    <span class="n">worker_seed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">initial_seed</span><span class="p">()</span> <span class="o">%</span> <span class="mi">2</span><span class="o">**</span><span class="mi">32</span>
 <span></span>    <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="n">worker_seed</span><span class="p">)</span>
@@ -1527,26 +1527,26 @@ over a dataset.</p>
 <p>Build and return a YOLO dataset based on configuration parameters.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>106</span></span>
-<span class="normal"><span>107</span></span>
-<span class="normal"><span>108</span></span>
-<span class="normal"><span>109</span></span>
-<span class="normal"><span>110</span></span>
-<span class="normal"><span>111</span></span>
-<span class="normal"><span>112</span></span>
-<span class="normal"><span>113</span></span>
-<span class="normal"><span>114</span></span>
-<span class="normal"><span>115</span></span>
-<span class="normal"><span>116</span></span>
-<span class="normal"><span>117</span></span>
-<span class="normal"><span>118</span></span>
-<span class="normal"><span>119</span></span>
-<span class="normal"><span>120</span></span>
-<span class="normal"><span>121</span></span>
-<span class="normal"><span>122</span></span>
-<span class="normal"><span>123</span></span>
-<span class="normal"><span>124</span></span>
-<span class="normal"><span>125</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_yolo_dataset</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">multi_modal</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_yolo_dataset</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">multi_modal</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Build and return a YOLO dataset based on configuration parameters."""</span>
 <span></span>    <span class="n">dataset</span> <span class="o">=</span> <span class="n">YOLOMultiModalDataset</span> <span class="k">if</span> <span class="n">multi_modal</span> <span class="k">else</span> <span class="n">YOLODataset</span>
 <span></span>    <span class="k">return</span> <span class="n">dataset</span><span class="p">(</span>
@@ -1582,25 +1582,25 @@ over a dataset.</p>
 <p>Build and return a GroundingDataset based on configuration parameters.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>128</span></span>
-<span class="normal"><span>129</span></span>
-<span class="normal"><span>130</span></span>
-<span class="normal"><span>131</span></span>
-<span class="normal"><span>132</span></span>
-<span class="normal"><span>133</span></span>
-<span class="normal"><span>134</span></span>
-<span class="normal"><span>135</span></span>
-<span class="normal"><span>136</span></span>
-<span class="normal"><span>137</span></span>
-<span class="normal"><span>138</span></span>
-<span class="normal"><span>139</span></span>
-<span class="normal"><span>140</span></span>
-<span class="normal"><span>141</span></span>
-<span class="normal"><span>142</span></span>
-<span class="normal"><span>143</span></span>
-<span class="normal"><span>144</span></span>
-<span class="normal"><span>145</span></span>
-<span class="normal"><span>146</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_grounding</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_grounding</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">json_file</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">rect</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Build and return a GroundingDataset based on configuration parameters."""</span>
 <span></span>    <span class="k">return</span> <span class="n">GroundingDataset</span><span class="p">(</span>
 <span></span>        <span class="n">img_path</span><span class="o">=</span><span class="n">img_path</span><span class="p">,</span>
@@ -1747,37 +1747,37 @@ over a dataset.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>149</span></span>
-<span class="normal"><span>150</span></span>
-<span class="normal"><span>151</span></span>
-<span class="normal"><span>152</span></span>
-<span class="normal"><span>153</span></span>
-<span class="normal"><span>154</span></span>
-<span class="normal"><span>155</span></span>
-<span class="normal"><span>156</span></span>
-<span class="normal"><span>157</span></span>
-<span class="normal"><span>158</span></span>
-<span class="normal"><span>159</span></span>
-<span class="normal"><span>160</span></span>
-<span class="normal"><span>161</span></span>
-<span class="normal"><span>162</span></span>
-<span class="normal"><span>163</span></span>
-<span class="normal"><span>164</span></span>
-<span class="normal"><span>165</span></span>
-<span class="normal"><span>166</span></span>
-<span class="normal"><span>167</span></span>
-<span class="normal"><span>168</span></span>
-<span class="normal"><span>169</span></span>
-<span class="normal"><span>170</span></span>
-<span class="normal"><span>171</span></span>
-<span class="normal"><span>172</span></span>
-<span class="normal"><span>173</span></span>
-<span class="normal"><span>174</span></span>
-<span class="normal"><span>175</span></span>
-<span class="normal"><span>176</span></span>
-<span class="normal"><span>177</span></span>
-<span class="normal"><span>178</span></span>
-<span class="normal"><span>179</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataloader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">workers</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rank</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataloader</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">workers</span><span class="p">,</span> <span class="n">shuffle</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">rank</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Create and return an InfiniteDataLoader or DataLoader for training or validation.</span>
 <span></span>
@@ -1899,47 +1899,47 @@ over a dataset.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>182</span></span>
-<span class="normal"><span>183</span></span>
-<span class="normal"><span>184</span></span>
-<span class="normal"><span>185</span></span>
-<span class="normal"><span>186</span></span>
-<span class="normal"><span>187</span></span>
-<span class="normal"><span>188</span></span>
-<span class="normal"><span>189</span></span>
-<span class="normal"><span>190</span></span>
-<span class="normal"><span>191</span></span>
-<span class="normal"><span>192</span></span>
-<span class="normal"><span>193</span></span>
-<span class="normal"><span>194</span></span>
-<span class="normal"><span>195</span></span>
-<span class="normal"><span>196</span></span>
-<span class="normal"><span>197</span></span>
-<span class="normal"><span>198</span></span>
-<span class="normal"><span>199</span></span>
-<span class="normal"><span>200</span></span>
-<span class="normal"><span>201</span></span>
-<span class="normal"><span>202</span></span>
-<span class="normal"><span>203</span></span>
-<span class="normal"><span>204</span></span>
-<span class="normal"><span>205</span></span>
-<span class="normal"><span>206</span></span>
-<span class="normal"><span>207</span></span>
-<span class="normal"><span>208</span></span>
-<span class="normal"><span>209</span></span>
-<span class="normal"><span>210</span></span>
-<span class="normal"><span>211</span></span>
-<span class="normal"><span>212</span></span>
-<span class="normal"><span>213</span></span>
-<span class="normal"><span>214</span></span>
-<span class="normal"><span>215</span></span>
-<span class="normal"><span>216</span></span>
-<span class="normal"><span>217</span></span>
-<span class="normal"><span>218</span></span>
-<span class="normal"><span>219</span></span>
-<span class="normal"><span>220</span></span>
-<span class="normal"><span>221</span></span>
-<span class="normal"><span>222</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check the type of input source and return corresponding flag values.</span>
 <span></span>
@@ -2092,40 +2092,40 @@ over a dataset.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>225</span></span>
-<span class="normal"><span>226</span></span>
-<span class="normal"><span>227</span></span>
-<span class="normal"><span>228</span></span>
-<span class="normal"><span>229</span></span>
-<span class="normal"><span>230</span></span>
-<span class="normal"><span>231</span></span>
-<span class="normal"><span>232</span></span>
-<span class="normal"><span>233</span></span>
-<span class="normal"><span>234</span></span>
-<span class="normal"><span>235</span></span>
-<span class="normal"><span>236</span></span>
-<span class="normal"><span>237</span></span>
-<span class="normal"><span>238</span></span>
-<span class="normal"><span>239</span></span>
-<span class="normal"><span>240</span></span>
-<span class="normal"><span>241</span></span>
-<span class="normal"><span>242</span></span>
-<span class="normal"><span>243</span></span>
-<span class="normal"><span>244</span></span>
-<span class="normal"><span>245</span></span>
-<span class="normal"><span>246</span></span>
-<span class="normal"><span>247</span></span>
-<span class="normal"><span>248</span></span>
-<span class="normal"><span>249</span></span>
-<span class="normal"><span>250</span></span>
-<span class="normal"><span>251</span></span>
-<span class="normal"><span>252</span></span>
-<span class="normal"><span>253</span></span>
-<span class="normal"><span>254</span></span>
-<span class="normal"><span>255</span></span>
-<span class="normal"><span>256</span></span>
-<span class="normal"><span>257</span></span>
-<span class="normal"><span>258</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load an inference source for object detection and apply necessary transformations.</span>
 <span></span>

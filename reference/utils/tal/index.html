@@ -1352,15 +1352,15 @@ classification and localization information.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>30</span></span>
-<span class="normal"><span>31</span></span>
-<span class="normal"><span>32</span></span>
-<span class="normal"><span>33</span></span>
-<span class="normal"><span>34</span></span>
-<span class="normal"><span>35</span></span>
-<span class="normal"><span>36</span></span>
-<span class="normal"><span>37</span></span>
-<span class="normal"><span>38</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topk</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topk</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a TaskAlignedAssigner object with customizable hyperparameters."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">topk</span> <span class="o">=</span> <span class="n">topk</span>
@@ -1556,50 +1556,50 @@ classification and localization information.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>40</span></span>
-<span class="normal"><span>41</span></span>
-<span class="normal"><span>42</span></span>
-<span class="normal"><span>43</span></span>
-<span class="normal"><span>44</span></span>
-<span class="normal"><span>45</span></span>
-<span class="normal"><span>46</span></span>
-<span class="normal"><span>47</span></span>
-<span class="normal"><span>48</span></span>
-<span class="normal"><span>49</span></span>
-<span class="normal"><span>50</span></span>
-<span class="normal"><span>51</span></span>
-<span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span>
-<span class="normal"><span>55</span></span>
-<span class="normal"><span>56</span></span>
-<span class="normal"><span>57</span></span>
-<span class="normal"><span>58</span></span>
-<span class="normal"><span>59</span></span>
-<span class="normal"><span>60</span></span>
-<span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span>
-<span class="normal"><span>64</span></span>
-<span class="normal"><span>65</span></span>
-<span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span>
-<span class="normal"><span>72</span></span>
-<span class="normal"><span>73</span></span>
-<span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span>
-<span class="normal"><span>76</span></span>
-<span class="normal"><span>77</span></span>
-<span class="normal"><span>78</span></span>
-<span class="normal"><span>79</span></span>
-<span class="normal"><span>80</span></span>
-<span class="normal"><span>81</span></span>
-<span class="normal"><span>82</span></span>
-<span class="normal"><span>83</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pd_scores</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">,</span> <span class="n">anc_points</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">mask_gt</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute the task-aligned assignment.</span>
@@ -1781,39 +1781,39 @@ classification and localization information.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>149</span></span>
-<span class="normal"><span>150</span></span>
-<span class="normal"><span>151</span></span>
-<span class="normal"><span>152</span></span>
-<span class="normal"><span>153</span></span>
-<span class="normal"><span>154</span></span>
-<span class="normal"><span>155</span></span>
-<span class="normal"><span>156</span></span>
-<span class="normal"><span>157</span></span>
-<span class="normal"><span>158</span></span>
-<span class="normal"><span>159</span></span>
-<span class="normal"><span>160</span></span>
-<span class="normal"><span>161</span></span>
-<span class="normal"><span>162</span></span>
-<span class="normal"><span>163</span></span>
-<span class="normal"><span>164</span></span>
-<span class="normal"><span>165</span></span>
-<span class="normal"><span>166</span></span>
-<span class="normal"><span>167</span></span>
-<span class="normal"><span>168</span></span>
-<span class="normal"><span>169</span></span>
-<span class="normal"><span>170</span></span>
-<span class="normal"><span>171</span></span>
-<span class="normal"><span>172</span></span>
-<span class="normal"><span>173</span></span>
-<span class="normal"><span>174</span></span>
-<span class="normal"><span>175</span></span>
-<span class="normal"><span>176</span></span>
-<span class="normal"><span>177</span></span>
-<span class="normal"><span>178</span></span>
-<span class="normal"><span>179</span></span>
-<span class="normal"><span>180</span></span>
-<span class="normal"><span>181</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_box_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pd_scores</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">mask_gt</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_box_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pd_scores</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">mask_gt</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute alignment metric given predicted and ground truth bounding boxes.</span>
 <span></span>
@@ -2010,32 +2010,32 @@ classification and localization information.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>122</span></span>
-<span class="normal"><span>123</span></span>
-<span class="normal"><span>124</span></span>
-<span class="normal"><span>125</span></span>
-<span class="normal"><span>126</span></span>
-<span class="normal"><span>127</span></span>
-<span class="normal"><span>128</span></span>
-<span class="normal"><span>129</span></span>
-<span class="normal"><span>130</span></span>
-<span class="normal"><span>131</span></span>
-<span class="normal"><span>132</span></span>
-<span class="normal"><span>133</span></span>
-<span class="normal"><span>134</span></span>
-<span class="normal"><span>135</span></span>
-<span class="normal"><span>136</span></span>
-<span class="normal"><span>137</span></span>
-<span class="normal"><span>138</span></span>
-<span class="normal"><span>139</span></span>
-<span class="normal"><span>140</span></span>
-<span class="normal"><span>141</span></span>
-<span class="normal"><span>142</span></span>
-<span class="normal"><span>143</span></span>
-<span class="normal"><span>144</span></span>
-<span class="normal"><span>145</span></span>
-<span class="normal"><span>146</span></span>
-<span class="normal"><span>147</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_pos_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pd_scores</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">anc_points</span><span class="p">,</span> <span class="n">mask_gt</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_pos_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pd_scores</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">anc_points</span><span class="p">,</span> <span class="n">mask_gt</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get positive mask for each ground truth box.</span>
 <span></span>
@@ -2199,50 +2199,50 @@ classification and localization information.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>230</span></span>
-<span class="normal"><span>231</span></span>
-<span class="normal"><span>232</span></span>
-<span class="normal"><span>233</span></span>
-<span class="normal"><span>234</span></span>
-<span class="normal"><span>235</span></span>
-<span class="normal"><span>236</span></span>
-<span class="normal"><span>237</span></span>
-<span class="normal"><span>238</span></span>
-<span class="normal"><span>239</span></span>
-<span class="normal"><span>240</span></span>
-<span class="normal"><span>241</span></span>
-<span class="normal"><span>242</span></span>
-<span class="normal"><span>243</span></span>
-<span class="normal"><span>244</span></span>
-<span class="normal"><span>245</span></span>
-<span class="normal"><span>246</span></span>
-<span class="normal"><span>247</span></span>
-<span class="normal"><span>248</span></span>
-<span class="normal"><span>249</span></span>
-<span class="normal"><span>250</span></span>
-<span class="normal"><span>251</span></span>
-<span class="normal"><span>252</span></span>
-<span class="normal"><span>253</span></span>
-<span class="normal"><span>254</span></span>
-<span class="normal"><span>255</span></span>
-<span class="normal"><span>256</span></span>
-<span class="normal"><span>257</span></span>
-<span class="normal"><span>258</span></span>
-<span class="normal"><span>259</span></span>
-<span class="normal"><span>260</span></span>
-<span class="normal"><span>261</span></span>
-<span class="normal"><span>262</span></span>
-<span class="normal"><span>263</span></span>
-<span class="normal"><span>264</span></span>
-<span class="normal"><span>265</span></span>
-<span class="normal"><span>266</span></span>
-<span class="normal"><span>267</span></span>
-<span class="normal"><span>268</span></span>
-<span class="normal"><span>269</span></span>
-<span class="normal"><span>270</span></span>
-<span class="normal"><span>271</span></span>
-<span class="normal"><span>272</span></span>
-<span class="normal"><span>273</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">fg_mask</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_targets</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_labels</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">fg_mask</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute target labels, target bounding boxes, and target scores for the positive anchor points.</span>
 <span></span>
@@ -2366,18 +2366,18 @@ classification and localization information.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>183</span></span>
-<span class="normal"><span>184</span></span>
-<span class="normal"><span>185</span></span>
-<span class="normal"><span>186</span></span>
-<span class="normal"><span>187</span></span>
-<span class="normal"><span>188</span></span>
-<span class="normal"><span>189</span></span>
-<span class="normal"><span>190</span></span>
-<span class="normal"><span>191</span></span>
-<span class="normal"><span>192</span></span>
-<span class="normal"><span>193</span></span>
-<span class="normal"><span>194</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate IoU for horizontal bounding boxes.</span>
 <span></span>
@@ -2493,28 +2493,28 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>275</span></span>
-<span class="normal"><span>276</span></span>
-<span class="normal"><span>277</span></span>
-<span class="normal"><span>278</span></span>
-<span class="normal"><span>279</span></span>
-<span class="normal"><span>280</span></span>
-<span class="normal"><span>281</span></span>
-<span class="normal"><span>282</span></span>
-<span class="normal"><span>283</span></span>
-<span class="normal"><span>284</span></span>
-<span class="normal"><span>285</span></span>
-<span class="normal"><span>286</span></span>
-<span class="normal"><span>287</span></span>
-<span class="normal"><span>288</span></span>
-<span class="normal"><span>289</span></span>
-<span class="normal"><span>290</span></span>
-<span class="normal"><span>291</span></span>
-<span class="normal"><span>292</span></span>
-<span class="normal"><span>293</span></span>
-<span class="normal"><span>294</span></span>
-<span class="normal"><span>295</span></span>
-<span class="normal"><span>296</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_candidates_in_gts</span><span class="p">(</span><span class="n">xy_centers</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select positive anchor centers within ground truth bounding boxes.</span>
@@ -2655,35 +2655,35 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>298</span></span>
-<span class="normal"><span>299</span></span>
-<span class="normal"><span>300</span></span>
-<span class="normal"><span>301</span></span>
-<span class="normal"><span>302</span></span>
-<span class="normal"><span>303</span></span>
-<span class="normal"><span>304</span></span>
-<span class="normal"><span>305</span></span>
-<span class="normal"><span>306</span></span>
-<span class="normal"><span>307</span></span>
-<span class="normal"><span>308</span></span>
-<span class="normal"><span>309</span></span>
-<span class="normal"><span>310</span></span>
-<span class="normal"><span>311</span></span>
-<span class="normal"><span>312</span></span>
-<span class="normal"><span>313</span></span>
-<span class="normal"><span>314</span></span>
-<span class="normal"><span>315</span></span>
-<span class="normal"><span>316</span></span>
-<span class="normal"><span>317</span></span>
-<span class="normal"><span>318</span></span>
-<span class="normal"><span>319</span></span>
-<span class="normal"><span>320</span></span>
-<span class="normal"><span>321</span></span>
-<span class="normal"><span>322</span></span>
-<span class="normal"><span>323</span></span>
-<span class="normal"><span>324</span></span>
-<span class="normal"><span>325</span></span>
-<span class="normal"><span>326</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_highest_overlaps</span><span class="p">(</span><span class="n">mask_pos</span><span class="p">,</span> <span class="n">overlaps</span><span class="p">,</span> <span class="n">n_max_boxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select anchor boxes with highest IoU when assigned to multiple ground truths.</span>
@@ -2812,39 +2812,39 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>196</span></span>
-<span class="normal"><span>197</span></span>
-<span class="normal"><span>198</span></span>
-<span class="normal"><span>199</span></span>
-<span class="normal"><span>200</span></span>
-<span class="normal"><span>201</span></span>
-<span class="normal"><span>202</span></span>
-<span class="normal"><span>203</span></span>
-<span class="normal"><span>204</span></span>
-<span class="normal"><span>205</span></span>
-<span class="normal"><span>206</span></span>
-<span class="normal"><span>207</span></span>
-<span class="normal"><span>208</span></span>
-<span class="normal"><span>209</span></span>
-<span class="normal"><span>210</span></span>
-<span class="normal"><span>211</span></span>
-<span class="normal"><span>212</span></span>
-<span class="normal"><span>213</span></span>
-<span class="normal"><span>214</span></span>
-<span class="normal"><span>215</span></span>
-<span class="normal"><span>216</span></span>
-<span class="normal"><span>217</span></span>
-<span class="normal"><span>218</span></span>
-<span class="normal"><span>219</span></span>
-<span class="normal"><span>220</span></span>
-<span class="normal"><span>221</span></span>
-<span class="normal"><span>222</span></span>
-<span class="normal"><span>223</span></span>
-<span class="normal"><span>224</span></span>
-<span class="normal"><span>225</span></span>
-<span class="normal"><span>226</span></span>
-<span class="normal"><span>227</span></span>
-<span class="normal"><span>228</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_topk_candidates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">topk_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_topk_candidates</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">largest</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">topk_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select the top-k candidates based on the given metrics.</span>
 <span></span>
@@ -2898,15 +2898,15 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <p>Assigns ground-truth objects to rotated bounding boxes using a task-aligned metric.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>30</span></span>
-<span class="normal"><span>31</span></span>
-<span class="normal"><span>32</span></span>
-<span class="normal"><span>33</span></span>
-<span class="normal"><span>34</span></span>
-<span class="normal"><span>35</span></span>
-<span class="normal"><span>36</span></span>
-<span class="normal"><span>37</span></span>
-<span class="normal"><span>38</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topk</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">topk</span><span class="o">=</span><span class="mi">13</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">6.0</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-9</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a TaskAlignedAssigner object with customizable hyperparameters."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">topk</span> <span class="o">=</span> <span class="n">topk</span>
@@ -2928,9 +2928,9 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <p>Calculate IoU for rotated bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>332</span></span>
-<span class="normal"><span>333</span></span>
-<span class="normal"><span>334</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>332</span>
+<span>333</span>
+<span>334</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">iou_calculation</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate IoU for rotated bounding boxes."""</span>
 <span></span>    <span class="k">return</span> <span class="n">probiou</span><span class="p">(</span><span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">pd_bboxes</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3016,32 +3016,32 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>336</span></span>
-<span class="normal"><span>337</span></span>
-<span class="normal"><span>338</span></span>
-<span class="normal"><span>339</span></span>
-<span class="normal"><span>340</span></span>
-<span class="normal"><span>341</span></span>
-<span class="normal"><span>342</span></span>
-<span class="normal"><span>343</span></span>
-<span class="normal"><span>344</span></span>
-<span class="normal"><span>345</span></span>
-<span class="normal"><span>346</span></span>
-<span class="normal"><span>347</span></span>
-<span class="normal"><span>348</span></span>
-<span class="normal"><span>349</span></span>
-<span class="normal"><span>350</span></span>
-<span class="normal"><span>351</span></span>
-<span class="normal"><span>352</span></span>
-<span class="normal"><span>353</span></span>
-<span class="normal"><span>354</span></span>
-<span class="normal"><span>355</span></span>
-<span class="normal"><span>356</span></span>
-<span class="normal"><span>357</span></span>
-<span class="normal"><span>358</span></span>
-<span class="normal"><span>359</span></span>
-<span class="normal"><span>360</span></span>
-<span class="normal"><span>361</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_candidates_in_gts</span><span class="p">(</span><span class="n">xy_centers</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select the positive anchor center in gt for rotated bounding boxes.</span>
@@ -3084,19 +3084,19 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <p>Generate anchors from features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>364</span></span>
-<span class="normal"><span>365</span></span>
-<span class="normal"><span>366</span></span>
-<span class="normal"><span>367</span></span>
-<span class="normal"><span>368</span></span>
-<span class="normal"><span>369</span></span>
-<span class="normal"><span>370</span></span>
-<span class="normal"><span>371</span></span>
-<span class="normal"><span>372</span></span>
-<span class="normal"><span>373</span></span>
-<span class="normal"><span>374</span></span>
-<span class="normal"><span>375</span></span>
-<span class="normal"><span>376</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_anchors</span><span class="p">(</span><span class="n">feats</span><span class="p">,</span> <span class="n">strides</span><span class="p">,</span> <span class="n">grid_cell_offset</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_anchors</span><span class="p">(</span><span class="n">feats</span><span class="p">,</span> <span class="n">strides</span><span class="p">,</span> <span class="n">grid_cell_offset</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Generate anchors from features."""</span>
 <span></span>    <span class="n">anchor_points</span><span class="p">,</span> <span class="n">stride_tensor</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <span></span>    <span class="k">assert</span> <span class="n">feats</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
@@ -3123,16 +3123,16 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <p>Transform distance(ltrb) to box(xywh or xyxy).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>379</span></span>
-<span class="normal"><span>380</span></span>
-<span class="normal"><span>381</span></span>
-<span class="normal"><span>382</span></span>
-<span class="normal"><span>383</span></span>
-<span class="normal"><span>384</span></span>
-<span class="normal"><span>385</span></span>
-<span class="normal"><span>386</span></span>
-<span class="normal"><span>387</span></span>
-<span class="normal"><span>388</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dist2bbox</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dist2bbox</span><span class="p">(</span><span class="n">distance</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Transform distance(ltrb) to box(xywh or xyxy)."""</span>
 <span></span>    <span class="n">lt</span><span class="p">,</span> <span class="n">rb</span> <span class="o">=</span> <span class="n">distance</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
 <span></span>    <span class="n">x1y1</span> <span class="o">=</span> <span class="n">anchor_points</span> <span class="o">-</span> <span class="n">lt</span>
@@ -3156,10 +3156,10 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 <p>Transform bbox(xyxy) to dist(ltrb).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>391</span></span>
-<span class="normal"><span>392</span></span>
-<span class="normal"><span>393</span></span>
-<span class="normal"><span>394</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox2dist</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">bbox</span><span class="p">,</span> <span class="n">reg_max</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox2dist</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">bbox</span><span class="p">,</span> <span class="n">reg_max</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Transform bbox(xyxy) to dist(ltrb)."""</span>
 <span></span>    <span class="n">x1y1</span><span class="p">,</span> <span class="n">x2y2</span> <span class="o">=</span> <span class="n">bbox</span><span class="o">.</span><span class="n">chunk</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="n">anchor_points</span> <span class="o">-</span> <span class="n">x1y1</span><span class="p">,</span> <span class="n">x2y2</span> <span class="o">-</span> <span class="n">anchor_points</span><span class="p">),</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">reg_max</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">)</span>  <span class="c1"># dist (lt, rb)</span>
@@ -3275,26 +3275,26 @@ Bounding box format: [x_min, y_min, x_max, y_max].</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tal.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>397</span></span>
-<span class="normal"><span>398</span></span>
-<span class="normal"><span>399</span></span>
-<span class="normal"><span>400</span></span>
-<span class="normal"><span>401</span></span>
-<span class="normal"><span>402</span></span>
-<span class="normal"><span>403</span></span>
-<span class="normal"><span>404</span></span>
-<span class="normal"><span>405</span></span>
-<span class="normal"><span>406</span></span>
-<span class="normal"><span>407</span></span>
-<span class="normal"><span>408</span></span>
-<span class="normal"><span>409</span></span>
-<span class="normal"><span>410</span></span>
-<span class="normal"><span>411</span></span>
-<span class="normal"><span>412</span></span>
-<span class="normal"><span>413</span></span>
-<span class="normal"><span>414</span></span>
-<span class="normal"><span>415</span></span>
-<span class="normal"><span>416</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dist2rbox</span><span class="p">(</span><span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">dist2rbox</span><span class="p">(</span><span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Decode predicted rotated bounding box coordinates from anchor points and distribution.</span>
 <span></span>

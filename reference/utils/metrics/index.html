@@ -2420,21 +2420,21 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>307</span></span>
-<span class="normal"><span>308</span></span>
-<span class="normal"><span>309</span></span>
-<span class="normal"><span>310</span></span>
-<span class="normal"><span>311</span></span>
-<span class="normal"><span>312</span></span>
-<span class="normal"><span>313</span></span>
-<span class="normal"><span>314</span></span>
-<span class="normal"><span>315</span></span>
-<span class="normal"><span>316</span></span>
-<span class="normal"><span>317</span></span>
-<span class="normal"><span>318</span></span>
-<span class="normal"><span>319</span></span>
-<span class="normal"><span>320</span></span>
-<span class="normal"><span>321</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a ConfusionMatrix instance.</span>
 <span></span>
@@ -2462,9 +2462,9 @@
 <p>Return the confusion matrix.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>393</span></span>
-<span class="normal"><span>394</span></span>
-<span class="normal"><span>395</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>393</span>
+<span>394</span>
+<span>395</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">matrix</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the confusion matrix."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span>
 </code></pre></div></td></tr></table></div>
@@ -2558,51 +2558,51 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>409</span></span>
-<span class="normal"><span>410</span></span>
-<span class="normal"><span>411</span></span>
-<span class="normal"><span>412</span></span>
-<span class="normal"><span>413</span></span>
-<span class="normal"><span>414</span></span>
-<span class="normal"><span>415</span></span>
-<span class="normal"><span>416</span></span>
-<span class="normal"><span>417</span></span>
-<span class="normal"><span>418</span></span>
-<span class="normal"><span>419</span></span>
-<span class="normal"><span>420</span></span>
-<span class="normal"><span>421</span></span>
-<span class="normal"><span>422</span></span>
-<span class="normal"><span>423</span></span>
-<span class="normal"><span>424</span></span>
-<span class="normal"><span>425</span></span>
-<span class="normal"><span>426</span></span>
-<span class="normal"><span>427</span></span>
-<span class="normal"><span>428</span></span>
-<span class="normal"><span>429</span></span>
-<span class="normal"><span>430</span></span>
-<span class="normal"><span>431</span></span>
-<span class="normal"><span>432</span></span>
-<span class="normal"><span>433</span></span>
-<span class="normal"><span>434</span></span>
-<span class="normal"><span>435</span></span>
-<span class="normal"><span>436</span></span>
-<span class="normal"><span>437</span></span>
-<span class="normal"><span>438</span></span>
-<span class="normal"><span>439</span></span>
-<span class="normal"><span>440</span></span>
-<span class="normal"><span>441</span></span>
-<span class="normal"><span>442</span></span>
-<span class="normal"><span>443</span></span>
-<span class="normal"><span>444</span></span>
-<span class="normal"><span>445</span></span>
-<span class="normal"><span>446</span></span>
-<span class="normal"><span>447</span></span>
-<span class="normal"><span>448</span></span>
-<span class="normal"><span>449</span></span>
-<span class="normal"><span>450</span></span>
-<span class="normal"><span>451</span></span>
-<span class="normal"><span>452</span></span>
-<span class="normal"><span>453</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@TryExcept</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">"ConfusionMatrix plot failure"</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>409</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span>
+<span>440</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@TryExcept</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">"ConfusionMatrix plot failure"</span><span class="p">)</span>
 <span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2661,10 +2661,10 @@
 <p>Print the confusion matrix to the console.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>455</span></span>
-<span class="normal"><span>456</span></span>
-<span class="normal"><span>457</span></span>
-<span class="normal"><span>458</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Print the confusion matrix to the console."""</span>
 <span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]):</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">" "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">matrix</span><span class="p">[</span><span class="n">i</span><span class="p">])))</span>
@@ -2745,63 +2745,63 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>335</span></span>
-<span class="normal"><span>336</span></span>
-<span class="normal"><span>337</span></span>
-<span class="normal"><span>338</span></span>
-<span class="normal"><span>339</span></span>
-<span class="normal"><span>340</span></span>
-<span class="normal"><span>341</span></span>
-<span class="normal"><span>342</span></span>
-<span class="normal"><span>343</span></span>
-<span class="normal"><span>344</span></span>
-<span class="normal"><span>345</span></span>
-<span class="normal"><span>346</span></span>
-<span class="normal"><span>347</span></span>
-<span class="normal"><span>348</span></span>
-<span class="normal"><span>349</span></span>
-<span class="normal"><span>350</span></span>
-<span class="normal"><span>351</span></span>
-<span class="normal"><span>352</span></span>
-<span class="normal"><span>353</span></span>
-<span class="normal"><span>354</span></span>
-<span class="normal"><span>355</span></span>
-<span class="normal"><span>356</span></span>
-<span class="normal"><span>357</span></span>
-<span class="normal"><span>358</span></span>
-<span class="normal"><span>359</span></span>
-<span class="normal"><span>360</span></span>
-<span class="normal"><span>361</span></span>
-<span class="normal"><span>362</span></span>
-<span class="normal"><span>363</span></span>
-<span class="normal"><span>364</span></span>
-<span class="normal"><span>365</span></span>
-<span class="normal"><span>366</span></span>
-<span class="normal"><span>367</span></span>
-<span class="normal"><span>368</span></span>
-<span class="normal"><span>369</span></span>
-<span class="normal"><span>370</span></span>
-<span class="normal"><span>371</span></span>
-<span class="normal"><span>372</span></span>
-<span class="normal"><span>373</span></span>
-<span class="normal"><span>374</span></span>
-<span class="normal"><span>375</span></span>
-<span class="normal"><span>376</span></span>
-<span class="normal"><span>377</span></span>
-<span class="normal"><span>378</span></span>
-<span class="normal"><span>379</span></span>
-<span class="normal"><span>380</span></span>
-<span class="normal"><span>381</span></span>
-<span class="normal"><span>382</span></span>
-<span class="normal"><span>383</span></span>
-<span class="normal"><span>384</span></span>
-<span class="normal"><span>385</span></span>
-<span class="normal"><span>386</span></span>
-<span class="normal"><span>387</span></span>
-<span class="normal"><span>388</span></span>
-<span class="normal"><span>389</span></span>
-<span class="normal"><span>390</span></span>
-<span class="normal"><span>391</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detections</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">gt_cls</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detections</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">gt_cls</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update confusion matrix for object detection task.</span>
 <span></span>
@@ -2917,17 +2917,17 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>323</span></span>
-<span class="normal"><span>324</span></span>
-<span class="normal"><span>325</span></span>
-<span class="normal"><span>326</span></span>
-<span class="normal"><span>327</span></span>
-<span class="normal"><span>328</span></span>
-<span class="normal"><span>329</span></span>
-<span class="normal"><span>330</span></span>
-<span class="normal"><span>331</span></span>
-<span class="normal"><span>332</span></span>
-<span class="normal"><span>333</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_cls_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_cls_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">targets</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update confusion matrix for classification task.</span>
 <span></span>
@@ -2973,17 +2973,17 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>397</span></span>
-<span class="normal"><span>398</span></span>
-<span class="normal"><span>399</span></span>
-<span class="normal"><span>400</span></span>
-<span class="normal"><span>401</span></span>
-<span class="normal"><span>402</span></span>
-<span class="normal"><span>403</span></span>
-<span class="normal"><span>404</span></span>
-<span class="normal"><span>405</span></span>
-<span class="normal"><span>406</span></span>
-<span class="normal"><span>407</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tp_fp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tp_fp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return true positives and false positives.</span>
 <span></span>
@@ -3222,14 +3222,14 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>689</span></span>
-<span class="normal"><span>690</span></span>
-<span class="normal"><span>691</span></span>
-<span class="normal"><span>692</span></span>
-<span class="normal"><span>693</span></span>
-<span class="normal"><span>694</span></span>
-<span class="normal"><span>695</span></span>
-<span class="normal"><span>696</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>689</span>
+<span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span>
+<span>694</span>
+<span>695</span>
+<span>696</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a Metric instance for computing evaluation metrics for the YOLOv8 model."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># (nc, )</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># (nc, )</span>
@@ -3527,9 +3527,9 @@
 <p>Return class-aware result, p[i], r[i], ap50[i], ap[i].</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>772</span></span>
-<span class="normal"><span>773</span></span>
-<span class="normal"><span>774</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>772</span>
+<span>773</span>
+<span>774</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return class-aware result, p[i], r[i], ap50[i], ap[i]."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ap50</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -3546,10 +3546,10 @@
 <p>Return model fitness as a weighted combination of metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>784</span></span>
-<span class="normal"><span>785</span></span>
-<span class="normal"><span>786</span></span>
-<span class="normal"><span>787</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>784</span>
+<span>785</span>
+<span>786</span>
+<span>787</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return model fitness as a weighted combination of metrics."""</span>
 <span></span>    <span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>  <span class="c1"># weights for [P, R, mAP@0.5, mAP@0.5:0.95]</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mean_results</span><span class="p">())</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -3567,9 +3567,9 @@
 <p>Return mean of results, mp, mr, map50, map.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>768</span></span>
-<span class="normal"><span>769</span></span>
-<span class="normal"><span>770</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>768</span>
+<span>769</span>
+<span>770</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return mean of results, mp, mr, map50, map."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -3625,35 +3625,35 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>789</span></span>
-<span class="normal"><span>790</span></span>
-<span class="normal"><span>791</span></span>
-<span class="normal"><span>792</span></span>
-<span class="normal"><span>793</span></span>
-<span class="normal"><span>794</span></span>
-<span class="normal"><span>795</span></span>
-<span class="normal"><span>796</span></span>
-<span class="normal"><span>797</span></span>
-<span class="normal"><span>798</span></span>
-<span class="normal"><span>799</span></span>
-<span class="normal"><span>800</span></span>
-<span class="normal"><span>801</span></span>
-<span class="normal"><span>802</span></span>
-<span class="normal"><span>803</span></span>
-<span class="normal"><span>804</span></span>
-<span class="normal"><span>805</span></span>
-<span class="normal"><span>806</span></span>
-<span class="normal"><span>807</span></span>
-<span class="normal"><span>808</span></span>
-<span class="normal"><span>809</span></span>
-<span class="normal"><span>810</span></span>
-<span class="normal"><span>811</span></span>
-<span class="normal"><span>812</span></span>
-<span class="normal"><span>813</span></span>
-<span class="normal"><span>814</span></span>
-<span class="normal"><span>815</span></span>
-<span class="normal"><span>816</span></span>
-<span class="normal"><span>817</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>789</span>
+<span>790</span>
+<span>791</span>
+<span>792</span>
+<span>793</span>
+<span>794</span>
+<span>795</span>
+<span>796</span>
+<span>797</span>
+<span>798</span>
+<span>799</span>
+<span>800</span>
+<span>801</span>
+<span>802</span>
+<span>803</span>
+<span>804</span>
+<span>805</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span>
+<span>810</span>
+<span>811</span>
+<span>812</span>
+<span>813</span>
+<span>814</span>
+<span>815</span>
+<span>816</span>
+<span>817</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update the evaluation metrics with a new set of results.</span>
 <span></span>
@@ -3840,21 +3840,21 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>848</span></span>
-<span class="normal"><span>849</span></span>
-<span class="normal"><span>850</span></span>
-<span class="normal"><span>851</span></span>
-<span class="normal"><span>852</span></span>
-<span class="normal"><span>853</span></span>
-<span class="normal"><span>854</span></span>
-<span class="normal"><span>855</span></span>
-<span class="normal"><span>856</span></span>
-<span class="normal"><span>857</span></span>
-<span class="normal"><span>858</span></span>
-<span class="normal"><span>859</span></span>
-<span class="normal"><span>860</span></span>
-<span class="normal"><span>861</span></span>
-<span class="normal"><span>862</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>848</span>
+<span>849</span>
+<span>850</span>
+<span>851</span>
+<span>852</span>
+<span>853</span>
+<span>854</span>
+<span>855</span>
+<span>856</span>
+<span>857</span>
+<span>858</span>
+<span>859</span>
+<span>860</span>
+<span>861</span>
+<span>862</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a DetMetrics instance with a save directory, plot flag, and class names.</span>
 <span></span>
@@ -3973,9 +3973,9 @@
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>897</span></span>
-<span class="normal"><span>898</span></span>
-<span class="normal"><span>899</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>897</span>
+<span>898</span>
+<span>899</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3992,9 +3992,9 @@
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>893</span></span>
-<span class="normal"><span>894</span></span>
-<span class="normal"><span>895</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>893</span>
+<span>894</span>
+<span>895</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -4104,29 +4104,29 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>864</span></span>
-<span class="normal"><span>865</span></span>
-<span class="normal"><span>866</span></span>
-<span class="normal"><span>867</span></span>
-<span class="normal"><span>868</span></span>
-<span class="normal"><span>869</span></span>
-<span class="normal"><span>870</span></span>
-<span class="normal"><span>871</span></span>
-<span class="normal"><span>872</span></span>
-<span class="normal"><span>873</span></span>
-<span class="normal"><span>874</span></span>
-<span class="normal"><span>875</span></span>
-<span class="normal"><span>876</span></span>
-<span class="normal"><span>877</span></span>
-<span class="normal"><span>878</span></span>
-<span class="normal"><span>879</span></span>
-<span class="normal"><span>880</span></span>
-<span class="normal"><span>881</span></span>
-<span class="normal"><span>882</span></span>
-<span class="normal"><span>883</span></span>
-<span class="normal"><span>884</span></span>
-<span class="normal"><span>885</span></span>
-<span class="normal"><span>886</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>864</span>
+<span>865</span>
+<span>866</span>
+<span>867</span>
+<span>868</span>
+<span>869</span>
+<span>870</span>
+<span>871</span>
+<span>872</span>
+<span>873</span>
+<span>874</span>
+<span>875</span>
+<span>876</span>
+<span>877</span>
+<span>878</span>
+<span>879</span>
+<span>880</span>
+<span>881</span>
+<span>882</span>
+<span>883</span>
+<span>884</span>
+<span>885</span>
+<span>886</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process predicted results for object detection and update metrics.</span>
 <span></span>
@@ -4318,22 +4318,22 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>946</span></span>
-<span class="normal"><span>947</span></span>
-<span class="normal"><span>948</span></span>
-<span class="normal"><span>949</span></span>
-<span class="normal"><span>950</span></span>
-<span class="normal"><span>951</span></span>
-<span class="normal"><span>952</span></span>
-<span class="normal"><span>953</span></span>
-<span class="normal"><span>954</span></span>
-<span class="normal"><span>955</span></span>
-<span class="normal"><span>956</span></span>
-<span class="normal"><span>957</span></span>
-<span class="normal"><span>958</span></span>
-<span class="normal"><span>959</span></span>
-<span class="normal"><span>960</span></span>
-<span class="normal"><span>961</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>946</span>
+<span>947</span>
+<span>948</span>
+<span>949</span>
+<span>950</span>
+<span>951</span>
+<span>952</span>
+<span>953</span>
+<span>954</span>
+<span>955</span>
+<span>956</span>
+<span>957</span>
+<span>958</span>
+<span>959</span>
+<span>960</span>
+<span>961</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SegmentMetrics instance with a save directory, plot flag, and class names.</span>
 <span></span>
@@ -4454,9 +4454,9 @@
 <p>Return classification results for a specified class index.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1020</span></span>
-<span class="normal"><span>1021</span></span>
-<span class="normal"><span>1022</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1020</span>
+<span>1021</span>
+<span>1022</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return classification results for a specified class index."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4473,9 +4473,9 @@
 <p>Return the mean metrics for bounding box and segmentation results.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1016</span></span>
-<span class="normal"><span>1017</span></span>
-<span class="normal"><span>1018</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1016</span>
+<span>1017</span>
+<span>1018</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the mean metrics for bounding box and segmentation results."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -4601,44 +4601,44 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 963</span></span>
-<span class="normal"><span> 964</span></span>
-<span class="normal"><span> 965</span></span>
-<span class="normal"><span> 966</span></span>
-<span class="normal"><span> 967</span></span>
-<span class="normal"><span> 968</span></span>
-<span class="normal"><span> 969</span></span>
-<span class="normal"><span> 970</span></span>
-<span class="normal"><span> 971</span></span>
-<span class="normal"><span> 972</span></span>
-<span class="normal"><span> 973</span></span>
-<span class="normal"><span> 974</span></span>
-<span class="normal"><span> 975</span></span>
-<span class="normal"><span> 976</span></span>
-<span class="normal"><span> 977</span></span>
-<span class="normal"><span> 978</span></span>
-<span class="normal"><span> 979</span></span>
-<span class="normal"><span> 980</span></span>
-<span class="normal"><span> 981</span></span>
-<span class="normal"><span> 982</span></span>
-<span class="normal"><span> 983</span></span>
-<span class="normal"><span> 984</span></span>
-<span class="normal"><span> 985</span></span>
-<span class="normal"><span> 986</span></span>
-<span class="normal"><span> 987</span></span>
-<span class="normal"><span> 988</span></span>
-<span class="normal"><span> 989</span></span>
-<span class="normal"><span> 990</span></span>
-<span class="normal"><span> 991</span></span>
-<span class="normal"><span> 992</span></span>
-<span class="normal"><span> 993</span></span>
-<span class="normal"><span> 994</span></span>
-<span class="normal"><span> 995</span></span>
-<span class="normal"><span> 996</span></span>
-<span class="normal"><span> 997</span></span>
-<span class="normal"><span> 998</span></span>
-<span class="normal"><span> 999</span></span>
-<span class="normal"><span>1000</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tp_m</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 963</span>
+<span> 964</span>
+<span> 965</span>
+<span> 966</span>
+<span> 967</span>
+<span> 968</span>
+<span> 969</span>
+<span> 970</span>
+<span> 971</span>
+<span> 972</span>
+<span> 973</span>
+<span> 974</span>
+<span> 975</span>
+<span> 976</span>
+<span> 977</span>
+<span> 978</span>
+<span> 979</span>
+<span> 980</span>
+<span> 981</span>
+<span> 982</span>
+<span> 983</span>
+<span> 984</span>
+<span> 985</span>
+<span> 986</span>
+<span> 987</span>
+<span> 988</span>
+<span> 989</span>
+<span> 990</span>
+<span> 991</span>
+<span> 992</span>
+<span> 993</span>
+<span> 994</span>
+<span> 995</span>
+<span> 996</span>
+<span> 997</span>
+<span> 998</span>
+<span> 999</span>
+<span>1000</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tp_m</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process the detection and segmentation metrics over the given set of predictions.</span>
 <span></span>
@@ -4924,23 +4924,23 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1091</span></span>
-<span class="normal"><span>1092</span></span>
-<span class="normal"><span>1093</span></span>
-<span class="normal"><span>1094</span></span>
-<span class="normal"><span>1095</span></span>
-<span class="normal"><span>1096</span></span>
-<span class="normal"><span>1097</span></span>
-<span class="normal"><span>1098</span></span>
-<span class="normal"><span>1099</span></span>
-<span class="normal"><span>1100</span></span>
-<span class="normal"><span>1101</span></span>
-<span class="normal"><span>1102</span></span>
-<span class="normal"><span>1103</span></span>
-<span class="normal"><span>1104</span></span>
-<span class="normal"><span>1105</span></span>
-<span class="normal"><span>1106</span></span>
-<span class="normal"><span>1107</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1091</span>
+<span>1092</span>
+<span>1093</span>
+<span>1094</span>
+<span>1095</span>
+<span>1096</span>
+<span>1097</span>
+<span>1098</span>
+<span>1099</span>
+<span>1100</span>
+<span>1101</span>
+<span>1102</span>
+<span>1103</span>
+<span>1104</span>
+<span>1105</span>
+<span>1106</span>
+<span>1107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the PoseMetrics class with directory path, class names, and plotting options.</span>
 <span></span>
@@ -5035,9 +5035,9 @@
 <p>Return the class-wise detection results for a specific class i.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1166</span></span>
-<span class="normal"><span>1167</span></span>
-<span class="normal"><span>1168</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1166</span>
+<span>1167</span>
+<span>1168</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the class-wise detection results for a specific class i."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5054,9 +5054,9 @@
 <p>Return the mean results of box and pose.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1162</span></span>
-<span class="normal"><span>1163</span></span>
-<span class="normal"><span>1164</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1162</span>
+<span>1163</span>
+<span>1164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the mean results of box and pose."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -5182,44 +5182,44 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1109</span></span>
-<span class="normal"><span>1110</span></span>
-<span class="normal"><span>1111</span></span>
-<span class="normal"><span>1112</span></span>
-<span class="normal"><span>1113</span></span>
-<span class="normal"><span>1114</span></span>
-<span class="normal"><span>1115</span></span>
-<span class="normal"><span>1116</span></span>
-<span class="normal"><span>1117</span></span>
-<span class="normal"><span>1118</span></span>
-<span class="normal"><span>1119</span></span>
-<span class="normal"><span>1120</span></span>
-<span class="normal"><span>1121</span></span>
-<span class="normal"><span>1122</span></span>
-<span class="normal"><span>1123</span></span>
-<span class="normal"><span>1124</span></span>
-<span class="normal"><span>1125</span></span>
-<span class="normal"><span>1126</span></span>
-<span class="normal"><span>1127</span></span>
-<span class="normal"><span>1128</span></span>
-<span class="normal"><span>1129</span></span>
-<span class="normal"><span>1130</span></span>
-<span class="normal"><span>1131</span></span>
-<span class="normal"><span>1132</span></span>
-<span class="normal"><span>1133</span></span>
-<span class="normal"><span>1134</span></span>
-<span class="normal"><span>1135</span></span>
-<span class="normal"><span>1136</span></span>
-<span class="normal"><span>1137</span></span>
-<span class="normal"><span>1138</span></span>
-<span class="normal"><span>1139</span></span>
-<span class="normal"><span>1140</span></span>
-<span class="normal"><span>1141</span></span>
-<span class="normal"><span>1142</span></span>
-<span class="normal"><span>1143</span></span>
-<span class="normal"><span>1144</span></span>
-<span class="normal"><span>1145</span></span>
-<span class="normal"><span>1146</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tp_p</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1109</span>
+<span>1110</span>
+<span>1111</span>
+<span>1112</span>
+<span>1113</span>
+<span>1114</span>
+<span>1115</span>
+<span>1116</span>
+<span>1117</span>
+<span>1118</span>
+<span>1119</span>
+<span>1120</span>
+<span>1121</span>
+<span>1122</span>
+<span>1123</span>
+<span>1124</span>
+<span>1125</span>
+<span>1126</span>
+<span>1127</span>
+<span>1128</span>
+<span>1129</span>
+<span>1130</span>
+<span>1131</span>
+<span>1132</span>
+<span>1133</span>
+<span>1134</span>
+<span>1135</span>
+<span>1136</span>
+<span>1137</span>
+<span>1138</span>
+<span>1139</span>
+<span>1140</span>
+<span>1141</span>
+<span>1142</span>
+<span>1143</span>
+<span>1144</span>
+<span>1145</span>
+<span>1146</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">tp_p</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process the detection and pose metrics over the given set of predictions.</span>
 <span></span>
@@ -5332,12 +5332,12 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1211</span></span>
-<span class="normal"><span>1212</span></span>
-<span class="normal"><span>1213</span></span>
-<span class="normal"><span>1214</span></span>
-<span class="normal"><span>1215</span></span>
-<span class="normal"><span>1216</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1211</span>
+<span>1212</span>
+<span>1213</span>
+<span>1214</span>
+<span>1215</span>
+<span>1216</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a ClassifyMetrics instance."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">top1</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">top5</span> <span class="o">=</span> <span class="mi">0</span>
@@ -5466,18 +5466,18 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1218</span></span>
-<span class="normal"><span>1219</span></span>
-<span class="normal"><span>1220</span></span>
-<span class="normal"><span>1221</span></span>
-<span class="normal"><span>1222</span></span>
-<span class="normal"><span>1223</span></span>
-<span class="normal"><span>1224</span></span>
-<span class="normal"><span>1225</span></span>
-<span class="normal"><span>1226</span></span>
-<span class="normal"><span>1227</span></span>
-<span class="normal"><span>1228</span></span>
-<span class="normal"><span>1229</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1218</span>
+<span>1219</span>
+<span>1220</span>
+<span>1221</span>
+<span>1222</span>
+<span>1223</span>
+<span>1224</span>
+<span>1225</span>
+<span>1226</span>
+<span>1227</span>
+<span>1228</span>
+<span>1229</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">pred</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process target classes and predicted classes to compute metrics.</span>
 <span></span>
@@ -5640,20 +5640,20 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1272</span></span>
-<span class="normal"><span>1273</span></span>
-<span class="normal"><span>1274</span></span>
-<span class="normal"><span>1275</span></span>
-<span class="normal"><span>1276</span></span>
-<span class="normal"><span>1277</span></span>
-<span class="normal"><span>1278</span></span>
-<span class="normal"><span>1279</span></span>
-<span class="normal"><span>1280</span></span>
-<span class="normal"><span>1281</span></span>
-<span class="normal"><span>1282</span></span>
-<span class="normal"><span>1283</span></span>
-<span class="normal"><span>1284</span></span>
-<span class="normal"><span>1285</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1272</span>
+<span>1273</span>
+<span>1274</span>
+<span>1275</span>
+<span>1276</span>
+<span>1277</span>
+<span>1278</span>
+<span>1279</span>
+<span>1280</span>
+<span>1281</span>
+<span>1282</span>
+<span>1283</span>
+<span>1284</span>
+<span>1285</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an OBBMetrics instance with directory, plotting, and class names.</span>
 <span></span>
@@ -5771,9 +5771,9 @@
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1320</span></span>
-<span class="normal"><span>1321</span></span>
-<span class="normal"><span>1322</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1320</span>
+<span>1321</span>
+<span>1322</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5790,9 +5790,9 @@
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1316</span></span>
-<span class="normal"><span>1317</span></span>
-<span class="normal"><span>1318</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1316</span>
+<span>1317</span>
+<span>1318</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -5902,29 +5902,29 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>1287</span></span>
-<span class="normal"><span>1288</span></span>
-<span class="normal"><span>1289</span></span>
-<span class="normal"><span>1290</span></span>
-<span class="normal"><span>1291</span></span>
-<span class="normal"><span>1292</span></span>
-<span class="normal"><span>1293</span></span>
-<span class="normal"><span>1294</span></span>
-<span class="normal"><span>1295</span></span>
-<span class="normal"><span>1296</span></span>
-<span class="normal"><span>1297</span></span>
-<span class="normal"><span>1298</span></span>
-<span class="normal"><span>1299</span></span>
-<span class="normal"><span>1300</span></span>
-<span class="normal"><span>1301</span></span>
-<span class="normal"><span>1302</span></span>
-<span class="normal"><span>1303</span></span>
-<span class="normal"><span>1304</span></span>
-<span class="normal"><span>1305</span></span>
-<span class="normal"><span>1306</span></span>
-<span class="normal"><span>1307</span></span>
-<span class="normal"><span>1308</span></span>
-<span class="normal"><span>1309</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1287</span>
+<span>1288</span>
+<span>1289</span>
+<span>1290</span>
+<span>1291</span>
+<span>1292</span>
+<span>1293</span>
+<span>1294</span>
+<span>1295</span>
+<span>1296</span>
+<span>1297</span>
+<span>1298</span>
+<span>1299</span>
+<span>1300</span>
+<span>1301</span>
+<span>1302</span>
+<span>1303</span>
+<span>1304</span>
+<span>1305</span>
+<span>1306</span>
+<span>1307</span>
+<span>1308</span>
+<span>1309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process predicted results for object detection and update metrics.</span>
 <span></span>
@@ -6062,36 +6062,36 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>20</span></span>
-<span class="normal"><span>21</span></span>
-<span class="normal"><span>22</span></span>
-<span class="normal"><span>23</span></span>
-<span class="normal"><span>24</span></span>
-<span class="normal"><span>25</span></span>
-<span class="normal"><span>26</span></span>
-<span class="normal"><span>27</span></span>
-<span class="normal"><span>28</span></span>
-<span class="normal"><span>29</span></span>
-<span class="normal"><span>30</span></span>
-<span class="normal"><span>31</span></span>
-<span class="normal"><span>32</span></span>
-<span class="normal"><span>33</span></span>
-<span class="normal"><span>34</span></span>
-<span class="normal"><span>35</span></span>
-<span class="normal"><span>36</span></span>
-<span class="normal"><span>37</span></span>
-<span class="normal"><span>38</span></span>
-<span class="normal"><span>39</span></span>
-<span class="normal"><span>40</span></span>
-<span class="normal"><span>41</span></span>
-<span class="normal"><span>42</span></span>
-<span class="normal"><span>43</span></span>
-<span class="normal"><span>44</span></span>
-<span class="normal"><span>45</span></span>
-<span class="normal"><span>46</span></span>
-<span class="normal"><span>47</span></span>
-<span class="normal"><span>48</span></span>
-<span class="normal"><span>49</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_ioa</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">,</span> <span class="n">iou</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_ioa</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">,</span> <span class="n">iou</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate the intersection over box2 area given box1 and box2. Boxes are in x1y1x2y2 format.</span>
 <span></span>
@@ -6218,26 +6218,26 @@ Based on <a href="https://github.com/pytorch/vision/blob/main/torchvision/ops/bo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span>
-<span class="normal"><span>55</span></span>
-<span class="normal"><span>56</span></span>
-<span class="normal"><span>57</span></span>
-<span class="normal"><span>58</span></span>
-<span class="normal"><span>59</span></span>
-<span class="normal"><span>60</span></span>
-<span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span>
-<span class="normal"><span>64</span></span>
-<span class="normal"><span>65</span></span>
-<span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">box_iou</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">box_iou</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate intersection-over-union (IoU) of boxes. Both sets of boxes are expected to be in (x1, y1, x2, y2) format.</span>
 <span></span><span class="sd">    Based on https://github.com/pytorch/vision/blob/main/torchvision/ops/boxes.py.</span>
@@ -6422,67 +6422,67 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 74</span></span>
-<span class="normal"><span> 75</span></span>
-<span class="normal"><span> 76</span></span>
-<span class="normal"><span> 77</span></span>
-<span class="normal"><span> 78</span></span>
-<span class="normal"><span> 79</span></span>
-<span class="normal"><span> 80</span></span>
-<span class="normal"><span> 81</span></span>
-<span class="normal"><span> 82</span></span>
-<span class="normal"><span> 83</span></span>
-<span class="normal"><span> 84</span></span>
-<span class="normal"><span> 85</span></span>
-<span class="normal"><span> 86</span></span>
-<span class="normal"><span> 87</span></span>
-<span class="normal"><span> 88</span></span>
-<span class="normal"><span> 89</span></span>
-<span class="normal"><span> 90</span></span>
-<span class="normal"><span> 91</span></span>
-<span class="normal"><span> 92</span></span>
-<span class="normal"><span> 93</span></span>
-<span class="normal"><span> 94</span></span>
-<span class="normal"><span> 95</span></span>
-<span class="normal"><span> 96</span></span>
-<span class="normal"><span> 97</span></span>
-<span class="normal"><span> 98</span></span>
-<span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span>
-<span class="normal"><span>102</span></span>
-<span class="normal"><span>103</span></span>
-<span class="normal"><span>104</span></span>
-<span class="normal"><span>105</span></span>
-<span class="normal"><span>106</span></span>
-<span class="normal"><span>107</span></span>
-<span class="normal"><span>108</span></span>
-<span class="normal"><span>109</span></span>
-<span class="normal"><span>110</span></span>
-<span class="normal"><span>111</span></span>
-<span class="normal"><span>112</span></span>
-<span class="normal"><span>113</span></span>
-<span class="normal"><span>114</span></span>
-<span class="normal"><span>115</span></span>
-<span class="normal"><span>116</span></span>
-<span class="normal"><span>117</span></span>
-<span class="normal"><span>118</span></span>
-<span class="normal"><span>119</span></span>
-<span class="normal"><span>120</span></span>
-<span class="normal"><span>121</span></span>
-<span class="normal"><span>122</span></span>
-<span class="normal"><span>123</span></span>
-<span class="normal"><span>124</span></span>
-<span class="normal"><span>125</span></span>
-<span class="normal"><span>126</span></span>
-<span class="normal"><span>127</span></span>
-<span class="normal"><span>128</span></span>
-<span class="normal"><span>129</span></span>
-<span class="normal"><span>130</span></span>
-<span class="normal"><span>131</span></span>
-<span class="normal"><span>132</span></span>
-<span class="normal"><span>133</span></span>
-<span class="normal"><span>134</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_iou</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">GIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">DIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 74</span>
+<span> 75</span>
+<span> 76</span>
+<span> 77</span>
+<span> 78</span>
+<span> 79</span>
+<span> 80</span>
+<span> 81</span>
+<span> 82</span>
+<span> 83</span>
+<span> 84</span>
+<span> 85</span>
+<span> 86</span>
+<span> 87</span>
+<span> 88</span>
+<span> 89</span>
+<span> 90</span>
+<span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_iou</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">GIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">DIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate the Intersection over Union (IoU) between bounding boxes.</span>
 <span></span>
@@ -6641,23 +6641,23 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>137</span></span>
-<span class="normal"><span>138</span></span>
-<span class="normal"><span>139</span></span>
-<span class="normal"><span>140</span></span>
-<span class="normal"><span>141</span></span>
-<span class="normal"><span>142</span></span>
-<span class="normal"><span>143</span></span>
-<span class="normal"><span>144</span></span>
-<span class="normal"><span>145</span></span>
-<span class="normal"><span>146</span></span>
-<span class="normal"><span>147</span></span>
-<span class="normal"><span>148</span></span>
-<span class="normal"><span>149</span></span>
-<span class="normal"><span>150</span></span>
-<span class="normal"><span>151</span></span>
-<span class="normal"><span>152</span></span>
-<span class="normal"><span>153</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mask_iou</span><span class="p">(</span><span class="n">mask1</span><span class="p">,</span> <span class="n">mask2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mask_iou</span><span class="p">(</span><span class="n">mask1</span><span class="p">,</span> <span class="n">mask2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate masks IoU.</span>
 <span></span>
@@ -6802,26 +6802,26 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>156</span></span>
-<span class="normal"><span>157</span></span>
-<span class="normal"><span>158</span></span>
-<span class="normal"><span>159</span></span>
-<span class="normal"><span>160</span></span>
-<span class="normal"><span>161</span></span>
-<span class="normal"><span>162</span></span>
-<span class="normal"><span>163</span></span>
-<span class="normal"><span>164</span></span>
-<span class="normal"><span>165</span></span>
-<span class="normal"><span>166</span></span>
-<span class="normal"><span>167</span></span>
-<span class="normal"><span>168</span></span>
-<span class="normal"><span>169</span></span>
-<span class="normal"><span>170</span></span>
-<span class="normal"><span>171</span></span>
-<span class="normal"><span>172</span></span>
-<span class="normal"><span>173</span></span>
-<span class="normal"><span>174</span></span>
-<span class="normal"><span>175</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kpt_iou</span><span class="p">(</span><span class="n">kpt1</span><span class="p">,</span> <span class="n">kpt2</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kpt_iou</span><span class="p">(</span><span class="n">kpt1</span><span class="p">,</span> <span class="n">kpt2</span><span class="p">,</span> <span class="n">area</span><span class="p">,</span> <span class="n">sigma</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate Object Keypoint Similarity (OKS).</span>
 <span></span>
@@ -6905,24 +6905,24 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>178</span></span>
-<span class="normal"><span>179</span></span>
-<span class="normal"><span>180</span></span>
-<span class="normal"><span>181</span></span>
-<span class="normal"><span>182</span></span>
-<span class="normal"><span>183</span></span>
-<span class="normal"><span>184</span></span>
-<span class="normal"><span>185</span></span>
-<span class="normal"><span>186</span></span>
-<span class="normal"><span>187</span></span>
-<span class="normal"><span>188</span></span>
-<span class="normal"><span>189</span></span>
-<span class="normal"><span>190</span></span>
-<span class="normal"><span>191</span></span>
-<span class="normal"><span>192</span></span>
-<span class="normal"><span>193</span></span>
-<span class="normal"><span>194</span></span>
-<span class="normal"><span>195</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_get_covariance_matrix</span><span class="p">(</span><span class="n">boxes</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_get_covariance_matrix</span><span class="p">(</span><span class="n">boxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate covariance matrix from oriented bounding boxes.</span>
 <span></span>
@@ -7059,48 +7059,48 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>198</span></span>
-<span class="normal"><span>199</span></span>
-<span class="normal"><span>200</span></span>
-<span class="normal"><span>201</span></span>
-<span class="normal"><span>202</span></span>
-<span class="normal"><span>203</span></span>
-<span class="normal"><span>204</span></span>
-<span class="normal"><span>205</span></span>
-<span class="normal"><span>206</span></span>
-<span class="normal"><span>207</span></span>
-<span class="normal"><span>208</span></span>
-<span class="normal"><span>209</span></span>
-<span class="normal"><span>210</span></span>
-<span class="normal"><span>211</span></span>
-<span class="normal"><span>212</span></span>
-<span class="normal"><span>213</span></span>
-<span class="normal"><span>214</span></span>
-<span class="normal"><span>215</span></span>
-<span class="normal"><span>216</span></span>
-<span class="normal"><span>217</span></span>
-<span class="normal"><span>218</span></span>
-<span class="normal"><span>219</span></span>
-<span class="normal"><span>220</span></span>
-<span class="normal"><span>221</span></span>
-<span class="normal"><span>222</span></span>
-<span class="normal"><span>223</span></span>
-<span class="normal"><span>224</span></span>
-<span class="normal"><span>225</span></span>
-<span class="normal"><span>226</span></span>
-<span class="normal"><span>227</span></span>
-<span class="normal"><span>228</span></span>
-<span class="normal"><span>229</span></span>
-<span class="normal"><span>230</span></span>
-<span class="normal"><span>231</span></span>
-<span class="normal"><span>232</span></span>
-<span class="normal"><span>233</span></span>
-<span class="normal"><span>234</span></span>
-<span class="normal"><span>235</span></span>
-<span class="normal"><span>236</span></span>
-<span class="normal"><span>237</span></span>
-<span class="normal"><span>238</span></span>
-<span class="normal"><span>239</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">probiou</span><span class="p">(</span><span class="n">obb1</span><span class="p">,</span> <span class="n">obb2</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">probiou</span><span class="p">(</span><span class="n">obb1</span><span class="p">,</span> <span class="n">obb2</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate probabilistic IoU between oriented bounding boxes.</span>
 <span></span>
@@ -7242,41 +7242,41 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>242</span></span>
-<span class="normal"><span>243</span></span>
-<span class="normal"><span>244</span></span>
-<span class="normal"><span>245</span></span>
-<span class="normal"><span>246</span></span>
-<span class="normal"><span>247</span></span>
-<span class="normal"><span>248</span></span>
-<span class="normal"><span>249</span></span>
-<span class="normal"><span>250</span></span>
-<span class="normal"><span>251</span></span>
-<span class="normal"><span>252</span></span>
-<span class="normal"><span>253</span></span>
-<span class="normal"><span>254</span></span>
-<span class="normal"><span>255</span></span>
-<span class="normal"><span>256</span></span>
-<span class="normal"><span>257</span></span>
-<span class="normal"><span>258</span></span>
-<span class="normal"><span>259</span></span>
-<span class="normal"><span>260</span></span>
-<span class="normal"><span>261</span></span>
-<span class="normal"><span>262</span></span>
-<span class="normal"><span>263</span></span>
-<span class="normal"><span>264</span></span>
-<span class="normal"><span>265</span></span>
-<span class="normal"><span>266</span></span>
-<span class="normal"><span>267</span></span>
-<span class="normal"><span>268</span></span>
-<span class="normal"><span>269</span></span>
-<span class="normal"><span>270</span></span>
-<span class="normal"><span>271</span></span>
-<span class="normal"><span>272</span></span>
-<span class="normal"><span>273</span></span>
-<span class="normal"><span>274</span></span>
-<span class="normal"><span>275</span></span>
-<span class="normal"><span>276</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_probiou</span><span class="p">(</span><span class="n">obb1</span><span class="p">,</span> <span class="n">obb2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_probiou</span><span class="p">(</span><span class="n">obb1</span><span class="p">,</span> <span class="n">obb2</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate the probabilistic IoU between oriented bounding boxes.</span>
 <span></span>
@@ -7379,20 +7379,20 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>279</span></span>
-<span class="normal"><span>280</span></span>
-<span class="normal"><span>281</span></span>
-<span class="normal"><span>282</span></span>
-<span class="normal"><span>283</span></span>
-<span class="normal"><span>284</span></span>
-<span class="normal"><span>285</span></span>
-<span class="normal"><span>286</span></span>
-<span class="normal"><span>287</span></span>
-<span class="normal"><span>288</span></span>
-<span class="normal"><span>289</span></span>
-<span class="normal"><span>290</span></span>
-<span class="normal"><span>291</span></span>
-<span class="normal"><span>292</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smooth_bce</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smooth_bce</span><span class="p">(</span><span class="n">eps</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute smoothed positive and negative Binary Cross-Entropy targets.</span>
 <span></span>
@@ -7420,12 +7420,12 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <p>Box filter of fraction f.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>461</span></span>
-<span class="normal"><span>462</span></span>
-<span class="normal"><span>463</span></span>
-<span class="normal"><span>464</span></span>
-<span class="normal"><span>465</span></span>
-<span class="normal"><span>466</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smooth</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span>
+<span>466</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smooth</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">f</span><span class="o">=</span><span class="mf">0.05</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Box filter of fraction f."""</span>
 <span></span>    <span class="n">nf</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">*</span> <span class="n">f</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># number of filter elements (must be odd)</span>
 <span></span>    <span class="n">p</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">nf</span> <span class="o">//</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># ones padding</span>
@@ -7556,39 +7556,39 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>469</span></span>
-<span class="normal"><span>470</span></span>
-<span class="normal"><span>471</span></span>
-<span class="normal"><span>472</span></span>
-<span class="normal"><span>473</span></span>
-<span class="normal"><span>474</span></span>
-<span class="normal"><span>475</span></span>
-<span class="normal"><span>476</span></span>
-<span class="normal"><span>477</span></span>
-<span class="normal"><span>478</span></span>
-<span class="normal"><span>479</span></span>
-<span class="normal"><span>480</span></span>
-<span class="normal"><span>481</span></span>
-<span class="normal"><span>482</span></span>
-<span class="normal"><span>483</span></span>
-<span class="normal"><span>484</span></span>
-<span class="normal"><span>485</span></span>
-<span class="normal"><span>486</span></span>
-<span class="normal"><span>487</span></span>
-<span class="normal"><span>488</span></span>
-<span class="normal"><span>489</span></span>
-<span class="normal"><span>490</span></span>
-<span class="normal"><span>491</span></span>
-<span class="normal"><span>492</span></span>
-<span class="normal"><span>493</span></span>
-<span class="normal"><span>494</span></span>
-<span class="normal"><span>495</span></span>
-<span class="normal"><span>496</span></span>
-<span class="normal"><span>497</span></span>
-<span class="normal"><span>498</span></span>
-<span class="normal"><span>499</span></span>
-<span class="normal"><span>500</span></span>
-<span class="normal"><span>501</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span>
+<span>475</span>
+<span>476</span>
+<span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span>
+<span>484</span>
+<span>485</span>
+<span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span>
+<span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span>
+<span>496</span>
+<span>497</span>
+<span>498</span>
+<span>499</span>
+<span>500</span>
+<span>501</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_pr_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"pr_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot precision-recall curve.</span>
@@ -7768,40 +7768,40 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>504</span></span>
-<span class="normal"><span>505</span></span>
-<span class="normal"><span>506</span></span>
-<span class="normal"><span>507</span></span>
-<span class="normal"><span>508</span></span>
-<span class="normal"><span>509</span></span>
-<span class="normal"><span>510</span></span>
-<span class="normal"><span>511</span></span>
-<span class="normal"><span>512</span></span>
-<span class="normal"><span>513</span></span>
-<span class="normal"><span>514</span></span>
-<span class="normal"><span>515</span></span>
-<span class="normal"><span>516</span></span>
-<span class="normal"><span>517</span></span>
-<span class="normal"><span>518</span></span>
-<span class="normal"><span>519</span></span>
-<span class="normal"><span>520</span></span>
-<span class="normal"><span>521</span></span>
-<span class="normal"><span>522</span></span>
-<span class="normal"><span>523</span></span>
-<span class="normal"><span>524</span></span>
-<span class="normal"><span>525</span></span>
-<span class="normal"><span>526</span></span>
-<span class="normal"><span>527</span></span>
-<span class="normal"><span>528</span></span>
-<span class="normal"><span>529</span></span>
-<span class="normal"><span>530</span></span>
-<span class="normal"><span>531</span></span>
-<span class="normal"><span>532</span></span>
-<span class="normal"><span>533</span></span>
-<span class="normal"><span>534</span></span>
-<span class="normal"><span>535</span></span>
-<span class="normal"><span>536</span></span>
-<span class="normal"><span>537</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span>
+<span>510</span>
+<span>511</span>
+<span>512</span>
+<span>513</span>
+<span>514</span>
+<span>515</span>
+<span>516</span>
+<span>517</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span>
+<span>533</span>
+<span>534</span>
+<span>535</span>
+<span>536</span>
+<span>537</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_mc_curve</span><span class="p">(</span><span class="n">px</span><span class="p">,</span> <span class="n">py</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"mc_curve.png"</span><span class="p">),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">"Confidence"</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"Metric"</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot metric-confidence curve.</span>
@@ -7935,37 +7935,37 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>540</span></span>
-<span class="normal"><span>541</span></span>
-<span class="normal"><span>542</span></span>
-<span class="normal"><span>543</span></span>
-<span class="normal"><span>544</span></span>
-<span class="normal"><span>545</span></span>
-<span class="normal"><span>546</span></span>
-<span class="normal"><span>547</span></span>
-<span class="normal"><span>548</span></span>
-<span class="normal"><span>549</span></span>
-<span class="normal"><span>550</span></span>
-<span class="normal"><span>551</span></span>
-<span class="normal"><span>552</span></span>
-<span class="normal"><span>553</span></span>
-<span class="normal"><span>554</span></span>
-<span class="normal"><span>555</span></span>
-<span class="normal"><span>556</span></span>
-<span class="normal"><span>557</span></span>
-<span class="normal"><span>558</span></span>
-<span class="normal"><span>559</span></span>
-<span class="normal"><span>560</span></span>
-<span class="normal"><span>561</span></span>
-<span class="normal"><span>562</span></span>
-<span class="normal"><span>563</span></span>
-<span class="normal"><span>564</span></span>
-<span class="normal"><span>565</span></span>
-<span class="normal"><span>566</span></span>
-<span class="normal"><span>567</span></span>
-<span class="normal"><span>568</span></span>
-<span class="normal"><span>569</span></span>
-<span class="normal"><span>570</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_ap</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span> <span class="n">precision</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>540</span>
+<span>541</span>
+<span>542</span>
+<span>543</span>
+<span>544</span>
+<span>545</span>
+<span>546</span>
+<span>547</span>
+<span>548</span>
+<span>549</span>
+<span>550</span>
+<span>551</span>
+<span>552</span>
+<span>553</span>
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span>
+<span>558</span>
+<span>559</span>
+<span>560</span>
+<span>561</span>
+<span>562</span>
+<span>563</span>
+<span>564</span>
+<span>565</span>
+<span>566</span>
+<span>567</span>
+<span>568</span>
+<span>569</span>
+<span>570</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_ap</span><span class="p">(</span><span class="n">recall</span><span class="p">,</span> <span class="n">precision</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute the average precision (AP) given the recall and precision curves.</span>
 <span></span>
@@ -8325,93 +8325,93 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>573</span></span>
-<span class="normal"><span>574</span></span>
-<span class="normal"><span>575</span></span>
-<span class="normal"><span>576</span></span>
-<span class="normal"><span>577</span></span>
-<span class="normal"><span>578</span></span>
-<span class="normal"><span>579</span></span>
-<span class="normal"><span>580</span></span>
-<span class="normal"><span>581</span></span>
-<span class="normal"><span>582</span></span>
-<span class="normal"><span>583</span></span>
-<span class="normal"><span>584</span></span>
-<span class="normal"><span>585</span></span>
-<span class="normal"><span>586</span></span>
-<span class="normal"><span>587</span></span>
-<span class="normal"><span>588</span></span>
-<span class="normal"><span>589</span></span>
-<span class="normal"><span>590</span></span>
-<span class="normal"><span>591</span></span>
-<span class="normal"><span>592</span></span>
-<span class="normal"><span>593</span></span>
-<span class="normal"><span>594</span></span>
-<span class="normal"><span>595</span></span>
-<span class="normal"><span>596</span></span>
-<span class="normal"><span>597</span></span>
-<span class="normal"><span>598</span></span>
-<span class="normal"><span>599</span></span>
-<span class="normal"><span>600</span></span>
-<span class="normal"><span>601</span></span>
-<span class="normal"><span>602</span></span>
-<span class="normal"><span>603</span></span>
-<span class="normal"><span>604</span></span>
-<span class="normal"><span>605</span></span>
-<span class="normal"><span>606</span></span>
-<span class="normal"><span>607</span></span>
-<span class="normal"><span>608</span></span>
-<span class="normal"><span>609</span></span>
-<span class="normal"><span>610</span></span>
-<span class="normal"><span>611</span></span>
-<span class="normal"><span>612</span></span>
-<span class="normal"><span>613</span></span>
-<span class="normal"><span>614</span></span>
-<span class="normal"><span>615</span></span>
-<span class="normal"><span>616</span></span>
-<span class="normal"><span>617</span></span>
-<span class="normal"><span>618</span></span>
-<span class="normal"><span>619</span></span>
-<span class="normal"><span>620</span></span>
-<span class="normal"><span>621</span></span>
-<span class="normal"><span>622</span></span>
-<span class="normal"><span>623</span></span>
-<span class="normal"><span>624</span></span>
-<span class="normal"><span>625</span></span>
-<span class="normal"><span>626</span></span>
-<span class="normal"><span>627</span></span>
-<span class="normal"><span>628</span></span>
-<span class="normal"><span>629</span></span>
-<span class="normal"><span>630</span></span>
-<span class="normal"><span>631</span></span>
-<span class="normal"><span>632</span></span>
-<span class="normal"><span>633</span></span>
-<span class="normal"><span>634</span></span>
-<span class="normal"><span>635</span></span>
-<span class="normal"><span>636</span></span>
-<span class="normal"><span>637</span></span>
-<span class="normal"><span>638</span></span>
-<span class="normal"><span>639</span></span>
-<span class="normal"><span>640</span></span>
-<span class="normal"><span>641</span></span>
-<span class="normal"><span>642</span></span>
-<span class="normal"><span>643</span></span>
-<span class="normal"><span>644</span></span>
-<span class="normal"><span>645</span></span>
-<span class="normal"><span>646</span></span>
-<span class="normal"><span>647</span></span>
-<span class="normal"><span>648</span></span>
-<span class="normal"><span>649</span></span>
-<span class="normal"><span>650</span></span>
-<span class="normal"><span>651</span></span>
-<span class="normal"><span>652</span></span>
-<span class="normal"><span>653</span></span>
-<span class="normal"><span>654</span></span>
-<span class="normal"><span>655</span></span>
-<span class="normal"><span>656</span></span>
-<span class="normal"><span>657</span></span>
-<span class="normal"><span>658</span></span>
-<span class="normal"><span>659</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ap_per_class</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>573</span>
+<span>574</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span>
+<span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span>
+<span>590</span>
+<span>591</span>
+<span>592</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
+<span>613</span>
+<span>614</span>
+<span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span>
+<span>635</span>
+<span>636</span>
+<span>637</span>
+<span>638</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span>
+<span>643</span>
+<span>644</span>
+<span>645</span>
+<span>646</span>
+<span>647</span>
+<span>648</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span>
+<span>653</span>
+<span>654</span>
+<span>655</span>
+<span>656</span>
+<span>657</span>
+<span>658</span>
+<span>659</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ap_per_class</span><span class="p">(</span>
 <span></span>    <span class="n">tp</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(),</span> <span class="n">names</span><span class="o">=</span><span class="p">{},</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>

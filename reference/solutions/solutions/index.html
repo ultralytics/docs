@@ -1595,65 +1595,65 @@ and region initialization.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 48</span></span>
-<span class="normal"><span> 49</span></span>
-<span class="normal"><span> 50</span></span>
-<span class="normal"><span> 51</span></span>
-<span class="normal"><span> 52</span></span>
-<span class="normal"><span> 53</span></span>
-<span class="normal"><span> 54</span></span>
-<span class="normal"><span> 55</span></span>
-<span class="normal"><span> 56</span></span>
-<span class="normal"><span> 57</span></span>
-<span class="normal"><span> 58</span></span>
-<span class="normal"><span> 59</span></span>
-<span class="normal"><span> 60</span></span>
-<span class="normal"><span> 61</span></span>
-<span class="normal"><span> 62</span></span>
-<span class="normal"><span> 63</span></span>
-<span class="normal"><span> 64</span></span>
-<span class="normal"><span> 65</span></span>
-<span class="normal"><span> 66</span></span>
-<span class="normal"><span> 67</span></span>
-<span class="normal"><span> 68</span></span>
-<span class="normal"><span> 69</span></span>
-<span class="normal"><span> 70</span></span>
-<span class="normal"><span> 71</span></span>
-<span class="normal"><span> 72</span></span>
-<span class="normal"><span> 73</span></span>
-<span class="normal"><span> 74</span></span>
-<span class="normal"><span> 75</span></span>
-<span class="normal"><span> 76</span></span>
-<span class="normal"><span> 77</span></span>
-<span class="normal"><span> 78</span></span>
-<span class="normal"><span> 79</span></span>
-<span class="normal"><span> 80</span></span>
-<span class="normal"><span> 81</span></span>
-<span class="normal"><span> 82</span></span>
-<span class="normal"><span> 83</span></span>
-<span class="normal"><span> 84</span></span>
-<span class="normal"><span> 85</span></span>
-<span class="normal"><span> 86</span></span>
-<span class="normal"><span> 87</span></span>
-<span class="normal"><span> 88</span></span>
-<span class="normal"><span> 89</span></span>
-<span class="normal"><span> 90</span></span>
-<span class="normal"><span> 91</span></span>
-<span class="normal"><span> 92</span></span>
-<span class="normal"><span> 93</span></span>
-<span class="normal"><span> 94</span></span>
-<span class="normal"><span> 95</span></span>
-<span class="normal"><span> 96</span></span>
-<span class="normal"><span> 97</span></span>
-<span class="normal"><span> 98</span></span>
-<span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span>
-<span class="normal"><span>102</span></span>
-<span class="normal"><span>103</span></span>
-<span class="normal"><span>104</span></span>
-<span class="normal"><span>105</span></span>
-<span class="normal"><span>106</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_cli</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 48</span>
+<span> 49</span>
+<span> 50</span>
+<span> 51</span>
+<span> 52</span>
+<span> 53</span>
+<span> 54</span>
+<span> 55</span>
+<span> 56</span>
+<span> 57</span>
+<span> 58</span>
+<span> 59</span>
+<span> 60</span>
+<span> 61</span>
+<span> 62</span>
+<span> 63</span>
+<span> 64</span>
+<span> 65</span>
+<span> 66</span>
+<span> 67</span>
+<span> 68</span>
+<span> 69</span>
+<span> 70</span>
+<span> 71</span>
+<span> 72</span>
+<span> 73</span>
+<span> 74</span>
+<span> 75</span>
+<span> 76</span>
+<span> 77</span>
+<span> 78</span>
+<span> 79</span>
+<span> 80</span>
+<span> 81</span>
+<span> 82</span>
+<span> 83</span>
+<span> 84</span>
+<span> 85</span>
+<span> 86</span>
+<span> 87</span>
+<span> 88</span>
+<span> 89</span>
+<span> 90</span>
+<span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_cli</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the BaseSolution class with configuration settings and the YOLO model.</span>
 <span></span>
@@ -1725,12 +1725,12 @@ and region initialization.</p>
 <p>Allow instances to be called like a function with flexible arguments.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>193</span></span>
-<span class="normal"><span>194</span></span>
-<span class="normal"><span>195</span></span>
-<span class="normal"><span>196</span></span>
-<span class="normal"><span>197</span></span>
-<span class="normal"><span>198</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Allow instances to be called like a function with flexible arguments."""</span>
 <span></span>    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Call the subclass-specific process method</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"verbose"</span><span class="p">]:</span>  <span class="c1"># extract verbose value to display the output logs if True</span>
@@ -1794,31 +1794,31 @@ the processed frame with annotations, and allows for user interaction to close t
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>164</span></span>
-<span class="normal"><span>165</span></span>
-<span class="normal"><span>166</span></span>
-<span class="normal"><span>167</span></span>
-<span class="normal"><span>168</span></span>
-<span class="normal"><span>169</span></span>
-<span class="normal"><span>170</span></span>
-<span class="normal"><span>171</span></span>
-<span class="normal"><span>172</span></span>
-<span class="normal"><span>173</span></span>
-<span class="normal"><span>174</span></span>
-<span class="normal"><span>175</span></span>
-<span class="normal"><span>176</span></span>
-<span class="normal"><span>177</span></span>
-<span class="normal"><span>178</span></span>
-<span class="normal"><span>179</span></span>
-<span class="normal"><span>180</span></span>
-<span class="normal"><span>181</span></span>
-<span class="normal"><span>182</span></span>
-<span class="normal"><span>183</span></span>
-<span class="normal"><span>184</span></span>
-<span class="normal"><span>185</span></span>
-<span class="normal"><span>186</span></span>
-<span class="normal"><span>187</span></span>
-<span class="normal"><span>188</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_im</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the results of the processing, which could involve showing frames, printing counts, or saving results.</span>
 <span></span>
@@ -1891,32 +1891,32 @@ the processed frame with annotations, and allows for user interaction to close t
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>108</span></span>
-<span class="normal"><span>109</span></span>
-<span class="normal"><span>110</span></span>
-<span class="normal"><span>111</span></span>
-<span class="normal"><span>112</span></span>
-<span class="normal"><span>113</span></span>
-<span class="normal"><span>114</span></span>
-<span class="normal"><span>115</span></span>
-<span class="normal"><span>116</span></span>
-<span class="normal"><span>117</span></span>
-<span class="normal"><span>118</span></span>
-<span class="normal"><span>119</span></span>
-<span class="normal"><span>120</span></span>
-<span class="normal"><span>121</span></span>
-<span class="normal"><span>122</span></span>
-<span class="normal"><span>123</span></span>
-<span class="normal"><span>124</span></span>
-<span class="normal"><span>125</span></span>
-<span class="normal"><span>126</span></span>
-<span class="normal"><span>127</span></span>
-<span class="normal"><span>128</span></span>
-<span class="normal"><span>129</span></span>
-<span class="normal"><span>130</span></span>
-<span class="normal"><span>131</span></span>
-<span class="normal"><span>132</span></span>
-<span class="normal"><span>133</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies object tracking and extracts tracks from an input image or frame.</span>
 <span></span>
@@ -1956,13 +1956,13 @@ the processed frame with annotations, and allows for user interaction to close t
 <p>Initialize the counting region and line segment based on configuration settings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>156</span></span>
-<span class="normal"><span>157</span></span>
-<span class="normal"><span>158</span></span>
-<span class="normal"><span>159</span></span>
-<span class="normal"><span>160</span></span>
-<span class="normal"><span>161</span></span>
-<span class="normal"><span>162</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the counting region and line segment based on configuration settings."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">400</span><span class="p">),</span> <span class="p">(</span><span class="mi">1080</span><span class="p">,</span> <span class="mi">360</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">360</span><span class="p">)]</span>
@@ -1983,8 +1983,8 @@ the processed frame with annotations, and allows for user interaction to close t
 <p>Process method should be implemented by each Solution subclass.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>190</span></span>
-<span class="normal"><span>191</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>190</span>
+<span>191</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process method should be implemented by each Solution subclass."""</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2051,26 +2051,26 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>135</span></span>
-<span class="normal"><span>136</span></span>
-<span class="normal"><span>137</span></span>
-<span class="normal"><span>138</span></span>
-<span class="normal"><span>139</span></span>
-<span class="normal"><span>140</span></span>
-<span class="normal"><span>141</span></span>
-<span class="normal"><span>142</span></span>
-<span class="normal"><span>143</span></span>
-<span class="normal"><span>144</span></span>
-<span class="normal"><span>145</span></span>
-<span class="normal"><span>146</span></span>
-<span class="normal"><span>147</span></span>
-<span class="normal"><span>148</span></span>
-<span class="normal"><span>149</span></span>
-<span class="normal"><span>150</span></span>
-<span class="normal"><span>151</span></span>
-<span class="normal"><span>152</span></span>
-<span class="normal"><span>153</span></span>
-<span class="normal"><span>154</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Stores the tracking history of an object.</span>
 <span></span>
@@ -2431,19 +2431,19 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>240</span></span>
-<span class="normal"><span>241</span></span>
-<span class="normal"><span>242</span></span>
-<span class="normal"><span>243</span></span>
-<span class="normal"><span>244</span></span>
-<span class="normal"><span>245</span></span>
-<span class="normal"><span>246</span></span>
-<span class="normal"><span>247</span></span>
-<span class="normal"><span>248</span></span>
-<span class="normal"><span>249</span></span>
-<span class="normal"><span>250</span></span>
-<span class="normal"><span>251</span></span>
-<span class="normal"><span>252</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span> <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">"abc"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span> <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">"abc"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the SolutionAnnotator class with an image for annotation.</span>
 <span></span>
@@ -2564,43 +2564,43 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>566</span></span>
-<span class="normal"><span>567</span></span>
-<span class="normal"><span>568</span></span>
-<span class="normal"><span>569</span></span>
-<span class="normal"><span>570</span></span>
-<span class="normal"><span>571</span></span>
-<span class="normal"><span>572</span></span>
-<span class="normal"><span>573</span></span>
-<span class="normal"><span>574</span></span>
-<span class="normal"><span>575</span></span>
-<span class="normal"><span>576</span></span>
-<span class="normal"><span>577</span></span>
-<span class="normal"><span>578</span></span>
-<span class="normal"><span>579</span></span>
-<span class="normal"><span>580</span></span>
-<span class="normal"><span>581</span></span>
-<span class="normal"><span>582</span></span>
-<span class="normal"><span>583</span></span>
-<span class="normal"><span>584</span></span>
-<span class="normal"><span>585</span></span>
-<span class="normal"><span>586</span></span>
-<span class="normal"><span>587</span></span>
-<span class="normal"><span>588</span></span>
-<span class="normal"><span>589</span></span>
-<span class="normal"><span>590</span></span>
-<span class="normal"><span>591</span></span>
-<span class="normal"><span>592</span></span>
-<span class="normal"><span>593</span></span>
-<span class="normal"><span>594</span></span>
-<span class="normal"><span>595</span></span>
-<span class="normal"><span>596</span></span>
-<span class="normal"><span>597</span></span>
-<span class="normal"><span>598</span></span>
-<span class="normal"><span>599</span></span>
-<span class="normal"><span>600</span></span>
-<span class="normal"><span>601</span></span>
-<span class="normal"><span>602</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>566</span>
+<span>567</span>
+<span>568</span>
+<span>569</span>
+<span>570</span>
+<span>571</span>
+<span>572</span>
+<span>573</span>
+<span>574</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span>
+<span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span>
+<span>590</span>
+<span>591</span>
+<span>592</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a label with a background circle centered within a given bounding box.</span>
 <span></span>
@@ -2744,34 +2744,34 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>309</span></span>
-<span class="normal"><span>310</span></span>
-<span class="normal"><span>311</span></span>
-<span class="normal"><span>312</span></span>
-<span class="normal"><span>313</span></span>
-<span class="normal"><span>314</span></span>
-<span class="normal"><span>315</span></span>
-<span class="normal"><span>316</span></span>
-<span class="normal"><span>317</span></span>
-<span class="normal"><span>318</span></span>
-<span class="normal"><span>319</span></span>
-<span class="normal"><span>320</span></span>
-<span class="normal"><span>321</span></span>
-<span class="normal"><span>322</span></span>
-<span class="normal"><span>323</span></span>
-<span class="normal"><span>324</span></span>
-<span class="normal"><span>325</span></span>
-<span class="normal"><span>326</span></span>
-<span class="normal"><span>327</span></span>
-<span class="normal"><span>328</span></span>
-<span class="normal"><span>329</span></span>
-<span class="normal"><span>330</span></span>
-<span class="normal"><span>331</span></span>
-<span class="normal"><span>332</span></span>
-<span class="normal"><span>333</span></span>
-<span class="normal"><span>334</span></span>
-<span class="normal"><span>335</span></span>
-<span class="normal"><span>336</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_analytics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span>
+<span>334</span>
+<span>335</span>
+<span>336</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_analytics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the overall statistics for parking lots, object counter etc.</span>
 <span></span>
@@ -2940,45 +2940,45 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>477</span></span>
-<span class="normal"><span>478</span></span>
-<span class="normal"><span>479</span></span>
-<span class="normal"><span>480</span></span>
-<span class="normal"><span>481</span></span>
-<span class="normal"><span>482</span></span>
-<span class="normal"><span>483</span></span>
-<span class="normal"><span>484</span></span>
-<span class="normal"><span>485</span></span>
-<span class="normal"><span>486</span></span>
-<span class="normal"><span>487</span></span>
-<span class="normal"><span>488</span></span>
-<span class="normal"><span>489</span></span>
-<span class="normal"><span>490</span></span>
-<span class="normal"><span>491</span></span>
-<span class="normal"><span>492</span></span>
-<span class="normal"><span>493</span></span>
-<span class="normal"><span>494</span></span>
-<span class="normal"><span>495</span></span>
-<span class="normal"><span>496</span></span>
-<span class="normal"><span>497</span></span>
-<span class="normal"><span>498</span></span>
-<span class="normal"><span>499</span></span>
-<span class="normal"><span>500</span></span>
-<span class="normal"><span>501</span></span>
-<span class="normal"><span>502</span></span>
-<span class="normal"><span>503</span></span>
-<span class="normal"><span>504</span></span>
-<span class="normal"><span>505</span></span>
-<span class="normal"><span>506</span></span>
-<span class="normal"><span>507</span></span>
-<span class="normal"><span>508</span></span>
-<span class="normal"><span>509</span></span>
-<span class="normal"><span>510</span></span>
-<span class="normal"><span>511</span></span>
-<span class="normal"><span>512</span></span>
-<span class="normal"><span>513</span></span>
-<span class="normal"><span>514</span></span>
-<span class="normal"><span>515</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_objects_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span>
+<span>484</span>
+<span>485</span>
+<span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span>
+<span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span>
+<span>496</span>
+<span>497</span>
+<span>498</span>
+<span>499</span>
+<span>500</span>
+<span>501</span>
+<span>502</span>
+<span>503</span>
+<span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span>
+<span>510</span>
+<span>511</span>
+<span>512</span>
+<span>513</span>
+<span>514</span>
+<span>515</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_objects_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the bounding boxes labels in parking management app.</span>
 <span></span>
@@ -3092,20 +3092,20 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>254</span></span>
-<span class="normal"><span>255</span></span>
-<span class="normal"><span>256</span></span>
-<span class="normal"><span>257</span></span>
-<span class="normal"><span>258</span></span>
-<span class="normal"><span>259</span></span>
-<span class="normal"><span>260</span></span>
-<span class="normal"><span>261</span></span>
-<span class="normal"><span>262</span></span>
-<span class="normal"><span>263</span></span>
-<span class="normal"><span>264</span></span>
-<span class="normal"><span>265</span></span>
-<span class="normal"><span>266</span></span>
-<span class="normal"><span>267</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a region or line on the image.</span>
 <span></span>
@@ -3236,35 +3236,35 @@ Modifies self.im in-place.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>355</span></span>
-<span class="normal"><span>356</span></span>
-<span class="normal"><span>357</span></span>
-<span class="normal"><span>358</span></span>
-<span class="normal"><span>359</span></span>
-<span class="normal"><span>360</span></span>
-<span class="normal"><span>361</span></span>
-<span class="normal"><span>362</span></span>
-<span class="normal"><span>363</span></span>
-<span class="normal"><span>364</span></span>
-<span class="normal"><span>365</span></span>
-<span class="normal"><span>366</span></span>
-<span class="normal"><span>367</span></span>
-<span class="normal"><span>368</span></span>
-<span class="normal"><span>369</span></span>
-<span class="normal"><span>370</span></span>
-<span class="normal"><span>371</span></span>
-<span class="normal"><span>372</span></span>
-<span class="normal"><span>373</span></span>
-<span class="normal"><span>374</span></span>
-<span class="normal"><span>375</span></span>
-<span class="normal"><span>376</span></span>
-<span class="normal"><span>377</span></span>
-<span class="normal"><span>378</span></span>
-<span class="normal"><span>379</span></span>
-<span class="normal"><span>380</span></span>
-<span class="normal"><span>381</span></span>
-<span class="normal"><span>382</span></span>
-<span class="normal"><span>383</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_specific_kpts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">conf_thresh</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_specific_kpts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">conf_thresh</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw specific keypoints for gym steps counting.</span>
 <span></span>
@@ -3392,22 +3392,22 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>338</span></span>
-<span class="normal"><span>339</span></span>
-<span class="normal"><span>340</span></span>
-<span class="normal"><span>341</span></span>
-<span class="normal"><span>342</span></span>
-<span class="normal"><span>343</span></span>
-<span class="normal"><span>344</span></span>
-<span class="normal"><span>345</span></span>
-<span class="normal"><span>346</span></span>
-<span class="normal"><span>347</span></span>
-<span class="normal"><span>348</span></span>
-<span class="normal"><span>349</span></span>
-<span class="normal"><span>350</span></span>
-<span class="normal"><span>351</span></span>
-<span class="normal"><span>352</span></span>
-<span class="normal"><span>353</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">estimate_pose_angle</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate the angle between three points for workout monitoring.</span>
@@ -3553,33 +3553,33 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>413</span></span>
-<span class="normal"><span>414</span></span>
-<span class="normal"><span>415</span></span>
-<span class="normal"><span>416</span></span>
-<span class="normal"><span>417</span></span>
-<span class="normal"><span>418</span></span>
-<span class="normal"><span>419</span></span>
-<span class="normal"><span>420</span></span>
-<span class="normal"><span>421</span></span>
-<span class="normal"><span>422</span></span>
-<span class="normal"><span>423</span></span>
-<span class="normal"><span>424</span></span>
-<span class="normal"><span>425</span></span>
-<span class="normal"><span>426</span></span>
-<span class="normal"><span>427</span></span>
-<span class="normal"><span>428</span></span>
-<span class="normal"><span>429</span></span>
-<span class="normal"><span>430</span></span>
-<span class="normal"><span>431</span></span>
-<span class="normal"><span>432</span></span>
-<span class="normal"><span>433</span></span>
-<span class="normal"><span>434</span></span>
-<span class="normal"><span>435</span></span>
-<span class="normal"><span>436</span></span>
-<span class="normal"><span>437</span></span>
-<span class="normal"><span>438</span></span>
-<span class="normal"><span>439</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">angle_text</span><span class="p">,</span> <span class="n">count_text</span><span class="p">,</span> <span class="n">stage_text</span><span class="p">,</span> <span class="n">center_kpt</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -3702,41 +3702,41 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>441</span></span>
-<span class="normal"><span>442</span></span>
-<span class="normal"><span>443</span></span>
-<span class="normal"><span>444</span></span>
-<span class="normal"><span>445</span></span>
-<span class="normal"><span>446</span></span>
-<span class="normal"><span>447</span></span>
-<span class="normal"><span>448</span></span>
-<span class="normal"><span>449</span></span>
-<span class="normal"><span>450</span></span>
-<span class="normal"><span>451</span></span>
-<span class="normal"><span>452</span></span>
-<span class="normal"><span>453</span></span>
-<span class="normal"><span>454</span></span>
-<span class="normal"><span>455</span></span>
-<span class="normal"><span>456</span></span>
-<span class="normal"><span>457</span></span>
-<span class="normal"><span>458</span></span>
-<span class="normal"><span>459</span></span>
-<span class="normal"><span>460</span></span>
-<span class="normal"><span>461</span></span>
-<span class="normal"><span>462</span></span>
-<span class="normal"><span>463</span></span>
-<span class="normal"><span>464</span></span>
-<span class="normal"><span>465</span></span>
-<span class="normal"><span>466</span></span>
-<span class="normal"><span>467</span></span>
-<span class="normal"><span>468</span></span>
-<span class="normal"><span>469</span></span>
-<span class="normal"><span>470</span></span>
-<span class="normal"><span>471</span></span>
-<span class="normal"><span>472</span></span>
-<span class="normal"><span>473</span></span>
-<span class="normal"><span>474</span></span>
-<span class="normal"><span>475</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span>
+<span>460</span>
+<span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span>
+<span>475</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">pixels_distance</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">centroid_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -3885,33 +3885,33 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>385</span></span>
-<span class="normal"><span>386</span></span>
-<span class="normal"><span>387</span></span>
-<span class="normal"><span>388</span></span>
-<span class="normal"><span>389</span></span>
-<span class="normal"><span>390</span></span>
-<span class="normal"><span>391</span></span>
-<span class="normal"><span>392</span></span>
-<span class="normal"><span>393</span></span>
-<span class="normal"><span>394</span></span>
-<span class="normal"><span>395</span></span>
-<span class="normal"><span>396</span></span>
-<span class="normal"><span>397</span></span>
-<span class="normal"><span>398</span></span>
-<span class="normal"><span>399</span></span>
-<span class="normal"><span>400</span></span>
-<span class="normal"><span>401</span></span>
-<span class="normal"><span>402</span></span>
-<span class="normal"><span>403</span></span>
-<span class="normal"><span>404</span></span>
-<span class="normal"><span>405</span></span>
-<span class="normal"><span>406</span></span>
-<span class="normal"><span>407</span></span>
-<span class="normal"><span>408</span></span>
-<span class="normal"><span>409</span></span>
-<span class="normal"><span>410</span></span>
-<span class="normal"><span>411</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_workout_information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_text</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_workout_information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_text</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw workout text with a background on the image.</span>
 <span></span>
@@ -4031,45 +4031,45 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>269</span></span>
-<span class="normal"><span>270</span></span>
-<span class="normal"><span>271</span></span>
-<span class="normal"><span>272</span></span>
-<span class="normal"><span>273</span></span>
-<span class="normal"><span>274</span></span>
-<span class="normal"><span>275</span></span>
-<span class="normal"><span>276</span></span>
-<span class="normal"><span>277</span></span>
-<span class="normal"><span>278</span></span>
-<span class="normal"><span>279</span></span>
-<span class="normal"><span>280</span></span>
-<span class="normal"><span>281</span></span>
-<span class="normal"><span>282</span></span>
-<span class="normal"><span>283</span></span>
-<span class="normal"><span>284</span></span>
-<span class="normal"><span>285</span></span>
-<span class="normal"><span>286</span></span>
-<span class="normal"><span>287</span></span>
-<span class="normal"><span>288</span></span>
-<span class="normal"><span>289</span></span>
-<span class="normal"><span>290</span></span>
-<span class="normal"><span>291</span></span>
-<span class="normal"><span>292</span></span>
-<span class="normal"><span>293</span></span>
-<span class="normal"><span>294</span></span>
-<span class="normal"><span>295</span></span>
-<span class="normal"><span>296</span></span>
-<span class="normal"><span>297</span></span>
-<span class="normal"><span>298</span></span>
-<span class="normal"><span>299</span></span>
-<span class="normal"><span>300</span></span>
-<span class="normal"><span>301</span></span>
-<span class="normal"><span>302</span></span>
-<span class="normal"><span>303</span></span>
-<span class="normal"><span>304</span></span>
-<span class="normal"><span>305</span></span>
-<span class="normal"><span>306</span></span>
-<span class="normal"><span>307</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">queue_counts_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">queue_counts_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Displays queue counts on an image centered at the points with customizable font size and colors.</span>
 <span></span>
@@ -4221,39 +4221,39 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>517</span></span>
-<span class="normal"><span>518</span></span>
-<span class="normal"><span>519</span></span>
-<span class="normal"><span>520</span></span>
-<span class="normal"><span>521</span></span>
-<span class="normal"><span>522</span></span>
-<span class="normal"><span>523</span></span>
-<span class="normal"><span>524</span></span>
-<span class="normal"><span>525</span></span>
-<span class="normal"><span>526</span></span>
-<span class="normal"><span>527</span></span>
-<span class="normal"><span>528</span></span>
-<span class="normal"><span>529</span></span>
-<span class="normal"><span>530</span></span>
-<span class="normal"><span>531</span></span>
-<span class="normal"><span>532</span></span>
-<span class="normal"><span>533</span></span>
-<span class="normal"><span>534</span></span>
-<span class="normal"><span>535</span></span>
-<span class="normal"><span>536</span></span>
-<span class="normal"><span>537</span></span>
-<span class="normal"><span>538</span></span>
-<span class="normal"><span>539</span></span>
-<span class="normal"><span>540</span></span>
-<span class="normal"><span>541</span></span>
-<span class="normal"><span>542</span></span>
-<span class="normal"><span>543</span></span>
-<span class="normal"><span>544</span></span>
-<span class="normal"><span>545</span></span>
-<span class="normal"><span>546</span></span>
-<span class="normal"><span>547</span></span>
-<span class="normal"><span>548</span></span>
-<span class="normal"><span>549</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sweep_annotator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>517</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span>
+<span>533</span>
+<span>534</span>
+<span>535</span>
+<span>536</span>
+<span>537</span>
+<span>538</span>
+<span>539</span>
+<span>540</span>
+<span>541</span>
+<span>542</span>
+<span>543</span>
+<span>544</span>
+<span>545</span>
+<span>546</span>
+<span>547</span>
+<span>548</span>
+<span>549</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sweep_annotator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a sweep annotation line and an optional label.</span>
 <span></span>
@@ -4395,42 +4395,42 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>604</span></span>
-<span class="normal"><span>605</span></span>
-<span class="normal"><span>606</span></span>
-<span class="normal"><span>607</span></span>
-<span class="normal"><span>608</span></span>
-<span class="normal"><span>609</span></span>
-<span class="normal"><span>610</span></span>
-<span class="normal"><span>611</span></span>
-<span class="normal"><span>612</span></span>
-<span class="normal"><span>613</span></span>
-<span class="normal"><span>614</span></span>
-<span class="normal"><span>615</span></span>
-<span class="normal"><span>616</span></span>
-<span class="normal"><span>617</span></span>
-<span class="normal"><span>618</span></span>
-<span class="normal"><span>619</span></span>
-<span class="normal"><span>620</span></span>
-<span class="normal"><span>621</span></span>
-<span class="normal"><span>622</span></span>
-<span class="normal"><span>623</span></span>
-<span class="normal"><span>624</span></span>
-<span class="normal"><span>625</span></span>
-<span class="normal"><span>626</span></span>
-<span class="normal"><span>627</span></span>
-<span class="normal"><span>628</span></span>
-<span class="normal"><span>629</span></span>
-<span class="normal"><span>630</span></span>
-<span class="normal"><span>631</span></span>
-<span class="normal"><span>632</span></span>
-<span class="normal"><span>633</span></span>
-<span class="normal"><span>634</span></span>
-<span class="normal"><span>635</span></span>
-<span class="normal"><span>636</span></span>
-<span class="normal"><span>637</span></span>
-<span class="normal"><span>638</span></span>
-<span class="normal"><span>639</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
+<span>613</span>
+<span>614</span>
+<span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span>
+<span>635</span>
+<span>636</span>
+<span>637</span>
+<span>638</span>
+<span>639</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a label with a background rectangle centered within a given bounding box.</span>
 <span></span>
@@ -4557,20 +4557,20 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>551</span></span>
-<span class="normal"><span>552</span></span>
-<span class="normal"><span>553</span></span>
-<span class="normal"><span>554</span></span>
-<span class="normal"><span>555</span></span>
-<span class="normal"><span>556</span></span>
-<span class="normal"><span>557</span></span>
-<span class="normal"><span>558</span></span>
-<span class="normal"><span>559</span></span>
-<span class="normal"><span>560</span></span>
-<span class="normal"><span>561</span></span>
-<span class="normal"><span>562</span></span>
-<span class="normal"><span>563</span></span>
-<span class="normal"><span>564</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visioneye</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">center_point</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">235</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">pin_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>551</span>
+<span>552</span>
+<span>553</span>
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span>
+<span>558</span>
+<span>559</span>
+<span>560</span>
+<span>561</span>
+<span>562</span>
+<span>563</span>
+<span>564</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visioneye</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">center_point</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">235</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">pin_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform pinpoint human-vision eye mapping and plotting.</span>
 <span></span>
@@ -4820,32 +4820,32 @@ angles, and workout stages.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>668</span></span>
-<span class="normal"><span>669</span></span>
-<span class="normal"><span>670</span></span>
-<span class="normal"><span>671</span></span>
-<span class="normal"><span>672</span></span>
-<span class="normal"><span>673</span></span>
-<span class="normal"><span>674</span></span>
-<span class="normal"><span>675</span></span>
-<span class="normal"><span>676</span></span>
-<span class="normal"><span>677</span></span>
-<span class="normal"><span>678</span></span>
-<span class="normal"><span>679</span></span>
-<span class="normal"><span>680</span></span>
-<span class="normal"><span>681</span></span>
-<span class="normal"><span>682</span></span>
-<span class="normal"><span>683</span></span>
-<span class="normal"><span>684</span></span>
-<span class="normal"><span>685</span></span>
-<span class="normal"><span>686</span></span>
-<span class="normal"><span>687</span></span>
-<span class="normal"><span>688</span></span>
-<span class="normal"><span>689</span></span>
-<span class="normal"><span>690</span></span>
-<span class="normal"><span>691</span></span>
-<span class="normal"><span>692</span></span>
-<span class="normal"><span>693</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>668</span>
+<span>669</span>
+<span>670</span>
+<span>671</span>
+<span>672</span>
+<span>673</span>
+<span>674</span>
+<span>675</span>
+<span>676</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
+<span>685</span>
+<span>686</span>
+<span>687</span>
+<span>688</span>
+<span>689</span>
+<span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SolutionResults object with default or user-specified values.</span>
 <span></span>
@@ -4905,19 +4905,19 @@ angles, and workout stages.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>695</span></span>
-<span class="normal"><span>696</span></span>
-<span class="normal"><span>697</span></span>
-<span class="normal"><span>698</span></span>
-<span class="normal"><span>699</span></span>
-<span class="normal"><span>700</span></span>
-<span class="normal"><span>701</span></span>
-<span class="normal"><span>702</span></span>
-<span class="normal"><span>703</span></span>
-<span class="normal"><span>704</span></span>
-<span class="normal"><span>705</span></span>
-<span class="normal"><span>706</span></span>
-<span class="normal"><span>707</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>695</span>
+<span>696</span>
+<span>697</span>
+<span>698</span>
+<span>699</span>
+<span>700</span>
+<span>701</span>
+<span>702</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
+<span>707</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a formatted string representation of the SolutionResults object.</span>
 <span></span>

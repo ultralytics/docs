@@ -1661,35 +1661,35 @@
 <p>YOLO Detect head for detection models.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>36</span></span>
-<span class="normal"><span>37</span></span>
-<span class="normal"><span>38</span></span>
-<span class="normal"><span>39</span></span>
-<span class="normal"><span>40</span></span>
-<span class="normal"><span>41</span></span>
-<span class="normal"><span>42</span></span>
-<span class="normal"><span>43</span></span>
-<span class="normal"><span>44</span></span>
-<span class="normal"><span>45</span></span>
-<span class="normal"><span>46</span></span>
-<span class="normal"><span>47</span></span>
-<span class="normal"><span>48</span></span>
-<span class="normal"><span>49</span></span>
-<span class="normal"><span>50</span></span>
-<span class="normal"><span>51</span></span>
-<span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span>
-<span class="normal"><span>55</span></span>
-<span class="normal"><span>56</span></span>
-<span class="normal"><span>57</span></span>
-<span class="normal"><span>58</span></span>
-<span class="normal"><span>59</span></span>
-<span class="normal"><span>60</span></span>
-<span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span>
-<span class="normal"><span>64</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the YOLO detection layer with specified number of classes and channels."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="n">nc</span>  <span class="c1"># number of classes</span>
@@ -1731,18 +1731,18 @@
 <p>Initialize Detect() biases, WARNING: requires stride availability.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>144</span></span>
-<span class="normal"><span>145</span></span>
-<span class="normal"><span>146</span></span>
-<span class="normal"><span>147</span></span>
-<span class="normal"><span>148</span></span>
-<span class="normal"><span>149</span></span>
-<span class="normal"><span>150</span></span>
-<span class="normal"><span>151</span></span>
-<span class="normal"><span>152</span></span>
-<span class="normal"><span>153</span></span>
-<span class="normal"><span>154</span></span>
-<span class="normal"><span>155</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bias_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bias_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize Detect() biases, WARNING: requires stride availability."""</span>
 <span></span>    <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span>  <span class="c1"># self.model[-1]  # Detect() module</span>
 <span></span>    <span class="c1"># cf = torch.bincount(torch.tensor(np.concatenate(dataset.labels, 0)[:, 0]).long(), minlength=nc) + 1</span>
@@ -1768,9 +1768,9 @@
 <p>Decode bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>157</span></span>
-<span class="normal"><span>158</span></span>
-<span class="normal"><span>159</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">decode_bboxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">anchors</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>157</span>
+<span>158</span>
+<span>159</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">decode_bboxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">anchors</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Decode bounding boxes."""</span>
 <span></span>    <span class="k">return</span> <span class="n">dist2bbox</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">anchors</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="n">xywh</span> <span class="ow">and</span> <span class="p">(</span><span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">end2end</span><span class="p">),</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1787,17 +1787,17 @@
 <p>Concatenates and returns predicted bounding boxes and class probabilities.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span>
-<span class="normal"><span>72</span></span>
-<span class="normal"><span>73</span></span>
-<span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span>
-<span class="normal"><span>76</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Concatenates and returns predicted bounding boxes and class probabilities."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">end2end</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward_end2end</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -1874,30 +1874,30 @@ processed detections and raw outputs.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 78</span></span>
-<span class="normal"><span> 79</span></span>
-<span class="normal"><span> 80</span></span>
-<span class="normal"><span> 81</span></span>
-<span class="normal"><span> 82</span></span>
-<span class="normal"><span> 83</span></span>
-<span class="normal"><span> 84</span></span>
-<span class="normal"><span> 85</span></span>
-<span class="normal"><span> 86</span></span>
-<span class="normal"><span> 87</span></span>
-<span class="normal"><span> 88</span></span>
-<span class="normal"><span> 89</span></span>
-<span class="normal"><span> 90</span></span>
-<span class="normal"><span> 91</span></span>
-<span class="normal"><span> 92</span></span>
-<span class="normal"><span> 93</span></span>
-<span class="normal"><span> 94</span></span>
-<span class="normal"><span> 95</span></span>
-<span class="normal"><span> 96</span></span>
-<span class="normal"><span> 97</span></span>
-<span class="normal"><span> 98</span></span>
-<span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_end2end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 78</span>
+<span> 79</span>
+<span> 80</span>
+<span> 81</span>
+<span> 82</span>
+<span> 83</span>
+<span> 84</span>
+<span> 85</span>
+<span> 86</span>
+<span> 87</span>
+<span> 88</span>
+<span> 89</span>
+<span> 90</span>
+<span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_end2end</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Performs forward pass of the v10Detect module.</span>
 <span></span>
@@ -2022,29 +2022,29 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>161</span></span>
-<span class="normal"><span>162</span></span>
-<span class="normal"><span>163</span></span>
-<span class="normal"><span>164</span></span>
-<span class="normal"><span>165</span></span>
-<span class="normal"><span>166</span></span>
-<span class="normal"><span>167</span></span>
-<span class="normal"><span>168</span></span>
-<span class="normal"><span>169</span></span>
-<span class="normal"><span>170</span></span>
-<span class="normal"><span>171</span></span>
-<span class="normal"><span>172</span></span>
-<span class="normal"><span>173</span></span>
-<span class="normal"><span>174</span></span>
-<span class="normal"><span>175</span></span>
-<span class="normal"><span>176</span></span>
-<span class="normal"><span>177</span></span>
-<span class="normal"><span>178</span></span>
-<span class="normal"><span>179</span></span>
-<span class="normal"><span>180</span></span>
-<span class="normal"><span>181</span></span>
-<span class="normal"><span>182</span></span>
-<span class="normal"><span>183</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">max_det</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">nc</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">80</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Post-processes YOLO model predictions.</span>
@@ -2086,15 +2086,15 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>YOLO Segment head for segmentation models.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>189</span></span>
-<span class="normal"><span>190</span></span>
-<span class="normal"><span>191</span></span>
-<span class="normal"><span>192</span></span>
-<span class="normal"><span>193</span></span>
-<span class="normal"><span>194</span></span>
-<span class="normal"><span>195</span></span>
-<span class="normal"><span>196</span></span>
-<span class="normal"><span>197</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">nm</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">npr</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">nm</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">npr</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the YOLO model attributes such as the number of masks, prototypes, and the convolution layers."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nm</span> <span class="o">=</span> <span class="n">nm</span>  <span class="c1"># number of masks</span>
@@ -2116,16 +2116,16 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Return model outputs and mask coefficients if training, otherwise return outputs and mask coefficients.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>199</span></span>
-<span class="normal"><span>200</span></span>
-<span class="normal"><span>201</span></span>
-<span class="normal"><span>202</span></span>
-<span class="normal"><span>203</span></span>
-<span class="normal"><span>204</span></span>
-<span class="normal"><span>205</span></span>
-<span class="normal"><span>206</span></span>
-<span class="normal"><span>207</span></span>
-<span class="normal"><span>208</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return model outputs and mask coefficients if training, otherwise return outputs and mask coefficients."""</span>
 <span></span>    <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proto</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># mask protos</span>
 <span></span>    <span class="n">bs</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># batch size</span>
@@ -2154,13 +2154,13 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>YOLO OBB detection head for detection with rotation models.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>214</span></span>
-<span class="normal"><span>215</span></span>
-<span class="normal"><span>216</span></span>
-<span class="normal"><span>217</span></span>
-<span class="normal"><span>218</span></span>
-<span class="normal"><span>219</span></span>
-<span class="normal"><span>220</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">ne</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">ne</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize OBB with number of classes `nc` and layer channels `ch`."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">ne</span> <span class="o">=</span> <span class="n">ne</span>  <span class="c1"># number of extra parameters</span>
@@ -2180,9 +2180,9 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Decode rotated bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>236</span></span>
-<span class="normal"><span>237</span></span>
-<span class="normal"><span>238</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">decode_bboxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">anchors</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>236</span>
+<span>237</span>
+<span>238</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">decode_bboxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">anchors</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Decode rotated bounding boxes."""</span>
 <span></span>    <span class="k">return</span> <span class="n">dist2rbox</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">,</span> <span class="n">anchors</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2199,19 +2199,19 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Concatenates and returns predicted bounding boxes and class probabilities.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>222</span></span>
-<span class="normal"><span>223</span></span>
-<span class="normal"><span>224</span></span>
-<span class="normal"><span>225</span></span>
-<span class="normal"><span>226</span></span>
-<span class="normal"><span>227</span></span>
-<span class="normal"><span>228</span></span>
-<span class="normal"><span>229</span></span>
-<span class="normal"><span>230</span></span>
-<span class="normal"><span>231</span></span>
-<span class="normal"><span>232</span></span>
-<span class="normal"><span>233</span></span>
-<span class="normal"><span>234</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Concatenates and returns predicted bounding boxes and class probabilities."""</span>
 <span></span>    <span class="n">bs</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># batch size</span>
 <span></span>    <span class="n">angle</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">cv4</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">ne</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nl</span><span class="p">)],</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># OBB theta logits</span>
@@ -2243,14 +2243,14 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>YOLO Pose head for keypoints models.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>244</span></span>
-<span class="normal"><span>245</span></span>
-<span class="normal"><span>246</span></span>
-<span class="normal"><span>247</span></span>
-<span class="normal"><span>248</span></span>
-<span class="normal"><span>249</span></span>
-<span class="normal"><span>250</span></span>
-<span class="normal"><span>251</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">kpt_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">kpt_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">17</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize YOLO network with default parameters and Convolutional Layers."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="n">kpt_shape</span>  <span class="c1"># number of keypoints, number of dims (2 for x,y or 3 for x,y,visible)</span>
@@ -2271,15 +2271,15 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Perform forward pass through YOLO model and return predictions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>253</span></span>
-<span class="normal"><span>254</span></span>
-<span class="normal"><span>255</span></span>
-<span class="normal"><span>256</span></span>
-<span class="normal"><span>257</span></span>
-<span class="normal"><span>258</span></span>
-<span class="normal"><span>259</span></span>
-<span class="normal"><span>260</span></span>
-<span class="normal"><span>261</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform forward pass through YOLO model and return predictions."""</span>
 <span></span>    <span class="n">bs</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># batch size</span>
 <span></span>    <span class="n">kpt</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">cv4</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">])</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nk</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nl</span><span class="p">)],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (bs, 17*3, h*w)</span>
@@ -2302,34 +2302,34 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Decodes keypoints.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>263</span></span>
-<span class="normal"><span>264</span></span>
-<span class="normal"><span>265</span></span>
-<span class="normal"><span>266</span></span>
-<span class="normal"><span>267</span></span>
-<span class="normal"><span>268</span></span>
-<span class="normal"><span>269</span></span>
-<span class="normal"><span>270</span></span>
-<span class="normal"><span>271</span></span>
-<span class="normal"><span>272</span></span>
-<span class="normal"><span>273</span></span>
-<span class="normal"><span>274</span></span>
-<span class="normal"><span>275</span></span>
-<span class="normal"><span>276</span></span>
-<span class="normal"><span>277</span></span>
-<span class="normal"><span>278</span></span>
-<span class="normal"><span>279</span></span>
-<span class="normal"><span>280</span></span>
-<span class="normal"><span>281</span></span>
-<span class="normal"><span>282</span></span>
-<span class="normal"><span>283</span></span>
-<span class="normal"><span>284</span></span>
-<span class="normal"><span>285</span></span>
-<span class="normal"><span>286</span></span>
-<span class="normal"><span>287</span></span>
-<span class="normal"><span>288</span></span>
-<span class="normal"><span>289</span></span>
-<span class="normal"><span>290</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kpts_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bs</span><span class="p">,</span> <span class="n">kpts</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kpts_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bs</span><span class="p">,</span> <span class="n">kpts</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Decodes keypoints."""</span>
 <span></span>    <span class="n">ndim</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kpt_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">export</span><span class="p">:</span>
@@ -2376,14 +2376,14 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>YOLO classification head, i.e. x(b,c1,20,20) to x(b,c2).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>298</span></span>
-<span class="normal"><span>299</span></span>
-<span class="normal"><span>300</span></span>
-<span class="normal"><span>301</span></span>
-<span class="normal"><span>302</span></span>
-<span class="normal"><span>303</span></span>
-<span class="normal"><span>304</span></span>
-<span class="normal"><span>305</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">c2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">g</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes YOLO classification head to transform input tensor from (b,c1,20,20) to (b,c2) shape."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="n">c_</span> <span class="o">=</span> <span class="mi">1280</span>  <span class="c1"># efficientnet_b0 size</span>
@@ -2404,15 +2404,15 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Performs a forward pass of the YOLO model on input image data.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>307</span></span>
-<span class="normal"><span>308</span></span>
-<span class="normal"><span>309</span></span>
-<span class="normal"><span>310</span></span>
-<span class="normal"><span>311</span></span>
-<span class="normal"><span>312</span></span>
-<span class="normal"><span>313</span></span>
-<span class="normal"><span>314</span></span>
-<span class="normal"><span>315</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Performs a forward pass of the YOLO model on input image data."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>
 <span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -2440,12 +2440,12 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Head for integrating YOLO detection models with semantic understanding from text embeddings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>321</span></span>
-<span class="normal"><span>322</span></span>
-<span class="normal"><span>323</span></span>
-<span class="normal"><span>324</span></span>
-<span class="normal"><span>325</span></span>
-<span class="normal"><span>326</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">with_bn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">with_bn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize YOLO detection layer with nc classes and layer channels ch."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
 <span></span>    <span class="n">c3</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
@@ -2464,13 +2464,13 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Initialize Detect() biases, WARNING: requires stride availability.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>338</span></span>
-<span class="normal"><span>339</span></span>
-<span class="normal"><span>340</span></span>
-<span class="normal"><span>341</span></span>
-<span class="normal"><span>342</span></span>
-<span class="normal"><span>343</span></span>
-<span class="normal"><span>344</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bias_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bias_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize Detect() biases, WARNING: requires stride availability."""</span>
 <span></span>    <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span>  <span class="c1"># self.model[-1]  # Detect() module</span>
 <span></span>    <span class="c1"># cf = torch.bincount(torch.tensor(np.concatenate(dataset.labels, 0)[:, 0]).long(), minlength=nc) + 1</span>
@@ -2491,15 +2491,15 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Concatenates and returns predicted bounding boxes and class probabilities.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>328</span></span>
-<span class="normal"><span>329</span></span>
-<span class="normal"><span>330</span></span>
-<span class="normal"><span>331</span></span>
-<span class="normal"><span>332</span></span>
-<span class="normal"><span>333</span></span>
-<span class="normal"><span>334</span></span>
-<span class="normal"><span>335</span></span>
-<span class="normal"><span>336</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span>
+<span>334</span>
+<span>335</span>
+<span>336</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Concatenates and returns predicted bounding boxes and class probabilities."""</span>
 <span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nl</span><span class="p">):</span>
 <span></span>        <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">((</span><span class="bp">self</span><span class="o">.</span><span class="n">cv2</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv4</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="bp">self</span><span class="o">.</span><span class="n">cv3</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">]),</span> <span class="n">text</span><span class="p">)),</span> <span class="mi">1</span><span class="p">)</span>
@@ -2527,13 +2527,13 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Lightweight Region Proposal and Classification Head for efficient object detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>351</span></span>
-<span class="normal"><span>352</span></span>
-<span class="normal"><span>353</span></span>
-<span class="normal"><span>354</span></span>
-<span class="normal"><span>355</span></span>
-<span class="normal"><span>356</span></span>
-<span class="normal"><span>357</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">pf</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">enabled</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize LRPCHead with vocabulary, proposal filter, and localization components."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vocab</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv2linear</span><span class="p">(</span><span class="n">vocab</span><span class="p">)</span> <span class="k">if</span> <span class="n">enabled</span> <span class="k">else</span> <span class="n">vocab</span>
@@ -2553,13 +2553,13 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Convert a 1x1 convolutional layer to a linear layer.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>359</span></span>
-<span class="normal"><span>360</span></span>
-<span class="normal"><span>361</span></span>
-<span class="normal"><span>362</span></span>
-<span class="normal"><span>363</span></span>
-<span class="normal"><span>364</span></span>
-<span class="normal"><span>365</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">conv2linear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conv</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">conv2linear</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">conv</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert a 1x1 convolutional layer to a linear layer."""</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">conv</span><span class="p">,</span> <span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">)</span> <span class="ow">and</span> <span class="n">conv</span><span class="o">.</span><span class="n">kernel_size</span> <span class="o">==</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">linear</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">conv</span><span class="o">.</span><span class="n">in_channels</span><span class="p">,</span> <span class="n">conv</span><span class="o">.</span><span class="n">out_channels</span><span class="p">)</span>
@@ -2580,20 +2580,20 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Process classification and localization features to generate detection proposals.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>367</span></span>
-<span class="normal"><span>368</span></span>
-<span class="normal"><span>369</span></span>
-<span class="normal"><span>370</span></span>
-<span class="normal"><span>371</span></span>
-<span class="normal"><span>372</span></span>
-<span class="normal"><span>373</span></span>
-<span class="normal"><span>374</span></span>
-<span class="normal"><span>375</span></span>
-<span class="normal"><span>376</span></span>
-<span class="normal"><span>377</span></span>
-<span class="normal"><span>378</span></span>
-<span class="normal"><span>379</span></span>
-<span class="normal"><span>380</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cls_feat</span><span class="p">,</span> <span class="n">loc_feat</span><span class="p">,</span> <span class="n">conf</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cls_feat</span><span class="p">,</span> <span class="n">loc_feat</span><span class="p">,</span> <span class="n">conf</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process classification and localization features to generate detection proposals."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
 <span></span>        <span class="n">pf_score</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pf</span><span class="p">(</span><span class="n">cls_feat</span><span class="p">)[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
@@ -2626,30 +2626,30 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Head for integrating YOLO detection models with semantic understanding from text embeddings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>388</span></span>
-<span class="normal"><span>389</span></span>
-<span class="normal"><span>390</span></span>
-<span class="normal"><span>391</span></span>
-<span class="normal"><span>392</span></span>
-<span class="normal"><span>393</span></span>
-<span class="normal"><span>394</span></span>
-<span class="normal"><span>395</span></span>
-<span class="normal"><span>396</span></span>
-<span class="normal"><span>397</span></span>
-<span class="normal"><span>398</span></span>
-<span class="normal"><span>399</span></span>
-<span class="normal"><span>400</span></span>
-<span class="normal"><span>401</span></span>
-<span class="normal"><span>402</span></span>
-<span class="normal"><span>403</span></span>
-<span class="normal"><span>404</span></span>
-<span class="normal"><span>405</span></span>
-<span class="normal"><span>406</span></span>
-<span class="normal"><span>407</span></span>
-<span class="normal"><span>408</span></span>
-<span class="normal"><span>409</span></span>
-<span class="normal"><span>410</span></span>
-<span class="normal"><span>411</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">with_bn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">with_bn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize YOLO detection layer with nc classes and layer channels ch."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
 <span></span>    <span class="n">c3</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
@@ -2686,16 +2686,16 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Initialize biases for detection heads.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>523</span></span>
-<span class="normal"><span>524</span></span>
-<span class="normal"><span>525</span></span>
-<span class="normal"><span>526</span></span>
-<span class="normal"><span>527</span></span>
-<span class="normal"><span>528</span></span>
-<span class="normal"><span>529</span></span>
-<span class="normal"><span>530</span></span>
-<span class="normal"><span>531</span></span>
-<span class="normal"><span>532</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bias_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>523</span>
+<span>524</span>
+<span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bias_init</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize biases for detection heads."""</span>
 <span></span>    <span class="n">m</span> <span class="o">=</span> <span class="bp">self</span>  <span class="c1"># self.model[-1]  # Detect() module</span>
 <span></span>    <span class="c1"># cf = torch.bincount(torch.tensor(np.concatenate(dataset.labels, 0)[:, 0]).long(), minlength=nc) + 1</span>
@@ -2719,17 +2719,17 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Process features with class prompt embeddings to generate detections.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>511</span></span>
-<span class="normal"><span>512</span></span>
-<span class="normal"><span>513</span></span>
-<span class="normal"><span>514</span></span>
-<span class="normal"><span>515</span></span>
-<span class="normal"><span>516</span></span>
-<span class="normal"><span>517</span></span>
-<span class="normal"><span>518</span></span>
-<span class="normal"><span>519</span></span>
-<span class="normal"><span>520</span></span>
-<span class="normal"><span>521</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cls_pe</span><span class="p">,</span> <span class="n">return_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>511</span>
+<span>512</span>
+<span>513</span>
+<span>514</span>
+<span>515</span>
+<span>516</span>
+<span>517</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">cls_pe</span><span class="p">,</span> <span class="n">return_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process features with class prompt embeddings to generate detections."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"lrpc"</span><span class="p">):</span>  <span class="c1"># for prompt-free inference</span>
 <span></span>        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward_lrpc</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">return_mask</span><span class="p">)</span>
@@ -2754,43 +2754,43 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Process features with fused text embeddings to generate detections for prompt-free model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>473</span></span>
-<span class="normal"><span>474</span></span>
-<span class="normal"><span>475</span></span>
-<span class="normal"><span>476</span></span>
-<span class="normal"><span>477</span></span>
-<span class="normal"><span>478</span></span>
-<span class="normal"><span>479</span></span>
-<span class="normal"><span>480</span></span>
-<span class="normal"><span>481</span></span>
-<span class="normal"><span>482</span></span>
-<span class="normal"><span>483</span></span>
-<span class="normal"><span>484</span></span>
-<span class="normal"><span>485</span></span>
-<span class="normal"><span>486</span></span>
-<span class="normal"><span>487</span></span>
-<span class="normal"><span>488</span></span>
-<span class="normal"><span>489</span></span>
-<span class="normal"><span>490</span></span>
-<span class="normal"><span>491</span></span>
-<span class="normal"><span>492</span></span>
-<span class="normal"><span>493</span></span>
-<span class="normal"><span>494</span></span>
-<span class="normal"><span>495</span></span>
-<span class="normal"><span>496</span></span>
-<span class="normal"><span>497</span></span>
-<span class="normal"><span>498</span></span>
-<span class="normal"><span>499</span></span>
-<span class="normal"><span>500</span></span>
-<span class="normal"><span>501</span></span>
-<span class="normal"><span>502</span></span>
-<span class="normal"><span>503</span></span>
-<span class="normal"><span>504</span></span>
-<span class="normal"><span>505</span></span>
-<span class="normal"><span>506</span></span>
-<span class="normal"><span>507</span></span>
-<span class="normal"><span>508</span></span>
-<span class="normal"><span>509</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_lrpc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">return_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>473</span>
+<span>474</span>
+<span>475</span>
+<span>476</span>
+<span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span>
+<span>484</span>
+<span>485</span>
+<span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span>
+<span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span>
+<span>496</span>
+<span>497</span>
+<span>498</span>
+<span>499</span>
+<span>500</span>
+<span>501</span>
+<span>502</span>
+<span>503</span>
+<span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_lrpc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">return_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process features with fused text embeddings to generate detections for prompt-free model."""</span>
 <span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fused</span><span class="p">,</span> <span class="s2">"Prompt-free inference requires model to be fused!"</span>
@@ -2841,52 +2841,52 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Fuse text features with model weights for efficient inference.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>413</span></span>
-<span class="normal"><span>414</span></span>
-<span class="normal"><span>415</span></span>
-<span class="normal"><span>416</span></span>
-<span class="normal"><span>417</span></span>
-<span class="normal"><span>418</span></span>
-<span class="normal"><span>419</span></span>
-<span class="normal"><span>420</span></span>
-<span class="normal"><span>421</span></span>
-<span class="normal"><span>422</span></span>
-<span class="normal"><span>423</span></span>
-<span class="normal"><span>424</span></span>
-<span class="normal"><span>425</span></span>
-<span class="normal"><span>426</span></span>
-<span class="normal"><span>427</span></span>
-<span class="normal"><span>428</span></span>
-<span class="normal"><span>429</span></span>
-<span class="normal"><span>430</span></span>
-<span class="normal"><span>431</span></span>
-<span class="normal"><span>432</span></span>
-<span class="normal"><span>433</span></span>
-<span class="normal"><span>434</span></span>
-<span class="normal"><span>435</span></span>
-<span class="normal"><span>436</span></span>
-<span class="normal"><span>437</span></span>
-<span class="normal"><span>438</span></span>
-<span class="normal"><span>439</span></span>
-<span class="normal"><span>440</span></span>
-<span class="normal"><span>441</span></span>
-<span class="normal"><span>442</span></span>
-<span class="normal"><span>443</span></span>
-<span class="normal"><span>444</span></span>
-<span class="normal"><span>445</span></span>
-<span class="normal"><span>446</span></span>
-<span class="normal"><span>447</span></span>
-<span class="normal"><span>448</span></span>
-<span class="normal"><span>449</span></span>
-<span class="normal"><span>450</span></span>
-<span class="normal"><span>451</span></span>
-<span class="normal"><span>452</span></span>
-<span class="normal"><span>453</span></span>
-<span class="normal"><span>454</span></span>
-<span class="normal"><span>455</span></span>
-<span class="normal"><span>456</span></span>
-<span class="normal"><span>457</span></span>
-<span class="normal"><span>458</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span>
+<span>440</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt_feats</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Fuse text features with model weights for efficient inference."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fused</span><span class="p">:</span>
@@ -2946,9 +2946,9 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Get text prompt embeddings with normalization.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>460</span></span>
-<span class="normal"><span>461</span></span>
-<span class="normal"><span>462</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_tpe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tpe</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>460</span>
+<span>461</span>
+<span>462</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_tpe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tpe</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get text prompt embeddings with normalization."""</span>
 <span></span>    <span class="k">return</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">tpe</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">F</span><span class="o">.</span><span class="n">normalize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">reprta</span><span class="p">(</span><span class="n">tpe</span><span class="p">),</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2965,14 +2965,14 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Get visual prompt embeddings with spatial awareness.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>464</span></span>
-<span class="normal"><span>465</span></span>
-<span class="normal"><span>466</span></span>
-<span class="normal"><span>467</span></span>
-<span class="normal"><span>468</span></span>
-<span class="normal"><span>469</span></span>
-<span class="normal"><span>470</span></span>
-<span class="normal"><span>471</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vpe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">vpe</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>464</span>
+<span>465</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vpe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">vpe</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get visual prompt embeddings with spatial awareness."""</span>
 <span></span>    <span class="k">if</span> <span class="n">vpe</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># no visual prompt embeddings</span>
 <span></span>        <span class="k">return</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -2999,15 +2999,15 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>YOLO segmentation head with text embedding capabilities.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>538</span></span>
-<span class="normal"><span>539</span></span>
-<span class="normal"><span>540</span></span>
-<span class="normal"><span>541</span></span>
-<span class="normal"><span>542</span></span>
-<span class="normal"><span>543</span></span>
-<span class="normal"><span>544</span></span>
-<span class="normal"><span>545</span></span>
-<span class="normal"><span>546</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">nm</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">npr</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">with_bn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>538</span>
+<span>539</span>
+<span>540</span>
+<span>541</span>
+<span>542</span>
+<span>543</span>
+<span>544</span>
+<span>545</span>
+<span>546</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">nm</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">npr</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="mi">512</span><span class="p">,</span> <span class="n">with_bn</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize YOLOESegment with class count, mask parameters, and embedding dimensions."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">embed</span><span class="p">,</span> <span class="n">with_bn</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nm</span> <span class="o">=</span> <span class="n">nm</span>
@@ -3029,26 +3029,26 @@ dimension format [x, y, w, h, max_class_prob, class_index].</p>
 <p>Return model outputs and mask coefficients if training, otherwise return outputs and mask coefficients.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>548</span></span>
-<span class="normal"><span>549</span></span>
-<span class="normal"><span>550</span></span>
-<span class="normal"><span>551</span></span>
-<span class="normal"><span>552</span></span>
-<span class="normal"><span>553</span></span>
-<span class="normal"><span>554</span></span>
-<span class="normal"><span>555</span></span>
-<span class="normal"><span>556</span></span>
-<span class="normal"><span>557</span></span>
-<span class="normal"><span>558</span></span>
-<span class="normal"><span>559</span></span>
-<span class="normal"><span>560</span></span>
-<span class="normal"><span>561</span></span>
-<span class="normal"><span>562</span></span>
-<span class="normal"><span>563</span></span>
-<span class="normal"><span>564</span></span>
-<span class="normal"><span>565</span></span>
-<span class="normal"><span>566</span></span>
-<span class="normal"><span>567</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>548</span>
+<span>549</span>
+<span>550</span>
+<span>551</span>
+<span>552</span>
+<span>553</span>
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span>
+<span>558</span>
+<span>559</span>
+<span>560</span>
+<span>561</span>
+<span>562</span>
+<span>563</span>
+<span>564</span>
+<span>565</span>
+<span>566</span>
+<span>567</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return model outputs and mask coefficients if training, otherwise return outputs and mask coefficients."""</span>
 <span></span>    <span class="n">p</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">proto</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># mask protos</span>
 <span></span>    <span class="n">bs</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># batch size</span>
@@ -3359,84 +3359,84 @@ Transformer decoder layers to output the final predictions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>581</span></span>
-<span class="normal"><span>582</span></span>
-<span class="normal"><span>583</span></span>
-<span class="normal"><span>584</span></span>
-<span class="normal"><span>585</span></span>
-<span class="normal"><span>586</span></span>
-<span class="normal"><span>587</span></span>
-<span class="normal"><span>588</span></span>
-<span class="normal"><span>589</span></span>
-<span class="normal"><span>590</span></span>
-<span class="normal"><span>591</span></span>
-<span class="normal"><span>592</span></span>
-<span class="normal"><span>593</span></span>
-<span class="normal"><span>594</span></span>
-<span class="normal"><span>595</span></span>
-<span class="normal"><span>596</span></span>
-<span class="normal"><span>597</span></span>
-<span class="normal"><span>598</span></span>
-<span class="normal"><span>599</span></span>
-<span class="normal"><span>600</span></span>
-<span class="normal"><span>601</span></span>
-<span class="normal"><span>602</span></span>
-<span class="normal"><span>603</span></span>
-<span class="normal"><span>604</span></span>
-<span class="normal"><span>605</span></span>
-<span class="normal"><span>606</span></span>
-<span class="normal"><span>607</span></span>
-<span class="normal"><span>608</span></span>
-<span class="normal"><span>609</span></span>
-<span class="normal"><span>610</span></span>
-<span class="normal"><span>611</span></span>
-<span class="normal"><span>612</span></span>
-<span class="normal"><span>613</span></span>
-<span class="normal"><span>614</span></span>
-<span class="normal"><span>615</span></span>
-<span class="normal"><span>616</span></span>
-<span class="normal"><span>617</span></span>
-<span class="normal"><span>618</span></span>
-<span class="normal"><span>619</span></span>
-<span class="normal"><span>620</span></span>
-<span class="normal"><span>621</span></span>
-<span class="normal"><span>622</span></span>
-<span class="normal"><span>623</span></span>
-<span class="normal"><span>624</span></span>
-<span class="normal"><span>625</span></span>
-<span class="normal"><span>626</span></span>
-<span class="normal"><span>627</span></span>
-<span class="normal"><span>628</span></span>
-<span class="normal"><span>629</span></span>
-<span class="normal"><span>630</span></span>
-<span class="normal"><span>631</span></span>
-<span class="normal"><span>632</span></span>
-<span class="normal"><span>633</span></span>
-<span class="normal"><span>634</span></span>
-<span class="normal"><span>635</span></span>
-<span class="normal"><span>636</span></span>
-<span class="normal"><span>637</span></span>
-<span class="normal"><span>638</span></span>
-<span class="normal"><span>639</span></span>
-<span class="normal"><span>640</span></span>
-<span class="normal"><span>641</span></span>
-<span class="normal"><span>642</span></span>
-<span class="normal"><span>643</span></span>
-<span class="normal"><span>644</span></span>
-<span class="normal"><span>645</span></span>
-<span class="normal"><span>646</span></span>
-<span class="normal"><span>647</span></span>
-<span class="normal"><span>648</span></span>
-<span class="normal"><span>649</span></span>
-<span class="normal"><span>650</span></span>
-<span class="normal"><span>651</span></span>
-<span class="normal"><span>652</span></span>
-<span class="normal"><span>653</span></span>
-<span class="normal"><span>654</span></span>
-<span class="normal"><span>655</span></span>
-<span class="normal"><span>656</span></span>
-<span class="normal"><span>657</span></span>
-<span class="normal"><span>658</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span>
+<span>590</span>
+<span>591</span>
+<span>592</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
+<span>613</span>
+<span>614</span>
+<span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span>
+<span>635</span>
+<span>636</span>
+<span>637</span>
+<span>638</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span>
+<span>643</span>
+<span>644</span>
+<span>645</span>
+<span>646</span>
+<span>647</span>
+<span>648</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span>
+<span>653</span>
+<span>654</span>
+<span>655</span>
+<span>656</span>
+<span>657</span>
+<span>658</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
 <span></span>    <span class="n">ch</span><span class="o">=</span><span class="p">(</span><span class="mi">512</span><span class="p">,</span> <span class="mi">1024</span><span class="p">,</span> <span class="mi">2048</span><span class="p">),</span>
@@ -3594,54 +3594,54 @@ During inference, returns a tensor of shape (bs, 300, 4+nc) containing bounding 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>660</span></span>
-<span class="normal"><span>661</span></span>
-<span class="normal"><span>662</span></span>
-<span class="normal"><span>663</span></span>
-<span class="normal"><span>664</span></span>
-<span class="normal"><span>665</span></span>
-<span class="normal"><span>666</span></span>
-<span class="normal"><span>667</span></span>
-<span class="normal"><span>668</span></span>
-<span class="normal"><span>669</span></span>
-<span class="normal"><span>670</span></span>
-<span class="normal"><span>671</span></span>
-<span class="normal"><span>672</span></span>
-<span class="normal"><span>673</span></span>
-<span class="normal"><span>674</span></span>
-<span class="normal"><span>675</span></span>
-<span class="normal"><span>676</span></span>
-<span class="normal"><span>677</span></span>
-<span class="normal"><span>678</span></span>
-<span class="normal"><span>679</span></span>
-<span class="normal"><span>680</span></span>
-<span class="normal"><span>681</span></span>
-<span class="normal"><span>682</span></span>
-<span class="normal"><span>683</span></span>
-<span class="normal"><span>684</span></span>
-<span class="normal"><span>685</span></span>
-<span class="normal"><span>686</span></span>
-<span class="normal"><span>687</span></span>
-<span class="normal"><span>688</span></span>
-<span class="normal"><span>689</span></span>
-<span class="normal"><span>690</span></span>
-<span class="normal"><span>691</span></span>
-<span class="normal"><span>692</span></span>
-<span class="normal"><span>693</span></span>
-<span class="normal"><span>694</span></span>
-<span class="normal"><span>695</span></span>
-<span class="normal"><span>696</span></span>
-<span class="normal"><span>697</span></span>
-<span class="normal"><span>698</span></span>
-<span class="normal"><span>699</span></span>
-<span class="normal"><span>700</span></span>
-<span class="normal"><span>701</span></span>
-<span class="normal"><span>702</span></span>
-<span class="normal"><span>703</span></span>
-<span class="normal"><span>704</span></span>
-<span class="normal"><span>705</span></span>
-<span class="normal"><span>706</span></span>
-<span class="normal"><span>707</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>660</span>
+<span>661</span>
+<span>662</span>
+<span>663</span>
+<span>664</span>
+<span>665</span>
+<span>666</span>
+<span>667</span>
+<span>668</span>
+<span>669</span>
+<span>670</span>
+<span>671</span>
+<span>672</span>
+<span>673</span>
+<span>674</span>
+<span>675</span>
+<span>676</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
+<span>685</span>
+<span>686</span>
+<span>687</span>
+<span>688</span>
+<span>689</span>
+<span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span>
+<span>694</span>
+<span>695</span>
+<span>696</span>
+<span>697</span>
+<span>698</span>
+<span>699</span>
+<span>700</span>
+<span>701</span>
+<span>702</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
+<span>707</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Runs the forward pass of the module, returning bounding box and classification scores for the input.</span>
 <span></span>
@@ -3803,20 +3803,20 @@ During inference, returns a tensor of shape (bs, 300, 4+nc) containing bounding 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>861</span></span>
-<span class="normal"><span>862</span></span>
-<span class="normal"><span>863</span></span>
-<span class="normal"><span>864</span></span>
-<span class="normal"><span>865</span></span>
-<span class="normal"><span>866</span></span>
-<span class="normal"><span>867</span></span>
-<span class="normal"><span>868</span></span>
-<span class="normal"><span>869</span></span>
-<span class="normal"><span>870</span></span>
-<span class="normal"><span>871</span></span>
-<span class="normal"><span>872</span></span>
-<span class="normal"><span>873</span></span>
-<span class="normal"><span>874</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>861</span>
+<span>862</span>
+<span>863</span>
+<span>864</span>
+<span>865</span>
+<span>866</span>
+<span>867</span>
+<span>868</span>
+<span>869</span>
+<span>870</span>
+<span>871</span>
+<span>872</span>
+<span>873</span>
+<span>874</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes the v10Detect object with the specified number of classes and input channels."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">nc</span><span class="p">,</span> <span class="n">ch</span><span class="p">)</span>
 <span></span>    <span class="n">c3</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ch</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>  <span class="c1"># channels</span>
@@ -3843,9 +3843,9 @@ During inference, returns a tensor of shape (bs, 300, 4+nc) containing bounding 
 <p>Removes the one2many head.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/head.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>876</span></span>
-<span class="normal"><span>877</span></span>
-<span class="normal"><span>878</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>876</span>
+<span>877</span>
+<span>878</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Removes the one2many head."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">cv2</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">cv3</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">([</span><span class="n">nn</span><span class="o">.</span><span class="n">Identity</span><span class="p">()]</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">nl</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3861,7 +3861,7 @@ During inference, returns a tensor of shape (bs, 300, 4+nc) containing bounding 
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 05, 2025">
-<span class="hover-item">✏️</span> Updated 17 days ago
+<span class="hover-item">✏️</span> Updated 18 days ago
     </span>
 </div>
 <div class="authors-container">

@@ -1562,41 +1562,41 @@ due to a known bug with pose models.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>49</span></span>
-<span class="normal"><span>50</span></span>
-<span class="normal"><span>51</span></span>
-<span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span>
-<span class="normal"><span>55</span></span>
-<span class="normal"><span>56</span></span>
-<span class="normal"><span>57</span></span>
-<span class="normal"><span>58</span></span>
-<span class="normal"><span>59</span></span>
-<span class="normal"><span>60</span></span>
-<span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span>
-<span class="normal"><span>64</span></span>
-<span class="normal"><span>65</span></span>
-<span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span>
-<span class="normal"><span>72</span></span>
-<span class="normal"><span>73</span></span>
-<span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span>
-<span class="normal"><span>76</span></span>
-<span class="normal"><span>77</span></span>
-<span class="normal"><span>78</span></span>
-<span class="normal"><span>79</span></span>
-<span class="normal"><span>80</span></span>
-<span class="normal"><span>81</span></span>
-<span class="normal"><span>82</span></span>
-<span class="normal"><span>83</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a PoseValidator object for pose estimation validation.</span>
 <span></span>
@@ -1644,34 +1644,34 @@ due to a known bug with pose models.</p>
 <p>Evaluate object detection model using COCO JSON format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>367</span></span>
-<span class="normal"><span>368</span></span>
-<span class="normal"><span>369</span></span>
-<span class="normal"><span>370</span></span>
-<span class="normal"><span>371</span></span>
-<span class="normal"><span>372</span></span>
-<span class="normal"><span>373</span></span>
-<span class="normal"><span>374</span></span>
-<span class="normal"><span>375</span></span>
-<span class="normal"><span>376</span></span>
-<span class="normal"><span>377</span></span>
-<span class="normal"><span>378</span></span>
-<span class="normal"><span>379</span></span>
-<span class="normal"><span>380</span></span>
-<span class="normal"><span>381</span></span>
-<span class="normal"><span>382</span></span>
-<span class="normal"><span>383</span></span>
-<span class="normal"><span>384</span></span>
-<span class="normal"><span>385</span></span>
-<span class="normal"><span>386</span></span>
-<span class="normal"><span>387</span></span>
-<span class="normal"><span>388</span></span>
-<span class="normal"><span>389</span></span>
-<span class="normal"><span>390</span></span>
-<span class="normal"><span>391</span></span>
-<span class="normal"><span>392</span></span>
-<span class="normal"><span>393</span></span>
-<span class="normal"><span>394</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Evaluate object detection model using COCO JSON format."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">):</span>
 <span></span>        <span class="n">anno_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">/</span> <span class="s2">"annotations/person_keypoints_val2017.json"</span>  <span class="c1"># annotations</span>
@@ -1713,21 +1713,21 @@ due to a known bug with pose models.</p>
 <p>Return description of evaluation metrics in string format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 91</span></span>
-<span class="normal"><span> 92</span></span>
-<span class="normal"><span> 93</span></span>
-<span class="normal"><span> 94</span></span>
-<span class="normal"><span> 95</span></span>
-<span class="normal"><span> 96</span></span>
-<span class="normal"><span> 97</span></span>
-<span class="normal"><span> 98</span></span>
-<span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span>
-<span class="normal"><span>102</span></span>
-<span class="normal"><span>103</span></span>
-<span class="normal"><span>104</span></span>
-<span class="normal"><span>105</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return description of evaluation metrics in string format."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span><span class="s2">"</span><span class="si">%22s</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"</span><span class="si">%11s</span><span class="s2">"</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span>
 <span></span>        <span class="s2">"Class"</span><span class="p">,</span>
@@ -1756,14 +1756,14 @@ due to a known bug with pose models.</p>
 <p>Initialize pose estimation metrics for YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>107</span></span>
-<span class="normal"><span>108</span></span>
-<span class="normal"><span>109</span></span>
-<span class="normal"><span>110</span></span>
-<span class="normal"><span>111</span></span>
-<span class="normal"><span>112</span></span>
-<span class="normal"><span>113</span></span>
-<span class="normal"><span>114</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize pose estimation metrics for YOLO model."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">init_metrics</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"kpt_shape"</span><span class="p">]</span>
@@ -1849,29 +1849,29 @@ confidence scores, class predictions, and keypoints.</p>
 on the input images. The resulting visualization is saved to the specified save directory.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>284</span></span>
-<span class="normal"><span>285</span></span>
-<span class="normal"><span>286</span></span>
-<span class="normal"><span>287</span></span>
-<span class="normal"><span>288</span></span>
-<span class="normal"><span>289</span></span>
-<span class="normal"><span>290</span></span>
-<span class="normal"><span>291</span></span>
-<span class="normal"><span>292</span></span>
-<span class="normal"><span>293</span></span>
-<span class="normal"><span>294</span></span>
-<span class="normal"><span>295</span></span>
-<span class="normal"><span>296</span></span>
-<span class="normal"><span>297</span></span>
-<span class="normal"><span>298</span></span>
-<span class="normal"><span>299</span></span>
-<span class="normal"><span>300</span></span>
-<span class="normal"><span>301</span></span>
-<span class="normal"><span>302</span></span>
-<span class="normal"><span>303</span></span>
-<span class="normal"><span>304</span></span>
-<span class="normal"><span>305</span></span>
-<span class="normal"><span>306</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot and save model predictions with bounding boxes and keypoints.</span>
 <span></span>
@@ -1959,31 +1959,31 @@ on the input images. The resulting visualization is saved to the specified save 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>258</span></span>
-<span class="normal"><span>259</span></span>
-<span class="normal"><span>260</span></span>
-<span class="normal"><span>261</span></span>
-<span class="normal"><span>262</span></span>
-<span class="normal"><span>263</span></span>
-<span class="normal"><span>264</span></span>
-<span class="normal"><span>265</span></span>
-<span class="normal"><span>266</span></span>
-<span class="normal"><span>267</span></span>
-<span class="normal"><span>268</span></span>
-<span class="normal"><span>269</span></span>
-<span class="normal"><span>270</span></span>
-<span class="normal"><span>271</span></span>
-<span class="normal"><span>272</span></span>
-<span class="normal"><span>273</span></span>
-<span class="normal"><span>274</span></span>
-<span class="normal"><span>275</span></span>
-<span class="normal"><span>276</span></span>
-<span class="normal"><span>277</span></span>
-<span class="normal"><span>278</span></span>
-<span class="normal"><span>279</span></span>
-<span class="normal"><span>280</span></span>
-<span class="normal"><span>281</span></span>
-<span class="normal"><span>282</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">ni</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot and save validation set samples with ground truth bounding boxes and keypoints.</span>
 <span></span>
@@ -2077,38 +2077,38 @@ before saving to the JSON dictionary.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>334</span></span>
-<span class="normal"><span>335</span></span>
-<span class="normal"><span>336</span></span>
-<span class="normal"><span>337</span></span>
-<span class="normal"><span>338</span></span>
-<span class="normal"><span>339</span></span>
-<span class="normal"><span>340</span></span>
-<span class="normal"><span>341</span></span>
-<span class="normal"><span>342</span></span>
-<span class="normal"><span>343</span></span>
-<span class="normal"><span>344</span></span>
-<span class="normal"><span>345</span></span>
-<span class="normal"><span>346</span></span>
-<span class="normal"><span>347</span></span>
-<span class="normal"><span>348</span></span>
-<span class="normal"><span>349</span></span>
-<span class="normal"><span>350</span></span>
-<span class="normal"><span>351</span></span>
-<span class="normal"><span>352</span></span>
-<span class="normal"><span>353</span></span>
-<span class="normal"><span>354</span></span>
-<span class="normal"><span>355</span></span>
-<span class="normal"><span>356</span></span>
-<span class="normal"><span>357</span></span>
-<span class="normal"><span>358</span></span>
-<span class="normal"><span>359</span></span>
-<span class="normal"><span>360</span></span>
-<span class="normal"><span>361</span></span>
-<span class="normal"><span>362</span></span>
-<span class="normal"><span>363</span></span>
-<span class="normal"><span>364</span></span>
-<span class="normal"><span>365</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>334</span>
+<span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert YOLO predictions to COCO JSON format.</span>
 <span></span>
@@ -2154,11 +2154,11 @@ before saving to the JSON dictionary.</p>
 <p>Preprocess batch by converting keypoints data to float and moving it to the device.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>85</span></span>
-<span class="normal"><span>86</span></span>
-<span class="normal"><span>87</span></span>
-<span class="normal"><span>88</span></span>
-<span class="normal"><span>89</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocess batch by converting keypoints data to float and moving it to the device."""</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 <span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
@@ -2276,31 +2276,31 @@ normalized (x, y, visibility) values for each point.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>308</span></span>
-<span class="normal"><span>309</span></span>
-<span class="normal"><span>310</span></span>
-<span class="normal"><span>311</span></span>
-<span class="normal"><span>312</span></span>
-<span class="normal"><span>313</span></span>
-<span class="normal"><span>314</span></span>
-<span class="normal"><span>315</span></span>
-<span class="normal"><span>316</span></span>
-<span class="normal"><span>317</span></span>
-<span class="normal"><span>318</span></span>
-<span class="normal"><span>319</span></span>
-<span class="normal"><span>320</span></span>
-<span class="normal"><span>321</span></span>
-<span class="normal"><span>322</span></span>
-<span class="normal"><span>323</span></span>
-<span class="normal"><span>324</span></span>
-<span class="normal"><span>325</span></span>
-<span class="normal"><span>326</span></span>
-<span class="normal"><span>327</span></span>
-<span class="normal"><span>328</span></span>
-<span class="normal"><span>329</span></span>
-<span class="normal"><span>330</span></span>
-<span class="normal"><span>331</span></span>
-<span class="normal"><span>332</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save YOLO pose detections to a text file in normalized coordinates.</span>
 <span></span>
@@ -2386,67 +2386,67 @@ for performance evaluation.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>165</span></span>
-<span class="normal"><span>166</span></span>
-<span class="normal"><span>167</span></span>
-<span class="normal"><span>168</span></span>
-<span class="normal"><span>169</span></span>
-<span class="normal"><span>170</span></span>
-<span class="normal"><span>171</span></span>
-<span class="normal"><span>172</span></span>
-<span class="normal"><span>173</span></span>
-<span class="normal"><span>174</span></span>
-<span class="normal"><span>175</span></span>
-<span class="normal"><span>176</span></span>
-<span class="normal"><span>177</span></span>
-<span class="normal"><span>178</span></span>
-<span class="normal"><span>179</span></span>
-<span class="normal"><span>180</span></span>
-<span class="normal"><span>181</span></span>
-<span class="normal"><span>182</span></span>
-<span class="normal"><span>183</span></span>
-<span class="normal"><span>184</span></span>
-<span class="normal"><span>185</span></span>
-<span class="normal"><span>186</span></span>
-<span class="normal"><span>187</span></span>
-<span class="normal"><span>188</span></span>
-<span class="normal"><span>189</span></span>
-<span class="normal"><span>190</span></span>
-<span class="normal"><span>191</span></span>
-<span class="normal"><span>192</span></span>
-<span class="normal"><span>193</span></span>
-<span class="normal"><span>194</span></span>
-<span class="normal"><span>195</span></span>
-<span class="normal"><span>196</span></span>
-<span class="normal"><span>197</span></span>
-<span class="normal"><span>198</span></span>
-<span class="normal"><span>199</span></span>
-<span class="normal"><span>200</span></span>
-<span class="normal"><span>201</span></span>
-<span class="normal"><span>202</span></span>
-<span class="normal"><span>203</span></span>
-<span class="normal"><span>204</span></span>
-<span class="normal"><span>205</span></span>
-<span class="normal"><span>206</span></span>
-<span class="normal"><span>207</span></span>
-<span class="normal"><span>208</span></span>
-<span class="normal"><span>209</span></span>
-<span class="normal"><span>210</span></span>
-<span class="normal"><span>211</span></span>
-<span class="normal"><span>212</span></span>
-<span class="normal"><span>213</span></span>
-<span class="normal"><span>214</span></span>
-<span class="normal"><span>215</span></span>
-<span class="normal"><span>216</span></span>
-<span class="normal"><span>217</span></span>
-<span class="normal"><span>218</span></span>
-<span class="normal"><span>219</span></span>
-<span class="normal"><span>220</span></span>
-<span class="normal"><span>221</span></span>
-<span class="normal"><span>222</span></span>
-<span class="normal"><span>223</span></span>
-<span class="normal"><span>224</span></span>
-<span class="normal"><span>225</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update metrics with new predictions and ground truth data.</span>
 <span></span>

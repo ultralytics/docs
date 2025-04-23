@@ -1160,12 +1160,12 @@ implementation, allowing for efficient and accurate image segmentation.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>28</span></span>
-<span class="normal"><span>29</span></span>
-<span class="normal"><span>30</span></span>
-<span class="normal"><span>31</span></span>
-<span class="normal"><span>32</span></span>
-<span class="normal"><span>33</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"FastSAM-x.pt"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s2">"FastSAM-x.pt"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the FastSAM model with the specified pre-trained weights."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"FastSAM.pt"</span><span class="p">:</span>
 <span></span>        <span class="n">model</span> <span class="o">=</span> <span class="s2">"FastSAM-x.pt"</span>
@@ -1354,28 +1354,28 @@ or numpy array.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>35</span></span>
-<span class="normal"><span>36</span></span>
-<span class="normal"><span>37</span></span>
-<span class="normal"><span>38</span></span>
-<span class="normal"><span>39</span></span>
-<span class="normal"><span>40</span></span>
-<span class="normal"><span>41</span></span>
-<span class="normal"><span>42</span></span>
-<span class="normal"><span>43</span></span>
-<span class="normal"><span>44</span></span>
-<span class="normal"><span>45</span></span>
-<span class="normal"><span>46</span></span>
-<span class="normal"><span>47</span></span>
-<span class="normal"><span>48</span></span>
-<span class="normal"><span>49</span></span>
-<span class="normal"><span>50</span></span>
-<span class="normal"><span>51</span></span>
-<span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span>
-<span class="normal"><span>55</span></span>
-<span class="normal"><span>56</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform segmentation prediction on image or video source.</span>
 <span></span>

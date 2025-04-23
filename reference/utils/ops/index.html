@@ -1626,17 +1626,17 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>33</span></span>
-<span class="normal"><span>34</span></span>
-<span class="normal"><span>35</span></span>
-<span class="normal"><span>36</span></span>
-<span class="normal"><span>37</span></span>
-<span class="normal"><span>38</span></span>
-<span class="normal"><span>39</span></span>
-<span class="normal"><span>40</span></span>
-<span class="normal"><span>41</span></span>
-<span class="normal"><span>42</span></span>
-<span class="normal"><span>43</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">t</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Profile class.</span>
 <span></span>
@@ -1660,10 +1660,10 @@
 <p>Start timing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>45</span></span>
-<span class="normal"><span>46</span></span>
-<span class="normal"><span>47</span></span>
-<span class="normal"><span>48</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Start timing."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">start</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span>
@@ -1681,10 +1681,10 @@
 <p>Stop timing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>50</span></span>
-<span class="normal"><span>51</span></span>
-<span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># noqa</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>  <span class="c1"># noqa</span>
 <span></span><span class="w">    </span><span class="sd">"""Stop timing."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">start</span>  <span class="c1"># delta-time</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">t</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>  <span class="c1"># accumulate dt</span>
@@ -1702,9 +1702,9 @@
 <p>Returns a human-readable string representing the accumulated elapsed time in the profiler.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>55</span></span>
-<span class="normal"><span>56</span></span>
-<span class="normal"><span>57</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
+<span>56</span>
+<span>57</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Returns a human-readable string representing the accumulated elapsed time in the profiler."""</span>
 <span></span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"Elapsed time is </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">t</span><span class="si">}</span><span class="s2"> s"</span>
 </code></pre></div></td></tr></table></div>
@@ -1721,11 +1721,11 @@
 <p>Get current time.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>59</span></span>
-<span class="normal"><span>60</span></span>
-<span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">time</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Get current time."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cuda</span><span class="p">:</span>
 <span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">synchronize</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -1829,31 +1829,31 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span>
-<span class="normal"><span>72</span></span>
-<span class="normal"><span>73</span></span>
-<span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span>
-<span class="normal"><span>76</span></span>
-<span class="normal"><span>77</span></span>
-<span class="normal"><span>78</span></span>
-<span class="normal"><span>79</span></span>
-<span class="normal"><span>80</span></span>
-<span class="normal"><span>81</span></span>
-<span class="normal"><span>82</span></span>
-<span class="normal"><span>83</span></span>
-<span class="normal"><span>84</span></span>
-<span class="normal"><span>85</span></span>
-<span class="normal"><span>86</span></span>
-<span class="normal"><span>87</span></span>
-<span class="normal"><span>88</span></span>
-<span class="normal"><span>89</span></span>
-<span class="normal"><span>90</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">segment2box</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">640</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">segment2box</span><span class="p">(</span><span class="n">segment</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">640</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert 1 segment label to 1 box label, applying inside-image constraint, i.e. (xy1, xy2, ...) to (xyxy).</span>
 <span></span>
@@ -2026,41 +2026,41 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 93</span></span>
-<span class="normal"><span> 94</span></span>
-<span class="normal"><span> 95</span></span>
-<span class="normal"><span> 96</span></span>
-<span class="normal"><span> 97</span></span>
-<span class="normal"><span> 98</span></span>
-<span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span>
-<span class="normal"><span>102</span></span>
-<span class="normal"><span>103</span></span>
-<span class="normal"><span>104</span></span>
-<span class="normal"><span>105</span></span>
-<span class="normal"><span>106</span></span>
-<span class="normal"><span>107</span></span>
-<span class="normal"><span>108</span></span>
-<span class="normal"><span>109</span></span>
-<span class="normal"><span>110</span></span>
-<span class="normal"><span>111</span></span>
-<span class="normal"><span>112</span></span>
-<span class="normal"><span>113</span></span>
-<span class="normal"><span>114</span></span>
-<span class="normal"><span>115</span></span>
-<span class="normal"><span>116</span></span>
-<span class="normal"><span>117</span></span>
-<span class="normal"><span>118</span></span>
-<span class="normal"><span>119</span></span>
-<span class="normal"><span>120</span></span>
-<span class="normal"><span>121</span></span>
-<span class="normal"><span>122</span></span>
-<span class="normal"><span>123</span></span>
-<span class="normal"><span>124</span></span>
-<span class="normal"><span>125</span></span>
-<span class="normal"><span>126</span></span>
-<span class="normal"><span>127</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_boxes</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_boxes</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale bounding boxes from img1_shape to img0_shape.</span>
 <span></span>
@@ -2175,20 +2175,20 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>130</span></span>
-<span class="normal"><span>131</span></span>
-<span class="normal"><span>132</span></span>
-<span class="normal"><span>133</span></span>
-<span class="normal"><span>134</span></span>
-<span class="normal"><span>135</span></span>
-<span class="normal"><span>136</span></span>
-<span class="normal"><span>137</span></span>
-<span class="normal"><span>138</span></span>
-<span class="normal"><span>139</span></span>
-<span class="normal"><span>140</span></span>
-<span class="normal"><span>141</span></span>
-<span class="normal"><span>142</span></span>
-<span class="normal"><span>143</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_divisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_divisible</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Returns the nearest number that is divisible by the given divisor.</span>
 <span></span>
@@ -2315,39 +2315,39 @@ when exporting obb models to some formats that do not support <code>torch.triu</
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>146</span></span>
-<span class="normal"><span>147</span></span>
-<span class="normal"><span>148</span></span>
-<span class="normal"><span>149</span></span>
-<span class="normal"><span>150</span></span>
-<span class="normal"><span>151</span></span>
-<span class="normal"><span>152</span></span>
-<span class="normal"><span>153</span></span>
-<span class="normal"><span>154</span></span>
-<span class="normal"><span>155</span></span>
-<span class="normal"><span>156</span></span>
-<span class="normal"><span>157</span></span>
-<span class="normal"><span>158</span></span>
-<span class="normal"><span>159</span></span>
-<span class="normal"><span>160</span></span>
-<span class="normal"><span>161</span></span>
-<span class="normal"><span>162</span></span>
-<span class="normal"><span>163</span></span>
-<span class="normal"><span>164</span></span>
-<span class="normal"><span>165</span></span>
-<span class="normal"><span>166</span></span>
-<span class="normal"><span>167</span></span>
-<span class="normal"><span>168</span></span>
-<span class="normal"><span>169</span></span>
-<span class="normal"><span>170</span></span>
-<span class="normal"><span>171</span></span>
-<span class="normal"><span>172</span></span>
-<span class="normal"><span>173</span></span>
-<span class="normal"><span>174</span></span>
-<span class="normal"><span>175</span></span>
-<span class="normal"><span>176</span></span>
-<span class="normal"><span>177</span></span>
-<span class="normal"><span>178</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">nms_rotated</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">use_triu</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">nms_rotated</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span> <span class="n">use_triu</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    NMS for oriented bounding boxes using probiou and fast-nms.</span>
 <span></span>
@@ -2710,168 +2710,168 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>181</span></span>
-<span class="normal"><span>182</span></span>
-<span class="normal"><span>183</span></span>
-<span class="normal"><span>184</span></span>
-<span class="normal"><span>185</span></span>
-<span class="normal"><span>186</span></span>
-<span class="normal"><span>187</span></span>
-<span class="normal"><span>188</span></span>
-<span class="normal"><span>189</span></span>
-<span class="normal"><span>190</span></span>
-<span class="normal"><span>191</span></span>
-<span class="normal"><span>192</span></span>
-<span class="normal"><span>193</span></span>
-<span class="normal"><span>194</span></span>
-<span class="normal"><span>195</span></span>
-<span class="normal"><span>196</span></span>
-<span class="normal"><span>197</span></span>
-<span class="normal"><span>198</span></span>
-<span class="normal"><span>199</span></span>
-<span class="normal"><span>200</span></span>
-<span class="normal"><span>201</span></span>
-<span class="normal"><span>202</span></span>
-<span class="normal"><span>203</span></span>
-<span class="normal"><span>204</span></span>
-<span class="normal"><span>205</span></span>
-<span class="normal"><span>206</span></span>
-<span class="normal"><span>207</span></span>
-<span class="normal"><span>208</span></span>
-<span class="normal"><span>209</span></span>
-<span class="normal"><span>210</span></span>
-<span class="normal"><span>211</span></span>
-<span class="normal"><span>212</span></span>
-<span class="normal"><span>213</span></span>
-<span class="normal"><span>214</span></span>
-<span class="normal"><span>215</span></span>
-<span class="normal"><span>216</span></span>
-<span class="normal"><span>217</span></span>
-<span class="normal"><span>218</span></span>
-<span class="normal"><span>219</span></span>
-<span class="normal"><span>220</span></span>
-<span class="normal"><span>221</span></span>
-<span class="normal"><span>222</span></span>
-<span class="normal"><span>223</span></span>
-<span class="normal"><span>224</span></span>
-<span class="normal"><span>225</span></span>
-<span class="normal"><span>226</span></span>
-<span class="normal"><span>227</span></span>
-<span class="normal"><span>228</span></span>
-<span class="normal"><span>229</span></span>
-<span class="normal"><span>230</span></span>
-<span class="normal"><span>231</span></span>
-<span class="normal"><span>232</span></span>
-<span class="normal"><span>233</span></span>
-<span class="normal"><span>234</span></span>
-<span class="normal"><span>235</span></span>
-<span class="normal"><span>236</span></span>
-<span class="normal"><span>237</span></span>
-<span class="normal"><span>238</span></span>
-<span class="normal"><span>239</span></span>
-<span class="normal"><span>240</span></span>
-<span class="normal"><span>241</span></span>
-<span class="normal"><span>242</span></span>
-<span class="normal"><span>243</span></span>
-<span class="normal"><span>244</span></span>
-<span class="normal"><span>245</span></span>
-<span class="normal"><span>246</span></span>
-<span class="normal"><span>247</span></span>
-<span class="normal"><span>248</span></span>
-<span class="normal"><span>249</span></span>
-<span class="normal"><span>250</span></span>
-<span class="normal"><span>251</span></span>
-<span class="normal"><span>252</span></span>
-<span class="normal"><span>253</span></span>
-<span class="normal"><span>254</span></span>
-<span class="normal"><span>255</span></span>
-<span class="normal"><span>256</span></span>
-<span class="normal"><span>257</span></span>
-<span class="normal"><span>258</span></span>
-<span class="normal"><span>259</span></span>
-<span class="normal"><span>260</span></span>
-<span class="normal"><span>261</span></span>
-<span class="normal"><span>262</span></span>
-<span class="normal"><span>263</span></span>
-<span class="normal"><span>264</span></span>
-<span class="normal"><span>265</span></span>
-<span class="normal"><span>266</span></span>
-<span class="normal"><span>267</span></span>
-<span class="normal"><span>268</span></span>
-<span class="normal"><span>269</span></span>
-<span class="normal"><span>270</span></span>
-<span class="normal"><span>271</span></span>
-<span class="normal"><span>272</span></span>
-<span class="normal"><span>273</span></span>
-<span class="normal"><span>274</span></span>
-<span class="normal"><span>275</span></span>
-<span class="normal"><span>276</span></span>
-<span class="normal"><span>277</span></span>
-<span class="normal"><span>278</span></span>
-<span class="normal"><span>279</span></span>
-<span class="normal"><span>280</span></span>
-<span class="normal"><span>281</span></span>
-<span class="normal"><span>282</span></span>
-<span class="normal"><span>283</span></span>
-<span class="normal"><span>284</span></span>
-<span class="normal"><span>285</span></span>
-<span class="normal"><span>286</span></span>
-<span class="normal"><span>287</span></span>
-<span class="normal"><span>288</span></span>
-<span class="normal"><span>289</span></span>
-<span class="normal"><span>290</span></span>
-<span class="normal"><span>291</span></span>
-<span class="normal"><span>292</span></span>
-<span class="normal"><span>293</span></span>
-<span class="normal"><span>294</span></span>
-<span class="normal"><span>295</span></span>
-<span class="normal"><span>296</span></span>
-<span class="normal"><span>297</span></span>
-<span class="normal"><span>298</span></span>
-<span class="normal"><span>299</span></span>
-<span class="normal"><span>300</span></span>
-<span class="normal"><span>301</span></span>
-<span class="normal"><span>302</span></span>
-<span class="normal"><span>303</span></span>
-<span class="normal"><span>304</span></span>
-<span class="normal"><span>305</span></span>
-<span class="normal"><span>306</span></span>
-<span class="normal"><span>307</span></span>
-<span class="normal"><span>308</span></span>
-<span class="normal"><span>309</span></span>
-<span class="normal"><span>310</span></span>
-<span class="normal"><span>311</span></span>
-<span class="normal"><span>312</span></span>
-<span class="normal"><span>313</span></span>
-<span class="normal"><span>314</span></span>
-<span class="normal"><span>315</span></span>
-<span class="normal"><span>316</span></span>
-<span class="normal"><span>317</span></span>
-<span class="normal"><span>318</span></span>
-<span class="normal"><span>319</span></span>
-<span class="normal"><span>320</span></span>
-<span class="normal"><span>321</span></span>
-<span class="normal"><span>322</span></span>
-<span class="normal"><span>323</span></span>
-<span class="normal"><span>324</span></span>
-<span class="normal"><span>325</span></span>
-<span class="normal"><span>326</span></span>
-<span class="normal"><span>327</span></span>
-<span class="normal"><span>328</span></span>
-<span class="normal"><span>329</span></span>
-<span class="normal"><span>330</span></span>
-<span class="normal"><span>331</span></span>
-<span class="normal"><span>332</span></span>
-<span class="normal"><span>333</span></span>
-<span class="normal"><span>334</span></span>
-<span class="normal"><span>335</span></span>
-<span class="normal"><span>336</span></span>
-<span class="normal"><span>337</span></span>
-<span class="normal"><span>338</span></span>
-<span class="normal"><span>339</span></span>
-<span class="normal"><span>340</span></span>
-<span class="normal"><span>341</span></span>
-<span class="normal"><span>342</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">non_max_suppression</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span>
+<span>334</span>
+<span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">non_max_suppression</span><span class="p">(</span>
 <span></span>    <span class="n">prediction</span><span class="p">,</span>
 <span></span>    <span class="n">conf_thres</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
 <span></span>    <span class="n">iou_thres</span><span class="o">=</span><span class="mf">0.45</span><span class="p">,</span>
@@ -3113,26 +3113,26 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>345</span></span>
-<span class="normal"><span>346</span></span>
-<span class="normal"><span>347</span></span>
-<span class="normal"><span>348</span></span>
-<span class="normal"><span>349</span></span>
-<span class="normal"><span>350</span></span>
-<span class="normal"><span>351</span></span>
-<span class="normal"><span>352</span></span>
-<span class="normal"><span>353</span></span>
-<span class="normal"><span>354</span></span>
-<span class="normal"><span>355</span></span>
-<span class="normal"><span>356</span></span>
-<span class="normal"><span>357</span></span>
-<span class="normal"><span>358</span></span>
-<span class="normal"><span>359</span></span>
-<span class="normal"><span>360</span></span>
-<span class="normal"><span>361</span></span>
-<span class="normal"><span>362</span></span>
-<span class="normal"><span>363</span></span>
-<span class="normal"><span>364</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Takes a list of bounding boxes and a shape (height, width) and clips the bounding boxes to the shape.</span>
 <span></span>
@@ -3232,24 +3232,24 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>367</span></span>
-<span class="normal"><span>368</span></span>
-<span class="normal"><span>369</span></span>
-<span class="normal"><span>370</span></span>
-<span class="normal"><span>371</span></span>
-<span class="normal"><span>372</span></span>
-<span class="normal"><span>373</span></span>
-<span class="normal"><span>374</span></span>
-<span class="normal"><span>375</span></span>
-<span class="normal"><span>376</span></span>
-<span class="normal"><span>377</span></span>
-<span class="normal"><span>378</span></span>
-<span class="normal"><span>379</span></span>
-<span class="normal"><span>380</span></span>
-<span class="normal"><span>381</span></span>
-<span class="normal"><span>382</span></span>
-<span class="normal"><span>383</span></span>
-<span class="normal"><span>384</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip_coords</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip_coords</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clip line coordinates to the image boundaries.</span>
 <span></span>
@@ -3363,39 +3363,39 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>387</span></span>
-<span class="normal"><span>388</span></span>
-<span class="normal"><span>389</span></span>
-<span class="normal"><span>390</span></span>
-<span class="normal"><span>391</span></span>
-<span class="normal"><span>392</span></span>
-<span class="normal"><span>393</span></span>
-<span class="normal"><span>394</span></span>
-<span class="normal"><span>395</span></span>
-<span class="normal"><span>396</span></span>
-<span class="normal"><span>397</span></span>
-<span class="normal"><span>398</span></span>
-<span class="normal"><span>399</span></span>
-<span class="normal"><span>400</span></span>
-<span class="normal"><span>401</span></span>
-<span class="normal"><span>402</span></span>
-<span class="normal"><span>403</span></span>
-<span class="normal"><span>404</span></span>
-<span class="normal"><span>405</span></span>
-<span class="normal"><span>406</span></span>
-<span class="normal"><span>407</span></span>
-<span class="normal"><span>408</span></span>
-<span class="normal"><span>409</span></span>
-<span class="normal"><span>410</span></span>
-<span class="normal"><span>411</span></span>
-<span class="normal"><span>412</span></span>
-<span class="normal"><span>413</span></span>
-<span class="normal"><span>414</span></span>
-<span class="normal"><span>415</span></span>
-<span class="normal"><span>416</span></span>
-<span class="normal"><span>417</span></span>
-<span class="normal"><span>418</span></span>
-<span class="normal"><span>419</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_image</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">im0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_image</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">im0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Takes a mask, and resizes it to the original image size.</span>
 <span></span>
@@ -3493,24 +3493,24 @@ top-left corner and (x2, y2) is the bottom-right corner.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>422</span></span>
-<span class="normal"><span>423</span></span>
-<span class="normal"><span>424</span></span>
-<span class="normal"><span>425</span></span>
-<span class="normal"><span>426</span></span>
-<span class="normal"><span>427</span></span>
-<span class="normal"><span>428</span></span>
-<span class="normal"><span>429</span></span>
-<span class="normal"><span>430</span></span>
-<span class="normal"><span>431</span></span>
-<span class="normal"><span>432</span></span>
-<span class="normal"><span>433</span></span>
-<span class="normal"><span>434</span></span>
-<span class="normal"><span>435</span></span>
-<span class="normal"><span>436</span></span>
-<span class="normal"><span>437</span></span>
-<span class="normal"><span>438</span></span>
-<span class="normal"><span>439</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height) format where (x1, y1) is the</span>
 <span></span><span class="sd">    top-left corner and (x2, y2) is the bottom-right corner.</span>
@@ -3593,24 +3593,24 @@ top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channel
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>442</span></span>
-<span class="normal"><span>443</span></span>
-<span class="normal"><span>444</span></span>
-<span class="normal"><span>445</span></span>
-<span class="normal"><span>446</span></span>
-<span class="normal"><span>447</span></span>
-<span class="normal"><span>448</span></span>
-<span class="normal"><span>449</span></span>
-<span class="normal"><span>450</span></span>
-<span class="normal"><span>451</span></span>
-<span class="normal"><span>452</span></span>
-<span class="normal"><span>453</span></span>
-<span class="normal"><span>454</span></span>
-<span class="normal"><span>455</span></span>
-<span class="normal"><span>456</span></span>
-<span class="normal"><span>457</span></span>
-<span class="normal"><span>458</span></span>
-<span class="normal"><span>459</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x, y, width, height) format to (x1, y1, x2, y2) format where (x1, y1) is the</span>
 <span></span><span class="sd">    top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channels faster than per channel.</span>
@@ -3757,28 +3757,28 @@ x1,y1 is the top-left corner, x2,y2 is the bottom-right corner of the bounding b
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>462</span></span>
-<span class="normal"><span>463</span></span>
-<span class="normal"><span>464</span></span>
-<span class="normal"><span>465</span></span>
-<span class="normal"><span>466</span></span>
-<span class="normal"><span>467</span></span>
-<span class="normal"><span>468</span></span>
-<span class="normal"><span>469</span></span>
-<span class="normal"><span>470</span></span>
-<span class="normal"><span>471</span></span>
-<span class="normal"><span>472</span></span>
-<span class="normal"><span>473</span></span>
-<span class="normal"><span>474</span></span>
-<span class="normal"><span>475</span></span>
-<span class="normal"><span>476</span></span>
-<span class="normal"><span>477</span></span>
-<span class="normal"><span>478</span></span>
-<span class="normal"><span>479</span></span>
-<span class="normal"><span>480</span></span>
-<span class="normal"><span>481</span></span>
-<span class="normal"><span>482</span></span>
-<span class="normal"><span>483</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhn2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">padw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span>
+<span>475</span>
+<span>476</span>
+<span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhn2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">padw</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">padh</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert normalized bounding box coordinates to pixel coordinates.</span>
 <span></span>
@@ -3929,30 +3929,30 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>486</span></span>
-<span class="normal"><span>487</span></span>
-<span class="normal"><span>488</span></span>
-<span class="normal"><span>489</span></span>
-<span class="normal"><span>490</span></span>
-<span class="normal"><span>491</span></span>
-<span class="normal"><span>492</span></span>
-<span class="normal"><span>493</span></span>
-<span class="normal"><span>494</span></span>
-<span class="normal"><span>495</span></span>
-<span class="normal"><span>496</span></span>
-<span class="normal"><span>497</span></span>
-<span class="normal"><span>498</span></span>
-<span class="normal"><span>499</span></span>
-<span class="normal"><span>500</span></span>
-<span class="normal"><span>501</span></span>
-<span class="normal"><span>502</span></span>
-<span class="normal"><span>503</span></span>
-<span class="normal"><span>504</span></span>
-<span class="normal"><span>505</span></span>
-<span class="normal"><span>506</span></span>
-<span class="normal"><span>507</span></span>
-<span class="normal"><span>508</span></span>
-<span class="normal"><span>509</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywhn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span>
+<span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span>
+<span>496</span>
+<span>497</span>
+<span>498</span>
+<span>499</span>
+<span>500</span>
+<span>501</span>
+<span>502</span>
+<span>503</span>
+<span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywhn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">clip</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height, normalized) format. x, y,</span>
 <span></span><span class="sd">    width and height are normalized to image dimensions.</span>
@@ -4040,20 +4040,20 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>512</span></span>
-<span class="normal"><span>513</span></span>
-<span class="normal"><span>514</span></span>
-<span class="normal"><span>515</span></span>
-<span class="normal"><span>516</span></span>
-<span class="normal"><span>517</span></span>
-<span class="normal"><span>518</span></span>
-<span class="normal"><span>519</span></span>
-<span class="normal"><span>520</span></span>
-<span class="normal"><span>521</span></span>
-<span class="normal"><span>522</span></span>
-<span class="normal"><span>523</span></span>
-<span class="normal"><span>524</span></span>
-<span class="normal"><span>525</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>512</span>
+<span>513</span>
+<span>514</span>
+<span>515</span>
+<span>516</span>
+<span>517</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert the bounding box format from [x, y, w, h] to [x1, y1, w, h], where x1, y1 are the top-left coordinates.</span>
 <span></span>
@@ -4131,20 +4131,20 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>528</span></span>
-<span class="normal"><span>529</span></span>
-<span class="normal"><span>530</span></span>
-<span class="normal"><span>531</span></span>
-<span class="normal"><span>532</span></span>
-<span class="normal"><span>533</span></span>
-<span class="normal"><span>534</span></span>
-<span class="normal"><span>535</span></span>
-<span class="normal"><span>536</span></span>
-<span class="normal"><span>537</span></span>
-<span class="normal"><span>538</span></span>
-<span class="normal"><span>539</span></span>
-<span class="normal"><span>540</span></span>
-<span class="normal"><span>541</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>528</span>
+<span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span>
+<span>533</span>
+<span>534</span>
+<span>535</span>
+<span>536</span>
+<span>537</span>
+<span>538</span>
+<span>539</span>
+<span>540</span>
+<span>541</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert nx4 bounding boxes from [x1, y1, x2, y2] to [x1, y1, w, h], where xy1=top-left, xy2=bottom-right.</span>
 <span></span>
@@ -4222,20 +4222,20 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>544</span></span>
-<span class="normal"><span>545</span></span>
-<span class="normal"><span>546</span></span>
-<span class="normal"><span>547</span></span>
-<span class="normal"><span>548</span></span>
-<span class="normal"><span>549</span></span>
-<span class="normal"><span>550</span></span>
-<span class="normal"><span>551</span></span>
-<span class="normal"><span>552</span></span>
-<span class="normal"><span>553</span></span>
-<span class="normal"><span>554</span></span>
-<span class="normal"><span>555</span></span>
-<span class="normal"><span>556</span></span>
-<span class="normal"><span>557</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>544</span>
+<span>545</span>
+<span>546</span>
+<span>547</span>
+<span>548</span>
+<span>549</span>
+<span>550</span>
+<span>551</span>
+<span>552</span>
+<span>553</span>
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert nx4 boxes from [x1, y1, w, h] to [x, y, w, h] where xy1=top-left, xy=center.</span>
 <span></span>
@@ -4314,27 +4314,27 @@ returned in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>560</span></span>
-<span class="normal"><span>561</span></span>
-<span class="normal"><span>562</span></span>
-<span class="normal"><span>563</span></span>
-<span class="normal"><span>564</span></span>
-<span class="normal"><span>565</span></span>
-<span class="normal"><span>566</span></span>
-<span class="normal"><span>567</span></span>
-<span class="normal"><span>568</span></span>
-<span class="normal"><span>569</span></span>
-<span class="normal"><span>570</span></span>
-<span class="normal"><span>571</span></span>
-<span class="normal"><span>572</span></span>
-<span class="normal"><span>573</span></span>
-<span class="normal"><span>574</span></span>
-<span class="normal"><span>575</span></span>
-<span class="normal"><span>576</span></span>
-<span class="normal"><span>577</span></span>
-<span class="normal"><span>578</span></span>
-<span class="normal"><span>579</span></span>
-<span class="normal"><span>580</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>560</span>
+<span>561</span>
+<span>562</span>
+<span>563</span>
+<span>564</span>
+<span>565</span>
+<span>566</span>
+<span>567</span>
+<span>568</span>
+<span>569</span>
+<span>570</span>
+<span>571</span>
+<span>572</span>
+<span>573</span>
+<span>574</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xy1, xy2, xy3, xy4] to [xywh, rotation]. Rotation values are</span>
 <span></span><span class="sd">    returned in radians from 0 to pi/2.</span>
@@ -4420,35 +4420,35 @@ be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>583</span></span>
-<span class="normal"><span>584</span></span>
-<span class="normal"><span>585</span></span>
-<span class="normal"><span>586</span></span>
-<span class="normal"><span>587</span></span>
-<span class="normal"><span>588</span></span>
-<span class="normal"><span>589</span></span>
-<span class="normal"><span>590</span></span>
-<span class="normal"><span>591</span></span>
-<span class="normal"><span>592</span></span>
-<span class="normal"><span>593</span></span>
-<span class="normal"><span>594</span></span>
-<span class="normal"><span>595</span></span>
-<span class="normal"><span>596</span></span>
-<span class="normal"><span>597</span></span>
-<span class="normal"><span>598</span></span>
-<span class="normal"><span>599</span></span>
-<span class="normal"><span>600</span></span>
-<span class="normal"><span>601</span></span>
-<span class="normal"><span>602</span></span>
-<span class="normal"><span>603</span></span>
-<span class="normal"><span>604</span></span>
-<span class="normal"><span>605</span></span>
-<span class="normal"><span>606</span></span>
-<span class="normal"><span>607</span></span>
-<span class="normal"><span>608</span></span>
-<span class="normal"><span>609</span></span>
-<span class="normal"><span>610</span></span>
-<span class="normal"><span>611</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span>
+<span>590</span>
+<span>591</span>
+<span>592</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xywh, rotation] to [xy1, xy2, xy3, xy4]. Rotation values should</span>
 <span></span><span class="sd">    be in radians from 0 to pi/2.</span>
@@ -4541,20 +4541,20 @@ be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>614</span></span>
-<span class="normal"><span>615</span></span>
-<span class="normal"><span>616</span></span>
-<span class="normal"><span>617</span></span>
-<span class="normal"><span>618</span></span>
-<span class="normal"><span>619</span></span>
-<span class="normal"><span>620</span></span>
-<span class="normal"><span>621</span></span>
-<span class="normal"><span>622</span></span>
-<span class="normal"><span>623</span></span>
-<span class="normal"><span>624</span></span>
-<span class="normal"><span>625</span></span>
-<span class="normal"><span>626</span></span>
-<span class="normal"><span>627</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>614</span>
+<span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box from [x1, y1, w, h] to [x1, y1, x2, y2] where xy1=top-left, xy2=bottom-right.</span>
 <span></span>
@@ -4632,21 +4632,21 @@ be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>630</span></span>
-<span class="normal"><span>631</span></span>
-<span class="normal"><span>632</span></span>
-<span class="normal"><span>633</span></span>
-<span class="normal"><span>634</span></span>
-<span class="normal"><span>635</span></span>
-<span class="normal"><span>636</span></span>
-<span class="normal"><span>637</span></span>
-<span class="normal"><span>638</span></span>
-<span class="normal"><span>639</span></span>
-<span class="normal"><span>640</span></span>
-<span class="normal"><span>641</span></span>
-<span class="normal"><span>642</span></span>
-<span class="normal"><span>643</span></span>
-<span class="normal"><span>644</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">segments2boxes</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span>
+<span>635</span>
+<span>636</span>
+<span>637</span>
+<span>638</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span>
+<span>643</span>
+<span>644</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">segments2boxes</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert segment labels to box labels, i.e. (cls, xy1, xy2, ...) to (cls, xywh).</span>
 <span></span>
@@ -4741,28 +4741,28 @@ be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>647</span></span>
-<span class="normal"><span>648</span></span>
-<span class="normal"><span>649</span></span>
-<span class="normal"><span>650</span></span>
-<span class="normal"><span>651</span></span>
-<span class="normal"><span>652</span></span>
-<span class="normal"><span>653</span></span>
-<span class="normal"><span>654</span></span>
-<span class="normal"><span>655</span></span>
-<span class="normal"><span>656</span></span>
-<span class="normal"><span>657</span></span>
-<span class="normal"><span>658</span></span>
-<span class="normal"><span>659</span></span>
-<span class="normal"><span>660</span></span>
-<span class="normal"><span>661</span></span>
-<span class="normal"><span>662</span></span>
-<span class="normal"><span>663</span></span>
-<span class="normal"><span>664</span></span>
-<span class="normal"><span>665</span></span>
-<span class="normal"><span>666</span></span>
-<span class="normal"><span>667</span></span>
-<span class="normal"><span>668</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>647</span>
+<span>648</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span>
+<span>653</span>
+<span>654</span>
+<span>655</span>
+<span>656</span>
+<span>657</span>
+<span>658</span>
+<span>659</span>
+<span>660</span>
+<span>661</span>
+<span>662</span>
+<span>663</span>
+<span>664</span>
+<span>665</span>
+<span>666</span>
+<span>667</span>
+<span>668</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">1000</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Inputs a list of segments (n,2) and returns a list of segments (n,2) up-sampled to n points each.</span>
 <span></span>
@@ -4864,23 +4864,23 @@ be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>671</span></span>
-<span class="normal"><span>672</span></span>
-<span class="normal"><span>673</span></span>
-<span class="normal"><span>674</span></span>
-<span class="normal"><span>675</span></span>
-<span class="normal"><span>676</span></span>
-<span class="normal"><span>677</span></span>
-<span class="normal"><span>678</span></span>
-<span class="normal"><span>679</span></span>
-<span class="normal"><span>680</span></span>
-<span class="normal"><span>681</span></span>
-<span class="normal"><span>682</span></span>
-<span class="normal"><span>683</span></span>
-<span class="normal"><span>684</span></span>
-<span class="normal"><span>685</span></span>
-<span class="normal"><span>686</span></span>
-<span class="normal"><span>687</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>671</span>
+<span>672</span>
+<span>673</span>
+<span>674</span>
+<span>675</span>
+<span>676</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
+<span>685</span>
+<span>686</span>
+<span>687</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Crop masks to bounding boxes.</span>
 <span></span>
@@ -5026,37 +5026,37 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>690</span></span>
-<span class="normal"><span>691</span></span>
-<span class="normal"><span>692</span></span>
-<span class="normal"><span>693</span></span>
-<span class="normal"><span>694</span></span>
-<span class="normal"><span>695</span></span>
-<span class="normal"><span>696</span></span>
-<span class="normal"><span>697</span></span>
-<span class="normal"><span>698</span></span>
-<span class="normal"><span>699</span></span>
-<span class="normal"><span>700</span></span>
-<span class="normal"><span>701</span></span>
-<span class="normal"><span>702</span></span>
-<span class="normal"><span>703</span></span>
-<span class="normal"><span>704</span></span>
-<span class="normal"><span>705</span></span>
-<span class="normal"><span>706</span></span>
-<span class="normal"><span>707</span></span>
-<span class="normal"><span>708</span></span>
-<span class="normal"><span>709</span></span>
-<span class="normal"><span>710</span></span>
-<span class="normal"><span>711</span></span>
-<span class="normal"><span>712</span></span>
-<span class="normal"><span>713</span></span>
-<span class="normal"><span>714</span></span>
-<span class="normal"><span>715</span></span>
-<span class="normal"><span>716</span></span>
-<span class="normal"><span>717</span></span>
-<span class="normal"><span>718</span></span>
-<span class="normal"><span>719</span></span>
-<span class="normal"><span>720</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span>
+<span>694</span>
+<span>695</span>
+<span>696</span>
+<span>697</span>
+<span>698</span>
+<span>699</span>
+<span>700</span>
+<span>701</span>
+<span>702</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
+<span>707</span>
+<span>708</span>
+<span>709</span>
+<span>710</span>
+<span>711</span>
+<span>712</span>
+<span>713</span>
+<span>714</span>
+<span>715</span>
+<span>716</span>
+<span>717</span>
+<span>718</span>
+<span>719</span>
+<span>720</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply masks to bounding boxes using the output of the mask head.</span>
 <span></span>
@@ -5199,24 +5199,24 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>723</span></span>
-<span class="normal"><span>724</span></span>
-<span class="normal"><span>725</span></span>
-<span class="normal"><span>726</span></span>
-<span class="normal"><span>727</span></span>
-<span class="normal"><span>728</span></span>
-<span class="normal"><span>729</span></span>
-<span class="normal"><span>730</span></span>
-<span class="normal"><span>731</span></span>
-<span class="normal"><span>732</span></span>
-<span class="normal"><span>733</span></span>
-<span class="normal"><span>734</span></span>
-<span class="normal"><span>735</span></span>
-<span class="normal"><span>736</span></span>
-<span class="normal"><span>737</span></span>
-<span class="normal"><span>738</span></span>
-<span class="normal"><span>739</span></span>
-<span class="normal"><span>740</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>723</span>
+<span>724</span>
+<span>725</span>
+<span>726</span>
+<span>727</span>
+<span>728</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span>
+<span>733</span>
+<span>734</span>
+<span>735</span>
+<span>736</span>
+<span>737</span>
+<span>738</span>
+<span>739</span>
+<span>740</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply masks to bounding boxes using the output of the mask head with native upsampling.</span>
 <span></span>
@@ -5331,31 +5331,31 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>743</span></span>
-<span class="normal"><span>744</span></span>
-<span class="normal"><span>745</span></span>
-<span class="normal"><span>746</span></span>
-<span class="normal"><span>747</span></span>
-<span class="normal"><span>748</span></span>
-<span class="normal"><span>749</span></span>
-<span class="normal"><span>750</span></span>
-<span class="normal"><span>751</span></span>
-<span class="normal"><span>752</span></span>
-<span class="normal"><span>753</span></span>
-<span class="normal"><span>754</span></span>
-<span class="normal"><span>755</span></span>
-<span class="normal"><span>756</span></span>
-<span class="normal"><span>757</span></span>
-<span class="normal"><span>758</span></span>
-<span class="normal"><span>759</span></span>
-<span class="normal"><span>760</span></span>
-<span class="normal"><span>761</span></span>
-<span class="normal"><span>762</span></span>
-<span class="normal"><span>763</span></span>
-<span class="normal"><span>764</span></span>
-<span class="normal"><span>765</span></span>
-<span class="normal"><span>766</span></span>
-<span class="normal"><span>767</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>743</span>
+<span>744</span>
+<span>745</span>
+<span>746</span>
+<span>747</span>
+<span>748</span>
+<span>749</span>
+<span>750</span>
+<span>751</span>
+<span>752</span>
+<span>753</span>
+<span>754</span>
+<span>755</span>
+<span>756</span>
+<span>757</span>
+<span>758</span>
+<span>759</span>
+<span>760</span>
+<span>761</span>
+<span>762</span>
+<span>763</span>
+<span>764</span>
+<span>765</span>
+<span>766</span>
+<span>767</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale segment masks to shape.</span>
 <span></span>
@@ -5532,39 +5532,39 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>770</span></span>
-<span class="normal"><span>771</span></span>
-<span class="normal"><span>772</span></span>
-<span class="normal"><span>773</span></span>
-<span class="normal"><span>774</span></span>
-<span class="normal"><span>775</span></span>
-<span class="normal"><span>776</span></span>
-<span class="normal"><span>777</span></span>
-<span class="normal"><span>778</span></span>
-<span class="normal"><span>779</span></span>
-<span class="normal"><span>780</span></span>
-<span class="normal"><span>781</span></span>
-<span class="normal"><span>782</span></span>
-<span class="normal"><span>783</span></span>
-<span class="normal"><span>784</span></span>
-<span class="normal"><span>785</span></span>
-<span class="normal"><span>786</span></span>
-<span class="normal"><span>787</span></span>
-<span class="normal"><span>788</span></span>
-<span class="normal"><span>789</span></span>
-<span class="normal"><span>790</span></span>
-<span class="normal"><span>791</span></span>
-<span class="normal"><span>792</span></span>
-<span class="normal"><span>793</span></span>
-<span class="normal"><span>794</span></span>
-<span class="normal"><span>795</span></span>
-<span class="normal"><span>796</span></span>
-<span class="normal"><span>797</span></span>
-<span class="normal"><span>798</span></span>
-<span class="normal"><span>799</span></span>
-<span class="normal"><span>800</span></span>
-<span class="normal"><span>801</span></span>
-<span class="normal"><span>802</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>770</span>
+<span>771</span>
+<span>772</span>
+<span>773</span>
+<span>774</span>
+<span>775</span>
+<span>776</span>
+<span>777</span>
+<span>778</span>
+<span>779</span>
+<span>780</span>
+<span>781</span>
+<span>782</span>
+<span>783</span>
+<span>784</span>
+<span>785</span>
+<span>786</span>
+<span>787</span>
+<span>788</span>
+<span>789</span>
+<span>790</span>
+<span>791</span>
+<span>792</span>
+<span>793</span>
+<span>794</span>
+<span>795</span>
+<span>796</span>
+<span>797</span>
+<span>798</span>
+<span>799</span>
+<span>800</span>
+<span>801</span>
+<span>802</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale segment coordinates (xy) from img1_shape to img0_shape.</span>
 <span></span>
@@ -5661,23 +5661,23 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>805</span></span>
-<span class="normal"><span>806</span></span>
-<span class="normal"><span>807</span></span>
-<span class="normal"><span>808</span></span>
-<span class="normal"><span>809</span></span>
-<span class="normal"><span>810</span></span>
-<span class="normal"><span>811</span></span>
-<span class="normal"><span>812</span></span>
-<span class="normal"><span>813</span></span>
-<span class="normal"><span>814</span></span>
-<span class="normal"><span>815</span></span>
-<span class="normal"><span>816</span></span>
-<span class="normal"><span>817</span></span>
-<span class="normal"><span>818</span></span>
-<span class="normal"><span>819</span></span>
-<span class="normal"><span>820</span></span>
-<span class="normal"><span>821</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>805</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span>
+<span>810</span>
+<span>811</span>
+<span>812</span>
+<span>813</span>
+<span>814</span>
+<span>815</span>
+<span>816</span>
+<span>817</span>
+<span>818</span>
+<span>819</span>
+<span>820</span>
+<span>821</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Regularize rotated boxes in range [0, pi/2].</span>
 <span></span>
@@ -5774,35 +5774,35 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>824</span></span>
-<span class="normal"><span>825</span></span>
-<span class="normal"><span>826</span></span>
-<span class="normal"><span>827</span></span>
-<span class="normal"><span>828</span></span>
-<span class="normal"><span>829</span></span>
-<span class="normal"><span>830</span></span>
-<span class="normal"><span>831</span></span>
-<span class="normal"><span>832</span></span>
-<span class="normal"><span>833</span></span>
-<span class="normal"><span>834</span></span>
-<span class="normal"><span>835</span></span>
-<span class="normal"><span>836</span></span>
-<span class="normal"><span>837</span></span>
-<span class="normal"><span>838</span></span>
-<span class="normal"><span>839</span></span>
-<span class="normal"><span>840</span></span>
-<span class="normal"><span>841</span></span>
-<span class="normal"><span>842</span></span>
-<span class="normal"><span>843</span></span>
-<span class="normal"><span>844</span></span>
-<span class="normal"><span>845</span></span>
-<span class="normal"><span>846</span></span>
-<span class="normal"><span>847</span></span>
-<span class="normal"><span>848</span></span>
-<span class="normal"><span>849</span></span>
-<span class="normal"><span>850</span></span>
-<span class="normal"><span>851</span></span>
-<span class="normal"><span>852</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">"all"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>824</span>
+<span>825</span>
+<span>826</span>
+<span>827</span>
+<span>828</span>
+<span>829</span>
+<span>830</span>
+<span>831</span>
+<span>832</span>
+<span>833</span>
+<span>834</span>
+<span>835</span>
+<span>836</span>
+<span>837</span>
+<span>838</span>
+<span>839</span>
+<span>840</span>
+<span>841</span>
+<span>842</span>
+<span>843</span>
+<span>844</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+<span>848</span>
+<span>849</span>
+<span>850</span>
+<span>851</span>
+<span>852</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s2">"all"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert masks to segments.</span>
 <span></span>
@@ -5895,17 +5895,17 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>855</span></span>
-<span class="normal"><span>856</span></span>
-<span class="normal"><span>857</span></span>
-<span class="normal"><span>858</span></span>
-<span class="normal"><span>859</span></span>
-<span class="normal"><span>860</span></span>
-<span class="normal"><span>861</span></span>
-<span class="normal"><span>862</span></span>
-<span class="normal"><span>863</span></span>
-<span class="normal"><span>864</span></span>
-<span class="normal"><span>865</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>855</span>
+<span>856</span>
+<span>857</span>
+<span>858</span>
+<span>859</span>
+<span>860</span>
+<span>861</span>
+<span>862</span>
+<span>863</span>
+<span>864</span>
+<span>865</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a batch of FP32 torch tensors (0.0-1.0) to a NumPy uint8 array (0-255), changing from BCHW to BHWC layout.</span>
 <span></span>
@@ -5980,17 +5980,17 @@ rescaling.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>868</span></span>
-<span class="normal"><span>869</span></span>
-<span class="normal"><span>870</span></span>
-<span class="normal"><span>871</span></span>
-<span class="normal"><span>872</span></span>
-<span class="normal"><span>873</span></span>
-<span class="normal"><span>874</span></span>
-<span class="normal"><span>875</span></span>
-<span class="normal"><span>876</span></span>
-<span class="normal"><span>877</span></span>
-<span class="normal"><span>878</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>868</span>
+<span>869</span>
+<span>870</span>
+<span>871</span>
+<span>872</span>
+<span>873</span>
+<span>874</span>
+<span>875</span>
+<span>876</span>
+<span>877</span>
+<span>878</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Cleans a string by replacing special characters with '_' character.</span>
 <span></span>
@@ -6015,11 +6015,11 @@ rescaling.</p>
 <p>Creates empty torch.Tensor or np.ndarray with same shape as input and float32 dtype.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>881</span></span>
-<span class="normal"><span>882</span></span>
-<span class="normal"><span>883</span></span>
-<span class="normal"><span>884</span></span>
-<span class="normal"><span>885</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>881</span>
+<span>882</span>
+<span>883</span>
+<span>884</span>
+<span>885</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Creates empty torch.Tensor or np.ndarray with same shape as input and float32 dtype."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span>
 <span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>

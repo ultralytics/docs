@@ -1177,28 +1177,28 @@ Otherwise, a default fraction of 0.6 is used.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autobatch.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>14</span></span>
-<span class="normal"><span>15</span></span>
-<span class="normal"><span>16</span></span>
-<span class="normal"><span>17</span></span>
-<span class="normal"><span>18</span></span>
-<span class="normal"><span>19</span></span>
-<span class="normal"><span>20</span></span>
-<span class="normal"><span>21</span></span>
-<span class="normal"><span>22</span></span>
-<span class="normal"><span>23</span></span>
-<span class="normal"><span>24</span></span>
-<span class="normal"><span>25</span></span>
-<span class="normal"><span>26</span></span>
-<span class="normal"><span>27</span></span>
-<span class="normal"><span>28</span></span>
-<span class="normal"><span>29</span></span>
-<span class="normal"><span>30</span></span>
-<span class="normal"><span>31</span></span>
-<span class="normal"><span>32</span></span>
-<span class="normal"><span>33</span></span>
-<span class="normal"><span>34</span></span>
-<span class="normal"><span>35</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_train_batch_size</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>14</span>
+<span>15</span>
+<span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_train_batch_size</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute optimal YOLO training batch size using the autobatch() function.</span>
 <span></span>
@@ -1350,75 +1350,75 @@ Otherwise, a default fraction of 0.6 is used.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autobatch.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 38</span></span>
-<span class="normal"><span> 39</span></span>
-<span class="normal"><span> 40</span></span>
-<span class="normal"><span> 41</span></span>
-<span class="normal"><span> 42</span></span>
-<span class="normal"><span> 43</span></span>
-<span class="normal"><span> 44</span></span>
-<span class="normal"><span> 45</span></span>
-<span class="normal"><span> 46</span></span>
-<span class="normal"><span> 47</span></span>
-<span class="normal"><span> 48</span></span>
-<span class="normal"><span> 49</span></span>
-<span class="normal"><span> 50</span></span>
-<span class="normal"><span> 51</span></span>
-<span class="normal"><span> 52</span></span>
-<span class="normal"><span> 53</span></span>
-<span class="normal"><span> 54</span></span>
-<span class="normal"><span> 55</span></span>
-<span class="normal"><span> 56</span></span>
-<span class="normal"><span> 57</span></span>
-<span class="normal"><span> 58</span></span>
-<span class="normal"><span> 59</span></span>
-<span class="normal"><span> 60</span></span>
-<span class="normal"><span> 61</span></span>
-<span class="normal"><span> 62</span></span>
-<span class="normal"><span> 63</span></span>
-<span class="normal"><span> 64</span></span>
-<span class="normal"><span> 65</span></span>
-<span class="normal"><span> 66</span></span>
-<span class="normal"><span> 67</span></span>
-<span class="normal"><span> 68</span></span>
-<span class="normal"><span> 69</span></span>
-<span class="normal"><span> 70</span></span>
-<span class="normal"><span> 71</span></span>
-<span class="normal"><span> 72</span></span>
-<span class="normal"><span> 73</span></span>
-<span class="normal"><span> 74</span></span>
-<span class="normal"><span> 75</span></span>
-<span class="normal"><span> 76</span></span>
-<span class="normal"><span> 77</span></span>
-<span class="normal"><span> 78</span></span>
-<span class="normal"><span> 79</span></span>
-<span class="normal"><span> 80</span></span>
-<span class="normal"><span> 81</span></span>
-<span class="normal"><span> 82</span></span>
-<span class="normal"><span> 83</span></span>
-<span class="normal"><span> 84</span></span>
-<span class="normal"><span> 85</span></span>
-<span class="normal"><span> 86</span></span>
-<span class="normal"><span> 87</span></span>
-<span class="normal"><span> 88</span></span>
-<span class="normal"><span> 89</span></span>
-<span class="normal"><span> 90</span></span>
-<span class="normal"><span> 91</span></span>
-<span class="normal"><span> 92</span></span>
-<span class="normal"><span> 93</span></span>
-<span class="normal"><span> 94</span></span>
-<span class="normal"><span> 95</span></span>
-<span class="normal"><span> 96</span></span>
-<span class="normal"><span> 97</span></span>
-<span class="normal"><span> 98</span></span>
-<span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span>
-<span class="normal"><span>102</span></span>
-<span class="normal"><span>103</span></span>
-<span class="normal"><span>104</span></span>
-<span class="normal"><span>105</span></span>
-<span class="normal"><span>106</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autobatch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 38</span>
+<span> 39</span>
+<span> 40</span>
+<span> 41</span>
+<span> 42</span>
+<span> 43</span>
+<span> 44</span>
+<span> 45</span>
+<span> 46</span>
+<span> 47</span>
+<span> 48</span>
+<span> 49</span>
+<span> 50</span>
+<span> 51</span>
+<span> 52</span>
+<span> 53</span>
+<span> 54</span>
+<span> 55</span>
+<span> 56</span>
+<span> 57</span>
+<span> 58</span>
+<span> 59</span>
+<span> 60</span>
+<span> 61</span>
+<span> 62</span>
+<span> 63</span>
+<span> 64</span>
+<span> 65</span>
+<span> 66</span>
+<span> 67</span>
+<span> 68</span>
+<span> 69</span>
+<span> 70</span>
+<span> 71</span>
+<span> 72</span>
+<span> 73</span>
+<span> 74</span>
+<span> 75</span>
+<span> 76</span>
+<span> 77</span>
+<span> 78</span>
+<span> 79</span>
+<span> 80</span>
+<span> 81</span>
+<span> 82</span>
+<span> 83</span>
+<span> 84</span>
+<span> 85</span>
+<span> 86</span>
+<span> 87</span>
+<span> 88</span>
+<span> 89</span>
+<span> 90</span>
+<span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autobatch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Automatically estimate the best YOLO batch size to use a fraction of the available CUDA memory.</span>
 <span></span>

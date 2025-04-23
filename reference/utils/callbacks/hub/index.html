@@ -1235,10 +1235,10 @@
 <p>Create a remote Ultralytics HUB session to log local model training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>10</span></span>
-<span class="normal"><span>11</span></span>
-<span class="normal"><span>12</span></span>
-<span class="normal"><span>13</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>10</span>
+<span>11</span>
+<span>12</span>
+<span>13</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Create a remote Ultralytics HUB session to log local model training."""</span>
 <span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span> <span class="ow">and</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"hub"</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">True</span> <span class="ow">and</span> <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"api_key"</span><span class="p">]</span> <span class="ow">and</span> <span class="n">trainer</span><span class="o">.</span><span class="n">hub_session</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">trainer</span><span class="o">.</span><span class="n">hub_session</span> <span class="o">=</span> <span class="n">HUBTrainingSession</span><span class="o">.</span><span class="n">create_session</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
@@ -1256,11 +1256,11 @@
 <p>Initialize timers for upload rate limiting before training begins.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>16</span></span>
-<span class="normal"><span>17</span></span>
-<span class="normal"><span>18</span></span>
-<span class="normal"><span>19</span></span>
-<span class="normal"><span>20</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>16</span>
+<span>17</span>
+<span>18</span>
+<span>19</span>
+<span>20</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize timers for upload rate limiting before training begins."""</span>
 <span></span>    <span class="k">if</span> <span class="n">session</span> <span class="o">:=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">"hub_session"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
 <span></span>        <span class="c1"># Start timer for upload rate limit</span>
@@ -1279,29 +1279,29 @@
 <p>Upload training progress metrics to Ultralytics HUB at the end of each epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>23</span></span>
-<span class="normal"><span>24</span></span>
-<span class="normal"><span>25</span></span>
-<span class="normal"><span>26</span></span>
-<span class="normal"><span>27</span></span>
-<span class="normal"><span>28</span></span>
-<span class="normal"><span>29</span></span>
-<span class="normal"><span>30</span></span>
-<span class="normal"><span>31</span></span>
-<span class="normal"><span>32</span></span>
-<span class="normal"><span>33</span></span>
-<span class="normal"><span>34</span></span>
-<span class="normal"><span>35</span></span>
-<span class="normal"><span>36</span></span>
-<span class="normal"><span>37</span></span>
-<span class="normal"><span>38</span></span>
-<span class="normal"><span>39</span></span>
-<span class="normal"><span>40</span></span>
-<span class="normal"><span>41</span></span>
-<span class="normal"><span>42</span></span>
-<span class="normal"><span>43</span></span>
-<span class="normal"><span>44</span></span>
-<span class="normal"><span>45</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Upload training progress metrics to Ultralytics HUB at the end of each epoch."""</span>
 <span></span>    <span class="k">if</span> <span class="n">session</span> <span class="o">:=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">"hub_session"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
 <span></span>        <span class="c1"># Upload metrics after validation ends</span>
@@ -1338,15 +1338,15 @@
 <p>Upload model checkpoints to Ultralytics HUB with rate limiting.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>48</span></span>
-<span class="normal"><span>49</span></span>
-<span class="normal"><span>50</span></span>
-<span class="normal"><span>51</span></span>
-<span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span>
-<span class="normal"><span>55</span></span>
-<span class="normal"><span>56</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_model_save</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_model_save</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Upload model checkpoints to Ultralytics HUB with rate limiting."""</span>
 <span></span>    <span class="k">if</span> <span class="n">session</span> <span class="o">:=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">"hub_session"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
 <span></span>        <span class="c1"># Upload checkpoints with rate limiting</span>
@@ -1369,19 +1369,19 @@
 <p>Upload final model and metrics to Ultralytics HUB at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>59</span></span>
-<span class="normal"><span>60</span></span>
-<span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span>
-<span class="normal"><span>64</span></span>
-<span class="normal"><span>65</span></span>
-<span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Upload final model and metrics to Ultralytics HUB at the end of training."""</span>
 <span></span>    <span class="k">if</span> <span class="n">session</span> <span class="o">:=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">"hub_session"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
 <span></span>        <span class="c1"># Upload final model and metrics with exponential standoff</span>
@@ -1408,9 +1408,9 @@
 <p>Run events on train start.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span>
-<span class="normal"><span>76</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>74</span>
+<span>75</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run events on train start."""</span>
 <span></span>    <span class="n">events</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1427,9 +1427,9 @@
 <p>Run events on validation start.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>79</span></span>
-<span class="normal"><span>80</span></span>
-<span class="normal"><span>81</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_start</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>79</span>
+<span>80</span>
+<span>81</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_start</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run events on validation start."""</span>
 <span></span>    <span class="n">events</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1446,9 +1446,9 @@
 <p>Run events on predict start.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>84</span></span>
-<span class="normal"><span>85</span></span>
-<span class="normal"><span>86</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>84</span>
+<span>85</span>
+<span>86</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run events on predict start."""</span>
 <span></span>    <span class="n">events</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1465,9 +1465,9 @@
 <p>Run events on export start.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>89</span></span>
-<span class="normal"><span>90</span></span>
-<span class="normal"><span>91</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_export_start</span><span class="p">(</span><span class="n">exporter</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>89</span>
+<span>90</span>
+<span>91</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_export_start</span><span class="p">(</span><span class="n">exporter</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run events on export start."""</span>
 <span></span>    <span class="n">events</span><span class="p">(</span><span class="n">exporter</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>

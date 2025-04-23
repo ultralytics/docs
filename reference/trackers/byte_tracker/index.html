@@ -1715,35 +1715,35 @@ and predictions based on Kalman filter.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>51</span></span>
-<span class="normal"><span>52</span></span>
-<span class="normal"><span>53</span></span>
-<span class="normal"><span>54</span></span>
-<span class="normal"><span>55</span></span>
-<span class="normal"><span>56</span></span>
-<span class="normal"><span>57</span></span>
-<span class="normal"><span>58</span></span>
-<span class="normal"><span>59</span></span>
-<span class="normal"><span>60</span></span>
-<span class="normal"><span>61</span></span>
-<span class="normal"><span>62</span></span>
-<span class="normal"><span>63</span></span>
-<span class="normal"><span>64</span></span>
-<span class="normal"><span>65</span></span>
-<span class="normal"><span>66</span></span>
-<span class="normal"><span>67</span></span>
-<span class="normal"><span>68</span></span>
-<span class="normal"><span>69</span></span>
-<span class="normal"><span>70</span></span>
-<span class="normal"><span>71</span></span>
-<span class="normal"><span>72</span></span>
-<span class="normal"><span>73</span></span>
-<span class="normal"><span>74</span></span>
-<span class="normal"><span>75</span></span>
-<span class="normal"><span>76</span></span>
-<span class="normal"><span>77</span></span>
-<span class="normal"><span>78</span></span>
-<span class="normal"><span>79</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xywh</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xywh</span><span class="p">,</span> <span class="n">score</span><span class="p">,</span> <span class="bp">cls</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a new STrack instance.</span>
 <span></span>
@@ -1850,9 +1850,9 @@ and predictions based on Kalman filter.</p>
 <p>Returns a string representation of the STrack object including start frame, end frame, and track ID.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>230</span></span>
-<span class="normal"><span>231</span></span>
-<span class="normal"><span>232</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>230</span>
+<span>231</span>
+<span>232</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Returns a string representation of the STrack object including start frame, end frame, and track ID."""</span>
 <span></span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"OT_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">track_id</span><span class="si">}</span><span class="s2">_(</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">start_frame</span><span class="si">}</span><span class="s2">-</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">end_frame</span><span class="si">}</span><span class="s2">)"</span>
 </code></pre></div></td></tr></table></div>
@@ -1869,18 +1869,18 @@ and predictions based on Kalman filter.</p>
 <p>Activate a new tracklet using the provided Kalman filter and initialize its state and covariance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>122</span></span>
-<span class="normal"><span>123</span></span>
-<span class="normal"><span>124</span></span>
-<span class="normal"><span>125</span></span>
-<span class="normal"><span>126</span></span>
-<span class="normal"><span>127</span></span>
-<span class="normal"><span>128</span></span>
-<span class="normal"><span>129</span></span>
-<span class="normal"><span>130</span></span>
-<span class="normal"><span>131</span></span>
-<span class="normal"><span>132</span></span>
-<span class="normal"><span>133</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kalman_filter</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kalman_filter</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Activate a new tracklet using the provided Kalman filter and initialize its state and covariance."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">kalman_filter</span> <span class="o">=</span> <span class="n">kalman_filter</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_id</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">next_id</span><span class="p">()</span>
@@ -1906,9 +1906,9 @@ and predictions based on Kalman filter.</p>
 <p>Convert a bounding box's top-left-width-height format to its x-y-aspect-height equivalent.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>180</span></span>
-<span class="normal"><span>181</span></span>
-<span class="normal"><span>182</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tlwh</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>180</span>
+<span>181</span>
+<span>182</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tlwh</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert a bounding box's top-left-width-height format to its x-y-aspect-height equivalent."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">tlwh_to_xyah</span><span class="p">(</span><span class="n">tlwh</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1928,24 +1928,24 @@ and predictions based on Kalman filter.</p>
 <p>Update state tracks positions and covariances using a homography matrix for multiple tracks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>103</span></span>
-<span class="normal"><span>104</span></span>
-<span class="normal"><span>105</span></span>
-<span class="normal"><span>106</span></span>
-<span class="normal"><span>107</span></span>
-<span class="normal"><span>108</span></span>
-<span class="normal"><span>109</span></span>
-<span class="normal"><span>110</span></span>
-<span class="normal"><span>111</span></span>
-<span class="normal"><span>112</span></span>
-<span class="normal"><span>113</span></span>
-<span class="normal"><span>114</span></span>
-<span class="normal"><span>115</span></span>
-<span class="normal"><span>116</span></span>
-<span class="normal"><span>117</span></span>
-<span class="normal"><span>118</span></span>
-<span class="normal"><span>119</span></span>
-<span class="normal"><span>120</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_gmc</span><span class="p">(</span><span class="n">stracks</span><span class="p">,</span> <span class="n">H</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update state tracks positions and covariances using a homography matrix for multiple tracks."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stracks</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -1980,20 +1980,20 @@ and predictions based on Kalman filter.</p>
 <p>Perform multi-object predictive tracking using Kalman filter for the provided list of STrack instances.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span> 88</span></span>
-<span class="normal"><span> 89</span></span>
-<span class="normal"><span> 90</span></span>
-<span class="normal"><span> 91</span></span>
-<span class="normal"><span> 92</span></span>
-<span class="normal"><span> 93</span></span>
-<span class="normal"><span> 94</span></span>
-<span class="normal"><span> 95</span></span>
-<span class="normal"><span> 96</span></span>
-<span class="normal"><span> 97</span></span>
-<span class="normal"><span> 98</span></span>
-<span class="normal"><span> 99</span></span>
-<span class="normal"><span>100</span></span>
-<span class="normal"><span>101</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 88</span>
+<span> 89</span>
+<span> 90</span>
+<span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="n">stracks</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform multi-object predictive tracking using Kalman filter for the provided list of STrack instances."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stracks</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
@@ -2021,12 +2021,12 @@ and predictions based on Kalman filter.</p>
 <p>Predicts the next state (mean and covariance) of the object using the Kalman filter.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>81</span></span>
-<span class="normal"><span>82</span></span>
-<span class="normal"><span>83</span></span>
-<span class="normal"><span>84</span></span>
-<span class="normal"><span>85</span></span>
-<span class="normal"><span>86</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Predicts the next state (mean and covariance) of the object using the Kalman filter."""</span>
 <span></span>    <span class="n">mean_state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">state</span> <span class="o">!=</span> <span class="n">TrackState</span><span class="o">.</span><span class="n">Tracked</span><span class="p">:</span>
@@ -2046,21 +2046,21 @@ and predictions based on Kalman filter.</p>
 <p>Reactivates a previously lost track using new detection data and updates its state and attributes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>135</span></span>
-<span class="normal"><span>136</span></span>
-<span class="normal"><span>137</span></span>
-<span class="normal"><span>138</span></span>
-<span class="normal"><span>139</span></span>
-<span class="normal"><span>140</span></span>
-<span class="normal"><span>141</span></span>
-<span class="normal"><span>142</span></span>
-<span class="normal"><span>143</span></span>
-<span class="normal"><span>144</span></span>
-<span class="normal"><span>145</span></span>
-<span class="normal"><span>146</span></span>
-<span class="normal"><span>147</span></span>
-<span class="normal"><span>148</span></span>
-<span class="normal"><span>149</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">re_activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">,</span> <span class="n">new_id</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">re_activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">,</span> <span class="n">new_id</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Reactivates a previously lost track using new detection data and updates its state and attributes."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariance</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">kalman_filter</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">mean</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">covariance</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">convert_coords</span><span class="p">(</span><span class="n">new_track</span><span class="o">.</span><span class="n">tlwh</span><span class="p">)</span>
@@ -2092,13 +2092,13 @@ and predictions based on Kalman filter.</p>
 <p>Convert bounding box from tlwh format to center-x-center-y-aspect-height (xyah) format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>201</span></span>
-<span class="normal"><span>202</span></span>
-<span class="normal"><span>203</span></span>
-<span class="normal"><span>204</span></span>
-<span class="normal"><span>205</span></span>
-<span class="normal"><span>206</span></span>
-<span class="normal"><span>207</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">tlwh_to_xyah</span><span class="p">(</span><span class="n">tlwh</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert bounding box from tlwh format to center-x-center-y-aspect-height (xyah) format."""</span>
 <span></span>    <span class="n">ret</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="n">tlwh</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
@@ -2170,34 +2170,34 @@ and predictions based on Kalman filter.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>151</span></span>
-<span class="normal"><span>152</span></span>
-<span class="normal"><span>153</span></span>
-<span class="normal"><span>154</span></span>
-<span class="normal"><span>155</span></span>
-<span class="normal"><span>156</span></span>
-<span class="normal"><span>157</span></span>
-<span class="normal"><span>158</span></span>
-<span class="normal"><span>159</span></span>
-<span class="normal"><span>160</span></span>
-<span class="normal"><span>161</span></span>
-<span class="normal"><span>162</span></span>
-<span class="normal"><span>163</span></span>
-<span class="normal"><span>164</span></span>
-<span class="normal"><span>165</span></span>
-<span class="normal"><span>166</span></span>
-<span class="normal"><span>167</span></span>
-<span class="normal"><span>168</span></span>
-<span class="normal"><span>169</span></span>
-<span class="normal"><span>170</span></span>
-<span class="normal"><span>171</span></span>
-<span class="normal"><span>172</span></span>
-<span class="normal"><span>173</span></span>
-<span class="normal"><span>174</span></span>
-<span class="normal"><span>175</span></span>
-<span class="normal"><span>176</span></span>
-<span class="normal"><span>177</span></span>
-<span class="normal"><span>178</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_track</span><span class="p">,</span> <span class="n">frame_id</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update the state of a matched track.</span>
 <span></span>
@@ -2485,28 +2485,28 @@ predicting the new object locations, and performs data association.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>270</span></span>
-<span class="normal"><span>271</span></span>
-<span class="normal"><span>272</span></span>
-<span class="normal"><span>273</span></span>
-<span class="normal"><span>274</span></span>
-<span class="normal"><span>275</span></span>
-<span class="normal"><span>276</span></span>
-<span class="normal"><span>277</span></span>
-<span class="normal"><span>278</span></span>
-<span class="normal"><span>279</span></span>
-<span class="normal"><span>280</span></span>
-<span class="normal"><span>281</span></span>
-<span class="normal"><span>282</span></span>
-<span class="normal"><span>283</span></span>
-<span class="normal"><span>284</span></span>
-<span class="normal"><span>285</span></span>
-<span class="normal"><span>286</span></span>
-<span class="normal"><span>287</span></span>
-<span class="normal"><span>288</span></span>
-<span class="normal"><span>289</span></span>
-<span class="normal"><span>290</span></span>
-<span class="normal"><span>291</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">frame_rate</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">frame_rate</span><span class="o">=</span><span class="mi">30</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a BYTETracker instance for object tracking.</span>
 <span></span>
@@ -2541,12 +2541,12 @@ predicting the new object locations, and performs data association.</p>
 <p>Calculates the distance between tracks and detections using IoU and optionally fuses scores.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>415</span></span>
-<span class="normal"><span>416</span></span>
-<span class="normal"><span>417</span></span>
-<span class="normal"><span>418</span></span>
-<span class="normal"><span>419</span></span>
-<span class="normal"><span>420</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dists</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculates the distance between tracks and detections using IoU and optionally fuses scores."""</span>
 <span></span>    <span class="n">dists</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">tracks</span><span class="p">,</span> <span class="n">detections</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">fuse_score</span><span class="p">:</span>
@@ -2566,9 +2566,9 @@ predicting the new object locations, and performs data association.</p>
 <p>Returns a Kalman filter object for tracking bounding boxes using KalmanFilterXYAH.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>407</span></span>
-<span class="normal"><span>408</span></span>
-<span class="normal"><span>409</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_kalmanfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>407</span>
+<span>408</span>
+<span>409</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_kalmanfilter</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Returns a Kalman filter object for tracking bounding boxes using KalmanFilterXYAH."""</span>
 <span></span>    <span class="k">return</span> <span class="n">KalmanFilterXYAH</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -2585,9 +2585,9 @@ predicting the new object locations, and performs data association.</p>
 <p>Initializes object tracking with given detections, scores, and class labels using the STrack algorithm.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>411</span></span>
-<span class="normal"><span>412</span></span>
-<span class="normal"><span>413</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>411</span>
+<span>412</span>
+<span>413</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_track</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes object tracking with given detections, scores, and class labels using the STrack algorithm."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">STrack</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="k">for</span> <span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">dets</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">dets</span><span class="p">)</span> <span class="k">else</span> <span class="p">[]</span>  <span class="c1"># detections</span>
 </code></pre></div></td></tr></table></div>
@@ -2607,20 +2607,20 @@ predicting the new object locations, and performs data association.</p>
 <p>Combines two lists of STrack objects into a single list, ensuring no duplicates based on track IDs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>440</span></span>
-<span class="normal"><span>441</span></span>
-<span class="normal"><span>442</span></span>
-<span class="normal"><span>443</span></span>
-<span class="normal"><span>444</span></span>
-<span class="normal"><span>445</span></span>
-<span class="normal"><span>446</span></span>
-<span class="normal"><span>447</span></span>
-<span class="normal"><span>448</span></span>
-<span class="normal"><span>449</span></span>
-<span class="normal"><span>450</span></span>
-<span class="normal"><span>451</span></span>
-<span class="normal"><span>452</span></span>
-<span class="normal"><span>453</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>440</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">joint_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Combines two lists of STrack objects into a single list, ensuring no duplicates based on track IDs."""</span>
 <span></span>    <span class="n">exists</span> <span class="o">=</span> <span class="p">{}</span>
@@ -2648,9 +2648,9 @@ predicting the new object locations, and performs data association.</p>
 <p>Predict the next states for multiple tracks using Kalman filter.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>422</span></span>
-<span class="normal"><span>423</span></span>
-<span class="normal"><span>424</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>422</span>
+<span>423</span>
+<span>424</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tracks</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Predict the next states for multiple tracks using Kalman filter."""</span>
 <span></span>    <span class="n">STrack</span><span class="o">.</span><span class="n">multi_predict</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2670,22 +2670,22 @@ predicting the new object locations, and performs data association.</p>
 <p>Removes duplicate stracks from two lists based on Intersection over Union (IoU) distance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>461</span></span>
-<span class="normal"><span>462</span></span>
-<span class="normal"><span>463</span></span>
-<span class="normal"><span>464</span></span>
-<span class="normal"><span>465</span></span>
-<span class="normal"><span>466</span></span>
-<span class="normal"><span>467</span></span>
-<span class="normal"><span>468</span></span>
-<span class="normal"><span>469</span></span>
-<span class="normal"><span>470</span></span>
-<span class="normal"><span>471</span></span>
-<span class="normal"><span>472</span></span>
-<span class="normal"><span>473</span></span>
-<span class="normal"><span>474</span></span>
-<span class="normal"><span>475</span></span>
-<span class="normal"><span>476</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span>
+<span>475</span>
+<span>476</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_duplicate_stracks</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Removes duplicate stracks from two lists based on Intersection over Union (IoU) distance."""</span>
 <span></span>    <span class="n">pdist</span> <span class="o">=</span> <span class="n">matching</span><span class="o">.</span><span class="n">iou_distance</span><span class="p">(</span><span class="n">stracksa</span><span class="p">,</span> <span class="n">stracksb</span><span class="p">)</span>
@@ -2715,14 +2715,14 @@ predicting the new object locations, and performs data association.</p>
 <p>Resets the tracker by clearing all tracked, lost, and removed tracks and reinitializing the Kalman filter.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>431</span></span>
-<span class="normal"><span>432</span></span>
-<span class="normal"><span>433</span></span>
-<span class="normal"><span>434</span></span>
-<span class="normal"><span>435</span></span>
-<span class="normal"><span>436</span></span>
-<span class="normal"><span>437</span></span>
-<span class="normal"><span>438</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Resets the tracker by clearing all tracked, lost, and removed tracks and reinitializing the Kalman filter."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tracked_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">lost_stracks</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># type: list[STrack]</span>
@@ -2747,10 +2747,10 @@ predicting the new object locations, and performs data association.</p>
 <p>Resets the ID counter for STrack instances to ensure unique track IDs across tracking sessions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>426</span></span>
-<span class="normal"><span>427</span></span>
-<span class="normal"><span>428</span></span>
-<span class="normal"><span>429</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_id</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""Resets the ID counter for STrack instances to ensure unique track IDs across tracking sessions."""</span>
 <span></span>    <span class="n">STrack</span><span class="o">.</span><span class="n">reset_id</span><span class="p">()</span>
@@ -2771,11 +2771,11 @@ predicting the new object locations, and performs data association.</p>
 <p>Filters out the stracks present in the second list from the first list.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>455</span></span>
-<span class="normal"><span>456</span></span>
-<span class="normal"><span>457</span></span>
-<span class="normal"><span>458</span></span>
-<span class="normal"><span>459</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">sub_stracks</span><span class="p">(</span><span class="n">tlista</span><span class="p">,</span> <span class="n">tlistb</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Filters out the stracks present in the second list from the first list."""</span>
 <span></span>    <span class="n">track_ids_b</span> <span class="o">=</span> <span class="p">{</span><span class="n">t</span><span class="o">.</span><span class="n">track_id</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="n">tlistb</span><span class="p">}</span>
@@ -2794,119 +2794,119 @@ predicting the new object locations, and performs data association.</p>
 <p>Updates the tracker with new detections and returns the current list of tracked objects.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/byte_tracker.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><span>293</span></span>
-<span class="normal"><span>294</span></span>
-<span class="normal"><span>295</span></span>
-<span class="normal"><span>296</span></span>
-<span class="normal"><span>297</span></span>
-<span class="normal"><span>298</span></span>
-<span class="normal"><span>299</span></span>
-<span class="normal"><span>300</span></span>
-<span class="normal"><span>301</span></span>
-<span class="normal"><span>302</span></span>
-<span class="normal"><span>303</span></span>
-<span class="normal"><span>304</span></span>
-<span class="normal"><span>305</span></span>
-<span class="normal"><span>306</span></span>
-<span class="normal"><span>307</span></span>
-<span class="normal"><span>308</span></span>
-<span class="normal"><span>309</span></span>
-<span class="normal"><span>310</span></span>
-<span class="normal"><span>311</span></span>
-<span class="normal"><span>312</span></span>
-<span class="normal"><span>313</span></span>
-<span class="normal"><span>314</span></span>
-<span class="normal"><span>315</span></span>
-<span class="normal"><span>316</span></span>
-<span class="normal"><span>317</span></span>
-<span class="normal"><span>318</span></span>
-<span class="normal"><span>319</span></span>
-<span class="normal"><span>320</span></span>
-<span class="normal"><span>321</span></span>
-<span class="normal"><span>322</span></span>
-<span class="normal"><span>323</span></span>
-<span class="normal"><span>324</span></span>
-<span class="normal"><span>325</span></span>
-<span class="normal"><span>326</span></span>
-<span class="normal"><span>327</span></span>
-<span class="normal"><span>328</span></span>
-<span class="normal"><span>329</span></span>
-<span class="normal"><span>330</span></span>
-<span class="normal"><span>331</span></span>
-<span class="normal"><span>332</span></span>
-<span class="normal"><span>333</span></span>
-<span class="normal"><span>334</span></span>
-<span class="normal"><span>335</span></span>
-<span class="normal"><span>336</span></span>
-<span class="normal"><span>337</span></span>
-<span class="normal"><span>338</span></span>
-<span class="normal"><span>339</span></span>
-<span class="normal"><span>340</span></span>
-<span class="normal"><span>341</span></span>
-<span class="normal"><span>342</span></span>
-<span class="normal"><span>343</span></span>
-<span class="normal"><span>344</span></span>
-<span class="normal"><span>345</span></span>
-<span class="normal"><span>346</span></span>
-<span class="normal"><span>347</span></span>
-<span class="normal"><span>348</span></span>
-<span class="normal"><span>349</span></span>
-<span class="normal"><span>350</span></span>
-<span class="normal"><span>351</span></span>
-<span class="normal"><span>352</span></span>
-<span class="normal"><span>353</span></span>
-<span class="normal"><span>354</span></span>
-<span class="normal"><span>355</span></span>
-<span class="normal"><span>356</span></span>
-<span class="normal"><span>357</span></span>
-<span class="normal"><span>358</span></span>
-<span class="normal"><span>359</span></span>
-<span class="normal"><span>360</span></span>
-<span class="normal"><span>361</span></span>
-<span class="normal"><span>362</span></span>
-<span class="normal"><span>363</span></span>
-<span class="normal"><span>364</span></span>
-<span class="normal"><span>365</span></span>
-<span class="normal"><span>366</span></span>
-<span class="normal"><span>367</span></span>
-<span class="normal"><span>368</span></span>
-<span class="normal"><span>369</span></span>
-<span class="normal"><span>370</span></span>
-<span class="normal"><span>371</span></span>
-<span class="normal"><span>372</span></span>
-<span class="normal"><span>373</span></span>
-<span class="normal"><span>374</span></span>
-<span class="normal"><span>375</span></span>
-<span class="normal"><span>376</span></span>
-<span class="normal"><span>377</span></span>
-<span class="normal"><span>378</span></span>
-<span class="normal"><span>379</span></span>
-<span class="normal"><span>380</span></span>
-<span class="normal"><span>381</span></span>
-<span class="normal"><span>382</span></span>
-<span class="normal"><span>383</span></span>
-<span class="normal"><span>384</span></span>
-<span class="normal"><span>385</span></span>
-<span class="normal"><span>386</span></span>
-<span class="normal"><span>387</span></span>
-<span class="normal"><span>388</span></span>
-<span class="normal"><span>389</span></span>
-<span class="normal"><span>390</span></span>
-<span class="normal"><span>391</span></span>
-<span class="normal"><span>392</span></span>
-<span class="normal"><span>393</span></span>
-<span class="normal"><span>394</span></span>
-<span class="normal"><span>395</span></span>
-<span class="normal"><span>396</span></span>
-<span class="normal"><span>397</span></span>
-<span class="normal"><span>398</span></span>
-<span class="normal"><span>399</span></span>
-<span class="normal"><span>400</span></span>
-<span class="normal"><span>401</span></span>
-<span class="normal"><span>402</span></span>
-<span class="normal"><span>403</span></span>
-<span class="normal"><span>404</span></span>
-<span class="normal"><span>405</span></span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feats</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span>
+<span>334</span>
+<span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">feats</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Updates the tracker with new detections and returns the current list of tracked objects."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">frame_id</span> <span class="o">+=</span> <span class="mi">1</span>
 <span></span>    <span class="n">activated_stracks</span> <span class="o">=</span> <span class="p">[]</span>
