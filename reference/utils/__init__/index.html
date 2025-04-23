@@ -3129,7 +3129,7 @@ values. It validates settings on initialization and provides methods to update o
 <span></span>        <span class="s2">"For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings."</span>
 <span></span>    <span class="p">)</span>
 <span></span>
-<span></span>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">RANK</span><span class="p">):</span>
+<span></span>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">LOCAL_RANK</span><span class="p">):</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="p">)</span>
 <span></span>
 <span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="p">:</span>  <span class="c1"># Check if file doesn't exist or is empty</span>
