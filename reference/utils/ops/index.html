@@ -2993,7 +2993,7 @@ shape (num_boxes, 6 + num_masks) containing the kept boxes, with columns
 <span></span>
 <span></span>        <span class="c1"># Filter by class</span>
 <span></span>        <span class="k">if</span> <span class="n">classes</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span></span>            <span class="n">x</span> <span class="o">=</span> <span class="n">x</span><span class="p">[(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="n">classes</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)]</span>
+<span></span>            <span class="n">filt</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span> <span class="o">==</span> <span class="n">classes</span><span class="p">)</span><span class="o">.</span><span class="n">any</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
 <span></span>            <span class="n">x</span><span class="p">,</span> <span class="n">xk</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">filt</span><span class="p">],</span> <span class="n">xk</span><span class="p">[</span><span class="n">filt</span><span class="p">]</span>
 <span></span>
 <span></span>        <span class="c1"># Check shape</span>
@@ -6028,6 +6028,7 @@ rescaling.</p>
 </details>
 </div>
 </div><p><br/><br/></p>
+<br/><br/>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on November 12, 2023">
@@ -6058,6 +6059,7 @@ rescaling.</p>
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
+<br/>
 </article>
 </div>
 <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
