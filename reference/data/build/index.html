@@ -1853,24 +1853,68 @@ over a dataset.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
-<code><span title="tuple">tuple</span></code>
+<td><code>source</code></td> <td>
+<code><span title="str">str</span> | <span title="int">int</span> | <span title="pathlib.Path">Path</span> | <span title="List">List</span> | <span title="Tuple">Tuple</span> | <span title="numpy.ndarray">ndarray</span> | <span title="PIL.Image">Image</span> | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A tuple containing:
-- source: The processed source.
-- webcam (bool): Whether the source is a webcam.
-- screenshot (bool): Whether the source is a screenshot.
-- from_img (bool): Whether the source is an image or list of images.
-- in_memory (bool): Whether the source is an in-memory object.
-- tensor (bool): Whether the source is a torch.Tensor.</p>
+<p>The processed source.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>webcam</code></td> <td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the source is a webcam.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>screenshot</code></td> <td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the source is a screenshot.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>from_img</code></td> <td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the source is an image or list of images.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>in_memory</code></td> <td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the source is an in-memory object.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>tensor</code></td> <td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the source is a torch.Tensor.</p>
 </div>
 </td>
 </tr>
@@ -1938,8 +1982,7 @@ over a dataset.</p>
 <span>218</span>
 <span>219</span>
 <span>220</span>
-<span>221</span>
-<span>222</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+<span>221</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check the type of input source and return corresponding flag values.</span>
 <span></span>
@@ -1947,13 +1990,12 @@ over a dataset.</p>
 <span></span><span class="sd">        source (str | int | Path | List | Tuple | np.ndarray | PIL.Image | torch.Tensor): The input source to check.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (tuple): A tuple containing:</span>
-<span></span><span class="sd">            - source: The processed source.</span>
-<span></span><span class="sd">            - webcam (bool): Whether the source is a webcam.</span>
-<span></span><span class="sd">            - screenshot (bool): Whether the source is a screenshot.</span>
-<span></span><span class="sd">            - from_img (bool): Whether the source is an image or list of images.</span>
-<span></span><span class="sd">            - in_memory (bool): Whether the source is an in-memory object.</span>
-<span></span><span class="sd">            - tensor (bool): Whether the source is a torch.Tensor.</span>
+<span></span><span class="sd">        source (str | int | Path | List | Tuple | np.ndarray | PIL.Image | torch.Tensor): The processed source.</span>
+<span></span><span class="sd">        webcam (bool): Whether the source is a webcam.</span>
+<span></span><span class="sd">        screenshot (bool): Whether the source is a screenshot.</span>
+<span></span><span class="sd">        from_img (bool): Whether the source is an image or list of images.</span>
+<span></span><span class="sd">        in_memory (bool): Whether the source is an in-memory object.</span>
+<span></span><span class="sd">        tensor (bool): Whether the source is a torch.Tensor.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        TypeError: If the source type is unsupported.</span>
@@ -2092,7 +2134,8 @@ over a dataset.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>225</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>224</span>
+<span>225</span>
 <span>226</span>
 <span>227</span>
 <span>228</span>
@@ -2124,8 +2167,7 @@ over a dataset.</p>
 <span>254</span>
 <span>255</span>
 <span>256</span>
-<span>257</span>
-<span>258</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>257</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load an inference source for object detection and apply necessary transformations.</span>
 <span></span>

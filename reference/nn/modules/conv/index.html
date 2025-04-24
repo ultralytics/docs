@@ -4517,7 +4517,9 @@
 <p>Fuse convolutions for inference by creating a single equivalent convolution.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>513</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>511</span>
+<span>512</span>
+<span>513</span>
 <span>514</span>
 <span>515</span>
 <span>516</span>
@@ -4541,9 +4543,7 @@
 <span>534</span>
 <span>535</span>
 <span>536</span>
-<span>537</span>
-<span>538</span>
-<span>539</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse_convs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>537</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse_convs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Fuse convolutions for inference by creating a single equivalent convolution."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"conv"</span><span class="p">):</span>
 <span></span>        <span class="k">return</span>
@@ -4593,13 +4593,21 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="tuple">tuple</span></code>
+<code><span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Tuple containing:
-- Equivalent kernel (torch.Tensor)
-- Equivalent bias (torch.Tensor)</p>
+<p>Equivalent kernel</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Equivalent bias</p>
 </div>
 </td>
 </tr>
@@ -4618,15 +4626,13 @@
 <span>453</span>
 <span>454</span>
 <span>455</span>
-<span>456</span>
-<span>457</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_equivalent_kernel_bias</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>456</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_equivalent_kernel_bias</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate equivalent kernel and bias by fusing convolutions.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (tuple): Tuple containing:</span>
-<span></span><span class="sd">            - Equivalent kernel (torch.Tensor)</span>
-<span></span><span class="sd">            - Equivalent bias (torch.Tensor)</span>
+<span></span><span class="sd">        (torch.Tensor): Equivalent kernel</span>
+<span></span><span class="sd">        (torch.Tensor): Equivalent bias</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">kernel3x3</span><span class="p">,</span> <span class="n">bias3x3</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fuse_bn_tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">)</span>
 <span></span>    <span class="n">kernel1x1</span><span class="p">,</span> <span class="n">bias1x1</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_fuse_bn_tensor</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">conv2</span><span class="p">)</span>
@@ -4730,7 +4736,9 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>557</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>555</span>
+<span>556</span>
+<span>557</span>
 <span>558</span>
 <span>559</span>
 <span>560</span>
@@ -4738,9 +4746,7 @@
 <span>562</span>
 <span>563</span>
 <span>564</span>
-<span>565</span>
-<span>566</span>
-<span>567</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>565</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize Channel-attention module.</span>
 <span></span>
@@ -4814,7 +4820,9 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>569</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>567</span>
+<span>568</span>
+<span>569</span>
 <span>570</span>
 <span>571</span>
 <span>572</span>
@@ -4822,9 +4830,7 @@
 <span>574</span>
 <span>575</span>
 <span>576</span>
-<span>577</span>
-<span>578</span>
-<span>579</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>577</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply channel attention to input tensor.</span>
 <span></span>
@@ -4918,7 +4924,9 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>593</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>591</span>
+<span>592</span>
+<span>593</span>
 <span>594</span>
 <span>595</span>
 <span>596</span>
@@ -4927,9 +4935,7 @@
 <span>599</span>
 <span>600</span>
 <span>601</span>
-<span>602</span>
-<span>603</span>
-<span>604</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
+<span>602</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize Spatial-attention module.</span>
 <span></span>
@@ -5004,7 +5010,9 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>606</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>604</span>
+<span>605</span>
+<span>606</span>
 <span>607</span>
 <span>608</span>
 <span>609</span>
@@ -5012,9 +5020,7 @@
 <span>611</span>
 <span>612</span>
 <span>613</span>
-<span>614</span>
-<span>615</span>
-<span>616</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>614</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply spatial attention to input tensor.</span>
 <span></span>
@@ -5124,7 +5130,9 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>630</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>628</span>
+<span>629</span>
+<span>630</span>
 <span>631</span>
 <span>632</span>
 <span>633</span>
@@ -5132,9 +5140,7 @@
 <span>635</span>
 <span>636</span>
 <span>637</span>
-<span>638</span>
-<span>639</span>
-<span>640</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
+<span>638</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c1</span><span class="p">,</span> <span class="n">kernel_size</span><span class="o">=</span><span class="mi">7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize CBAM with given parameters.</span>
 <span></span>
@@ -5208,7 +5214,9 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>642</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>640</span>
+<span>641</span>
+<span>642</span>
 <span>643</span>
 <span>644</span>
 <span>645</span>
@@ -5216,9 +5224,7 @@
 <span>647</span>
 <span>648</span>
 <span>649</span>
-<span>650</span>
-<span>651</span>
-<span>652</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>650</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply channel and spatial attention sequentially to input tensor.</span>
 <span></span>
@@ -5300,15 +5306,15 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>663</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>661</span>
+<span>662</span>
+<span>663</span>
 <span>664</span>
 <span>665</span>
 <span>666</span>
 <span>667</span>
 <span>668</span>
-<span>669</span>
-<span>670</span>
-<span>671</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span>669</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dimension</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize Concat module.</span>
 <span></span>
@@ -5380,7 +5386,9 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>673</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>671</span>
+<span>672</span>
+<span>673</span>
 <span>674</span>
 <span>675</span>
 <span>676</span>
@@ -5388,9 +5396,7 @@
 <span>678</span>
 <span>679</span>
 <span>680</span>
-<span>681</span>
-<span>682</span>
-<span>683</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>681</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Concatenate input tensors along specified dimension.</span>
 <span></span>
@@ -5472,15 +5478,15 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>694</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>692</span>
+<span>693</span>
+<span>694</span>
 <span>695</span>
 <span>696</span>
 <span>697</span>
 <span>698</span>
 <span>699</span>
-<span>700</span>
-<span>701</span>
-<span>702</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span>700</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize Index module.</span>
 <span></span>
@@ -5552,7 +5558,9 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/conv.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>704</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>702</span>
+<span>703</span>
+<span>704</span>
 <span>705</span>
 <span>706</span>
 <span>707</span>
@@ -5560,9 +5568,7 @@
 <span>709</span>
 <span>710</span>
 <span>711</span>
-<span>712</span>
-<span>713</span>
-<span>714</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>712</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select and return a particular index from input.</span>
 <span></span>
