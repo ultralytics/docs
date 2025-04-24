@@ -1397,7 +1397,8 @@ angle thresholds.</p>
 <span>119</span>
 <span>120</span>
 <span>121</span>
-<span>122</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>122</span>
+<span>123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Monitor workouts using Ultralytics YOLO Pose Model.</span>
 <span></span>
@@ -1449,12 +1450,13 @@ angle thresholds.</p>
 <span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"up"</span>
 <span></span>
 <span></span>            <span class="c1"># Display angle, count, and stage text</span>
-<span></span>            <span class="n">annotator</span><span class="o">.</span><span class="n">plot_angle_and_count_and_stage</span><span class="p">(</span>
-<span></span>                <span class="n">angle_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># angle text for display</span>
-<span></span>                <span class="n">count_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># count text for workouts</span>
-<span></span>                <span class="n">stage_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># stage position text</span>
-<span></span>                <span class="n">center_kpt</span><span class="o">=</span><span class="n">k</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kpts</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span>  <span class="c1"># center keypoint for display</span>
-<span></span>            <span class="p">)</span>
+<span></span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_labels</span><span class="p">:</span>
+<span></span>                <span class="n">annotator</span><span class="o">.</span><span class="n">plot_angle_and_count_and_stage</span><span class="p">(</span>
+<span></span>                    <span class="n">angle_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># angle text for display</span>
+<span></span>                    <span class="n">count_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># count text for workouts</span>
+<span></span>                    <span class="n">stage_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># stage position text</span>
+<span></span>                    <span class="n">center_kpt</span><span class="o">=</span><span class="n">k</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kpts</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span>  <span class="c1"># center keypoint for display</span>
+<span></span>                <span class="p">)</span>
 <span></span>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># Display output image, if environment support display</span>
 <span></span>
