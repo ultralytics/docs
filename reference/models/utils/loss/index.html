@@ -1141,6 +1141,8 @@
 <span></span>    <span class="n">use_vfl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">use_uni_match</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">uni_match_ind</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+<span></span>    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1407,6 +1409,38 @@ losses and various loss types.</p>
 <code>0</code>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>gamma</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The focusing parameter that controls how much the loss focuses on hard-to-classify examples.</p>
+</div>
+</td>
+<td>
+<code>1.5</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>alpha</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The balancing factor used to address class imbalance.</p>
+</div>
+</td>
+<td>
+<code>0.25</code>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
@@ -1442,8 +1476,28 @@ losses and various loss types.</p>
 <span>62</span>
 <span>63</span>
 <span>64</span>
-<span>65</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">loss_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aux_loss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_vfl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_uni_match</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">uni_match_ind</span><span class="o">=</span><span class="mi">0</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+<span></span>    <span class="n">loss_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">aux_loss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">use_vfl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">use_uni_match</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">uni_match_ind</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+<span></span>    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize DETR loss function with customizable components and gains.</span>
@@ -1459,6 +1513,8 @@ losses and various loss types.</p>
 <span></span><span class="sd">        use_vfl (bool): Whether to use VarifocalLoss.</span>
 <span></span><span class="sd">        use_uni_match (bool): Whether to use fixed layer for auxiliary branch label assignment.</span>
 <span></span><span class="sd">        uni_match_ind (int): Index of fixed layer for uni_match.</span>
+<span></span><span class="sd">        gamma (float): The focusing parameter that controls how much the loss focuses on hard-to-classify examples.</span>
+<span></span><span class="sd">        alpha (float): The balancing factor used to address class imbalance.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>
@@ -1468,8 +1524,8 @@ losses and various loss types.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span> <span class="o">=</span> <span class="n">HungarianMatcher</span><span class="p">(</span><span class="n">cost_gain</span><span class="o">=</span><span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"bbox"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"giou"</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_gain</span> <span class="o">=</span> <span class="n">loss_gain</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">aux_loss</span> <span class="o">=</span> <span class="n">aux_loss</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fl</span> <span class="o">=</span> <span class="n">FocalLoss</span><span class="p">()</span> <span class="k">if</span> <span class="n">use_fl</span> <span class="k">else</span> <span class="kc">None</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vfl</span> <span class="o">=</span> <span class="n">VarifocalLoss</span><span class="p">()</span> <span class="k">if</span> <span class="n">use_vfl</span> <span class="k">else</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fl</span> <span class="o">=</span> <span class="n">FocalLoss</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">if</span> <span class="n">use_fl</span> <span class="k">else</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vfl</span> <span class="o">=</span> <span class="n">VarifocalLoss</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">if</span> <span class="n">use_vfl</span> <span class="k">else</span> <span class="kc">None</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">use_uni_match</span> <span class="o">=</span> <span class="n">use_uni_match</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">uni_match_ind</span> <span class="o">=</span> <span class="n">uni_match_ind</span>
@@ -1609,18 +1665,7 @@ self.aux_loss is True.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>339</span>
-<span>340</span>
-<span>341</span>
-<span>342</span>
-<span>343</span>
-<span>344</span>
-<span>345</span>
-<span>346</span>
-<span>347</span>
-<span>348</span>
-<span>349</span>
-<span>350</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>350</span>
 <span>351</span>
 <span>352</span>
 <span>353</span>
@@ -1645,7 +1690,18 @@ self.aux_loss is True.</p>
 <span>372</span>
 <span>373</span>
 <span>374</span>
-<span>375</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">postfix</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">postfix</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate loss for predicted bounding boxes and scores.</span>
 <span></span>
@@ -1701,6 +1757,8 @@ self.aux_loss is True.</p>
 <span></span>    <span class="n">use_vfl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">use_uni_match</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">uni_match_ind</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+<span></span>    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1742,8 +1800,28 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <span>62</span>
 <span>63</span>
 <span>64</span>
-<span>65</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">loss_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">aux_loss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">use_vfl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">use_uni_match</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">uni_match_ind</span><span class="o">=</span><span class="mi">0</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">nc</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+<span></span>    <span class="n">loss_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">aux_loss</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">use_vfl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">use_uni_match</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">uni_match_ind</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span>
+<span></span>    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize DETR loss function with customizable components and gains.</span>
@@ -1759,6 +1837,8 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <span></span><span class="sd">        use_vfl (bool): Whether to use VarifocalLoss.</span>
 <span></span><span class="sd">        use_uni_match (bool): Whether to use fixed layer for auxiliary branch label assignment.</span>
 <span></span><span class="sd">        uni_match_ind (int): Index of fixed layer for uni_match.</span>
+<span></span><span class="sd">        gamma (float): The focusing parameter that controls how much the loss focuses on hard-to-classify examples.</span>
+<span></span><span class="sd">        alpha (float): The balancing factor used to address class imbalance.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>
@@ -1768,8 +1848,8 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">matcher</span> <span class="o">=</span> <span class="n">HungarianMatcher</span><span class="p">(</span><span class="n">cost_gain</span><span class="o">=</span><span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"bbox"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"giou"</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_gain</span> <span class="o">=</span> <span class="n">loss_gain</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">aux_loss</span> <span class="o">=</span> <span class="n">aux_loss</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fl</span> <span class="o">=</span> <span class="n">FocalLoss</span><span class="p">()</span> <span class="k">if</span> <span class="n">use_fl</span> <span class="k">else</span> <span class="kc">None</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vfl</span> <span class="o">=</span> <span class="n">VarifocalLoss</span><span class="p">()</span> <span class="k">if</span> <span class="n">use_vfl</span> <span class="k">else</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fl</span> <span class="o">=</span> <span class="n">FocalLoss</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">if</span> <span class="n">use_fl</span> <span class="k">else</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vfl</span> <span class="o">=</span> <span class="n">VarifocalLoss</span><span class="p">(</span><span class="n">gamma</span><span class="p">,</span> <span class="n">alpha</span><span class="p">)</span> <span class="k">if</span> <span class="n">use_vfl</span> <span class="k">else</span> <span class="kc">None</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">use_uni_match</span> <span class="o">=</span> <span class="n">use_uni_match</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">uni_match_ind</span> <span class="o">=</span> <span class="n">uni_match_ind</span>
@@ -1901,18 +1981,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>386</span>
-<span>387</span>
-<span>388</span>
-<span>389</span>
-<span>390</span>
-<span>391</span>
-<span>392</span>
-<span>393</span>
-<span>394</span>
-<span>395</span>
-<span>396</span>
-<span>397</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>397</span>
 <span>398</span>
 <span>399</span>
 <span>400</span>
@@ -1933,7 +2002,18 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <span>415</span>
 <span>416</span>
 <span>417</span>
-<span>418</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">dn_bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dn_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dn_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">dn_bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dn_scores</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dn_meta</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Forward pass to compute detection loss with optional denoising loss.</span>
 <span></span>
@@ -2065,18 +2145,7 @@ an additional denoising training loss when provided with denoising metadata.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>420</span>
-<span>421</span>
-<span>422</span>
-<span>423</span>
-<span>424</span>
-<span>425</span>
-<span>426</span>
-<span>427</span>
-<span>428</span>
-<span>429</span>
-<span>430</span>
-<span>431</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>431</span>
 <span>432</span>
 <span>433</span>
 <span>434</span>
@@ -2089,7 +2158,18 @@ an additional denoising training loss when provided with denoising metadata.</p>
 <span>441</span>
 <span>442</span>
 <span>443</span>
-<span>444</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dn_match_indices</span><span class="p">(</span><span class="n">dn_pos_idx</span><span class="p">,</span> <span class="n">dn_num_group</span><span class="p">,</span> <span class="n">gt_groups</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get match indices for denoising.</span>

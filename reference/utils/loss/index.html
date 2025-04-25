@@ -1640,50 +1640,94 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.loss.VarifocalLoss">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.loss.VarifocalLoss</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">VarifocalLoss</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">VarifocalLoss</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Varifocal loss by Zhang et al.</p>
 <p><a href="https://arxiv.org/abs/2008.13367">https://arxiv.org/abs/2008.13367</a>.</p>
-<details class="quote">
-<summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>23</span>
-<span>24</span>
-<span>25</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Initialize the VarifocalLoss class."""</span>
-<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-</code></pre></div></td></tr></table></div>
-</details>
-<div class="doc doc-children">
-<div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.utils.loss.VarifocalLoss.forward">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
-<span class="doc doc-labels">
-<small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
-</span>
-</h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">pred_score</span><span class="p">,</span> <span class="n">gt_score</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">)</span>
-</code></pre></div>
-<div class="doc doc-contents">
-<p>Compute varifocal loss between predictions and ground truth.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>gamma</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The focusing parameter that controls how much the loss focuses on hard-to-classify examples.</p>
+</div>
+</td>
+<td>
+<code>2.0</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>alpha</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The balancing factor used to address class imbalance.</p>
+</div>
+</td>
+<td>
+<code>0.75</code>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>27</span>
 <span>28</span>
 <span>29</span>
 <span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
+<span>31</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize the VarifocalLoss class."""</span>
+<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.utils.loss.VarifocalLoss.forward">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">pred_score</span><span class="p">,</span> <span class="n">gt_score</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Compute varifocal loss between predictions and ground truth.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>33</span>
 <span>34</span>
 <span>35</span>
 <span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="n">pred_score</span><span class="p">,</span> <span class="n">gt_score</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.75</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">):</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_score</span><span class="p">,</span> <span class="n">gt_score</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Compute varifocal loss between predictions and ground truth."""</span>
-<span></span>    <span class="n">weight</span> <span class="o">=</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">pred_score</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">label</span><span class="p">)</span> <span class="o">+</span> <span class="n">gt_score</span> <span class="o">*</span> <span class="n">label</span>
+<span></span>    <span class="n">weight</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">*</span> <span class="n">pred_score</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">label</span><span class="p">)</span> <span class="o">+</span> <span class="n">gt_score</span> <span class="o">*</span> <span class="n">label</span>
 <span></span>    <span class="k">with</span> <span class="n">autocast</span><span class="p">(</span><span class="n">enabled</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span>        <span class="n">loss</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>            <span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">binary_cross_entropy_with_logits</span><span class="p">(</span><span class="n">pred_score</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">gt_score</span><span class="o">.</span><span class="n">float</span><span class="p">(),</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">"none"</span><span class="p">)</span> <span class="o">*</span> <span class="n">weight</span><span class="p">)</span>
@@ -1702,52 +1746,96 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.loss.FocalLoss">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.loss.FocalLoss</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">FocalLoss</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">FocalLoss</span><span class="p">(</span><span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Wraps focal loss around existing loss_fcn(), i.e. criteria = FocalLoss(nn.BCEWithLogitsLoss(), gamma=1.5).</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>gamma</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The focusing parameter that controls how much the loss focuses on hard-to-classify examples.</p>
+</div>
+</td>
+<td>
+<code>1.5</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>alpha</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The balancing factor used to address class imbalance.</p>
+</div>
+</td>
+<td>
+<code>0.25</code>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
-<span>44</span>
-<span>45</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize FocalLoss class with no parameters."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span> <span class="o">=</span> <span class="n">gamma</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="n">alpha</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.utils.loss.FocalLoss.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
-<span class="doc doc-labels">
-<small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
-</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Calculate focal loss with modulating factors for class imbalance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span>
-<span>54</span>
-<span>55</span>
-<span>56</span>
-<span>57</span>
-<span>58</span>
-<span>59</span>
-<span>60</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>60</span>
 <span>61</span>
-<span>62</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate focal loss with modulating factors for class imbalance."""</span>
 <span></span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">binary_cross_entropy_with_logits</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">"none"</span><span class="p">)</span>
 <span></span>    <span class="c1"># p_t = torch.exp(-loss)</span>
@@ -1756,10 +1844,10 @@
 <span></span>    <span class="c1"># TF implementation https://github.com/tensorflow/addons/blob/v0.7.1/tensorflow_addons/losses/focal_loss.py</span>
 <span></span>    <span class="n">pred_prob</span> <span class="o">=</span> <span class="n">pred</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">()</span>  <span class="c1"># prob from logits</span>
 <span></span>    <span class="n">p_t</span> <span class="o">=</span> <span class="n">label</span> <span class="o">*</span> <span class="n">pred_prob</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">label</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pred_prob</span><span class="p">)</span>
-<span></span>    <span class="n">modulating_factor</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">p_t</span><span class="p">)</span> <span class="o">**</span> <span class="n">gamma</span>
+<span></span>    <span class="n">modulating_factor</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.0</span> <span class="o">-</span> <span class="n">p_t</span><span class="p">)</span> <span class="o">**</span> <span class="bp">self</span><span class="o">.</span><span class="n">gamma</span>
 <span></span>    <span class="n">loss</span> <span class="o">*=</span> <span class="n">modulating_factor</span>
-<span></span>    <span class="k">if</span> <span class="n">alpha</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span></span>        <span class="n">alpha_factor</span> <span class="o">=</span> <span class="n">label</span> <span class="o">*</span> <span class="n">alpha</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">label</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>        <span class="n">alpha_factor</span> <span class="o">=</span> <span class="n">label</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">label</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span>
 <span></span>        <span class="n">loss</span> <span class="o">*=</span> <span class="n">alpha_factor</span>
 <span></span>    <span class="k">return</span> <span class="n">loss</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -1781,10 +1869,10 @@
 <p>Criterion class for computing Distribution Focal Loss (DFL).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>68</span>
-<span>69</span>
-<span>70</span>
-<span>71</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_max</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_max</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the DFL module with regularization maximum."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">reg_max</span> <span class="o">=</span> <span class="n">reg_max</span>
@@ -1801,17 +1889,17 @@
 <p>Return sum of left and right DFL losses from <a href="https://ieeexplore.ieee.org/document/9792391">https://ieeexplore.ieee.org/document/9792391</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>73</span>
-<span>74</span>
-<span>75</span>
-<span>76</span>
-<span>77</span>
-<span>78</span>
-<span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span>
-<span>83</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">target</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return sum of left and right DFL losses from https://ieeexplore.ieee.org/document/9792391."""</span>
 <span></span>    <span class="n">target</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">clamp_</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">reg_max</span> <span class="o">-</span> <span class="mi">1</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">)</span>
 <span></span>    <span class="n">tl</span> <span class="o">=</span> <span class="n">target</span><span class="o">.</span><span class="n">long</span><span class="p">()</span>  <span class="c1"># target left</span>
@@ -1841,10 +1929,10 @@
 <p>Criterion class for computing training losses for bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>89</span>
-<span>90</span>
-<span>91</span>
-<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_max</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_max</span><span class="o">=</span><span class="mi">16</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the BboxLoss module with regularization maximum and DFL settings."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">dfl_loss</span> <span class="o">=</span> <span class="n">DFLoss</span><span class="p">(</span><span class="n">reg_max</span><span class="p">)</span> <span class="k">if</span> <span class="n">reg_max</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="kc">None</span>
@@ -1869,21 +1957,21 @@
 <p>Compute IoU and DFL losses for bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
-<span> 95</span>
-<span> 96</span>
-<span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
 <span>107</span>
-<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span> <span class="n">target_scores</span><span class="p">,</span> <span class="n">target_scores_sum</span><span class="p">,</span> <span class="n">fg_mask</span><span class="p">):</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span> <span class="n">target_scores</span><span class="p">,</span> <span class="n">target_scores_sum</span><span class="p">,</span> <span class="n">fg_mask</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Compute IoU and DFL losses for bounding boxes."""</span>
 <span></span>    <span class="n">weight</span> <span class="o">=</span> <span class="n">target_scores</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="n">fg_mask</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">iou</span> <span class="o">=</span> <span class="n">bbox_iou</span><span class="p">(</span><span class="n">pred_bboxes</span><span class="p">[</span><span class="n">fg_mask</span><span class="p">],</span> <span class="n">target_bboxes</span><span class="p">[</span><span class="n">fg_mask</span><span class="p">],</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">CIoU</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1917,9 +2005,9 @@
 <p>Criterion class for computing training losses for rotated bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
-<span>115</span>
-<span>116</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_max</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>126</span>
+<span>127</span>
+<span>128</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_max</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the BboxLoss module with regularization maximum and DFL settings."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">reg_max</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1943,21 +2031,21 @@
 <p>Compute IoU and DFL losses for rotated bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
-<span>122</span>
-<span>123</span>
-<span>124</span>
-<span>125</span>
-<span>126</span>
-<span>127</span>
-<span>128</span>
-<span>129</span>
-<span>130</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>130</span>
 <span>131</span>
-<span>132</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span> <span class="n">target_scores</span><span class="p">,</span> <span class="n">target_scores_sum</span><span class="p">,</span> <span class="n">fg_mask</span><span class="p">):</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span> <span class="n">target_scores</span><span class="p">,</span> <span class="n">target_scores_sum</span><span class="p">,</span> <span class="n">fg_mask</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Compute IoU and DFL losses for rotated bounding boxes."""</span>
 <span></span>    <span class="n">weight</span> <span class="o">=</span> <span class="n">target_scores</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)[</span><span class="n">fg_mask</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">iou</span> <span class="o">=</span> <span class="n">probiou</span><span class="p">(</span><span class="n">pred_bboxes</span><span class="p">[</span><span class="n">fg_mask</span><span class="p">],</span> <span class="n">target_bboxes</span><span class="p">[</span><span class="n">fg_mask</span><span class="p">])</span>
@@ -1991,10 +2079,10 @@
 <p>Criterion class for computing keypoint losses.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
-<span>139</span>
-<span>140</span>
-<span>141</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigmas</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sigmas</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the KeypointLoss class with keypoint sigmas."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sigmas</span> <span class="o">=</span> <span class="n">sigmas</span>
@@ -2011,13 +2099,13 @@
 <p>Calculate keypoint loss factor and Euclidean distance loss for keypoints.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>143</span>
-<span>144</span>
-<span>145</span>
-<span>146</span>
-<span>147</span>
-<span>148</span>
-<span>149</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">,</span> <span class="n">gt_kpts</span><span class="p">,</span> <span class="n">kpt_mask</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">,</span> <span class="n">gt_kpts</span><span class="p">,</span> <span class="n">kpt_mask</span><span class="p">,</span> <span class="n">area</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate keypoint loss factor and Euclidean distance loss for keypoints."""</span>
 <span></span>    <span class="n">d</span> <span class="o">=</span> <span class="p">(</span><span class="n">pred_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">gt_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="p">(</span><span class="n">pred_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">gt_kpts</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 <span></span>    <span class="n">kpt_loss_factor</span> <span class="o">=</span> <span class="n">kpt_mask</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">kpt_mask</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="mf">1e-9</span><span class="p">)</span>
@@ -2041,25 +2129,25 @@
 <p>Criterion class for computing training losses for YOLOv8 object detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span>
-<span>159</span>
-<span>160</span>
-<span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>167</span>
 <span>168</span>
 <span>169</span>
 <span>170</span>
 <span>171</span>
 <span>172</span>
-<span>173</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">tal_topk</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>  <span class="c1"># model must be de-paralleled</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">tal_topk</span><span class="o">=</span><span class="mi">10</span><span class="p">):</span>  <span class="c1"># model must be de-paralleled</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize v8DetectionLoss with model parameters and task-aligned assignment settings."""</span>
 <span></span>    <span class="n">device</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># get model device</span>
 <span></span>    <span class="n">h</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">args</span>  <span class="c1"># hyperparameters</span>
@@ -2091,19 +2179,7 @@
 <p>Calculate the sum of the loss for box, cls and dfl multiplied by batch size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>201</span>
-<span>202</span>
-<span>203</span>
-<span>204</span>
-<span>205</span>
-<span>206</span>
-<span>207</span>
-<span>208</span>
-<span>209</span>
-<span>210</span>
-<span>211</span>
-<span>212</span>
-<span>213</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>213</span>
 <span>214</span>
 <span>215</span>
 <span>216</span>
@@ -2145,7 +2221,19 @@
 <span>252</span>
 <span>253</span>
 <span>254</span>
-<span>255</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the sum of the loss for box, cls and dfl multiplied by batch size."""</span>
 <span></span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># box, cls, dfl</span>
 <span></span>    <span class="n">feats</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span>
@@ -2214,14 +2302,14 @@
 <p>Decode predicted object bounding box coordinates from anchor points and distribution.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>192</span>
-<span>193</span>
-<span>194</span>
-<span>195</span>
-<span>196</span>
-<span>197</span>
-<span>198</span>
-<span>199</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Decode predicted object bounding box coordinates from anchor points and distribution."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_dfl</span><span class="p">:</span>
 <span></span>        <span class="n">b</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">pred_dist</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch, anchors, channels</span>
@@ -2243,22 +2331,22 @@
 <p>Preprocess targets by converting to tensor format and scaling coordinates.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span>
-<span>179</span>
-<span>180</span>
-<span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
-<span>187</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>187</span>
 <span>188</span>
 <span>189</span>
-<span>190</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">scale_tensor</span><span class="p">):</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">scale_tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocess targets by converting to tensor format and scaling coordinates."""</span>
 <span></span>    <span class="n">nl</span><span class="p">,</span> <span class="n">ne</span> <span class="o">=</span> <span class="n">targets</span><span class="o">.</span><span class="n">shape</span>
 <span></span>    <span class="k">if</span> <span class="n">nl</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
@@ -2293,10 +2381,10 @@
 <p>Criterion class for computing training losses for YOLOv8 segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>261</span>
-<span>262</span>
-<span>263</span>
-<span>264</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>  <span class="c1"># model must be de-paralleled</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>  <span class="c1"># model must be de-paralleled</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the v8SegmentationLoss class with model parameters and mask overlap setting."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">overlap</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">overlap_mask</span>
@@ -2313,19 +2401,7 @@
 <p>Calculate and return the combined loss for detection and segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>266</span>
-<span>267</span>
-<span>268</span>
-<span>269</span>
-<span>270</span>
-<span>271</span>
-<span>272</span>
-<span>273</span>
-<span>274</span>
-<span>275</span>
-<span>276</span>
-<span>277</span>
-<span>278</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>278</span>
 <span>279</span>
 <span>280</span>
 <span>281</span>
@@ -2394,7 +2470,19 @@
 <span>344</span>
 <span>345</span>
 <span>346</span>
-<span>347</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate and return the combined loss for detection and segmentation."""</span>
 <span></span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># box, seg, cls, dfl</span>
 <span></span>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_masks</span><span class="p">,</span> <span class="n">proto</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -2684,19 +2772,7 @@ For example, pred_mask can be computed as follows:
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>374</span>
-<span>375</span>
-<span>376</span>
-<span>377</span>
-<span>378</span>
-<span>379</span>
-<span>380</span>
-<span>381</span>
-<span>382</span>
-<span>383</span>
-<span>384</span>
-<span>385</span>
-<span>386</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>386</span>
 <span>387</span>
 <span>388</span>
 <span>389</span>
@@ -2748,7 +2824,19 @@ For example, pred_mask can be computed as follows:
 <span>435</span>
 <span>436</span>
 <span>437</span>
-<span>438</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_segmentation_loss</span><span class="p">(</span>
+<span>438</span>
+<span>439</span>
+<span>440</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_segmentation_loss</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">fg_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
@@ -2951,19 +3039,7 @@ predicted masks from the prototype masks and predicted mask coefficients.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>349</span>
-<span>350</span>
-<span>351</span>
-<span>352</span>
-<span>353</span>
-<span>354</span>
-<span>355</span>
-<span>356</span>
-<span>357</span>
-<span>358</span>
-<span>359</span>
-<span>360</span>
-<span>361</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>361</span>
 <span>362</span>
 <span>363</span>
 <span>364</span>
@@ -2974,7 +3050,19 @@ predicted masks from the prototype masks and predicted mask coefficients.</p>
 <span>369</span>
 <span>370</span>
 <span>371</span>
-<span>372</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">single_mask_loss</span><span class="p">(</span>
 <span></span>    <span class="n">gt_mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">proto</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">xyxy</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">area</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
@@ -3017,15 +3105,15 @@ predicted masks from the prototype masks and predicted mask coefficients.</p>
 <p>Criterion class for computing training losses for YOLOv8 pose estimation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
-<span>445</span>
-<span>446</span>
-<span>447</span>
-<span>448</span>
-<span>449</span>
-<span>450</span>
-<span>451</span>
-<span>452</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>  <span class="c1"># model must be de-paralleled</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span>
+<span>460</span>
+<span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>  <span class="c1"># model must be de-paralleled</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize v8PoseLoss with model parameters and keypoint-specific loss functions."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">kpt_shape</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">kpt_shape</span>
@@ -3047,19 +3135,7 @@ predicted masks from the prototype masks and predicted mask coefficients.</p>
 <p>Calculate the total loss and detach it for pose estimation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>454</span>
-<span>455</span>
-<span>456</span>
-<span>457</span>
-<span>458</span>
-<span>459</span>
-<span>460</span>
-<span>461</span>
-<span>462</span>
-<span>463</span>
-<span>464</span>
-<span>465</span>
-<span>466</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>466</span>
 <span>467</span>
 <span>468</span>
 <span>469</span>
@@ -3111,7 +3187,19 @@ predicted masks from the prototype masks and predicted mask coefficients.</p>
 <span>515</span>
 <span>516</span>
 <span>517</span>
-<span>518</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
+<span>530</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the total loss and detach it for pose estimation."""</span>
 <span></span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># box, cls, dfl, kpt_location, kpt_visibility</span>
 <span></span>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_kpts</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -3357,19 +3445,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>529</span>
-<span>530</span>
-<span>531</span>
-<span>532</span>
-<span>533</span>
-<span>534</span>
-<span>535</span>
-<span>536</span>
-<span>537</span>
-<span>538</span>
-<span>539</span>
-<span>540</span>
-<span>541</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>541</span>
 <span>542</span>
 <span>543</span>
 <span>544</span>
@@ -3421,7 +3497,19 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>590</span>
 <span>591</span>
 <span>592</span>
-<span>593</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_keypoints_loss</span><span class="p">(</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_keypoints_loss</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">target_gt_idx</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">batch_idx</span><span class="p">,</span> <span class="n">stride_tensor</span><span class="p">,</span> <span class="n">target_bboxes</span><span class="p">,</span> <span class="n">pred_kpts</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -3503,14 +3591,14 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Decode predicted keypoints to image coordinates.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>520</span>
-<span>521</span>
-<span>522</span>
-<span>523</span>
-<span>524</span>
-<span>525</span>
-<span>526</span>
-<span>527</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>532</span>
+<span>533</span>
+<span>534</span>
+<span>535</span>
+<span>536</span>
+<span>537</span>
+<span>538</span>
+<span>539</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">kpts_decode</span><span class="p">(</span><span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_kpts</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Decode predicted keypoints to image coordinates."""</span>
 <span></span>    <span class="n">y</span> <span class="o">=</span> <span class="n">pred_kpts</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
@@ -3542,12 +3630,12 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Compute the classification loss between predictions and true labels.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>599</span>
-<span>600</span>
-<span>601</span>
-<span>602</span>
-<span>603</span>
-<span>604</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>611</span>
+<span>612</span>
+<span>613</span>
+<span>614</span>
+<span>615</span>
+<span>616</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Compute the classification loss between predictions and true labels."""</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="n">preds</span>
 <span></span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">],</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
@@ -3572,11 +3660,11 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculates losses for object detection, classification, and box distribution in rotated YOLO models.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>610</span>
-<span>611</span>
-<span>612</span>
-<span>613</span>
-<span>614</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize v8OBBLoss with model, assigner, and rotated bbox loss; model must be de-paralleled."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">assigner</span> <span class="o">=</span> <span class="n">RotatedTaskAlignedAssigner</span><span class="p">(</span><span class="n">topk</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
@@ -3594,19 +3682,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate and return the loss for oriented bounding box detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>633</span>
-<span>634</span>
-<span>635</span>
-<span>636</span>
-<span>637</span>
-<span>638</span>
-<span>639</span>
-<span>640</span>
-<span>641</span>
-<span>642</span>
-<span>643</span>
-<span>644</span>
-<span>645</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>645</span>
 <span>646</span>
 <span>647</span>
 <span>648</span>
@@ -3664,7 +3740,19 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>700</span>
 <span>701</span>
 <span>702</span>
-<span>703</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
+<span>707</span>
+<span>708</span>
+<span>709</span>
+<span>710</span>
+<span>711</span>
+<span>712</span>
+<span>713</span>
+<span>714</span>
+<span>715</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate and return the loss for oriented bounding box detection."""</span>
 <span></span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># box, cls, dfl</span>
 <span></span>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_angle</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -3831,22 +3919,22 @@ a binary classification loss that classifies whether a keypoint is present or no
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>705</span>
-<span>706</span>
-<span>707</span>
-<span>708</span>
-<span>709</span>
-<span>710</span>
-<span>711</span>
-<span>712</span>
-<span>713</span>
-<span>714</span>
-<span>715</span>
-<span>716</span>
-<span>717</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>717</span>
 <span>718</span>
 <span>719</span>
-<span>720</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">):</span>
+<span>720</span>
+<span>721</span>
+<span>722</span>
+<span>723</span>
+<span>724</span>
+<span>725</span>
+<span>726</span>
+<span>727</span>
+<span>728</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Decode predicted object bounding box coordinates from anchor points and distribution.</span>
 <span></span>
@@ -3876,22 +3964,22 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Preprocess targets for oriented bounding box detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>616</span>
-<span>617</span>
-<span>618</span>
-<span>619</span>
-<span>620</span>
-<span>621</span>
-<span>622</span>
-<span>623</span>
-<span>624</span>
-<span>625</span>
-<span>626</span>
-<span>627</span>
-<span>628</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>628</span>
 <span>629</span>
 <span>630</span>
-<span>631</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">scale_tensor</span><span class="p">):</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span>
+<span>635</span>
+<span>636</span>
+<span>637</span>
+<span>638</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span>
+<span>643</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">scale_tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocess targets for oriented bounding box detection."""</span>
 <span></span>    <span class="k">if</span> <span class="n">targets</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -3924,10 +4012,10 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Criterion class for computing training losses for end-to-end detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>726</span>
-<span>727</span>
-<span>728</span>
-<span>729</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>738</span>
+<span>739</span>
+<span>740</span>
+<span>741</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize E2EDetectLoss with one-to-many and one-to-one detection losses using the provided model."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">one2many</span> <span class="o">=</span> <span class="n">v8DetectionLoss</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tal_topk</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">one2one</span> <span class="o">=</span> <span class="n">v8DetectionLoss</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tal_topk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -3944,14 +4032,14 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate the sum of the loss for box, cls and dfl multiplied by batch size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>731</span>
-<span>732</span>
-<span>733</span>
-<span>734</span>
-<span>735</span>
-<span>736</span>
-<span>737</span>
-<span>738</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>743</span>
+<span>744</span>
+<span>745</span>
+<span>746</span>
+<span>747</span>
+<span>748</span>
+<span>749</span>
+<span>750</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the sum of the loss for box, cls and dfl multiplied by batch size."""</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span>
 <span></span>    <span class="n">one2many</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="s2">"one2many"</span><span class="p">]</span>
@@ -3976,13 +4064,13 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Criterion class for computing training losses for text-visual prompt detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>744</span>
-<span>745</span>
-<span>746</span>
-<span>747</span>
-<span>748</span>
-<span>749</span>
-<span>750</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>756</span>
+<span>757</span>
+<span>758</span>
+<span>759</span>
+<span>760</span>
+<span>761</span>
+<span>762</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TVPDetectLoss with task-prompt and visual-prompt criteria using the provided model."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span> <span class="o">=</span> <span class="n">v8DetectionLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="c1"># NOTE: store following info as it's changeable in __call__</span>
@@ -4002,19 +4090,19 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate the loss for text-visual prompt detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>752</span>
-<span>753</span>
-<span>754</span>
-<span>755</span>
-<span>756</span>
-<span>757</span>
-<span>758</span>
-<span>759</span>
-<span>760</span>
-<span>761</span>
-<span>762</span>
-<span>763</span>
-<span>764</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>764</span>
+<span>765</span>
+<span>766</span>
+<span>767</span>
+<span>768</span>
+<span>769</span>
+<span>770</span>
+<span>771</span>
+<span>772</span>
+<span>773</span>
+<span>774</span>
+<span>775</span>
+<span>776</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the loss for text-visual prompt detection."""</span>
 <span></span>    <span class="n">feats</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span>
 <span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_reg_max</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>  <span class="c1"># TODO: remove it</span>
@@ -4046,9 +4134,9 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Criterion class for computing training losses for text-visual prompt segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>783</span>
-<span>784</span>
-<span>785</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>795</span>
+<span>796</span>
+<span>797</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TVPSegmentLoss with task-prompt and visual-prompt criteria using the provided model."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span> <span class="o">=</span> <span class="n">v8SegmentationLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4064,19 +4152,19 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate the loss for text-visual prompt segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>787</span>
-<span>788</span>
-<span>789</span>
-<span>790</span>
-<span>791</span>
-<span>792</span>
-<span>793</span>
-<span>794</span>
-<span>795</span>
-<span>796</span>
-<span>797</span>
-<span>798</span>
-<span>799</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>799</span>
+<span>800</span>
+<span>801</span>
+<span>802</span>
+<span>803</span>
+<span>804</span>
+<span>805</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span>
+<span>810</span>
+<span>811</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the loss for text-visual prompt segmentation."""</span>
 <span></span>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_masks</span><span class="p">,</span> <span class="n">proto</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">reg_max</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>
