@@ -1256,6 +1256,7 @@
 <span></span>    <span class="n">single_cls</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">fraction</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span></span>    <span class="n">channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1337,6 +1338,17 @@ in object detection tasks.</p>
 <td>
 <div class="doc-md-description">
 <p>Fraction of dataset to utilize.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.data.base.BaseDataset.cv2_flag">cv2_flag</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>OpenCV flag for reading images.</p>
 </div>
 </td>
 </tr>
@@ -1833,12 +1845,27 @@ in object detection tasks.</p>
 <code>1.0</code>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>channels</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of channels in the images (1 for grayscale, 3 for RGB).</p>
+</div>
+</td>
+<td>
+<code>3</code>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 67</span>
-<span> 68</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 68</span>
 <span> 69</span>
 <span> 70</span>
 <span> 71</span>
@@ -1909,7 +1936,12 @@ in object detection tasks.</p>
 <span>136</span>
 <span>137</span>
 <span>138</span>
-<span>139</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">img_path</span><span class="p">,</span>
 <span></span>    <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span>
@@ -1924,6 +1956,7 @@ in object detection tasks.</p>
 <span></span>    <span class="n">single_cls</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">classes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">fraction</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
+<span></span>    <span class="n">channels</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize BaseDataset with given configuration and options.</span>
@@ -1942,6 +1975,7 @@ in object detection tasks.</p>
 <span></span><span class="sd">        single_cls (bool, optional): If True, single class training is used.</span>
 <span></span><span class="sd">        classes (list, optional): List of included classes.</span>
 <span></span><span class="sd">        fraction (float, optional): Fraction of dataset to utilize.</span>
+<span></span><span class="sd">        channels (int, optional): Number of channels in the images (1 for grayscale, 3 for RGB).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">img_path</span> <span class="o">=</span> <span class="n">img_path</span>
@@ -1950,6 +1984,8 @@ in object detection tasks.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">single_cls</span> <span class="o">=</span> <span class="n">single_cls</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">prefix</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fraction</span> <span class="o">=</span> <span class="n">fraction</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">channels</span> <span class="o">=</span> <span class="n">channels</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">cv2_flag</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_GRAYSCALE</span> <span class="k">if</span> <span class="n">channels</span> <span class="o">==</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">im_files</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_img_files</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">img_path</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_labels</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update_labels</span><span class="p">(</span><span class="n">include_class</span><span class="o">=</span><span class="n">classes</span><span class="p">)</span>  <span class="c1"># single_cls and include_class</span>
@@ -1995,9 +2031,9 @@ in object detection tasks.</p>
 <p>Return transformed label information for given index.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>368</span>
-<span>369</span>
-<span>370</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>375</span>
+<span>376</span>
+<span>377</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return transformed label information for given index."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_image_and_label</span><span class="p">(</span><span class="n">index</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
@@ -2014,9 +2050,9 @@ in object detection tasks.</p>
 <p>Return the length of the labels list for the dataset.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>393</span>
-<span>394</span>
-<span>395</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>400</span>
+<span>401</span>
+<span>402</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the length of the labels list for the dataset."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2041,19 +2077,19 @@ in object detection tasks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>401</span>
-<span>402</span>
-<span>403</span>
-<span>404</span>
-<span>405</span>
-<span>406</span>
-<span>407</span>
-<span>408</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>408</span>
 <span>409</span>
 <span>410</span>
 <span>411</span>
 <span>412</span>
-<span>413</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Users can customize augmentations here.</span>
 <span></span>
@@ -2080,21 +2116,21 @@ in object detection tasks.</p>
 <p>Cache images to memory or disk for faster training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>255</span>
-<span>256</span>
-<span>257</span>
-<span>258</span>
-<span>259</span>
-<span>260</span>
-<span>261</span>
-<span>262</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>262</span>
 <span>263</span>
 <span>264</span>
 <span>265</span>
 <span>266</span>
 <span>267</span>
 <span>268</span>
-<span>269</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Cache images to memory or disk for faster training."""</span>
 <span></span>    <span class="n">b</span><span class="p">,</span> <span class="n">gb</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="o">&lt;&lt;</span> <span class="mi">30</span>  <span class="c1"># bytes of cached images, bytes per gigabytes</span>
 <span></span>    <span class="n">fcn</span><span class="p">,</span> <span class="n">storage</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">cache_images_to_disk</span><span class="p">,</span> <span class="s2">"Disk"</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">==</span> <span class="s2">"disk"</span> <span class="k">else</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">load_image</span><span class="p">,</span> <span class="s2">"RAM"</span><span class="p">)</span>
@@ -2123,11 +2159,11 @@ in object detection tasks.</p>
 <p>Save an image as an *.npy file for faster loading.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>271</span>
-<span>272</span>
-<span>273</span>
-<span>274</span>
-<span>275</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_images_to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_images_to_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Save an image as an *.npy file for faster loading."""</span>
 <span></span>    <span class="n">f</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">npy_files</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">f</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -2196,14 +2232,7 @@ in object detection tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>277</span>
-<span>278</span>
-<span>279</span>
-<span>280</span>
-<span>281</span>
-<span>282</span>
-<span>283</span>
-<span>284</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>284</span>
 <span>285</span>
 <span>286</span>
 <span>287</span>
@@ -2230,7 +2259,14 @@ in object detection tasks.</p>
 <span>308</span>
 <span>309</span>
 <span>310</span>
-<span>311</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_cache_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">safety_margin</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_cache_disk</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">safety_margin</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if there's enough disk space for caching images.</span>
 <span></span>
@@ -2329,14 +2365,7 @@ in object detection tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>313</span>
-<span>314</span>
-<span>315</span>
-<span>316</span>
-<span>317</span>
-<span>318</span>
-<span>319</span>
-<span>320</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>320</span>
 <span>321</span>
 <span>322</span>
 <span>323</span>
@@ -2357,7 +2386,14 @@ in object detection tasks.</p>
 <span>338</span>
 <span>339</span>
 <span>340</span>
-<span>341</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_cache_ram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">safety_margin</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_cache_ram</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">safety_margin</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if there's enough RAM for caching images.</span>
 <span></span>
@@ -2450,14 +2486,7 @@ in object detection tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>372</span>
-<span>373</span>
-<span>374</span>
-<span>375</span>
-<span>376</span>
-<span>377</span>
-<span>378</span>
-<span>379</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>379</span>
 <span>380</span>
 <span>381</span>
 <span>382</span>
@@ -2469,7 +2498,14 @@ in object detection tasks.</p>
 <span>388</span>
 <span>389</span>
 <span>390</span>
-<span>391</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_image_and_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_image_and_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get and return label information from the dataset.</span>
 <span></span>
@@ -2574,12 +2610,7 @@ in object detection tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
-<span>142</span>
-<span>143</span>
-<span>144</span>
-<span>145</span>
-<span>146</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
 <span>147</span>
 <span>148</span>
 <span>149</span>
@@ -2610,7 +2641,12 @@ in object detection tasks.</p>
 <span>174</span>
 <span>175</span>
 <span>176</span>
-<span>177</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_img_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_img_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Read image files from the specified path.</span>
 <span></span>
@@ -2674,14 +2710,7 @@ in object detection tasks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>415</span>
-<span>416</span>
-<span>417</span>
-<span>418</span>
-<span>419</span>
-<span>420</span>
-<span>421</span>
-<span>422</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>422</span>
 <span>423</span>
 <span>424</span>
 <span>425</span>
@@ -2691,7 +2720,14 @@ in object detection tasks.</p>
 <span>429</span>
 <span>430</span>
 <span>431</span>
-<span>432</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Users can customize their own format here.</span>
 <span></span>
@@ -2830,12 +2866,7 @@ in object detection tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>203</span>
-<span>204</span>
-<span>205</span>
-<span>206</span>
-<span>207</span>
-<span>208</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>208</span>
 <span>209</span>
 <span>210</span>
 <span>211</span>
@@ -2880,7 +2911,14 @@ in object detection tasks.</p>
 <span>250</span>
 <span>251</span>
 <span>252</span>
-<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rect_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">rect_mode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load an image from dataset index 'i'.</span>
 <span></span>
@@ -2904,9 +2942,9 @@ in object detection tasks.</p>
 <span></span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span></span>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Removing corrupt *.npy image file </span><span class="si">{</span><span class="n">fn</span><span class="si">}</span><span class="s2"> due to: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>                <span class="n">Path</span><span class="p">(</span><span class="n">fn</span><span class="p">)</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">missing_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span></span>                <span class="n">im</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># BGR</span>
+<span></span>                <span class="n">im</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cv2_flag</span><span class="p">)</span>  <span class="c1"># BGR</span>
 <span></span>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># read image</span>
-<span></span>            <span class="n">im</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>  <span class="c1"># BGR</span>
+<span></span>            <span class="n">im</span> <span class="o">=</span> <span class="n">imread</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">flags</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cv2_flag</span><span class="p">)</span>  <span class="c1"># BGR</span>
 <span></span>        <span class="k">if</span> <span class="n">im</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>            <span class="k">raise</span> <span class="ne">FileNotFoundError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Image Not Found </span><span class="si">{</span><span class="n">f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>
@@ -2918,6 +2956,8 @@ in object detection tasks.</p>
 <span></span>                <span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_LINEAR</span><span class="p">)</span>
 <span></span>        <span class="k">elif</span> <span class="ow">not</span> <span class="p">(</span><span class="n">h0</span> <span class="o">==</span> <span class="n">w0</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">):</span>  <span class="c1"># resize by stretching image to square imgsz</span>
 <span></span>            <span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">),</span> <span class="n">interpolation</span><span class="o">=</span><span class="n">cv2</span><span class="o">.</span><span class="n">INTER_LINEAR</span><span class="p">)</span>
+<span></span>        <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+<span></span>            <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>
 <span></span>
 <span></span>        <span class="c1"># Add to buffer if training with augmentations</span>
 <span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span><span class="p">:</span>
@@ -2945,14 +2985,7 @@ in object detection tasks.</p>
 <p>Set the shape of bounding boxes for YOLO detections as rectangles.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>343</span>
-<span>344</span>
-<span>345</span>
-<span>346</span>
-<span>347</span>
-<span>348</span>
-<span>349</span>
-<span>350</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>350</span>
 <span>351</span>
 <span>352</span>
 <span>353</span>
@@ -2968,7 +3001,14 @@ in object detection tasks.</p>
 <span>363</span>
 <span>364</span>
 <span>365</span>
-<span>366</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_rectangle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_rectangle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set the shape of bounding boxes for YOLO detections as rectangles."""</span>
 <span></span>    <span class="n">bi</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">floor</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">ni</span><span class="p">)</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch_size</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>  <span class="c1"># batch index</span>
 <span></span>    <span class="n">nb</span> <span class="o">=</span> <span class="n">bi</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>  <span class="c1"># number of batches</span>
@@ -3035,12 +3075,7 @@ in object detection tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>179</span>
-<span>180</span>
-<span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>184</span>
 <span>185</span>
 <span>186</span>
 <span>187</span>
@@ -3057,7 +3092,12 @@ in object detection tasks.</p>
 <span>198</span>
 <span>199</span>
 <span>200</span>
-<span>201</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]):</span>
+<span>201</span>
+<span>202</span>
+<span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">include_class</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">list</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update labels to include only specified classes.</span>
 <span></span>
@@ -3094,9 +3134,9 @@ in object detection tasks.</p>
 <p>Custom your label format here.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/base.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>397</span>
-<span>398</span>
-<span>399</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>404</span>
+<span>405</span>
+<span>406</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Custom your label format here."""</span>
 <span></span>    <span class="k">return</span> <span class="n">label</span>
 </code></pre></div></td></tr></table></div>
