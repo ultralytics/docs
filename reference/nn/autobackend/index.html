@@ -1892,10 +1892,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>565</span>
 <span>566</span>
 <span>567</span>
-<span>568</span>
-<span>569</span>
-<span>570</span>
-<span>571</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span>568</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
@@ -2008,9 +2005,6 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>    <span class="k">elif</span> <span class="n">onnx</span> <span class="ow">or</span> <span class="n">imx</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2"> for ONNX Runtime inference..."</span><span class="p">)</span>
 <span></span>        <span class="n">check_requirements</span><span class="p">((</span><span class="s2">"onnx"</span><span class="p">,</span> <span class="s2">"onnxruntime-gpu"</span> <span class="k">if</span> <span class="n">cuda</span> <span class="k">else</span> <span class="s2">"onnxruntime"</span><span class="p">))</span>
-<span></span>        <span class="k">if</span> <span class="n">IS_RASPBERRYPI</span> <span class="ow">or</span> <span class="n">IS_JETSON</span><span class="p">:</span>
-<span></span>            <span class="c1"># Fix 'numpy.linalg._umath_linalg' has no attribute '_ilp64' for TF SavedModel on RPi and Jetson</span>
-<span></span>            <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"numpy==1.23.5"</span><span class="p">)</span>
 <span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">onnxruntime</span>
 <span></span>
 <span></span>        <span class="n">providers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"CPUExecutionProvider"</span><span class="p">]</span>
@@ -2497,7 +2491,10 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>573</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>570</span>
+<span>571</span>
+<span>572</span>
+<span>573</span>
 <span>574</span>
 <span>575</span>
 <span>576</span>
@@ -2705,10 +2702,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>778</span>
 <span>779</span>
 <span>780</span>
-<span>781</span>
-<span>782</span>
-<span>783</span>
-<span>784</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>781</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Runs inference on the YOLOv8 MultiBackend model.</span>
 <span></span>
@@ -2984,17 +2978,17 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>786</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>783</span>
+<span>784</span>
+<span>785</span>
+<span>786</span>
 <span>787</span>
 <span>788</span>
 <span>789</span>
 <span>790</span>
 <span>791</span>
 <span>792</span>
-<span>793</span>
-<span>794</span>
-<span>795</span>
-<span>796</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>793</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a numpy array to a tensor.</span>
 <span></span>
@@ -3048,7 +3042,10 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>798</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>795</span>
+<span>796</span>
+<span>797</span>
+<span>798</span>
 <span>799</span>
 <span>800</span>
 <span>801</span>
@@ -3058,10 +3055,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>805</span>
 <span>806</span>
 <span>807</span>
-<span>808</span>
-<span>809</span>
-<span>810</span>
-<span>811</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)):</span>
+<span>808</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Warm up the model by running one forward pass with a dummy input.</span>
 <span></span>
