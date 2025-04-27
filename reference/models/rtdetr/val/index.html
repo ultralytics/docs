@@ -1350,7 +1350,8 @@ model, building upon the base YOLODataset functionality.</p>
 <span>78</span>
 <span>79</span>
 <span>80</span>
-<span>81</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>81</span>
+<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build transformation pipeline for the dataset.</span>
 <span></span>
@@ -1363,6 +1364,7 @@ model, building upon the base YOLODataset functionality.</p>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span><span class="p">:</span>
 <span></span>        <span class="n">hyp</span><span class="o">.</span><span class="n">mosaic</span> <span class="o">=</span> <span class="n">hyp</span><span class="o">.</span><span class="n">mosaic</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span> <span class="k">else</span> <span class="mf">0.0</span>
 <span></span>        <span class="n">hyp</span><span class="o">.</span><span class="n">mixup</span> <span class="o">=</span> <span class="n">hyp</span><span class="o">.</span><span class="n">mixup</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span> <span class="k">else</span> <span class="mf">0.0</span>
+<span></span>        <span class="n">hyp</span><span class="o">.</span><span class="n">cutmix</span> <span class="o">=</span> <span class="n">hyp</span><span class="o">.</span><span class="n">cutmix</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span> <span class="k">else</span> <span class="mf">0.0</span>
 <span></span>        <span class="n">transforms</span> <span class="o">=</span> <span class="n">v8_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="c1"># transforms = Compose([LetterBox(new_shape=(self.imgsz, self.imgsz), auto=False, scale_fill=True)])</span>
@@ -1676,8 +1678,7 @@ post-processing, and updates evaluation metrics accordingly.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>102</span>
-<span>103</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>103</span>
 <span>104</span>
 <span>105</span>
 <span>106</span>
@@ -1698,7 +1699,8 @@ post-processing, and updates evaluation metrics accordingly.</p>
 <span>121</span>
 <span>122</span>
 <span>123</span>
-<span>124</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"val"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>124</span>
+<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"val"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build an RTDETR Dataset.</span>
 <span></span>
@@ -1785,8 +1787,7 @@ post-processing, and updates evaluation metrics accordingly.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>126</span>
-<span>127</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>127</span>
 <span>128</span>
 <span>129</span>
 <span>130</span>
@@ -1810,7 +1811,8 @@ post-processing, and updates evaluation metrics accordingly.</p>
 <span>148</span>
 <span>149</span>
 <span>150</span>
-<span>151</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
+<span>151</span>
+<span>152</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply Non-maximum suppression to prediction outputs.</span>
 <span></span>

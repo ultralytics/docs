@@ -1788,7 +1788,8 @@
 <span>231</span>
 <span>232</span>
 <span>233</span>
-<span>234</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>234</span>
+<span>235</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Builds and appends transforms to the list.</span>
 <span></span>
@@ -1801,6 +1802,7 @@
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span><span class="p">:</span>
 <span></span>        <span class="n">hyp</span><span class="o">.</span><span class="n">mosaic</span> <span class="o">=</span> <span class="n">hyp</span><span class="o">.</span><span class="n">mosaic</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span> <span class="k">else</span> <span class="mf">0.0</span>
 <span></span>        <span class="n">hyp</span><span class="o">.</span><span class="n">mixup</span> <span class="o">=</span> <span class="n">hyp</span><span class="o">.</span><span class="n">mixup</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span> <span class="k">else</span> <span class="mf">0.0</span>
+<span></span>        <span class="n">hyp</span><span class="o">.</span><span class="n">cutmix</span> <span class="o">=</span> <span class="n">hyp</span><span class="o">.</span><span class="n">cutmix</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">augment</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rect</span> <span class="k">else</span> <span class="mf">0.0</span>
 <span></span>        <span class="n">transforms</span> <span class="o">=</span> <span class="n">v8_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">hyp</span><span class="p">)</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="n">transforms</span> <span class="o">=</span> <span class="n">Compose</span><span class="p">([</span><span class="n">LetterBox</span><span class="p">(</span><span class="n">new_shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">),</span> <span class="n">scaleup</span><span class="o">=</span><span class="kc">False</span><span class="p">)])</span>
@@ -2026,7 +2028,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">close_mosaic</span><span class="p">(</span><span class="n">hyp</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Sets mosaic, copy_paste and mixup options to 0.0 and builds transformations.</p>
+<p>Disable mosaic, copy_paste, mixup and cutmix augmentations by setting their probabilities to 0.0.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2058,8 +2060,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>236</span>
-<span>237</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>237</span>
 <span>238</span>
 <span>239</span>
 <span>240</span>
@@ -2068,16 +2069,19 @@
 <span>243</span>
 <span>244</span>
 <span>245</span>
-<span>246</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">):</span>
+<span>246</span>
+<span>247</span>
+<span>248</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Sets mosaic, copy_paste and mixup options to 0.0 and builds transformations.</span>
+<span></span><span class="sd">    Disable mosaic, copy_paste, mixup and cutmix augmentations by setting their probabilities to 0.0.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        hyp (dict): Hyperparameters for transforms.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">hyp</span><span class="o">.</span><span class="n">mosaic</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># set mosaic ratio=0.0</span>
-<span></span>    <span class="n">hyp</span><span class="o">.</span><span class="n">copy_paste</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># keep the same behavior as previous v8 close-mosaic</span>
-<span></span>    <span class="n">hyp</span><span class="o">.</span><span class="n">mixup</span> <span class="o">=</span> <span class="mf">0.0</span>  <span class="c1"># keep the same behavior as previous v8 close-mosaic</span>
+<span></span>    <span class="n">hyp</span><span class="o">.</span><span class="n">mosaic</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span></span>    <span class="n">hyp</span><span class="o">.</span><span class="n">copy_paste</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span></span>    <span class="n">hyp</span><span class="o">.</span><span class="n">mixup</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span></span>    <span class="n">hyp</span><span class="o">.</span><span class="n">cutmix</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_transforms</span><span class="p">(</span><span class="n">hyp</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2146,9 +2150,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>281</span>
-<span>282</span>
-<span>283</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>283</span>
 <span>284</span>
 <span>285</span>
 <span>286</span>
@@ -2174,7 +2176,9 @@
 <span>306</span>
 <span>307</span>
 <span>308</span>
-<span>309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>309</span>
+<span>310</span>
+<span>311</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Collates data samples into batches.</span>
@@ -2401,9 +2405,7 @@ Can also support classification and semantic segmentation by adding or removing 
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>248</span>
-<span>249</span>
-<span>250</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>250</span>
 <span>251</span>
 <span>252</span>
 <span>253</span>
@@ -2432,7 +2434,9 @@ Can also support classification and semantic segmentation by adding or removing 
 <span>276</span>
 <span>277</span>
 <span>278</span>
-<span>279</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<span>279</span>
+<span>280</span>
+<span>281</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Custom your label format here.</span>
 <span></span>
@@ -2594,9 +2598,7 @@ process both image and text data.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>329</span>
-<span>330</span>
-<span>331</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>331</span>
 <span>332</span>
 <span>333</span>
 <span>334</span>
@@ -2604,7 +2606,9 @@ process both image and text data.</p>
 <span>336</span>
 <span>337</span>
 <span>338</span>
-<span>339</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>339</span>
+<span>340</span>
+<span>341</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a YOLOMultiModalDataset.</span>
 <span></span>
@@ -2725,9 +2729,7 @@ process both image and text data.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>358</span>
-<span>359</span>
-<span>360</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>360</span>
 <span>361</span>
 <span>362</span>
 <span>363</span>
@@ -2747,7 +2749,9 @@ process both image and text data.</p>
 <span>377</span>
 <span>378</span>
 <span>379</span>
-<span>380</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>380</span>
+<span>381</span>
+<span>382</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Enhances data transformations with optional text augmentation for multi-modal training.</span>
 <span></span>
@@ -2834,9 +2838,7 @@ process both image and text data.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>341</span>
-<span>342</span>
-<span>343</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>343</span>
 <span>344</span>
 <span>345</span>
 <span>346</span>
@@ -2849,7 +2851,9 @@ process both image and text data.</p>
 <span>353</span>
 <span>354</span>
 <span>355</span>
-<span>356</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<span>356</span>
+<span>357</span>
+<span>358</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add texts information for multi-modal model training.</span>
 <span></span>
@@ -3025,9 +3029,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>432</span>
-<span>433</span>
-<span>434</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>434</span>
 <span>435</span>
 <span>436</span>
 <span>437</span>
@@ -3037,7 +3039,9 @@ the standard YOLO format text files.</p>
 <span>441</span>
 <span>442</span>
 <span>443</span>
-<span>444</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">json_file</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>444</span>
+<span>445</span>
+<span>446</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">json_file</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a GroundingDataset for object detection.</span>
 <span></span>
@@ -3139,9 +3143,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>585</span>
-<span>586</span>
-<span>587</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>587</span>
 <span>588</span>
 <span>589</span>
 <span>590</span>
@@ -3161,7 +3163,9 @@ the standard YOLO format text files.</p>
 <span>604</span>
 <span>605</span>
 <span>606</span>
-<span>607</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>607</span>
+<span>608</span>
+<span>609</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Configures augmentations for training with optional text loading.</span>
 <span></span>
@@ -3248,9 +3252,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>472</span>
-<span>473</span>
-<span>474</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>474</span>
 <span>475</span>
 <span>476</span>
 <span>477</span>
@@ -3337,7 +3339,9 @@ the standard YOLO format text files.</p>
 <span>558</span>
 <span>559</span>
 <span>560</span>
-<span>561</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"./labels.cache"</span><span class="p">)):</span>
+<span>561</span>
+<span>562</span>
+<span>563</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"./labels.cache"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Loads annotations from a JSON file, filters, and normalizes bounding boxes for each image.</span>
 <span></span>
@@ -3491,9 +3495,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>446</span>
-<span>447</span>
-<span>448</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>448</span>
 <span>449</span>
 <span>450</span>
 <span>451</span>
@@ -3501,7 +3503,9 @@ the standard YOLO format text files.</p>
 <span>453</span>
 <span>454</span>
 <span>455</span>
-<span>456</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_img_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
+<span>456</span>
+<span>457</span>
+<span>458</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_img_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    The image files would be read in `get_labels` function, return empty list here.</span>
 <span></span>
@@ -3547,9 +3551,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>563</span>
-<span>564</span>
-<span>565</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>565</span>
 <span>566</span>
 <span>567</span>
 <span>568</span>
@@ -3567,7 +3569,9 @@ the standard YOLO format text files.</p>
 <span>580</span>
 <span>581</span>
 <span>582</span>
-<span>583</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>583</span>
+<span>584</span>
+<span>585</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load labels from cache or generate them from JSON file.</span>
 <span></span>
@@ -3602,9 +3606,7 @@ the standard YOLO format text files.</p>
 <p>Verify the number of instances in the dataset matches expected counts.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>458</span>
-<span>459</span>
-<span>460</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>460</span>
 <span>461</span>
 <span>462</span>
 <span>463</span>
@@ -3614,7 +3616,9 @@ the standard YOLO format text files.</p>
 <span>467</span>
 <span>468</span>
 <span>469</span>
-<span>470</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>470</span>
+<span>471</span>
+<span>472</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Verify the number of instances in the dataset matches expected counts."""</span>
 <span></span>    <span class="n">instance_count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="s2">"final_mixed_train_no_coco_segm"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">json_file</span><span class="p">:</span>
@@ -3711,9 +3715,7 @@ collation function.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>660</span>
-<span>661</span>
-<span>662</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>662</span>
 <span>663</span>
 <span>664</span>
 <span>665</span>
@@ -3721,7 +3723,9 @@ collation function.</p>
 <span>667</span>
 <span>668</span>
 <span>669</span>
-<span>670</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">):</span>
+<span>670</span>
+<span>671</span>
+<span>672</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Sets mosaic, copy_paste and mixup options to 0.0 and builds transformations.</span>
 <span></span>
@@ -3799,9 +3803,7 @@ collation function.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>647</span>
-<span>648</span>
-<span>649</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>649</span>
 <span>650</span>
 <span>651</span>
 <span>652</span>
@@ -3810,7 +3812,9 @@ collation function.</p>
 <span>655</span>
 <span>656</span>
 <span>657</span>
-<span>658</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>658</span>
+<span>659</span>
+<span>660</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Collates data samples into batches.</span>
@@ -3841,9 +3845,9 @@ collation function.</p>
 <p>Semantic Segmentation Dataset.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>677</span>
-<span>678</span>
-<span>679</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>679</span>
+<span>680</span>
+<span>681</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a SemanticDataset object."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -4057,9 +4061,7 @@ parameters, and cache settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>705</span>
-<span>706</span>
-<span>707</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>707</span>
 <span>708</span>
 <span>709</span>
 <span>710</span>
@@ -4107,7 +4109,9 @@ parameters, and cache settings.</p>
 <span>752</span>
 <span>753</span>
 <span>754</span>
-<span>755</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span>755</span>
+<span>756</span>
+<span>757</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize YOLO object with root, image size, augmentations, and cache settings.</span>
 <span></span>
@@ -4221,9 +4225,7 @@ parameters, and cache settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>757</span>
-<span>758</span>
-<span>759</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>759</span>
 <span>760</span>
 <span>761</span>
 <span>762</span>
@@ -4244,7 +4246,9 @@ parameters, and cache settings.</p>
 <span>777</span>
 <span>778</span>
 <span>779</span>
-<span>780</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span>780</span>
+<span>781</span>
+<span>782</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Returns subset of data and targets corresponding to given indices.</span>
 <span></span>
@@ -4282,9 +4286,9 @@ parameters, and cache settings.</p>
 <p>Return the total number of samples in the dataset.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>782</span>
-<span>783</span>
-<span>784</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>784</span>
+<span>785</span>
+<span>786</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the total number of samples in the dataset."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4322,9 +4326,7 @@ parameters, and cache settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>786</span>
-<span>787</span>
-<span>788</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>788</span>
 <span>789</span>
 <span>790</span>
 <span>791</span>
@@ -4366,7 +4368,9 @@ parameters, and cache settings.</p>
 <span>827</span>
 <span>828</span>
 <span>829</span>
-<span>830</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>830</span>
+<span>831</span>
+<span>832</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Verify all images in dataset.</span>
 <span></span>

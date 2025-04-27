@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLO Data Augmentation" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO data augmentation, computer vision, deep learning, image transformations, model training, Ultralytics YOLO, HSV adjustments, geometric transformations, mosaic augmentation" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-data-augmentation" property="og:url"/><meta content="YOLO Data Augmentation" property="og:title"/><meta content="Learn about essential data augmentation techniques in Ultralytics YOLO. Explore various transformations, their impacts, and how to implement them effectively for improved model performance." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/albumentations-augmentation.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-data-augmentation" property="twitter:url"/><meta content="YOLO Data Augmentation" property="twitter:title"/><meta content="Learn about essential data augmentation techniques in Ultralytics YOLO. Explore various transformations, their impacts, and how to implement them effectively for improved model performance." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/albumentations-augmentation.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLO Data Augmentation", "image": ["https://github.com/ultralytics/docs/releases/download/0/albumentations-augmentation.avif"], "datePublished": "2025-04-14 03:20:24 +0200", "dateModified": "2025-04-14 20:42:50 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn about essential data augmentation techniques in Ultralytics YOLO. Explore various transformations, their impacts, and how to implement them effectively for improved model performance.", "mainEntity": [{"@type": "Question", "name": "There are too many augmentations to choose from. How do I know which ones to use?", "acceptedAnswer": {"@type": "Answer", "text": "Choosing the right augmentations depends on your specific use case and dataset. Here are a few general guidelines to help you decide: In short: keep it simple. Start with a small set of augmentations and gradually add more as needed. The goal is to improve the model's generalization and robustness, not to overcomplicate the training process. Also, make sure the augmentations you apply reflect the same data distribution your model will encounter in production."}}, {"@type": "Question", "name": "When starting a training, a see a albumentations: Blur[...] reference. Does that mean Ultralytics YOLO runs additional augmentation like blurring?", "acceptedAnswer": {"@type": "Answer", "text": "If the albumentations package is installed, Ultralytics automatically applies a set of extra image augmentations using it. These augmentations are handled internally and require no additional configuration. You can find the full list of applied transformations in our technical documentation, as well as in our Albumentations integration guide. Note that only the augmentations with a probability p greater than 0 are active. These are purposefully applied at low frequencies to mimic real-world visual artifacts, such as blur or grayscale effects."}}, {"@type": "Question", "name": "When starting a training, I don't see any reference to albumentations. Why?", "acceptedAnswer": {"@type": "Answer", "text": "Check if the albumentations package is installed. If not, you can install it by running pip install albumentations. Once installed, the package should be automatically detected and used by Ultralytics."}}]}</script></head>
+<meta content="YOLO Data Augmentation" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO data augmentation, computer vision, deep learning, image transformations, model training, Ultralytics YOLO, HSV adjustments, geometric transformations, mosaic augmentation" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/yolo-data-augmentation" property="og:url"/><meta content="YOLO Data Augmentation" property="og:title"/><meta content="Learn about essential data augmentation techniques in Ultralytics YOLO. Explore various transformations, their impacts, and how to implement them effectively for improved model performance." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/albumentations-augmentation.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/yolo-data-augmentation" property="twitter:url"/><meta content="YOLO Data Augmentation" property="twitter:title"/><meta content="Learn about essential data augmentation techniques in Ultralytics YOLO. Explore various transformations, their impacts, and how to implement them effectively for improved model performance." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/albumentations-augmentation.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "YOLO Data Augmentation", "image": ["https://github.com/ultralytics/docs/releases/download/0/albumentations-augmentation.avif"], "datePublished": "2025-04-14 03:20:24 +0200", "dateModified": "2025-04-28 03:23:29 +0530", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn about essential data augmentation techniques in Ultralytics YOLO. Explore various transformations, their impacts, and how to implement them effectively for improved model performance.", "mainEntity": [{"@type": "Question", "name": "There are too many augmentations to choose from. How do I know which ones to use?", "acceptedAnswer": {"@type": "Answer", "text": "Choosing the right augmentations depends on your specific use case and dataset. Here are a few general guidelines to help you decide: In short: keep it simple. Start with a small set of augmentations and gradually add more as needed. The goal is to improve the model's generalization and robustness, not to overcomplicate the training process. Also, make sure the augmentations you apply reflect the same data distribution your model will encounter in production."}}, {"@type": "Question", "name": "When starting a training, a see a albumentations: Blur[...] reference. Does that mean Ultralytics YOLO runs additional augmentation like blurring?", "acceptedAnswer": {"@type": "Answer", "text": "If the albumentations package is installed, Ultralytics automatically applies a set of extra image augmentations using it. These augmentations are handled internally and require no additional configuration. You can find the full list of applied transformations in our technical documentation, as well as in our Albumentations integration guide. Note that only the augmentations with a probability p greater than 0 are active. These are purposefully applied at low frequencies to mimic real-world visual artifacts, such as blur or grayscale effects."}}, {"@type": "Question", "name": "When starting a training, I don't see any reference to albumentations. Why?", "acceptedAnswer": {"@type": "Answer", "text": "Check if the albumentations package is installed. If not, you can install it by running pip install albumentations. Once installed, the package should be automatically detected and used by Ultralytics."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -439,6 +439,13 @@
 <a class="md-nav__link" href="#mixup-mixup">
 <span class="md-ellipsis">
       Mixup (mixup)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cutmix-cutmix">
+<span class="md-ellipsis">
+      CutMix (cutmix)
     </span>
 </a>
 </li>
@@ -983,6 +990,13 @@
 <a class="md-nav__link" href="#mixup-mixup">
 <span class="md-ellipsis">
       Mixup (mixup)
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cutmix-cutmix">
+<span class="md-ellipsis">
+      CutMix (cutmix)
     </span>
 </a>
 </li>
@@ -1531,6 +1545,36 @@
 </tr>
 </tbody>
 </table>
+<h3 id="cutmix-cutmix">CutMix (<code>cutmix</code>)</h3>
+<ul>
+<li><strong>Range</strong>: <code>0.0</code> - <code>1.0</code></li>
+<li><strong>Default</strong>: <code>0.0</code></li>
+<li><strong>Usage</strong>: Cuts a rectangular region from one image and pastes it onto another image with given probability. The <code>cutmix</code> hyperparameter defines the probability of applying the transformation, with <code>cutmix=1.0</code> ensuring that all images undergo this transformation and <code>cutmix=0.0</code> disabling it completely. For example, with <code>cutmix=0.5</code>, each image has a 50% chance of having a region replaced with a patch from another image.</li>
+<li><strong>Purpose</strong>: Enhances model performance by creating realistic occlusion scenarios while maintaining local feature integrity. For example, in autonomous driving systems, cutmix helps the model learn to recognize vehicles or pedestrians even when they're partially occluded by other objects, improving detection accuracy in complex real-world environments with overlapping objects.</li>
+<li><strong>Ultralytics' implementation</strong>: <a href="https://docs.ultralytics.com/reference/data/augment/#ultralytics.data.augment.CutMix">CutMix</a></li>
+<li><strong>Note</strong>:<ul>
+<li>The size and position of the cut region is determined randomly for each application.</li>
+<li>Unlike mixup which blends pixel values globally, cutmix maintains the original pixel intensities within the cut regions, preserving local features.</li>
+<li>CutMix is particularly effective for object detection tasks as it creates hard examples that force the model to learn more robust representations.</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>First image, <code>cutmix</code> off</strong></th>
+<th style="text-align: center;"><strong>Second image, <code>cutmix</code> off</strong></th>
+<th style="text-align: center;"><strong><code>cutmix</code> on</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="augmentation_cutmix_identity_1" src="https://github.com/ultralytics/docs/releases/download/0/augmentation_identity.avif" width="60%"/></td>
+<td style="text-align: center;"><img alt="augmentation_cutmix_identity_2" src="https://github.com/ultralytics/docs/releases/download/0/augmentation_cutmix_identity_2.avif" width="60%"/></td>
+<td style="text-align: center;"><img alt="cutmix_on_augmentation" src="https://github.com/ultralytics/docs/releases/download/0/augmentation_cutmix_on.avif" width="85%"/></td>
+</tr>
+</tbody>
+</table>
 <h2 id="segmentation-specific-augmentations">Segmentation-Specific Augmentations</h2>
 <h3 id="copy-paste-copy_paste">Copy-Paste (<code>copy_paste</code>)</h3>
 <ul>
@@ -1662,11 +1706,14 @@
 <span class="date-item" title="This page was first created on April 14, 2025">
 <span class="hover-item">📅</span> Created 13 days ago
     </span>
-<span class="date-item" title="This page was last updated on April 14, 2025">
-<span class="hover-item">✏️</span> Updated 13 days ago
+<span class="date-item" title="This page was last updated on April 28, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
+<a class="author-link" href="https://github.com/artzuros" title="artzuros (1 change)">
+<img alt="artzuros" class="hover-item" loading="lazy" src="https://github.com/artzuros.png&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
 </a>
