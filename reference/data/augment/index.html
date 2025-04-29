@@ -4347,7 +4347,7 @@ values and labels. This implementation is designed for use with the Ultralytics 
 <h2 class="doc doc-heading" id="ultralytics.data.augment.CutMix">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.augment.CutMix</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">CutMix</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">CutMix</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">num_areas</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -4406,6 +4406,17 @@ and adjusts the labels proportionally to the area of the mixed region.</p>
 <td>
 <div class="doc-md-description">
 <p>Beta distribution parameter for sampling the mixing ratio (default=1.0).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.data.augment.CutMix.num_areas">num_areas</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of areas to try to cut and mix (default=3).</p>
 </div>
 </td>
 </tr>
@@ -4519,12 +4530,27 @@ and adjusts the labels proportionally to the area of the mixed region.</p>
 <code>1.0</code>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>num_areas</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of areas to try to cut and mix (default=3).</p>
+</div>
+</td>
+<td>
+<code>3</code>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>957</span>
-<span>958</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>958</span>
 <span>959</span>
 <span>960</span>
 <span>961</span>
@@ -4534,7 +4560,10 @@ and adjusts the labels proportionally to the area of the mixed region.</p>
 <span>965</span>
 <span>966</span>
 <span>967</span>
-<span>968</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>968</span>
+<span>969</span>
+<span>970</span>
+<span>971</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">num_areas</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the CutMix augmentation object.</span>
 <span></span>
@@ -4543,9 +4572,11 @@ and adjusts the labels proportionally to the area of the mixed region.</p>
 <span></span><span class="sd">        pre_transform (Callable | None): Optional transform to apply before CutMix.</span>
 <span></span><span class="sd">        p (float): Probability of applying CutMix augmentation.</span>
 <span></span><span class="sd">        beta (float): Beta distribution parameter for sampling the mixing ratio (default=1.0).</span>
+<span></span><span class="sd">        num_areas (int): Number of areas to try to cut and mix (default=3).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="n">pre_transform</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">beta</span> <span class="o">=</span> <span class="n">beta</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">num_areas</span> <span class="o">=</span> <span class="n">num_areas</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -4864,22 +4895,7 @@ transformation.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1068</span>
-<span>1069</span>
-<span>1070</span>
-<span>1071</span>
-<span>1072</span>
-<span>1073</span>
-<span>1074</span>
-<span>1075</span>
-<span>1076</span>
-<span>1077</span>
-<span>1078</span>
-<span>1079</span>
-<span>1080</span>
-<span>1081</span>
-<span>1082</span>
-<span>1083</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1083</span>
 <span>1084</span>
 <span>1085</span>
 <span>1086</span>
@@ -4893,7 +4909,22 @@ transformation.</p>
 <span>1094</span>
 <span>1095</span>
 <span>1096</span>
-<span>1097</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1097</span>
+<span>1098</span>
+<span>1099</span>
+<span>1100</span>
+<span>1101</span>
+<span>1102</span>
+<span>1103</span>
+<span>1104</span>
+<span>1105</span>
+<span>1106</span>
+<span>1107</span>
+<span>1108</span>
+<span>1109</span>
+<span>1110</span>
+<span>1111</span>
+<span>1112</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">degrees</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">translate</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">shear</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">perspective</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">border</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -5010,22 +5041,7 @@ May include:
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1265</span>
-<span>1266</span>
-<span>1267</span>
-<span>1268</span>
-<span>1269</span>
-<span>1270</span>
-<span>1271</span>
-<span>1272</span>
-<span>1273</span>
-<span>1274</span>
-<span>1275</span>
-<span>1276</span>
-<span>1277</span>
-<span>1278</span>
-<span>1279</span>
-<span>1280</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1280</span>
 <span>1281</span>
 <span>1282</span>
 <span>1283</span>
@@ -5086,7 +5102,22 @@ May include:
 <span>1338</span>
 <span>1339</span>
 <span>1340</span>
-<span>1341</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>1341</span>
+<span>1342</span>
+<span>1343</span>
+<span>1344</span>
+<span>1345</span>
+<span>1346</span>
+<span>1347</span>
+<span>1348</span>
+<span>1349</span>
+<span>1350</span>
+<span>1351</span>
+<span>1352</span>
+<span>1353</span>
+<span>1354</span>
+<span>1355</span>
+<span>1356</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies random perspective and affine transformations to an image and its associated labels.</span>
 <span></span>
@@ -5272,22 +5303,7 @@ applied in a specific order to maintain consistency.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1099</span>
-<span>1100</span>
-<span>1101</span>
-<span>1102</span>
-<span>1103</span>
-<span>1104</span>
-<span>1105</span>
-<span>1106</span>
-<span>1107</span>
-<span>1108</span>
-<span>1109</span>
-<span>1110</span>
-<span>1111</span>
-<span>1112</span>
-<span>1113</span>
-<span>1114</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1114</span>
 <span>1115</span>
 <span>1116</span>
 <span>1117</span>
@@ -5332,7 +5348,22 @@ applied in a specific order to maintain consistency.</p>
 <span>1156</span>
 <span>1157</span>
 <span>1158</span>
-<span>1159</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">affine_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">border</span><span class="p">):</span>
+<span>1159</span>
+<span>1160</span>
+<span>1161</span>
+<span>1162</span>
+<span>1163</span>
+<span>1164</span>
+<span>1165</span>
+<span>1166</span>
+<span>1167</span>
+<span>1168</span>
+<span>1169</span>
+<span>1170</span>
+<span>1171</span>
+<span>1172</span>
+<span>1173</span>
+<span>1174</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">affine_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">border</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies a sequence of affine transformations centered around the image center.</span>
 <span></span>
@@ -5481,22 +5512,7 @@ of bounding boxes.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1161</span>
-<span>1162</span>
-<span>1163</span>
-<span>1164</span>
-<span>1165</span>
-<span>1166</span>
-<span>1167</span>
-<span>1168</span>
-<span>1169</span>
-<span>1170</span>
-<span>1171</span>
-<span>1172</span>
-<span>1173</span>
-<span>1174</span>
-<span>1175</span>
-<span>1176</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1176</span>
 <span>1177</span>
 <span>1178</span>
 <span>1179</span>
@@ -5513,7 +5529,22 @@ of bounding boxes.</p>
 <span>1190</span>
 <span>1191</span>
 <span>1192</span>
-<span>1193</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_bboxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+<span>1193</span>
+<span>1194</span>
+<span>1195</span>
+<span>1196</span>
+<span>1197</span>
+<span>1198</span>
+<span>1199</span>
+<span>1200</span>
+<span>1201</span>
+<span>1202</span>
+<span>1203</span>
+<span>1204</span>
+<span>1205</span>
+<span>1206</span>
+<span>1207</span>
+<span>1208</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_bboxes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply affine transformation to bounding boxes.</span>
 <span></span>
@@ -5636,22 +5667,7 @@ boundaries after transformation.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1231</span>
-<span>1232</span>
-<span>1233</span>
-<span>1234</span>
-<span>1235</span>
-<span>1236</span>
-<span>1237</span>
-<span>1238</span>
-<span>1239</span>
-<span>1240</span>
-<span>1241</span>
-<span>1242</span>
-<span>1243</span>
-<span>1244</span>
-<span>1245</span>
-<span>1246</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1246</span>
 <span>1247</span>
 <span>1248</span>
 <span>1249</span>
@@ -5668,7 +5684,22 @@ boundaries after transformation.</p>
 <span>1260</span>
 <span>1261</span>
 <span>1262</span>
-<span>1263</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_keypoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+<span>1263</span>
+<span>1264</span>
+<span>1265</span>
+<span>1266</span>
+<span>1267</span>
+<span>1268</span>
+<span>1269</span>
+<span>1270</span>
+<span>1271</span>
+<span>1272</span>
+<span>1273</span>
+<span>1274</span>
+<span>1275</span>
+<span>1276</span>
+<span>1277</span>
+<span>1278</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_keypoints</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies affine transformation to keypoints.</span>
 <span></span>
@@ -5799,22 +5830,7 @@ number of points in each segment.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1195</span>
-<span>1196</span>
-<span>1197</span>
-<span>1198</span>
-<span>1199</span>
-<span>1200</span>
-<span>1201</span>
-<span>1202</span>
-<span>1203</span>
-<span>1204</span>
-<span>1205</span>
-<span>1206</span>
-<span>1207</span>
-<span>1208</span>
-<span>1209</span>
-<span>1210</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1210</span>
 <span>1211</span>
 <span>1212</span>
 <span>1213</span>
@@ -5833,7 +5849,22 @@ number of points in each segment.</p>
 <span>1226</span>
 <span>1227</span>
 <span>1228</span>
-<span>1229</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
+<span>1229</span>
+<span>1230</span>
+<span>1231</span>
+<span>1232</span>
+<span>1233</span>
+<span>1234</span>
+<span>1235</span>
+<span>1236</span>
+<span>1237</span>
+<span>1238</span>
+<span>1239</span>
+<span>1240</span>
+<span>1241</span>
+<span>1242</span>
+<span>1243</span>
+<span>1244</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_segments</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">M</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply affine transformations to segments and generate new bounding boxes.</span>
 <span></span>
@@ -6032,22 +6063,7 @@ True values correspond to boxes that meet all criteria.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1343</span>
-<span>1344</span>
-<span>1345</span>
-<span>1346</span>
-<span>1347</span>
-<span>1348</span>
-<span>1349</span>
-<span>1350</span>
-<span>1351</span>
-<span>1352</span>
-<span>1353</span>
-<span>1354</span>
-<span>1355</span>
-<span>1356</span>
-<span>1357</span>
-<span>1358</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1358</span>
 <span>1359</span>
 <span>1360</span>
 <span>1361</span>
@@ -6069,7 +6085,22 @@ True values correspond to boxes that meet all criteria.</p>
 <span>1377</span>
 <span>1378</span>
 <span>1379</span>
-<span>1380</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>1380</span>
+<span>1381</span>
+<span>1382</span>
+<span>1383</span>
+<span>1384</span>
+<span>1385</span>
+<span>1386</span>
+<span>1387</span>
+<span>1388</span>
+<span>1389</span>
+<span>1390</span>
+<span>1391</span>
+<span>1392</span>
+<span>1393</span>
+<span>1394</span>
+<span>1395</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">box_candidates</span><span class="p">(</span><span class="n">box1</span><span class="p">,</span> <span class="n">box2</span><span class="p">,</span> <span class="n">wh_thr</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ar_thr</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">area_thr</span><span class="o">=</span><span class="mf">0.1</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-16</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute candidate boxes for further processing based on size and aspect ratio criteria.</span>
@@ -6264,24 +6295,24 @@ True values correspond to boxes that meet all criteria.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1407</span>
-<span>1408</span>
-<span>1409</span>
-<span>1410</span>
-<span>1411</span>
-<span>1412</span>
-<span>1413</span>
-<span>1414</span>
-<span>1415</span>
-<span>1416</span>
-<span>1417</span>
-<span>1418</span>
-<span>1419</span>
-<span>1420</span>
-<span>1421</span>
-<span>1422</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1422</span>
 <span>1423</span>
-<span>1424</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1424</span>
+<span>1425</span>
+<span>1426</span>
+<span>1427</span>
+<span>1428</span>
+<span>1429</span>
+<span>1430</span>
+<span>1431</span>
+<span>1432</span>
+<span>1433</span>
+<span>1434</span>
+<span>1435</span>
+<span>1436</span>
+<span>1437</span>
+<span>1438</span>
+<span>1439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">sgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">vgain</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the RandomHSV object for random HSV (Hue, Saturation, Value) augmentation.</span>
 <span></span>
@@ -6372,22 +6403,7 @@ with the HSV-augmented image.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1426</span>
-<span>1427</span>
-<span>1428</span>
-<span>1429</span>
-<span>1430</span>
-<span>1431</span>
-<span>1432</span>
-<span>1433</span>
-<span>1434</span>
-<span>1435</span>
-<span>1436</span>
-<span>1437</span>
-<span>1438</span>
-<span>1439</span>
-<span>1440</span>
-<span>1441</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1441</span>
 <span>1442</span>
 <span>1443</span>
 <span>1444</span>
@@ -6410,7 +6426,22 @@ with the HSV-augmented image.</p>
 <span>1461</span>
 <span>1462</span>
 <span>1463</span>
-<span>1464</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>1464</span>
+<span>1465</span>
+<span>1466</span>
+<span>1467</span>
+<span>1468</span>
+<span>1469</span>
+<span>1470</span>
+<span>1471</span>
+<span>1472</span>
+<span>1473</span>
+<span>1474</span>
+<span>1475</span>
+<span>1476</span>
+<span>1477</span>
+<span>1478</span>
+<span>1479</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies random HSV augmentation to an image within predefined limits.</span>
 <span></span>
@@ -6626,22 +6657,7 @@ It also updates any instances (bounding boxes, keypoints, etc.) accordingly.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1489</span>
-<span>1490</span>
-<span>1491</span>
-<span>1492</span>
-<span>1493</span>
-<span>1494</span>
-<span>1495</span>
-<span>1496</span>
-<span>1497</span>
-<span>1498</span>
-<span>1499</span>
-<span>1500</span>
-<span>1501</span>
-<span>1502</span>
-<span>1503</span>
-<span>1504</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1504</span>
 <span>1505</span>
 <span>1506</span>
 <span>1507</span>
@@ -6650,7 +6666,22 @@ It also updates any instances (bounding boxes, keypoints, etc.) accordingly.</p>
 <span>1510</span>
 <span>1511</span>
 <span>1512</span>
-<span>1513</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span> <span class="n">flip_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1513</span>
+<span>1514</span>
+<span>1515</span>
+<span>1516</span>
+<span>1517</span>
+<span>1518</span>
+<span>1519</span>
+<span>1520</span>
+<span>1521</span>
+<span>1522</span>
+<span>1523</span>
+<span>1524</span>
+<span>1525</span>
+<span>1526</span>
+<span>1527</span>
+<span>1528</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">direction</span><span class="o">=</span><span class="s2">"horizontal"</span><span class="p">,</span> <span class="n">flip_idx</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the RandomFlip class with probability and direction.</span>
 <span></span>
@@ -6751,22 +6782,7 @@ match the flipped image.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1515</span>
-<span>1516</span>
-<span>1517</span>
-<span>1518</span>
-<span>1519</span>
-<span>1520</span>
-<span>1521</span>
-<span>1522</span>
-<span>1523</span>
-<span>1524</span>
-<span>1525</span>
-<span>1526</span>
-<span>1527</span>
-<span>1528</span>
-<span>1529</span>
-<span>1530</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1530</span>
 <span>1531</span>
 <span>1532</span>
 <span>1533</span>
@@ -6794,7 +6810,22 @@ match the flipped image.</p>
 <span>1555</span>
 <span>1556</span>
 <span>1557</span>
-<span>1558</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>1558</span>
+<span>1559</span>
+<span>1560</span>
+<span>1561</span>
+<span>1562</span>
+<span>1563</span>
+<span>1564</span>
+<span>1565</span>
+<span>1566</span>
+<span>1567</span>
+<span>1568</span>
+<span>1569</span>
+<span>1570</span>
+<span>1571</span>
+<span>1572</span>
+<span>1573</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies random flip to an image and updates any instances like bounding boxes or keypoints accordingly.</span>
 <span></span>
@@ -7149,22 +7180,7 @@ tasks. It supports various resizing modes including auto-sizing, scale-fill, and
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1586</span>
-<span>1587</span>
-<span>1588</span>
-<span>1589</span>
-<span>1590</span>
-<span>1591</span>
-<span>1592</span>
-<span>1593</span>
-<span>1594</span>
-<span>1595</span>
-<span>1596</span>
-<span>1597</span>
-<span>1598</span>
-<span>1599</span>
-<span>1600</span>
-<span>1601</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1601</span>
 <span>1602</span>
 <span>1603</span>
 <span>1604</span>
@@ -7180,7 +7196,22 @@ tasks. It supports various resizing modes including auto-sizing, scale-fill, and
 <span>1614</span>
 <span>1615</span>
 <span>1616</span>
-<span>1617</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scale_fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scaleup</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+<span>1617</span>
+<span>1618</span>
+<span>1619</span>
+<span>1620</span>
+<span>1621</span>
+<span>1622</span>
+<span>1623</span>
+<span>1624</span>
+<span>1625</span>
+<span>1626</span>
+<span>1627</span>
+<span>1628</span>
+<span>1629</span>
+<span>1630</span>
+<span>1631</span>
+<span>1632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">new_shape</span><span class="o">=</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scale_fill</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">scaleup</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">center</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize LetterBox object for resizing and padding images.</span>
 <span></span>
@@ -7301,22 +7332,7 @@ and padded image, and a tuple of (ratio, (left_pad, top_pad)).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1619</span>
-<span>1620</span>
-<span>1621</span>
-<span>1622</span>
-<span>1623</span>
-<span>1624</span>
-<span>1625</span>
-<span>1626</span>
-<span>1627</span>
-<span>1628</span>
-<span>1629</span>
-<span>1630</span>
-<span>1631</span>
-<span>1632</span>
-<span>1633</span>
-<span>1634</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1634</span>
 <span>1635</span>
 <span>1636</span>
 <span>1637</span>
@@ -7375,7 +7391,22 @@ and padded image, and a tuple of (ratio, (left_pad, top_pad)).</p>
 <span>1690</span>
 <span>1691</span>
 <span>1692</span>
-<span>1693</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1693</span>
+<span>1694</span>
+<span>1695</span>
+<span>1696</span>
+<span>1697</span>
+<span>1698</span>
+<span>1699</span>
+<span>1700</span>
+<span>1701</span>
+<span>1702</span>
+<span>1703</span>
+<span>1704</span>
+<span>1705</span>
+<span>1706</span>
+<span>1707</span>
+<span>1708</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Resizes and pads an image for object detection, instance segmentation, or pose estimation tasks.</span>
 <span></span>
@@ -7550,11 +7581,11 @@ different images to create new training samples.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1750</span>
-<span>1751</span>
-<span>1752</span>
-<span>1753</span>
-<span>1754</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"flip"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1765</span>
+<span>1766</span>
+<span>1767</span>
+<span>1768</span>
+<span>1769</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"flip"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes CopyPaste object with dataset, pre_transform, and probability of applying MixUp."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="n">dataset</span><span class="p">,</span> <span class="n">pre_transform</span><span class="o">=</span><span class="n">pre_transform</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
 <span></span>    <span class="k">assert</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"flip"</span><span class="p">,</span> <span class="s2">"mixup"</span><span class="p">},</span> <span class="sa">f</span><span class="s2">"Expected `mode` to be `flip` or `mixup`, but got </span><span class="si">{</span><span class="n">mode</span><span class="si">}</span><span class="s2">."</span>
@@ -7572,22 +7603,7 @@ different images to create new training samples.</p>
 <p>Applies Copy-Paste augmentation to an image and its labels.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1761</span>
-<span>1762</span>
-<span>1763</span>
-<span>1764</span>
-<span>1765</span>
-<span>1766</span>
-<span>1767</span>
-<span>1768</span>
-<span>1769</span>
-<span>1770</span>
-<span>1771</span>
-<span>1772</span>
-<span>1773</span>
-<span>1774</span>
-<span>1775</span>
-<span>1776</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1776</span>
 <span>1777</span>
 <span>1778</span>
 <span>1779</span>
@@ -7597,7 +7613,22 @@ different images to create new training samples.</p>
 <span>1783</span>
 <span>1784</span>
 <span>1785</span>
-<span>1786</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>1786</span>
+<span>1787</span>
+<span>1788</span>
+<span>1789</span>
+<span>1790</span>
+<span>1791</span>
+<span>1792</span>
+<span>1793</span>
+<span>1794</span>
+<span>1795</span>
+<span>1796</span>
+<span>1797</span>
+<span>1798</span>
+<span>1799</span>
+<span>1800</span>
+<span>1801</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Applies Copy-Paste augmentation to an image and its labels."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">[</span><span class="s2">"instances"</span><span class="p">]</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="n">labels</span>
@@ -7841,22 +7872,7 @@ contrast, RandomGamma, and image quality reduction through compression.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1848</span>
-<span>1849</span>
-<span>1850</span>
-<span>1851</span>
-<span>1852</span>
-<span>1853</span>
-<span>1854</span>
-<span>1855</span>
-<span>1856</span>
-<span>1857</span>
-<span>1858</span>
-<span>1859</span>
-<span>1860</span>
-<span>1861</span>
-<span>1862</span>
-<span>1863</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1863</span>
 <span>1864</span>
 <span>1865</span>
 <span>1866</span>
@@ -7953,7 +7969,22 @@ contrast, RandomGamma, and image quality reduction through compression.</p>
 <span>1957</span>
 <span>1958</span>
 <span>1959</span>
-<span>1960</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
+<span>1960</span>
+<span>1961</span>
+<span>1962</span>
+<span>1963</span>
+<span>1964</span>
+<span>1965</span>
+<span>1966</span>
+<span>1967</span>
+<span>1968</span>
+<span>1969</span>
+<span>1970</span>
+<span>1971</span>
+<span>1972</span>
+<span>1973</span>
+<span>1974</span>
+<span>1975</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="mf">1.0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Albumentations transform object for YOLO bbox formatted parameters.</span>
 <span></span>
@@ -8152,22 +8183,7 @@ spatial and non-spatial transformations on the input image and its corresponding
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1962</span>
-<span>1963</span>
-<span>1964</span>
-<span>1965</span>
-<span>1966</span>
-<span>1967</span>
-<span>1968</span>
-<span>1969</span>
-<span>1970</span>
-<span>1971</span>
-<span>1972</span>
-<span>1973</span>
-<span>1974</span>
-<span>1975</span>
-<span>1976</span>
-<span>1977</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1977</span>
 <span>1978</span>
 <span>1979</span>
 <span>1980</span>
@@ -8206,7 +8222,22 @@ spatial and non-spatial transformations on the input image and its corresponding
 <span>2013</span>
 <span>2014</span>
 <span>2015</span>
-<span>2016</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>2016</span>
+<span>2017</span>
+<span>2018</span>
+<span>2019</span>
+<span>2020</span>
+<span>2021</span>
+<span>2022</span>
+<span>2023</span>
+<span>2024</span>
+<span>2025</span>
+<span>2026</span>
+<span>2027</span>
+<span>2028</span>
+<span>2029</span>
+<span>2030</span>
+<span>2031</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies Albumentations transformations to input labels.</span>
 <span></span>
@@ -8717,22 +8748,7 @@ estimation tasks, preparing them for use in PyTorch DataLoader's <code>collate_f
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2049</span>
-<span>2050</span>
-<span>2051</span>
-<span>2052</span>
-<span>2053</span>
-<span>2054</span>
-<span>2055</span>
-<span>2056</span>
-<span>2057</span>
-<span>2058</span>
-<span>2059</span>
-<span>2060</span>
-<span>2061</span>
-<span>2062</span>
-<span>2063</span>
-<span>2064</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2064</span>
 <span>2065</span>
 <span>2066</span>
 <span>2067</span>
@@ -8770,7 +8786,22 @@ estimation tasks, preparing them for use in PyTorch DataLoader's <code>collate_f
 <span>2099</span>
 <span>2100</span>
 <span>2101</span>
-<span>2102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>2102</span>
+<span>2103</span>
+<span>2104</span>
+<span>2105</span>
+<span>2106</span>
+<span>2107</span>
+<span>2108</span>
+<span>2109</span>
+<span>2110</span>
+<span>2111</span>
+<span>2112</span>
+<span>2113</span>
+<span>2114</span>
+<span>2115</span>
+<span>2116</span>
+<span>2117</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">bbox_format</span><span class="o">=</span><span class="s2">"xywh"</span><span class="p">,</span>
 <span></span>    <span class="n">normalize</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
@@ -8905,22 +8936,7 @@ applying normalization if required.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2104</span>
-<span>2105</span>
-<span>2106</span>
-<span>2107</span>
-<span>2108</span>
-<span>2109</span>
-<span>2110</span>
-<span>2111</span>
-<span>2112</span>
-<span>2113</span>
-<span>2114</span>
-<span>2115</span>
-<span>2116</span>
-<span>2117</span>
-<span>2118</span>
-<span>2119</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2119</span>
 <span>2120</span>
 <span>2121</span>
 <span>2122</span>
@@ -8970,7 +8986,22 @@ applying normalization if required.</p>
 <span>2166</span>
 <span>2167</span>
 <span>2168</span>
-<span>2169</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>2169</span>
+<span>2170</span>
+<span>2171</span>
+<span>2172</span>
+<span>2173</span>
+<span>2174</span>
+<span>2175</span>
+<span>2176</span>
+<span>2177</span>
+<span>2178</span>
+<span>2179</span>
+<span>2180</span>
+<span>2181</span>
+<span>2182</span>
+<span>2183</span>
+<span>2184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Formats image annotations for object detection, instance segmentation, and pose estimation tasks.</span>
 <span></span>
@@ -9082,14 +9113,14 @@ applying normalization if required.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2237</span>
-<span>2238</span>
-<span>2239</span>
-<span>2240</span>
-<span>2241</span>
-<span>2242</span>
-<span>2243</span>
-<span>2244</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">8</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2252</span>
+<span>2253</span>
+<span>2254</span>
+<span>2255</span>
+<span>2256</span>
+<span>2257</span>
+<span>2258</span>
+<span>2259</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale_factor</span><span class="o">=</span><span class="mi">1</span> <span class="o">/</span> <span class="mi">8</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the LoadVisualPrompt with a scale factor.</span>
 <span></span>
@@ -9160,26 +9191,26 @@ applying normalization if required.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2264</span>
-<span>2265</span>
-<span>2266</span>
-<span>2267</span>
-<span>2268</span>
-<span>2269</span>
-<span>2270</span>
-<span>2271</span>
-<span>2272</span>
-<span>2273</span>
-<span>2274</span>
-<span>2275</span>
-<span>2276</span>
-<span>2277</span>
-<span>2278</span>
-<span>2279</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2279</span>
 <span>2280</span>
 <span>2281</span>
 <span>2282</span>
-<span>2283</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>2283</span>
+<span>2284</span>
+<span>2285</span>
+<span>2286</span>
+<span>2287</span>
+<span>2288</span>
+<span>2289</span>
+<span>2290</span>
+<span>2291</span>
+<span>2292</span>
+<span>2293</span>
+<span>2294</span>
+<span>2295</span>
+<span>2296</span>
+<span>2297</span>
+<span>2298</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process labels to create visual prompts.</span>
 <span></span>
@@ -9332,22 +9363,7 @@ applying normalization if required.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2285</span>
-<span>2286</span>
-<span>2287</span>
-<span>2288</span>
-<span>2289</span>
-<span>2290</span>
-<span>2291</span>
-<span>2292</span>
-<span>2293</span>
-<span>2294</span>
-<span>2295</span>
-<span>2296</span>
-<span>2297</span>
-<span>2298</span>
-<span>2299</span>
-<span>2300</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2300</span>
 <span>2301</span>
 <span>2302</span>
 <span>2303</span>
@@ -9371,7 +9387,22 @@ applying normalization if required.</p>
 <span>2321</span>
 <span>2322</span>
 <span>2323</span>
-<span>2324</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_visuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>2324</span>
+<span>2325</span>
+<span>2326</span>
+<span>2327</span>
+<span>2328</span>
+<span>2329</span>
+<span>2330</span>
+<span>2331</span>
+<span>2332</span>
+<span>2333</span>
+<span>2334</span>
+<span>2335</span>
+<span>2336</span>
+<span>2337</span>
+<span>2338</span>
+<span>2339</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_visuals</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">category</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate visual masks based on bounding boxes or masks.</span>
 <span></span>
@@ -9507,23 +9538,23 @@ applying normalization if required.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2246</span>
-<span>2247</span>
-<span>2248</span>
-<span>2249</span>
-<span>2250</span>
-<span>2251</span>
-<span>2252</span>
-<span>2253</span>
-<span>2254</span>
-<span>2255</span>
-<span>2256</span>
-<span>2257</span>
-<span>2258</span>
-<span>2259</span>
-<span>2260</span>
-<span>2261</span>
-<span>2262</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2261</span>
+<span>2262</span>
+<span>2263</span>
+<span>2264</span>
+<span>2265</span>
+<span>2266</span>
+<span>2267</span>
+<span>2268</span>
+<span>2269</span>
+<span>2270</span>
+<span>2271</span>
+<span>2272</span>
+<span>2273</span>
+<span>2274</span>
+<span>2275</span>
+<span>2276</span>
+<span>2277</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_mask</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Create binary masks from bounding boxes.</span>
 <span></span>
@@ -9834,22 +9865,7 @@ be equal to max_samples. Default is False.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2353</span>
-<span>2354</span>
-<span>2355</span>
-<span>2356</span>
-<span>2357</span>
-<span>2358</span>
-<span>2359</span>
-<span>2360</span>
-<span>2361</span>
-<span>2362</span>
-<span>2363</span>
-<span>2364</span>
-<span>2365</span>
-<span>2366</span>
-<span>2367</span>
-<span>2368</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2368</span>
 <span>2369</span>
 <span>2370</span>
 <span>2371</span>
@@ -9879,7 +9895,22 @@ be equal to max_samples. Default is False.</p>
 <span>2395</span>
 <span>2396</span>
 <span>2397</span>
-<span>2398</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>2398</span>
+<span>2399</span>
+<span>2400</span>
+<span>2401</span>
+<span>2402</span>
+<span>2403</span>
+<span>2404</span>
+<span>2405</span>
+<span>2406</span>
+<span>2407</span>
+<span>2408</span>
+<span>2409</span>
+<span>2410</span>
+<span>2411</span>
+<span>2412</span>
+<span>2413</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">prompt_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"</span><span class="si">{}</span><span class="s2">"</span><span class="p">,</span>
 <span></span>    <span class="n">neg_samples</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
@@ -9996,22 +10027,7 @@ new sampled text order.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2400</span>
-<span>2401</span>
-<span>2402</span>
-<span>2403</span>
-<span>2404</span>
-<span>2405</span>
-<span>2406</span>
-<span>2407</span>
-<span>2408</span>
-<span>2409</span>
-<span>2410</span>
-<span>2411</span>
-<span>2412</span>
-<span>2413</span>
-<span>2414</span>
-<span>2415</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2415</span>
 <span>2416</span>
 <span>2417</span>
 <span>2418</span>
@@ -10059,7 +10075,22 @@ new sampled text order.</p>
 <span>2460</span>
 <span>2461</span>
 <span>2462</span>
-<span>2463</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span>2463</span>
+<span>2464</span>
+<span>2465</span>
+<span>2466</span>
+<span>2467</span>
+<span>2468</span>
+<span>2469</span>
+<span>2470</span>
+<span>2471</span>
+<span>2472</span>
+<span>2473</span>
+<span>2474</span>
+<span>2475</span>
+<span>2476</span>
+<span>2477</span>
+<span>2478</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Randomly samples positive and negative texts and updates class indices accordingly.</span>
 <span></span>
@@ -10351,22 +10382,7 @@ pads images to a specified size while maintaining the original aspect ratio.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2714</span>
-<span>2715</span>
-<span>2716</span>
-<span>2717</span>
-<span>2718</span>
-<span>2719</span>
-<span>2720</span>
-<span>2721</span>
-<span>2722</span>
-<span>2723</span>
-<span>2724</span>
-<span>2725</span>
-<span>2726</span>
-<span>2727</span>
-<span>2728</span>
-<span>2729</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2729</span>
 <span>2730</span>
 <span>2731</span>
 <span>2732</span>
@@ -10380,7 +10396,22 @@ pads images to a specified size while maintaining the original aspect ratio.</p>
 <span>2740</span>
 <span>2741</span>
 <span>2742</span>
-<span>2743</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
+<span>2743</span>
+<span>2744</span>
+<span>2745</span>
+<span>2746</span>
+<span>2747</span>
+<span>2748</span>
+<span>2749</span>
+<span>2750</span>
+<span>2751</span>
+<span>2752</span>
+<span>2753</span>
+<span>2754</span>
+<span>2755</span>
+<span>2756</span>
+<span>2757</span>
+<span>2758</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="n">auto</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the ClassifyLetterBox object for image preprocessing.</span>
 <span></span>
@@ -10483,22 +10514,7 @@ the target height and width respectively.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2745</span>
-<span>2746</span>
-<span>2747</span>
-<span>2748</span>
-<span>2749</span>
-<span>2750</span>
-<span>2751</span>
-<span>2752</span>
-<span>2753</span>
-<span>2754</span>
-<span>2755</span>
-<span>2756</span>
-<span>2757</span>
-<span>2758</span>
-<span>2759</span>
-<span>2760</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2760</span>
 <span>2761</span>
 <span>2762</span>
 <span>2763</span>
@@ -10515,7 +10531,22 @@ the target height and width respectively.</p>
 <span>2774</span>
 <span>2775</span>
 <span>2776</span>
-<span>2777</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>2777</span>
+<span>2778</span>
+<span>2779</span>
+<span>2780</span>
+<span>2781</span>
+<span>2782</span>
+<span>2783</span>
+<span>2784</span>
+<span>2785</span>
+<span>2786</span>
+<span>2787</span>
+<span>2788</span>
+<span>2789</span>
+<span>2790</span>
+<span>2791</span>
+<span>2792</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Resizes and pads an image using the letterbox method.</span>
 <span></span>
@@ -10687,29 +10718,29 @@ It performs a center crop on input images to a specified size.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2803</span>
-<span>2804</span>
-<span>2805</span>
-<span>2806</span>
-<span>2807</span>
-<span>2808</span>
-<span>2809</span>
-<span>2810</span>
-<span>2811</span>
-<span>2812</span>
-<span>2813</span>
-<span>2814</span>
-<span>2815</span>
-<span>2816</span>
-<span>2817</span>
-<span>2818</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2818</span>
 <span>2819</span>
 <span>2820</span>
 <span>2821</span>
 <span>2822</span>
 <span>2823</span>
 <span>2824</span>
-<span>2825</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">640</span><span class="p">):</span>
+<span>2825</span>
+<span>2826</span>
+<span>2827</span>
+<span>2828</span>
+<span>2829</span>
+<span>2830</span>
+<span>2831</span>
+<span>2832</span>
+<span>2833</span>
+<span>2834</span>
+<span>2835</span>
+<span>2836</span>
+<span>2837</span>
+<span>2838</span>
+<span>2839</span>
+<span>2840</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">640</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the CenterCrop object for image preprocessing.</span>
 <span></span>
@@ -10804,22 +10835,7 @@ PIL Image object.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2827</span>
-<span>2828</span>
-<span>2829</span>
-<span>2830</span>
-<span>2831</span>
-<span>2832</span>
-<span>2833</span>
-<span>2834</span>
-<span>2835</span>
-<span>2836</span>
-<span>2837</span>
-<span>2838</span>
-<span>2839</span>
-<span>2840</span>
-<span>2841</span>
-<span>2842</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2842</span>
 <span>2843</span>
 <span>2844</span>
 <span>2845</span>
@@ -10829,7 +10845,22 @@ PIL Image object.</p>
 <span>2849</span>
 <span>2850</span>
 <span>2851</span>
-<span>2852</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>2852</span>
+<span>2853</span>
+<span>2854</span>
+<span>2855</span>
+<span>2856</span>
+<span>2857</span>
+<span>2858</span>
+<span>2859</span>
+<span>2860</span>
+<span>2861</span>
+<span>2862</span>
+<span>2863</span>
+<span>2864</span>
+<span>2865</span>
+<span>2866</span>
+<span>2867</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies center cropping to an input image.</span>
 <span></span>
@@ -10966,26 +10997,26 @@ for half-precision (float16) conversion.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2880</span>
-<span>2881</span>
-<span>2882</span>
-<span>2883</span>
-<span>2884</span>
-<span>2885</span>
-<span>2886</span>
-<span>2887</span>
-<span>2888</span>
-<span>2889</span>
-<span>2890</span>
-<span>2891</span>
-<span>2892</span>
-<span>2893</span>
-<span>2894</span>
-<span>2895</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2895</span>
 <span>2896</span>
 <span>2897</span>
 <span>2898</span>
-<span>2899</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>2899</span>
+<span>2900</span>
+<span>2901</span>
+<span>2902</span>
+<span>2903</span>
+<span>2904</span>
+<span>2905</span>
+<span>2906</span>
+<span>2907</span>
+<span>2908</span>
+<span>2909</span>
+<span>2910</span>
+<span>2911</span>
+<span>2912</span>
+<span>2913</span>
+<span>2914</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the ToTensor object for converting images to PyTorch tensors.</span>
 <span></span>
@@ -11079,22 +11110,7 @@ to [0, 1] with shape (C, H, W) in RGB order.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2901</span>
-<span>2902</span>
-<span>2903</span>
-<span>2904</span>
-<span>2905</span>
-<span>2906</span>
-<span>2907</span>
-<span>2908</span>
-<span>2909</span>
-<span>2910</span>
-<span>2911</span>
-<span>2912</span>
-<span>2913</span>
-<span>2914</span>
-<span>2915</span>
-<span>2916</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2916</span>
 <span>2917</span>
 <span>2918</span>
 <span>2919</span>
@@ -11105,7 +11121,22 @@ to [0, 1] with shape (C, H, W) in RGB order.</p>
 <span>2924</span>
 <span>2925</span>
 <span>2926</span>
-<span>2927</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>2927</span>
+<span>2928</span>
+<span>2929</span>
+<span>2930</span>
+<span>2931</span>
+<span>2932</span>
+<span>2933</span>
+<span>2934</span>
+<span>2935</span>
+<span>2936</span>
+<span>2937</span>
+<span>2938</span>
+<span>2939</span>
+<span>2940</span>
+<span>2941</span>
+<span>2942</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Transforms an image from a numpy array to a PyTorch tensor.</span>
 <span></span>
@@ -11257,22 +11288,7 @@ It includes operations such as mosaic, copy-paste, random perspective, mixup, an
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2466</span>
-<span>2467</span>
-<span>2468</span>
-<span>2469</span>
-<span>2470</span>
-<span>2471</span>
-<span>2472</span>
-<span>2473</span>
-<span>2474</span>
-<span>2475</span>
-<span>2476</span>
-<span>2477</span>
-<span>2478</span>
-<span>2479</span>
-<span>2480</span>
-<span>2481</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2481</span>
 <span>2482</span>
 <span>2483</span>
 <span>2484</span>
@@ -11322,7 +11338,22 @@ It includes operations such as mosaic, copy-paste, random perspective, mixup, an
 <span>2528</span>
 <span>2529</span>
 <span>2530</span>
-<span>2531</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">v8_transforms</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">,</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>2531</span>
+<span>2532</span>
+<span>2533</span>
+<span>2534</span>
+<span>2535</span>
+<span>2536</span>
+<span>2537</span>
+<span>2538</span>
+<span>2539</span>
+<span>2540</span>
+<span>2541</span>
+<span>2542</span>
+<span>2543</span>
+<span>2544</span>
+<span>2545</span>
+<span>2546</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">v8_transforms</span><span class="p">(</span><span class="n">dataset</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">,</span> <span class="n">hyp</span><span class="p">,</span> <span class="n">stretch</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Applies a series of image transformations for training.</span>
 <span></span>
@@ -11531,22 +11562,7 @@ tuple, it defines (height, width).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2535</span>
-<span>2536</span>
-<span>2537</span>
-<span>2538</span>
-<span>2539</span>
-<span>2540</span>
-<span>2541</span>
-<span>2542</span>
-<span>2543</span>
-<span>2544</span>
-<span>2545</span>
-<span>2546</span>
-<span>2547</span>
-<span>2548</span>
-<span>2549</span>
-<span>2550</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2550</span>
 <span>2551</span>
 <span>2552</span>
 <span>2553</span>
@@ -11578,7 +11594,22 @@ tuple, it defines (height, width).</p>
 <span>2579</span>
 <span>2580</span>
 <span>2581</span>
-<span>2582</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">classify_transforms</span><span class="p">(</span>
+<span>2582</span>
+<span>2583</span>
+<span>2584</span>
+<span>2585</span>
+<span>2586</span>
+<span>2587</span>
+<span>2588</span>
+<span>2589</span>
+<span>2590</span>
+<span>2591</span>
+<span>2592</span>
+<span>2593</span>
+<span>2594</span>
+<span>2595</span>
+<span>2596</span>
+<span>2597</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">classify_transforms</span><span class="p">(</span>
 <span></span>    <span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span>
 <span></span>    <span class="n">mean</span><span class="o">=</span><span class="n">DEFAULT_MEAN</span><span class="p">,</span>
 <span></span>    <span class="n">std</span><span class="o">=</span><span class="n">DEFAULT_STD</span><span class="p">,</span>
@@ -11919,22 +11950,7 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/augment.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2586</span>
-<span>2587</span>
-<span>2588</span>
-<span>2589</span>
-<span>2590</span>
-<span>2591</span>
-<span>2592</span>
-<span>2593</span>
-<span>2594</span>
-<span>2595</span>
-<span>2596</span>
-<span>2597</span>
-<span>2598</span>
-<span>2599</span>
-<span>2600</span>
-<span>2601</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>2601</span>
 <span>2602</span>
 <span>2603</span>
 <span>2604</span>
@@ -12019,7 +12035,22 @@ options for resizing, flipping, color jittering, auto augmentation, and random e
 <span>2683</span>
 <span>2684</span>
 <span>2685</span>
-<span>2686</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">classify_augmentations</span><span class="p">(</span>
+<span>2686</span>
+<span>2687</span>
+<span>2688</span>
+<span>2689</span>
+<span>2690</span>
+<span>2691</span>
+<span>2692</span>
+<span>2693</span>
+<span>2694</span>
+<span>2695</span>
+<span>2696</span>
+<span>2697</span>
+<span>2698</span>
+<span>2699</span>
+<span>2700</span>
+<span>2701</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">classify_augmentations</span><span class="p">(</span>
 <span></span>    <span class="n">size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span>
 <span></span>    <span class="n">mean</span><span class="o">=</span><span class="n">DEFAULT_MEAN</span><span class="p">,</span>
 <span></span>    <span class="n">std</span><span class="o">=</span><span class="n">DEFAULT_STD</span><span class="p">,</span>
