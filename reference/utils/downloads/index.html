@@ -2536,7 +2536,8 @@ a successful download. Default: 1E0.</p>
 <span>367</span>
 <span>368</span>
 <span>369</span>
-<span>370</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_download</span><span class="p">(</span>
+<span>370</span>
+<span>371</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_download</span><span class="p">(</span>
 <span></span>    <span class="n">url</span><span class="p">,</span>
 <span></span>    <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -2590,9 +2591,10 @@ a successful download. Default: 1E0.</p>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">desc</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
 <span></span>        <span class="n">f</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># make directory if missing</span>
 <span></span>        <span class="n">check_disk_space</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
+<span></span>        <span class="n">curl_installed</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s2">"curl"</span><span class="p">)</span>
 <span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">retry</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
 <span></span>            <span class="k">try</span><span class="p">:</span>
-<span></span>                <span class="k">if</span> <span class="n">curl</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>  <span class="c1"># curl download with retry, continue</span>
+<span></span>                <span class="k">if</span> <span class="p">(</span><span class="n">curl</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">curl_installed</span><span class="p">:</span>  <span class="c1"># curl download with retry, continue</span>
 <span></span>                    <span class="n">s</span> <span class="o">=</span> <span class="s2">"sS"</span> <span class="o">*</span> <span class="p">(</span><span class="ow">not</span> <span class="n">progress</span><span class="p">)</span>  <span class="c1"># silent</span>
 <span></span>                    <span class="n">r</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">"curl"</span><span class="p">,</span> <span class="s2">"-#"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"-</span><span class="si">{</span><span class="n">s</span><span class="si">}</span><span class="s2">L"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="s2">"-o"</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="s2">"--retry"</span><span class="p">,</span> <span class="s2">"3"</span><span class="p">,</span> <span class="s2">"-C"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">])</span><span class="o">.</span><span class="n">returncode</span>
 <span></span>                    <span class="k">assert</span> <span class="n">r</span> <span class="o">==</span> <span class="mi">0</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Curl return value </span><span class="si">{</span><span class="n">r</span><span class="si">}</span><span class="s2">"</span>
@@ -2748,8 +2750,7 @@ function fetches the latest release assets.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>373</span>
-<span>374</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>374</span>
 <span>375</span>
 <span>376</span>
 <span>377</span>
@@ -2775,7 +2776,8 @@ function fetches the latest release assets.</p>
 <span>397</span>
 <span>398</span>
 <span>399</span>
-<span>400</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_github_assets</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="s2">"ultralytics/assets"</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"latest"</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>400</span>
+<span>401</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_github_assets</span><span class="p">(</span><span class="n">repo</span><span class="o">=</span><span class="s2">"ultralytics/assets"</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"latest"</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve the specified version's tag and assets from a GitHub repository. If the version is not specified, the</span>
 <span></span><span class="sd">    function fetches the latest release assets.</span>
@@ -2920,8 +2922,7 @@ function fetches the latest release assets.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>403</span>
-<span>404</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>404</span>
 <span>405</span>
 <span>406</span>
 <span>407</span>
@@ -2968,7 +2969,8 @@ function fetches the latest release assets.</p>
 <span>448</span>
 <span>449</span>
 <span>450</span>
-<span>451</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_download_asset</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="s2">"ultralytics/assets"</span><span class="p">,</span> <span class="n">release</span><span class="o">=</span><span class="s2">"v8.3.0"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>451</span>
+<span>452</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_download_asset</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">repo</span><span class="o">=</span><span class="s2">"ultralytics/assets"</span><span class="p">,</span> <span class="n">release</span><span class="o">=</span><span class="s2">"v8.3.0"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Attempt to download a file from GitHub release assets if it is not found locally.</span>
 <span></span>
@@ -3185,8 +3187,7 @@ specified.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>454</span>
-<span>455</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>455</span>
 <span>456</span>
 <span>457</span>
 <span>458</span>
@@ -3224,7 +3225,8 @@ specified.</p>
 <span>490</span>
 <span>491</span>
 <span>492</span>
-<span>493</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">curl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>493</span>
+<span>494</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">curl</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">threads</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Downloads files from specified URLs to a given directory. Supports concurrent downloads if multiple threads are</span>
 <span></span><span class="sd">    specified.</span>
