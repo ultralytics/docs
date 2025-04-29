@@ -2551,8 +2551,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>313</span>
-<span>314</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
 <span>315</span>
 <span>316</span>
 <span>317</span>
@@ -2563,7 +2562,8 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <span>322</span>
 <span>323</span>
 <span>324</span>
-<span>325</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>325</span>
+<span>326</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform final evaluation on the validation dataset.</span>
 <span></span>
@@ -2828,7 +2828,8 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <span>304</span>
 <span>305</span>
 <span>306</span>
-<span>307</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>307</span>
+<span>308</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get train and validation paths from data dictionary.</span>
 <span></span>
@@ -2866,8 +2867,9 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <span></span>    <span class="c1"># NOTE: to make training work properly, set `nc` and `names`</span>
 <span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"nc"</span><span class="p">]</span>
 <span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"names"</span><span class="p">]</span>
-<span></span>    <span class="c1"># NOTE: add path with lvis path</span>
+<span></span>    <span class="c1"># NOTE: add path with lvis path and image channels</span>
 <span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"path"</span><span class="p">]</span>
+<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"channels"</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">final_data</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">single_cls</span><span class="p">:</span>  <span class="c1"># consistent with base trainer</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Overriding class names with single class."</span><span class="p">)</span>
@@ -2894,9 +2896,9 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <p>Do not plot labels for YOLO-World training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>309</span>
-<span>310</span>
-<span>311</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>310</span>
+<span>311</span>
+<span>312</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Do not plot labels for YOLO-World training."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -3120,12 +3122,12 @@ then uses the first dataset's image path to determine where to cache the generat
 <p>Returns a DetectionValidator for YOLO model validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>331</span>
-<span>332</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>332</span>
 <span>333</span>
 <span>334</span>
 <span>335</span>
-<span>336</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>336</span>
+<span>337</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Returns a DetectionValidator for YOLO model validation."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box"</span><span class="p">,</span> <span class="s2">"cls"</span><span class="p">,</span> <span class="s2">"dfl"</span>
 <span></span>    <span class="k">return</span> <span class="n">DetectionValidator</span><span class="p">(</span>
@@ -3145,10 +3147,10 @@ then uses the first dataset's image path to determine where to cache the generat
 <p>Preprocesses a batch of images for YOLOE training, adjusting formatting and dimensions as needed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>338</span>
-<span>339</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>339</span>
 <span>340</span>
-<span>341</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>341</span>
+<span>342</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocesses a batch of images for YOLOE training, adjusting formatting and dimensions as needed."""</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">(</span><span class="n">YOLOETrainer</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="n">batch</span>
@@ -3220,8 +3222,7 @@ instead of regenerating the embeddings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>343</span>
-<span>344</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>344</span>
 <span>345</span>
 <span>346</span>
 <span>347</span>
@@ -3237,7 +3238,8 @@ instead of regenerating the embeddings.</p>
 <span>357</span>
 <span>358</span>
 <span>359</span>
-<span>360</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>360</span>
+<span>361</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set text embeddings for datasets to accelerate training by caching category names.</span>
 <span></span>
@@ -3408,8 +3410,7 @@ instead of regenerating the embeddings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>366</span>
-<span>367</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>367</span>
 <span>368</span>
 <span>369</span>
 <span>370</span>
@@ -3426,7 +3427,8 @@ instead of regenerating the embeddings.</p>
 <span>381</span>
 <span>382</span>
 <span>383</span>
-<span>384</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>384</span>
+<span>385</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset for training or validation with visual prompts.</span>
 <span></span>
@@ -3459,11 +3461,11 @@ instead of regenerating the embeddings.</p>
 <p>Preprocesses a batch of images for YOLOE training, moving visual prompts to the appropriate device.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>395</span>
-<span>396</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>396</span>
 <span>397</span>
 <span>398</span>
-<span>399</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>399</span>
+<span>400</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocesses a batch of images for YOLOE training, moving visual prompts to the appropriate device."""</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 <span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"visuals"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"visuals"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -3479,10 +3481,10 @@ instead of regenerating the embeddings.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on March 31, 2025">
-<span class="hover-item">📅</span> Created 27 days ago
+<span class="hover-item">📅</span> Created 28 days ago
     </span>
 <span class="date-item" title="This page was last updated on March 31, 2025">
-<span class="hover-item">✏️</span> Updated 27 days ago
+<span class="hover-item">✏️</span> Updated 28 days ago
     </span>
 </div>
 <div class="authors-container">

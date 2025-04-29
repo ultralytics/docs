@@ -4136,8 +4136,10 @@ a binary classification loss that classifies whether a keypoint is present or no
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>795</span>
 <span>796</span>
-<span>797</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span>797</span>
+<span>798</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TVPSegmentLoss with task-prompt and visual-prompt criteria using the provided model."""</span>
+<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span> <span class="o">=</span> <span class="n">v8SegmentationLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4152,8 +4154,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate the loss for text-visual prompt segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>799</span>
-<span>800</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>800</span>
 <span>801</span>
 <span>802</span>
 <span>803</span>
@@ -4164,13 +4165,14 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>808</span>
 <span>809</span>
 <span>810</span>
-<span>811</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>811</span>
+<span>812</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the loss for text-visual prompt segmentation."""</span>
 <span></span>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_masks</span><span class="p">,</span> <span class="n">proto</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
-<span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">reg_max</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>
+<span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_reg_max</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>  <span class="c1"># TODO: remove it</span>
 <span></span>
-<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">reg_max</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">nc</span> <span class="o">==</span> <span class="n">feats</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
-<span></span>        <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tp_criterion</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_reg_max</span> <span class="o">*</span> <span class="mi">4</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_nc</span> <span class="o">==</span> <span class="n">feats</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
+<span></span>        <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>        <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
 <span></span>
 <span></span>    <span class="n">vp_feats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_vp_features</span><span class="p">(</span><span class="n">feats</span><span class="p">)</span>
@@ -4191,7 +4193,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on March 31, 2025">
-<span class="hover-item">✏️</span> Updated 27 days ago
+<span class="hover-item">✏️</span> Updated 28 days ago
     </span>
 </div>
 <div class="authors-container">
