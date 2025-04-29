@@ -1291,7 +1291,7 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../byte_tracker/#ultralytics.trackers.byte_tracker.STrack" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.STrack&lt;/span&gt;'>STrack</a></code></p>
-<p>An extended version of the STrack class for YOLOv8, adding object tracking features.</p>
+<p>An extended version of the STrack class for YOLO, adding object tracking features.</p>
 <p>This class extends the STrack class to include additional functionalities for object tracking, such as feature
 smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -1859,7 +1859,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../byte_tracker/#ultralytics.trackers.byte_tracker.BYTETracker" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.trackers.byte_tracker.BYTETracker&lt;/span&gt;'>BYTETracker</a></code></p>
-<p>An extended version of the BYTETracker class for YOLOv8, designed for object tracking with ReID and GMC algorithm.</p>
+<p>An extended version of the BYTETracker class for YOLO, designed for object tracking with ReID and GMC algorithm.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1964,7 +1964,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.bot_sort.BOTSORT.multi_predict" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;multi_predict&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.bot_sort.BOTSORT.multi_predict&lt;/code&gt;)'>multi_predict</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Predict and track multiple objects with YOLOv8 model.</p>
+<p>Predict and track multiple objects with a YOLO model.</p>
 </div>
 </td>
 </tr>
@@ -1986,7 +1986,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 </code></pre></div>
 <details class="note" open="">
 <summary>Note</summary>
-<p>The class is designed to work with the YOLOv8 object detection model and supports ReID only if enabled via args.</p>
+<p>The class is designed to work with a YOLO object detection model and supports ReID only if enabled via args.</p>
 </details>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -2086,7 +2086,7 @@ smoothing, Kalman filter prediction, and reactivation of tracks.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">appearance_thresh</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">appearance_thresh</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>        <span class="p">(</span><span class="k">lambda</span> <span class="n">feats</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="p">[</span><span class="n">f</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">feats</span><span class="p">])</span>  <span class="c1"># native features do not require any model</span>
-<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s2">"auto"</span>
+<span></span>        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s2">"auto"</span>
 <span></span>        <span class="k">else</span> <span class="n">ReID</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">with_reid</span>
 <span></span>        <span class="k">else</span> <span class="kc">None</span>
