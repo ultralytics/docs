@@ -1090,68 +1090,46 @@ tracking data in video streams.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.trkd_ids">trkd_ids</span></code></td>
-<td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>List of tracked object IDs that have already been speed-estimated.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.trk_pt">trk_pt</span></code></td>
+<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.trk_hist">trk_hist</span></code></td>
 <td>
 <code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary storing previous timestamps for tracked objects.</p>
+<p>Dictionary storing the object tracking data.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.trk_pp">trk_pp</span></code></td>
+<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.max_hist">max_hist</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>]]</code>
+<code><span title="int">int</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary storing previous positions for tracked objects.</p>
+<p>maximum track history before computing speed</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.region">region</span></code></td>
+<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.meters_per_pixel">meters_per_pixel</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+<code><span title="float">float</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of points defining the speed estimation region.</p>
+<p>Real-world meters represented by one pixel (e.g., 0.04 for 4m over 100px).</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.track_line">track_line</span></code></td>
+<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.max_speed">max_speed</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>]]</code>
+<code><span title="int">int</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of points representing the object's track.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.speed_estimation.SpeedEstimator.r_s">r_s</span></code></td>
-<td>
-<code><span title="LineString">LineString</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>LineString object representing the speed estimation region.</p>
+<p>Maximum allowed object speed; values above this will be capped at 120 km/h.</p>
 </div>
 </td>
 </tr>
@@ -1245,7 +1223,8 @@ tracking data in video streams.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/speed_estimation.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>39</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
+<span>39</span>
 <span>40</span>
 <span>41</span>
 <span>42</span>
@@ -1259,7 +1238,9 @@ tracking data in video streams.</p>
 <span>50</span>
 <span>51</span>
 <span>52</span>
-<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>53</span>
+<span>54</span>
+<span>55</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the SpeedEstimator object with speed estimation parameters and data structures.</span>
 <span></span>
@@ -1268,12 +1249,15 @@ tracking data in video streams.</p>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">initialize_region</span><span class="p">()</span>  <span class="c1"># Initialize speed region</span>
-<span></span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">spd</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for speed data</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># List for already speed-estimated and tracked IDs</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for tracks' previous timestamps</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Dictionary for tracks' previous positions</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fps</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"fps"</span><span class="p">,</span> <span class="mi">30</span><span class="p">)</span>  <span class="c1"># assumed video FPS</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># global frame count</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">trk_frame_ids</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Track ID → first frame index</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">spd</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Final speed per object (km/h), once locked</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">trk_hist</span> <span class="o">=</span> <span class="p">{}</span>  <span class="c1"># Track ID → deque of (time, position)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">locked_ids</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>  <span class="c1"># Track IDs whose speed has been finalized</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">max_hist</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"max_hist"</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>  <span class="c1"># Required frame history before computing speed</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">meter_per_pixel</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"meter_per_pixel"</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">)</span>  <span class="c1"># Scene scale, depends on camera details</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">max_speed</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"max_speed"</span><span class="p">,</span> <span class="mi">120</span><span class="p">)</span>  <span class="c1"># max_speed adjustment</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1342,9 +1326,7 @@ tracking data in video streams.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/speed_estimation.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 55</span>
-<span> 56</span>
-<span> 57</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 57</span>
 <span> 58</span>
 <span> 59</span>
 <span> 60</span>
@@ -1397,11 +1379,7 @@ tracking data in video streams.</p>
 <span>107</span>
 <span>108</span>
 <span>109</span>
-<span>110</span>
-<span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process an input frame to estimate object speeds based on tracking data.</span>
 <span></span>
@@ -1416,45 +1394,39 @@ tracking data in video streams.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; image = np.random.randint(0, 255, (480, 640, 3), dtype=np.uint8)</span>
 <span></span><span class="sd">        &gt;&gt;&gt; results = estimator.process(image)</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks</span>
-<span></span>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>  <span class="c1"># Initialize annotator</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span> <span class="o">+=</span> <span class="mi">1</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<span></span>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="c1"># Draw speed estimation region</span>
-<span></span>    <span class="n">annotator</span><span class="o">.</span><span class="n">draw_region</span><span class="p">(</span><span class="n">reg_pts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">123</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span></span>    <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">confs</span><span class="p">):</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">conf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">confs</span><span class="p">):</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>  <span class="c1"># Store track history</span>
+<span></span>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_hist</span><span class="p">:</span>  <span class="c1"># Initialize history if new track found</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">trk_hist</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="n">maxlen</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">max_hist</span><span class="p">)</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">trk_frame_ids</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span>
 <span></span>
-<span></span>        <span class="c1"># Initialize tracking data for new objects</span>
-<span></span>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">:</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
-<span></span>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">:</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span></span>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">locked_ids</span><span class="p">:</span>  <span class="c1"># Update history until speed is locked</span>
+<span></span>            <span class="n">trk_hist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_hist</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>
+<span></span>            <span class="n">trk_hist</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 <span></span>
-<span></span>        <span class="n">speed_label</span> <span class="o">=</span> <span class="p">(</span>
-<span></span>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">[</span><span class="n">track_id</span><span class="p">])</span><span class="si">}</span><span class="s2"> km/h"</span>
-<span></span>            <span class="k">if</span> <span class="n">track_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spd</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_labels</span>
-<span></span>            <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">adjust_box_label</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">track_id</span><span class="p">)</span>
-<span></span>        <span class="p">)</span>
-<span></span>        <span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">speed_label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>  <span class="c1"># Draw bounding box</span>
+<span></span>            <span class="c1"># Compute and lock speed once enough history is collected</span>
+<span></span>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">trk_hist</span><span class="p">)</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_hist</span><span class="p">:</span>
+<span></span>                <span class="n">p0</span><span class="p">,</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">trk_hist</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">trk_hist</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># First and last points of track</span>
+<span></span>                <span class="n">dt</span> <span class="o">=</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_count</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_frame_ids</span><span class="p">[</span><span class="n">track_id</span><span class="p">])</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">fps</span>  <span class="c1"># Time in seconds</span>
+<span></span>                <span class="k">if</span> <span class="n">dt</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>                    <span class="n">dx</span><span class="p">,</span> <span class="n">dy</span> <span class="o">=</span> <span class="n">p1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">p0</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">p1</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p0</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># pixel displacement</span>
+<span></span>                    <span class="n">pixel_distance</span> <span class="o">=</span> <span class="n">sqrt</span><span class="p">(</span><span class="n">dx</span> <span class="o">*</span> <span class="n">dx</span> <span class="o">+</span> <span class="n">dy</span> <span class="o">*</span> <span class="n">dy</span><span class="p">)</span>  <span class="c1"># get pixel distance</span>
+<span></span>                    <span class="n">meters</span> <span class="o">=</span> <span class="n">pixel_distance</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">meter_per_pixel</span>  <span class="c1"># convert to meters</span>
+<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span>
+<span></span>                        <span class="nb">min</span><span class="p">((</span><span class="n">meters</span> <span class="o">/</span> <span class="n">dt</span><span class="p">)</span> <span class="o">*</span> <span class="mf">3.6</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">max_speed</span><span class="p">)</span>
+<span></span>                    <span class="p">)</span>  <span class="c1"># convert to km/h and store final speed</span>
+<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">locked_ids</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">track_id</span><span class="p">)</span>  <span class="c1"># prevent further updates</span>
+<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">trk_hist</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># free memory</span>
+<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">trk_frame_ids</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>  <span class="c1"># optional: remove frame start too</span>
 <span></span>
-<span></span>        <span class="c1"># Determine if object is crossing the speed estimation region</span>
-<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">LineString</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">r_s</span><span class="p">):</span>
-<span></span>            <span class="n">direction</span> <span class="o">=</span> <span class="s2">"known"</span>
-<span></span>        <span class="k">else</span><span class="p">:</span>
-<span></span>            <span class="n">direction</span> <span class="o">=</span> <span class="s2">"unknown"</span>
-<span></span>
-<span></span>        <span class="c1"># Calculate speed for objects crossing the region for the first time</span>
-<span></span>        <span class="k">if</span> <span class="n">direction</span> <span class="o">==</span> <span class="s2">"known"</span> <span class="ow">and</span> <span class="n">track_id</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span><span class="p">:</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">trkd_ids</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">track_id</span><span class="p">)</span>
-<span></span>            <span class="n">time_difference</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>
-<span></span>            <span class="k">if</span> <span class="n">time_difference</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span></span>                <span class="c1"># Calculate speed based on vertical displacement and time</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">][</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">time_difference</span>
-<span></span>
-<span></span>        <span class="c1"># Update tracking data for next frame</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">trk_pt</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">trk_pp</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span></span>        <span class="k">if</span> <span class="n">track_id</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">:</span>
+<span></span>            <span class="n">speed_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">spd</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span><span class="si">}</span><span class="s2"> km/h"</span>
+<span></span>            <span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="n">speed_label</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>  <span class="c1"># Draw bounding box</span>
 <span></span>
 <span></span>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># Display output with base class function</span>
