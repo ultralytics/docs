@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Detailed documentation for the ObjectCropper class, part of the Ultralytics solutions package, enabling real-time cropping of detected objects from images and video streams." name="description"/>
+<meta content="Configure and customize Ultralytics Vision AI solutions using the SolutionConfig class. Define model paths, regions of interest, visualization options, tracking parameters, and keypoint analytics with a clean, type-safe dataclass structure for scalable development." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/reference/solutions/object_cropper/" rel="canonical"/>
-<link href="../object_counter/" rel="prev"/>
-<link href="../parking_management/" rel="next"/>
+<link href="https://docs.ultralytics.com/reference/solutions/config/" rel="canonical"/>
+<link href="../analytics/" rel="prev"/>
+<link href="../distance_calculation/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.12" name="generator"/>
-<title>Reference for ultralytics/solutions/object_cropper.py</title>
+<title>Reference for ultralytics/solutions/config.py - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.2afb09e1.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,13 +21,13 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="object_cropper" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, ObjectCropper, object detection, cropping, real-time processing, Python, computer vision" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/solutions/object_cropper" property="og:url"/><meta content="object_cropper" property="og:title"/><meta content="Detailed documentation for the ObjectCropper class, part of the Ultralytics solutions package, enabling real-time cropping of detected objects from images and video streams." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/solutions/object_cropper" property="twitter:url"/><meta content="object_cropper" property="twitter:title"/><meta content="Detailed documentation for the ObjectCropper class, part of the Ultralytics solutions package, enabling real-time cropping of detected objects from images and video streams." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "object_cropper", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2025-03-11 21:44:10 +0500", "dateModified": "2025-03-11 21:44:10 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Detailed documentation for the ObjectCropper class, part of the Ultralytics solutions package, enabling real-time cropping of detected objects from images and video streams."}</script></head>
+<meta content="config" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, SolutionConfig, vision AI configuration, YOLO models, Python dataclass, object detection, region of interest, tracking, keypoint analytics, computer vision, model inference, object counting, heatmaps, parking management, research" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/solutions/config" property="og:url"/><meta content="config" property="og:title"/><meta content="Configure and customize Ultralytics Vision AI solutions using the SolutionConfig class. Define model paths, regions of interest, visualization options, tracking parameters, and keypoint analytics with a clean, type-safe dataclass structure for scalable development." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/solutions/config" property="twitter:url"/><meta content="config" property="twitter:title"/><meta content="Configure and customize Ultralytics Vision AI solutions using the SolutionConfig class. Define model paths, regions of interest, visualization options, tracking parameters, and keypoint analytics with a clean, type-safe dataclass structure for scalable development." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "config", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2025-05-02 23:54:39 +0500", "dateModified": "2025-05-02 23:54:39 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Configure and customize Ultralytics Vision AI solutions using the SolutionConfig class. Define model paths, regions of interest, visualization options, tracking parameters, and keypoint analytics with a clean, type-safe dataclass structure for scalable development."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#reference-for-ultralyticssolutionsobject_cropperpy">
+<a class="md-skip" href="#reference-for-ultralyticssolutionsconfigpy">
           Skip to content
         </a>
 </div>
@@ -60,7 +60,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              object_cropper
+              config
           </span>
 </div>
 </div>
@@ -645,12 +645,45 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../config/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    config
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     config
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.config.SolutionConfig">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> SolutionConfig
+    </span>
+</a>
+<nav aria-label=" SolutionConfig" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.config.SolutionConfig.update">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> update
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../distance_calculation/">
@@ -687,45 +720,12 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    object_cropper
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../object_cropper/">
 <span class="md-ellipsis">
     object_cropper
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.object_cropper.ObjectCropper">
-<span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> ObjectCropper
-    </span>
-</a>
-<nav aria-label=" ObjectCropper" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.object_cropper.ObjectCropper.process">
-<span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> process
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../parking_management/">
@@ -1030,17 +1030,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.object_cropper.ObjectCropper">
+<a class="md-nav__link" href="#ultralytics.solutions.config.SolutionConfig">
 <span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> ObjectCropper
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> SolutionConfig
     </span>
 </a>
-<nav aria-label=" ObjectCropper" class="md-nav">
+<nav aria-label=" SolutionConfig" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.object_cropper.ObjectCropper.process">
+<a class="md-nav__link" href="#ultralytics.solutions.config.SolutionConfig.update">
 <span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> process
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> update
     </span>
 </a>
 </li>
@@ -1054,27 +1054,62 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/reference/solutions/object_cropper.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/reference/solutions/config.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="reference-for-ultralyticssolutionsobject_cropperpy">Reference for <code>ultralytics/solutions/object_cropper.py</code></h1>
+<h1 id="reference-for-ultralyticssolutionsconfigpy">Reference for <code>ultralytics/solutions/config.py</code></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/solutions/object_cropper.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/solutions/object_cropper.py</a>. If you spot a problem please help fix it by <a href="https://docs.ultralytics.com/help/contributing/">contributing</a> a <a href="https://github.com/ultralytics/ultralytics/edit/main/ultralytics/solutions/object_cropper.py">Pull Request</a> 🛠️. Thank you 🙏!</p>
+<p>This file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/solutions/config.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/solutions/config.py</a>. If you spot a problem please help fix it by <a href="https://docs.ultralytics.com/help/contributing/">contributing</a> a <a href="https://github.com/ultralytics/ultralytics/edit/main/ultralytics/solutions/config.py">Pull Request</a> 🛠️. Thank you 🙏!</p>
 </div>
 <p><br/></p>
 <div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="ultralytics.solutions.object_cropper.ObjectCropper">
-<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.solutions.object_cropper.ObjectCropper</span>
+<h2 class="doc doc-heading" id="ultralytics.solutions.config.SolutionConfig">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.solutions.config.SolutionConfig</span>
+<span class="doc doc-labels">
+<small class="doc doc-label doc-label-dataclass"><code>dataclass</code></small>
+</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">ObjectCropper</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">SolutionConfig</span><span class="p">(</span>
+<span></span>    <span class="n">source</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">classes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">show_conf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">show_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">region</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">colormap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_DEEPGREEN</span><span class="p">,</span>
+<span></span>    <span class="n">show_in</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">show_out</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">up_angle</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">145.0</span><span class="p">,</span>
+<span></span>    <span class="n">down_angle</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span>
+<span></span>    <span class="n">kpts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">](),</span>
+<span></span>    <span class="n">analytics_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"line"</span><span class="p">,</span>
+<span></span>    <span class="n">figsize</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.8</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">),</span>
+<span></span>    <span class="n">blur_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+<span></span>    <span class="n">vision_point</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+<span></span>    <span class="n">crop_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"cropped-detections"</span><span class="p">,</span>
+<span></span>    <span class="n">json_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">line_width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<span></span>    <span class="n">records</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<span></span>    <span class="n">fps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">30.0</span><span class="p">,</span>
+<span></span>    <span class="n">max_hist</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<span></span>    <span class="n">meter_per_pixel</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.05</span><span class="p">,</span>
+<span></span>    <span class="n">max_speed</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">120</span><span class="p">,</span>
+<span></span>    <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">iou</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
+<span></span>    <span class="n">conf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+<span></span>    <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">max_det</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
+<span></span>    <span class="n">half</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">tracker</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"botsort.yaml"</span><span class="p">,</span>
+<span></span>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.BaseSolution" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.BaseSolution&lt;/span&gt;'>BaseSolution</a></code></p>
-<p>A class to manage the cropping of detected objects in a real-time video stream or images.</p>
-<p>This class extends the BaseSolution class and provides functionality for cropping objects based on detected bounding
-boxes. The cropped images are saved to a specified directory for further analysis or usage.</p>
+<p>Manages configuration parameters for Ultralytics Vision AI solutions.</p>
+<p>The SolutionConfig class serves as a centralized configuration container for all the
+Ultralytics solution modules: <a href="https://docs.ultralytics.com/solutions/#solutions">https://docs.ultralytics.com/solutions/#solutions</a>.
+It leverages Python <code>dataclass</code> for clear, type-safe, and maintainable parameter definitions.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1086,46 +1121,354 @@ boxes. The cropped images are saved to a specified directory for further analysi
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.object_cropper.ObjectCropper.crop_dir">crop_dir</span></code></td>
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.source">source</span></code></td>
 <td>
-<code><span title="str">str</span></code>
+<code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Directory where cropped object images are stored.</p>
+<p>Path to the input source (video, RTSP, etc.). Only usable with Solutions CLI.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.object_cropper.ObjectCropper.crop_idx">crop_idx</span></code></td>
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.model">model</span></code></td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to the Ultralytics YOLO model to be used for inference.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.classes">classes</span></code></td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="int">int</span>]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of class indices to filter detections.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.show_conf">show_conf</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to show confidence scores on the visual output.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.show_labels">show_labels</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to display class labels on visual output.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.region">region</span></code></td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Polygonal region or line for object counting.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.colormap">colormap</span></code></td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>OpenCV colormap constant for visual overlays (e.g., cv2.COLORMAP_JET).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.show_in">show_in</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to display count number for objects entering the region.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.show_out">show_out</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to display count number for objects leaving the region.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.up_angle">up_angle</span></code></td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Upper angle threshold used in pose-based workouts monitoring.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.down_angle">down_angle</span></code></td>
 <td>
 <code><span title="int">int</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Counter for the total number of cropped objects.</p>
+<p>Lower angle threshold used in pose-based workouts monitoring.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.object_cropper.ObjectCropper.iou">iou</span></code></td>
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.kpts">kpts</span></code></td>
+<td>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Keypoint indices to monitor, e.g., for pose analytics.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.analytics_type">analytics_type</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Type of analytics to perform ("line", "area", "bar", "pie", etc.).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.figsize">figsize</span></code></td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Size of the matplotlib figure used for analytical plots (width, height).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.blur_ratio">blur_ratio</span></code></td>
 <td>
 <code><span title="float">float</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>IoU (Intersection over Union) threshold for non-maximum suppression.</p>
+<p>Ratio used to blur objects in the video frames (0.0 to 1.0).</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.object_cropper.ObjectCropper.conf">conf</span></code></td>
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.vision_point">vision_point</span></code></td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Reference point for directional tracking or perspective drawing.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.crop_dir">crop_dir</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Directory path to save cropped detection images.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.json_file">json_file</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to a JSON file containing data for parking areas.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.line_width">line_width</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Width for visual display i.e. bounding boxes, keypoints, counts.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.records">records</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of detection records to send email alerts.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.fps">fps</span></code></td>
 <td>
 <code><span title="float">float</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Confidence threshold for filtering detections.</p>
+<p>Frame rate (Frames Per Second) for speed estimation calculation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.max_hist">max_hist</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum number of historical points or states stored per tracked object for speed estimation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.meter_per_pixel">meter_per_pixel</span></code></td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Scale for real-world measurement, used in speed or distance calculations.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.max_speed">max_speed</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum speed limit (e.g., km/h or mph) used in visual alerts or constraints.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.show">show</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to display the visual output on screen.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.iou">iou</span></code></td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Intersection-over-Union threshold for detection filtering.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.conf">conf</span></code></td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Confidence threshold for keeping predictions.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.device">device</span></code></td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Device to run inference on (e.g., 'cpu', '0' for CUDA GPU).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.max_det">max_det</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum number of detections allowed per video frame.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.half">half</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use FP16 precision (requires a supported CUDA device).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.tracker">tracker</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to tracking configuration YAML file (e.g., 'botsort.yaml').</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.config.SolutionConfig.verbose">verbose</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Enable verbose logging output for debugging or diagnostics.</p>
 </div>
 </td>
 </tr>
@@ -1141,222 +1484,51 @@ boxes. The cropped images are saved to a specified directory for further analysi
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.object_cropper.ObjectCropper.process" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;process&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.object_cropper.ObjectCropper.process&lt;/code&gt;)'>process</a></code></td>
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.config.SolutionConfig.update" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.config.SolutionConfig.update&lt;/code&gt;)'>update</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Crops detected objects from the input image and saves them to the output directory.</p>
+<p>Update the configuration with user-defined keyword arguments and raise error on invalid keys.</p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cropper</span> <span class="o">=</span> <span class="n">ObjectCropper</span><span class="p">()</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"frame.jpg"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">processed_results</span> <span class="o">=</span> <span class="n">cropper</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total cropped objects: </span><span class="si">{</span><span class="n">cropper</span><span class="o">.</span><span class="n">crop_idx</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.solutions.config</span><span class="w"> </span><span class="kn">import</span> <span class="n">SolutionConfig</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cfg</span> <span class="o">=</span> <span class="n">SolutionConfig</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="p">[(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">)])</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cfg</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.3</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>**kwargs</code>
-</td>
-<td>
-<code><span title="Any">Any</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Keyword arguments passed to the parent class and used for configuration.
-crop_dir (str): Path to the directory for saving cropped object images.</p>
-</div>
-</td>
-<td>
-<code>{}</code>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="quote">
-<summary>Source code in <code>ultralytics/solutions/object_cropper.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span>
-<span>38</span>
-<span>39</span>
-<span>40</span>
-<span>41</span>
-<span>42</span>
-<span>43</span>
-<span>44</span>
-<span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize the ObjectCropper class for cropping objects from detected bounding boxes.</span>
-<span></span>
-<span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        **kwargs (Any): Keyword arguments passed to the parent class and used for configuration.</span>
-<span></span><span class="sd">            crop_dir (str): Path to the directory for saving cropped object images.</span>
-<span></span><span class="sd">    """</span>
-<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span></span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">crop_dir</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"crop_dir"</span><span class="p">]</span>  <span class="c1"># Directory for storing cropped detections</span>
-<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_dir</span><span class="p">):</span>
-<span></span>        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_dir</span><span class="p">)</span>  <span class="c1"># Create directory if it does not exist</span>
-<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"show"</span><span class="p">]:</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
-<span></span>            <span class="sa">f</span><span class="s2">"show=True disabled for crop solution, results will be saved in the directory named: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_dir</span><span class="si">}</span><span class="s2">"</span>
-<span></span>        <span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">crop_idx</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Initialize counter for total cropped objects</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">iou</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"iou"</span><span class="p">]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"conf"</span><span class="p">]</span>
-</code></pre></div></td></tr></table></div>
-</details>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.solutions.object_cropper.ObjectCropper.process">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">process</span>
+<h3 class="doc doc-heading" id="ultralytics.solutions.config.SolutionConfig.update">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">process</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Crop detected objects from the input image and save them as separate images.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>im0</code>
-</td>
-<td>
-<code><span title="numpy.ndarray">ndarray</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The input image containing detected objects.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
-<p><span class="doc-section-title">Returns:</span></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code><a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.SolutionResults" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.SolutionResults&lt;/span&gt;'>SolutionResults</a></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>A SolutionResults object containing the total number of cropped objects and processed image.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cropper</span> <span class="o">=</span> <span class="n">ObjectCropper</span><span class="p">()</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">cropper</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">frame</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Total cropped objects: </span><span class="si">{</span><span class="n">results</span><span class="o">.</span><span class="n">total_crop_objects</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-</code></pre></div>
+<p>Update configuration parameters with new values provided as keyword arguments.</p>
 <details class="quote">
-<summary>Source code in <code>ultralytics/solutions/object_cropper.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>54</span>
-<span>55</span>
-<span>56</span>
-<span>57</span>
-<span>58</span>
-<span>59</span>
-<span>60</span>
-<span>61</span>
-<span>62</span>
-<span>63</span>
-<span>64</span>
-<span>65</span>
-<span>66</span>
-<span>67</span>
-<span>68</span>
-<span>69</span>
-<span>70</span>
-<span>71</span>
-<span>72</span>
-<span>73</span>
-<span>74</span>
-<span>75</span>
-<span>76</span>
-<span>77</span>
-<span>78</span>
-<span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span>
-<span>83</span>
-<span>84</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Crop detected objects from the input image and save them as separate images.</span>
-<span></span>
-<span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        im0 (numpy.ndarray): The input image containing detected objects.</span>
-<span></span>
-<span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (SolutionResults): A SolutionResults object containing the total number of cropped objects and processed image.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; cropper = ObjectCropper()</span>
-<span></span><span class="sd">        &gt;&gt;&gt; frame = cv2.imread("image.jpg")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; results = cropper.process(frame)</span>
-<span></span><span class="sd">        &gt;&gt;&gt; print(f"Total cropped objects: {results.total_crop_objects}")</span>
-<span></span><span class="sd">    """</span>
-<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<span></span>        <span class="n">im0</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span> <span class="n">iou</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"device"</span><span class="p">]</span>
-<span></span>    <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-<span></span>
-<span></span>    <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">boxes</span><span class="p">:</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">crop_idx</span> <span class="o">+=</span> <span class="mi">1</span>
-<span></span>        <span class="n">save_one_box</span><span class="p">(</span>
-<span></span>            <span class="n">box</span><span class="o">.</span><span class="n">xyxy</span><span class="p">,</span>
-<span></span>            <span class="n">im0</span><span class="p">,</span>
-<span></span>            <span class="n">file</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_dir</span><span class="p">)</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"crop_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_idx</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">,</span>
-<span></span>            <span class="n">BGR</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>        <span class="p">)</span>
-<span></span>
-<span></span>    <span class="c1"># Return SolutionResults</span>
-<span></span>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span><span class="n">plot_im</span><span class="o">=</span><span class="n">im0</span><span class="p">,</span> <span class="n">total_crop_objects</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">crop_idx</span><span class="p">)</span>
+<summary>Source code in <code>ultralytics/solutions/config.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Update configuration parameters with new values provided as keyword arguments."""</span>
+<span></span>    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span></span>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<span></span>            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
+<span></span>                <span class="sa">f</span><span class="s2">"❌ </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is not a valid solution argument, available arguments here: https://docs.ultralytics.com/solutions/#solutions-arguments"</span>
+<span></span>            <span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1367,11 +1539,11 @@ crop_dir (str): Path to the directory for saving cropped object images.</p>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on March 11, 2025">
-<span class="hover-item">📅</span> Created 1 month ago
+<span class="date-item" title="This page was first created on May 02, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
-<span class="date-item" title="This page was last updated on March 11, 2025">
-<span class="hover-item">✏️</span> Updated 1 month ago
+<span class="date-item" title="This page was last updated on May 02, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -1379,10 +1551,10 @@ crop_dir (str): Path to the directory for saving cropped object images.</p>
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/solutions/object_cropper', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/solutions/config', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/solutions/object_cropper', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/solutions/config', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -1399,7 +1571,7 @@ crop_dir (str): Path to the directory for saving cropped object images.</p>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: object_counter" class="md-footer__link md-footer__link--prev" href="../object_counter/">
+<a aria-label="Previous: analytics" class="md-footer__link md-footer__link--prev" href="../analytics/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1408,17 +1580,17 @@ crop_dir (str): Path to the directory for saving cropped object images.</p>
                 Previous
               </span>
 <div class="md-ellipsis">
-                object_counter
+                analytics
               </div>
 </div>
 </a>
-<a aria-label="Next: parking_management" class="md-footer__link md-footer__link--next" href="../parking_management/">
+<a aria-label="Next: distance_calculation" class="md-footer__link md-footer__link--next" href="../distance_calculation/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                parking_management
+                distance_calculation
               </div>
 </div>
 <div class="md-footer__button md-icon">

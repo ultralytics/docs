@@ -646,6 +646,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../config/">
+<span class="md-ellipsis">
+    config
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../distance_calculation/">
 <span class="md-ellipsis">
     distance_calculation
@@ -1522,7 +1529,7 @@ already been sent.</p>
 <span></span>        <span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">cls</span><span class="p">],</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
 <span></span>
 <span></span>    <span class="n">total_det</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">)</span>
-<span></span>    <span class="k">if</span> <span class="n">total_det</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">records</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">email_sent</span><span class="p">:</span>  <span class="c1"># Only send email if not sent before</span>
+<span></span>    <span class="k">if</span> <span class="n">total_det</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">records</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">email_sent</span><span class="p">:</span>  <span class="c1"># Only send email if not sent before</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">send_email</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">total_det</span><span class="p">)</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">email_sent</span> <span class="o">=</span> <span class="kc">True</span>
 <span></span>

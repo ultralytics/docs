@@ -7,7 +7,7 @@
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/reference/solutions/analytics/" rel="canonical"/>
 <link href="../ai_gym/" rel="prev"/>
-<link href="../distance_calculation/" rel="next"/>
+<link href="../config/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.12" name="generator"/>
 <title>Reference for ultralytics/solutions/analytics.py</title>
@@ -686,6 +686,13 @@
 </nav>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../config/">
+<span class="md-ellipsis">
+    config
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../distance_calculation/">
 <span class="md-ellipsis">
     distance_calculation
@@ -1345,7 +1352,7 @@ based on object detection and tracking data.</p>
 <span></span><span class="w">    </span><span class="sd">"""Initialize Analytics class with various chart types for visual data representation."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"analytics_type"</span><span class="p">]</span>  <span class="c1"># extract type of analytics</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"analytics_type"</span><span class="p">]</span>  <span class="c1"># type of analytics i.e "line", "pie", "bar" or "area" charts.</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">x_label</span> <span class="o">=</span> <span class="s2">"Classes"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"bar"</span><span class="p">,</span> <span class="s2">"pie"</span><span class="p">}</span> <span class="k">else</span> <span class="s2">"Frame#"</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">y_label</span> <span class="o">=</span> <span class="s2">"Total Counts"</span>
 <span></span>
@@ -1355,7 +1362,7 @@ based on object detection and tracking data.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="s2">"Ultralytics Solutions"</span>  <span class="c1"># window name</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">max_points</span> <span class="o">=</span> <span class="mi">45</span>  <span class="c1"># maximum points to be drawn on window</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fontsize</span> <span class="o">=</span> <span class="mi">25</span>  <span class="c1"># text font size for display</span>
-<span></span>    <span class="n">figsize</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.8</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">)</span>  <span class="c1"># Set output image size 1280 * 720</span>
+<span></span>    <span class="n">figsize</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"figsize"</span><span class="p">]</span>  <span class="c1"># set output image size i.e (12.8, 7.2) -&gt; w = 1280, h = 720</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">color_cycle</span> <span class="o">=</span> <span class="n">cycle</span><span class="p">([</span><span class="s2">"#DD00BA"</span><span class="p">,</span> <span class="s2">"#042AFF"</span><span class="p">,</span> <span class="s2">"#FF4447"</span><span class="p">,</span> <span class="s2">"#7D24FF"</span><span class="p">,</span> <span class="s2">"#BD00FF"</span><span class="p">])</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">total_counts</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># count variable for storing total counts i.e. for line</span>
@@ -1969,13 +1976,13 @@ classes. If None, updates a single line graph.</p>
               </div>
 </div>
 </a>
-<a aria-label="Next: distance_calculation" class="md-footer__link md-footer__link--next" href="../distance_calculation/">
+<a aria-label="Next: config" class="md-footer__link md-footer__link--next" href="../config/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                distance_calculation
+                config
               </div>
 </div>
 <div class="md-footer__button md-icon">
