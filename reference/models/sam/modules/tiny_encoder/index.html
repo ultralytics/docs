@@ -1770,14 +1770,14 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>52</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>51</span>
+<span>52</span>
 <span>53</span>
 <span>54</span>
 <span>55</span>
 <span>56</span>
 <span>57</span>
-<span>58</span>
-<span>59</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dilation</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bn_weight_init</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span>58</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ks</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">dilation</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">bn_weight_init</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes a sequential container with 2D convolution followed by batch normalization."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">add_module</span><span class="p">(</span><span class="s2">"c"</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Conv2d</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">ks</span><span class="p">,</span> <span class="n">stride</span><span class="p">,</span> <span class="n">pad</span><span class="p">,</span> <span class="n">dilation</span><span class="p">,</span> <span class="n">groups</span><span class="p">,</span> <span class="n">bias</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
@@ -1896,7 +1896,8 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>84</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>83</span>
+<span>84</span>
 <span>85</span>
 <span>86</span>
 <span>87</span>
@@ -1908,8 +1909,7 @@
 <span>93</span>
 <span>94</span>
 <span>95</span>
-<span>96</span>
-<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_chans</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="n">resolution</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
+<span>96</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_chans</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">,</span> <span class="n">resolution</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes patch embedding with convolutional layers for image-to-patch conversion and projection."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="n">img_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">to_2tuple</span><span class="p">(</span><span class="n">resolution</span><span class="p">)</span>
@@ -1936,9 +1936,9 @@
 <p>Processes input tensor through patch embedding sequence, converting images to patch embeddings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 99</span>
-<span>100</span>
-<span>101</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
+<span> 99</span>
+<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Processes input tensor through patch embedding sequence, converting images to patch embeddings."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">seq</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2109,7 +2109,8 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>132</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>131</span>
+<span>132</span>
 <span>133</span>
 <span>134</span>
 <span>135</span>
@@ -2126,8 +2127,7 @@
 <span>146</span>
 <span>147</span>
 <span>148</span>
-<span>149</span>
-<span>150</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_chans</span><span class="p">,</span> <span class="n">out_chans</span><span class="p">,</span> <span class="n">expand_ratio</span><span class="p">,</span> <span class="n">activation</span><span class="p">,</span> <span class="n">drop_path</span><span class="p">):</span>
+<span>149</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_chans</span><span class="p">,</span> <span class="n">out_chans</span><span class="p">,</span> <span class="n">expand_ratio</span><span class="p">,</span> <span class="n">activation</span><span class="p">,</span> <span class="n">drop_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes the MBConv layer with specified input/output channels, expansion ratio, and activation."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">in_chans</span> <span class="o">=</span> <span class="n">in_chans</span>
@@ -2159,7 +2159,8 @@
 <p>Implements the forward pass of MBConv, applying convolutions and skip connection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>152</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>151</span>
+<span>152</span>
 <span>153</span>
 <span>154</span>
 <span>155</span>
@@ -2168,8 +2169,7 @@
 <span>158</span>
 <span>159</span>
 <span>160</span>
-<span>161</span>
-<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Implements the forward pass of MBConv, applying convolutions and skip connection."""</span>
 <span></span>    <span class="n">shortcut</span> <span class="o">=</span> <span class="n">x</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">conv1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -2316,7 +2316,8 @@ dimension. It uses a series of convolutional layers with batch normalization to 
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>192</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>191</span>
+<span>192</span>
 <span>193</span>
 <span>194</span>
 <span>195</span>
@@ -2326,8 +2327,7 @@ dimension. It uses a series of convolutional layers with batch normalization to 
 <span>199</span>
 <span>200</span>
 <span>201</span>
-<span>202</span>
-<span>203</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_resolution</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
+<span>202</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">input_resolution</span><span class="p">,</span> <span class="n">dim</span><span class="p">,</span> <span class="n">out_dim</span><span class="p">,</span> <span class="n">activation</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes the PatchMerging module for merging and projecting neighboring patches in feature maps."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>
@@ -2352,7 +2352,8 @@ dimension. It uses a series of convolutional layers with batch normalization to 
 <p>Applies patch merging and dimension projection to the input feature map.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>205</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>204</span>
+<span>205</span>
 <span>206</span>
 <span>207</span>
 <span>208</span>
@@ -2365,8 +2366,7 @@ dimension. It uses a series of convolutional layers with batch normalization to 
 <span>215</span>
 <span>216</span>
 <span>217</span>
-<span>218</span>
-<span>219</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>218</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Applies patch merging and dimension projection to the input feature map."""</span>
 <span></span>    <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">ndim</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
 <span></span>        <span class="n">H</span><span class="p">,</span> <span class="n">W</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_resolution</span>
@@ -2679,7 +2679,8 @@ optionally applies downsampling to the output.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>246</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>245</span>
+<span>246</span>
 <span>247</span>
 <span>248</span>
 <span>249</span>
@@ -2738,8 +2739,7 @@ optionally applies downsampling to the output.</p>
 <span>302</span>
 <span>303</span>
 <span>304</span>
-<span>305</span>
-<span>306</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>305</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">,</span>
 <span></span>    <span class="n">input_resolution</span><span class="p">,</span>
@@ -2813,14 +2813,14 @@ optionally applies downsampling to the output.</p>
 <p>Processes input through convolutional layers, applying MBConv blocks and optional downsampling.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>308</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
+<span>308</span>
 <span>309</span>
 <span>310</span>
-<span>311</span>
-<span>312</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>311</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Processes input through convolutional layers, applying MBConv blocks and optional downsampling."""</span>
 <span></span>    <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
-<span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="o">.</span><span class="n">checkpoint</span><span class="p">(</span><span class="n">blk</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_checkpoint</span> <span class="k">else</span> <span class="n">blk</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">checkpoint</span><span class="p">(</span><span class="n">blk</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_checkpoint</span> <span class="k">else</span> <span class="n">blk</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># warn: checkpoint is slow import</span>
 <span></span>    <span class="k">return</span> <span class="n">x</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2944,7 +2944,8 @@ and dropout. It is commonly used in transformer-based architectures.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>342</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>341</span>
+<span>342</span>
 <span>343</span>
 <span>344</span>
 <span>345</span>
@@ -2952,8 +2953,7 @@ and dropout. It is commonly used in transformer-based architectures.</p>
 <span>347</span>
 <span>348</span>
 <span>349</span>
-<span>350</span>
-<span>351</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_features</span><span class="p">,</span> <span class="n">hidden_features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">act_layer</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
+<span>350</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">in_features</span><span class="p">,</span> <span class="n">hidden_features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">out_features</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">act_layer</span><span class="o">=</span><span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span> <span class="n">drop</span><span class="o">=</span><span class="mf">0.0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes a multi-layer perceptron with configurable input, hidden, and output dimensions."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="n">out_features</span> <span class="o">=</span> <span class="n">out_features</span> <span class="ow">or</span> <span class="n">in_features</span>
@@ -2976,14 +2976,14 @@ and dropout. It is commonly used in transformer-based architectures.</p>
 <p>Applies MLP operations: layer norm, FC layers, activation, and dropout to the input tensor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>353</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>352</span>
+<span>353</span>
 <span>354</span>
 <span>355</span>
 <span>356</span>
 <span>357</span>
 <span>358</span>
-<span>359</span>
-<span>360</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>359</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Applies MLP operations: layer norm, FC layers, activation, and dropout to the input tensor."""</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -3305,7 +3305,8 @@ offset between spatial positions in the resolution grid.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>398</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>397</span>
+<span>398</span>
 <span>399</span>
 <span>400</span>
 <span>401</span>
@@ -3360,8 +3361,7 @@ offset between spatial positions in the resolution grid.</p>
 <span>450</span>
 <span>451</span>
 <span>452</span>
-<span>453</span>
-<span>454</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>453</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">,</span>
 <span></span>    <span class="n">key_dim</span><span class="p">,</span>
@@ -3431,7 +3431,8 @@ offset between spatial positions in the resolution grid.</p>
 <p>Applies multi-head attention with spatial awareness and trainable attention biases.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>465</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>464</span>
+<span>465</span>
 <span>466</span>
 <span>467</span>
 <span>468</span>
@@ -3451,8 +3452,7 @@ offset between spatial positions in the resolution grid.</p>
 <span>482</span>
 <span>483</span>
 <span>484</span>
-<span>485</span>
-<span>486</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>  <span class="c1"># x</span>
+<span>485</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>  <span class="c1"># x</span>
 <span></span><span class="w">    </span><span class="sd">"""Applies multi-head attention with spatial awareness and trainable attention biases."""</span>
 <span></span>    <span class="n">B</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># B, N, C</span>
 <span></span>
@@ -3488,14 +3488,14 @@ offset between spatial positions in the resolution grid.</p>
 <p>Performs multi-head attention with spatial awareness and trainable attention biases.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>456</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>455</span>
+<span>456</span>
 <span>457</span>
 <span>458</span>
 <span>459</span>
 <span>460</span>
 <span>461</span>
-<span>462</span>
-<span>463</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span>462</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Performs multi-head attention with spatial awareness and trainable attention biases."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">mode</span><span class="p">)</span>
@@ -3876,7 +3876,8 @@ local convolutions to process input features efficiently.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>519</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>518</span>
+<span>519</span>
 <span>520</span>
 <span>521</span>
 <span>522</span>
@@ -3938,8 +3939,7 @@ local convolutions to process input features efficiently.</p>
 <span>578</span>
 <span>579</span>
 <span>580</span>
-<span>581</span>
-<span>582</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>581</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">,</span>
 <span></span>    <span class="n">input_resolution</span><span class="p">,</span>
@@ -4044,7 +4044,8 @@ dimension, input resolution, number of attention heads, window size, and MLP rat
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>626</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>625</span>
+<span>626</span>
 <span>627</span>
 <span>628</span>
 <span>629</span>
@@ -4061,8 +4062,7 @@ dimension, input resolution, number of attention heads, window size, and MLP rat
 <span>640</span>
 <span>641</span>
 <span>642</span>
-<span>643</span>
-<span>644</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>643</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Returns a string representation of the TinyViTBlock's parameters.</span>
 <span></span>
@@ -4095,7 +4095,8 @@ dimension, input resolution, number of attention heads, window size, and MLP rat
 <p>Applies self-attention, local convolution, and MLP operations to the input tensor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>584</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>583</span>
+<span>584</span>
 <span>585</span>
 <span>586</span>
 <span>587</span>
@@ -4134,8 +4135,7 @@ dimension, input resolution, number of attention heads, window size, and MLP rat
 <span>620</span>
 <span>621</span>
 <span>622</span>
-<span>623</span>
-<span>624</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>623</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Applies self-attention, local convolution, and MLP operations to the input tensor."""</span>
 <span></span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">input_resolution</span>
 <span></span>    <span class="n">b</span><span class="p">,</span> <span class="n">hw</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>  <span class="c1"># batch, height*width, channels</span>
@@ -4573,7 +4573,8 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>674</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>673</span>
+<span>674</span>
 <span>675</span>
 <span>676</span>
 <span>677</span>
@@ -4647,8 +4648,7 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <span>745</span>
 <span>746</span>
 <span>747</span>
-<span>748</span>
-<span>749</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>748</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">,</span>
 <span></span>    <span class="n">input_resolution</span><span class="p">,</span>
@@ -4737,9 +4737,9 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <p>Returns a string with the layer's parameters for printing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>757</span>
-<span>758</span>
-<span>759</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>756</span>
+<span>757</span>
+<span>758</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extra_repr</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Returns a string with the layer's parameters for printing."""</span>
 <span></span>    <span class="k">return</span> <span class="sa">f</span><span class="s2">"dim=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dim</span><span class="si">}</span><span class="s2">, input_resolution=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">input_resolution</span><span class="si">}</span><span class="s2">, depth=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">depth</span><span class="si">}</span><span class="s2">"</span>
 </code></pre></div></td></tr></table></div>
@@ -4756,14 +4756,14 @@ process feature maps at a specific resolution and dimensionality within the Tiny
 <p>Processes input through TinyViT blocks and optional downsampling.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>751</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>750</span>
+<span>751</span>
 <span>752</span>
 <span>753</span>
-<span>754</span>
-<span>755</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>754</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Processes input through TinyViT blocks and optional downsampling."""</span>
 <span></span>    <span class="k">for</span> <span class="n">blk</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span><span class="p">:</span>
-<span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">checkpoint</span><span class="o">.</span><span class="n">checkpoint</span><span class="p">(</span><span class="n">blk</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_checkpoint</span> <span class="k">else</span> <span class="n">blk</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">checkpoint</span><span class="p">(</span><span class="n">blk</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_checkpoint</span> <span class="k">else</span> <span class="n">blk</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># warn: checkpoint is slow import</span>
 <span></span>    <span class="k">return</span> <span class="n">x</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">downsample</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -5238,7 +5238,8 @@ attention and convolution blocks, and a classification head.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>797</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>796</span>
+<span>797</span>
 <span>798</span>
 <span>799</span>
 <span>800</span>
@@ -5356,8 +5357,7 @@ attention and convolution blocks, and a classification head.</p>
 <span>912</span>
 <span>913</span>
 <span>914</span>
-<span>915</span>
-<span>916</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>915</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">img_size</span><span class="o">=</span><span class="mi">224</span><span class="p">,</span>
 <span></span>    <span class="n">in_chans</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
@@ -5490,9 +5490,9 @@ attention and convolution blocks, and a classification head.</p>
 <p>Performs the forward pass through the TinyViT model, extracting features from the input image.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>985</span>
-<span>986</span>
-<span>987</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>984</span>
+<span>985</span>
+<span>986</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Performs the forward pass through the TinyViT model, extracting features from the input image."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward_features</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5509,7 +5509,8 @@ attention and convolution blocks, and a classification head.</p>
 <p>Processes input through feature extraction layers, returning spatial features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>970</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>969</span>
+<span>970</span>
 <span>971</span>
 <span>972</span>
 <span>973</span>
@@ -5521,8 +5522,7 @@ attention and convolution blocks, and a classification head.</p>
 <span>979</span>
 <span>980</span>
 <span>981</span>
-<span>982</span>
-<span>983</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>982</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Processes input through feature extraction layers, returning spatial features."""</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># x input is (N, C, H, W)</span>
 <span></span>
@@ -5550,10 +5550,10 @@ attention and convolution blocks, and a classification head.</p>
 <p>Returns a set of keywords for parameters that should not use weight decay.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>965</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>964</span>
+<span>965</span>
 <span>966</span>
-<span>967</span>
-<span>968</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">ignore</span>
+<span>967</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">jit</span><span class="o">.</span><span class="n">ignore</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">no_weight_decay_keywords</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Returns a set of keywords for parameters that should not use weight decay."""</span>
 <span></span>    <span class="k">return</span> <span class="p">{</span><span class="s2">"attention_biases"</span><span class="p">}</span>
@@ -5571,7 +5571,8 @@ attention and convolution blocks, and a classification head.</p>
 <p>Set image size to make model compatible with different image sizes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 989</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 988</span>
+<span> 989</span>
 <span> 990</span>
 <span> 991</span>
 <span> 992</span>
@@ -5584,8 +5585,7 @@ attention and convolution blocks, and a classification head.</p>
 <span> 999</span>
 <span>1000</span>
 <span>1001</span>
-<span>1002</span>
-<span>1003</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]):</span>
+<span>1002</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">[</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">1024</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="n">imgsz</span> <span class="o">=</span> <span class="p">[</span><span class="n">s</span> <span class="o">//</span> <span class="mi">4</span> <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">patches_resolution</span> <span class="o">=</span> <span class="n">imgsz</span>
@@ -5614,7 +5614,8 @@ attention and convolution blocks, and a classification head.</p>
 <p>Sets layer-wise learning rate decay for the TinyViT model based on depth.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/tiny_encoder.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>918</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>917</span>
+<span>918</span>
 <span>919</span>
 <span>920</span>
 <span>921</span>
@@ -5646,8 +5647,7 @@ attention and convolution blocks, and a classification head.</p>
 <span>947</span>
 <span>948</span>
 <span>949</span>
-<span>950</span>
-<span>951</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_layer_lr_decay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_lr_decay</span><span class="p">):</span>
+<span>950</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_layer_lr_decay</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer_lr_decay</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Sets layer-wise learning rate decay for the TinyViT model based on depth."""</span>
 <span></span>    <span class="n">decay_rate</span> <span class="o">=</span> <span class="n">layer_lr_decay</span>
 <span></span>

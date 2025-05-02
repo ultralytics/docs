@@ -1109,7 +1109,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>13</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>12</span>
+<span>13</span>
 <span>14</span>
 <span>15</span>
 <span>16</span>
@@ -1121,7 +1122,8 @@
 <span>22</span>
 <span>23</span>
 <span>24</span>
-<span>25</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_free_network_port</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span>25</span>
+<span>26</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_free_network_port</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Find a free port on localhost.</span>
 <span></span>
@@ -1131,6 +1133,8 @@
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (int): The available network port number.</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">socket</span>
+<span></span>
 <span></span>    <span class="k">with</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">(</span><span class="n">socket</span><span class="o">.</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">socket</span><span class="o">.</span><span class="n">SOCK_STREAM</span><span class="p">)</span> <span class="k">as</span> <span class="n">s</span><span class="p">:</span>
 <span></span>        <span class="n">s</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s2">"127.0.0.1"</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 <span></span>        <span class="k">return</span> <span class="n">s</span><span class="o">.</span><span class="n">getsockname</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># port</span>
@@ -1209,8 +1213,7 @@ The file contains the necessary configuration to initialize the trainer in a dis
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>28</span>
-<span>29</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>29</span>
 <span>30</span>
 <span>31</span>
 <span>32</span>
@@ -1256,7 +1259,8 @@ The file contains the necessary configuration to initialize the trainer in a dis
 <span>72</span>
 <span>73</span>
 <span>74</span>
-<span>75</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_file</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span>75</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_file</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a DDP (Distributed Data Parallel) file for multi-GPU training.</span>
 <span></span>
@@ -1394,8 +1398,7 @@ The file contains the necessary configuration to initialize the trainer in a dis
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>78</span>
-<span>79</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>79</span>
 <span>80</span>
 <span>81</span>
 <span>82</span>
@@ -1414,7 +1417,8 @@ The file contains the necessary configuration to initialize the trainer in a dis
 <span>95</span>
 <span>96</span>
 <span>97</span>
-<span>98</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">,</span> <span class="n">trainer</span><span class="p">):</span>
+<span>98</span>
+<span>99</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">,</span> <span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate command for distributed training.</span>
 <span></span>
@@ -1501,8 +1505,7 @@ as a temporary file for DDP training, and deletes it if so.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/dist.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>101</span>
-<span>102</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>102</span>
 <span>103</span>
 <span>104</span>
 <span>105</span>
@@ -1518,7 +1521,8 @@ as a temporary file for DDP training, and deletes it if so.</p>
 <span>115</span>
 <span>116</span>
 <span>117</span>
-<span>118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ddp_cleanup</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
+<span>118</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ddp_cleanup</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="n">file</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Delete temporary file if created during distributed data parallel (DDP) training.</span>
 <span></span>

@@ -1543,7 +1543,7 @@ loaded from local files, Ultralytics HUB, or Triton Server.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.model.Model.session">session</span></code></td>
 <td>
-<code><a class="autorefs autorefs-internal" href="../../hub/session/#ultralytics.hub.session.HUBTrainingSession" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.hub.session.HUBTrainingSession&lt;/span&gt; (&lt;code&gt;ultralytics.hub.HUBTrainingSession&lt;/code&gt;)'>HUBTrainingSession</a></code>
+<code><span title="HUBTrainingSession">HUBTrainingSession</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1869,7 +1869,8 @@ operations.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 81</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 80</span>
+<span> 81</span>
 <span> 82</span>
 <span> 83</span>
 <span> 84</span>
@@ -1938,7 +1939,8 @@ operations.</p>
 <span>147</span>
 <span>148</span>
 <span>149</span>
-<span>150</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>150</span>
+<span>151</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">model</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
 <span></span>    <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1986,6 +1988,8 @@ operations.</p>
 <span></span>
 <span></span>    <span class="c1"># Check if Ultralytics HUB model from https://hub.ultralytics.com</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_hub_model</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUBTrainingSession</span>
+<span></span>
 <span></span>        <span class="c1"># Fetch model from HUB</span>
 <span></span>        <span class="n">checks</span><span class="o">.</span><span class="n">check_requirements</span><span class="p">(</span><span class="s2">"hub-sdk&gt;=0.0.12"</span><span class="p">)</span>
 <span></span>        <span class="n">session</span> <span class="o">=</span> <span class="n">HUBTrainingSession</span><span class="o">.</span><span class="n">create_session</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
@@ -2358,8 +2362,7 @@ Results object.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>152</span>
-<span>153</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>153</span>
 <span>154</span>
 <span>155</span>
 <span>156</span>
@@ -2387,7 +2390,8 @@ Results object.</p>
 <span>178</span>
 <span>179</span>
 <span>180</span>
-<span>181</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
+<span>181</span>
+<span>182</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2510,10 +2514,7 @@ the module dictionary. Otherwise, it delegates the attribute lookup to the under
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1131</span>
-<span>1132</span>
-<span>1133</span>
-<span>1134</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1134</span>
 <span>1135</span>
 <span>1136</span>
 <span>1137</span>
@@ -2532,7 +2533,10 @@ the module dictionary. Otherwise, it delegates the attribute lookup to the under
 <span>1150</span>
 <span>1151</span>
 <span>1152</span>
-<span>1153</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span>1153</span>
+<span>1154</span>
+<span>1155</span>
+<span>1156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Enable accessing model attributes directly through the Model class.</span>
 <span></span>
@@ -2647,10 +2651,7 @@ specified event occurs.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>951</span>
-<span>952</span>
-<span>953</span>
-<span>954</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>954</span>
 <span>955</span>
 <span>956</span>
 <span>957</span>
@@ -2671,7 +2672,10 @@ specified event occurs.</p>
 <span>972</span>
 <span>973</span>
 <span>974</span>
-<span>975</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>975</span>
+<span>976</span>
+<span>977</span>
+<span>978</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add a callback function for a specified event.</span>
 <span></span>
@@ -2798,10 +2802,7 @@ different export formats.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>631</span>
-<span>632</span>
-<span>633</span>
-<span>634</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>634</span>
 <span>635</span>
 <span>636</span>
 <span>637</span>
@@ -2846,7 +2847,10 @@ different export formats.</p>
 <span>676</span>
 <span>677</span>
 <span>678</span>
-<span>679</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 <span></span><span class="p">):</span>
@@ -2959,10 +2963,7 @@ recognized by the Ultralytics callback system.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 977</span>
-<span> 978</span>
-<span> 979</span>
-<span> 980</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 980</span>
 <span> 981</span>
 <span> 982</span>
 <span> 983</span>
@@ -2985,7 +2986,10 @@ recognized by the Ultralytics callback system.</p>
 <span>1000</span>
 <span>1001</span>
 <span>1002</span>
-<span>1003</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1003</span>
+<span>1004</span>
+<span>1005</span>
+<span>1006</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clears all callback functions registered for a specified event.</span>
 <span></span>
@@ -3121,10 +3125,7 @@ generating embeddings. Can be a file path, URL, PIL image, numpy array, etc.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>459</span>
-<span>460</span>
-<span>461</span>
-<span>462</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>462</span>
 <span>463</span>
 <span>464</span>
 <span>465</span>
@@ -3150,7 +3151,10 @@ generating embeddings. Can be a file path, URL, PIL image, numpy array, etc.</p>
 <span>485</span>
 <span>486</span>
 <span>487</span>
-<span>488</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">embed</span><span class="p">(</span>
+<span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">embed</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -3223,10 +3227,7 @@ rather than computing batch statistics, and dropout layers are disabled.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1112</span>
-<span>1113</span>
-<span>1114</span>
-<span>1115</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1115</span>
 <span>1116</span>
 <span>1117</span>
 <span>1118</span>
@@ -3240,7 +3241,10 @@ rather than computing batch statistics, and dropout layers are disabled.</p>
 <span>1126</span>
 <span>1127</span>
 <span>1128</span>
-<span>1129</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>1129</span>
+<span>1130</span>
+<span>1131</span>
+<span>1132</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Sets the model to evaluation mode.</span>
 <span></span>
@@ -3379,10 +3383,7 @@ simplify (bool): Simplify ONNX model.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>681</span>
-<span>682</span>
-<span>683</span>
-<span>684</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>684</span>
 <span>685</span>
 <span>686</span>
 <span>687</span>
@@ -3425,7 +3426,10 @@ simplify (bool): Simplify ONNX model.</p>
 <span>724</span>
 <span>725</span>
 <span>726</span>
-<span>727</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span>
+<span>727</span>
+<span>728</span>
+<span>729</span>
+<span>730</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
@@ -3497,10 +3501,7 @@ performs both convolution and normalization in one step.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>439</span>
-<span>440</span>
-<span>441</span>
-<span>442</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>442</span>
 <span>443</span>
 <span>444</span>
 <span>445</span>
@@ -3515,7 +3516,10 @@ performs both convolution and normalization in one step.</p>
 <span>454</span>
 <span>455</span>
 <span>456</span>
-<span>457</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>457</span>
+<span>458</span>
+<span>459</span>
+<span>460</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fuse</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Fuse Conv2d and BatchNorm2d layers in the model for optimized inference.</span>
 <span></span>
@@ -3622,10 +3626,7 @@ model summary, layer details, and parameter counts. Empty if verbose is True.</p
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>416</span>
-<span>417</span>
-<span>418</span>
-<span>419</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>419</span>
 <span>420</span>
 <span>421</span>
 <span>422</span>
@@ -3643,7 +3644,10 @@ model summary, layer details, and parameter counts. Empty if verbose is True.</p
 <span>434</span>
 <span>435</span>
 <span>436</span>
-<span>437</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>437</span>
+<span>438</span>
+<span>439</span>
+<span>440</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display model information.</span>
 <span></span>
@@ -3740,8 +3744,7 @@ identifier.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>208</span>
-<span>209</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>209</span>
 <span>210</span>
 <span>211</span>
 <span>212</span>
@@ -3760,7 +3763,10 @@ identifier.</p>
 <span>225</span>
 <span>226</span>
 <span>227</span>
-<span>228</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_hub_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the provided model is an Ultralytics HUB model.</span>
@@ -3780,6 +3786,8 @@ identifier.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; Model.is_hub_model("yolo11n.pt")</span>
 <span></span><span class="sd">        False</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">HUB_WEB_ROOT</span>
+<span></span>
 <span></span>    <span class="k">return</span> <span class="n">model</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_WEB_ROOT</span><span class="si">}</span><span class="s2">/models/"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -3856,8 +3864,7 @@ parsing its components using urllib.parse.urlsplit().</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>183</span>
-<span>184</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>184</span>
 <span>185</span>
 <span>186</span>
 <span>187</span>
@@ -3879,7 +3886,8 @@ parsing its components using urllib.parse.urlsplit().</p>
 <span>203</span>
 <span>204</span>
 <span>205</span>
-<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>206</span>
+<span>207</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_triton_model</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the given model string is a Triton Server URL.</span>
@@ -3995,10 +4003,7 @@ name and shape and transfers them to the model.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>356</span>
-<span>357</span>
-<span>358</span>
-<span>359</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>359</span>
 <span>360</span>
 <span>361</span>
 <span>362</span>
@@ -4021,7 +4026,10 @@ name and shape and transfers them to the model.</p>
 <span>379</span>
 <span>380</span>
 <span>381</span>
-<span>382</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load parameters from the specified weights file into the model.</span>
 <span></span>
@@ -4186,10 +4194,7 @@ Results object.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>490</span>
-<span>491</span>
-<span>492</span>
-<span>493</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>493</span>
 <span>494</span>
 <span>495</span>
 <span>496</span>
@@ -4245,7 +4250,10 @@ Results object.</p>
 <span>546</span>
 <span>547</span>
 <span>548</span>
-<span>549</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
+<span>549</span>
+<span>550</span>
+<span>551</span>
+<span>552</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -4332,10 +4340,7 @@ modifications, ensuring consistent behavior across different runs or experiments
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1005</span>
-<span>1006</span>
-<span>1007</span>
-<span>1008</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1008</span>
 <span>1009</span>
 <span>1010</span>
 <span>1011</span>
@@ -4353,7 +4358,10 @@ modifications, ensuring consistent behavior across different runs or experiments
 <span>1023</span>
 <span>1024</span>
 <span>1025</span>
-<span>1026</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1026</span>
+<span>1027</span>
+<span>1028</span>
+<span>1029</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Reset all callbacks to their default functions.</span>
 <span></span>
@@ -4438,10 +4446,7 @@ enabling them to be updated during training.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>330</span>
-<span>331</span>
-<span>332</span>
-<span>333</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>333</span>
 <span>334</span>
 <span>335</span>
 <span>336</span>
@@ -4462,7 +4467,10 @@ enabling them to be updated during training.</p>
 <span>351</span>
 <span>352</span>
 <span>353</span>
-<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_weights</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Model"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Reset the model's weights to their initial state.</span>
 <span></span>
@@ -4557,10 +4565,7 @@ the date, Ultralytics version, license information, and a link to the documentat
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>384</span>
-<span>385</span>
-<span>386</span>
-<span>387</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>387</span>
 <span>388</span>
 <span>389</span>
 <span>390</span>
@@ -4587,7 +4592,10 @@ the date, Ultralytics version, license information, and a link to the documentat
 <span>411</span>
 <span>412</span>
 <span>413</span>
-<span>414</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"saved_model.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"saved_model.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save the current model state to a file.</span>
 <span></span>
@@ -4753,10 +4761,7 @@ tracking. Can be a file path, URL, or video stream.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>551</span>
-<span>552</span>
-<span>553</span>
-<span>554</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>554</span>
 <span>555</span>
 <span>556</span>
 <span>557</span>
@@ -4795,7 +4800,10 @@ tracking. Can be a file path, URL, or video stream.</p>
 <span>590</span>
 <span>591</span>
 <span>592</span>
-<span>593</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track</span><span class="p">(</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -4937,10 +4945,7 @@ patience (int): Epochs to wait for no observable improvement for early stopping 
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>729</span>
-<span>730</span>
-<span>731</span>
-<span>732</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>732</span>
 <span>733</span>
 <span>734</span>
 <span>735</span>
@@ -5005,7 +5010,10 @@ patience (int): Epochs to wait for no observable improvement for early stopping 
 <span>794</span>
 <span>795</span>
 <span>796</span>
-<span>797</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
+<span>797</span>
+<span>798</span>
+<span>799</span>
+<span>800</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">trainer</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
@@ -5220,10 +5228,7 @@ overrides and defaults to configure the tuning process.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>799</span>
-<span>800</span>
-<span>801</span>
-<span>802</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>802</span>
 <span>803</span>
 <span>804</span>
 <span>805</span>
@@ -5266,7 +5271,10 @@ overrides and defaults to configure the tuning process.</p>
 <span>842</span>
 <span>843</span>
 <span>844</span>
-<span>845</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tune</span><span class="p">(</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+<span>848</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tune</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">use_ray</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
@@ -5423,10 +5431,7 @@ validating the model.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>595</span>
-<span>596</span>
-<span>597</span>
-<span>598</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>598</span>
 <span>599</span>
 <span>600</span>
 <span>601</span>
@@ -5457,7 +5462,10 @@ validating the model.</p>
 <span>626</span>
 <span>627</span>
 <span>628</span>
-<span>629</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>

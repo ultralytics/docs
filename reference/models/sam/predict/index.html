@@ -1809,7 +1809,8 @@ for optimal results.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 80</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 79</span>
+<span> 80</span>
 <span> 81</span>
 <span> 82</span>
 <span> 83</span>
@@ -1834,8 +1835,7 @@ for optimal results.</p>
 <span>102</span>
 <span>103</span>
 <span>104</span>
-<span>105</span>
-<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Predictor with configuration, overrides, and callbacks.</span>
 <span></span>
@@ -2124,7 +2124,8 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>297</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>296</span>
+<span>297</span>
 <span>298</span>
 <span>299</span>
 <span>300</span>
@@ -2233,8 +2234,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <span>403</span>
 <span>404</span>
 <span>405</span>
-<span>406</span>
-<span>407</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span>
+<span>406</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">,</span>
 <span></span>    <span class="n">crop_n_layers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -2359,13 +2359,13 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <p>Extracts image features using the SAM model's image encoder for subsequent mask prediction.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>553</span>
-<span>554</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>554</span>
 <span>555</span>
 <span>556</span>
 <span>557</span>
 <span>558</span>
-<span>559</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>559</span>
+<span>560</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Extracts image features using the SAM model's image encoder for subsequent mask prediction."""</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span>
 <span></span>        <span class="sa">f</span><span class="s2">"SAM models only support square image size, but got </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="si">}</span><span class="s2">."</span>
@@ -2386,10 +2386,14 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <p>Retrieves or builds the Segment Anything Model (SAM) for image segmentation tasks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>440</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>439</span>
+<span>440</span>
 <span>441</span>
-<span>442</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>442</span>
+<span>443</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Retrieves or builds the Segment Anything Model (SAM) for image segmentation tasks."""</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_sam</span>  <span class="c1"># slow import</span>
+<span></span>
 <span></span>    <span class="k">return</span> <span class="n">build_sam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2604,7 +2608,8 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>168</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>167</span>
+<span>168</span>
 <span>169</span>
 <span>170</span>
 <span>171</span>
@@ -2640,8 +2645,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <span>201</span>
 <span>202</span>
 <span>203</span>
-<span>204</span>
-<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>204</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform image segmentation inference based on the given input cues, using the currently loaded image.</span>
 <span></span>
@@ -2786,8 +2790,7 @@ metadata for each processed image.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
-<span>445</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>445</span>
 <span>446</span>
 <span>447</span>
 <span>448</span>
@@ -2835,7 +2838,8 @@ metadata for each processed image.</p>
 <span>490</span>
 <span>491</span>
 <span>492</span>
-<span>493</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<span>493</span>
+<span>494</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Post-processes SAM's inference outputs to generate object detection masks and bounding boxes.</span>
 <span></span>
@@ -2979,7 +2983,8 @@ Currently, batched inference is not supported; hence the list length should be 1
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>140</span>
+<span>141</span>
 <span>142</span>
 <span>143</span>
 <span>144</span>
@@ -3003,8 +3008,7 @@ Currently, batched inference is not supported; hence the list length should be 1
 <span>162</span>
 <span>163</span>
 <span>164</span>
-<span>165</span>
-<span>166</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>165</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform initial transformations on the input image for preprocessing.</span>
 <span></span>
@@ -3101,7 +3105,8 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>107</span>
+<span>108</span>
 <span>109</span>
 <span>110</span>
 <span>111</span>
@@ -3131,8 +3136,7 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 <span>135</span>
 <span>136</span>
 <span>137</span>
-<span>138</span>
-<span>139</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>138</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Preprocess the input image for model inference.</span>
 <span></span>
@@ -3354,7 +3358,8 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>206</span>
+<span>207</span>
 <span>208</span>
 <span>209</span>
 <span>210</span>
@@ -3399,8 +3404,7 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <span>249</span>
 <span>250</span>
 <span>251</span>
-<span>252</span>
-<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prompt_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>252</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prompt_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Performs image segmentation inference based on input cues using SAM's specialized architecture.</span>
 <span></span>
@@ -3567,8 +3571,7 @@ this will be removed.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>570</span>
-<span>571</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>571</span>
 <span>572</span>
 <span>573</span>
 <span>574</span>
@@ -3617,7 +3620,8 @@ this will be removed.</p>
 <span>617</span>
 <span>618</span>
 <span>619</span>
-<span>620</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>620</span>
+<span>621</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_small_regions</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">min_area</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nms_thresh</span><span class="o">=</span><span class="mf">0.7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Remove small disconnected regions and holes from segmentation masks.</span>
@@ -3682,10 +3686,10 @@ this will be removed.</p>
 <p>Resets the current image and its features, clearing them for subsequent inference.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>565</span>
-<span>566</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>566</span>
 <span>567</span>
-<span>568</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>568</span>
+<span>569</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Resets the current image and its features, clearing them for subsequent inference."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">im</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="kc">None</span>
@@ -3769,8 +3773,7 @@ an image read by cv2.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>520</span>
-<span>521</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>521</span>
 <span>522</span>
 <span>523</span>
 <span>524</span>
@@ -3800,7 +3803,8 @@ an image read by cv2.</p>
 <span>548</span>
 <span>549</span>
 <span>550</span>
-<span>551</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+<span>551</span>
+<span>552</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Preprocesses and sets a single image for inference.</span>
 <span></span>
@@ -3846,9 +3850,9 @@ an image read by cv2.</p>
 <p>Sets prompts for subsequent inference operations.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>561</span>
-<span>562</span>
-<span>563</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>562</span>
+<span>563</span>
+<span>564</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Sets prompts for subsequent inference operations."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prompts</span> <span class="o">=</span> <span class="n">prompts</span>
 </code></pre></div></td></tr></table></div>
@@ -3916,7 +3920,8 @@ parameters for image normalization and other Ultralytics compatibility settings.
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>409</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>408</span>
+<span>409</span>
 <span>410</span>
 <span>411</span>
 <span>412</span>
@@ -3944,8 +3949,7 @@ parameters for image normalization and other Ultralytics compatibility settings.
 <span>434</span>
 <span>435</span>
 <span>436</span>
-<span>437</span>
-<span>438</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>437</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the Segment Anything Model (SAM) for inference.</span>
 <span></span>
@@ -4035,8 +4039,7 @@ directory path, URL, or other supported source types.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>495</span>
-<span>496</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>496</span>
 <span>497</span>
 <span>498</span>
 <span>499</span>
@@ -4058,7 +4061,8 @@ directory path, URL, or other supported source types.</p>
 <span>515</span>
 <span>516</span>
 <span>517</span>
-<span>518</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+<span>518</span>
+<span>519</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Sets up the data source for inference.</span>
 <span></span>
@@ -4232,7 +4236,8 @@ prompt-based inference.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 80</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 79</span>
+<span> 80</span>
 <span> 81</span>
 <span> 82</span>
 <span> 83</span>
@@ -4257,8 +4262,7 @@ prompt-based inference.</p>
 <span>102</span>
 <span>103</span>
 <span>104</span>
-<span>105</span>
-<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Predictor with configuration, overrides, and callbacks.</span>
 <span></span>
@@ -4298,10 +4302,7 @@ prompt-based inference.</p>
 <p>Extracts image features from the SAM image encoder for subsequent processing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>793</span>
-<span>794</span>
-<span>795</span>
-<span>796</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>796</span>
 <span>797</span>
 <span>798</span>
 <span>799</span>
@@ -4314,7 +4315,10 @@ prompt-based inference.</p>
 <span>806</span>
 <span>807</span>
 <span>808</span>
-<span>809</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>809</span>
+<span>810</span>
+<span>811</span>
+<span>812</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Extracts image features from the SAM image encoder for subsequent processing."""</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span>
 <span></span>        <span class="sa">f</span><span class="s2">"SAM 2 models only support square image size, but got </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="si">}</span><span class="s2">."</span>
@@ -4345,10 +4349,14 @@ prompt-based inference.</p>
 <p>Retrieves and initializes the Segment Anything Model 2 (SAM2) for image segmentation tasks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>659</span>
-<span>660</span>
-<span>661</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>660</span>
+<span>661</span>
+<span>662</span>
+<span>663</span>
+<span>664</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Retrieves and initializes the Segment Anything Model 2 (SAM2) for image segmentation tasks."""</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_sam</span>  <span class="c1"># slow import</span>
+<span></span>
 <span></span>    <span class="k">return</span> <span class="n">build_sam</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4546,10 +4554,7 @@ multi-object prediction scenarios.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>663</span>
-<span>664</span>
-<span>665</span>
-<span>666</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>666</span>
 <span>667</span>
 <span>668</span>
 <span>669</span>
@@ -4612,7 +4617,10 @@ multi-object prediction scenarios.</p>
 <span>726</span>
 <span>727</span>
 <span>728</span>
-<span>729</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prompt_inference</span><span class="p">(</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prompt_inference</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">,</span>
 <span></span>    <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -4758,10 +4766,7 @@ and preprocesses the image for feature extraction. It supports setting only one 
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>761</span>
-<span>762</span>
-<span>763</span>
-<span>764</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>764</span>
 <span>765</span>
 <span>766</span>
 <span>767</span>
@@ -4788,7 +4793,10 @@ and preprocesses the image for feature extraction. It supports setting only one 
 <span>788</span>
 <span>789</span>
 <span>790</span>
-<span>791</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+<span>791</span>
+<span>792</span>
+<span>793</span>
+<span>794</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Preprocesses and sets a single image for inference using the SAM2 model.</span>
 <span></span>
@@ -5042,10 +5050,7 @@ that control the behavior of the predictor.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>838</span>
-<span>839</span>
-<span>840</span>
-<span>841</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>841</span>
 <span>842</span>
 <span>843</span>
 <span>844</span>
@@ -5065,7 +5070,10 @@ that control the behavior of the predictor.</p>
 <span>858</span>
 <span>859</span>
 <span>860</span>
-<span>861</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>861</span>
+<span>862</span>
+<span>863</span>
+<span>864</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the predictor with configuration and optional overrides.</span>
 <span></span>
@@ -5249,10 +5257,7 @@ based on the provided prompts and the existing state.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 972</span>
-<span> 973</span>
-<span> 974</span>
-<span> 975</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 975</span>
 <span> 976</span>
 <span> 977</span>
 <span> 978</span>
@@ -5348,7 +5353,10 @@ based on the provided prompts and the existing state.</p>
 <span>1068</span>
 <span>1069</span>
 <span>1070</span>
-<span>1071</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1071</span>
+<span>1072</span>
+<span>1073</span>
+<span>1074</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_new_prompts</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">obj_id</span><span class="p">,</span>
@@ -5555,10 +5563,7 @@ based on the provided prompts and the existing state.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1192</span>
-<span>1193</span>
-<span>1194</span>
-<span>1195</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1195</span>
 <span>1196</span>
 <span>1197</span>
 <span>1198</span>
@@ -5580,7 +5585,10 @@ based on the provided prompts and the existing state.</p>
 <span>1214</span>
 <span>1215</span>
 <span>1216</span>
-<span>1217</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span>1217</span>
+<span>1218</span>
+<span>1219</span>
+<span>1220</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Extracts and processes image features using SAM2's image encoder for subsequent segmentation tasks.</span>
 <span></span>
@@ -5624,16 +5632,16 @@ based on the provided prompts and the existing state.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>863</span>
-<span>864</span>
-<span>865</span>
-<span>866</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>866</span>
 <span>867</span>
 <span>868</span>
 <span>869</span>
 <span>870</span>
 <span>871</span>
-<span>872</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>872</span>
+<span>873</span>
+<span>874</span>
+<span>875</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieves and configures the model with binarization enabled.</span>
 <span></span>
@@ -5783,10 +5791,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>874</span>
-<span>875</span>
-<span>876</span>
-<span>877</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>877</span>
 <span>878</span>
 <span>879</span>
 <span>880</span>
@@ -5852,7 +5857,10 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <span>940</span>
 <span>941</span>
 <span>942</span>
-<span>943</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>943</span>
+<span>944</span>
+<span>945</span>
+<span>946</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform image segmentation inference based on the given input cues, using the currently loaded image. This</span>
 <span></span><span class="sd">    method leverages SAM's (Segment Anything Model) architecture consisting of image encoder, prompt encoder, and</span>
@@ -5971,10 +5979,7 @@ inputs, outputs, and other metadata relevant to the tracking process.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1144</span>
-<span>1145</span>
-<span>1146</span>
-<span>1147</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1147</span>
 <span>1148</span>
 <span>1149</span>
 <span>1150</span>
@@ -6017,7 +6022,10 @@ inputs, outputs, and other metadata relevant to the tracking process.</p>
 <span>1187</span>
 <span>1188</span>
 <span>1189</span>
-<span>1190</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>1190</span>
+<span>1191</span>
+<span>1192</span>
+<span>1193</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_state</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an inference state for the predictor.</span>
@@ -6167,10 +6175,7 @@ the masks do not overlap, which can be useful for certain applications.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>945</span>
-<span>946</span>
-<span>947</span>
-<span>948</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>948</span>
 <span>949</span>
 <span>950</span>
 <span>951</span>
@@ -6192,7 +6197,10 @@ the masks do not overlap, which can be useful for certain applications.</p>
 <span>967</span>
 <span>968</span>
 <span>969</span>
-<span>970</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<span>970</span>
+<span>971</span>
+<span>972</span>
+<span>973</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Post-processes the predictions to apply non-overlapping constraints if required.</span>
 <span></span>
@@ -6236,10 +6244,7 @@ Additionally, it clears non-conditioning memory around input frames and ensures 
 with the provided inputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1073</span>
-<span>1074</span>
-<span>1075</span>
-<span>1076</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1076</span>
 <span>1077</span>
 <span>1078</span>
 <span>1079</span>
@@ -6305,7 +6310,10 @@ with the provided inputs.</p>
 <span>1139</span>
 <span>1140</span>
 <span>1141</span>
-<span>1142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1142</span>
+<span>1143</span>
+<span>1144</span>
+<span>1145</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">propagate_in_video_preflight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Prepare inference_state and consolidate temporary outputs before tracking.</span>
