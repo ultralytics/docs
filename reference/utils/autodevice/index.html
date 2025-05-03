@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
-<meta content="Explore the Ultralytics Object Counter for real-time video streams. Learn about initializing parameters, tracking objects, and more." name="description"/>
+<meta content="Discover how to automatically select the most idle GPU using PyTorch and NVML (pynvml) with this AutoDevice script. Ideal for optimizing GPU usage in deep learning and computer vision tasks." name="description"/>
 <meta content="Ultralytics" name="author"/>
-<link href="https://docs.ultralytics.com/reference/solutions/region_counter/" rel="canonical"/>
-<link href="../queue_management/" rel="prev"/>
-<link href="../security_alarm/" rel="next"/>
+<link href="https://docs.ultralytics.com/reference/utils/autodevice/" rel="canonical"/>
+<link href="../autobatch/" rel="prev"/>
+<link href="../benchmarks/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.12" name="generator"/>
-<title>Reference for ultralytics/solutions/region_counter.py</title>
+<title>Reference for ultralytics/utils/autodevice.py - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.2afb09e1.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -21,13 +21,13 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="region_counter" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, Object Counter, Real-time Tracking, Video Stream, Python, Object Detection" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/solutions/region_counter" property="og:url"/><meta content="region_counter" property="og:title"/><meta content="Explore the Ultralytics Object Counter for real-time video streams. Learn about initializing parameters, tracking objects, and more." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/solutions/region_counter" property="twitter:url"/><meta content="region_counter" property="twitter:title"/><meta content="Explore the Ultralytics Object Counter for real-time video streams. Learn about initializing parameters, tracking objects, and more." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "region_counter", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-11-14 00:21:54 +0500", "dateModified": "2024-11-14 00:21:54 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore the Ultralytics Object Counter for real-time video streams. Learn about initializing parameters, tracking objects, and more."}</script></head>
+<meta content="autodevice" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, AutoDevice, GPU selection, PyTorch, NVML, pynvml, GPU monitoring, CUDA, deep learning, idle GPU, memory utilization, temperature, power usage" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/utils/autodevice" property="og:url"/><meta content="autodevice" property="og:title"/><meta content="Discover how to automatically select the most idle GPU using PyTorch and NVML (pynvml) with this AutoDevice script. Ideal for optimizing GPU usage in deep learning and computer vision tasks." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/utils/autodevice" property="twitter:url"/><meta content="autodevice" property="twitter:title"/><meta content="Discover how to automatically select the most idle GPU using PyTorch and NVML (pynvml) with this AutoDevice script. Ideal for optimizing GPU usage in deep learning and computer vision tasks." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "autodevice", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2025-05-03 21:21:02 +0200", "dateModified": "2025-05-03 21:21:02 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover how to automatically select the most idle GPU using PyTorch and NVML (pynvml) with this AutoDevice script. Ideal for optimizing GPU usage in deep learning and computer vision tasks."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#reference-for-ultralyticssolutionsregion_counterpy">
+<a class="md-skip" href="#reference-for-ultralyticsutilsautodevicepy">
           Skip to content
         </a>
 </div>
@@ -60,7 +60,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              region_counter
+              autodevice
           </span>
 </div>
 </div>
@@ -617,181 +617,141 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_11_7" type="checkbox"/>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_7" type="checkbox"/>
 <label class="md-nav__link" for="__nav_11_7" id="__nav_11_7_label" tabindex="">
 <span class="md-ellipsis">
     solutions
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="true" aria-labelledby="__nav_11_7_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_11_7_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_11_7">
 <span class="md-nav__icon md-icon"></span>
             solutions
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ai_gym/">
+<a class="md-nav__link" href="../../solutions/ai_gym/">
 <span class="md-ellipsis">
     ai_gym
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../analytics/">
+<a class="md-nav__link" href="../../solutions/analytics/">
 <span class="md-ellipsis">
     analytics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../config/">
+<a class="md-nav__link" href="../../solutions/config/">
 <span class="md-ellipsis">
     config
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../distance_calculation/">
+<a class="md-nav__link" href="../../solutions/distance_calculation/">
 <span class="md-ellipsis">
     distance_calculation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../heatmap/">
+<a class="md-nav__link" href="../../solutions/heatmap/">
 <span class="md-ellipsis">
     heatmap
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../instance_segmentation/">
+<a class="md-nav__link" href="../../solutions/instance_segmentation/">
 <span class="md-ellipsis">
     instance_segmentation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../object_blurrer/">
+<a class="md-nav__link" href="../../solutions/object_blurrer/">
 <span class="md-ellipsis">
     object_blurrer
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../object_counter/">
+<a class="md-nav__link" href="../../solutions/object_counter/">
 <span class="md-ellipsis">
     object_counter
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../object_cropper/">
+<a class="md-nav__link" href="../../solutions/object_cropper/">
 <span class="md-ellipsis">
     object_cropper
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../parking_management/">
+<a class="md-nav__link" href="../../solutions/parking_management/">
 <span class="md-ellipsis">
     parking_management
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../queue_management/">
+<a class="md-nav__link" href="../../solutions/queue_management/">
 <span class="md-ellipsis">
     queue_management
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    region_counter
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../solutions/region_counter/">
 <span class="md-ellipsis">
     region_counter
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.region_counter.RegionCounter">
-<span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> RegionCounter
-    </span>
-</a>
-<nav aria-label=" RegionCounter" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.region_counter.RegionCounter.add_region">
-<span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> add_region
-    </span>
-</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.region_counter.RegionCounter.process">
-<span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> process
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../security_alarm/">
+<a class="md-nav__link" href="../../solutions/security_alarm/">
 <span class="md-ellipsis">
     security_alarm
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../solutions/">
+<a class="md-nav__link" href="../../solutions/solutions/">
 <span class="md-ellipsis">
     solutions
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../speed_estimation/">
+<a class="md-nav__link" href="../../solutions/speed_estimation/">
 <span class="md-ellipsis">
     speed_estimation
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../streamlit_inference/">
+<a class="md-nav__link" href="../../solutions/streamlit_inference/">
 <span class="md-ellipsis">
     streamlit_inference
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../trackzone/">
+<a class="md-nav__link" href="../../solutions/trackzone/">
 <span class="md-ellipsis">
     trackzone
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../vision_eye/">
+<a class="md-nav__link" href="../../solutions/vision_eye/">
 <span class="md-ellipsis">
     vision_eye
   </span>
@@ -853,50 +813,111 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--section md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_11_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_11_9" type="checkbox"/>
 <label class="md-nav__link" for="__nav_11_9" id="__nav_11_9_label" tabindex="">
 <span class="md-ellipsis">
     utils
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
-<nav aria-expanded="false" aria-labelledby="__nav_11_9_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_11_9_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_11_9">
 <span class="md-nav__icon md-icon"></span>
             utils
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/__init__/">
+<a class="md-nav__link" href="../__init__/">
 <span class="md-ellipsis">
     __init__
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/autobatch/">
+<a class="md-nav__link" href="../autobatch/">
 <span class="md-ellipsis">
     autobatch
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/autodevice/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    autodevice
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     autodevice
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> GPUInfo
+    </span>
+</a>
+<nav aria-label=" GPUInfo" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.__del__">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __del__
+    </span>
+</a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/benchmarks/">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.print_status">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> print_status
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.refresh_stats">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> refresh_stats
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.select_idle_gpu">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> select_idle_gpu
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.shutdown">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> shutdown
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../benchmarks/">
 <span class="md-ellipsis">
     benchmarks
   </span>
 </a>
 </li>
 <li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
-<a class="md-nav__link" href="../../utils/callbacks/base/">
+<a class="md-nav__link" href="../callbacks/base/">
 <span class="md-ellipsis">
     callbacks
   </span>
@@ -904,112 +925,112 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/checks/">
+<a class="md-nav__link" href="../checks/">
 <span class="md-ellipsis">
     checks
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/dist/">
+<a class="md-nav__link" href="../dist/">
 <span class="md-ellipsis">
     dist
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/downloads/">
+<a class="md-nav__link" href="../downloads/">
 <span class="md-ellipsis">
     downloads
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/errors/">
+<a class="md-nav__link" href="../errors/">
 <span class="md-ellipsis">
     errors
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/export/">
+<a class="md-nav__link" href="../export/">
 <span class="md-ellipsis">
     export
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/files/">
+<a class="md-nav__link" href="../files/">
 <span class="md-ellipsis">
     files
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/instance/">
+<a class="md-nav__link" href="../instance/">
 <span class="md-ellipsis">
     instance
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/loss/">
+<a class="md-nav__link" href="../loss/">
 <span class="md-ellipsis">
     loss
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/metrics/">
+<a class="md-nav__link" href="../metrics/">
 <span class="md-ellipsis">
     metrics
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/ops/">
+<a class="md-nav__link" href="../ops/">
 <span class="md-ellipsis">
     ops
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/patches/">
+<a class="md-nav__link" href="../patches/">
 <span class="md-ellipsis">
     patches
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/plotting/">
+<a class="md-nav__link" href="../plotting/">
 <span class="md-ellipsis">
     plotting
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/tal/">
+<a class="md-nav__link" href="../tal/">
 <span class="md-ellipsis">
     tal
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/torch_utils/">
+<a class="md-nav__link" href="../torch_utils/">
 <span class="md-ellipsis">
     torch_utils
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/triton/">
+<a class="md-nav__link" href="../triton/">
 <span class="md-ellipsis">
     triton
   </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../utils/tuner/">
+<a class="md-nav__link" href="../tuner/">
 <span class="md-ellipsis">
     tuner
   </span>
@@ -1044,24 +1065,45 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.region_counter.RegionCounter">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo">
 <span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> RegionCounter
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> GPUInfo
     </span>
 </a>
-<nav aria-label=" RegionCounter" class="md-nav">
+<nav aria-label=" GPUInfo" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.region_counter.RegionCounter.add_region">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.__del__">
 <span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> add_region
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> __del__
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.solutions.region_counter.RegionCounter.process">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.print_status">
 <span class="md-ellipsis">
-<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> process
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> print_status
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.refresh_stats">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> refresh_stats
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.select_idle_gpu">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> select_idle_gpu
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.autodevice.GPUInfo.shutdown">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> shutdown
     </span>
 </a>
 </li>
@@ -1075,28 +1117,28 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/reference/solutions/region_counter.md" title="Edit this page">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/reference/utils/autodevice.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="reference-for-ultralyticssolutionsregion_counterpy">Reference for <code>ultralytics/solutions/region_counter.py</code></h1>
+<h1 id="reference-for-ultralyticsutilsautodevicepy">Reference for <code>ultralytics/utils/autodevice.py</code></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>This file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/solutions/region_counter.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/solutions/region_counter.py</a>. If you spot a problem please help fix it by <a href="https://docs.ultralytics.com/help/contributing/">contributing</a> a <a href="https://github.com/ultralytics/ultralytics/edit/main/ultralytics/solutions/region_counter.py">Pull Request</a> 🛠️. Thank you 🙏!</p>
+<p>This file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/autodevice.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/utils/autodevice.py</a>. If you spot a problem please help fix it by <a href="https://docs.ultralytics.com/help/contributing/">contributing</a> a <a href="https://github.com/ultralytics/ultralytics/edit/main/ultralytics/utils/autodevice.py">Pull Request</a> 🛠️. Thank you 🙏!</p>
 </div>
 <p><br/></p>
 <div class="doc doc-object doc-class">
-<h2 class="doc doc-heading" id="ultralytics.solutions.region_counter.RegionCounter">
-<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.solutions.region_counter.RegionCounter</span>
+<h2 class="doc doc-heading" id="ultralytics.utils.autodevice.GPUInfo">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.autodevice.GPUInfo</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">RegionCounter</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">GPUInfo</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p class="doc doc-class-bases">
-              Bases: <code><a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.BaseSolution" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.BaseSolution&lt;/span&gt;'>BaseSolution</a></code></p>
-<p>A class for real-time counting of objects within user-defined regions in a video stream.</p>
-<p>This class inherits from <code>BaseSolution</code> and provides functionality to define polygonal regions in a video frame,
-track objects, and count those objects that pass through each defined region. Useful for applications requiring
-counting in specified areas, such as monitoring zones or segmented sections.</p>
+<p>Manages NVIDIA GPU information via pynvml with robust error handling.</p>
+<p>Provides methods to query detailed GPU statistics (utilization, memory, temp, power) and select the most idle
+GPUs based on configurable criteria. It safely handles the absence or initialization failure of the pynvml
+library by logging warnings and disabling related features, preventing application crashes.</p>
+<p>Includes fallback logic using <code>torch.cuda</code> for basic device counting if NVML is unavailable during GPU
+selection. Manages NVML initialization and shutdown internally.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1108,71 +1150,46 @@ counting in specified areas, such as monitoring zones or segmented sections.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.region_counter.RegionCounter.region_template">region_template</span></code></td>
+<td><code><span title="ultralytics.utils.autodevice.GPUInfo.pynvml">pynvml</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="module">module</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Template for creating new counting regions with default attributes including name,
-polygon coordinates, and display colors.</p>
+<p>The <code>pynvml</code> module if successfully imported and initialized, otherwise <code>None</code>.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.region_counter.RegionCounter.counting_regions">counting_regions</span></code></td>
+<td><code><span title="ultralytics.utils.autodevice.GPUInfo.nvml_available">nvml_available</span></code></td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="bool">bool</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>List storing all defined regions, where each entry is based on <code>region_template</code>
-and includes specific region settings like name, coordinates, and color.</p>
+<p>Indicates if <code>pynvml</code> is ready for use. True if import and <code>nvmlInit()</code> succeeded,
+False otherwise.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.region_counter.RegionCounter.region_counts">region_counts</span></code></td>
+<td><code><span title="ultralytics.utils.autodevice.GPUInfo.gpu_stats">gpu_stats</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="list">list</span>[<span title="dict">dict</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary storing the count of objects for each named region.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<p><span class="doc-section-title">Methods:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.region_counter.RegionCounter.add_region" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;add_region&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.region_counter.RegionCounter.add_region&lt;/code&gt;)'>add_region</a></code></td>
-<td>
-<div class="doc-md-description">
-<p>Adds a new counting region with specified attributes.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.region_counter.RegionCounter.process" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;process&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.region_counter.RegionCounter.process&lt;/code&gt;)'>process</a></code></td>
-<td>
-<div class="doc-md-description">
-<p>Processes video frames to count objects in each region.</p>
+<p>A list of dictionaries, each holding stats for one GPU. Populated on initialization
+and by <code>refresh_stats()</code>. Keys include: 'index', 'name', 'utilization' (%), 'memory_used' (MiB),
+'memory_total' (MiB), 'memory_free' (MiB), 'temperature' (C), 'power_draw' (W),
+'power_limit' (W or 'N/A'). Empty if NVML is unavailable or queries fail.</p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
-<summary>Source code in <code>ultralytics/solutions/region_counter.py</code></summary>
+<summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>29</span>
 <span>30</span>
 <span>31</span>
@@ -1185,248 +1202,54 @@ and includes specific region settings like name, coordinates, and color.</p>
 <span>38</span>
 <span>39</span>
 <span>40</span>
-<span>41</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Initializes the RegionCounter class for real-time counting in different regions of video streams."""</span>
-<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">region_template</span> <span class="o">=</span> <span class="p">{</span>
-<span></span>        <span class="s2">"name"</span><span class="p">:</span> <span class="s2">"Default Region"</span><span class="p">,</span>
-<span></span>        <span class="s2">"polygon"</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>        <span class="s2">"counts"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
-<span></span>        <span class="s2">"dragging"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>
-<span></span>        <span class="s2">"region_color"</span><span class="p">:</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
-<span></span>        <span class="s2">"text_color"</span><span class="p">:</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-<span></span>    <span class="p">}</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">region_counts</span> <span class="o">=</span> <span class="p">{}</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">counting_regions</span> <span class="o">=</span> <span class="p">[]</span>
+<span>41</span>
+<span>42</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Initializes GPUInfo, attempting to import and initialize pynvml."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span> <span class="o">=</span> <span class="kc">False</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>
+<span></span>    <span class="k">try</span><span class="p">:</span>
+<span></span>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"pynvml&gt;=12.0.0"</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">"pynvml"</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="o">.</span><span class="n">nvmlInit</span><span class="p">()</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span> <span class="o">=</span> <span class="kc">True</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">refresh_stats</span><span class="p">()</span>
+<span></span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Failed to initialize pynvml, GPU stats disabled: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.solutions.region_counter.RegionCounter.add_region">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">add_region</span>
+<h3 class="doc doc-heading" id="ultralytics.utils.autodevice.GPUInfo.__del__">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__del__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">add_region</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">polygon_points</span><span class="p">,</span> <span class="n">region_color</span><span class="p">,</span> <span class="n">text_color</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__del__</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Add a new region to the counting list based on the provided template with specific attributes.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>name</code>
-</td>
-<td>
-<code><span title="str">str</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Name assigned to the new region.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code>polygon_points</code>
-</td>
-<td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>List of (x, y) coordinates defining the region's polygon.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code>region_color</code>
-</td>
-<td>
-<code><span title="tuple">tuple</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>BGR color for region visualization.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code>text_color</code>
-</td>
-<td>
-<code><span title="tuple">tuple</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>BGR color for the text within the region.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
+<p>Ensures NVML is shut down when the object is garbage collected.</p>
 <details class="quote">
-<summary>Source code in <code>ultralytics/solutions/region_counter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
-<span>44</span>
+<summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>44</span>
 <span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span>
-<span>54</span>
-<span>55</span>
-<span>56</span>
-<span>57</span>
-<span>58</span>
-<span>59</span>
-<span>60</span>
-<span>61</span>
-<span>62</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">polygon_points</span><span class="p">,</span> <span class="n">region_color</span><span class="p">,</span> <span class="n">text_color</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Add a new region to the counting list based on the provided template with specific attributes.</span>
-<span></span>
-<span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        name (str): Name assigned to the new region.</span>
-<span></span><span class="sd">        polygon_points (List[Tuple]): List of (x, y) coordinates defining the region's polygon.</span>
-<span></span><span class="sd">        region_color (tuple): BGR color for region visualization.</span>
-<span></span><span class="sd">        text_color (tuple): BGR color for the text within the region.</span>
-<span></span><span class="sd">    """</span>
-<span></span>    <span class="n">region</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">region_template</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span></span>    <span class="n">region</span><span class="o">.</span><span class="n">update</span><span class="p">(</span>
-<span></span>        <span class="p">{</span>
-<span></span>            <span class="s2">"name"</span><span class="p">:</span> <span class="n">name</span><span class="p">,</span>
-<span></span>            <span class="s2">"polygon"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">Polygon</span><span class="p">(</span><span class="n">polygon_points</span><span class="p">),</span>
-<span></span>            <span class="s2">"region_color"</span><span class="p">:</span> <span class="n">region_color</span><span class="p">,</span>
-<span></span>            <span class="s2">"text_color"</span><span class="p">:</span> <span class="n">text_color</span><span class="p">,</span>
-<span></span>        <span class="p">}</span>
-<span></span>    <span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">counting_regions</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">region</span><span class="p">)</span>
+<span>46</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Ensures NVML is shut down when the object is garbage collected."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">shutdown</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
 </div>
 <div class="doc doc-object doc-function">
-<h3 class="doc doc-heading" id="ultralytics.solutions.region_counter.RegionCounter.process">
-<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">process</span>
+<h3 class="doc doc-heading" id="ultralytics.utils.autodevice.GPUInfo.print_status">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">print_status</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">process</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">print_status</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Process the input frame to detect and count objects within each defined region.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>im0</code>
-</td>
-<td>
-<code><span title="numpy.ndarray">ndarray</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Input image frame where objects and regions are annotated.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
-<p><span class="doc-section-title">Returns:</span></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code><a class="autorefs autorefs-internal" href="../solutions/#ultralytics.solutions.solutions.SolutionResults" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.SolutionResults&lt;/span&gt;'>SolutionResults</a></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Contains processed image <code>plot_im</code>, 'total_tracks' (int, total number of tracked objects),
-and 'region_counts' (dict, counts of objects per region).</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
+<p>Prints GPU status in a compact table format using current stats.</p>
 <details class="quote">
-<summary>Source code in <code>ultralytics/solutions/region_counter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 64</span>
-<span> 65</span>
-<span> 66</span>
-<span> 67</span>
-<span> 68</span>
-<span> 69</span>
-<span> 70</span>
-<span> 71</span>
-<span> 72</span>
-<span> 73</span>
-<span> 74</span>
-<span> 75</span>
-<span> 76</span>
-<span> 77</span>
-<span> 78</span>
-<span> 79</span>
-<span> 80</span>
-<span> 81</span>
-<span> 82</span>
-<span> 83</span>
-<span> 84</span>
-<span> 85</span>
-<span> 86</span>
-<span> 87</span>
-<span> 88</span>
-<span> 89</span>
-<span> 90</span>
-<span> 91</span>
-<span> 92</span>
-<span> 93</span>
-<span> 94</span>
-<span> 95</span>
-<span> 96</span>
-<span> 97</span>
-<span> 98</span>
+<summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
@@ -1446,65 +1269,263 @@ and 'region_counts' (dict, counts of objects per region).</p>
 <span>115</span>
 <span>116</span>
 <span>117</span>
-<span>118</span>
-<span>119</span>
-<span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Prints GPU status in a compact table format using current stats."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">refresh_stats</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"No GPU stats available."</span><span class="p">)</span>
+<span></span>        <span class="k">return</span>
+<span></span>
+<span></span>    <span class="n">stats</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span>
+<span></span>    <span class="n">name_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">,</span> <span class="s2">"N/A"</span><span class="p">))</span> <span class="k">for</span> <span class="n">gpu</span> <span class="ow">in</span> <span class="n">stats</span><span class="p">)</span>
+<span></span>    <span class="n">hdr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'Idx'</span><span class="si">:</span><span class="s2">&lt;3</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Name'</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">name_len</span><span class="si">}}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Util'</span><span class="si">:</span><span class="s2">&gt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Mem (MiB)'</span><span class="si">:</span><span class="s2">&gt;15</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Temp'</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="s1">'Pwr (W)'</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">"</span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">--- GPU Status ---</span><span class="se">\n</span><span class="si">{</span><span class="n">hdr</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="s1">'-'</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">hdr</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="k">for</span> <span class="n">gpu</span> <span class="ow">in</span> <span class="n">stats</span><span class="p">:</span>
+<span></span>        <span class="n">u</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gpu</span><span class="p">[</span><span class="s1">'utilization'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2">%"</span> <span class="k">if</span> <span class="n">gpu</span><span class="p">[</span><span class="s2">"utilization"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">" N/A "</span>
+<span></span>        <span class="n">m</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gpu</span><span class="p">[</span><span class="s1">'memory_used'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;6</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">gpu</span><span class="p">[</span><span class="s1">'memory_total'</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;6</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">gpu</span><span class="p">[</span><span class="s2">"memory_used"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">" N/A / N/A "</span>
+<span></span>        <span class="n">t</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gpu</span><span class="p">[</span><span class="s1">'temperature'</span><span class="p">]</span><span class="si">}</span><span class="s2">C"</span> <span class="k">if</span> <span class="n">gpu</span><span class="p">[</span><span class="s2">"temperature"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">" N/A "</span>
+<span></span>        <span class="n">p</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gpu</span><span class="p">[</span><span class="s1">'power_draw'</span><span class="p">]</span><span class="si">:</span><span class="s2">&gt;3</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">gpu</span><span class="p">[</span><span class="s1">'power_limit'</span><span class="p">]</span><span class="si">:</span><span class="s2">&lt;3</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="n">gpu</span><span class="p">[</span><span class="s2">"power_draw"</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="k">else</span> <span class="s2">" N/A "</span>
+<span></span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'index'</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;3d</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">'name'</span><span class="p">,</span><span class="w"> </span><span class="s1">'N/A'</span><span class="p">)</span><span class="si">:</span><span class="s2">&lt;</span><span class="si">{</span><span class="n">name_len</span><span class="si">}}</span><span class="s2"> </span><span class="si">{</span><span class="n">u</span><span class="si">:</span><span class="s2">&gt;6</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">m</span><span class="si">:</span><span class="s2">&gt;15</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">t</span><span class="si">:</span><span class="s2">&gt;5</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">p</span><span class="si">:</span><span class="s2">&gt;10</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="s1">'-'</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="nb">len</span><span class="p">(</span><span class="n">hdr</span><span class="p">)</span><span class="si">}</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.utils.autodevice.GPUInfo.refresh_stats">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">refresh_stats</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">refresh_stats</span><span class="p">()</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Refreshes the internal gpu_stats list by querying NVML.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">refresh_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Refreshes the internal gpu_stats list by querying NVML."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="p">:</span>
+<span></span>        <span class="k">return</span>
+<span></span>
+<span></span>    <span class="k">try</span><span class="p">:</span>
+<span></span>        <span class="n">device_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="o">.</span><span class="n">nvmlDeviceGetCount</span><span class="p">()</span>
+<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">device_count</span><span class="p">):</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_device_stats</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span></span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error during device query: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span> <span class="o">=</span> <span class="p">[]</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.utils.autodevice.GPUInfo.select_idle_gpu">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">select_idle_gpu</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">select_idle_gpu</span><span class="p">(</span><span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_memory_mb</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Selects the 'count' most idle GPUs based on utilization and free memory.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>count</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The number of idle GPUs to select. Defaults to 1.</p>
+</div>
+</td>
+<td>
+<code>1</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>min_memory_mb</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Minimum free memory required (MiB). Defaults to 0.</p>
+</div>
+</td>
+<td>
+<code>0</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="list">list</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Indices of the selected GPUs, sorted by idleness.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>Returns fewer than 'count' if not enough qualify or exist.
+Returns basic CUDA indices if NVML fails. Empty list if no GPUs found.</p>
+</details>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_idle_gpu</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">min_memory_mb</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Process the input frame to detect and count objects within each defined region.</span>
+<span></span><span class="sd">    Selects the 'count' most idle GPUs based on utilization and free memory.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        im0 (np.ndarray): Input image frame where objects and regions are annotated.</span>
+<span></span><span class="sd">        count (int): The number of idle GPUs to select. Defaults to 1.</span>
+<span></span><span class="sd">        min_memory_mb (int): Minimum free memory required (MiB). Defaults to 0.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (SolutionResults): Contains processed image `plot_im`, 'total_tracks' (int, total number of tracked objects),</span>
-<span></span><span class="sd">            and 'region_counts' (dict, counts of objects per region).</span>
+<span></span><span class="sd">        (list[int]): Indices of the selected GPUs, sorted by idleness.</span>
+<span></span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">         Returns fewer than 'count' if not enough qualify or exist.</span>
+<span></span><span class="sd">         Returns basic CUDA indices if NVML fails. Empty list if no GPUs found.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
-<span></span>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Searching for </span><span class="si">{</span><span class="n">count</span><span class="si">}</span><span class="s2"> idle GPUs with &gt;= </span><span class="si">{</span><span class="n">min_memory_mb</span><span class="si">}</span><span class="s2"> MiB free memory..."</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="c1"># Ensure self.region is initialized and structured as a dictionary</span>
-<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Region#01"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">initialize_region</span><span class="p">()}</span>
+<span></span>    <span class="k">if</span> <span class="n">count</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>        <span class="k">return</span> <span class="p">[]</span>
 <span></span>
-<span></span>    <span class="c1"># Draw only valid regions</span>
-<span></span>    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="p">(</span><span class="n">region_name</span><span class="p">,</span> <span class="n">reg_pts</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">start</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
-<span></span>        <span class="n">color</span> <span class="o">=</span> <span class="n">colors</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
-<span></span>        <span class="n">annotator</span><span class="o">.</span><span class="n">draw_region</span><span class="p">(</span><span class="n">reg_pts</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">add_region</span><span class="p">(</span><span class="n">region_name</span><span class="p">,</span> <span class="n">reg_pts</span><span class="p">,</span> <span class="n">color</span><span class="p">,</span> <span class="n">annotator</span><span class="o">.</span><span class="n">get_txt_color</span><span class="p">())</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">refresh_stats</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"NVML stats unavailable."</span><span class="p">)</span>
+<span></span>        <span class="k">return</span> <span class="p">[]</span>
 <span></span>
-<span></span>    <span class="c1"># Prepare regions for containment check (only process valid ones)</span>
-<span></span>    <span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">counting_regions</span><span class="p">:</span>
-<span></span>        <span class="k">if</span> <span class="s2">"prepared_polygon"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">region</span><span class="p">:</span>
-<span></span>            <span class="n">region</span><span class="p">[</span><span class="s2">"prepared_polygon"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">prep</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="s2">"polygon"</span><span class="p">])</span>
+<span></span>    <span class="c1"># Filter and sort eligible GPUs</span>
+<span></span>    <span class="n">eligible_gpus</span> <span class="o">=</span> <span class="p">[</span>
+<span></span>        <span class="n">gpu</span>
+<span></span>        <span class="k">for</span> <span class="n">gpu</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span>
+<span></span>        <span class="k">if</span> <span class="n">gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"memory_free"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">min_memory_mb</span> <span class="ow">and</span> <span class="n">gpu</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"utilization"</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span>
+<span></span>    <span class="p">]</span>
+<span></span>    <span class="n">eligible_gpus</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"utilization"</span><span class="p">,</span> <span class="mi">101</span><span class="p">),</span> <span class="o">-</span><span class="n">x</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"memory_free"</span><span class="p">,</span> <span class="mi">0</span><span class="p">)))</span>
 <span></span>
-<span></span>    <span class="c1"># Convert bounding boxes to NumPy array for center points</span>
-<span></span>    <span class="n">boxes_np</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([((</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
-<span></span>    <span class="n">points</span> <span class="o">=</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">Point</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span> <span class="k">for</span> <span class="n">pt</span> <span class="ow">in</span> <span class="n">boxes_np</span><span class="p">]</span>  <span class="c1"># Convert centers to Point objects</span>
+<span></span>    <span class="c1"># Select top 'count' indices</span>
+<span></span>    <span class="n">selected</span> <span class="o">=</span> <span class="p">[</span><span class="n">gpu</span><span class="p">[</span><span class="s2">"index"</span><span class="p">]</span> <span class="k">for</span> <span class="n">gpu</span> <span class="ow">in</span> <span class="n">eligible_gpus</span><span class="p">[:</span><span class="n">count</span><span class="p">]]</span>
 <span></span>
-<span></span>    <span class="c1"># Process bounding boxes &amp; check containment</span>
-<span></span>    <span class="k">if</span> <span class="n">points</span><span class="p">:</span>
-<span></span>        <span class="k">for</span> <span class="n">point</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">conf</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">confs</span><span class="p">):</span>
-<span></span>            <span class="n">annotator</span><span class="o">.</span><span class="n">box_label</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">adjust_box_label</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">track_id</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="kc">True</span><span class="p">))</span>
+<span></span>    <span class="k">if</span> <span class="n">selected</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Selected idle CUDA devices </span><span class="si">{</span><span class="n">selected</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"No GPUs met criteria (Util != -1, Free Mem &gt;= </span><span class="si">{</span><span class="n">min_memory_mb</span><span class="si">}</span><span class="s2"> MiB)."</span><span class="p">)</span>
 <span></span>
-<span></span>            <span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">counting_regions</span><span class="p">:</span>
-<span></span>                <span class="k">if</span> <span class="n">region</span><span class="p">[</span><span class="s2">"prepared_polygon"</span><span class="p">]</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">point</span><span class="p">):</span>
-<span></span>                    <span class="n">region</span><span class="p">[</span><span class="s2">"counts"</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">region_counts</span><span class="p">[</span><span class="n">region</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">region</span><span class="p">[</span><span class="s2">"counts"</span><span class="p">]</span>
-<span></span>
-<span></span>    <span class="c1"># Display region counts</span>
-<span></span>    <span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">counting_regions</span><span class="p">:</span>
-<span></span>        <span class="n">annotator</span><span class="o">.</span><span class="n">text_label</span><span class="p">(</span>
-<span></span>            <span class="n">region</span><span class="p">[</span><span class="s2">"polygon"</span><span class="p">]</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span>
-<span></span>            <span class="n">label</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="s2">"counts"</span><span class="p">]),</span>
-<span></span>            <span class="n">color</span><span class="o">=</span><span class="n">region</span><span class="p">[</span><span class="s2">"region_color"</span><span class="p">],</span>
-<span></span>            <span class="n">txt_color</span><span class="o">=</span><span class="n">region</span><span class="p">[</span><span class="s2">"text_color"</span><span class="p">],</span>
-<span></span>            <span class="n">margin</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">4</span><span class="p">,</span>
-<span></span>        <span class="p">)</span>
-<span></span>        <span class="n">region</span><span class="p">[</span><span class="s2">"counts"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># Reset for next frame</span>
-<span></span>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>
-<span></span>
-<span></span>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span><span class="n">plot_im</span><span class="o">=</span><span class="n">plot_im</span><span class="p">,</span> <span class="n">total_tracks</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">),</span> <span class="n">region_counts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region_counts</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">selected</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.utils.autodevice.GPUInfo.shutdown">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">shutdown</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">shutdown</span><span class="p">()</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Shuts down NVML if it was initialized.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">shutdown</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Shuts down NVML if it was initialized."""</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="p">:</span>
+<span></span>        <span class="k">try</span><span class="p">:</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="o">.</span><span class="n">nvmlShutdown</span><span class="p">()</span>
+<span></span>        <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+<span></span>            <span class="k">pass</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span> <span class="o">=</span> <span class="kc">False</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1515,22 +1536,22 @@ and 'region_counts' (dict, counts of objects per region).</p>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on November 14, 2024">
-<span class="hover-item">📅</span> Created 5 months ago
+<span class="date-item" title="This page was first created on May 03, 2025">
+<span class="hover-item">📅</span> Created 0 days ago
     </span>
-<span class="date-item" title="This page was last updated on November 14, 2024">
-<span class="hover-item">✏️</span> Updated 5 months ago
+<span class="date-item" title="This page was last updated on May 03, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
-<a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
-<img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (1 change)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
-<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/solutions/region_counter', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/utils/autodevice', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-x-twitter"></i> Tweet
     </button>
-<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/solutions/region_counter', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/utils/autodevice', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
 <i class="fa-brands fa-linkedin-in"></i> Share
     </button>
 </div>
@@ -1547,7 +1568,7 @@ and 'region_counts' (dict, counts of objects per region).</p>
 </main>
 <footer class="md-footer">
 <nav aria-label="Footer" class="md-footer__inner md-grid">
-<a aria-label="Previous: queue_management" class="md-footer__link md-footer__link--prev" href="../queue_management/">
+<a aria-label="Previous: autobatch" class="md-footer__link md-footer__link--prev" href="../autobatch/">
 <div class="md-footer__button md-icon">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
 </div>
@@ -1556,17 +1577,17 @@ and 'region_counts' (dict, counts of objects per region).</p>
                 Previous
               </span>
 <div class="md-ellipsis">
-                queue_management
+                autobatch
               </div>
 </div>
 </a>
-<a aria-label="Next: security_alarm" class="md-footer__link md-footer__link--next" href="../security_alarm/">
+<a aria-label="Next: benchmarks" class="md-footer__link md-footer__link--next" href="../benchmarks/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                security_alarm
+                benchmarks
               </div>
 </div>
 <div class="md-footer__button md-icon">
