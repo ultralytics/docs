@@ -1380,12 +1380,12 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>222</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>221</span>
+<span>222</span>
 <span>223</span>
 <span>224</span>
 <span>225</span>
-<span>226</span>
-<span>227</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>226</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the RF100Benchmark class for benchmarking YOLO model performance across various formats."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">ds_names</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">ds_cfg_list</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1507,7 +1507,10 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>293</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
 <span>294</span>
 <span>295</span>
 <span>296</span>
@@ -1557,11 +1560,7 @@
 <span>340</span>
 <span>341</span>
 <span>342</span>
-<span>343</span>
-<span>344</span>
-<span>345</span>
-<span>346</span>
-<span>347</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_path</span><span class="p">,</span> <span class="n">val_log_file</span><span class="p">,</span> <span class="n">eval_log_file</span><span class="p">,</span> <span class="n">list_ind</span><span class="p">):</span>
+<span>343</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">evaluate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">yaml_path</span><span class="p">,</span> <span class="n">val_log_file</span><span class="p">,</span> <span class="n">eval_log_file</span><span class="p">,</span> <span class="n">list_ind</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Evaluate model performance on validation results.</span>
 <span></span>
@@ -1580,8 +1579,7 @@
 <span></span><span class="sd">        &gt;&gt;&gt; benchmark.evaluate("path/to/data.yaml", "path/to/val_log.txt", "path/to/eval_log.txt", 0)</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">skip_symbols</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"🚀"</span><span class="p">,</span> <span class="s2">"⚠️"</span><span class="p">,</span> <span class="s2">"💡"</span><span class="p">,</span> <span class="s2">"❌"</span><span class="p">]</span>
-<span></span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">yaml_path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
-<span></span>        <span class="n">class_names</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">stream</span><span class="p">)[</span><span class="s2">"names"</span><span class="p">]</span>
+<span></span>    <span class="n">class_names</span> <span class="o">=</span> <span class="n">YAML</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">yaml_path</span><span class="p">)[</span><span class="s2">"names"</span><span class="p">]</span>
 <span></span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">val_log_file</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span></span>        <span class="n">lines</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
 <span></span>        <span class="n">eval_lines</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1633,23 +1631,19 @@
 <p>Fix the train and validation paths in a given YAML file.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>283</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>282</span>
+<span>283</span>
 <span>284</span>
 <span>285</span>
 <span>286</span>
 <span>287</span>
-<span>288</span>
-<span>289</span>
-<span>290</span>
-<span>291</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>288</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">fix_yaml</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Fix the train and validation paths in a given YAML file."""</span>
-<span></span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<span></span>        <span class="n">yaml_data</span> <span class="o">=</span> <span class="n">yaml</span><span class="o">.</span><span class="n">safe_load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span></span>    <span class="n">yaml_data</span> <span class="o">=</span> <span class="n">YAML</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span></span>    <span class="n">yaml_data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"train/images"</span>
 <span></span>    <span class="n">yaml_data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"valid/images"</span>
-<span></span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
-<span></span>        <span class="n">yaml</span><span class="o">.</span><span class="n">safe_dump</span><span class="p">(</span><span class="n">yaml_data</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+<span></span>    <span class="n">YAML</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">yaml_data</span><span class="p">,</span> <span class="n">path</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1729,7 +1723,8 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>246</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>245</span>
+<span>246</span>
 <span>247</span>
 <span>248</span>
 <span>249</span>
@@ -1763,8 +1758,7 @@
 <span>277</span>
 <span>278</span>
 <span>279</span>
-<span>280</span>
-<span>281</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_link_txt</span><span class="o">=</span><span class="s2">"datasets_links.txt"</span><span class="p">):</span>
+<span>280</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ds_link_txt</span><span class="o">=</span><span class="s2">"datasets_links.txt"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Parse dataset links and download datasets.</span>
 <span></span>
@@ -1848,7 +1842,8 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>229</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>228</span>
+<span>229</span>
 <span>230</span>
 <span>231</span>
 <span>232</span>
@@ -1862,8 +1857,7 @@
 <span>240</span>
 <span>241</span>
 <span>242</span>
-<span>243</span>
-<span>244</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
+<span>243</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set Roboflow API key for processing.</span>
 <span></span>
@@ -2258,7 +2252,11 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>384</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
 <span>385</span>
 <span>386</span>
 <span>387</span>
@@ -2294,11 +2292,7 @@
 <span>417</span>
 <span>418</span>
 <span>419</span>
-<span>420</span>
-<span>421</span>
-<span>422</span>
-<span>423</span>
-<span>424</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>420</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">,</span>
 <span></span>    <span class="n">num_timed_runs</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
@@ -2453,7 +2447,11 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>652</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>648</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span>
 <span>653</span>
 <span>654</span>
 <span>655</span>
@@ -2470,11 +2468,7 @@
 <span>666</span>
 <span>667</span>
 <span>668</span>
-<span>669</span>
-<span>670</span>
-<span>671</span>
-<span>672</span>
-<span>673</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>669</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_results_dict</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">t_onnx</span><span class="p">,</span> <span class="n">t_engine</span><span class="p">,</span> <span class="n">model_info</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a dictionary of profiling results.</span>
@@ -2608,7 +2602,11 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>633</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
 <span>634</span>
 <span>635</span>
 <span>636</span>
@@ -2621,11 +2619,7 @@
 <span>643</span>
 <span>644</span>
 <span>645</span>
-<span>646</span>
-<span>647</span>
-<span>648</span>
-<span>649</span>
-<span>650</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_table_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">t_onnx</span><span class="p">,</span> <span class="n">t_engine</span><span class="p">,</span> <span class="n">model_info</span><span class="p">):</span>
+<span>646</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_table_row</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model_name</span><span class="p">,</span> <span class="n">t_onnx</span><span class="p">,</span> <span class="n">t_engine</span><span class="p">,</span> <span class="n">model_info</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a table row string with model performance metrics.</span>
 <span></span>
@@ -2678,7 +2672,11 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>481</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
 <span>482</span>
 <span>483</span>
 <span>484</span>
@@ -2693,11 +2691,7 @@
 <span>493</span>
 <span>494</span>
 <span>495</span>
-<span>496</span>
-<span>497</span>
-<span>498</span>
-<span>499</span>
-<span>500</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>496</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_files</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a list of paths for all relevant model files given by the user.</span>
 <span></span>
@@ -2734,10 +2728,10 @@
 <p>Extracts metadata from an ONNX model file including parameters, GFLOPs, and input shape.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>502</span>
-<span>503</span>
-<span>504</span>
-<span>505</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>498</span>
+<span>499</span>
+<span>500</span>
+<span>501</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_onnx_model_info</span><span class="p">(</span><span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Extracts metadata from an ONNX model file including parameters, GFLOPs, and input shape."""</span>
 <span></span>    <span class="k">return</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span>  <span class="c1"># return (num_layers, num_params, num_gradients, num_flops)</span>
@@ -2840,7 +2834,11 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>507</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>503</span>
+<span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
 <span>508</span>
 <span>509</span>
 <span>510</span>
@@ -2856,11 +2854,7 @@
 <span>520</span>
 <span>521</span>
 <span>522</span>
-<span>523</span>
-<span>524</span>
-<span>525</span>
-<span>526</span>
-<span>527</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>523</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">iterative_sigma_clipping</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">sigma</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">max_iters</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply iterative sigma clipping to data to remove outliers.</span>
@@ -2927,7 +2921,11 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>675</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>671</span>
+<span>672</span>
+<span>673</span>
+<span>674</span>
+<span>675</span>
 <span>676</span>
 <span>677</span>
 <span>678</span>
@@ -2947,11 +2945,7 @@
 <span>692</span>
 <span>693</span>
 <span>694</span>
-<span>695</span>
-<span>696</span>
-<span>697</span>
-<span>698</span>
-<span>699</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>695</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_table</span><span class="p">(</span><span class="n">table_rows</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Print a formatted table of model profiling results.</span>
@@ -3066,7 +3060,11 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>568</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>564</span>
+<span>565</span>
+<span>566</span>
+<span>567</span>
+<span>568</span>
 <span>569</span>
 <span>570</span>
 <span>571</span>
@@ -3125,11 +3123,7 @@
 <span>624</span>
 <span>625</span>
 <span>626</span>
-<span>627</span>
-<span>628</span>
-<span>629</span>
-<span>630</span>
-<span>631</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_onnx_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
+<span>627</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_onnx_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Profile an ONNX model, measuring average inference time and standard deviation across multiple runs.</span>
 <span></span>
@@ -3283,7 +3277,11 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>529</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
 <span>530</span>
 <span>531</span>
 <span>532</span>
@@ -3316,11 +3314,7 @@
 <span>559</span>
 <span>560</span>
 <span>561</span>
-<span>562</span>
-<span>563</span>
-<span>564</span>
-<span>565</span>
-<span>566</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_tensorrt_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
+<span>562</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">profile_tensorrt_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">engine_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Profile YOLO model performance with TensorRT, measuring average run time and standard deviation.</span>
 <span></span>
@@ -3399,7 +3393,11 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>426</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
 <span>427</span>
 <span>428</span>
 <span>429</span>
@@ -3448,11 +3446,7 @@
 <span>472</span>
 <span>473</span>
 <span>474</span>
-<span>475</span>
-<span>476</span>
-<span>477</span>
-<span>478</span>
-<span>479</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>475</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Profile YOLO models for speed and accuracy across various formats including ONNX and TensorRT.</span>
 <span></span>
@@ -3717,7 +3711,8 @@ and inference time.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/benchmarks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 51</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 50</span>
+<span> 51</span>
 <span> 52</span>
 <span> 53</span>
 <span> 54</span>
@@ -3865,8 +3860,7 @@ and inference time.</p>
 <span>196</span>
 <span>197</span>
 <span>198</span>
-<span>199</span>
-<span>200</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span>
+<span>199</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">benchmark</span><span class="p">(</span>
 <span></span>    <span class="n">model</span><span class="o">=</span><span class="n">WEIGHTS_DIR</span> <span class="o">/</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
 <span></span>    <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">imgsz</span><span class="o">=</span><span class="mi">160</span><span class="p">,</span>
