@@ -7,7 +7,7 @@
 <meta content="Ultralytics" name="author"/>
 <link href="https://docs.ultralytics.com/guides/trackzone/" rel="canonical"/>
 <link href="../streamlit-live-inference/" rel="prev"/>
-<link href="../" rel="next"/>
+<link href="../similarity-search/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.12" name="generator"/>
 <title>TrackZone using Ultralytics YOLO11 - Ultralytics YOLO Docs</title>
@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Track Objects in Zone 🚀 NEW" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="TrackZone, object tracking, YOLO11, Ultralytics, real-time object detection, AI, deep learning, crowd analysis, surveillance, zone-based tracking, resource optimization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/trackzone" property="og:url"/><meta content="Track Objects in Zone 🚀 NEW" property="og:title"/><meta content="Discover how TrackZone leverages Ultralytics YOLO11 to precisely track objects within specific zones, enabling real-time insights for crowd analysis, surveillance, and targeted monitoring." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/trackzone" property="twitter:url"/><meta content="Track Objects in Zone 🚀 NEW" property="twitter:title"/><meta content="Discover how TrackZone leverages Ultralytics YOLO11 to precisely track objects within specific zones, enabling real-time insights for crowd analysis, surveillance, and targeted monitoring." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Track Objects in Zone \ud83d\ude80 NEW", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2024-12-02 20:02:48 +0500", "dateModified": "2025-05-03 19:05:56 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover how TrackZone leverages Ultralytics YOLO11 to precisely track objects within specific zones, enabling real-time insights for crowd analysis, surveillance, and targeted monitoring.", "mainEntity": [{"@type": "Question", "name": "How do I track objects in a specific area or zone of a video frame using Ultralytics YOLO11?", "acceptedAnswer": {"@type": "Answer", "text": "Tracking objects in a defined area or zone of a video frame is straightforward with Ultralytics YOLO11. Simply use the command provided below to initiate tracking. This approach ensures efficient analysis and accurate results, making it ideal for applications like surveillance, crowd management, or any scenario requiring zonal tracking."}}, {"@type": "Question", "name": "How can I use TrackZone in Python with Ultralytics YOLO11?", "acceptedAnswer": {"@type": "Answer", "text": "With just a few lines of code, you can set up object tracking in specific zones, making it easy to integrate into your projects."}}, {"@type": "Question", "name": "How do I configure the zone points for video processing using Ultralytics TrackZone?", "acceptedAnswer": {"@type": "Answer", "text": "Configuring zone points for video processing with Ultralytics TrackZone is simple and customizable. You can directly define and adjust the zones through a Python script, allowing precise control over the areas you want to monitor."}}]}</script></head>
+<meta content="Track Objects in Zone" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="TrackZone, object tracking, YOLO11, Ultralytics, real-time object detection, AI, deep learning, crowd analysis, surveillance, zone-based tracking, resource optimization" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/guides/trackzone" property="og:url"/><meta content="Track Objects in Zone" property="og:title"/><meta content="Discover how TrackZone leverages Ultralytics YOLO11 to precisely track objects within specific zones, enabling real-time insights for crowd analysis, surveillance, and targeted monitoring." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/guides/trackzone" property="twitter:url"/><meta content="Track Objects in Zone" property="twitter:title"/><meta content="Discover how TrackZone leverages Ultralytics YOLO11 to precisely track objects within specific zones, enabling real-time insights for crowd analysis, surveillance, and targeted monitoring." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Track Objects in Zone", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2024-12-02 20:02:48 +0500", "dateModified": "2025-05-03 19:05:56 +0500", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover how TrackZone leverages Ultralytics YOLO11 to precisely track objects within specific zones, enabling real-time insights for crowd analysis, surveillance, and targeted monitoring.", "mainEntity": [{"@type": "Question", "name": "How do I track objects in a specific area or zone of a video frame using Ultralytics YOLO11?", "acceptedAnswer": {"@type": "Answer", "text": "Tracking objects in a defined area or zone of a video frame is straightforward with Ultralytics YOLO11. Simply use the command provided below to initiate tracking. This approach ensures efficient analysis and accurate results, making it ideal for applications like surveillance, crowd management, or any scenario requiring zonal tracking."}}, {"@type": "Question", "name": "How can I use TrackZone in Python with Ultralytics YOLO11?", "acceptedAnswer": {"@type": "Answer", "text": "With just a few lines of code, you can set up object tracking in specific zones, making it easy to integrate into your projects."}}, {"@type": "Question", "name": "How do I configure the zone points for video processing using Ultralytics TrackZone?", "acceptedAnswer": {"@type": "Answer", "text": "Configuring zone points for video processing with Ultralytics TrackZone is simple and customizable. You can directly define and adjust the zones through a Python script, allowing precise control over the areas you want to monitor."}}]}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -60,7 +60,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              Track Objects in Zone 🚀 NEW
+              Track Objects in Zone
           </span>
 </div>
 </div>
@@ -357,13 +357,13 @@
 <input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
 <label class="md-nav__link md-nav__link--active" for="__toc">
 <span class="md-ellipsis">
-    Track Objects in Zone 🚀 NEW
+    Track Objects in Zone
   </span>
 <span class="md-nav__icon md-icon"></span>
 </label>
 <a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
-    Track Objects in Zone 🚀 NEW
+    Track Objects in Zone
   </span>
 </a>
 <nav aria-label="Table of contents" class="md-nav md-nav--secondary">
@@ -438,6 +438,13 @@
 </li>
 </ul>
 </nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../similarity-search/">
+<span class="md-ellipsis">
+    Similarity Search 🚀 NEW
+  </span>
+</a>
 </li>
 </ul>
 </nav>
@@ -883,13 +890,13 @@
               </div>
 </div>
 </a>
-<a aria-label="Next: Comprehensive Tutorials to Ultralytics YOLO" class="md-footer__link md-footer__link--next" href="../">
+<a aria-label="Next: Similarity Search 🚀 NEW" class="md-footer__link md-footer__link--next" href="../similarity-search/">
 <div class="md-footer__title">
 <span class="md-footer__direction">
                 Next
               </span>
 <div class="md-ellipsis">
-                Comprehensive Tutorials to Ultralytics YOLO
+                Similarity Search 🚀 NEW
               </div>
 </div>
 <div class="md-footer__button md-icon">
