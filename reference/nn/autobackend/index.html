@@ -2185,8 +2185,8 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>    <span class="k">elif</span> <span class="n">engine</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2"> for TensorRT inference..."</span><span class="p">)</span>
 <span></span>
-<span></span>        <span class="k">if</span> <span class="n">IS_JETSON</span> <span class="ow">and</span> <span class="n">check_version</span><span class="p">(</span><span class="n">PYTHON_VERSION</span><span class="p">,</span> <span class="s2">"&lt;=3.8.0"</span><span class="p">):</span>
-<span></span>            <span class="c1"># fix error: `np.bool` was a deprecated alias for the builtin `bool` for JetPack 4 with Python &lt;= 3.8.0</span>
+<span></span>        <span class="k">if</span> <span class="n">IS_JETSON</span> <span class="ow">and</span> <span class="n">check_version</span><span class="p">(</span><span class="n">PYTHON_VERSION</span><span class="p">,</span> <span class="s2">"&lt;=3.8.10"</span><span class="p">):</span>
+<span></span>            <span class="c1"># fix error: `np.bool` was a deprecated alias for the builtin `bool` for JetPack 4 and JetPack 5 with Python &lt;= 3.8.10</span>
 <span></span>            <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"numpy==1.23.5"</span><span class="p">)</span>
 <span></span>
 <span></span>        <span class="k">try</span><span class="p">:</span>  <span class="c1"># https://developer.nvidia.com/nvidia-tensorrt-download</span>
