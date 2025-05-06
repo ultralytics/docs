@@ -1305,7 +1305,8 @@
 <span>70</span>
 <span>71</span>
 <span>72</span>
-<span>73</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>73</span>
+<span>74</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize trackers for object tracking during prediction.</span>
 <span></span>
@@ -1334,6 +1335,8 @@
 <span></span>    <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">tracker_type</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"bytetrack"</span><span class="p">,</span> <span class="s2">"botsort"</span><span class="p">}:</span>
 <span></span>        <span class="k">raise</span> <span class="ne">AssertionError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Only 'bytetrack' and 'botsort' are supported for now, but got '</span><span class="si">{</span><span class="n">cfg</span><span class="o">.</span><span class="n">tracker_type</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span></span>
+<span></span>    <span class="n">predictor</span><span class="o">.</span><span class="n">_feats</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># reset in case used earlier</span>
+<span></span>    <span class="n">predictor</span><span class="o">.</span><span class="n">save_feats</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>    <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">tracker_type</span> <span class="o">==</span> <span class="s2">"botsort"</span> <span class="ow">and</span> <span class="n">cfg</span><span class="o">.</span><span class="n">with_reid</span> <span class="ow">and</span> <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="o">==</span> <span class="s2">"auto"</span><span class="p">:</span>
 <span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.nn.modules.head</span><span class="w"> </span><span class="kn">import</span> <span class="n">Detect</span>
 <span></span>
@@ -1345,7 +1348,6 @@
 <span></span>            <span class="n">cfg</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="s2">"yolo11n-cls.pt"</span>
 <span></span>        <span class="k">else</span><span class="p">:</span>
 <span></span>            <span class="n">predictor</span><span class="o">.</span><span class="n">save_feats</span> <span class="o">=</span> <span class="kc">True</span>
-<span></span>            <span class="n">predictor</span><span class="o">.</span><span class="n">_feats</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>
 <span></span>            <span class="c1"># Register hook to extract input of Detect layer</span>
 <span></span>            <span class="k">def</span><span class="w"> </span><span class="nf">pre_hook</span><span class="p">(</span><span class="n">module</span><span class="p">,</span> <span class="nb">input</span><span class="p">):</span>
@@ -1425,8 +1427,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/track.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 76</span>
-<span> 77</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 77</span>
 <span> 78</span>
 <span> 79</span>
 <span> 80</span>
@@ -1457,7 +1458,8 @@
 <span>105</span>
 <span>106</span>
 <span>107</span>
-<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_postprocess_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>108</span>
+<span>109</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_postprocess_end</span><span class="p">(</span><span class="n">predictor</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Postprocess detected boxes and update with object tracking.</span>
 <span></span>
@@ -1554,8 +1556,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/trackers/track.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>111</span>
-<span>112</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>112</span>
 <span>113</span>
 <span>114</span>
 <span>115</span>
@@ -1568,7 +1569,8 @@
 <span>122</span>
 <span>123</span>
 <span>124</span>
-<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">register_tracker</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>125</span>
+<span>126</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">register_tracker</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="nb">object</span><span class="p">,</span> <span class="n">persist</span><span class="p">:</span> <span class="nb">bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Register tracking callbacks to the model for object tracking during prediction.</span>
 <span></span>
