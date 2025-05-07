@@ -1898,7 +1898,7 @@
 <span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> 'dynamic=True' model requires max batch size, i.e. 'batch=16'"</span><span class="p">)</span>
 <span></span>        <span class="n">profile</span> <span class="o">=</span> <span class="n">builder</span><span class="o">.</span><span class="n">create_optimization_profile</span><span class="p">()</span>
 <span></span>        <span class="n">min_shape</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>  <span class="c1"># minimum input shape</span>
-<span></span>        <span class="n">max_shape</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="o">*</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">workspace</span> <span class="ow">or</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:]))</span>  <span class="c1"># max input shape</span>
+<span></span>        <span class="n">max_shape</span> <span class="o">=</span> <span class="p">(</span><span class="o">*</span><span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">],</span> <span class="o">*</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">workspace</span> <span class="ow">or</span> <span class="mi">2</span><span class="p">)</span> <span class="o">*</span> <span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:]))</span>  <span class="c1"># max input shape</span>
 <span></span>        <span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
 <span></span>            <span class="n">profile</span><span class="o">.</span><span class="n">set_shape</span><span class="p">(</span><span class="n">inp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="n">min_shape</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="n">max_shape</span><span class="p">)</span>
 <span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_optimization_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
@@ -1985,10 +1985,10 @@
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on April 11, 2025">
-<span class="hover-item">📅</span> Created 25 days ago
+<span class="hover-item">📅</span> Created 26 days ago
     </span>
 <span class="date-item" title="This page was last updated on April 11, 2025">
-<span class="hover-item">✏️</span> Updated 25 days ago
+<span class="hover-item">✏️</span> Updated 26 days ago
     </span>
 </div>
 <div class="authors-container">
