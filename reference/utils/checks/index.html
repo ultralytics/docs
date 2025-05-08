@@ -3458,7 +3458,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="s1">'.'</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Search/download file (if necessary) and return path.</p>
+<p>Search/download file (if necessary), check suffix (if provided), and return path.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3491,11 +3491,11 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <code>suffix</code>
 </td>
 <td>
-<code><span title="str">str</span></code>
+<code><span title="str">str</span> | <span title="Tuple">Tuple</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>File suffix to check.</p>
+<p>Acceptable suffix or tuple of suffixes to validate against the file.</p>
 </div>
 </td>
 <td>
@@ -3614,11 +3614,11 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>544</span>
 <span>545</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="s2">"."</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Search/download file (if necessary) and return path.</span>
+<span></span><span class="sd">    Search/download file (if necessary), check suffix (if provided), and return path.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        file (str): File name or path.</span>
-<span></span><span class="sd">        suffix (str): File suffix to check.</span>
+<span></span><span class="sd">        suffix (str | Tuple[str]): Acceptable suffix or tuple of suffixes to validate against the file.</span>
 <span></span><span class="sd">        download (bool): Whether to download the file if it doesn't exist locally.</span>
 <span></span><span class="sd">        download_dir (str): Directory to download the file to.</span>
 <span></span><span class="sd">        hard (bool): Whether to raise an error if the file is not found.</span>
@@ -3678,7 +3678,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <code>file</code>
 </td>
 <td>
-<code><span title="str">str</span></code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3694,11 +3694,11 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <code>suffix</code>
 </td>
 <td>
-<code><span title="tuple">tuple</span></code>
+<code><span title="Tuple">Tuple</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Acceptable file suffixes.</p>
+<p>Tuple of acceptable YAML file suffixes.</p>
 </div>
 </td>
 <td>
@@ -3714,7 +3714,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to raise an error if the file is not found.</p>
+<p>Whether to raise an error if the file is not found or multiple files are found.</p>
 </div>
 </td>
 <td>
@@ -3763,9 +3763,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span></span><span class="sd">    Search/download YAML file (if necessary) and return path, checking suffix.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        file (str): File name or path.</span>
-<span></span><span class="sd">        suffix (tuple): Acceptable file suffixes.</span>
-<span></span><span class="sd">        hard (bool): Whether to raise an error if the file is not found.</span>
+<span></span><span class="sd">        file (str | Path): File name or path.</span>
+<span></span><span class="sd">        suffix (Tuple[str]): Tuple of acceptable YAML file suffixes.</span>
+<span></span><span class="sd">        hard (bool): Whether to raise an error if the file is not found or multiple files are found.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str): Path to the YAML file.</span>
