@@ -2054,9 +2054,9 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>
 <span></span>    <span class="c1"># In-memory PyTorch model</span>
 <span></span>    <span class="k">if</span> <span class="n">nn_module</span><span class="p">:</span>
-<span></span>        <span class="n">model</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="n">fuse</span><span class="p">:</span>
-<span></span>            <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
+<span></span>            <span class="n">weights</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>  <span class="c1"># fuse before move to gpu</span>
+<span></span>        <span class="n">model</span> <span class="o">=</span> <span class="n">weights</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"kpt_shape"</span><span class="p">):</span>
 <span></span>            <span class="n">kpt_shape</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">kpt_shape</span>  <span class="c1"># pose-only</span>
 <span></span>        <span class="n">stride</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">stride</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span> <span class="mi">32</span><span class="p">)</span>  <span class="c1"># model stride</span>
