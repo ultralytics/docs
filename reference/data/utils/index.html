@@ -9,9 +9,9 @@
 <link href="../split_dota/" rel="prev"/>
 <link href="../../engine/exporter/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.12" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.13" name="generator"/>
 <title>Reference for ultralytics/data/utils.py - Ultralytics YOLO Docs</title>
-<link href="../../../assets/stylesheets/main.2afb09e1.min.css" rel="stylesheet"/>
+<link href="../../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
@@ -3584,7 +3584,10 @@ resized.</p>
 <span>748</span>
 <span>749</span>
 <span>750</span>
-<span>751</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f_new</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_dim</span><span class="o">=</span><span class="mi">1920</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
+<span>751</span>
+<span>752</span>
+<span>753</span>
+<span>754</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compress_one_image</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">f_new</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">max_dim</span><span class="o">=</span><span class="mi">1920</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">50</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compresses a single image file to reduced size while preserving its aspect ratio and quality using either the Python</span>
 <span></span><span class="sd">    Imaging Library (PIL) or OpenCV library. If the input image is smaller than the maximum dimension, it will not be</span>
@@ -3603,7 +3606,10 @@ resized.</p>
 <span></span><span class="sd">        &gt;&gt;&gt;    compress_one_image(f)</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>  <span class="c1"># use PIL</span>
+<span></span>        <span class="n">Image</span><span class="o">.</span><span class="n">MAX_IMAGE_PIXELS</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Fix DecompressionBombError, allow optimization of image &gt; ~178.9 million pixels</span>
 <span></span>        <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span></span>        <span class="k">if</span> <span class="n">im</span><span class="o">.</span><span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"RGBA"</span><span class="p">,</span> <span class="s2">"LA"</span><span class="p">}:</span>  <span class="c1"># Convert to RGB if needed (for JPEG)</span>
+<span></span>            <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"RGB"</span><span class="p">)</span>
 <span></span>        <span class="n">r</span> <span class="o">=</span> <span class="n">max_dim</span> <span class="o">/</span> <span class="nb">max</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">height</span><span class="p">,</span> <span class="n">im</span><span class="o">.</span><span class="n">width</span><span class="p">)</span>  <span class="c1"># ratio</span>
 <span></span>        <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mf">1.0</span><span class="p">:</span>  <span class="c1"># image too large</span>
 <span></span>            <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="nb">int</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">width</span> <span class="o">*</span> <span class="n">r</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">height</span> <span class="o">*</span> <span class="n">r</span><span class="p">)))</span>
@@ -3630,14 +3636,14 @@ resized.</p>
 <p>Load an Ultralytics *.cache dictionary from path.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>754</span>
-<span>755</span>
-<span>756</span>
-<span>757</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>757</span>
 <span>758</span>
 <span>759</span>
 <span>760</span>
-<span>761</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_dataset_cache_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span>761</span>
+<span>762</span>
+<span>763</span>
+<span>764</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_dataset_cache_file</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Load an Ultralytics *.cache dictionary from path."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">gc</span>
 <span></span>
@@ -3659,17 +3665,17 @@ resized.</p>
 <p>Save an Ultralytics dataset *.cache dictionary x to path.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>764</span>
-<span>765</span>
-<span>766</span>
-<span>767</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>767</span>
 <span>768</span>
 <span>769</span>
 <span>770</span>
 <span>771</span>
 <span>772</span>
 <span>773</span>
-<span>774</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_dataset_cache_file</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
+<span>774</span>
+<span>775</span>
+<span>776</span>
+<span>777</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_dataset_cache_file</span><span class="p">(</span><span class="n">prefix</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">version</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Save an Ultralytics dataset *.cache dictionary x to path."""</span>
 <span></span>    <span class="n">x</span><span class="p">[</span><span class="s2">"version"</span><span class="p">]</span> <span class="o">=</span> <span class="n">version</span>  <span class="c1"># add cache version</span>
 <span></span>    <span class="k">if</span> <span class="n">is_dir_writeable</span><span class="p">(</span><span class="n">path</span><span class="o">.</span><span class="n">parent</span><span class="p">):</span>
@@ -3691,7 +3697,7 @@ resized.</p>
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on April 20, 2025">
-<span class="hover-item">✏️</span> Updated 18 days ago
+<span class="hover-item">✏️</span> Updated 20 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -3806,8 +3812,8 @@ resized.</p>
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../../assets/javascripts/bundle.c8b220af.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.13a4f30d.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
