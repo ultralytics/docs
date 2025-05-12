@@ -1439,7 +1439,8 @@ model (str): Model name or path, defaults to "yolo11n-seg.pt".</p>
 <span>80</span>
 <span>81</span>
 <span>82</span>
-<span>83</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>83</span>
+<span>84</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform instance segmentation on the input image and annotate the results.</span>
 <span></span>
@@ -1456,6 +1457,7 @@ model (str): Model name or path, defaults to "yolo11n-seg.pt".</p>
 <span></span><span class="sd">        &gt;&gt;&gt; print(summary)</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks (bounding boxes, classes, and masks)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">masks</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"masks"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Iterate over detected classes, track IDs, and segmentation masks</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">masks</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
