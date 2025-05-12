@@ -3726,7 +3726,8 @@ values. It validates settings on initialization and provides methods to update o
 <span>1328</span>
 <span>1329</span>
 <span>1330</span>
-<span>1331</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
+<span>1331</span>
+<span>1332</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes the SettingsManager with default settings and loads user settings."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
@@ -3756,7 +3757,8 @@ values. It validates settings on initialization and provides methods to update o
 <span></span>        <span class="s2">"raytune"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># Ray Tune integration</span>
 <span></span>        <span class="s2">"tensorboard"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># TensorBoard logging</span>
 <span></span>        <span class="s2">"wandb"</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span>  <span class="c1"># Weights &amp; Biases logging</span>
-<span></span>        <span class="s2">"vscode_msg"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># VSCode messaging</span>
+<span></span>        <span class="s2">"vscode_msg"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># VSCode message</span>
+<span></span>        <span class="s2">"openvino_msg"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>  <span class="c1"># OpenVINO export on Intel CPU message</span>
 <span></span>    <span class="p">}</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">help_msg</span> <span class="o">=</span> <span class="p">(</span>
@@ -3786,9 +3788,9 @@ values. It validates settings on initialization and provides methods to update o
 <p>Updates one key: value pair.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1353</span>
-<span>1354</span>
-<span>1355</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1354</span>
+<span>1355</span>
+<span>1356</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Updates one key: value pair."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
@@ -3805,10 +3807,10 @@ values. It validates settings on initialization and provides methods to update o
 <p>Resets the settings to default and saves them.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1372</span>
-<span>1373</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1373</span>
 <span>1374</span>
-<span>1375</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>1375</span>
+<span>1376</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Resets the settings to default and saves them."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
@@ -3826,8 +3828,7 @@ values. It validates settings on initialization and provides methods to update o
 <p>Updates settings, validating keys and types.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1357</span>
-<span>1358</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1358</span>
 <span>1359</span>
 <span>1360</span>
 <span>1361</span>
@@ -3839,7 +3840,8 @@ values. It validates settings on initialization and provides methods to update o
 <span>1367</span>
 <span>1368</span>
 <span>1369</span>
-<span>1370</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>1370</span>
+<span>1371</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Updates settings, validating keys and types."""</span>
 <span></span>    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
@@ -6229,12 +6231,12 @@ settings.</p>
 <p>Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1378</span>
-<span>1379</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1379</span>
 <span>1380</span>
 <span>1381</span>
 <span>1382</span>
-<span>1383</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1383</span>
+<span>1384</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument."""</span>
 <span></span>    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">' is deprecated and will be removed in in the future."</span>
 <span></span>    <span class="k">if</span> <span class="n">new_arg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -6254,10 +6256,10 @@ settings.</p>
 <p>Strip auth from URL, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; <a href="https://url.com/file.txt">https://url.com/file.txt</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1386</span>
-<span>1387</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1387</span>
 <span>1388</span>
-<span>1389</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<span>1389</span>
+<span>1390</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt."""</span>
 <span></span>    <span class="n">url</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":/"</span><span class="p">,</span> <span class="s2">"://"</span><span class="p">)</span>  <span class="c1"># Pathlib turns :// -&gt; :/, as_posix() for Windows</span>
 <span></span>    <span class="k">return</span> <span class="n">unquote</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
@@ -6275,9 +6277,9 @@ settings.</p>
 <p>Convert URL to filename, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; file.txt.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1392</span>
-<span>1393</span>
-<span>1394</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1393</span>
+<span>1394</span>
+<span>1395</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt."""</span>
 <span></span>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div></td></tr></table></div>
@@ -6294,13 +6296,13 @@ settings.</p>
 <p>Display a message to install Ultralytics-Snippets for VS Code if not already installed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1397</span>
-<span>1398</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1398</span>
 <span>1399</span>
 <span>1400</span>
 <span>1401</span>
 <span>1402</span>
-<span>1403</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>1403</span>
+<span>1404</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Display a message to install Ultralytics-Snippets for VS Code if not already installed."""</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="p">(</span><span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">WINDOWS</span> <span class="k">else</span> <span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="s2">".vscode/extensions"</span>
 <span></span>    <span class="n">obs_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">".obsolete"</span>  <span class="c1"># file tracks uninstalled extensions, while source directory remains</span>
