@@ -1958,7 +1958,9 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <p>Fine-tune YOLOE model in linear probing way.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
+<span> 95</span>
+<span> 96</span>
 <span> 97</span>
 <span> 98</span>
 <span> 99</span>
@@ -2022,8 +2024,7 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <span>157</span>
 <span>158</span>
 <span>159</span>
-<span>160</span>
-<span>161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>160</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the BaseTrainer class.</span>
 <span></span>
@@ -2066,7 +2067,8 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <span></span>    <span class="c1"># Model and Dataset</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">check_model_file_from_stem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># add suffix, i.e. yolo11n -&gt; yolo11n.pt</span>
 <span></span>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">LOCAL_RANK</span><span class="p">):</span>  <span class="c1"># avoid auto-downloading dataset multiple times</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">trainset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">testset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
+<span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">ema</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>
 <span></span>    <span class="c1"># Optimization utils init</span>

@@ -1581,7 +1581,9 @@ for object detection.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
+<span> 95</span>
+<span> 96</span>
 <span> 97</span>
 <span> 98</span>
 <span> 99</span>
@@ -1645,8 +1647,7 @@ for object detection.</p>
 <span>157</span>
 <span>158</span>
 <span>159</span>
-<span>160</span>
-<span>161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>160</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the BaseTrainer class.</span>
 <span></span>
@@ -1689,7 +1690,8 @@ for object detection.</p>
 <span></span>    <span class="c1"># Model and Dataset</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">check_model_file_from_stem</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>  <span class="c1"># add suffix, i.e. yolo11n -&gt; yolo11n.pt</span>
 <span></span>    <span class="k">with</span> <span class="n">torch_distributed_zero_first</span><span class="p">(</span><span class="n">LOCAL_RANK</span><span class="p">):</span>  <span class="c1"># avoid auto-downloading dataset multiple times</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">trainset</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">testset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_dataset</span><span class="p">()</span>
+<span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">ema</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>
 <span></span>    <span class="c1"># Optimization utils init</span>
@@ -1762,7 +1764,7 @@ for object detection.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (int): Optimal batch size.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">train_dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trainset</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
+<span></span>    <span class="n">train_dataset</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">],</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">16</span><span class="p">)</span>
 <span></span>    <span class="n">max_num_obj</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">])</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">train_dataset</span><span class="o">.</span><span class="n">labels</span><span class="p">)</span> <span class="o">*</span> <span class="mi">4</span>  <span class="c1"># 4 for mosaic augmentation</span>
 <span></span>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">auto_batch</span><span class="p">(</span><span class="n">max_num_obj</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>

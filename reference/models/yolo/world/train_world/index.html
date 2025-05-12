@@ -1699,8 +1699,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train_world.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>163</span>
-<span>164</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>164</span>
 <span>165</span>
 <span>166</span>
 <span>167</span>
@@ -1711,7 +1710,8 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <span>172</span>
 <span>173</span>
 <span>174</span>
-<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>175</span>
+<span>176</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform final evaluation and validation for the YOLO-World model.</span>
 <span></span>
@@ -1844,7 +1844,8 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <span>154</span>
 <span>155</span>
 <span>156</span>
-<span>157</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>157</span>
+<span>158</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get train and validation paths from data dictionary.</span>
 <span></span>
@@ -1879,12 +1880,13 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <span></span>        <span class="k">for</span> <span class="n">g</span> <span class="ow">in</span> <span class="n">grounding_data</span><span class="p">:</span>
 <span></span>            <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="nb">dict</span><span class="p">),</span> <span class="sa">f</span><span class="s2">"Grounding data should be provided in dict format, but got </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">g</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
 <span></span>        <span class="n">final_data</span><span class="p">[</span><span class="n">s</span><span class="p">]</span> <span class="o">+=</span> <span class="n">grounding_data</span>
+<span></span>    <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># assign the first val dataset as currently only one validation set is supported</span>
 <span></span>    <span class="c1"># NOTE: to make training work properly, set `nc` and `names`</span>
-<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"nc"</span><span class="p">]</span>
-<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"names"</span><span class="p">]</span>
+<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="s2">"nc"</span><span class="p">]</span>
+<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="s2">"names"</span><span class="p">]</span>
 <span></span>    <span class="c1"># NOTE: add path with lvis path</span>
-<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"path"</span><span class="p">]</span>
-<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s2">"channels"</span><span class="p">]</span>
+<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="s2">"path"</span><span class="p">]</span>
+<span></span>    <span class="n">final_data</span><span class="p">[</span><span class="s2">"channels"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="s2">"channels"</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">final_data</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">single_cls</span><span class="p">:</span>  <span class="c1"># consistent with base trainer</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"Overriding class names with single class."</span><span class="p">)</span>
@@ -1896,7 +1898,7 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <span></span>            <span class="n">d</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="mi">0</span><span class="p">:</span> <span class="s2">"object"</span><span class="p">}</span>
 <span></span>            <span class="n">d</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">training_data</span><span class="p">[</span><span class="n">d</span><span class="p">[</span><span class="s2">"train"</span><span class="p">]]</span> <span class="o">=</span> <span class="n">d</span>
-<span></span>    <span class="k">return</span> <span class="n">final_data</span><span class="p">[</span><span class="s2">"train"</span><span class="p">],</span> <span class="n">final_data</span><span class="p">[</span><span class="s2">"val"</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+<span></span>    <span class="k">return</span> <span class="n">final_data</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1911,9 +1913,9 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <p>Do not plot labels for YOLO-World training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train_world.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>159</span>
-<span>160</span>
-<span>161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>160</span>
+<span>161</span>
+<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Do not plot labels for YOLO-World training."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
