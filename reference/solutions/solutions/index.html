@@ -1834,12 +1834,12 @@ and region initialization.</p>
 <p>Allow instances to be called like a function with flexible arguments.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>209</span>
-<span>210</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>210</span>
 <span>211</span>
 <span>212</span>
 <span>213</span>
-<span>214</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>214</span>
+<span>215</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Allow instances to be called like a function with flexible arguments."""</span>
 <span></span>    <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Call the subclass-specific process method</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"verbose"</span><span class="p">]:</span>  <span class="c1"># extract verbose value to display the output logs if True</span>
@@ -2037,8 +2037,7 @@ the processed frame with annotations, and allows for user interaction to close t
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>180</span>
-<span>181</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>181</span>
 <span>182</span>
 <span>183</span>
 <span>184</span>
@@ -2061,7 +2060,8 @@ the processed frame with annotations, and allows for user interaction to close t
 <span>201</span>
 <span>202</span>
 <span>203</span>
-<span>204</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_im</span><span class="p">):</span>
+<span>204</span>
+<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the results of the processing, which could involve showing frames, printing counts, or saving results.</span>
 <span></span>
@@ -2193,13 +2193,13 @@ the processed frame with annotations, and allows for user interaction to close t
 <p>Initialize the counting region and line segment based on configuration settings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>172</span>
-<span>173</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>173</span>
 <span>174</span>
 <span>175</span>
 <span>176</span>
 <span>177</span>
-<span>178</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>178</span>
+<span>179</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the counting region and line segment based on configuration settings."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">180</span><span class="p">)]</span>
@@ -2220,8 +2220,8 @@ the processed frame with annotations, and allows for user interaction to close t
 <p>Process method should be implemented by each Solution subclass.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>206</span>
-<span>207</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
+<span>208</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process method should be implemented by each Solution subclass."""</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2231,7 +2231,7 @@ the processed frame with annotations, and allows for user interaction to close t
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.BaseSolution.store_tracking_history">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">store_tracking_history</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">is_obb</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Stores the tracking history of an object.</p>
@@ -2280,6 +2280,22 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 <em>required</em>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>is_obb</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>True if OBB model is used (applies to object counting only).</p>
+</div>
+</td>
+<td>
+<code>False</code>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
@@ -2307,7 +2323,8 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 <span>167</span>
 <span>168</span>
 <span>169</span>
-<span>170</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">):</span>
+<span>170</span>
+<span>171</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">is_obb</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Stores the tracking history of an object.</span>
 <span></span>
@@ -2317,6 +2334,7 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        track_id (int): The unique identifier for the tracked object.</span>
 <span></span><span class="sd">        box (List[float]): The bounding box coordinates of the object in the format [x1, y1, x2, y2].</span>
+<span></span><span class="sd">        is_obb (bool): True if OBB model is used (applies to object counting only).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; solution = BaseSolution()</span>
@@ -2324,7 +2342,7 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Store tracking history</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_history</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="o">.</span><span class="n">append</span><span class="p">(((</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">tuple</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">))</span> <span class="k">if</span> <span class="n">is_obb</span> <span class="k">else</span> <span class="p">(</span><span class="n">box</span><span class="p">[:</span><span class="mi">4</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(),</span> <span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()))</span>
 <span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2668,8 +2686,7 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>256</span>
-<span>257</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>257</span>
 <span>258</span>
 <span>259</span>
 <span>260</span>
@@ -2680,7 +2697,8 @@ and parking management.</p>
 <span>265</span>
 <span>266</span>
 <span>267</span>
-<span>268</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span> <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">"abc"</span><span class="p">):</span>
+<span>268</span>
+<span>269</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span> <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">"abc"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initializes the SolutionAnnotator class with an image for annotation.</span>
 <span></span>
@@ -2801,8 +2819,7 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>582</span>
-<span>583</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>583</span>
 <span>584</span>
 <span>585</span>
 <span>586</span>
@@ -2837,7 +2854,8 @@ and parking management.</p>
 <span>615</span>
 <span>616</span>
 <span>617</span>
-<span>618</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<span>618</span>
+<span>619</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a label with a background circle centered within a given bounding box.</span>
 <span></span>
@@ -2981,8 +2999,7 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>325</span>
-<span>326</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>326</span>
 <span>327</span>
 <span>328</span>
 <span>329</span>
@@ -3008,7 +3025,8 @@ and parking management.</p>
 <span>349</span>
 <span>350</span>
 <span>351</span>
-<span>352</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_analytics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<span>352</span>
+<span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_analytics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the overall statistics for parking lots, object counter etc.</span>
 <span></span>
@@ -3177,8 +3195,7 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>493</span>
-<span>494</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>494</span>
 <span>495</span>
 <span>496</span>
 <span>497</span>
@@ -3215,7 +3232,8 @@ and parking management.</p>
 <span>528</span>
 <span>529</span>
 <span>530</span>
-<span>531</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_objects_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<span>531</span>
+<span>532</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_objects_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the bounding boxes labels in parking management app.</span>
 <span></span>
@@ -3329,8 +3347,7 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>270</span>
-<span>271</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>271</span>
 <span>272</span>
 <span>273</span>
 <span>274</span>
@@ -3342,7 +3359,8 @@ and parking management.</p>
 <span>280</span>
 <span>281</span>
 <span>282</span>
-<span>283</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span>283</span>
+<span>284</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a region or line on the image.</span>
 <span></span>
@@ -3473,8 +3491,7 @@ Modifies self.im in-place.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>371</span>
-<span>372</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>372</span>
 <span>373</span>
 <span>374</span>
 <span>375</span>
@@ -3501,7 +3518,8 @@ Modifies self.im in-place.</p>
 <span>396</span>
 <span>397</span>
 <span>398</span>
-<span>399</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_specific_kpts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">conf_thresh</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+<span>399</span>
+<span>400</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_specific_kpts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">conf_thresh</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw specific keypoints for gym steps counting.</span>
 <span></span>
@@ -3629,8 +3647,7 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>354</span>
-<span>355</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>355</span>
 <span>356</span>
 <span>357</span>
 <span>358</span>
@@ -3644,7 +3661,8 @@ Modifies self.im in-place.</p>
 <span>366</span>
 <span>367</span>
 <span>368</span>
-<span>369</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>369</span>
+<span>370</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">estimate_pose_angle</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate the angle between three points for workout monitoring.</span>
@@ -3790,8 +3808,7 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>429</span>
-<span>430</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>430</span>
 <span>431</span>
 <span>432</span>
 <span>433</span>
@@ -3816,7 +3833,8 @@ Modifies self.im in-place.</p>
 <span>452</span>
 <span>453</span>
 <span>454</span>
-<span>455</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
+<span>455</span>
+<span>456</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">angle_text</span><span class="p">,</span> <span class="n">count_text</span><span class="p">,</span> <span class="n">stage_text</span><span class="p">,</span> <span class="n">center_kpt</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -3939,8 +3957,7 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>457</span>
-<span>458</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>458</span>
 <span>459</span>
 <span>460</span>
 <span>461</span>
@@ -3973,7 +3990,8 @@ Modifies self.im in-place.</p>
 <span>488</span>
 <span>489</span>
 <span>490</span>
-<span>491</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
+<span>491</span>
+<span>492</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">pixels_distance</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">centroid_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -4122,8 +4140,7 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>401</span>
-<span>402</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>402</span>
 <span>403</span>
 <span>404</span>
 <span>405</span>
@@ -4148,7 +4165,8 @@ Modifies self.im in-place.</p>
 <span>424</span>
 <span>425</span>
 <span>426</span>
-<span>427</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_workout_information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_text</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<span>427</span>
+<span>428</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_workout_information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_text</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw workout text with a background on the image.</span>
 <span></span>
@@ -4268,8 +4286,7 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>285</span>
-<span>286</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>286</span>
 <span>287</span>
 <span>288</span>
 <span>289</span>
@@ -4306,7 +4323,8 @@ Modifies self.im in-place.</p>
 <span>320</span>
 <span>321</span>
 <span>322</span>
-<span>323</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">queue_counts_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<span>323</span>
+<span>324</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">queue_counts_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Displays queue counts on an image centered at the points with customizable font size and colors.</span>
 <span></span>
@@ -4458,8 +4476,7 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>533</span>
-<span>534</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>534</span>
 <span>535</span>
 <span>536</span>
 <span>537</span>
@@ -4490,7 +4507,8 @@ Modifies self.im in-place.</p>
 <span>562</span>
 <span>563</span>
 <span>564</span>
-<span>565</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sweep_annotator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<span>565</span>
+<span>566</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sweep_annotator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a sweep annotation line and an optional label.</span>
 <span></span>
@@ -4632,8 +4650,7 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>620</span>
-<span>621</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>621</span>
 <span>622</span>
 <span>623</span>
 <span>624</span>
@@ -4667,7 +4684,8 @@ Modifies self.im in-place.</p>
 <span>652</span>
 <span>653</span>
 <span>654</span>
-<span>655</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span>655</span>
+<span>656</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a label with a background rectangle centered within a given bounding box.</span>
 <span></span>
@@ -4794,8 +4812,7 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>567</span>
-<span>568</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>568</span>
 <span>569</span>
 <span>570</span>
 <span>571</span>
@@ -4807,7 +4824,8 @@ Modifies self.im in-place.</p>
 <span>577</span>
 <span>578</span>
 <span>579</span>
-<span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visioneye</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">center_point</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">235</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">pin_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<span>580</span>
+<span>581</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visioneye</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">center_point</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">235</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">pin_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform pinpoint human-vision eye mapping and plotting.</span>
 <span></span>
@@ -5057,8 +5075,7 @@ angles, and workout stages.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>684</span>
-<span>685</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>685</span>
 <span>686</span>
 <span>687</span>
 <span>688</span>
@@ -5082,7 +5099,8 @@ angles, and workout stages.</p>
 <span>706</span>
 <span>707</span>
 <span>708</span>
-<span>709</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>709</span>
+<span>710</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SolutionResults object with default or user-specified values.</span>
 <span></span>
@@ -5142,8 +5160,7 @@ angles, and workout stages.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>711</span>
-<span>712</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>712</span>
 <span>713</span>
 <span>714</span>
 <span>715</span>
@@ -5154,7 +5171,8 @@ angles, and workout stages.</p>
 <span>720</span>
 <span>721</span>
 <span>722</span>
-<span>723</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>723</span>
+<span>724</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a formatted string representation of the SolutionResults object.</span>
 <span></span>
