@@ -1799,8 +1799,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <span></span><span class="sd">        [[1. 0. 0.]</span>
 <span></span><span class="sd">         [0. 1. 0.]]</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">raw_frame</span><span class="o">.</span><span class="n">shape</span>
-<span></span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">raw_frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+<span></span>    <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">raw_frame</span><span class="o">.</span><span class="n">shape</span>
+<span></span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">raw_frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">raw_frame</span>
 <span></span>    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Downscale image</span>
@@ -2072,8 +2072,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <span></span><span class="sd">        &gt;&gt;&gt; print(transformation_matrix.shape)</span>
 <span></span><span class="sd">        (2, 3)</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">raw_frame</span><span class="o">.</span><span class="n">shape</span>
-<span></span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">raw_frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+<span></span>    <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">raw_frame</span><span class="o">.</span><span class="n">shape</span>
+<span></span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">raw_frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">raw_frame</span>
 <span></span>    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Downscale image</span>
@@ -2347,8 +2347,8 @@ SIFT, ECC, and Sparse Optical Flow. It also supports downscaling of frames for c
 <span></span><span class="sd">        [[1. 0. 0.]</span>
 <span></span><span class="sd">         [0. 1. 0.]]</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">raw_frame</span><span class="o">.</span><span class="n">shape</span>
-<span></span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">raw_frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span>
+<span></span>    <span class="n">height</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">c</span> <span class="o">=</span> <span class="n">raw_frame</span><span class="o">.</span><span class="n">shape</span>
+<span></span>    <span class="n">frame</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">raw_frame</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2GRAY</span><span class="p">)</span> <span class="k">if</span> <span class="n">c</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">raw_frame</span>
 <span></span>    <span class="n">H</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">eye</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Downscale image</span>

@@ -2306,9 +2306,9 @@ over a dataset.</p>
 <span></span>    <span class="k">elif</span> <span class="n">in_memory</span><span class="p">:</span>
 <span></span>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">source</span>
 <span></span>    <span class="k">elif</span> <span class="n">stream</span><span class="p">:</span>
-<span></span>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">LoadStreams</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="n">vid_stride</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">buffer</span><span class="p">)</span>
+<span></span>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">LoadStreams</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="n">vid_stride</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="n">buffer</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
 <span></span>    <span class="k">elif</span> <span class="n">screenshot</span><span class="p">:</span>
-<span></span>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">LoadScreenshots</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
+<span></span>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">LoadScreenshots</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
 <span></span>    <span class="k">elif</span> <span class="n">from_img</span><span class="p">:</span>
 <span></span>        <span class="n">dataset</span> <span class="o">=</span> <span class="n">LoadPilAndNumpy</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="n">channels</span><span class="p">)</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
