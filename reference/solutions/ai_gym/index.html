@@ -1176,46 +1176,13 @@ repetitions of exercises based on predefined angle thresholds for up and down po
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.ai_gym.AIGym.count">count</span></code></td>
+<td><code><span title="ultralytics.solutions.ai_gym.AIGym.states">states</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="float">float</span>, <span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Repetition counts for each detected person.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.ai_gym.AIGym.angle">angle</span></code></td>
-<td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Current angle of the tracked body part for each person.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.ai_gym.AIGym.stage">stage</span></code></td>
-<td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Current exercise stage ('up', 'down', or '-') for each person.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.ai_gym.AIGym.initial_stage">initial_stage</span></code></td>
-<td>
-<code><span title="str">str</span> | None</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Initial stage of the exercise.</p>
+<p>Stores per-track angle, count, and stage for workout monitoring.</p>
 </div>
 </td>
 </tr>
@@ -1313,7 +1280,8 @@ model (str): Model name or path, defaults to "yolo11n-pose.pt".</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/ai_gym.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>34</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>33</span>
+<span>34</span>
 <span>35</span>
 <span>36</span>
 <span>37</span>
@@ -1327,11 +1295,7 @@ model (str): Model name or path, defaults to "yolo11n-pose.pt".</p>
 <span>45</span>
 <span>46</span>
 <span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>48</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize AIGym for workout monitoring using pose estimation and predefined angles.</span>
 <span></span>
@@ -1341,12 +1305,9 @@ model (str): Model name or path, defaults to "yolo11n-pose.pt".</p>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">kwargs</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># List for counts, necessary where there are multiple objects in frame</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">angle</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># List for angle, necessary where there are multiple objects in frame</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">stage</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># List for stage, necessary where there are multiple objects in frame</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">states</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">{</span><span class="s2">"angle"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"count"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"stage"</span><span class="p">:</span> <span class="s2">"-"</span><span class="p">})</span>  <span class="c1"># Dict for count, angle and stage</span>
 <span></span>
 <span></span>    <span class="c1"># Extract details from CFG single time for usage later</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">initial_stage</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">up_angle</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"up_angle"</span><span class="p">])</span>  <span class="c1"># Pose up predefined angle to consider up pose</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">down_angle</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"down_angle"</span><span class="p">])</span>  <span class="c1"># Pose down predefined angle to consider down pose</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">kpts</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"kpts"</span><span class="p">]</span>  <span class="c1"># User selected kpts of workouts storage for further usage</span>
@@ -1426,7 +1387,11 @@ angle thresholds.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/ai_gym.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 54</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 50</span>
+<span> 51</span>
+<span> 52</span>
+<span> 53</span>
+<span> 54</span>
 <span> 55</span>
 <span> 56</span>
 <span> 57</span>
@@ -1488,14 +1453,7 @@ angle thresholds.</p>
 <span>113</span>
 <span>114</span>
 <span>115</span>
-<span>116</span>
-<span>117</span>
-<span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
-<span>122</span>
-<span>123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>116</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Monitor workouts using Ultralytics YOLO Pose Model.</span>
 <span></span>
@@ -1525,33 +1483,30 @@ angle thresholds.</p>
 <span></span>    <span class="n">tracks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>
 <span></span>    <span class="k">if</span> <span class="n">tracks</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span></span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">):</span>  <span class="c1"># Add new entries for newly detected people</span>
-<span></span>            <span class="n">new_human</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">tracks</span><span class="p">)</span> <span class="o">-</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">)</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">angle</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">new_human</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">+=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">new_human</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">stage</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"-"</span><span class="p">]</span> <span class="o">*</span> <span class="n">new_human</span>
+<span></span>        <span class="n">track_ids</span> <span class="o">=</span> <span class="n">tracks</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>        <span class="n">kpt_data</span> <span class="o">=</span> <span class="n">tracks</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>  <span class="c1"># Avoid repeated .cpu() calls</span>
 <span></span>
-<span></span>        <span class="c1"># Enumerate over keypoints</span>
-<span></span>        <span class="k">for</span> <span class="n">ind</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">tracks</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">data</span><span class="p">)):</span>
+<span></span>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kpt_data</span><span class="p">):</span>
+<span></span>            <span class="n">track_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">track_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>  <span class="c1"># get track id</span>
+<span></span>            <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>  <span class="c1"># get state details</span>
 <span></span>            <span class="c1"># Get keypoints and estimate the angle</span>
-<span></span>            <span class="n">kpts</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kpts</span><span class="p">[</span><span class="n">i</span><span class="p">])]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">estimate_pose_angle</span><span class="p">(</span><span class="o">*</span><span class="n">kpts</span><span class="p">)</span>
+<span></span>            <span class="n">state</span><span class="p">[</span><span class="s2">"angle"</span><span class="p">]</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">estimate_pose_angle</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">)]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kpts</span><span class="p">])</span>
 <span></span>            <span class="n">annotator</span><span class="o">.</span><span class="n">draw_specific_kpts</span><span class="p">(</span><span class="n">k</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">kpts</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">3</span><span class="p">)</span>
 <span></span>
 <span></span>            <span class="c1"># Determine stage and count logic based on angle thresholds</span>
-<span></span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">down_angle</span><span class="p">:</span>
-<span></span>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"up"</span><span class="p">:</span>
-<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"down"</span>
-<span></span>            <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">up_angle</span><span class="p">:</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">[</span><span class="n">ind</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"up"</span>
+<span></span>            <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">"angle"</span><span class="p">]</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">down_angle</span><span class="p">:</span>
+<span></span>                <span class="k">if</span> <span class="n">state</span><span class="p">[</span><span class="s2">"stage"</span><span class="p">]</span> <span class="o">==</span> <span class="s2">"up"</span><span class="p">:</span>
+<span></span>                    <span class="n">state</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span></span>                <span class="n">state</span><span class="p">[</span><span class="s2">"stage"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"down"</span>
+<span></span>            <span class="k">elif</span> <span class="n">state</span><span class="p">[</span><span class="s2">"angle"</span><span class="p">]</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">up_angle</span><span class="p">:</span>
+<span></span>                <span class="n">state</span><span class="p">[</span><span class="s2">"stage"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"up"</span>
 <span></span>
 <span></span>            <span class="c1"># Display angle, count, and stage text</span>
 <span></span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_labels</span><span class="p">:</span>
 <span></span>                <span class="n">annotator</span><span class="o">.</span><span class="n">plot_angle_and_count_and_stage</span><span class="p">(</span>
-<span></span>                    <span class="n">angle_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># angle text for display</span>
-<span></span>                    <span class="n">count_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># count text for workouts</span>
-<span></span>                    <span class="n">stage_text</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">[</span><span class="n">ind</span><span class="p">],</span>  <span class="c1"># stage position text</span>
+<span></span>                    <span class="n">angle_text</span><span class="o">=</span><span class="n">state</span><span class="p">[</span><span class="s2">"angle"</span><span class="p">],</span>  <span class="c1"># angle text for display</span>
+<span></span>                    <span class="n">count_text</span><span class="o">=</span><span class="n">state</span><span class="p">[</span><span class="s2">"count"</span><span class="p">],</span>  <span class="c1"># count text for workouts</span>
+<span></span>                    <span class="n">stage_text</span><span class="o">=</span><span class="n">state</span><span class="p">[</span><span class="s2">"stage"</span><span class="p">],</span>  <span class="c1"># stage position text</span>
 <span></span>                    <span class="n">center_kpt</span><span class="o">=</span><span class="n">k</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">kpts</span><span class="p">[</span><span class="mi">1</span><span class="p">])],</span>  <span class="c1"># center keypoint for display</span>
 <span></span>                <span class="p">)</span>
 <span></span>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
@@ -1560,9 +1515,9 @@ angle thresholds.</p>
 <span></span>    <span class="c1"># Return SolutionResults</span>
 <span></span>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span>
 <span></span>        <span class="n">plot_im</span><span class="o">=</span><span class="n">plot_im</span><span class="p">,</span>
-<span></span>        <span class="n">workout_count</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">count</span><span class="p">,</span>
-<span></span>        <span class="n">workout_stage</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">stage</span><span class="p">,</span>
-<span></span>        <span class="n">workout_angle</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">angle</span><span class="p">,</span>
+<span></span>        <span class="n">workout_count</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="s2">"count"</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">values</span><span class="p">()],</span>
+<span></span>        <span class="n">workout_stage</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="s2">"stage"</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">values</span><span class="p">()],</span>
+<span></span>        <span class="n">workout_angle</span><span class="o">=</span><span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="s2">"angle"</span><span class="p">]</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="o">.</span><span class="n">values</span><span class="p">()],</span>
 <span></span>        <span class="n">total_tracks</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">),</span>
 <span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
