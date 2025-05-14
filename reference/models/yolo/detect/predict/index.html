@@ -1953,7 +1953,7 @@ further analysis.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; results = predictor.predict("path/to/image.jpg")</span>
 <span></span><span class="sd">        &gt;&gt;&gt; processed_results = predictor.postprocess(preds, img, orig_imgs)</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">save_feats</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"save_feats"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span></span>    <span class="n">save_feats</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"_feats"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span>
 <span></span>        <span class="n">preds</span><span class="p">,</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span>
