@@ -1639,6 +1639,9 @@
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.parse_version">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.parse_version</span>
+<span class="doc doc-labels">
+<small class="doc doc-label doc-label-cached"><code>cached</code></small>
+</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">parse_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s1">'0.0.0'</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span>
 </code></pre></div>
@@ -1710,7 +1713,9 @@
 <span>94</span>
 <span>95</span>
 <span>96</span>
-<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">"0.0.0"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span>97</span>
+<span>98</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_version</span><span class="p">(</span><span class="n">version</span><span class="o">=</span><span class="s2">"0.0.0"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a version string to a tuple of integers, ignoring any extra non-numeric string attached to the version.</span>
 <span></span>
@@ -1789,8 +1794,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>100</span>
-<span>101</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>101</span>
 <span>102</span>
 <span>103</span>
 <span>104</span>
@@ -1799,7 +1803,8 @@
 <span>107</span>
 <span>108</span>
 <span>109</span>
-<span>110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_ascii</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>110</span>
+<span>111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_ascii</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if a string is composed of only ASCII characters.</span>
 <span></span>
@@ -1939,8 +1944,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
-<span>114</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
 <span>115</span>
 <span>116</span>
 <span>117</span>
@@ -1990,7 +1994,8 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <span>161</span>
 <span>162</span>
 <span>163</span>
-<span>164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">min_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_dim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">floor</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span>164</span>
+<span>165</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">min_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_dim</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">floor</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Verify image size is a multiple of the given stride in each dimension. If the image size is not a multiple of the</span>
 <span></span><span class="sd">    stride, update it to the nearest multiple of the stride that is greater than or equal to the given floor value.</span>
@@ -2049,6 +2054,9 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_version">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_version</span>
+<span class="doc doc-labels">
+<small class="doc doc-label doc-label-cached"><code>cached</code></small>
+</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_version</span><span class="p">(</span>
 <span></span>    <span class="n">current</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"0.0.0"</span><span class="p">,</span>
@@ -2206,8 +2214,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>167</span>
-<span>168</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>168</span>
 <span>169</span>
 <span>170</span>
 <span>171</span>
@@ -2291,7 +2298,10 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <span>249</span>
 <span>250</span>
 <span>251</span>
-<span>252</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_version</span><span class="p">(</span>
+<span>252</span>
+<span>253</span>
+<span>254</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_version</span><span class="p">(</span>
 <span></span>    <span class="n">current</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"0.0.0"</span><span class="p">,</span>
 <span></span>    <span class="n">required</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"0.0.0"</span><span class="p">,</span>
 <span></span>    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"version"</span><span class="p">,</span>
@@ -2441,9 +2451,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>255</span>
-<span>256</span>
-<span>257</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>257</span>
 <span>258</span>
 <span>259</span>
 <span>260</span>
@@ -2459,7 +2467,9 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <span>270</span>
 <span>271</span>
 <span>272</span>
-<span>273</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_latest_pypi_version</span><span class="p">(</span><span class="n">package_name</span><span class="o">=</span><span class="s2">"ultralytics"</span><span class="p">):</span>
+<span>273</span>
+<span>274</span>
+<span>275</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_latest_pypi_version</span><span class="p">(</span><span class="n">package_name</span><span class="o">=</span><span class="s2">"ultralytics"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Returns the latest version of a PyPI package without downloading or installing it.</span>
 <span></span>
@@ -2513,9 +2523,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>276</span>
-<span>277</span>
-<span>278</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>278</span>
 <span>279</span>
 <span>280</span>
 <span>281</span>
@@ -2533,7 +2541,9 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <span>293</span>
 <span>294</span>
 <span>295</span>
-<span>296</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_pip_update_available</span><span class="p">():</span>
+<span>296</span>
+<span>297</span>
+<span>298</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_pip_update_available</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Checks if a new version of the ultralytics package is available on PyPI.</span>
 <span></span>
@@ -2621,9 +2631,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>299</span>
-<span>300</span>
-<span>301</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>301</span>
 <span>302</span>
 <span>303</span>
 <span>304</span>
@@ -2650,7 +2658,9 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <span>325</span>
 <span>326</span>
 <span>327</span>
-<span>328</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@ThreadingLocked</span><span class="p">()</span>
+<span>328</span>
+<span>329</span>
+<span>330</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@ThreadingLocked</span><span class="p">()</span>
 <span></span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_font</span><span class="p">(</span><span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2778,9 +2788,7 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>331</span>
-<span>332</span>
-<span>333</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>333</span>
 <span>334</span>
 <span>335</span>
 <span>336</span>
@@ -2790,7 +2798,9 @@ stride, update it to the nearest multiple of the stride that is greater than or 
 <span>340</span>
 <span>341</span>
 <span>342</span>
-<span>343</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_python</span><span class="p">(</span><span class="n">minimum</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"3.8.0"</span><span class="p">,</span> <span class="n">hard</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>343</span>
+<span>344</span>
+<span>345</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_python</span><span class="p">(</span><span class="n">minimum</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"3.8.0"</span><span class="p">,</span> <span class="n">hard</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check current python version against the required minimum version.</span>
 <span></span>
@@ -2912,9 +2922,7 @@ string, or a list of package requirements as strings.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>346</span>
-<span>347</span>
-<span>348</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>348</span>
 <span>349</span>
 <span>350</span>
 <span>351</span>
@@ -2979,7 +2987,9 @@ string, or a list of package requirements as strings.</p>
 <span>410</span>
 <span>411</span>
 <span>412</span>
-<span>413</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@TryExcept</span><span class="p">()</span>
+<span>413</span>
+<span>414</span>
+<span>415</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@TryExcept</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_requirements</span><span class="p">(</span><span class="n">requirements</span><span class="o">=</span><span class="n">ROOT</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"requirements.txt"</span><span class="p">,</span> <span class="n">exclude</span><span class="o">=</span><span class="p">(),</span> <span class="n">install</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cmds</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if installed dependencies meet Ultralytics YOLO models requirements and attempt to auto-update if needed.</span>
@@ -3063,9 +3073,7 @@ string, or a list of package requirements as strings.</p>
 to the compatibility table based on: <a href="https://github.com/pytorch/vision#installation">https://github.com/pytorch/vision#installation</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>416</span>
-<span>417</span>
-<span>418</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>418</span>
 <span>419</span>
 <span>420</span>
 <span>421</span>
@@ -3093,7 +3101,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>443</span>
 <span>444</span>
 <span>445</span>
-<span>446</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_torchvision</span><span class="p">():</span>
+<span>446</span>
+<span>447</span>
+<span>448</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_torchvision</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Checks the installed versions of PyTorch and Torchvision to ensure they're compatible.</span>
 <span></span>
@@ -3199,9 +3209,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>449</span>
-<span>450</span>
-<span>451</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>451</span>
 <span>452</span>
 <span>453</span>
 <span>454</span>
@@ -3214,7 +3222,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>461</span>
 <span>462</span>
 <span>463</span>
-<span>464</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_suffix</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">".pt"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span>464</span>
+<span>465</span>
+<span>466</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_suffix</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">".pt"</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check file(s) for acceptable suffix.</span>
 <span></span>
@@ -3310,9 +3320,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>467</span>
-<span>468</span>
-<span>469</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>469</span>
 <span>470</span>
 <span>471</span>
 <span>472</span>
@@ -3335,7 +3343,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>489</span>
 <span>490</span>
 <span>491</span>
-<span>492</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_yolov5u_filename</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>492</span>
+<span>493</span>
+<span>494</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_yolov5u_filename</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Replace legacy YOLOv5 filenames with updated YOLOv5u filenames.</span>
 <span></span>
@@ -3425,9 +3435,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>495</span>
-<span>496</span>
-<span>497</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>497</span>
 <span>498</span>
 <span>499</span>
 <span>500</span>
@@ -3438,7 +3446,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>505</span>
 <span>506</span>
 <span>507</span>
-<span>508</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_model_file_from_stem</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n"</span><span class="p">):</span>
+<span>508</span>
+<span>509</span>
+<span>510</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_model_file_from_stem</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a model filename from a valid model stem.</span>
 <span></span>
@@ -3580,9 +3590,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>511</span>
-<span>512</span>
-<span>513</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>513</span>
 <span>514</span>
 <span>515</span>
 <span>516</span>
@@ -3617,7 +3625,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>545</span>
 <span>546</span>
 <span>547</span>
-<span>548</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="s2">"."</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>548</span>
+<span>549</span>
+<span>550</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_file</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">download</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">download_dir</span><span class="o">=</span><span class="s2">"."</span><span class="p">,</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Search/download file (if necessary), check suffix (if provided), and return path.</span>
 <span></span>
@@ -3751,9 +3761,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>551</span>
-<span>552</span>
-<span>553</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>553</span>
 <span>554</span>
 <span>555</span>
 <span>556</span>
@@ -3763,7 +3771,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>560</span>
 <span>561</span>
 <span>562</span>
-<span>563</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_yaml</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="p">(</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">".yml"</span><span class="p">),</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>563</span>
+<span>564</span>
+<span>565</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_yaml</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="p">(</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">".yml"</span><span class="p">),</span> <span class="n">hard</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Search/download YAML file (if necessary) and return path, checking suffix.</span>
 <span></span>
@@ -3856,9 +3866,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>566</span>
-<span>567</span>
-<span>568</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>568</span>
 <span>569</span>
 <span>570</span>
 <span>571</span>
@@ -3870,7 +3878,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>577</span>
 <span>578</span>
 <span>579</span>
-<span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_is_path_safe</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span>580</span>
+<span>581</span>
+<span>582</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_is_path_safe</span><span class="p">(</span><span class="n">basedir</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the resolved path is under the intended directory to prevent path traversal.</span>
 <span></span>
@@ -3892,6 +3902,9 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <div class="doc doc-object doc-function">
 <h2 class="doc doc-heading" id="ultralytics.utils.checks.check_imshow">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.checks.check_imshow</span>
+<span class="doc doc-labels">
+<small class="doc doc-label doc-label-cached"><code>cached</code></small>
+</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
@@ -3949,9 +3962,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>583</span>
-<span>584</span>
-<span>585</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>585</span>
 <span>586</span>
 <span>587</span>
 <span>588</span>
@@ -3971,7 +3982,11 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>602</span>
 <span>603</span>
 <span>604</span>
-<span>605</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@functools</span><span class="o">.</span><span class="n">lru_cache</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if environment supports image displays.</span>
 <span></span>
@@ -4053,10 +4068,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>608</span>
-<span>609</span>
-<span>610</span>
-<span>611</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>611</span>
 <span>612</span>
 <span>613</span>
 <span>614</span>
@@ -4084,7 +4096,10 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>636</span>
 <span>637</span>
 <span>638</span>
-<span>639</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_yolo</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_yolo</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a human-readable YOLO software and hardware summary.</span>
 <span></span>
@@ -4151,10 +4166,7 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>642</span>
-<span>643</span>
-<span>644</span>
-<span>645</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>645</span>
 <span>646</span>
 <span>647</span>
 <span>648</span>
@@ -4209,7 +4221,10 @@ to the compatibility table based on: <a href="https://github.com/pytorch/vision#
 <span>697</span>
 <span>698</span>
 <span>699</span>
-<span>700</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">collect_system_info</span><span class="p">():</span>
+<span>700</span>
+<span>701</span>
+<span>702</span>
+<span>703</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">collect_system_info</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Collect and print relevant system information including OS, Python, RAM, CPU, and CUDA.</span>
 <span></span>
@@ -4340,10 +4355,7 @@ results, so AMP will be disabled during training.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>703</span>
-<span>704</span>
-<span>705</span>
-<span>706</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>706</span>
 <span>707</span>
 <span>708</span>
 <span>709</span>
@@ -4410,7 +4422,10 @@ results, so AMP will be disabled during training.</p>
 <span>770</span>
 <span>771</span>
 <span>772</span>
-<span>773</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_amp</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span>773</span>
+<span>774</span>
+<span>775</span>
+<span>776</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_amp</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Checks the PyTorch Automatic Mixed Precision (AMP) functionality of a YOLO11 model.</span>
 <span></span>
@@ -4545,10 +4560,7 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>776</span>
-<span>777</span>
-<span>778</span>
-<span>779</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>779</span>
 <span>780</span>
 <span>781</span>
 <span>782</span>
@@ -4558,7 +4570,10 @@ results, so AMP will be disabled during training.</p>
 <span>786</span>
 <span>787</span>
 <span>788</span>
-<span>789</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">git_describe</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">ROOT</span><span class="p">):</span>  <span class="c1"># path must be a directory</span>
+<span>789</span>
+<span>790</span>
+<span>791</span>
+<span>792</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">git_describe</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">ROOT</span><span class="p">):</span>  <span class="c1"># path must be a directory</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return human-readable git description, i.e. v5.0-5-g3e25f1e https://git-scm.com/docs/git-describe.</span>
 <span></span>
@@ -4647,10 +4662,7 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>792</span>
-<span>793</span>
-<span>794</span>
-<span>795</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>795</span>
 <span>796</span>
 <span>797</span>
 <span>798</span>
@@ -4671,7 +4683,10 @@ results, so AMP will be disabled during training.</p>
 <span>813</span>
 <span>814</span>
 <span>815</span>
-<span>816</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_func</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>816</span>
+<span>817</span>
+<span>818</span>
+<span>819</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">show_file</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">show_func</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Print function arguments (optional args dict).</span>
 <span></span>
@@ -4731,10 +4746,7 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>819</span>
-<span>820</span>
-<span>821</span>
-<span>822</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>822</span>
 <span>823</span>
 <span>824</span>
 <span>825</span>
@@ -4754,7 +4766,10 @@ results, so AMP will be disabled during training.</p>
 <span>839</span>
 <span>840</span>
 <span>841</span>
-<span>842</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuda_device_count</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<span>842</span>
+<span>843</span>
+<span>844</span>
+<span>845</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuda_device_count</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get the number of NVIDIA GPUs available in the environment.</span>
 <span></span>
@@ -4813,14 +4828,14 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>845</span>
-<span>846</span>
-<span>847</span>
-<span>848</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>848</span>
 <span>849</span>
 <span>850</span>
 <span>851</span>
-<span>852</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuda_is_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>852</span>
+<span>853</span>
+<span>854</span>
+<span>855</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuda_is_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if CUDA is available in the environment.</span>
 <span></span>
@@ -4863,10 +4878,7 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>855</span>
-<span>856</span>
-<span>857</span>
-<span>858</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>858</span>
 <span>859</span>
 <span>860</span>
 <span>861</span>
@@ -4880,7 +4892,10 @@ results, so AMP will be disabled during training.</p>
 <span>869</span>
 <span>870</span>
 <span>871</span>
-<span>872</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_rockchip</span><span class="p">():</span>
+<span>872</span>
+<span>873</span>
+<span>874</span>
+<span>875</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_rockchip</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the current environment is running on a Rockchip SoC.</span>
 <span></span>
@@ -4933,17 +4948,17 @@ results, so AMP will be disabled during training.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/checks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>875</span>
-<span>876</span>
-<span>877</span>
-<span>878</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>878</span>
 <span>879</span>
 <span>880</span>
 <span>881</span>
 <span>882</span>
 <span>883</span>
 <span>884</span>
-<span>885</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_sudo_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>885</span>
+<span>886</span>
+<span>887</span>
+<span>888</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_sudo_available</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the sudo command is available in the environment.</span>
 <span></span>
