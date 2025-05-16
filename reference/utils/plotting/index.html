@@ -3662,7 +3662,13 @@ RGB values.</p>
 <span>585</span>
 <span>586</span>
 <span>587</span>
-<span>588</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@TryExcept</span><span class="p">()</span>  <span class="c1"># known issue https://github.com/ultralytics/yolov5/issues/5395</span>
+<span>588</span>
+<span>589</span>
+<span>590</span>
+<span>591</span>
+<span>592</span>
+<span>593</span>
+<span>594</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@TryExcept</span><span class="p">()</span>  <span class="c1"># known issue https://github.com/ultralytics/yolov5/issues/5395</span>
 <span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_labels</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">""</span><span class="p">),</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -3677,9 +3683,9 @@ RGB values.</p>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span>
-<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">matplotlib.colors</span><span class="w"> </span><span class="kn">import</span> <span class="n">LinearSegmentedColormap</span>
 <span></span>
-<span></span>    <span class="c1"># Filter matplotlib&gt;=3.7.2 warning and Seaborn use_inf and is_categorical FutureWarnings</span>
+<span></span>    <span class="c1"># Filter matplotlib&gt;=3.7.2 warning</span>
 <span></span>    <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">UserWarning</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">"The figure layout has changed to tight"</span><span class="p">)</span>
 <span></span>    <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
 <span></span>
@@ -3689,12 +3695,17 @@ RGB values.</p>
 <span></span>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[:</span><span class="mi">1000000</span><span class="p">]</span>  <span class="c1"># limit to 1M boxes</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">"x"</span><span class="p">,</span> <span class="s2">"y"</span><span class="p">,</span> <span class="s2">"width"</span><span class="p">,</span> <span class="s2">"height"</span><span class="p">])</span>
 <span></span>
-<span></span>    <span class="c1"># Seaborn correlogram</span>
-<span></span>    <span class="n">seaborn</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">corner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">"hist"</span><span class="p">,</span> <span class="n">diag_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span> <span class="n">plot_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pmax</span><span class="o">=</span><span class="mf">0.9</span><span class="p">))</span>
-<span></span>    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"labels_correlogram.jpg"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
-<span></span>    <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span></span>    <span class="k">try</span><span class="p">:</span>  <span class="c1"># Seaborn correlogram</span>
+<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">seaborn</span>
+<span></span>
+<span></span>        <span class="n">seaborn</span><span class="o">.</span><span class="n">pairplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">corner</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">diag_kind</span><span class="o">=</span><span class="s2">"auto"</span><span class="p">,</span> <span class="n">kind</span><span class="o">=</span><span class="s2">"hist"</span><span class="p">,</span> <span class="n">diag_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">),</span> <span class="n">plot_kws</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">pmax</span><span class="o">=</span><span class="mf">0.9</span><span class="p">))</span>
+<span></span>        <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"labels_correlogram.jpg"</span><span class="p">,</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">)</span>
+<span></span>        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span></span>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+<span></span>        <span class="k">pass</span>  <span class="c1"># Skip if seaborn is not installed</span>
 <span></span>
 <span></span>    <span class="c1"># Matplotlib labels</span>
+<span></span>    <span class="n">subplot_3_4_color</span> <span class="o">=</span> <span class="n">LinearSegmentedColormap</span><span class="o">.</span><span class="n">from_list</span><span class="p">(</span><span class="s2">"white_blue"</span><span class="p">,</span> <span class="p">[</span><span class="s2">"white"</span><span class="p">,</span> <span class="s2">"blue"</span><span class="p">])</span>
 <span></span>    <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">8</span><span class="p">),</span> <span class="n">tight_layout</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
 <span></span>    <span class="n">y</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">nc</span><span class="p">,</span> <span class="n">nc</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">rwidth</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
 <span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nc</span><span class="p">):</span>
@@ -3705,18 +3716,19 @@ RGB values.</p>
 <span></span>        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xticklabels</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"classes"</span><span class="p">)</span>
-<span></span>    <span class="n">seaborn</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"x"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"y"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">pmax</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
-<span></span>    <span class="n">seaborn</span><span class="o">.</span><span class="n">histplot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s2">"width"</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s2">"height"</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">pmax</span><span class="o">=</span><span class="mf">0.9</span><span class="p">)</span>
-<span></span>
-<span></span>    <span class="c1"># Rectangles</span>
-<span></span>    <span class="n">boxes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.5</span>  <span class="c1"># center</span>
-<span></span>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xywh2xyxy</span><span class="p">(</span><span class="n">boxes</span><span class="p">)</span> <span class="o">*</span> <span class="mi">1000</span>
+<span></span>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">column_stack</span><span class="p">([</span><span class="mf">0.5</span> <span class="o">-</span> <span class="n">boxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.5</span> <span class="o">+</span> <span class="n">boxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">])</span> <span class="o">*</span> <span class="mi">1000</span>
 <span></span>    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="mi">1000</span><span class="p">,</span> <span class="mi">1000</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span>
 <span></span>    <span class="k">for</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">box</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">cls</span><span class="p">[:</span><span class="mi">500</span><span class="p">],</span> <span class="n">boxes</span><span class="p">[:</span><span class="mi">500</span><span class="p">]):</span>
 <span></span>        <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="n">img</span><span class="p">)</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">outline</span><span class="o">=</span><span class="n">colors</span><span class="p">(</span><span class="bp">cls</span><span class="p">))</span>  <span class="c1"># plot</span>
 <span></span>    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">img</span><span class="p">)</span>
 <span></span>    <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s2">"off"</span><span class="p">)</span>
 <span></span>
+<span></span>    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"x"</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">"y"</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">subplot_3_4_color</span><span class="p">)</span>
+<span></span>    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"x"</span><span class="p">)</span>
+<span></span>    <span class="n">ax</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"y"</span><span class="p">)</span>
+<span></span>    <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">hist2d</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">"width"</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">"height"</span><span class="p">],</span> <span class="n">bins</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">subplot_3_4_color</span><span class="p">)</span>
+<span></span>    <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">"width"</span><span class="p">)</span>
+<span></span>    <span class="n">ax</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">"height"</span><span class="p">)</span>
 <span></span>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]:</span>
 <span></span>        <span class="k">for</span> <span class="n">s</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"top"</span><span class="p">,</span> <span class="s2">"right"</span><span class="p">,</span> <span class="s2">"left"</span><span class="p">,</span> <span class="s2">"bottom"</span><span class="p">]:</span>
 <span></span>            <span class="n">ax</span><span class="p">[</span><span class="n">a</span><span class="p">]</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="n">s</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
@@ -3920,13 +3932,7 @@ adjustments to the bounding box.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>591</span>
-<span>592</span>
-<span>593</span>
-<span>594</span>
-<span>595</span>
-<span>596</span>
-<span>597</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>597</span>
 <span>598</span>
 <span>599</span>
 <span>600</span>
@@ -3961,7 +3967,13 @@ adjustments to the bounding box.</p>
 <span>629</span>
 <span>630</span>
 <span>631</span>
-<span>632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_box</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"im.jpg"</span><span class="p">),</span> <span class="n">gain</span><span class="o">=</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">BGR</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>632</span>
+<span>633</span>
+<span>634</span>
+<span>635</span>
+<span>636</span>
+<span>637</span>
+<span>638</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_box</span><span class="p">(</span><span class="n">xyxy</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"im.jpg"</span><span class="p">),</span> <span class="n">gain</span><span class="o">=</span><span class="mf">1.02</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">square</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">BGR</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save image crop as {file} with crop size multiple {gain} and {pad} pixels. Save and/or return crop.</span>
 <span></span>
@@ -4312,13 +4324,7 @@ convert tensor inputs to numpy arrays for processing.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>635</span>
-<span>636</span>
-<span>637</span>
-<span>638</span>
-<span>639</span>
-<span>640</span>
-<span>641</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>641</span>
 <span>642</span>
 <span>643</span>
 <span>644</span>
@@ -4480,7 +4486,13 @@ convert tensor inputs to numpy arrays for processing.</p>
 <span>800</span>
 <span>801</span>
 <span>802</span>
-<span>803</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@threaded</span>
+<span>803</span>
+<span>804</span>
+<span>805</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@threaded</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_images</span><span class="p">(</span>
 <span></span>    <span class="n">images</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
 <span></span>    <span class="n">batch_idx</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
@@ -4784,13 +4796,7 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>806</span>
-<span>807</span>
-<span>808</span>
-<span>809</span>
-<span>810</span>
-<span>811</span>
-<span>812</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>812</span>
 <span>813</span>
 <span>814</span>
 <span>815</span>
@@ -4842,7 +4848,13 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <span>861</span>
 <span>862</span>
 <span>863</span>
-<span>864</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>864</span>
+<span>865</span>
+<span>866</span>
+<span>867</span>
+<span>868</span>
+<span>869</span>
+<span>870</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_results</span><span class="p">(</span><span class="n">file</span><span class="o">=</span><span class="s2">"path/to/results.csv"</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">segment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">pose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">classify</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot training results from a results CSV file. The function supports various types of data including segmentation,</span>
@@ -5029,13 +5041,7 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>867</span>
-<span>868</span>
-<span>869</span>
-<span>870</span>
-<span>871</span>
-<span>872</span>
-<span>873</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>873</span>
 <span>874</span>
 <span>875</span>
 <span>876</span>
@@ -5059,7 +5065,13 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <span>894</span>
 <span>895</span>
 <span>896</span>
-<span>897</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_color_scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"viridis"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">"none"</span><span class="p">):</span>
+<span>897</span>
+<span>898</span>
+<span>899</span>
+<span>900</span>
+<span>901</span>
+<span>902</span>
+<span>903</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_color_scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s2">"viridis"</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="o">=</span><span class="s2">"none"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot a scatter plot with points colored based on a 2D histogram.</span>
 <span></span>
@@ -5137,13 +5149,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>900</span>
-<span>901</span>
-<span>902</span>
-<span>903</span>
-<span>904</span>
-<span>905</span>
-<span>906</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>906</span>
 <span>907</span>
 <span>908</span>
 <span>909</span>
@@ -5190,7 +5196,13 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>950</span>
 <span>951</span>
 <span>952</span>
-<span>953</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="o">=</span><span class="s2">"tune_results.csv"</span><span class="p">):</span>
+<span>953</span>
+<span>954</span>
+<span>955</span>
+<span>956</span>
+<span>957</span>
+<span>958</span>
+<span>959</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="o">=</span><span class="s2">"tune_results.csv"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot the evolution results stored in a 'tune_results.csv' file. The function generates a scatter plot for each key</span>
 <span></span><span class="sd">    in the CSV, color-coded based on fitness scores. The best-performing configurations are highlighted on the plots.</span>
@@ -5258,15 +5270,15 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <p>Convert model output to target format [batch_id, class_id, x, y, w, h, conf] for plotting.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>956</span>
-<span>957</span>
-<span>958</span>
-<span>959</span>
-<span>960</span>
-<span>961</span>
-<span>962</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>962</span>
 <span>963</span>
-<span>964</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">output_to_target</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">max_det</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+<span>964</span>
+<span>965</span>
+<span>966</span>
+<span>967</span>
+<span>968</span>
+<span>969</span>
+<span>970</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">output_to_target</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">max_det</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert model output to target format [batch_id, class_id, x, y, w, h, conf] for plotting."""</span>
 <span></span>    <span class="n">targets</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
@@ -5289,15 +5301,15 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <p>Convert model output to target format [batch_id, class_id, x, y, w, h, conf] for plotting.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>967</span>
-<span>968</span>
-<span>969</span>
-<span>970</span>
-<span>971</span>
-<span>972</span>
-<span>973</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>973</span>
 <span>974</span>
-<span>975</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">output_to_rotated_target</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">max_det</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
+<span>975</span>
+<span>976</span>
+<span>977</span>
+<span>978</span>
+<span>979</span>
+<span>980</span>
+<span>981</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">output_to_rotated_target</span><span class="p">(</span><span class="n">output</span><span class="p">,</span> <span class="n">max_det</span><span class="o">=</span><span class="mi">300</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert model output to target format [batch_id, class_id, x, y, w, h, conf] for plotting."""</span>
 <span></span>    <span class="n">targets</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">o</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">output</span><span class="p">):</span>
@@ -5415,13 +5427,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 978</span>
-<span> 979</span>
-<span> 980</span>
-<span> 981</span>
-<span> 982</span>
-<span> 983</span>
-<span> 984</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 984</span>
 <span> 985</span>
 <span> 986</span>
 <span> 987</span>
@@ -5448,7 +5454,13 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>1008</span>
 <span>1009</span>
 <span>1010</span>
-<span>1011</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">feature_visualization</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">module_type</span><span class="p">,</span> <span class="n">stage</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"runs/detect/exp"</span><span class="p">)):</span>
+<span>1011</span>
+<span>1012</span>
+<span>1013</span>
+<span>1014</span>
+<span>1015</span>
+<span>1016</span>
+<span>1017</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">feature_visualization</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">module_type</span><span class="p">,</span> <span class="n">stage</span><span class="p">,</span> <span class="n">n</span><span class="o">=</span><span class="mi">32</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"runs/detect/exp"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Visualize feature maps of a given model module during inference.</span>
 <span></span>
