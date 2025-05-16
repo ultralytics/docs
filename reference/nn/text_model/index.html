@@ -2608,7 +2608,8 @@ capabilities for vision-language tasks.</p>
 <span>324</span>
 <span>325</span>
 <span>326</span>
-<span>327</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>327</span>
+<span>328</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">encode_text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Encode tokenized texts into normalized feature vectors.</span>
@@ -2627,6 +2628,7 @@ capabilities for vision-language tasks.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; features.shape</span>
 <span></span><span class="sd">        torch.Size([2, 512])  # Actual dimension depends on model size</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="c1"># NOTE: no need to do normalization here as it's embedded in the torchscript model</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">encoder</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2812,8 +2814,7 @@ capabilities for vision-language tasks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/text_model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>330</span>
-<span>331</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>331</span>
 <span>332</span>
 <span>333</span>
 <span>334</span>
@@ -2833,7 +2834,8 @@ capabilities for vision-language tasks.</p>
 <span>348</span>
 <span>349</span>
 <span>350</span>
-<span>351</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_text_model</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>351</span>
+<span>352</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_text_model</span><span class="p">(</span><span class="n">variant</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build a text encoding model based on the specified variant.</span>
 <span></span>

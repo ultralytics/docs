@@ -1638,7 +1638,8 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <span>100</span>
 <span>101</span>
 <span>102</span>
-<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>103</span>
+<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset for training or validation.</span>
 <span></span>
@@ -1662,6 +1663,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <span></span>        <span class="k">else</span> <span class="n">build_grounding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">im_path</span><span class="p">[</span><span class="s2">"img_path"</span><span class="p">],</span> <span class="n">im_path</span><span class="p">[</span><span class="s2">"json_file"</span><span class="p">],</span> <span class="n">batch</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">gs</span><span class="p">)</span>
 <span></span>        <span class="k">for</span> <span class="n">im_path</span> <span class="ow">in</span> <span class="n">img_path</span>
 <span></span>    <span class="p">]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">set_text_embeddings</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>  <span class="c1"># cache text embeddings to accelerate training</span>
 <span></span>    <span class="k">return</span> <span class="n">YOLOConcatDataset</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">datasets</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="n">datasets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1699,8 +1701,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train_world.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>164</span>
-<span>165</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>165</span>
 <span>166</span>
 <span>167</span>
 <span>168</span>
@@ -1711,7 +1712,8 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <span>173</span>
 <span>174</span>
 <span>175</span>
-<span>176</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>176</span>
+<span>177</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform final evaluation and validation for the YOLO-World model.</span>
 <span></span>
@@ -1792,8 +1794,7 @@ handling both YOLO detection datasets and grounding datasets.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train_world.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
-<span>106</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
 <span>107</span>
 <span>108</span>
 <span>109</span>
@@ -1845,7 +1846,8 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <span>155</span>
 <span>156</span>
 <span>157</span>
-<span>158</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>158</span>
+<span>159</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get train and validation paths from data dictionary.</span>
 <span></span>
@@ -1913,9 +1915,9 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <p>Do not plot labels for YOLO-World training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train_world.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>160</span>
-<span>161</span>
-<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>161</span>
+<span>162</span>
+<span>163</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Do not plot labels for YOLO-World training."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
