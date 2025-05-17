@@ -1334,19 +1334,13 @@ large collections of images using natural language queries with high accuracy an
 <span>53</span>
 <span>54</span>
 <span>55</span>
-<span>56</span>
-<span>57</span>
-<span>58</span>
-<span>59</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>56</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initializes the VisualAISearch class with the FAISS index file and CLIP model."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">([</span><span class="s2">"git+https://github.com/ultralytics/CLIP.git"</span><span class="p">,</span> <span class="s2">"faiss-cpu"</span><span class="p">])</span>
-<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">clip</span>
-<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">faiss</span>
 <span></span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">faiss</span> <span class="o">=</span> <span class="n">faiss</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">clip</span> <span class="o">=</span> <span class="n">clip</span>
-<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">faiss</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">"faiss"</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">clip</span> <span class="o">=</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">"clip"</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">faiss_index</span> <span class="o">=</span> <span class="s2">"faiss.index"</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">data_path_npy</span> <span class="o">=</span> <span class="s2">"paths.npy"</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">=</span> <span class="s2">"ViT-B/32"</span>
@@ -1362,7 +1356,7 @@ large collections of images using natural language queries with high accuracy an
 <span></span>        <span class="n">safe_download</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/images.zip"</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">data_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"images"</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span> <span class="o">=</span> <span class="n">clip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_name</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clip</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model_name</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image_paths</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1381,9 +1375,9 @@ large collections of images using natural language queries with high accuracy an
 <p>Direct call for search function.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/similarity_search.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>130</span>
-<span>131</span>
-<span>132</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>127</span>
+<span>128</span>
+<span>129</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Direct call for search function."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1400,12 +1394,12 @@ large collections of images using natural language queries with high accuracy an
 <p>Extract CLIP image embedding.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/similarity_search.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>61</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
 <span>62</span>
-<span>63</span>
-<span>64</span>
-<span>65</span>
-<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_image_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+<span>63</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_image_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Extract CLIP image embedding."""</span>
 <span></span>    <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
 <span></span>    <span class="n">tensor</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">preprocess</span><span class="p">(</span><span class="n">image</span><span class="p">)</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -1425,11 +1419,11 @@ large collections of images using natural language queries with high accuracy an
 <p>Extract CLIP text embedding.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/similarity_search.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>68</span>
-<span>69</span>
-<span>70</span>
-<span>71</span>
-<span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_text_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_text_feature</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Extract CLIP text embedding."""</span>
 <span></span>    <span class="n">tokens</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">clip</span><span class="o">.</span><span class="n">tokenize</span><span class="p">([</span><span class="n">text</span><span class="p">])</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>    <span class="k">with</span> <span class="n">torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">():</span>
@@ -1448,7 +1442,10 @@ large collections of images using natural language queries with high accuracy an
 <p>Loads FAISS index or builds a new one from image features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/similarity_search.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 74</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 71</span>
+<span> 72</span>
+<span> 73</span>
+<span> 74</span>
 <span> 75</span>
 <span> 76</span>
 <span> 77</span>
@@ -1482,10 +1479,7 @@ large collections of images using natural language queries with high accuracy an
 <span>105</span>
 <span>106</span>
 <span>107</span>
-<span>108</span>
-<span>109</span>
-<span>110</span>
-<span>111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_or_build_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_or_build_index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Loads FAISS index or builds a new one from image features."""</span>
 <span></span>    <span class="c1"># Check if the FAISS index and corresponding image paths already exist</span>
 <span></span>    <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">faiss_index</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_path_npy</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
@@ -1537,7 +1531,10 @@ large collections of images using natural language queries with high accuracy an
 <p>Returns top-k semantically similar images to the given query.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/similarity_search.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
 <span>114</span>
 <span>115</span>
 <span>116</span>
@@ -1549,10 +1546,7 @@ large collections of images using natural language queries with high accuracy an
 <span>122</span>
 <span>123</span>
 <span>124</span>
-<span>125</span>
-<span>126</span>
-<span>127</span>
-<span>128</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">similarity_thresh</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
+<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">search</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">similarity_thresh</span><span class="o">=</span><span class="mf">0.1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Returns top-k semantically similar images to the given query."""</span>
 <span></span>    <span class="n">text_feat</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">extract_text_feature</span><span class="p">(</span><span class="n">query</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"float32"</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">faiss</span><span class="o">.</span><span class="n">normalize_L2</span><span class="p">(</span><span class="n">text_feat</span><span class="p">)</span>
@@ -1632,7 +1626,10 @@ responsive, and easily customizable frontend.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/similarity_search.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
 <span>147</span>
 <span>148</span>
 <span>149</span>
@@ -1643,10 +1640,7 @@ responsive, and easily customizable frontend.</p>
 <span>154</span>
 <span>155</span>
 <span>156</span>
-<span>157</span>
-<span>158</span>
-<span>159</span>
-<span>160</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"images"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>157</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"images"</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialization of the VisualAISearch class for performing semantic image search."""</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"flask"</span><span class="p">)</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">flask</span><span class="w"> </span><span class="kn">import</span> <span class="n">Flask</span><span class="p">,</span> <span class="n">render_template</span><span class="p">,</span> <span class="n">request</span>
@@ -1674,13 +1668,13 @@ responsive, and easily customizable frontend.</p>
 <p>Function to process the user query and display output.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/similarity_search.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>162</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
 <span>163</span>
 <span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>165</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">index</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Function to process the user query and display output."""</span>
 <span></span>    <span class="n">results</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s2">"POST"</span><span class="p">:</span>
@@ -1701,9 +1695,9 @@ responsive, and easily customizable frontend.</p>
 <p>Runs the Flask web app.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/similarity_search.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>170</span>
-<span>171</span>
-<span>172</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>167</span>
+<span>168</span>
+<span>169</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">debug</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Runs the Flask web app."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">debug</span><span class="o">=</span><span class="n">debug</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>

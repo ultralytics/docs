@@ -1974,9 +1974,9 @@ and result processing across various input sources.</p>
 <p>Add a callback function for a specific event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>500</span>
-<span>501</span>
-<span>502</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>493</span>
+<span>494</span>
+<span>495</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Add a callback function for a specific event."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2332,10 +2332,10 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <p>Run all registered callbacks for a specific event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>495</span>
-<span>496</span>
-<span>497</span>
-<span>498</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run all registered callbacks for a specific event."""</span>
 <span></span>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
 <span></span>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -2398,7 +2398,14 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>451</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
 <span>452</span>
 <span>453</span>
 <span>454</span>
@@ -2423,14 +2430,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>473</span>
 <span>474</span>
 <span>475</span>
-<span>476</span>
-<span>477</span>
-<span>478</span>
-<span>479</span>
-<span>480</span>
-<span>481</span>
-<span>482</span>
-<span>483</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span>476</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save video predictions as mp4 or images as jpg at specified path.</span>
 <span></span>
@@ -2522,7 +2522,16 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>377</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
 <span>378</span>
 <span>379</span>
 <span>380</span>
@@ -2536,14 +2545,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>388</span>
 <span>389</span>
 <span>390</span>
-<span>391</span>
-<span>392</span>
-<span>393</span>
-<span>394</span>
-<span>395</span>
-<span>396</span>
-<span>397</span>
-<span>398</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>391</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize YOLO model with given parameters and set it to evaluation mode.</span>
 <span></span>
@@ -2564,6 +2566,8 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">device</span>  <span class="c1"># update device</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">half</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span>  <span class="c1"># update half</span>
+<span></span>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"imgsz"</span><span class="p">):</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">imgsz</span>  <span class="c1"># reuse imgsz from export metadata</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">eval</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2632,16 +2636,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>262</span>
 <span>263</span>
 <span>264</span>
-<span>265</span>
-<span>266</span>
-<span>267</span>
-<span>268</span>
-<span>269</span>
-<span>270</span>
-<span>271</span>
-<span>272</span>
-<span>273</span>
-<span>274</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+<span>265</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set up source and inference mode.</span>
 <span></span>
@@ -2650,15 +2645,6 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span></span><span class="sd">            Source for inference.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span> <span class="o">=</span> <span class="n">check_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">stride</span><span class="p">,</span> <span class="n">min_dim</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>  <span class="c1"># check image size</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span> <span class="o">=</span> <span class="p">(</span>
-<span></span>        <span class="nb">getattr</span><span class="p">(</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">,</span>
-<span></span>            <span class="s2">"transforms"</span><span class="p">,</span>
-<span></span>            <span class="n">classify_transforms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
-<span></span>        <span class="p">)</span>
-<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"classify"</span>
-<span></span>        <span class="k">else</span> <span class="kc">None</span>
-<span></span>    <span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">load_inference_source</span><span class="p">(</span>
 <span></span>        <span class="n">source</span><span class="o">=</span><span class="n">source</span><span class="p">,</span>
 <span></span>        <span class="n">batch</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span>
@@ -2689,15 +2675,15 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <p>Display an image in a window.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>485</span>
-<span>486</span>
-<span>487</span>
-<span>488</span>
-<span>489</span>
-<span>490</span>
-<span>491</span>
-<span>492</span>
-<span>493</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span>
+<span>484</span>
+<span>485</span>
+<span>486</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Display an image in a window."""</span>
 <span></span>    <span class="n">im</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotted_img</span>
 <span></span>    <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"Linux"</span> <span class="ow">and</span> <span class="n">p</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">windows</span><span class="p">:</span>
@@ -2818,7 +2804,16 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>276</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
 <span>277</span>
 <span>278</span>
 <span>279</span>
@@ -2908,16 +2903,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>363</span>
 <span>364</span>
 <span>365</span>
-<span>366</span>
-<span>367</span>
-<span>368</span>
-<span>369</span>
-<span>370</span>
-<span>371</span>
-<span>372</span>
-<span>373</span>
-<span>374</span>
-<span>375</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>366</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">stream_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Stream real-time inference on camera feed and save results to file.</span>
@@ -3129,7 +3115,14 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>400</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
 <span>401</span>
 <span>402</span>
 <span>403</span>
@@ -3171,14 +3164,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>439</span>
 <span>440</span>
 <span>441</span>
-<span>442</span>
-<span>443</span>
-<span>444</span>
-<span>445</span>
-<span>446</span>
-<span>447</span>
-<span>448</span>
-<span>449</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">write_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<span>442</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">write_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Write inference results to a file or directory.</span>
 <span></span>
