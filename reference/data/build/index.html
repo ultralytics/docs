@@ -2079,7 +2079,8 @@ over a dataset.</p>
 <span>218</span>
 <span>219</span>
 <span>220</span>
-<span>221</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
+<span>221</span>
+<span>222</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_source</span><span class="p">(</span><span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check the type of input source and return corresponding flag values.</span>
 <span></span>
@@ -2100,10 +2101,11 @@ over a dataset.</p>
 <span></span>    <span class="n">webcam</span><span class="p">,</span> <span class="n">screenshot</span><span class="p">,</span> <span class="n">from_img</span><span class="p">,</span> <span class="n">in_memory</span><span class="p">,</span> <span class="n">tensor</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">,</span> <span class="kc">False</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>  <span class="c1"># int for local usb camera</span>
 <span></span>        <span class="n">source</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
-<span></span>        <span class="n">is_file</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">source</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span> <span class="ow">in</span> <span class="p">(</span><span class="n">IMG_FORMATS</span> <span class="o">|</span> <span class="n">VID_FORMATS</span><span class="p">)</span>
-<span></span>        <span class="n">is_url</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"https://"</span><span class="p">,</span> <span class="s2">"http://"</span><span class="p">,</span> <span class="s2">"rtsp://"</span><span class="p">,</span> <span class="s2">"rtmp://"</span><span class="p">,</span> <span class="s2">"tcp://"</span><span class="p">))</span>
+<span></span>        <span class="n">source_lower</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+<span></span>        <span class="n">is_file</span> <span class="o">=</span> <span class="n">source_lower</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="ow">in</span> <span class="p">(</span><span class="n">IMG_FORMATS</span> <span class="o">|</span> <span class="n">VID_FORMATS</span><span class="p">)</span>
+<span></span>        <span class="n">is_url</span> <span class="o">=</span> <span class="n">source_lower</span><span class="o">.</span><span class="n">startswith</span><span class="p">((</span><span class="s2">"https://"</span><span class="p">,</span> <span class="s2">"http://"</span><span class="p">,</span> <span class="s2">"rtsp://"</span><span class="p">,</span> <span class="s2">"rtmp://"</span><span class="p">,</span> <span class="s2">"tcp://"</span><span class="p">))</span>
 <span></span>        <span class="n">webcam</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="ow">or</span> <span class="n">source</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s2">".streams"</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="n">is_url</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_file</span><span class="p">)</span>
-<span></span>        <span class="n">screenshot</span> <span class="o">=</span> <span class="n">source</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"screen"</span>
+<span></span>        <span class="n">screenshot</span> <span class="o">=</span> <span class="n">source_lower</span> <span class="o">==</span> <span class="s2">"screen"</span>
 <span></span>        <span class="k">if</span> <span class="n">is_url</span> <span class="ow">and</span> <span class="n">is_file</span><span class="p">:</span>
 <span></span>            <span class="n">source</span> <span class="o">=</span> <span class="n">check_file</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>  <span class="c1"># download</span>
 <span></span>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">source</span><span class="p">,</span> <span class="n">LOADERS</span><span class="p">):</span>
@@ -2249,8 +2251,7 @@ over a dataset.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/build.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>224</span>
-<span>225</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>225</span>
 <span>226</span>
 <span>227</span>
 <span>228</span>
@@ -2283,7 +2284,8 @@ over a dataset.</p>
 <span>255</span>
 <span>256</span>
 <span>257</span>
-<span>258</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
+<span>258</span>
+<span>259</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">load_inference_source</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">buffer</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">channels</span><span class="o">=</span><span class="mi">3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load an inference source for object detection and apply necessary transformations.</span>
 <span></span>
