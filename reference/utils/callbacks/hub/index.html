@@ -1509,7 +1509,7 @@
 <span>75</span>
 <span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run events on train start."""</span>
-<span></span>    <span class="n">events</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span></span>    <span class="n">events</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1526,9 +1526,11 @@
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>79</span>
 <span>80</span>
-<span>81</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_start</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
+<span>81</span>
+<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_start</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run events on validation start."""</span>
-<span></span>    <span class="n">events</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">validator</span><span class="o">.</span><span class="n">training</span><span class="p">:</span>
+<span></span>        <span class="n">events</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">validator</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1543,11 +1545,11 @@
 <p>Run events on predict start.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>84</span>
-<span>85</span>
-<span>86</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>85</span>
+<span>86</span>
+<span>87</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run events on predict start."""</span>
-<span></span>    <span class="n">events</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span></span>    <span class="n">events</span><span class="p">(</span><span class="n">predictor</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">predictor</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1562,11 +1564,11 @@
 <p>Run events on export start.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/hub.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>89</span>
-<span>90</span>
-<span>91</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_export_start</span><span class="p">(</span><span class="n">exporter</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>90</span>
+<span>91</span>
+<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_export_start</span><span class="p">(</span><span class="n">exporter</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run events on export start."""</span>
-<span></span>    <span class="n">events</span><span class="p">(</span><span class="n">exporter</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
+<span></span>    <span class="n">events</span><span class="p">(</span><span class="n">exporter</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">exporter</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
