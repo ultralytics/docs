@@ -2704,7 +2704,7 @@ single image files, video files, and lists of image and video paths.</p>
 <span></span>    <span class="c1"># Define files as images or videos</span>
 <span></span>    <span class="n">images</span><span class="p">,</span> <span class="n">videos</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-<span></span>        <span class="n">suffix</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># Get file extension without the dot and lowercase</span>
+<span></span>        <span class="n">suffix</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>  <span class="c1"># Get file extension without the dot and lowercase</span>
 <span></span>        <span class="k">if</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">IMG_FORMATS</span><span class="p">:</span>
 <span></span>            <span class="n">images</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span></span>        <span class="k">elif</span> <span class="n">suffix</span> <span class="ow">in</span> <span class="n">VID_FORMATS</span><span class="p">:</span>
@@ -2893,7 +2893,7 @@ single image files, video files, and lists of image and video paths.</p>
 <span></span>        <span class="k">else</span><span class="p">:</span>
 <span></span>            <span class="c1"># Handle image files (including HEIC)</span>
 <span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">"image"</span>
-<span></span>            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"heic"</span><span class="p">:</span>
+<span></span>            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"heic"</span><span class="p">:</span>
 <span></span>                <span class="c1"># Load HEIC image using Pillow with pillow-heif</span>
 <span></span>                <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"pillow-heif"</span><span class="p">)</span>
 <span></span>
