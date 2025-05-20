@@ -3733,13 +3733,11 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>613</span>
 <span>614</span>
 <span>615</span>
-<span>616</span>
-<span>617</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>616</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Compute the classification loss between predictions and true labels."""</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="n">preds</span>
 <span></span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">cross_entropy</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">],</span> <span class="n">reduction</span><span class="o">=</span><span class="s2">"mean"</span><span class="p">)</span>
-<span></span>    <span class="n">loss_items</span> <span class="o">=</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
-<span></span>    <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss_items</span>
+<span></span>    <span class="k">return</span> <span class="n">loss</span><span class="p">,</span> <span class="n">loss</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3759,11 +3757,11 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculates losses for object detection, classification, and box distribution in rotated YOLO models.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>623</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>622</span>
+<span>623</span>
 <span>624</span>
 <span>625</span>
-<span>626</span>
-<span>627</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span>626</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize v8OBBLoss with model, assigner, and rotated bbox loss; model must be de-paralleled."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">assigner</span> <span class="o">=</span> <span class="n">RotatedTaskAlignedAssigner</span><span class="p">(</span><span class="n">topk</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">num_classes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">beta</span><span class="o">=</span><span class="mf">6.0</span><span class="p">)</span>
@@ -3781,7 +3779,8 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate and return the loss for oriented bounding box detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>646</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>645</span>
+<span>646</span>
 <span>647</span>
 <span>648</span>
 <span>649</span>
@@ -3850,8 +3849,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>712</span>
 <span>713</span>
 <span>714</span>
-<span>715</span>
-<span>716</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>715</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate and return the loss for oriented bounding box detection."""</span>
 <span></span>    <span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>  <span class="c1"># box, cls, dfl</span>
 <span></span>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_angle</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -4018,7 +4016,8 @@ a binary classification loss that classifies whether a keypoint is present or no
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>718</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>717</span>
+<span>718</span>
 <span>719</span>
 <span>720</span>
 <span>721</span>
@@ -4032,8 +4031,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>729</span>
 <span>730</span>
 <span>731</span>
-<span>732</span>
-<span>733</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">):</span>
+<span>732</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">bbox_decode</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">anchor_points</span><span class="p">,</span> <span class="n">pred_dist</span><span class="p">,</span> <span class="n">pred_angle</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Decode predicted object bounding box coordinates from anchor points and distribution.</span>
 <span></span>
@@ -4063,7 +4061,8 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Preprocess targets for oriented bounding box detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>629</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>628</span>
+<span>629</span>
 <span>630</span>
 <span>631</span>
 <span>632</span>
@@ -4077,8 +4076,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>640</span>
 <span>641</span>
 <span>642</span>
-<span>643</span>
-<span>644</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">scale_tensor</span><span class="p">):</span>
+<span>643</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">scale_tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocess targets for oriented bounding box detection."""</span>
 <span></span>    <span class="k">if</span> <span class="n">targets</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="n">out</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -4111,10 +4109,10 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Criterion class for computing training losses for end-to-end detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>739</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>738</span>
+<span>739</span>
 <span>740</span>
-<span>741</span>
-<span>742</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span>741</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize E2EDetectLoss with one-to-many and one-to-one detection losses using the provided model."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">one2many</span> <span class="o">=</span> <span class="n">v8DetectionLoss</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tal_topk</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">one2one</span> <span class="o">=</span> <span class="n">v8DetectionLoss</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">tal_topk</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -4131,14 +4129,14 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate the sum of the loss for box, cls and dfl multiplied by batch size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>744</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>743</span>
+<span>744</span>
 <span>745</span>
 <span>746</span>
 <span>747</span>
 <span>748</span>
 <span>749</span>
-<span>750</span>
-<span>751</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>750</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the sum of the loss for box, cls and dfl multiplied by batch size."""</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span>
 <span></span>    <span class="n">one2many</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="s2">"one2many"</span><span class="p">]</span>
@@ -4163,13 +4161,13 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Criterion class for computing training losses for text-visual prompt detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>757</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>756</span>
+<span>757</span>
 <span>758</span>
 <span>759</span>
 <span>760</span>
 <span>761</span>
-<span>762</span>
-<span>763</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span>762</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TVPDetectLoss with task-prompt and visual-prompt criteria using the provided model."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span> <span class="o">=</span> <span class="n">v8DetectionLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="c1"># NOTE: store following info as it's changeable in __call__</span>
@@ -4189,7 +4187,8 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate the loss for text-visual prompt detection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>765</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>764</span>
+<span>765</span>
 <span>766</span>
 <span>767</span>
 <span>768</span>
@@ -4200,8 +4199,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>773</span>
 <span>774</span>
 <span>775</span>
-<span>776</span>
-<span>777</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>776</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the loss for text-visual prompt detection."""</span>
 <span></span>    <span class="n">feats</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="k">else</span> <span class="n">preds</span>
 <span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_reg_max</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>  <span class="c1"># TODO: remove it</span>
@@ -4233,10 +4231,10 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Criterion class for computing training losses for text-visual prompt segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>796</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>795</span>
+<span>796</span>
 <span>797</span>
-<span>798</span>
-<span>799</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
+<span>798</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TVPSegmentLoss with task-prompt and visual-prompt criteria using the provided model."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span> <span class="o">=</span> <span class="n">v8SegmentationLoss</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
@@ -4253,7 +4251,8 @@ a binary classification loss that classifies whether a keypoint is present or no
 <p>Calculate the loss for text-visual prompt segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/loss.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>801</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>800</span>
+<span>801</span>
 <span>802</span>
 <span>803</span>
 <span>804</span>
@@ -4264,8 +4263,7 @@ a binary classification loss that classifies whether a keypoint is present or no
 <span>809</span>
 <span>810</span>
 <span>811</span>
-<span>812</span>
-<span>813</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>812</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the loss for text-visual prompt segmentation."""</span>
 <span></span>    <span class="n">feats</span><span class="p">,</span> <span class="n">pred_masks</span><span class="p">,</span> <span class="n">proto</span> <span class="o">=</span> <span class="n">preds</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">preds</span><span class="p">)</span> <span class="o">==</span> <span class="mi">3</span> <span class="k">else</span> <span class="n">preds</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span></span>    <span class="k">assert</span> <span class="bp">self</span><span class="o">.</span><span class="n">ori_reg_max</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">vp_criterion</span><span class="o">.</span><span class="n">reg_max</span>  <span class="c1"># TODO: remove it</span>
