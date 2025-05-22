@@ -1416,7 +1416,13 @@ crop_dir (str): Path to the directory for saving cropped object images.</p>
 <span>81</span>
 <span>82</span>
 <span>83</span>
-<span>84</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Crop detected objects from the input image and save them as separate images.</span>
 <span></span>
@@ -1432,9 +1438,15 @@ crop_dir (str): Path to the directory for saving cropped object images.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; results = cropper.process(frame)</span>
 <span></span><span class="sd">        &gt;&gt;&gt; print(f"Total cropped objects: {results.total_crop_objects}")</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
-<span></span>        <span class="n">im0</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span> <span class="n">iou</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"device"</span><span class="p">]</span>
-<span></span>    <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">profilers</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span>
+<span></span>            <span class="n">im0</span><span class="p">,</span>
+<span></span>            <span class="n">classes</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">classes</span><span class="p">,</span>
+<span></span>            <span class="n">conf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span>
+<span></span>            <span class="n">iou</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span>
+<span></span>            <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"device"</span><span class="p">],</span>
+<span></span>            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>        <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>
 <span></span>    <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">boxes</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">crop_idx</span> <span class="o">+=</span> <span class="mi">1</span>
