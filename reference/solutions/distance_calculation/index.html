@@ -1564,7 +1564,8 @@ in pixels.</p>
 <span>121</span>
 <span>122</span>
 <span>123</span>
-<span>124</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>124</span>
+<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Processes a video frame and calculates the distance between two selected bounding boxes.</span>
 <span></span>
@@ -1615,7 +1616,8 @@ in pixels.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">centroids</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># Reset centroids for next frame</span>
 <span></span>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># Display output with base class function</span>
-<span></span>    <span class="n">cv2</span><span class="o">.</span><span class="n">setMouseCallback</span><span class="p">(</span><span class="s2">"Ultralytics Solutions"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_event_for_distance</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"show"</span><span class="p">)</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">env_check</span><span class="p">:</span>
+<span></span>        <span class="n">cv2</span><span class="o">.</span><span class="n">setMouseCallback</span><span class="p">(</span><span class="s2">"Ultralytics Solutions"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mouse_event_for_distance</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Return SolutionResults with processed image and calculated metrics</span>
 <span></span>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span><span class="n">plot_im</span><span class="o">=</span><span class="n">plot_im</span><span class="p">,</span> <span class="n">pixels_distance</span><span class="o">=</span><span class="n">pixels_distance</span><span class="p">,</span> <span class="n">total_tracks</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">))</span>
