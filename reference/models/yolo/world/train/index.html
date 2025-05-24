@@ -1322,14 +1322,17 @@
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.world.train.WorldTrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">WorldTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">WorldTrainer</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionTrainer&lt;/code&gt;)'>DetectionTrainer</a></code></p>
-<p>A class to fine-tune a world model on a close-set dataset.</p>
-<p>This trainer extends the DetectionTrainer to support training YOLO World models, which combine
-visual and textual features for improved object detection and understanding.</p>
+<p>A trainer class for fine-tuning YOLO World models on close-set datasets.</p>
+<p>This trainer extends the DetectionTrainer to support training YOLO World models, which combine visual and textual
+features for improved object detection and understanding. It handles text embedding generation and caching to
+accelerate training with multi-modal data.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1341,24 +1344,14 @@ visual and textual features for improved object detection and understanding.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.models.yolo.world.train.WorldTrainer.clip">clip</span></code></td>
+<td><code><span title="ultralytics.models.yolo.world.train.WorldTrainer.text_embeddings">text_embeddings</span></code></td>
 <td>
-<code><span title="module">module</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The CLIP module for text-image understanding.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.models.yolo.world.train.WorldTrainer.text_model">text_model</span></code></td>
-<td>
-<code><span title="module">module</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The text encoder model from CLIP.</p>
+<p>Cached text embeddings for category names to accelerate
+training.</p>
 </div>
 </td>
 </tr>
@@ -1376,7 +1369,7 @@ visual and textual features for improved object detection and understanding.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.world.train.WorldTrainer.data">data</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1387,7 +1380,7 @@ visual and textual features for improved object detection and understanding.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.world.train.WorldTrainer.args">args</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1397,8 +1390,60 @@ visual and textual features for improved object detection and understanding.</p>
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.world.train.WorldTrainer.get_model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_model&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.world.train.WorldTrainer.get_model&lt;/code&gt;)'>get_model</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Return WorldModel initialized with specified config and weights.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.world.train.WorldTrainer.build_dataset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;build_dataset&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.world.train.WorldTrainer.build_dataset&lt;/code&gt;)'>build_dataset</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Build YOLO Dataset for training or validation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.world.train.WorldTrainer.set_text_embeddings" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;set_text_embeddings&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.world.train.WorldTrainer.set_text_embeddings&lt;/code&gt;)'>set_text_embeddings</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Set text embeddings for datasets to accelerate training.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.world.train.WorldTrainer.generate_text_embeddings" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;generate_text_embeddings&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.world.train.WorldTrainer.generate_text_embeddings&lt;/code&gt;)'>generate_text_embeddings</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Generate text embeddings for a list of text samples.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.world.train.WorldTrainer.preprocess_batch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;preprocess_batch&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.world.train.WorldTrainer.preprocess_batch&lt;/code&gt;)'>preprocess_batch</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Preprocess a batch of images and text for YOLOWorld training.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorldModel</span>
+<p>Initialize and train a YOLO World model</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.models.yolo.world</span><span class="w"> </span><span class="kn">import</span> <span class="n">WorldTrainer</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">args</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolov8s-world.pt"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span> <span class="o">=</span> <span class="n">WorldTrainer</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">trainer</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
@@ -1419,7 +1464,7 @@ visual and textual features for improved object detection and understanding.</p>
 <code>cfg</code>
 </td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1435,7 +1480,7 @@ visual and textual features for improved object detection and understanding.</p>
 <code>overrides</code>
 </td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1451,7 +1496,7 @@ visual and textual features for improved object detection and understanding.</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="typing.List">List</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1466,26 +1511,26 @@ visual and textual features for improved object detection and understanding.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>44</span>
-<span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span>
-<span>54</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>54</span>
 <span>55</span>
-<span>56</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a WorldTrainer object with given arguments.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict): Configuration for the trainer.</span>
-<span></span><span class="sd">        overrides (dict, optional): Configuration overrides.</span>
-<span></span><span class="sd">        _callbacks (list, optional): List of callback functions.</span>
+<span></span><span class="sd">        cfg (Dict[str, Any]): Configuration for the trainer.</span>
+<span></span><span class="sd">        overrides (Dict[str, Any], optional): Configuration overrides.</span>
+<span></span><span class="sd">        _callbacks (List[Any], optional): List of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">overrides</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">overrides</span> <span class="o">=</span> <span class="p">{}</span>
@@ -1498,7 +1543,7 @@ visual and textual features for improved object detection and understanding.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer.build_dataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_dataset</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Build YOLO Dataset for training or validation.</p>
@@ -1574,7 +1619,7 @@ visual and textual features for improved object detection and understanding.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Dataset">Dataset</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1586,17 +1631,7 @@ visual and textual features for improved object detection and understanding.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 84</span>
-<span> 85</span>
-<span> 86</span>
-<span> 87</span>
-<span> 88</span>
-<span> 89</span>
-<span> 90</span>
-<span> 91</span>
-<span> 92</span>
-<span> 93</span>
-<span> 94</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
 <span> 95</span>
 <span> 96</span>
 <span> 97</span>
@@ -1604,7 +1639,17 @@ visual and textual features for improved object detection and understanding.</p>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
-<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset for training or validation.</span>
 <span></span>
@@ -1614,7 +1659,7 @@ visual and textual features for improved object detection and understanding.</p>
 <span></span><span class="sd">        batch (int, optional): Size of batches, this is for `rect`.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Dataset): YOLO dataset configured for training or validation.</span>
+<span></span><span class="sd">        (Any): YOLO dataset configured for training or validation.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">gs</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">de_parallel</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">stride</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="k">else</span> <span class="mi">0</span><span class="p">),</span> <span class="mi">32</span><span class="p">)</span>
 <span></span>    <span class="n">dataset</span> <span class="o">=</span> <span class="n">build_yolo_dataset</span><span class="p">(</span>
@@ -1631,7 +1676,9 @@ visual and textual features for improved object detection and understanding.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer.generate_text_embeddings">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">generate_text_embeddings</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">generate_text_embeddings</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">generate_text_embeddings</span><span class="p">(</span>
+<span></span>    <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">:</span> <span class="n">Path</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Generate text embeddings for a list of text samples.</p>
@@ -1651,7 +1698,7 @@ visual and textual features for improved object detection and understanding.</p>
 <code>texts</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="typing.List">List</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1707,7 +1754,7 @@ visual and textual features for improved object detection and understanding.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1719,17 +1766,7 @@ visual and textual features for improved object detection and understanding.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>130</span>
-<span>131</span>
-<span>132</span>
-<span>133</span>
-<span>134</span>
-<span>135</span>
-<span>136</span>
-<span>137</span>
-<span>138</span>
-<span>139</span>
-<span>140</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>140</span>
 <span>141</span>
 <span>142</span>
 <span>143</span>
@@ -1743,7 +1780,17 @@ visual and textual features for improved object detection and understanding.</p>
 <span>151</span>
 <span>152</span>
 <span>153</span>
-<span>154</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">):</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate text embeddings for a list of text samples.</span>
 <span></span>
@@ -1753,7 +1800,7 @@ visual and textual features for improved object detection and understanding.</p>
 <span></span><span class="sd">        cache_dir (Path): Directory to save/load cached embeddings.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (dict): Dictionary mapping text samples to their embeddings.</span>
+<span></span><span class="sd">        (Dict[str, torch.Tensor]): Dictionary mapping text samples to their embeddings.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">model</span> <span class="o">=</span> <span class="s2">"clip:ViT-B/32"</span>
 <span></span>    <span class="n">cache_path</span> <span class="o">=</span> <span class="n">cache_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"text_embeddings_</span><span class="si">{</span><span class="n">model</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">':'</span><span class="p">,</span><span class="w"> </span><span class="s1">'_'</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span><span class="w"> </span><span class="s1">'_'</span><span class="p">)</span><span class="si">}</span><span class="s2">.pt"</span>
@@ -1776,7 +1823,9 @@ visual and textual features for improved object detection and understanding.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer.get_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_model</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WorldModel</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return WorldModel initialized with specified config and weights.</p>
@@ -1796,7 +1845,7 @@ visual and textual features for improved object detection and understanding.</p>
 <code>cfg</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span> | <span title="str">str</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | <span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1864,17 +1913,7 @@ visual and textual features for improved object detection and understanding.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>58</span>
-<span>59</span>
-<span>60</span>
-<span>61</span>
-<span>62</span>
-<span>63</span>
-<span>64</span>
-<span>65</span>
-<span>66</span>
-<span>67</span>
-<span>68</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>68</span>
 <span>69</span>
 <span>70</span>
 <span>71</span>
@@ -1888,12 +1927,22 @@ visual and textual features for improved object detection and understanding.</p>
 <span>79</span>
 <span>80</span>
 <span>81</span>
-<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">WorldModel</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return WorldModel initialized with specified config and weights.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (Dict | str, optional): Model configuration.</span>
+<span></span><span class="sd">        cfg (Dict[str, Any] | str, optional): Model configuration.</span>
 <span></span><span class="sd">        weights (str, optional): Path to pretrained weights.</span>
 <span></span><span class="sd">        verbose (bool): Whether to display model info.</span>
 <span></span>
@@ -1921,22 +1970,22 @@ visual and textual features for improved object detection and understanding.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer.preprocess_batch">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">preprocess_batch</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Preprocess a batch of images and text for YOLOWorld training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>156</span>
-<span>157</span>
-<span>158</span>
-<span>159</span>
-<span>160</span>
-<span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Preprocess a batch of images and text for YOLOWorld training."""</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
 <span></span>
@@ -1954,7 +2003,7 @@ visual and textual features for improved object detection and understanding.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.world.train.WorldTrainer.set_text_embeddings">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">set_text_embeddings</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="n">datasets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Set text embeddings for datasets to accelerate training by caching category names.</p>
@@ -1976,7 +2025,7 @@ for these categories to improve training efficiency.</p>
 <code>datasets</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Dataset">Dataset</span>]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2012,17 +2061,7 @@ then uses the first dataset's image path to determine where to cache the generat
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span>
-<span>108</span>
-<span>109</span>
-<span>110</span>
-<span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
 <span>115</span>
 <span>116</span>
 <span>117</span>
@@ -2036,7 +2075,17 @@ then uses the first dataset's image path to determine where to cache the generat
 <span>125</span>
 <span>126</span>
 <span>127</span>
-<span>128</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasets</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set text embeddings for datasets to accelerate training by caching category names.</span>
 <span></span>
@@ -2044,7 +2093,7 @@ then uses the first dataset's image path to determine where to cache the generat
 <span></span><span class="sd">    for these categories to improve training efficiency.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        datasets (List[Dataset]): List of datasets from which to extract category names.</span>
+<span></span><span class="sd">        datasets (List[Any]): List of datasets from which to extract category names.</span>
 <span></span><span class="sd">        batch (int | None): Batch size used for processing.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
@@ -2072,19 +2121,19 @@ then uses the first dataset's image path to determine where to cache the generat
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.world.train.on_pretrain_routine_end">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.models.yolo.world.train.on_pretrain_routine_end</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Callback to set up model classes and text encoder at the end of the pretrain routine.</p>
+<p>Set up model classes and text encoder at the end of the pretrain routine.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>15</span>
-<span>16</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>16</span>
 <span>17</span>
 <span>18</span>
 <span>19</span>
-<span>20</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Callback to set up model classes and text encoder at the end of the pretrain routine."""</span>
+<span>20</span>
+<span>21</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Set up model classes and text encoder at the end of the pretrain routine."""</span>
 <span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
 <span></span>        <span class="c1"># Set class names for evaluation</span>
 <span></span>        <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">test_loader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())]</span>

@@ -1457,7 +1457,7 @@ cloud processing.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.transformer.TwoWayTransformer.forward" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.transformer.TwoWayTransformer.forward&lt;/code&gt;)'>forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Processes image and point embeddings through the transformer.</p>
+<p>Process image and point embeddings through the transformer.</p>
 </div>
 </td>
 </tr>
@@ -1639,8 +1639,8 @@ cloud processing.</p>
 <span></span><span class="sd">        embedding_dim (int): Channel dimension for input embeddings.</span>
 <span></span><span class="sd">        num_heads (int): Number of heads for multihead attention. Must divide embedding_dim.</span>
 <span></span><span class="sd">        mlp_dim (int): Internal channel dimension for the MLP block.</span>
-<span></span><span class="sd">        activation (Type[nn.Module]): Activation function to use in the MLP block.</span>
-<span></span><span class="sd">        attention_downsample_rate (int): Downsampling rate for attention mechanism.</span>
+<span></span><span class="sd">        activation (Type[nn.Module], optional): Activation function to use in the MLP block.</span>
+<span></span><span class="sd">        attention_downsample_rate (int, optional): Downsampling rate for attention mechanism.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="n">depth</span>
@@ -2006,7 +2006,7 @@ inputs to sparse inputs.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock.forward" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.transformer.TwoWayAttentionBlock.forward&lt;/code&gt;)'>forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Applies self-attention and cross-attention to queries and keys.</p>
+<p>Apply self-attention and cross-attention to queries and keys.</p>
 </div>
 </td>
 </tr>
@@ -2191,10 +2191,10 @@ of dense inputs to sparse inputs.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        embedding_dim (int): Channel dimension of the embeddings.</span>
 <span></span><span class="sd">        num_heads (int): Number of attention heads in the attention layers.</span>
-<span></span><span class="sd">        mlp_dim (int): Hidden dimension of the MLP block.</span>
-<span></span><span class="sd">        activation (Type[nn.Module]): Activation function for the MLP block.</span>
-<span></span><span class="sd">        attention_downsample_rate (int): Downsampling rate for the attention mechanism.</span>
-<span></span><span class="sd">        skip_first_layer_pe (bool): Whether to skip positional encoding in the first layer.</span>
+<span></span><span class="sd">        mlp_dim (int, optional): Hidden dimension of the MLP block.</span>
+<span></span><span class="sd">        activation (Type[nn.Module], optional): Activation function for the MLP block.</span>
+<span></span><span class="sd">        attention_downsample_rate (int, optional): Downsampling rate for the attention mechanism.</span>
+<span></span><span class="sd">        skip_first_layer_pe (bool, optional): Whether to skip positional encoding in the first layer.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">self_attn</span> <span class="o">=</span> <span class="n">Attention</span><span class="p">(</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="n">num_heads</span><span class="p">)</span>
@@ -2555,7 +2555,7 @@ dimension of queries, keys, and values.</p>
 <td><code><span title="ultralytics.models.sam.modules.transformer.Attention._separate_heads">_separate_heads</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Separates input tensor into attention heads.</p>
+<p>Separate input tensor into attention heads.</p>
 </div>
 </td>
 </tr>
@@ -2563,7 +2563,7 @@ dimension of queries, keys, and values.</p>
 <td><code><span title="ultralytics.models.sam.modules.transformer.Attention._recombine_heads">_recombine_heads</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Recombines separated attention heads.</p>
+<p>Recombine separated attention heads.</p>
 </div>
 </td>
 </tr>
@@ -2571,7 +2571,7 @@ dimension of queries, keys, and values.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.transformer.Attention.forward" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.transformer.Attention.forward&lt;/code&gt;)'>forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Computes attention output for given query, key, and value tensors.</p>
+<p>Compute attention output for given query, key, and value tensors.</p>
 </div>
 </td>
 </tr>
@@ -2727,8 +2727,8 @@ dimension of queries, keys, and values.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        embedding_dim (int): Dimensionality of input embeddings.</span>
 <span></span><span class="sd">        num_heads (int): Number of attention heads.</span>
-<span></span><span class="sd">        downsample_rate (int): Factor by which internal dimensions are downsampled.</span>
-<span></span><span class="sd">        kv_in_dim (int | None): Dimensionality of key and value inputs. If None, uses embedding_dim.</span>
+<span></span><span class="sd">        downsample_rate (int, optional): Factor by which internal dimensions are downsampled.</span>
+<span></span><span class="sd">        kv_in_dim (int | None, optional): Dimensionality of key and value inputs. If None, uses embedding_dim.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        AssertionError: If num_heads does not evenly divide the internal dim (embedding_dim / downsample_rate).</span>

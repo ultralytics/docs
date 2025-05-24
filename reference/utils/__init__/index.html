@@ -2216,7 +2216,8 @@
               Bases: <code><span title="tqdm.rich.tqdm">tqdm</span> if <span title="TQDM_RICH">TQDM_RICH</span> else <span title="tqdm.tqdm">tqdm</span></code></p>
 <p>A custom TQDM progress bar class that extends the original tqdm functionality.</p>
 <p>This class modifies the behavior of the original tqdm progress bar based on global settings and provides
-additional customization options.</p>
+additional customization options for Ultralytics projects. The progress bar is automatically disabled when
+VERBOSE is False or when explicitly disabled.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2262,6 +2263,14 @@ explicitly set.</p>
 </tr>
 </thead>
 <tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.TQDM.__iter__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__iter__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.TQDM.__iter__&lt;/code&gt;)'>__iter__</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Return self as iterator to satisfy Iterable interface.</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
@@ -2270,7 +2279,6 @@ explicitly set.</p>
 <span></span><span class="gp">... </span>    <span class="c1"># Your processing code here</span>
 <span></span><span class="gp">... </span>    <span class="k">pass</span>
 </code></pre></div>
-<p>This class extends the original tqdm class to provide customized behavior for Ultralytics projects.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2331,9 +2339,7 @@ explicitly set.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>160</span>
-<span>161</span>
-<span>162</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>162</span>
 <span>163</span>
 <span>164</span>
 <span>165</span>
@@ -2356,9 +2362,7 @@ explicitly set.</p>
 <span>182</span>
 <span>183</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initializes a custom TQDM progress bar.</span>
-<span></span>
-<span></span><span class="sd">    This class extends the original tqdm class to provide customized behavior for Ultralytics projects.</span>
+<span></span><span class="sd">    Initialize a custom TQDM progress bar with Ultralytics-specific settings.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        *args (Any): Variable length argument list to be passed to the original tqdm constructor.</span>
@@ -2410,8 +2414,8 @@ explicitly set.</p>
 <div class="doc doc-contents first">
 <p>Mixin class for exporting validation metrics or prediction results in various formats.</p>
 <p>This class provides utilities to export performance metrics (e.g., mAP, precision, recall) or prediction results
-from classification, object detection, segmentation, or pose estimation tasks into various formats, Pandas DataFrame
-CSV, XML, HTML, JSON and SQLite (SQL)</p>
+from classification, object detection, segmentation, or pose estimation tasks into various formats: Pandas
+DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 <p><span class="doc-section-title">Methods:</span></p>
 <table>
 <thead>
@@ -2516,7 +2520,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Normalize numeric values. Defaults to False.</p>
+<p>Normalize numeric values.</p>
 </div>
 </td>
 <td>
@@ -2532,7 +2536,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Decimal precision. Defaults to 5.</p>
+<p>Decimal precision.</p>
 </div>
 </td>
 <td>
@@ -2580,8 +2584,8 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 <span></span><span class="sd">    Export results to CSV string format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">       normalize (bool, optional): Normalize numeric values. Defaults to False.</span>
-<span></span><span class="sd">       decimals (int, optional): Decimal precision. Defaults to 5.</span>
+<span></span><span class="sd">       normalize (bool, optional): Normalize numeric values.</span>
+<span></span><span class="sd">       decimals (int, optional): Decimal precision.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">       (str): CSV content as string.</span>
@@ -2619,7 +2623,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Normalize numerical values for easier comparison. Defaults to False.</p>
+<p>Normalize numerical values for easier comparison.</p>
 </div>
 </td>
 <td>
@@ -2635,7 +2639,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Decimal places to round floats. Defaults to 5.</p>
+<p>Decimal places to round floats.</p>
 </div>
 </td>
 <td>
@@ -2685,8 +2689,8 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 <span></span><span class="sd">    Create a pandas DataFrame from the prediction results summary or validation metrics.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        normalize (bool, optional): Normalize numerical values for easier comparison. Defaults to False.</span>
-<span></span><span class="sd">        decimals (int, optional): Decimal places to round floats. Defaults to 5.</span>
+<span></span><span class="sd">        normalize (bool, optional): Normalize numerical values for easier comparison.</span>
+<span></span><span class="sd">        decimals (int, optional): Decimal places to round floats.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (DataFrame): DataFrame containing the summary data.</span>
@@ -2726,7 +2730,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Normalize numeric values. Defaults to False.</p>
+<p>Normalize numeric values.</p>
 </div>
 </td>
 <td>
@@ -2742,7 +2746,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Decimal precision. Defaults to 5.</p>
+<p>Decimal precision.</p>
 </div>
 </td>
 <td>
@@ -2758,7 +2762,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to include index column in the HTML table. Defaults to False.</p>
+<p>Whether to include index column in the HTML table.</p>
 </div>
 </td>
 <td>
@@ -2808,9 +2812,9 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 <span></span><span class="sd">    Export results to HTML table format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values. Defaults to False.</span>
-<span></span><span class="sd">        decimals (int, optional): Decimal precision. Defaults to 5.</span>
-<span></span><span class="sd">        index (bool, optional): Whether to include index column in the HTML table. Defaults to False.</span>
+<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values.</span>
+<span></span><span class="sd">        decimals (int, optional): Decimal precision.</span>
+<span></span><span class="sd">        index (bool, optional): Whether to include index column in the HTML table.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str): HTML representation of the results.</span>
@@ -2849,7 +2853,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Normalize numeric values. Defaults to False.</p>
+<p>Normalize numeric values.</p>
 </div>
 </td>
 <td>
@@ -2865,7 +2869,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Decimal precision. Defaults to 5.</p>
+<p>Decimal precision.</p>
 </div>
 </td>
 <td>
@@ -2913,8 +2917,8 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 <span></span><span class="sd">    Export results to JSON format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values. Defaults to False.</span>
-<span></span><span class="sd">        decimals (int, optional): Decimal precision. Defaults to 5.</span>
+<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values.</span>
+<span></span><span class="sd">        decimals (int, optional): Decimal precision.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str): JSON-formatted string of the results.</span>
@@ -2952,7 +2956,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Normalize numeric values. Defaults to False.</p>
+<p>Normalize numeric values.</p>
 </div>
 </td>
 <td>
@@ -2968,7 +2972,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Decimal precision. Defaults to 5.</p>
+<p>Decimal precision.</p>
 </div>
 </td>
 <td>
@@ -2984,7 +2988,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Name of the SQL table. Defaults to "results".</p>
+<p>Name of the SQL table.</p>
 </div>
 </td>
 <td>
@@ -3000,7 +3004,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>SQLite database file path. Defaults to "results.db".</p>
+<p>SQLite database file path.</p>
 </div>
 </td>
 <td>
@@ -3059,10 +3063,10 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 <span></span><span class="sd">    Save results to an SQLite database.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values. Defaults to False.</span>
-<span></span><span class="sd">        decimals (int, optional): Decimal precision. Defaults to 5.</span>
-<span></span><span class="sd">        table_name (str, optional): Name of the SQL table. Defaults to "results".</span>
-<span></span><span class="sd">        db_path (str, optional): SQLite database file path. Defaults to "results.db".</span>
+<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values.</span>
+<span></span><span class="sd">        decimals (int, optional): Decimal precision.</span>
+<span></span><span class="sd">        table_name (str, optional): Name of the SQL table.</span>
+<span></span><span class="sd">        db_path (str, optional): SQLite database file path.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">df</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_df</span><span class="p">(</span><span class="n">normalize</span><span class="p">,</span> <span class="n">decimals</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">df</span><span class="o">.</span><span class="n">empty</span> <span class="ow">or</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">empty</span><span class="p">:</span>  <span class="c1"># Exit if df is None or has no columns (i.e., no schema)</span>
@@ -3130,7 +3134,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Normalize numeric values. Defaults to False.</p>
+<p>Normalize numeric values.</p>
 </div>
 </td>
 <td>
@@ -3146,7 +3150,7 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Decimal precision. Defaults to 5.</p>
+<p>Decimal precision.</p>
 </div>
 </td>
 <td>
@@ -3176,8 +3180,8 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>Requires <code>lxml</code> package to be installed.</p>
 </details>
 <details class="quote">
@@ -3205,13 +3209,13 @@ CSV, XML, HTML, JSON and SQLite (SQL)</p>
 <span></span><span class="sd">    Export results to XML format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values. Defaults to False.</span>
-<span></span><span class="sd">        decimals (int, optional): Decimal precision. Defaults to 5.</span>
+<span></span><span class="sd">        normalize (bool, optional): Normalize numeric values.</span>
+<span></span><span class="sd">        decimals (int, optional): Decimal precision.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str): XML string.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Requires `lxml` package to be installed.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.checks</span><span class="w"> </span><span class="kn">import</span> <span class="n">check_requirements</span>
@@ -3268,7 +3272,7 @@ showing all their non-callable attributes. It's useful for debugging and introsp
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.SimpleClass.__str__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__str__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.SimpleClass.__str__&lt;/code&gt;)'>__str__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a human-readable string representation of the object.</p>
+<p>Return a human-readable string representation of the object.</p>
 </div>
 </td>
 </tr>
@@ -3276,7 +3280,7 @@ showing all their non-callable attributes. It's useful for debugging and introsp
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.SimpleClass.__repr__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__repr__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.SimpleClass.__repr__&lt;/code&gt;)'>__repr__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a machine-readable string representation of the object.</p>
+<p>Return a machine-readable string representation of the object.</p>
 </div>
 </td>
 </tr>
@@ -3284,7 +3288,7 @@ showing all their non-callable attributes. It's useful for debugging and introsp
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.SimpleClass.__getattr__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__getattr__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.SimpleClass.__getattr__&lt;/code&gt;)'>__getattr__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Provides a custom attribute access error message with helpful information.</p>
+<p>Provide a custom attribute access error message with helpful information.</p>
 </div>
 </td>
 </tr>
@@ -3317,14 +3321,14 @@ y: 'hello'</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__getattr__</span><span class="p">(</span><span class="nf">attr</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Custom attribute access error message with helpful information.</p>
+<p>Provide a custom attribute access error message with helpful information.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>391</span>
 <span>392</span>
 <span>393</span>
 <span>394</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Custom attribute access error message with helpful information."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Provide a custom attribute access error message with helpful information."""</span>
 <span></span>    <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 <span></span>    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' object has no attribute '</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">'. See valid attributes below.</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3416,7 +3420,7 @@ configuration parameters.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.IterableSimpleNamespace.__iter__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__iter__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.IterableSimpleNamespace.__iter__&lt;/code&gt;)'>__iter__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns an iterator of key-value pairs from the namespace's attributes.</p>
+<p>Return an iterator of key-value pairs from the namespace's attributes.</p>
 </div>
 </td>
 </tr>
@@ -3424,7 +3428,7 @@ configuration parameters.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.IterableSimpleNamespace.__str__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__str__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.IterableSimpleNamespace.__str__&lt;/code&gt;)'>__str__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a human-readable string representation of the object.</p>
+<p>Return a human-readable string representation of the object.</p>
 </div>
 </td>
 </tr>
@@ -3432,7 +3436,7 @@ configuration parameters.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.IterableSimpleNamespace.__getattr__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__getattr__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.IterableSimpleNamespace.__getattr__&lt;/code&gt;)'>__getattr__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Provides a custom attribute access error message with helpful information.</p>
+<p>Provide a custom attribute access error message with helpful information.</p>
 </div>
 </td>
 </tr>
@@ -3440,7 +3444,7 @@ configuration parameters.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.IterableSimpleNamespace.get" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get&lt;/span&gt; (&lt;code&gt;ultralytics.utils.IterableSimpleNamespace.get&lt;/code&gt;)'>get</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Retrieves the value of a specified key, or a default value if the key doesn't exist.</p>
+<p>Retrieve the value of a specified key, or a default value if the key doesn't exist.</p>
 </div>
 </td>
 </tr>
@@ -3475,7 +3479,7 @@ and iterable format compared to a standard dictionary.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__getattr__</span><span class="p">(</span><span class="nf">attr</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Custom attribute access error message with helpful information.</p>
+<p>Provide a custom attribute access error message with helpful information.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>440</span>
@@ -3489,7 +3493,7 @@ and iterable format compared to a standard dictionary.</p>
 <span>448</span>
 <span>449</span>
 <span>450</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Custom attribute access error message with helpful information."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Provide a custom attribute access error message with helpful information."""</span>
 <span></span>    <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 <span></span>    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
 <span></span>        <span class="sa">f</span><span class="s2">"""</span>
@@ -3638,7 +3642,7 @@ only one thread at a time will be able to execute the function.</p>
 <span></span>
 <span></span>    <span class="nd">@wraps</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">decorated</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">        </span><span class="sd">"""Applies thread-safety to the decorated function or method."""</span>
+<span></span><span class="w">        </span><span class="sd">"""Apply thread-safety to the decorated function or method."""</span>
 <span></span>        <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>            <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>
@@ -4133,7 +4137,43 @@ issues automatically.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="contextlib.ContextDecorator">ContextDecorator</span></code></p>
-<p>Ultralytics TryExcept class. Use as @TryExcept() decorator or 'with TryExcept():' context manager.</p>
+<p>Ultralytics TryExcept class for handling exceptions gracefully.</p>
+<p>This class can be used as a decorator or context manager to catch exceptions and optionally print warning messages.
+It allows code to continue execution even when exceptions occur, which is useful for non-critical operations.</p>
+<p><span class="doc-section-title">Attributes:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.utils.TryExcept.msg">msg</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Optional message to display when an exception occurs.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.utils.TryExcept.verbose">verbose</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to print the exception message.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="doc-section-title">Examples:</span></p>
 <p>As a decorator:</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@TryExcept</span><span class="p">(</span><span class="n">msg</span><span class="o">=</span><span class="s2">"Error occurred in func"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -4148,10 +4188,10 @@ issues automatically.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1158</span>
-<span>1159</span>
-<span>1160</span>
-<span>1161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1168</span>
+<span>1169</span>
+<span>1170</span>
+<span>1171</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TryExcept class with optional message and verbosity settings."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
@@ -4165,13 +4205,13 @@ issues automatically.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__enter__</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Executes when entering TryExcept context, initializes instance.</p>
+<p>Execute when entering TryExcept context, initialize instance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1163</span>
-<span>1164</span>
-<span>1165</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Executes when entering TryExcept context, initializes instance."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1173</span>
+<span>1174</span>
+<span>1175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Execute when entering TryExcept context, initialize instance."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4184,15 +4224,15 @@ issues automatically.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__exit__</span><span class="p">(</span><span class="nf">exc_type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Defines behavior when exiting a 'with' block, prints error message if necessary.</p>
+<p>Define behavior when exiting a 'with' block, print error message if necessary.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1167</span>
-<span>1168</span>
-<span>1169</span>
-<span>1170</span>
-<span>1171</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Defines behavior when exiting a 'with' block, prints error message if necessary."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1177</span>
+<span>1178</span>
+<span>1179</span>
+<span>1180</span>
+<span>1181</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Define behavior when exiting a 'with' block, print error message if necessary."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="n">value</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="si">}{</span><span class="s1">': '</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">''</span><span class="si">}{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="kc">True</span>
@@ -4213,8 +4253,43 @@ issues automatically.</p>
 <p class="doc doc-class-bases">
               Bases: <code><span title="contextlib.ContextDecorator">ContextDecorator</span></code></p>
 <p>Retry class for function execution with exponential backoff.</p>
-<p>Can be used as a decorator to retry a function on exceptions, up to a specified number of times with an
-exponentially increasing delay between retries.</p>
+<p>This decorator can be used to retry a function on exceptions, up to a specified number of times with an
+exponentially increasing delay between retries. It's useful for handling transient failures in network
+operations or other unreliable processes.</p>
+<p><span class="doc-section-title">Attributes:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.utils.Retry.times">times</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum number of retry attempts.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.utils.Retry.delay">delay</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Initial delay between retries in seconds.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="doc-section-title">Examples:</span></p>
 <p>Example usage as a decorator:</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nd">@Retry</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -4224,11 +4299,11 @@ exponentially increasing delay between retries.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1189</span>
-<span>1190</span>
-<span>1191</span>
-<span>1192</span>
-<span>1193</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1204</span>
+<span>1205</span>
+<span>1206</span>
+<span>1207</span>
+<span>1208</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize Retry class with specified number of retries and delay."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="n">times</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">delay</span> <span class="o">=</span> <span class="n">delay</span>
@@ -4246,27 +4321,27 @@ exponentially increasing delay between retries.</p>
 <p>Decorator implementation for Retry with exponential backoff.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1195</span>
-<span>1196</span>
-<span>1197</span>
-<span>1198</span>
-<span>1199</span>
-<span>1200</span>
-<span>1201</span>
-<span>1202</span>
-<span>1203</span>
-<span>1204</span>
-<span>1205</span>
-<span>1206</span>
-<span>1207</span>
-<span>1208</span>
-<span>1209</span>
-<span>1210</span>
-<span>1211</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1210</span>
+<span>1211</span>
+<span>1212</span>
+<span>1213</span>
+<span>1214</span>
+<span>1215</span>
+<span>1216</span>
+<span>1217</span>
+<span>1218</span>
+<span>1219</span>
+<span>1220</span>
+<span>1221</span>
+<span>1222</span>
+<span>1223</span>
+<span>1224</span>
+<span>1225</span>
+<span>1226</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Decorator implementation for Retry with exponential backoff."""</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapped_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">        </span><span class="sd">"""Applies retries to the decorated function or method."""</span>
+<span></span><span class="w">        </span><span class="sd">"""Apply retries to the decorated function or method."""</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_attempts</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>        <span class="k">while</span> <span class="bp">self</span><span class="o">.</span><span class="n">_attempts</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">times</span><span class="p">:</span>
 <span></span>            <span class="k">try</span><span class="p">:</span>
@@ -4297,7 +4372,7 @@ exponentially increasing delay between retries.</p>
               Bases: <code><span title="dict">dict</span></code></p>
 <p>A dictionary-like class that provides JSON persistence for its contents.</p>
 <p>This class extends the built-in dictionary to automatically save its contents to a JSON file whenever they are
-modified. It ensures thread-safe operations using a lock.</p>
+modified. It ensures thread-safe operations using a lock and handles JSON serialization of Path objects.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4345,7 +4420,7 @@ modified. It ensures thread-safe operations using a lock.</p>
 <td><code><span title="ultralytics.utils.JSONDict._load">_load</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Loads the data from the JSON file into the dictionary.</p>
+<p>Load the data from the JSON file into the dictionary.</p>
 </div>
 </td>
 </tr>
@@ -4353,7 +4428,7 @@ modified. It ensures thread-safe operations using a lock.</p>
 <td><code><span title="ultralytics.utils.JSONDict._save">_save</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Saves the current state of the dictionary to the JSON file.</p>
+<p>Save the current state of the dictionary to the JSON file.</p>
 </div>
 </td>
 </tr>
@@ -4361,7 +4436,7 @@ modified. It ensures thread-safe operations using a lock.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.JSONDict.__setitem__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__setitem__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.JSONDict.__setitem__&lt;/code&gt;)'>__setitem__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Stores a key-value pair and persists it to disk.</p>
+<p>Store a key-value pair and persist it to disk.</p>
 </div>
 </td>
 </tr>
@@ -4369,7 +4444,7 @@ modified. It ensures thread-safe operations using a lock.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.JSONDict.__delitem__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__delitem__&lt;/span&gt; (&lt;code&gt;ultralytics.utils.JSONDict.__delitem__&lt;/code&gt;)'>__delitem__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Removes an item and updates the persistent storage.</p>
+<p>Remove an item and update the persistent storage.</p>
 </div>
 </td>
 </tr>
@@ -4377,7 +4452,7 @@ modified. It ensures thread-safe operations using a lock.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.JSONDict.update" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update&lt;/span&gt; (&lt;code&gt;ultralytics.utils.JSONDict.update&lt;/code&gt;)'>update</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Updates the dictionary and persists changes.</p>
+<p>Update the dictionary and persist changes.</p>
 </div>
 </td>
 </tr>
@@ -4385,7 +4460,7 @@ modified. It ensures thread-safe operations using a lock.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.JSONDict.clear" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;clear&lt;/span&gt; (&lt;code&gt;ultralytics.utils.JSONDict.clear&lt;/code&gt;)'>clear</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Clears all entries and updates the persistent storage.</p>
+<p>Clear all entries and update the persistent storage.</p>
 </div>
 </td>
 </tr>
@@ -4402,12 +4477,12 @@ modified. It ensures thread-safe operations using a lock.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1348</span>
-<span>1349</span>
-<span>1350</span>
-<span>1351</span>
-<span>1352</span>
-<span>1353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"data.json"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1363</span>
+<span>1364</span>
+<span>1365</span>
+<span>1366</span>
+<span>1367</span>
+<span>1368</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"data.json"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a JSONDict object with a specified file path for JSON persistence."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
@@ -4426,11 +4501,11 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Remove an item and update the persistent storage.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1388</span>
-<span>1389</span>
-<span>1390</span>
-<span>1391</span>
-<span>1392</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1403</span>
+<span>1404</span>
+<span>1405</span>
+<span>1406</span>
+<span>1407</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Remove an item and update the persistent storage."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -4449,11 +4524,11 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Store a key-value pair and persist to disk.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1382</span>
-<span>1383</span>
-<span>1384</span>
-<span>1385</span>
-<span>1386</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1397</span>
+<span>1398</span>
+<span>1399</span>
+<span>1400</span>
+<span>1401</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Store a key-value pair and persist to disk."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
@@ -4472,10 +4547,10 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Return a pretty-printed JSON string representation of the dictionary.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1394</span>
-<span>1395</span>
-<span>1396</span>
-<span>1397</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1409</span>
+<span>1410</span>
+<span>1411</span>
+<span>1412</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a pretty-printed JSON string representation of the dictionary."""</span>
 <span></span>    <span class="n">contents</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_json_default</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="sa">f</span><span class="s1">'JSONDict("</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="si">}</span><span class="s1">"):</span><span class="se">\n</span><span class="si">{</span><span class="n">contents</span><span class="si">}</span><span class="s1">'</span>
@@ -4493,11 +4568,11 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Clear all entries and update the persistent storage.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1405</span>
-<span>1406</span>
-<span>1407</span>
-<span>1408</span>
-<span>1409</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1420</span>
+<span>1421</span>
+<span>1422</span>
+<span>1423</span>
+<span>1424</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Clear all entries and update the persistent storage."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -4516,11 +4591,11 @@ modified. It ensures thread-safe operations using a lock.</p>
 <p>Update the dictionary and persist changes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1399</span>
-<span>1400</span>
-<span>1401</span>
-<span>1402</span>
-<span>1403</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1414</span>
+<span>1415</span>
+<span>1416</span>
+<span>1417</span>
+<span>1418</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update the dictionary and persist changes."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -4543,7 +4618,8 @@ modified. It ensures thread-safe operations using a lock.</p>
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.utils.JSONDict" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.JSONDict&lt;/span&gt;'>JSONDict</a></code></p>
 <p>SettingsManager class for managing and persisting Ultralytics settings.</p>
 <p>This class extends JSONDict to provide JSON persistence for settings, ensuring thread-safe operations and default
-values. It validates settings on initialization and provides methods to update or reset settings.</p>
+values. It validates settings on initialization and provides methods to update or reset settings. The settings
+include directories for datasets, weights, and runs, as well as various integration flags.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4613,7 +4689,7 @@ values. It validates settings on initialization and provides methods to update o
 <td><code><span title="ultralytics.utils.SettingsManager._validate_settings">_validate_settings</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Validates the current settings and resets if necessary.</p>
+<p>Validate the current settings and reset if necessary.</p>
 </div>
 </td>
 </tr>
@@ -4621,7 +4697,7 @@ values. It validates settings on initialization and provides methods to update o
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.SettingsManager.update" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update&lt;/span&gt; (&lt;code&gt;ultralytics.utils.SettingsManager.update&lt;/code&gt;)'>update</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Updates settings, validating keys and types.</p>
+<p>Update settings, validating keys and types.</p>
 </div>
 </td>
 </tr>
@@ -4629,7 +4705,7 @@ values. It validates settings on initialization and provides methods to update o
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.SettingsManager.reset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;reset&lt;/span&gt; (&lt;code&gt;ultralytics.utils.SettingsManager.reset&lt;/code&gt;)'>reset</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Resets the settings to default and saves them.</p>
+<p>Reset the settings to default and save them.</p>
 </div>
 </td>
 </tr>
@@ -4644,23 +4720,7 @@ values. It validates settings on initialization and provides methods to update o
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1438</span>
-<span>1439</span>
-<span>1440</span>
-<span>1441</span>
-<span>1442</span>
-<span>1443</span>
-<span>1444</span>
-<span>1445</span>
-<span>1446</span>
-<span>1447</span>
-<span>1448</span>
-<span>1449</span>
-<span>1450</span>
-<span>1451</span>
-<span>1452</span>
-<span>1453</span>
-<span>1454</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1454</span>
 <span>1455</span>
 <span>1456</span>
 <span>1457</span>
@@ -4691,8 +4751,24 @@ values. It validates settings on initialization and provides methods to update o
 <span>1482</span>
 <span>1483</span>
 <span>1484</span>
-<span>1485</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Initializes the SettingsManager with default settings and loads user settings."""</span>
+<span>1485</span>
+<span>1486</span>
+<span>1487</span>
+<span>1488</span>
+<span>1489</span>
+<span>1490</span>
+<span>1491</span>
+<span>1492</span>
+<span>1493</span>
+<span>1494</span>
+<span>1495</span>
+<span>1496</span>
+<span>1497</span>
+<span>1498</span>
+<span>1499</span>
+<span>1500</span>
+<span>1501</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize the SettingsManager with default settings and load user settings."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
 <span></span>
@@ -4749,13 +4825,13 @@ values. It validates settings on initialization and provides methods to update o
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__setitem__</span><span class="p">(</span><span class="nf">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Updates one key: value pair.</p>
+<p>Update one key: value pair.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1507</span>
-<span>1508</span>
-<span>1509</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Updates one key: value pair."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1523</span>
+<span>1524</span>
+<span>1525</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Update one key: value pair."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4768,14 +4844,14 @@ values. It validates settings on initialization and provides methods to update o
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">reset</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Resets the settings to default and saves them.</p>
+<p>Reset the settings to default and save them.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1526</span>
-<span>1527</span>
-<span>1528</span>
-<span>1529</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Resets the settings to default and saves them."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1542</span>
+<span>1543</span>
+<span>1544</span>
+<span>1545</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Reset the settings to default and save them."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4789,24 +4865,24 @@ values. It validates settings on initialization and provides methods to update o
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Updates settings, validating keys and types.</p>
+<p>Update settings, validating keys and types.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1511</span>
-<span>1512</span>
-<span>1513</span>
-<span>1514</span>
-<span>1515</span>
-<span>1516</span>
-<span>1517</span>
-<span>1518</span>
-<span>1519</span>
-<span>1520</span>
-<span>1521</span>
-<span>1522</span>
-<span>1523</span>
-<span>1524</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Updates settings, validating keys and types."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1527</span>
+<span>1528</span>
+<span>1529</span>
+<span>1530</span>
+<span>1531</span>
+<span>1532</span>
+<span>1533</span>
+<span>1534</span>
+<span>1535</span>
+<span>1536</span>
+<span>1537</span>
+<span>1538</span>
+<span>1539</span>
+<span>1540</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Update settings, validating keys and types."""</span>
 <span></span>    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
 <span></span>            <span class="n">kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">arg</span><span class="p">)</span>
@@ -4870,7 +4946,7 @@ values. It validates settings on initialization and provides methods to update o
 </td>
 <td>
 <div class="doc-md-description">
-<p>Name of the backend to use. Defaults to 'Agg'.</p>
+<p>Name of the backend to use.</p>
 </div>
 </td>
 <td>
@@ -4971,7 +5047,7 @@ values. It validates settings on initialization and provides methods to update o
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        rcparams (dict, optional): Dictionary of rc parameters to set.</span>
-<span></span><span class="sd">        backend (str, optional): Name of the backend to use. Defaults to 'Agg'.</span>
+<span></span><span class="sd">        backend (str, optional): Name of the backend to use.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Callable): Decorated function with temporarily set rc parameters and backend.</span>
@@ -4995,7 +5071,7 @@ values. It validates settings on initialization and provides methods to update o
 <span></span><span class="w">        </span><span class="sd">"""Decorator to apply temporary rc parameters and backend to a function."""</span>
 <span></span>
 <span></span>        <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">            </span><span class="sd">"""Sets rc parameters and backend, calls the original function, and restores the settings."""</span>
+<span></span><span class="w">            </span><span class="sd">"""Set rc parameters and backend, call the original function, and restore the settings."""</span>
 <span></span>            <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
 <span></span>
 <span></span>            <span class="n">original_backend</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">get_backend</span><span class="p">()</span>
@@ -5028,7 +5104,7 @@ values. It validates settings on initialization and provides methods to update o
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_logging</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">'LOGGING_NAME'</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Sets up logging with UTF-8 encoding and configurable verbosity.</p>
+<p>Set up logging with UTF-8 encoding and configurable verbosity.</p>
 <p>This function configures logging for the Ultralytics library, setting the appropriate logging level and
 formatter based on the verbosity flag and the current process rank. It handles special cases for Windows
 environments where UTF-8 encoding might not be the default.</p>
@@ -5052,7 +5128,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Name of the logger. Defaults to "LOGGING_NAME".</p>
+<p>Name of the logger.</p>
 </div>
 </td>
 <td>
@@ -5068,7 +5144,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Flag to set logging level to INFO if True, ERROR otherwise. Defaults to True.</p>
+<p>Flag to set logging level to INFO if True, ERROR otherwise.</p>
 </div>
 </td>
 <td>
@@ -5185,15 +5261,15 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>579</span>
 <span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_logging</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"LOGGING_NAME"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Sets up logging with UTF-8 encoding and configurable verbosity.</span>
+<span></span><span class="sd">    Set up logging with UTF-8 encoding and configurable verbosity.</span>
 <span></span>
 <span></span><span class="sd">    This function configures logging for the Ultralytics library, setting the appropriate logging level and</span>
 <span></span><span class="sd">    formatter based on the verbosity flag and the current process rank. It handles special cases for Windows</span>
 <span></span><span class="sd">    environments where UTF-8 encoding might not be the default.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        name (str): Name of the logger. Defaults to "LOGGING_NAME".</span>
-<span></span><span class="sd">        verbose (bool): Flag to set logging level to INFO if True, ERROR otherwise. Defaults to True.</span>
+<span></span><span class="sd">        name (str): Name of the logger.</span>
+<span></span><span class="sd">        verbose (bool): Flag to set logging level to INFO if True, ERROR otherwise.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (logging.Logger): Configured logger object.</span>
@@ -5283,7 +5359,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">read_device_model</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Reads the device model information from the system and caches it for quick access.</p>
+<p>Read the device model information from the system and cache it for quick access.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -5316,7 +5392,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>774</span>
 <span>775</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_device_model</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Reads the device model information from the system and caches it for quick access.</span>
+<span></span><span class="sd">    Read the device model information from the system and cache it for quick access.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str): Kernel release information.</span>
@@ -5513,8 +5589,8 @@ environments where UTF-8 encoding might not be the default.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <ul>
 <li>Only works on Colab and Kaggle, other environments like Jupyterlab and Paperspace are not reliably detectable.</li>
 <li>"get_ipython" in globals() method suffers false positives when IPython package installed manually.</li>
@@ -5540,7 +5616,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (bool): True if running inside a Jupyter Notebook, False otherwise.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        - Only works on Colab and Kaggle, other environments like Jupyterlab and Paperspace are not reliably detectable.</span>
 <span></span><span class="sd">        - "get_ipython" in globals() method suffers false positives when IPython package installed manually.</span>
 <span></span><span class="sd">    """</span>
@@ -5664,7 +5740,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">is_raspberrypi</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines if the Python environment is running on a Raspberry Pi.</p>
+<p>Determine if the Python environment is running on a Raspberry Pi.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -5697,7 +5773,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>856</span>
 <span>857</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_raspberrypi</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Determines if the Python environment is running on a Raspberry Pi.</span>
+<span></span><span class="sd">    Determine if the Python environment is running on a Raspberry Pi.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (bool): True if running on a Raspberry Pi, False otherwise.</span>
@@ -5714,7 +5790,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">is_jetson</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines if the Python environment is running on an NVIDIA Jetson device.</p>
+<p>Determine if the Python environment is running on an NVIDIA Jetson device.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -5747,7 +5823,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>866</span>
 <span>867</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_jetson</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Determines if the Python environment is running on an NVIDIA Jetson device.</span>
+<span></span><span class="sd">    Determine if the Python environment is running on an NVIDIA Jetson device.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (bool): True if running on an NVIDIA Jetson device, False otherwise.</span>
@@ -5830,7 +5906,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">is_pip_package</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="vm">__name__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines if the file at the given filepath is part of a pip package.</p>
+<p>Determine if the file at the given filepath is part of a pip package.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -5901,7 +5977,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>903</span>
 <span>904</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_pip_package</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="vm">__name__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Determines if the file at the given filepath is part of a pip package.</span>
+<span></span><span class="sd">    Determine if the file at the given filepath is part of a pip package.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        filepath (str): The filepath to check.</span>
@@ -6012,7 +6088,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">is_pytest_running</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines whether pytest is currently running or not.</p>
+<p>Determine whether pytest is currently running or not.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6045,7 +6121,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>926</span>
 <span>927</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_pytest_running</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Determines whether pytest is currently running or not.</span>
+<span></span><span class="sd">    Determine whether pytest is currently running or not.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (bool): True if pytest is running, False otherwise.</span>
@@ -6112,7 +6188,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_git_dir</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines whether the current file is part of a git repository and if so, returns the repository root directory.</p>
+<p>Determine whether the current file is part of a git repository and if so, return the repository root directory.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6147,7 +6223,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>948</span>
 <span>949</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_dir</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Determines whether the current file is part of a git repository and if so, returns the repository root directory.</span>
+<span></span><span class="sd">    Determine whether the current file is part of a git repository and if so, return the repository root directory.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Path | None): Git root directory if found or None if not found.</span>
@@ -6166,7 +6242,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">is_git_dir</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines whether the current file is part of a git repository.</p>
+<p>Determine whether the current file is part of a git repository.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6199,7 +6275,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>958</span>
 <span>959</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_git_dir</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Determines whether the current file is part of a git repository.</span>
+<span></span><span class="sd">    Determine whether the current file is part of a git repository.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (bool): True if current file is part of a git repository.</span>
@@ -6216,7 +6292,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_git_origin_url</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Retrieves the origin URL of a git repository.</p>
+<p>Retrieve the origin URL of a git repository.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6254,7 +6330,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>973</span>
 <span>974</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_origin_url</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Retrieves the origin URL of a git repository.</span>
+<span></span><span class="sd">    Retrieve the origin URL of a git repository.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str | None): The origin URL of the git repository or None if not git directory.</span>
@@ -6276,7 +6352,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_git_branch</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Returns the current git branch name. If not in a git repository, returns None.</p>
+<p>Return the current git branch name. If not in a git repository, return None.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6314,7 +6390,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>988</span>
 <span>989</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_branch</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns the current git branch name. If not in a git repository, returns None.</span>
+<span></span><span class="sd">    Return the current git branch name. If not in a git repository, return None.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str | None): The current git branch name or None if not a git directory.</span>
@@ -6336,7 +6412,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_default_args</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Returns a dictionary of default arguments for a function.</p>
+<p>Return a dictionary of default arguments for a function.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -6402,7 +6478,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>1002</span>
 <span>1003</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_default_args</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns a dictionary of default arguments for a function.</span>
+<span></span><span class="sd">    Return a dictionary of default arguments for a function.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        func (callable): The function to inspect.</span>
@@ -6608,8 +6684,7 @@ environments where UTF-8 encoding might not be the default.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">colorstr</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Colors a string based on the provided color and style arguments. Utilizes ANSI escape codes.
-See <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">https://en.wikipedia.org/wiki/ANSI_escape_code</a> for more details.</p>
+<p>Color a string based on the provided color and style arguments using ANSI escape codes.</p>
 <details class="this-function-can-be-called-in-two-ways" open="">
 <summary>This function can be called in two ways</summary>
 <ul>
@@ -6647,13 +6722,6 @@ See <a href="https://en.wikipedia.org/wiki/ANSI_escape_code">https://en.wikipedi
 </tr>
 </tbody>
 </table>
-<details class="supported-colors-and-styles" open="">
-<summary>Supported Colors and Styles</summary>
-<p>Basic Colors: 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'
-Bright Colors: 'bright_black', 'bright_red', 'bright_green', 'bright_yellow',
-               'bright_blue', 'bright_magenta', 'bright_cyan', 'bright_white'
-Misc: 'end', 'bold', 'underline'</p>
-</details>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6675,10 +6743,22 @@ Misc: 'end', 'bold', 'underline'</p>
 </tr>
 </tbody>
 </table>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>Supported Colors and Styles:
+- Basic Colors: 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'
+- Bright Colors: 'bright_black', 'bright_red', 'bright_green', 'bright_yellow',
+               'bright_blue', 'bright_magenta', 'bright_cyan', 'bright_white'
+- Misc: 'end', 'bold', 'underline'</p>
+</details>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">,</span> <span class="s2">"hello world"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="s2">"</span><span class="se">\033</span><span class="s2">[34m</span><span class="se">\033</span><span class="s2">[1mhello world</span><span class="se">\033</span><span class="s2">[0m"</span>
 </code></pre></div>
+<details class="references" open="">
+<summary>References</summary>
+<p><a href="https://en.wikipedia.org/wiki/ANSI_escape_code">https://en.wikipedia.org/wiki/ANSI_escape_code</a></p>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1070</span>
@@ -6731,10 +6811,12 @@ Misc: 'end', 'bold', 'underline'</p>
 <span>1117</span>
 <span>1118</span>
 <span>1119</span>
-<span>1120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">colorstr</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">):</span>
+<span>1120</span>
+<span>1121</span>
+<span>1122</span>
+<span>1123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">colorstr</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sa">r</span><span class="sd">"""</span>
-<span></span><span class="sd">    Colors a string based on the provided color and style arguments. Utilizes ANSI escape codes.</span>
-<span></span><span class="sd">    See https://en.wikipedia.org/wiki/ANSI_escape_code for more details.</span>
+<span></span><span class="sd">    Color a string based on the provided color and style arguments using ANSI escape codes.</span>
 <span></span>
 <span></span><span class="sd">    This function can be called in two ways:</span>
 <span></span><span class="sd">        - colorstr('color', 'style', 'your string')</span>
@@ -6746,18 +6828,22 @@ Misc: 'end', 'bold', 'underline'</p>
 <span></span><span class="sd">        *input (str | Path): A sequence of strings where the first n-1 strings are color and style arguments,</span>
 <span></span><span class="sd">                      and the last string is the one to be colored.</span>
 <span></span>
-<span></span><span class="sd">    Supported Colors and Styles:</span>
-<span></span><span class="sd">        Basic Colors: 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'</span>
-<span></span><span class="sd">        Bright Colors: 'bright_black', 'bright_red', 'bright_green', 'bright_yellow',</span>
-<span></span><span class="sd">                       'bright_blue', 'bright_magenta', 'bright_cyan', 'bright_white'</span>
-<span></span><span class="sd">        Misc: 'end', 'bold', 'underline'</span>
-<span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str): The input string wrapped with ANSI escape codes for the specified color and style.</span>
+<span></span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        Supported Colors and Styles:</span>
+<span></span><span class="sd">        - Basic Colors: 'black', 'red', 'green', 'yellow', 'blue', 'magenta', 'cyan', 'white'</span>
+<span></span><span class="sd">        - Bright Colors: 'bright_black', 'bright_red', 'bright_green', 'bright_yellow',</span>
+<span></span><span class="sd">                       'bright_blue', 'bright_magenta', 'bright_cyan', 'bright_white'</span>
+<span></span><span class="sd">        - Misc: 'end', 'bold', 'underline'</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; colorstr("blue", "bold", "hello world")</span>
 <span></span><span class="sd">        &gt;&gt;&gt; "\033[34m\033[1mhello world\033[0m"</span>
+<span></span>
+<span></span><span class="sd">    References:</span>
+<span></span><span class="sd">        https://en.wikipedia.org/wiki/ANSI_escape_code</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">string</span> <span class="o">=</span> <span class="nb">input</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="p">(</span><span class="s2">"blue"</span><span class="p">,</span> <span class="s2">"bold"</span><span class="p">,</span> <span class="nb">input</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># color arguments, string</span>
 <span></span>    <span class="n">colors</span> <span class="o">=</span> <span class="p">{</span>
@@ -6793,7 +6879,7 @@ Misc: 'end', 'bold', 'underline'</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">remove_colorstr</span><span class="p">(</span><span class="n">input_string</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Removes ANSI escape codes from a string, effectively un-coloring it.</p>
+<p>Remove ANSI escape codes from a string, effectively un-coloring it.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -6850,10 +6936,7 @@ Misc: 'end', 'bold', 'underline'</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1123</span>
-<span>1124</span>
-<span>1125</span>
-<span>1126</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1126</span>
 <span>1127</span>
 <span>1128</span>
 <span>1129</span>
@@ -6865,9 +6948,12 @@ Misc: 'end', 'bold', 'underline'</p>
 <span>1135</span>
 <span>1136</span>
 <span>1137</span>
-<span>1138</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_colorstr</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
+<span>1138</span>
+<span>1139</span>
+<span>1140</span>
+<span>1141</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_colorstr</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Removes ANSI escape codes from a string, effectively un-coloring it.</span>
+<span></span><span class="sd">    Remove ANSI escape codes from a string, effectively un-coloring it.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        input_string (str): The string to remove color and style from.</span>
@@ -6892,7 +6978,7 @@ Misc: 'end', 'bold', 'underline'</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Multi-threads a target function by default and returns the thread or function result.</p>
+<p>Multi-thread a target function by default and return the thread or function result.</p>
 <p>This decorator provides flexible execution of the target function, either in a separate thread or synchronously.
 By default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument
 which is removed from kwargs before calling the function.</p>
@@ -6956,22 +7042,7 @@ which is removed from kwargs before calling the function.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1214</span>
-<span>1215</span>
-<span>1216</span>
-<span>1217</span>
-<span>1218</span>
-<span>1219</span>
-<span>1220</span>
-<span>1221</span>
-<span>1222</span>
-<span>1223</span>
-<span>1224</span>
-<span>1225</span>
-<span>1226</span>
-<span>1227</span>
-<span>1228</span>
-<span>1229</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1229</span>
 <span>1230</span>
 <span>1231</span>
 <span>1232</span>
@@ -6988,9 +7059,24 @@ which is removed from kwargs before calling the function.</p>
 <span>1243</span>
 <span>1244</span>
 <span>1245</span>
-<span>1246</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span>1246</span>
+<span>1247</span>
+<span>1248</span>
+<span>1249</span>
+<span>1250</span>
+<span>1251</span>
+<span>1252</span>
+<span>1253</span>
+<span>1254</span>
+<span>1255</span>
+<span>1256</span>
+<span>1257</span>
+<span>1258</span>
+<span>1259</span>
+<span>1260</span>
+<span>1261</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Multi-threads a target function by default and returns the thread or function result.</span>
+<span></span><span class="sd">    Multi-thread a target function by default and return the thread or function result.</span>
 <span></span>
 <span></span><span class="sd">    This decorator provides flexible execution of the target function, either in a separate thread or synchronously.</span>
 <span></span><span class="sd">    By default, the function runs in a thread, but this can be controlled via the 'threaded=False' keyword argument</span>
@@ -7012,7 +7098,7 @@ which is removed from kwargs before calling the function.</p>
 <span></span><span class="sd">    """</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span></span><span class="w">        </span><span class="sd">"""Multi-threads a given function based on 'threaded' kwarg and returns the thread or function result."""</span>
+<span></span><span class="w">        </span><span class="sd">"""Multi-thread a given function based on 'threaded' kwarg and return the thread or function result."""</span>
 <span></span>        <span class="k">if</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"threaded"</span><span class="p">,</span> <span class="kc">True</span><span class="p">):</span>  <span class="c1"># run in thread</span>
 <span></span>            <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">func</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">args</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="n">kwargs</span><span class="p">,</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>            <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
@@ -7046,22 +7132,7 @@ settings.</p>
     - CLI used to run package (checked with 'yolo' as the name of the main CLI command)</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1249</span>
-<span>1250</span>
-<span>1251</span>
-<span>1252</span>
-<span>1253</span>
-<span>1254</span>
-<span>1255</span>
-<span>1256</span>
-<span>1257</span>
-<span>1258</span>
-<span>1259</span>
-<span>1260</span>
-<span>1261</span>
-<span>1262</span>
-<span>1263</span>
-<span>1264</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1264</span>
 <span>1265</span>
 <span>1266</span>
 <span>1267</span>
@@ -7113,7 +7184,22 @@ settings.</p>
 <span>1313</span>
 <span>1314</span>
 <span>1315</span>
-<span>1316</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_sentry</span><span class="p">():</span>
+<span>1316</span>
+<span>1317</span>
+<span>1318</span>
+<span>1319</span>
+<span>1320</span>
+<span>1321</span>
+<span>1322</span>
+<span>1323</span>
+<span>1324</span>
+<span>1325</span>
+<span>1326</span>
+<span>1327</span>
+<span>1328</span>
+<span>1329</span>
+<span>1330</span>
+<span>1331</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_sentry</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Sentry SDK for error tracking and reporting.</span>
 <span></span>
@@ -7155,7 +7241,7 @@ settings.</p>
 <span></span><span class="sd">            hint (dict): A dictionary containing additional information about the error.</span>
 <span></span>
 <span></span><span class="sd">        Returns:</span>
-<span></span><span class="sd">            dict: The modified event or None if the event should not be sent to Sentry.</span>
+<span></span><span class="sd">            (dict | None): The modified event or None if the event should not be sent to Sentry.</span>
 <span></span><span class="sd">        """</span>
 <span></span>        <span class="k">if</span> <span class="s2">"exc_info"</span> <span class="ow">in</span> <span class="n">hint</span><span class="p">:</span>
 <span></span>            <span class="n">exc_type</span><span class="p">,</span> <span class="n">exc_value</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">hint</span><span class="p">[</span><span class="s2">"exc_info"</span><span class="p">]</span>
@@ -7195,12 +7281,12 @@ settings.</p>
 <p>Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1532</span>
-<span>1533</span>
-<span>1534</span>
-<span>1535</span>
-<span>1536</span>
-<span>1537</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1548</span>
+<span>1549</span>
+<span>1550</span>
+<span>1551</span>
+<span>1552</span>
+<span>1553</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument."""</span>
 <span></span>    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">' is deprecated and will be removed in in the future."</span>
 <span></span>    <span class="k">if</span> <span class="n">new_arg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -7220,10 +7306,10 @@ settings.</p>
 <p>Strip auth from URL, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; <a href="https://url.com/file.txt">https://url.com/file.txt</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1540</span>
-<span>1541</span>
-<span>1542</span>
-<span>1543</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1556</span>
+<span>1557</span>
+<span>1558</span>
+<span>1559</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt."""</span>
 <span></span>    <span class="n">url</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":/"</span><span class="p">,</span> <span class="s2">"://"</span><span class="p">)</span>  <span class="c1"># Pathlib turns :// -&gt; :/, as_posix() for Windows</span>
 <span></span>    <span class="k">return</span> <span class="n">unquote</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
@@ -7241,9 +7327,9 @@ settings.</p>
 <p>Convert URL to filename, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; file.txt.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1546</span>
-<span>1547</span>
-<span>1548</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1562</span>
+<span>1563</span>
+<span>1564</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt."""</span>
 <span></span>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div></td></tr></table></div>
@@ -7260,13 +7346,13 @@ settings.</p>
 <p>Display a message to install Ultralytics-Snippets for VS Code if not already installed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1551</span>
-<span>1552</span>
-<span>1553</span>
-<span>1554</span>
-<span>1555</span>
-<span>1556</span>
-<span>1557</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1567</span>
+<span>1568</span>
+<span>1569</span>
+<span>1570</span>
+<span>1571</span>
+<span>1572</span>
+<span>1573</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Display a message to install Ultralytics-Snippets for VS Code if not already installed."""</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="p">(</span><span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">WINDOWS</span> <span class="k">else</span> <span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="s2">".vscode/extensions"</span>
 <span></span>    <span class="n">obs_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">".obsolete"</span>  <span class="c1"># file tracks uninstalled extensions, while source directory remains</span>

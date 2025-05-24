@@ -1151,7 +1151,7 @@
 <div class="doc doc-contents first">
 <p>Automatically annotate images using a YOLO object detection model and a SAM segmentation model.</p>
 <p>This function processes images in a specified directory, detects objects using a YOLO model, and then generates
-segmentation masks using a SAM model. The resulting annotations are saved as text files.</p>
+segmentation masks using a SAM model. The resulting annotations are saved as text files in YOLO format.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1220,7 +1220,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 </td>
 <td>
 <div class="doc-md-description">
-<p>Device to run the models on (e.g., 'cpu', 'cuda', '0').</p>
+<p>Device to run the models on (e.g., 'cpu', 'cuda', '0'). Empty string for auto-selection.</p>
 </div>
 </td>
 <td>
@@ -1296,7 +1296,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <code>classes</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>] | None</code>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1312,11 +1312,12 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <code>output_dir</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Directory to save the annotated results. If None, a default directory is created.</p>
+<p>Directory to save the annotated results. If None, creates a default
+directory based on the input data path.</p>
 </div>
 </td>
 <td>
@@ -1388,7 +1389,8 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <span>63</span>
 <span>64</span>
 <span>65</span>
-<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">auto_annotate</span><span class="p">(</span>
+<span>66</span>
+<span>67</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">auto_annotate</span><span class="p">(</span>
 <span></span>    <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
 <span></span>    <span class="n">det_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"yolo11x.pt"</span><span class="p">,</span>
 <span></span>    <span class="n">sam_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sam_b.pt"</span><span class="p">,</span>
@@ -1404,19 +1406,20 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <span></span><span class="sd">    Automatically annotate images using a YOLO object detection model and a SAM segmentation model.</span>
 <span></span>
 <span></span><span class="sd">    This function processes images in a specified directory, detects objects using a YOLO model, and then generates</span>
-<span></span><span class="sd">    segmentation masks using a SAM model. The resulting annotations are saved as text files.</span>
+<span></span><span class="sd">    segmentation masks using a SAM model. The resulting annotations are saved as text files in YOLO format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        data (str | Path): Path to a folder containing images to be annotated.</span>
 <span></span><span class="sd">        det_model (str): Path or name of the pre-trained YOLO detection model.</span>
 <span></span><span class="sd">        sam_model (str): Path or name of the pre-trained SAM segmentation model.</span>
-<span></span><span class="sd">        device (str): Device to run the models on (e.g., 'cpu', 'cuda', '0').</span>
+<span></span><span class="sd">        device (str): Device to run the models on (e.g., 'cpu', 'cuda', '0'). Empty string for auto-selection.</span>
 <span></span><span class="sd">        conf (float): Confidence threshold for detection model.</span>
 <span></span><span class="sd">        iou (float): IoU threshold for filtering overlapping boxes in detection results.</span>
 <span></span><span class="sd">        imgsz (int): Input image resize dimension.</span>
 <span></span><span class="sd">        max_det (int): Maximum number of detections per image.</span>
-<span></span><span class="sd">        classes (List[int] | None): Filter predictions to specified class IDs, returning only relevant detections.</span>
-<span></span><span class="sd">        output_dir (str | Path | None): Directory to save the annotated results. If None, a default directory is created.</span>
+<span></span><span class="sd">        classes (List[int], optional): Filter predictions to specified class IDs, returning only relevant detections.</span>
+<span></span><span class="sd">        output_dir (str | Path, optional): Directory to save the annotated results. If None, creates a default</span>
+<span></span><span class="sd">            directory based on the input data path.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.data.annotator import auto_annotate</span>
@@ -1435,7 +1438,7 @@ segmentation masks using a SAM model. The resulting annotations are saved as tex
 <span></span>    <span class="p">)</span>
 <span></span>
 <span></span>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">det_results</span><span class="p">:</span>
-<span></span>        <span class="n">class_ids</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># noqa</span>
+<span></span>        <span class="n">class_ids</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># Extract class IDs from detection results</span>
 <span></span>        <span class="k">if</span> <span class="n">class_ids</span><span class="p">:</span>
 <span></span>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span>  <span class="c1"># Boxes object for bbox outputs</span>
 <span></span>            <span class="n">sam_results</span> <span class="o">=</span> <span class="n">sam_model</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="n">boxes</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>

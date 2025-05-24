@@ -1553,7 +1553,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_get_comet_mode</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Returns the mode of comet set in the environment variables, defaults to 'online' if not set.</p>
+<p>Return the Comet mode from environment variables, defaulting to 'online'.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>39</span>
@@ -1569,7 +1569,7 @@
 <span>49</span>
 <span>50</span>
 <span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_get_comet_mode</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Returns the mode of comet set in the environment variables, defaults to 'online' if not set."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Return the Comet mode from environment variables, defaulting to 'online'."""</span>
 <span></span>    <span class="n">comet_mode</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_MODE"</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">comet_mode</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
@@ -1592,13 +1592,13 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_get_comet_model_name</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Returns the model name for Comet from the environment variable COMET_MODEL_NAME or defaults to 'Ultralytics'.</p>
+<p>Return the Comet model name from environment variable or default to 'Ultralytics'.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>54</span>
 <span>55</span>
 <span>56</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_get_comet_model_name</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Returns the model name for Comet from the environment variable COMET_MODEL_NAME or defaults to 'Ultralytics'."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Return the Comet model name from environment variable or default to 'Ultralytics'."""</span>
 <span></span>    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_MODEL_NAME"</span><span class="p">,</span> <span class="s2">"Ultralytics"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1630,13 +1630,13 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_get_max_image_predictions_to_log</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Get the maximum number of image predictions to log from the environment variables.</p>
+<p>Get the maximum number of image predictions to log from environment variables.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>64</span>
 <span>65</span>
 <span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_get_max_image_predictions_to_log</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Get the maximum number of image predictions to log from the environment variables."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Get the maximum number of image predictions to log from environment variables."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_MAX_IMAGE_PREDICTIONS"</span><span class="p">,</span> <span class="mi">100</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1649,14 +1649,14 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_scale_confidence_score</span><span class="p">(</span><span class="n">score</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Scales the given confidence score by a factor specified in an environment variable.</p>
+<p>Scale the confidence score by a factor specified in environment variable.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>69</span>
 <span>70</span>
 <span>71</span>
 <span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_scale_confidence_score</span><span class="p">(</span><span class="n">score</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Scales the given confidence score by a factor specified in an environment variable."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Scale the confidence score by a factor specified in environment variable."""</span>
 <span></span>    <span class="n">scale</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_MAX_CONFIDENCE_SCORE"</span><span class="p">,</span> <span class="mf">100.0</span><span class="p">))</span>
 <span></span>    <span class="k">return</span> <span class="n">score</span> <span class="o">*</span> <span class="n">scale</span>
 </code></pre></div></td></tr></table></div>
@@ -1670,13 +1670,13 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_should_log_confusion_matrix</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines if the confusion matrix should be logged based on the environment variable settings.</p>
+<p>Determine if the confusion matrix should be logged based on environment variable settings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>75</span>
 <span>76</span>
 <span>77</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_should_log_confusion_matrix</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Determines if the confusion matrix should be logged based on the environment variable settings."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Determine if the confusion matrix should be logged based on environment variable settings."""</span>
 <span></span>    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_EVAL_LOG_CONFUSION_MATRIX"</span><span class="p">,</span> <span class="s2">"false"</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"true"</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1689,13 +1689,13 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_should_log_image_predictions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines whether to log image predictions based on a specified environment variable.</p>
+<p>Determine whether to log image predictions based on environment variable.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>80</span>
 <span>81</span>
 <span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_should_log_image_predictions</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Determines whether to log image predictions based on a specified environment variable."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Determine whether to log image predictions based on environment variable."""</span>
 <span></span>    <span class="k">return</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"COMET_EVAL_LOG_IMAGE_PREDICTIONS"</span><span class="p">,</span> <span class="s2">"true"</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"true"</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1708,8 +1708,37 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_resume_or_create_experiment</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">SimpleNamespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Resumes CometML experiment or creates a new experiment based on args.</p>
+<p>Resume CometML experiment or create a new experiment based on args.</p>
 <p>Ensures that the experiment object is only created in a single process during distributed training.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>args</code>
+</td>
+<td>
+<code><span title="types.SimpleNamespace">SimpleNamespace</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Training arguments containing project configuration and other parameters.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 85</span>
@@ -1742,11 +1771,17 @@
 <span>112</span>
 <span>113</span>
 <span>114</span>
-<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_resume_or_create_experiment</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">SimpleNamespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_resume_or_create_experiment</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">SimpleNamespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Resumes CometML experiment or creates a new experiment based on args.</span>
+<span></span><span class="sd">    Resume CometML experiment or create a new experiment based on args.</span>
 <span></span>
 <span></span><span class="sd">    Ensures that the experiment object is only created in a single process during distributed training.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        args (SimpleNamespace): Training arguments containing project configuration and other parameters.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
 <span></span>        <span class="k">return</span>
@@ -1784,13 +1819,60 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Returns metadata for YOLO training including epoch and asset saving status.</p>
+<p>Return metadata for YOLO training including epoch and asset saving status.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>trainer</code>
+</td>
+<td>
+<code><a class="autorefs autorefs-internal" href="../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'>BaseTrainer</a></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The YOLO trainer object containing training state and config.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dictionary containing current epoch, step, save assets flag, and final epoch flag.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>121</span>
 <span>122</span>
 <span>123</span>
 <span>124</span>
@@ -1800,8 +1882,27 @@
 <span>128</span>
 <span>129</span>
 <span>130</span>
-<span>131</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Returns metadata for YOLO training including epoch and asset saving status."""</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_fetch_trainer_metadata</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Return metadata for YOLO training including epoch and asset saving status.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The YOLO trainer object containing training state and config.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (dict): Dictionary containing current epoch, step, save assets flag, and final epoch flag.</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">curr_epoch</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span>
 <span></span>
 <span></span>    <span class="n">train_num_steps_per_epoch</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">train_loader</span><span class="o">.</span><span class="n">dataset</span><span class="p">)</span> <span class="o">//</span> <span class="n">trainer</span><span class="o">.</span><span class="n">batch_size</span>
@@ -1827,22 +1928,110 @@
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>YOLO resizes images during training and the label values are normalized based on this resized shape.</p>
-<p>This function rescales the bounding box labels to the original image shape.</p>
+<p>Scale bounding box from resized image coordinates to original image coordinates.</p>
+<p>YOLO resizes images during training and the label values are normalized based on this resized shape.
+This function rescales the bounding box labels to the original image shape.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>box</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Bounding box in normalized xywh format.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>resized_image_shape</code>
+</td>
+<td>
+<code><span title="tuple">tuple</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Shape of the resized image (height, width).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>original_image_shape</code>
+</td>
+<td>
+<code><span title="tuple">tuple</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Shape of the original image (height, width).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>ratio_pad</code>
+</td>
+<td>
+<code><span title="tuple">tuple</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Ratio and padding information for scaling.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Scaled bounding box coordinates in xywh format with top-left corner adjustment.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>134</span>
-<span>135</span>
-<span>136</span>
-<span>137</span>
-<span>138</span>
-<span>139</span>
-<span>140</span>
-<span>141</span>
-<span>142</span>
-<span>143</span>
-<span>144</span>
-<span>145</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>145</span>
 <span>146</span>
 <span>147</span>
 <span>148</span>
@@ -1851,13 +2040,44 @@
 <span>151</span>
 <span>152</span>
 <span>153</span>
-<span>154</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_scale_bounding_box_to_original_image_shape</span><span class="p">(</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_scale_bounding_box_to_original_image_shape</span><span class="p">(</span>
 <span></span>    <span class="n">box</span><span class="p">,</span> <span class="n">resized_image_shape</span><span class="p">,</span> <span class="n">original_image_shape</span><span class="p">,</span> <span class="n">ratio_pad</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    YOLO resizes images during training and the label values are normalized based on this resized shape.</span>
+<span></span><span class="sd">    Scale bounding box from resized image coordinates to original image coordinates.</span>
 <span></span>
+<span></span><span class="sd">    YOLO resizes images during training and the label values are normalized based on this resized shape.</span>
 <span></span><span class="sd">    This function rescales the bounding box labels to the original image shape.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        box (torch.Tensor): Bounding box in normalized xywh format.</span>
+<span></span><span class="sd">        resized_image_shape (tuple): Shape of the resized image (height, width).</span>
+<span></span><span class="sd">        original_image_shape (tuple): Shape of the original image (height, width).</span>
+<span></span><span class="sd">        ratio_pad (tuple): Ratio and padding information for scaling.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (List[float]): Scaled bounding box coordinates in xywh format with top-left corner adjustment.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">resized_image_height</span><span class="p">,</span> <span class="n">resized_image_width</span> <span class="o">=</span> <span class="n">resized_image_shape</span>
 <span></span>
@@ -1959,7 +2179,7 @@ visualization or evaluation.</p>
 <code>class_name_map</code>
 </td>
 <td>
-<code><span title="dict">dict</span> | None</code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1990,8 +2210,17 @@ visualization or evaluation.</p>
 <p>Formatted ground truth annotations with the following structure:
 - 'boxes': List of box coordinates [x, y, width, height]
 - 'label': Label string with format "gt_{class_name}"
-- 'score': Confidence score (always 1.0, scaled by _scale_confidence_score)
-Returns None if no bounding boxes are found for the image.</p>
+- 'score': Confidence score (always 1.0, scaled by _scale_confidence_score)</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="dict">dict</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Returns None if no bounding boxes are found for the image.</p>
 </div>
 </td>
 </tr>
@@ -1999,28 +2228,7 @@ Returns None if no bounding boxes are found for the image.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>157</span>
-<span>158</span>
-<span>159</span>
-<span>160</span>
-<span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span>
-<span>169</span>
-<span>170</span>
-<span>171</span>
-<span>172</span>
-<span>173</span>
-<span>174</span>
-<span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>178</span>
 <span>179</span>
 <span>180</span>
 <span>181</span>
@@ -2051,7 +2259,28 @@ Returns None if no bounding boxes are found for the image.</p>
 <span>206</span>
 <span>207</span>
 <span>208</span>
-<span>209</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_format_ground_truth_annotations_for_detection</span><span class="p">(</span><span class="n">img_idx</span><span class="p">,</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">class_name_map</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_format_ground_truth_annotations_for_detection</span><span class="p">(</span><span class="n">img_idx</span><span class="p">,</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">class_name_map</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Format ground truth annotations for object detection.</span>
 <span></span>
@@ -2069,14 +2298,14 @@ Returns None if no bounding boxes are found for the image.</p>
 <span></span><span class="sd">            - 'ori_shape': Original image shapes</span>
 <span></span><span class="sd">            - 'resized_shape': Resized image shapes</span>
 <span></span><span class="sd">            - 'ratio_pad': Ratio and padding information</span>
-<span></span><span class="sd">        class_name_map (dict | None, optional): Mapping from class indices to class names.</span>
+<span></span><span class="sd">        class_name_map (dict, optional): Mapping from class indices to class names.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (dict | None): Formatted ground truth annotations with the following structure:</span>
 <span></span><span class="sd">            - 'boxes': List of box coordinates [x, y, width, height]</span>
 <span></span><span class="sd">            - 'label': Label string with format "gt_{class_name}"</span>
 <span></span><span class="sd">            - 'score': Confidence score (always 1.0, scaled by _scale_confidence_score)</span>
-<span></span><span class="sd">            Returns None if no bounding boxes are found for the image.</span>
+<span></span><span class="sd">        Returns None if no bounding boxes are found for the image.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">indices</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span> <span class="o">==</span> <span class="n">img_idx</span>
 <span></span>    <span class="n">bboxes</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">][</span><span class="n">indices</span><span class="p">]</span>
@@ -2118,30 +2347,107 @@ Returns None if no bounding boxes are found for the image.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Format YOLO predictions for object detection visualization.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>image_path</code>
+</td>
+<td>
+<code><span title="pathlib.Path">Path</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to the image file.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>metadata</code>
+</td>
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Prediction metadata containing bounding boxes and class information.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>class_label_map</code>
+</td>
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Mapping from class indices to class names.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>class_map</code>
+</td>
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Additional class mapping for label conversion.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="dict">dict</span> | None</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Formatted prediction annotations or None if no predictions exist.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>212</span>
-<span>213</span>
-<span>214</span>
-<span>215</span>
-<span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>233</span>
 <span>234</span>
 <span>235</span>
 <span>236</span>
@@ -2159,8 +2465,51 @@ Returns None if no bounding boxes are found for the image.</p>
 <span>248</span>
 <span>249</span>
 <span>250</span>
-<span>251</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_format_prediction_annotations</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">class_label_map</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_map</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Format YOLO predictions for object detection visualization."""</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_format_prediction_annotations</span><span class="p">(</span><span class="n">image_path</span><span class="p">,</span> <span class="n">metadata</span><span class="p">,</span> <span class="n">class_label_map</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">class_map</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">dict</span><span class="p">]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Format YOLO predictions for object detection visualization.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        image_path (Path): Path to the image file.</span>
+<span></span><span class="sd">        metadata (dict): Prediction metadata containing bounding boxes and class information.</span>
+<span></span><span class="sd">        class_label_map (dict, optional): Mapping from class indices to class names.</span>
+<span></span><span class="sd">        class_map (dict, optional): Additional class mapping for label conversion.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (dict | None): Formatted prediction annotations or None if no predictions exist.</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">stem</span> <span class="o">=</span> <span class="n">image_path</span><span class="o">.</span><span class="n">stem</span>
 <span></span>    <span class="n">image_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">stem</span><span class="p">)</span> <span class="k">if</span> <span class="n">stem</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="k">else</span> <span class="n">stem</span>
 <span></span>
@@ -2212,7 +2561,7 @@ Returns None if no bounding boxes are found for the image.</p>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Extracts segmentation annotation from compressed segmentations as list of polygons.</p>
+<p>Extract segmentation annotation from compressed segmentations as list of polygons.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2269,7 +2618,7 @@ Returns None if no bounding boxes are found for the image.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="typing.Any">Any</span>]]]</code>
+<code><span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="typing.Any">Any</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2281,34 +2630,34 @@ Returns None if no bounding boxes are found for the image.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>254</span>
-<span>255</span>
-<span>256</span>
-<span>257</span>
-<span>258</span>
-<span>259</span>
-<span>260</span>
-<span>261</span>
-<span>262</span>
-<span>263</span>
-<span>264</span>
-<span>265</span>
-<span>266</span>
-<span>267</span>
-<span>268</span>
-<span>269</span>
-<span>270</span>
-<span>271</span>
-<span>272</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_extract_segmentation_annotation</span><span class="p">(</span><span class="n">segmentation_raw</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">decode</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_extract_segmentation_annotation</span><span class="p">(</span><span class="n">segmentation_raw</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">decode</span><span class="p">:</span> <span class="n">Callable</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Extracts segmentation annotation from compressed segmentations as list of polygons.</span>
+<span></span><span class="sd">    Extract segmentation annotation from compressed segmentations as list of polygons.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        segmentation_raw: Raw segmentation data in compressed format.</span>
-<span></span><span class="sd">        decode: Function to decode the compressed segmentation data.</span>
+<span></span><span class="sd">        segmentation_raw (str): Raw segmentation data in compressed format.</span>
+<span></span><span class="sd">        decode (Callable): Function to decode the compressed segmentation data.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Optional[List[List[Any]]]): List of polygon points or None if extraction fails.</span>
+<span></span><span class="sd">        (List[List[Any]] | None): List of polygon points or None if extraction fails.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="n">mask</span> <span class="o">=</span> <span class="n">decode</span><span class="p">(</span><span class="n">segmentation_raw</span><span class="p">)</span>
@@ -2337,26 +2686,182 @@ Returns None if no bounding boxes are found for the image.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Join the ground truth and prediction annotations if they exist.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>img_idx</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Index of the image in the batch.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>image_path</code>
+</td>
+<td>
+<code><span title="pathlib.Path">Path</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to the image file.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>batch</code>
+</td>
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Batch data containing ground truth annotations.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>prediction_metadata_map</code>
+</td>
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Map of prediction metadata by image ID.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>class_label_map</code>
+</td>
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Mapping from class indices to class names.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>class_map</code>
+</td>
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Additional class mapping for label conversion.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.List">List</span> | None</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of annotation dictionaries or None if no annotations exist.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>275</span>
-<span>276</span>
-<span>277</span>
-<span>278</span>
-<span>279</span>
-<span>280</span>
-<span>281</span>
-<span>282</span>
-<span>283</span>
-<span>284</span>
-<span>285</span>
-<span>286</span>
-<span>287</span>
-<span>288</span>
-<span>289</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_fetch_annotations</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span>
+<span>334</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_fetch_annotations</span><span class="p">(</span>
 <span></span>    <span class="n">img_idx</span><span class="p">,</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">prediction_metadata_map</span><span class="p">,</span> <span class="n">class_label_map</span><span class="p">,</span> <span class="n">class_map</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Join the ground truth and prediction annotations if they exist."""</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Join the ground truth and prediction annotations if they exist.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        img_idx (int): Index of the image in the batch.</span>
+<span></span><span class="sd">        image_path (Path): Path to the image file.</span>
+<span></span><span class="sd">        batch (dict): Batch data containing ground truth annotations.</span>
+<span></span><span class="sd">        prediction_metadata_map (dict): Map of prediction metadata by image ID.</span>
+<span></span><span class="sd">        class_label_map (dict): Mapping from class indices to class names.</span>
+<span></span><span class="sd">        class_map (dict): Additional class mapping for label conversion.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (List | None): List of annotation dictionaries or None if no annotations exist.</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">ground_truth_annotations</span> <span class="o">=</span> <span class="n">_format_ground_truth_annotations_for_detection</span><span class="p">(</span>
 <span></span>        <span class="n">img_idx</span><span class="p">,</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">class_label_map</span>
 <span></span>    <span class="p">)</span>
@@ -2379,18 +2884,18 @@ Returns None if no bounding boxes are found for the image.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_create_prediction_metadata_map</span><span class="p">(</span><span class="n">model_predictions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Create metadata map for model predictions by groupings them based on image ID.</p>
+<p>Create metadata map for model predictions by grouping them based on image ID.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>292</span>
-<span>293</span>
-<span>294</span>
-<span>295</span>
-<span>296</span>
-<span>297</span>
-<span>298</span>
-<span>299</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_create_prediction_metadata_map</span><span class="p">(</span><span class="n">model_predictions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Create metadata map for model predictions by groupings them based on image ID."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_create_prediction_metadata_map</span><span class="p">(</span><span class="n">model_predictions</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Create metadata map for model predictions by grouping them based on image ID."""</span>
 <span></span>    <span class="n">pred_metadata_map</span> <span class="o">=</span> <span class="p">{}</span>
 <span></span>    <span class="k">for</span> <span class="n">prediction</span> <span class="ow">in</span> <span class="n">model_predictions</span><span class="p">:</span>
 <span></span>        <span class="n">pred_metadata_map</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="n">prediction</span><span class="p">[</span><span class="s2">"image_id"</span><span class="p">],</span> <span class="p">[])</span>
@@ -2411,13 +2916,13 @@ Returns None if no bounding boxes are found for the image.</p>
 <p>Log the confusion matrix to Comet experiment.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>302</span>
-<span>303</span>
-<span>304</span>
-<span>305</span>
-<span>306</span>
-<span>307</span>
-<span>308</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_confusion_matrix</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">,</span> <span class="n">curr_epoch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_confusion_matrix</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">,</span> <span class="n">curr_epoch</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log the confusion matrix to Comet experiment."""</span>
 <span></span>    <span class="n">conf_mat</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">validator</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">matrix</span>
 <span></span>    <span class="n">names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">())</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"background"</span><span class="p">]</span>
@@ -2506,63 +3011,39 @@ such as bounding boxes or segmentation masks.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Nested list of annotation dictionaries for each image. Each annotation
-contains visualization data like bounding boxes, labels, and confidence scores.</p>
+<p>Nested list of annotation dictionaries for each image. Each
+annotation contains visualization data like bounding boxes, labels, and confidence scores.</p>
 </div>
 </td>
 <td>
 <code>None</code>
-</td>
-</tr>
-</tbody>
-</table>
-<p><span class="doc-section-title">Returns:</span></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>None</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>None</p>
-</div>
 </td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
-<span>312</span>
-<span>313</span>
-<span>314</span>
-<span>315</span>
-<span>316</span>
-<span>317</span>
-<span>318</span>
-<span>319</span>
-<span>320</span>
-<span>321</span>
-<span>322</span>
-<span>323</span>
-<span>324</span>
-<span>325</span>
-<span>326</span>
-<span>327</span>
-<span>328</span>
-<span>329</span>
-<span>330</span>
-<span>331</span>
-<span>332</span>
-<span>333</span>
-<span>334</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_images</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">image_paths</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_images</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">image_paths</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">,</span> <span class="n">annotations</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log images to the experiment with optional annotations.</span>
 <span></span>
@@ -2573,11 +3054,8 @@ contains visualization data like bounding boxes, labels, and confidence scores.<
 <span></span><span class="sd">        experiment (comet_ml.Experiment): The Comet ML experiment to log images to.</span>
 <span></span><span class="sd">        image_paths (List[Path]): List of paths to images that will be logged.</span>
 <span></span><span class="sd">        curr_step (int): Current training step/iteration for tracking in the experiment timeline.</span>
-<span></span><span class="sd">        annotations (List[List[dict]], optional): Nested list of annotation dictionaries for each image. Each annotation</span>
-<span></span><span class="sd">            contains visualization data like bounding boxes, labels, and confidence scores.</span>
-<span></span>
-<span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        None</span>
+<span></span><span class="sd">        annotations (List[List[dict]], optional): Nested list of annotation dictionaries for each image. Each</span>
+<span></span><span class="sd">            annotation contains visualization data like bounding boxes, labels, and confidence scores.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">annotations</span><span class="p">:</span>
 <span></span>        <span class="k">for</span> <span class="n">image_path</span><span class="p">,</span> <span class="n">annotation</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">image_paths</span><span class="p">,</span> <span class="n">annotations</span><span class="p">):</span>
@@ -2670,49 +3148,7 @@ The number of logged images is limited by the COMET_MAX_IMAGE_PREDICTIONS enviro
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>337</span>
-<span>338</span>
-<span>339</span>
-<span>340</span>
-<span>341</span>
-<span>342</span>
-<span>343</span>
-<span>344</span>
-<span>345</span>
-<span>346</span>
-<span>347</span>
-<span>348</span>
-<span>349</span>
-<span>350</span>
-<span>351</span>
-<span>352</span>
-<span>353</span>
-<span>354</span>
-<span>355</span>
-<span>356</span>
-<span>357</span>
-<span>358</span>
-<span>359</span>
-<span>360</span>
-<span>361</span>
-<span>362</span>
-<span>363</span>
-<span>364</span>
-<span>365</span>
-<span>366</span>
-<span>367</span>
-<span>368</span>
-<span>369</span>
-<span>370</span>
-<span>371</span>
-<span>372</span>
-<span>373</span>
-<span>374</span>
-<span>375</span>
-<span>376</span>
-<span>377</span>
-<span>378</span>
-<span>379</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>379</span>
 <span>380</span>
 <span>381</span>
 <span>382</span>
@@ -2730,7 +3166,49 @@ The number of logged images is limited by the COMET_MAX_IMAGE_PREDICTIONS enviro
 <span>394</span>
 <span>395</span>
 <span>396</span>
-<span>397</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_image_predictions</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">validator</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_image_predictions</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">validator</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log predicted boxes for a single image during training.</span>
 <span></span>
@@ -2858,48 +3336,48 @@ directory information.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>400</span>
-<span>401</span>
-<span>402</span>
-<span>403</span>
-<span>404</span>
-<span>405</span>
-<span>406</span>
-<span>407</span>
-<span>408</span>
-<span>409</span>
-<span>410</span>
-<span>411</span>
-<span>412</span>
-<span>413</span>
-<span>414</span>
-<span>415</span>
-<span>416</span>
-<span>417</span>
-<span>418</span>
-<span>419</span>
-<span>420</span>
-<span>421</span>
-<span>422</span>
-<span>423</span>
-<span>424</span>
-<span>425</span>
-<span>426</span>
-<span>427</span>
-<span>428</span>
-<span>429</span>
-<span>430</span>
-<span>431</span>
-<span>432</span>
-<span>433</span>
-<span>434</span>
-<span>435</span>
-<span>436</span>
-<span>437</span>
-<span>438</span>
-<span>439</span>
-<span>440</span>
-<span>441</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plots</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span>
+<span>460</span>
+<span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span>
+<span>475</span>
+<span>476</span>
+<span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plots</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log evaluation plots and label plots for the experiment.</span>
 <span></span>
@@ -2955,10 +3433,10 @@ directory information.</p>
 <p>Log the best-trained model to Comet.ml.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
-<span>445</span>
-<span>446</span>
-<span>447</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_model</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_model</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log the best-trained model to Comet.ml."""</span>
 <span></span>    <span class="n">model_name</span> <span class="o">=</span> <span class="n">_get_comet_model_name</span><span class="p">()</span>
 <span></span>    <span class="n">experiment</span><span class="o">.</span><span class="n">log_model</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">file_or_folder</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">best</span><span class="p">),</span> <span class="n">file_name</span><span class="o">=</span><span class="s2">"best.pt"</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2973,14 +3451,14 @@ directory information.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_log_image_batches</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Log samples of images batches for train, validation, and test.</p>
+<p>Log samples of image batches for train, validation, and test.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>450</span>
-<span>451</span>
-<span>452</span>
-<span>453</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_image_batches</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Log samples of images batches for train, validation, and test."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_image_batches</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="p">,</span> <span class="n">curr_step</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log samples of image batches for train, validation, and test."""</span>
 <span></span>    <span class="n">_log_images</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"train_batch*.jpg"</span><span class="p">),</span> <span class="n">curr_step</span><span class="p">)</span>
 <span></span>    <span class="n">_log_images</span><span class="p">(</span><span class="n">experiment</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"val_batch*.jpg"</span><span class="p">),</span> <span class="n">curr_step</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2994,13 +3472,13 @@ directory information.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Creates or resumes a CometML experiment at the start of a YOLO pre-training routine.</p>
+<p>Create or resume a CometML experiment at the start of a YOLO pre-training routine.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>456</span>
-<span>457</span>
-<span>458</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Creates or resumes a CometML experiment at the start of a YOLO pre-training routine."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>498</span>
+<span>499</span>
+<span>500</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Create or resume a CometML experiment at the start of a YOLO pre-training routine."""</span>
 <span></span>    <span class="n">_resume_or_create_experiment</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -3016,17 +3494,17 @@ directory information.</p>
 <p>Log metrics and save batch images at the end of training epochs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>461</span>
-<span>462</span>
-<span>463</span>
-<span>464</span>
-<span>465</span>
-<span>466</span>
-<span>467</span>
-<span>468</span>
-<span>469</span>
-<span>470</span>
-<span>471</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>503</span>
+<span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span>
+<span>510</span>
+<span>511</span>
+<span>512</span>
+<span>513</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log metrics and save batch images at the end of training epochs."""</span>
 <span></span>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>
@@ -3090,49 +3568,49 @@ and image predictions (if enabled).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>474</span>
-<span>475</span>
-<span>476</span>
-<span>477</span>
-<span>478</span>
-<span>479</span>
-<span>480</span>
-<span>481</span>
-<span>482</span>
-<span>483</span>
-<span>484</span>
-<span>485</span>
-<span>486</span>
-<span>487</span>
-<span>488</span>
-<span>489</span>
-<span>490</span>
-<span>491</span>
-<span>492</span>
-<span>493</span>
-<span>494</span>
-<span>495</span>
-<span>496</span>
-<span>497</span>
-<span>498</span>
-<span>499</span>
-<span>500</span>
-<span>501</span>
-<span>502</span>
-<span>503</span>
-<span>504</span>
-<span>505</span>
-<span>506</span>
-<span>507</span>
-<span>508</span>
-<span>509</span>
-<span>510</span>
-<span>511</span>
-<span>512</span>
-<span>513</span>
-<span>514</span>
-<span>515</span>
-<span>516</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>516</span>
+<span>517</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span>
+<span>533</span>
+<span>534</span>
+<span>535</span>
+<span>536</span>
+<span>537</span>
+<span>538</span>
+<span>539</span>
+<span>540</span>
+<span>541</span>
+<span>542</span>
+<span>543</span>
+<span>544</span>
+<span>545</span>
+<span>546</span>
+<span>547</span>
+<span>548</span>
+<span>549</span>
+<span>550</span>
+<span>551</span>
+<span>552</span>
+<span>553</span>
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span>
+<span>558</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log model assets at the end of each epoch during training.</span>
 <span></span>
@@ -3189,28 +3667,28 @@ and image predictions (if enabled).</p>
 <p>Perform operations at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/comet.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>519</span>
-<span>520</span>
-<span>521</span>
-<span>522</span>
-<span>523</span>
-<span>524</span>
-<span>525</span>
-<span>526</span>
-<span>527</span>
-<span>528</span>
-<span>529</span>
-<span>530</span>
-<span>531</span>
-<span>532</span>
-<span>533</span>
-<span>534</span>
-<span>535</span>
-<span>536</span>
-<span>537</span>
-<span>538</span>
-<span>539</span>
-<span>540</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>561</span>
+<span>562</span>
+<span>563</span>
+<span>564</span>
+<span>565</span>
+<span>566</span>
+<span>567</span>
+<span>568</span>
+<span>569</span>
+<span>570</span>
+<span>571</span>
+<span>572</span>
+<span>573</span>
+<span>574</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span>
+<span>581</span>
+<span>582</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform operations at the end of training."""</span>
 <span></span>    <span class="n">experiment</span> <span class="o">=</span> <span class="n">comet_ml</span><span class="o">.</span><span class="n">get_running_experiment</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">experiment</span><span class="p">:</span>

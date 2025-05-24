@@ -1508,12 +1508,74 @@
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOETrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.train.YOLOETrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOETrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOETrainer</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionTrainer&lt;/code&gt;)'>DetectionTrainer</a></code></p>
-<p>A base trainer for YOLOE training.</p>
+<p>A trainer class for YOLOE object detection models.</p>
+<p>This class extends DetectionTrainer to provide specialized training functionality for YOLOE models,
+including custom model initialization, validation, and dataset building with multi-modal support.</p>
+<p><span class="doc-section-title">Attributes:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.yolo.yoloe.train.YOLOETrainer.loss_names">loss_names</span></code></td>
+<td>
+<code><span title="tuple">tuple</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Names of loss components used during training.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer.get_model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_model&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer.get_model&lt;/code&gt;)'>get_model</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Initialize and return a YOLOEModel with specified configuration.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer.get_validator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_validator&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer.get_validator&lt;/code&gt;)'>get_validator</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Return a YOLOEDetectValidator for model validation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer.build_dataset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;build_dataset&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer.build_dataset&lt;/code&gt;)'>build_dataset</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Build YOLO dataset with multi-modal support for training.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p>This method sets up the YOLOE trainer with the provided configuration and overrides, initializing
 the training environment, model, and callbacks for YOLOE object detection training.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1579,22 +1641,22 @@ the training environment, model, and callbacks for YOLOE object detection traini
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>22</span>
-<span>23</span>
-<span>24</span>
-<span>25</span>
-<span>26</span>
-<span>27</span>
-<span>28</span>
-<span>29</span>
-<span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -1617,7 +1679,7 @@ the training environment, model, and callbacks for YOLOE object detection traini
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOETrainer.build_dataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_dataset</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Build YOLO Dataset.</p>
@@ -1657,7 +1719,7 @@ the training environment, model, and callbacks for YOLOE object detection traini
 </td>
 <td>
 <div class="doc-md-description">
-<p><code>train</code> mode or <code>val</code> mode, users are able to customize different augmentations for each mode.</p>
+<p>'train' mode or 'val' mode, users are able to customize different augmentations for each mode.</p>
 </div>
 </td>
 <td>
@@ -1673,7 +1735,7 @@ the training environment, model, and callbacks for YOLOE object detection traini
 </td>
 <td>
 <div class="doc-md-description">
-<p>Size of batches, this is for <code>rect</code>.</p>
+<p>Size of batches, this is for rectangular training.</p>
 </div>
 </td>
 <td>
@@ -1705,29 +1767,29 @@ the training environment, model, and callbacks for YOLOE object detection traini
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>77</span>
-<span>78</span>
-<span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span>
-<span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span>
-<span>88</span>
-<span>89</span>
-<span>90</span>
-<span>91</span>
-<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        img_path (str): Path to the folder containing images.</span>
-<span></span><span class="sd">        mode (str): `train` mode or `val` mode, users are able to customize different augmentations for each mode.</span>
-<span></span><span class="sd">        batch (int, optional): Size of batches, this is for `rect`.</span>
+<span></span><span class="sd">        mode (str): 'train' mode or 'val' mode, users are able to customize different augmentations for each mode.</span>
+<span></span><span class="sd">        batch (int, optional): Size of batches, this is for rectangular training.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Dataset): YOLO dataset configured for training or validation.</span>
@@ -1744,7 +1806,7 @@ the training environment, model, and callbacks for YOLOE object detection traini
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOETrainer.get_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a YOLOEModel initialized with the specified configuration and weights.</p>
@@ -1764,7 +1826,7 @@ the training environment, model, and callbacks for YOLOE object detection traini
 <code>cfg</code>
 </td>
 <td>
-<code><span title="dict">dict</span> | <span title="str">str</span> | None</code>
+<code><span title="dict">dict</span> | <span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1781,7 +1843,7 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <code>weights</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="Path">Path</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1841,22 +1903,7 @@ a direct path to a YAML file, or None to use default configuration.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>39</span>
-<span>40</span>
-<span>41</span>
-<span>42</span>
-<span>43</span>
-<span>44</span>
-<span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span>
-<span>54</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>54</span>
 <span>55</span>
 <span>56</span>
 <span>57</span>
@@ -1870,14 +1917,29 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <span>65</span>
 <span>66</span>
 <span>67</span>
-<span>68</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a YOLOEModel initialized with the specified configuration and weights.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict | str | None): Model configuration. Can be a dictionary containing a 'yaml_file' key,</span>
+<span></span><span class="sd">        cfg (dict | str, optional): Model configuration. Can be a dictionary containing a 'yaml_file' key,</span>
 <span></span><span class="sd">            a direct path to a YAML file, or None to use default configuration.</span>
-<span></span><span class="sd">        weights (str | Path | None): Path to pretrained weights file to load into the model.</span>
+<span></span><span class="sd">        weights (str | Path, optional): Path to pretrained weights file to load into the model.</span>
 <span></span><span class="sd">        verbose (bool): Whether to display model information during initialization.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -1911,16 +1973,16 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_validator</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a DetectionValidator for YOLO model validation.</p>
+<p>Return a YOLOEDetectValidator for YOLOE model validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>70</span>
-<span>71</span>
-<span>72</span>
-<span>73</span>
-<span>74</span>
-<span>75</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Returns a DetectionValidator for YOLO model validation."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Return a YOLOEDetectValidator for YOLOE model validation."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box"</span><span class="p">,</span> <span class="s2">"cls"</span><span class="p">,</span> <span class="s2">"dfl"</span>
 <span></span>    <span class="k">return</span> <span class="n">YOLOEDetectValidator</span><span class="p">(</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">),</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span>
@@ -1941,26 +2003,31 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../detect/train/#ultralytics.models.yolo.detect.train.DetectionTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.detect.train.DetectionTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.detect.DetectionTrainer&lt;/code&gt;)'>DetectionTrainer</a></code></p>
-<p>Fine-tune YOLOE model in linear probing way.</p>
+<p>Fine-tune YOLOE model using linear probing approach.</p>
+<p>This trainer freezes most model layers and only trains specific projection layers for efficient
+fine-tuning on new datasets while preserving pretrained features.</p>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPETrainer.get_model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_model&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOEPETrainer.get_model&lt;/code&gt;)'>get_model</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Initialize YOLOEModel with frozen layers except projection layers.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
-<span> 95</span>
-<span> 96</span>
-<span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span>
-<span>108</span>
-<span>109</span>
-<span>110</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>110</span>
 <span>111</span>
 <span>112</span>
 <span>113</span>
@@ -2010,19 +2077,35 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <span>157</span>
 <span>158</span>
 <span>159</span>
-<span>160</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the BaseTrainer class.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (str, optional): Path to a configuration file. Defaults to DEFAULT_CFG.</span>
-<span></span><span class="sd">        overrides (dict, optional): Configuration overrides. Defaults to None.</span>
-<span></span><span class="sd">        _callbacks (list, optional): List of callback functions. Defaults to None.</span>
+<span></span><span class="sd">        cfg (str, optional): Path to a configuration file.</span>
+<span></span><span class="sd">        overrides (dict, optional): Configuration overrides.</span>
+<span></span><span class="sd">        _callbacks (list, optional): List of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">check_resume</span><span class="p">(</span><span class="n">overrides</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">select_device</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">batch</span><span class="p">)</span>
-<span></span>    <span class="c1"># update "-1" devices so post-training val does not repeat search</span>
+<span></span>    <span class="c1"># Update "-1" devices so post-training val does not repeat search</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">getenv</span><span class="p">(</span><span class="s2">"CUDA_VISIBLE_DEVICES"</span><span class="p">)</span> <span class="k">if</span> <span class="s2">"cuda"</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">validator</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="kc">None</span>
@@ -2084,7 +2167,7 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOEPETrainer.get_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_model</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return YOLOEModel initialized with specified config and weights.</p>
@@ -2172,30 +2255,7 @@ a direct path to a YAML file, or None to use default configuration.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
-<span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span>
-<span>108</span>
-<span>109</span>
-<span>110</span>
-<span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span>
-<span>115</span>
-<span>116</span>
-<span>117</span>
-<span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>121</span>
 <span>122</span>
 <span>123</span>
 <span>124</span>
@@ -2212,7 +2272,30 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <span>135</span>
 <span>136</span>
 <span>137</span>
-<span>138</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return YOLOEModel initialized with specified config and weights.</span>
 <span></span>
@@ -2264,30 +2347,69 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOETrainerFromScratch</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOETrainerFromScratch</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer&lt;/span&gt;'>YOLOETrainer</a></code>, <code><a class="autorefs autorefs-internal" href="../../world/train_world/#ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.world.train_world.WorldTrainerFromScratch&lt;/span&gt;'>WorldTrainerFromScratch</a></code></p>
-<p>Train YOLOE models from scratch.</p>
+<p>Train YOLOE models from scratch with text embedding support.</p>
+<p>This trainer combines YOLOE training capabilities with world training features, enabling
+training from scratch with text embeddings and grounding datasets.</p>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch.build_dataset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;build_dataset&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch.build_dataset&lt;/code&gt;)'>build_dataset</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Build datasets for training with grounding support.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch.preprocess_batch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;preprocess_batch&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch.preprocess_batch&lt;/code&gt;)'>preprocess_batch</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Process batches with text features.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch.generate_text_embeddings" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;generate_text_embeddings&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch.generate_text_embeddings&lt;/code&gt;)'>generate_text_embeddings</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Generate and cache text embeddings for training.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>22</span>
-<span>23</span>
-<span>24</span>
-<span>25</span>
-<span>26</span>
-<span>27</span>
-<span>28</span>
-<span>29</span>
-<span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -2310,7 +2432,11 @@ a direct path to a YAML file, or None to use default configuration.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch.build_dataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_dataset</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span>
+<span></span>    <span class="n">img_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span>
+<span></span>    <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Build YOLO Dataset for training or validation.</p>
@@ -2332,7 +2458,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <code>img_path</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>] | <span title="str">str</span></code>
+<code><span title="typing.List">List</span>[<span title="str">str</span>] | <span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2400,22 +2526,22 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>144</span>
-<span>145</span>
-<span>146</span>
-<span>147</span>
-<span>148</span>
-<span>149</span>
-<span>150</span>
-<span>151</span>
-<span>152</span>
-<span>153</span>
-<span>154</span>
-<span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span>
-<span>159</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset for training or validation.</span>
 <span></span>
@@ -2439,7 +2565,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch.generate_text_embeddings">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">generate_text_embeddings</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">generate_text_embeddings</span><span class="p">(</span><span class="n">texts</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">generate_text_embeddings</span><span class="p">(</span><span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Generate text embeddings for a list of text samples.</p>
@@ -2459,7 +2585,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <code>texts</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="typing.List">List</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2491,7 +2617,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <code>cache_dir</code>
 </td>
 <td>
-<code><span title="Path">Path</span></code>
+<code><span title="pathlib.Path">Path</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2527,31 +2653,31 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>171</span>
-<span>172</span>
-<span>173</span>
-<span>174</span>
-<span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span>
-<span>179</span>
-<span>180</span>
-<span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
-<span>187</span>
-<span>188</span>
-<span>189</span>
-<span>190</span>
-<span>191</span>
-<span>192</span>
-<span>193</span>
-<span>194</span>
-<span>195</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">texts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cache_dir</span><span class="p">:</span> <span class="n">Path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate text embeddings for a list of text samples.</span>
 <span></span>
@@ -2590,15 +2716,15 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <p>Process batch for training, moving text features to the appropriate device.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span>
-<span>169</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process batch for training, moving text features to the appropriate device."""</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
 <span></span>
@@ -2618,30 +2744,69 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOEPEFreeTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOEPEFreeTrainer</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOEPETrainer&lt;/span&gt;'>YOLOEPETrainer</a></code>, <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch&lt;/span&gt;'>YOLOETrainerFromScratch</a></code></p>
 <p>Train prompt-free YOLOE model.</p>
+<p>This trainer combines linear probing capabilities with from-scratch training for prompt-free
+YOLOE models that don't require text prompts during inference.</p>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer.get_validator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_validator&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer.get_validator&lt;/code&gt;)'>get_validator</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Return standard DetectionValidator for validation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer.preprocess_batch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;preprocess_batch&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer.preprocess_batch&lt;/code&gt;)'>preprocess_batch</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Preprocess batches without text features.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer.set_text_embeddings" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;set_text_embeddings&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer.set_text_embeddings&lt;/code&gt;)'>set_text_embeddings</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Set text embeddings for datasets (no-op for prompt-free).</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>22</span>
-<span>23</span>
-<span>24</span>
-<span>25</span>
-<span>26</span>
-<span>27</span>
-<span>28</span>
-<span>29</span>
-<span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -2667,16 +2832,16 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_validator</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a DetectionValidator for YOLO model validation.</p>
+<p>Return a DetectionValidator for YOLO model validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>201</span>
-<span>202</span>
-<span>203</span>
-<span>204</span>
-<span>205</span>
-<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Returns a DetectionValidator for YOLO model validation."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_validator</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Return a DetectionValidator for YOLO model validation."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">loss_names</span> <span class="o">=</span> <span class="s2">"box"</span><span class="p">,</span> <span class="s2">"cls"</span><span class="p">,</span> <span class="s2">"dfl"</span>
 <span></span>    <span class="k">return</span> <span class="n">DetectionValidator</span><span class="p">(</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">test_loader</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">copy</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">),</span> <span class="n">_callbacks</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span>
@@ -2692,14 +2857,14 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Preprocesses a batch of images for YOLOE training, adjusting formatting and dimensions as needed.</p>
+<p>Preprocess a batch of images for YOLOE training, adjusting formatting and dimensions as needed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>208</span>
-<span>209</span>
-<span>210</span>
-<span>211</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Preprocesses a batch of images for YOLOE training, adjusting formatting and dimensions as needed."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Preprocess a batch of images for YOLOE training, adjusting formatting and dimensions as needed."""</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="n">DetectionTrainer</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="n">batch</span>
 </code></pre></div></td></tr></table></div>
@@ -2710,7 +2875,7 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOEPEFreeTrainer.set_text_embeddings">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">set_text_embeddings</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Set text embeddings for datasets to accelerate training by caching category names.</p>
@@ -2733,7 +2898,7 @@ in the parent directory of the first dataset's image path.</p>
 <code>datasets</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Dataset">Dataset</span>]</code>
+<code><span title="typing.List">List</span>[<span title="Dataset">Dataset</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2770,24 +2935,24 @@ instead of regenerating the embeddings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>213</span>
-<span>214</span>
-<span>215</span>
-<span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
-<span>230</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_text_embeddings</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set text embeddings for datasets to accelerate training by caching category names.</span>
 <span></span>
@@ -2816,30 +2981,61 @@ instead of regenerating the embeddings.</p>
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOEVPTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOEVPTrainer</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch&lt;/span&gt;'>YOLOETrainerFromScratch</a></code></p>
 <p>Train YOLOE model with visual prompts.</p>
+<p>This trainer extends YOLOETrainerFromScratch to support visual prompt-based training,
+where visual cues are provided alongside images to guide the detection process.</p>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer.build_dataset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;build_dataset&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer.build_dataset&lt;/code&gt;)'>build_dataset</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Build dataset with visual prompt loading transforms.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer.preprocess_batch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;preprocess_batch&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer.preprocess_batch&lt;/code&gt;)'>preprocess_batch</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Preprocess batches with visual prompts.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>22</span>
-<span>23</span>
-<span>24</span>
-<span>25</span>
-<span>26</span>
-<span>27</span>
-<span>28</span>
-<span>29</span>
-<span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -2862,7 +3058,11 @@ instead of regenerating the embeddings.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer.build_dataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_dataset</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span><span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">'train'</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_dataset</span><span class="p">(</span>
+<span></span>    <span class="n">img_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span>
+<span></span>    <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Build YOLO Dataset for training or validation with visual prompts.</p>
@@ -2882,7 +3082,7 @@ instead of regenerating the embeddings.</p>
 <code>img_path</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>] | <span title="str">str</span></code>
+<code><span title="typing.List">List</span>[<span title="str">str</span>] | <span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2950,25 +3150,25 @@ instead of regenerating the embeddings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span>
-<span>241</span>
-<span>242</span>
-<span>243</span>
-<span>244</span>
-<span>245</span>
-<span>246</span>
-<span>247</span>
-<span>248</span>
-<span>249</span>
-<span>250</span>
-<span>251</span>
-<span>252</span>
-<span>253</span>
-<span>254</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="nb">str</span><span class="p">],</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset for training or validation with visual prompts.</span>
 <span></span>
@@ -2998,15 +3198,15 @@ instead of regenerating the embeddings.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Preprocesses a batch of images for YOLOE training, moving visual prompts to the appropriate device.</p>
+<p>Preprocess a batch of images for YOLOE training, moving visual prompts to the appropriate device.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>265</span>
-<span>266</span>
-<span>267</span>
-<span>268</span>
-<span>269</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Preprocesses a batch of images for YOLOE training, moving visual prompts to the appropriate device."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Preprocess a batch of images for YOLOE training, moving visual prompts to the appropriate device."""</span>
 <span></span>    <span class="n">batch</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">preprocess_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
 <span></span>    <span class="n">batch</span><span class="p">[</span><span class="s2">"visuals"</span><span class="p">]</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"visuals"</span><span class="p">]</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="n">batch</span>

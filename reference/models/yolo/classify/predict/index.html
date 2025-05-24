@@ -1391,7 +1391,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 </td>
 <td>
 <div class="doc-md-description">
-<p>Default configuration dictionary containing prediction settings. Defaults to DEFAULT_CFG.</p>
+<p>Default configuration dictionary containing prediction settings.</p>
 </div>
 </td>
 <td>
@@ -1456,7 +1456,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span></span><span class="sd">    tasks. It ensures the task is set to 'classify' regardless of input configuration.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict): Default configuration dictionary containing prediction settings. Defaults to DEFAULT_CFG.</span>
+<span></span><span class="sd">        cfg (dict): Default configuration dictionary containing prediction settings.</span>
 <span></span><span class="sd">        overrides (dict, optional): Configuration overrides that take precedence over cfg.</span>
 <span></span><span class="sd">        _callbacks (list, optional): List of callback functions to be executed during prediction.</span>
 <span></span><span class="sd">    """</span>
@@ -1589,7 +1589,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (List[Results]): List of Results objects containing classification results for each image.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># input images are a torch.Tensor, not a list</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># Input images are a torch.Tensor, not a list</span>
 <span></span>        <span class="n">orig_imgs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">orig_imgs</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="n">preds</span>
@@ -1630,14 +1630,14 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span></span>        <span class="n">is_legacy_transform</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
 <span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">_legacy_transform_name</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> <span class="k">for</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">transforms</span>
 <span></span>        <span class="p">)</span>
-<span></span>        <span class="k">if</span> <span class="n">is_legacy_transform</span><span class="p">:</span>  <span class="c1"># to handle legacy transforms</span>
+<span></span>        <span class="k">if</span> <span class="n">is_legacy_transform</span><span class="p">:</span>  <span class="c1"># Handle legacy transforms</span>
 <span></span>            <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 <span></span>        <span class="k">else</span><span class="p">:</span>
 <span></span>            <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
 <span></span>                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)))</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span>
 <span></span>            <span class="p">)</span>
 <span></span>    <span class="n">img</span> <span class="o">=</span> <span class="p">(</span><span class="n">img</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<span></span>    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">img</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
+<span></span>    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">img</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># Convert uint8 to fp16/32</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1649,7 +1649,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">setup_source</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Sets up source and inference mode and classify transforms.</p>
+<p>Set up source and inference mode and classify transforms.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
@@ -1661,7 +1661,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span>61</span>
 <span>62</span>
 <span>63</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Sets up source and inference mode and classify transforms."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Set up source and inference mode and classify transforms."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_source</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 <span></span>    <span class="n">updated</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">transforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">)</span>

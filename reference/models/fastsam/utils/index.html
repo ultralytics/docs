@@ -1196,7 +1196,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>Bounding boxes with shape (n, 4) in xyxy format.</p>
+<p>Bounding boxes with shape (N, 4) in xyxy format.</p>
 </div>
 </td>
 <td>
@@ -1208,7 +1208,7 @@
 <code>image_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="tuple">tuple</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1241,18 +1241,18 @@
 <table>
 <thead>
 <tr>
-<th>Name</th> <th>Type</th>
+<th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code>boxes</code></td> <td>
+<td>
 <code><span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Adjusted bounding boxes with shape (n, 4).</p>
+<p>Adjusted bounding boxes with shape (N, 4).</p>
 </div>
 </td>
 </tr>
@@ -1285,12 +1285,12 @@
 <span></span><span class="sd">    Adjust bounding boxes to stick to image border if they are within a certain threshold.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        boxes (torch.Tensor): Bounding boxes with shape (n, 4) in xyxy format.</span>
-<span></span><span class="sd">        image_shape (Tuple[int, int]): Image dimensions as (height, width).</span>
+<span></span><span class="sd">        boxes (torch.Tensor): Bounding boxes with shape (N, 4) in xyxy format.</span>
+<span></span><span class="sd">        image_shape (tuple): Image dimensions as (height, width).</span>
 <span></span><span class="sd">        threshold (int): Pixel threshold for considering a box close to the border.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">       boxes (torch.Tensor): Adjusted bounding boxes with shape (n, 4).</span>
+<span></span><span class="sd">        (torch.Tensor): Adjusted bounding boxes with shape (N, 4).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Image dimensions</span>
 <span></span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">image_shape</span>

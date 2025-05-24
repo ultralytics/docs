@@ -1314,7 +1314,7 @@ capabilities inherited from DetectionPredictor.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.pose.predict.PosePredictor.construct_result" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;construct_result&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.pose.predict.PosePredictor.construct_result&lt;/code&gt;)'>construct_result</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Constructs the result object from the prediction, including keypoints.</p>
+<p>Construct the result object from the prediction, including keypoints.</p>
 </div>
 </td>
 </tr>
@@ -1327,8 +1327,8 @@ capabilities inherited from DetectionPredictor.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">PosePredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
 </code></pre></div>
-<p>This initializer sets up a PosePredictor instance, configuring it for pose detection tasks and handling
-device-specific warnings for Apple MPS.</p>
+<p>Sets up a PosePredictor instance, configuring it for pose detection tasks and handling device-specific
+warnings for Apple MPS.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1349,7 +1349,7 @@ device-specific warnings for Apple MPS.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Configuration for the predictor. Default is DEFAULT_CFG.</p>
+<p>Configuration for the predictor.</p>
 </div>
 </td>
 <td>
@@ -1426,13 +1426,13 @@ device-specific warnings for Apple MPS.</p>
 <span>53</span>
 <span>54</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize PosePredictor, a specialized predictor for pose estimation tasks.</span>
+<span></span><span class="sd">    Initialize PosePredictor for pose estimation tasks.</span>
 <span></span>
-<span></span><span class="sd">    This initializer sets up a PosePredictor instance, configuring it for pose detection tasks and handling</span>
-<span></span><span class="sd">    device-specific warnings for Apple MPS.</span>
+<span></span><span class="sd">    Sets up a PosePredictor instance, configuring it for pose detection tasks and handling device-specific</span>
+<span></span><span class="sd">    warnings for Apple MPS.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (Any): Configuration for the predictor. Default is DEFAULT_CFG.</span>
+<span></span><span class="sd">        cfg (Any): Configuration for the predictor.</span>
 <span></span><span class="sd">        overrides (dict, optional): Configuration overrides that take precedence over cfg.</span>
 <span></span><span class="sd">        _callbacks (list, optional): List of callback functions to be invoked during prediction.</span>
 <span></span>
@@ -1461,8 +1461,8 @@ device-specific warnings for Apple MPS.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Construct the result object from the prediction, including keypoints.</p>
-<p>This method extends the parent class implementation by extracting keypoint data from predictions
-and adding them to the result object.</p>
+<p>Extends the parent class implementation by extracting keypoint data from predictions and adding them to the
+result object.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1556,7 +1556,8 @@ the number of detections, K is the number of keypoints, and D is the keypoint di
 </td>
 <td>
 <div class="doc-md-description">
-<p>The result object containing the original image, image path, class names, bounding boxes, and keypoints.</p>
+<p>The result object containing the original image, image path, class names, bounding boxes, and
+keypoints.</p>
 </div>
 </td>
 </tr>
@@ -1587,12 +1588,13 @@ the number of detections, K is the number of keypoints, and D is the keypoint di
 <span>76</span>
 <span>77</span>
 <span>78</span>
-<span>79</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construct_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
+<span>79</span>
+<span>80</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construct_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Construct the result object from the prediction, including keypoints.</span>
 <span></span>
-<span></span><span class="sd">    This method extends the parent class implementation by extracting keypoint data from predictions</span>
-<span></span><span class="sd">    and adding them to the result object.</span>
+<span></span><span class="sd">    Extends the parent class implementation by extracting keypoint data from predictions and adding them to the</span>
+<span></span><span class="sd">    result object.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        pred (torch.Tensor): The predicted bounding boxes, scores, and keypoints with shape (N, 6+K*D) where N is</span>
@@ -1602,7 +1604,8 @@ the number of detections, K is the number of keypoints, and D is the keypoint di
 <span></span><span class="sd">        img_path (str): The path to the original image file.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Results): The result object containing the original image, image path, class names, bounding boxes, and keypoints.</span>
+<span></span><span class="sd">        (Results): The result object containing the original image, image path, class names, bounding boxes, and</span>
+<span></span><span class="sd">            keypoints.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">result</span> <span class="o">=</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">construct_result</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">)</span>
 <span></span>    <span class="c1"># Extract keypoints from prediction and reshape according to model's keypoint shape</span>

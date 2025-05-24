@@ -1206,7 +1206,7 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
-<p>YOLO NAS model for object detection.</p>
+<p>YOLO-NAS model for object detection.</p>
 <p>This class provides an interface for the YOLO-NAS models and extends the <code>Model</code> class from Ultralytics engine.
 It is designed to facilitate the task of object detection using pre-trained or custom-trained YOLO-NAS models.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -1265,6 +1265,25 @@ It is designed to facilitate the task of object detection using pre-trained or c
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.nas.model.NAS.info" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;info&lt;/span&gt; (&lt;code&gt;ultralytics.models.nas.model.NAS.info&lt;/code&gt;)'>info</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Log model information and return model details.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">NAS</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">NAS</span><span class="p">(</span><span class="s2">"yolo_nas_s"</span><span class="p">)</span>
@@ -1276,10 +1295,10 @@ It is designed to facilitate the task of object detection using pre-trained or c
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/nas/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>46</span>
-<span>47</span>
-<span>48</span>
-<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"yolo_nas_s.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"yolo_nas_s.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the NAS model with the provided or default model."""</span>
 <span></span>    <span class="k">assert</span> <span class="n">Path</span><span class="p">(</span><span class="n">model</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">".yaml"</span><span class="p">,</span> <span class="s2">".yml"</span><span class="p">},</span> <span class="s2">"YOLO-NAS models only support pre-trained models."</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
@@ -1293,7 +1312,7 @@ It is designed to facilitate the task of object detection using pre-trained or c
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">task_map</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">task_map</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a dictionary mapping tasks to respective predictor and validator classes.</p>
@@ -1303,7 +1322,7 @@ It is designed to facilitate the task of object detection using pre-trained or c
 <h3 class="doc doc-heading" id="ultralytics.models.nas.model.NAS.info">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">info</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">info</span><span class="p">(</span><span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">info</span><span class="p">(</span><span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Log model information.</p>
@@ -1363,7 +1382,7 @@ It is designed to facilitate the task of object detection using pre-trained or c
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1375,18 +1394,18 @@ It is designed to facilitate the task of object detection using pre-trained or c
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/nas/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>86</span>
-<span>87</span>
-<span>88</span>
-<span>89</span>
-<span>90</span>
-<span>91</span>
-<span>92</span>
-<span>93</span>
-<span>94</span>
-<span>95</span>
-<span>96</span>
-<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 90</span>
+<span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">detailed</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log model information.</span>
 <span></span>
@@ -1395,7 +1414,7 @@ It is designed to facilitate the task of object detection using pre-trained or c
 <span></span><span class="sd">        verbose (bool): Controls verbosity.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (dict): Model information dictionary.</span>
+<span></span><span class="sd">        (Dict[str, Any]): Model information dictionary.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">return</span> <span class="n">model_info</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">detailed</span><span class="o">=</span><span class="n">detailed</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>

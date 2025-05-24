@@ -1553,7 +1553,7 @@
 <h2 class="doc doc-heading" id="ultralytics.data.dataset.YOLODataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.dataset.YOLODataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLODataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLODataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'detect'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1638,7 +1638,7 @@
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLODataset.get_labels" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_labels&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.YOLODataset.get_labels&lt;/code&gt;)'>get_labels</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns dictionary of labels for YOLO training.</p>
+<p>Return dictionary of labels for YOLO training.</p>
 </div>
 </td>
 </tr>
@@ -1646,7 +1646,7 @@
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLODataset.build_transforms" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;build_transforms&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.YOLODataset.build_transforms&lt;/code&gt;)'>build_transforms</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Builds and appends transforms to the list.</p>
+<p>Build and append transforms to the list.</p>
 </div>
 </td>
 </tr>
@@ -1654,7 +1654,7 @@
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLODataset.close_mosaic" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;close_mosaic&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.YOLODataset.close_mosaic&lt;/code&gt;)'>close_mosaic</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Sets mosaic, copy_paste and mixup options to 0.0 and builds transformations.</p>
+<p>Set mosaic, copy_paste and mixup options to 0.0 and build transformations.</p>
 </div>
 </td>
 </tr>
@@ -1662,7 +1662,7 @@
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLODataset.update_labels_info" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update_labels_info&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.YOLODataset.update_labels_info&lt;/code&gt;)'>update_labels_info</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Updates label format for different tasks.</p>
+<p>Update label format for different tasks.</p>
 </div>
 </td>
 </tr>
@@ -1673,7 +1673,7 @@
   &lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.YOLODataset.collate_fn&lt;/code&gt;)'>collate_fn</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Collates data samples into batches.</p>
+<p>Collate data samples into batches.</p>
 </div>
 </td>
 </tr>
@@ -1762,8 +1762,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>72</span>
-<span>73</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>73</span>
 <span>74</span>
 <span>75</span>
 <span>76</span>
@@ -1777,7 +1776,8 @@
 <span>84</span>
 <span>85</span>
 <span>86</span>
-<span>87</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>87</span>
+<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"detect"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLODataset.</span>
 <span></span>
@@ -1800,10 +1800,10 @@
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLODataset.build_transforms">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_transforms</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_transforms</span><span class="p">(</span><span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_transforms</span><span class="p">(</span><span class="n">hyp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Compose</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Builds and appends transforms to the list.</p>
+<p>Build and append transforms to the list.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1856,8 +1856,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
-<span>208</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>208</span>
 <span>209</span>
 <span>210</span>
 <span>211</span>
@@ -1886,9 +1885,10 @@
 <span>234</span>
 <span>235</span>
 <span>236</span>
-<span>237</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>237</span>
+<span>238</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Compose</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Builds and appends transforms to the list.</span>
+<span></span><span class="sd">    Build and append transforms to the list.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        hyp (dict, optional): Hyperparameters for transforms.</span>
@@ -1925,7 +1925,7 @@
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLODataset.cache_labels">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">cache_labels</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">cache_labels</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'./labels.cache'</span><span class="p">))</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">cache_labels</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'./labels.cache'</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Cache dataset labels, check images and read shapes.</p>
@@ -1981,8 +1981,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 89</span>
-<span> 90</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 90</span>
 <span> 91</span>
 <span> 92</span>
 <span> 93</span>
@@ -2047,7 +2046,8 @@
 <span>152</span>
 <span>153</span>
 <span>154</span>
-<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"./labels.cache"</span><span class="p">)):</span>
+<span>155</span>
+<span>156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"./labels.cache"</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Cache dataset labels, check images and read shapes.</span>
 <span></span>
@@ -2122,7 +2122,7 @@
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLODataset.close_mosaic">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">close_mosaic</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">close_mosaic</span><span class="p">(</span><span class="n">hyp</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">close_mosaic</span><span class="p">(</span><span class="n">hyp</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Disable mosaic, copy_paste, mixup and cutmix augmentations by setting their probabilities to 0.0.</p>
@@ -2157,8 +2157,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>239</span>
-<span>240</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>240</span>
 <span>241</span>
 <span>242</span>
 <span>243</span>
@@ -2168,7 +2167,8 @@
 <span>247</span>
 <span>248</span>
 <span>249</span>
-<span>250</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">):</span>
+<span>250</span>
+<span>251</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Disable mosaic, copy_paste, mixup and cutmix augmentations by setting their probabilities to 0.0.</span>
 <span></span>
@@ -2191,10 +2191,10 @@
 <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Collates data samples into batches.</p>
+<p>Collate data samples into batches.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2211,7 +2211,7 @@
 <code>batch</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="dict">dict</span>]</code>
+<code><span title="typing.List">List</span>[<span title="dict">dict</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2247,8 +2247,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>285</span>
-<span>286</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>286</span>
 <span>287</span>
 <span>288</span>
 <span>289</span>
@@ -2275,10 +2274,11 @@
 <span>310</span>
 <span>311</span>
 <span>312</span>
-<span>313</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+<span>313</span>
+<span>314</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Collates data samples into batches.</span>
+<span></span><span class="sd">    Collate data samples into batches.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        batch (List[dict]): List of dictionaries containing sample data.</span>
@@ -2312,10 +2312,10 @@
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLODataset.get_labels">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_labels</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_labels</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_labels</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns dictionary of labels for YOLO training.</p>
+<p>Return dictionary of labels for YOLO training.</p>
 <p>This method loads labels from disk or cache, verifies their integrity, and prepares them for training.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
@@ -2328,7 +2328,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="dict">dict</span>]</code>
+<code><span title="typing.List">List</span>[<span title="dict">dict</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2340,8 +2340,7 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>157</span>
-<span>158</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>158</span>
 <span>159</span>
 <span>160</span>
 <span>161</span>
@@ -2388,9 +2387,10 @@
 <span>202</span>
 <span>203</span>
 <span>204</span>
-<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>205</span>
+<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns dictionary of labels for YOLO training.</span>
+<span></span><span class="sd">    Return dictionary of labels for YOLO training.</span>
 <span></span>
 <span></span><span class="sd">    This method loads labels from disk or cache, verifies their integrity, and prepares them for training.</span>
 <span></span>
@@ -2445,10 +2445,10 @@
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLODataset.update_labels_info">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update_labels_info</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update_labels_info</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update_labels_info</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Custom your label format here.</p>
+<p>Update label format for different tasks.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2506,8 +2506,7 @@ Can also support classification and semantic segmentation by adding or removing 
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>252</span>
-<span>253</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>253</span>
 <span>254</span>
 <span>255</span>
 <span>256</span>
@@ -2537,9 +2536,10 @@ Can also support classification and semantic segmentation by adding or removing 
 <span>280</span>
 <span>281</span>
 <span>282</span>
-<span>283</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<span>283</span>
+<span>284</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Custom your label format here.</span>
+<span></span><span class="sd">    Update label format for different tasks.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        label (dict): Label dictionary containing bboxes, segments, keypoints, etc.</span>
@@ -2580,7 +2580,9 @@ Can also support classification and semantic segmentation by adding or removing 
 <h2 class="doc doc-heading" id="ultralytics.data.dataset.YOLOMultiModalDataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.dataset.YOLOMultiModalDataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOMultiModalDataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOMultiModalDataset</span><span class="p">(</span>
+<span></span>    <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"detect"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -2601,7 +2603,7 @@ process both image and text data.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLOMultiModalDataset.update_labels_info" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update_labels_info&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.YOLOMultiModalDataset.update_labels_info&lt;/code&gt;)'>update_labels_info</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Adds text information for multi-modal model training.</p>
+<p>Add text information for multi-modal model training.</p>
 </div>
 </td>
 </tr>
@@ -2609,7 +2611,7 @@ process both image and text data.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLOMultiModalDataset.build_transforms" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;build_transforms&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.YOLOMultiModalDataset.build_transforms&lt;/code&gt;)'>build_transforms</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Enhances data transformations with text augmentation.</p>
+<p>Enhance data transformations with text augmentation.</p>
 </div>
 </td>
 </tr>
@@ -2699,8 +2701,7 @@ process both image and text data.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>333</span>
-<span>334</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>334</span>
 <span>335</span>
 <span>336</span>
 <span>337</span>
@@ -2709,7 +2710,8 @@ process both image and text data.</p>
 <span>340</span>
 <span>341</span>
 <span>342</span>
-<span>343</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>343</span>
+<span>344</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"detect"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a YOLOMultiModalDataset.</span>
 <span></span>
@@ -2774,10 +2776,10 @@ process both image and text data.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLOMultiModalDataset.build_transforms">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_transforms</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_transforms</span><span class="p">(</span><span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_transforms</span><span class="p">(</span><span class="n">hyp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Compose</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Enhances data transformations with optional text augmentation for multi-modal training.</p>
+<p>Enhance data transformations with optional text augmentation for multi-modal training.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2830,8 +2832,7 @@ process both image and text data.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>362</span>
-<span>363</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>363</span>
 <span>364</span>
 <span>365</span>
 <span>366</span>
@@ -2852,9 +2853,10 @@ process both image and text data.</p>
 <span>381</span>
 <span>382</span>
 <span>383</span>
-<span>384</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>384</span>
+<span>385</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Compose</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Enhances data transformations with optional text augmentation for multi-modal training.</span>
+<span></span><span class="sd">    Enhance data transformations with optional text augmentation for multi-modal training.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        hyp (dict, optional): Hyperparameters for transforms.</span>
@@ -2883,10 +2885,10 @@ process both image and text data.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLOMultiModalDataset.update_labels_info">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update_labels_info</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update_labels_info</span><span class="p">(</span><span class="n">label</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update_labels_info</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Add texts information for multi-modal model training.</p>
+<p>Add text information for multi-modal model training.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2939,8 +2941,7 @@ process both image and text data.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>345</span>
-<span>346</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>346</span>
 <span>347</span>
 <span>348</span>
 <span>349</span>
@@ -2954,9 +2955,10 @@ process both image and text data.</p>
 <span>357</span>
 <span>358</span>
 <span>359</span>
-<span>360</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+<span>360</span>
+<span>361</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_labels_info</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Add texts information for multi-modal model training.</span>
+<span></span><span class="sd">    Add text information for multi-modal model training.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        label (dict): Label dictionary containing bboxes, segments, keypoints, etc.</span>
@@ -2981,12 +2983,12 @@ process both image and text data.</p>
 <h2 class="doc doc-heading" id="ultralytics.data.dataset.GroundingDataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.dataset.GroundingDataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">GroundingDataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s1">'detect'</span><span class="p">,</span> <span class="n">json_file</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">GroundingDataset</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'detect'</span><span class="p">,</span> <span class="n">json_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.YOLODataset" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.data.dataset.YOLODataset&lt;/span&gt;'>YOLODataset</a></code></p>
-<p>Handles object detection tasks by loading annotations from a specified JSON file, supporting YOLO format.</p>
+<p>Dataset class for object detection tasks using annotations from a JSON file in grounding format.</p>
 <p>This dataset is designed for grounding tasks where annotations are provided in a JSON file rather than
 the standard YOLO format text files.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
@@ -3025,7 +3027,7 @@ the standard YOLO format text files.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.GroundingDataset.get_img_files" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_img_files&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.GroundingDataset.get_img_files&lt;/code&gt;)'>get_img_files</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns empty list as image files are read in get_labels.</p>
+<p>Return empty list as image files are read in get_labels.</p>
 </div>
 </td>
 </tr>
@@ -3033,7 +3035,7 @@ the standard YOLO format text files.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.GroundingDataset.get_labels" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_labels&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.GroundingDataset.get_labels&lt;/code&gt;)'>get_labels</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Loads annotations from a JSON file and prepares them for training.</p>
+<p>Load annotations from a JSON file and prepare them for training.</p>
 </div>
 </td>
 </tr>
@@ -3041,7 +3043,7 @@ the standard YOLO format text files.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.GroundingDataset.build_transforms" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;build_transforms&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.GroundingDataset.build_transforms&lt;/code&gt;)'>build_transforms</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Configures augmentations for training with optional text loading.</p>
+<p>Configure augmentations for training with optional text loading.</p>
 </div>
 </td>
 </tr>
@@ -3130,8 +3132,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>436</span>
-<span>437</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>437</span>
 <span>438</span>
 <span>439</span>
 <span>440</span>
@@ -3142,7 +3143,8 @@ the standard YOLO format text files.</p>
 <span>445</span>
 <span>446</span>
 <span>447</span>
-<span>448</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">,</span> <span class="n">json_file</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>448</span>
+<span>449</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"detect"</span><span class="p">,</span> <span class="n">json_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a GroundingDataset for object detection.</span>
 <span></span>
@@ -3188,10 +3190,10 @@ the standard YOLO format text files.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.GroundingDataset.build_transforms">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">build_transforms</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_transforms</span><span class="p">(</span><span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">build_transforms</span><span class="p">(</span><span class="n">hyp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Compose</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Configures augmentations for training with optional text loading.</p>
+<p>Configure augmentations for training with optional text loading.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3244,8 +3246,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>589</span>
-<span>590</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>590</span>
 <span>591</span>
 <span>592</span>
 <span>593</span>
@@ -3266,9 +3267,10 @@ the standard YOLO format text files.</p>
 <span>608</span>
 <span>609</span>
 <span>610</span>
-<span>611</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>611</span>
+<span>612</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_transforms</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Compose</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Configures augmentations for training with optional text loading.</span>
+<span></span><span class="sd">    Configure augmentations for training with optional text loading.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        hyp (dict, optional): Hyperparameters for transforms.</span>
@@ -3297,10 +3299,10 @@ the standard YOLO format text files.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.GroundingDataset.cache_labels">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">cache_labels</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">cache_labels</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'./labels.cache'</span><span class="p">))</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">cache_labels</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'./labels.cache'</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Loads annotations from a JSON file, filters, and normalizes bounding boxes for each image.</p>
+<p>Load annotations from a JSON file, filter, and normalize bounding boxes for each image.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3353,8 +3355,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>476</span>
-<span>477</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>477</span>
 <span>478</span>
 <span>479</span>
 <span>480</span>
@@ -3442,9 +3443,10 @@ the standard YOLO format text files.</p>
 <span>562</span>
 <span>563</span>
 <span>564</span>
-<span>565</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"./labels.cache"</span><span class="p">)):</span>
+<span>565</span>
+<span>566</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cache_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"./labels.cache"</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Loads annotations from a JSON file, filters, and normalizes bounding boxes for each image.</span>
+<span></span><span class="sd">    Load annotations from a JSON file, filter, and normalize bounding boxes for each image.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        path (Path): Path where to save the cache file.</span>
@@ -3540,7 +3542,7 @@ the standard YOLO format text files.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.GroundingDataset.get_img_files">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_img_files</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_img_files</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_img_files</span><span class="p">(</span><span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>The image files would be read in <code>get_labels</code> function, return empty list here.</p>
@@ -3596,8 +3598,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>450</span>
-<span>451</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>451</span>
 <span>452</span>
 <span>453</span>
 <span>454</span>
@@ -3606,7 +3607,8 @@ the standard YOLO format text files.</p>
 <span>457</span>
 <span>458</span>
 <span>459</span>
-<span>460</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_img_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
+<span>460</span>
+<span>461</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_img_files</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    The image files would be read in `get_labels` function, return empty list here.</span>
 <span></span>
@@ -3625,7 +3627,7 @@ the standard YOLO format text files.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.GroundingDataset.get_labels">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_labels</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_labels</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_labels</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Load labels from cache or generate them from JSON file.</p>
@@ -3640,7 +3642,7 @@ the standard YOLO format text files.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="dict">dict</span>]</code>
+<code><span title="typing.List">List</span>[<span title="dict">dict</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3652,8 +3654,7 @@ the standard YOLO format text files.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>567</span>
-<span>568</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>568</span>
 <span>569</span>
 <span>570</span>
 <span>571</span>
@@ -3672,7 +3673,8 @@ the standard YOLO format text files.</p>
 <span>584</span>
 <span>585</span>
 <span>586</span>
-<span>587</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>587</span>
+<span>588</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load labels from cache or generate them from JSON file.</span>
 <span></span>
@@ -3701,14 +3703,13 @@ the standard YOLO format text files.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.GroundingDataset.verify_labels">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">verify_labels</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">verify_labels</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">verify_labels</span><span class="p">(</span><span class="n">labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Verify the number of instances in the dataset matches expected counts.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>462</span>
-<span>463</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>463</span>
 <span>464</span>
 <span>465</span>
 <span>466</span>
@@ -3719,7 +3720,8 @@ the standard YOLO format text files.</p>
 <span>471</span>
 <span>472</span>
 <span>473</span>
-<span>474</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">):</span>
+<span>474</span>
+<span>475</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">labels</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Verify the number of instances in the dataset matches expected counts."""</span>
 <span></span>    <span class="n">instance_count</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">label</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">labels</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="s2">"final_mixed_train_no_coco_segm"</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">json_file</span><span class="p">:</span>
@@ -3781,10 +3783,10 @@ collation function.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.YOLOConcatDataset.close_mosaic">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">close_mosaic</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">close_mosaic</span><span class="p">(</span><span class="n">hyp</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">close_mosaic</span><span class="p">(</span><span class="n">hyp</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Sets mosaic, copy_paste and mixup options to 0.0 and builds transformations.</p>
+<p>Set mosaic, copy_paste and mixup options to 0.0 and build transformations.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3816,8 +3818,7 @@ collation function.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>664</span>
-<span>665</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>665</span>
 <span>666</span>
 <span>667</span>
 <span>668</span>
@@ -3826,9 +3827,10 @@ collation function.</p>
 <span>671</span>
 <span>672</span>
 <span>673</span>
-<span>674</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">):</span>
+<span>674</span>
+<span>675</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close_mosaic</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hyp</span><span class="p">:</span> <span class="n">Dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Sets mosaic, copy_paste and mixup options to 0.0 and builds transformations.</span>
+<span></span><span class="sd">    Set mosaic, copy_paste and mixup options to 0.0 and build transformations.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        hyp (dict): Hyperparameters for transforms.</span>
@@ -3848,10 +3850,10 @@ collation function.</p>
 <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Collates data samples into batches.</p>
+<p>Collate data samples into batches.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3868,7 +3870,7 @@ collation function.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="dict">dict</span>]</code>
+<code><span title="typing.List">List</span>[<span title="dict">dict</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3904,8 +3906,7 @@ collation function.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>651</span>
-<span>652</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>652</span>
 <span>653</span>
 <span>654</span>
 <span>655</span>
@@ -3915,10 +3916,11 @@ collation function.</p>
 <span>659</span>
 <span>660</span>
 <span>661</span>
-<span>662</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">):</span>
+<span>662</span>
+<span>663</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">collate_fn</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Collates data samples into batches.</span>
+<span></span><span class="sd">    Collate data samples into batches.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        batch (List[dict]): List of dictionaries containing sample data.</span>
@@ -3946,9 +3948,9 @@ collation function.</p>
 <p>Semantic Segmentation Dataset.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>681</span>
-<span>682</span>
-<span>683</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>682</span>
+<span>683</span>
+<span>684</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a SemanticDataset object."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -3961,10 +3963,10 @@ collation function.</p>
 <h2 class="doc doc-heading" id="ultralytics.data.dataset.ClassificationDataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.data.dataset.ClassificationDataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">ClassificationDataset</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">ClassificationDataset</span><span class="p">(</span><span class="n">root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">augment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Extends torchvision ImageFolder to support YOLO classification tasks.</p>
+<p>Dataset class for image classification tasks extending torchvision ImageFolder functionality.</p>
 <p>This class offers functionalities like image augmentation, caching, and verification. It's designed to efficiently
 handle large datasets for training deep learning models, with optional image transformations and caching mechanisms
 to speed up training.</p>
@@ -4060,7 +4062,7 @@ to speed up training.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.ClassificationDataset.__getitem__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__getitem__&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.ClassificationDataset.__getitem__&lt;/code&gt;)'>__getitem__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns subset of data and targets corresponding to given indices.</p>
+<p>Return subset of data and targets corresponding to given indices.</p>
 </div>
 </td>
 </tr>
@@ -4068,7 +4070,7 @@ to speed up training.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.ClassificationDataset.__len__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__len__&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.ClassificationDataset.__len__&lt;/code&gt;)'>__len__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns the total number of samples in the dataset.</p>
+<p>Return the total number of samples in the dataset.</p>
 </div>
 </td>
 </tr>
@@ -4076,7 +4078,7 @@ to speed up training.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.data.dataset.ClassificationDataset.verify_images" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;verify_images&lt;/span&gt; (&lt;code&gt;ultralytics.data.dataset.ClassificationDataset.verify_images&lt;/code&gt;)'>verify_images</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Verifies all images in dataset.</p>
+<p>Verify all images in dataset.</p>
 </div>
 </td>
 </tr>
@@ -4162,8 +4164,7 @@ parameters, and cache settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>709</span>
-<span>710</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>710</span>
 <span>711</span>
 <span>712</span>
 <span>713</span>
@@ -4212,9 +4213,10 @@ parameters, and cache settings.</p>
 <span>756</span>
 <span>757</span>
 <span>758</span>
-<span>759</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<span>759</span>
+<span>760</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">root</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">augment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize YOLO object with root, image size, augmentations, and cache settings.</span>
+<span></span><span class="sd">    Initialize YOLO classification dataset with root directory, arguments, augmentations, and cache settings.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        root (str): Path to the dataset directory where images are stored in a class-specific folder structure.</span>
@@ -4270,10 +4272,10 @@ parameters, and cache settings.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.ClassificationDataset.__getitem__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__getitem__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__getitem__</span><span class="p">(</span><span class="nf">i</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__getitem__</span><span class="p">(</span><span class="nf">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns subset of data and targets corresponding to given indices.</p>
+<p>Return subset of data and targets corresponding to given indices.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4326,8 +4328,7 @@ parameters, and cache settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>761</span>
-<span>762</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>762</span>
 <span>763</span>
 <span>764</span>
 <span>765</span>
@@ -4349,9 +4350,10 @@ parameters, and cache settings.</p>
 <span>781</span>
 <span>782</span>
 <span>783</span>
-<span>784</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+<span>784</span>
+<span>785</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns subset of data and targets corresponding to given indices.</span>
+<span></span><span class="sd">    Return subset of data and targets corresponding to given indices.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        i (int): Index of the sample to retrieve.</span>
@@ -4387,9 +4389,9 @@ parameters, and cache settings.</p>
 <p>Return the total number of samples in the dataset.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>786</span>
-<span>787</span>
-<span>788</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>787</span>
+<span>788</span>
+<span>789</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the total number of samples in the dataset."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">samples</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4400,7 +4402,7 @@ parameters, and cache settings.</p>
 <h3 class="doc doc-heading" id="ultralytics.data.dataset.ClassificationDataset.verify_images">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">verify_images</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">verify_images</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">verify_images</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Verify all images in dataset.</p>
@@ -4427,8 +4429,7 @@ parameters, and cache settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/dataset.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>790</span>
-<span>791</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>791</span>
 <span>792</span>
 <span>793</span>
 <span>794</span>
@@ -4471,7 +4472,8 @@ parameters, and cache settings.</p>
 <span>831</span>
 <span>832</span>
 <span>833</span>
-<span>834</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_images</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>834</span>
+<span>835</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verify_images</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Verify all images in dataset.</span>
 <span></span>

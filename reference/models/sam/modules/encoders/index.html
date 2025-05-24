@@ -1566,7 +1566,7 @@ encoded representation through a neck module.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.ImageEncoderViT.forward" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.encoders.ImageEncoderViT.forward&lt;/code&gt;)'>forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Processes input through patch embedding, positional embedding, blocks, and neck.</p>
+<p>Process input through patch embedding, positional embedding, blocks, and neck.</p>
 </div>
 </td>
 </tr>
@@ -2007,7 +2007,7 @@ encoded representation through a neck module.</p>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="k">if</span> <span class="n">use_abs_pos</span><span class="p">:</span>
-<span></span>        <span class="c1"># Initialize absolute positional embedding with pretrain image size.</span>
+<span></span>        <span class="c1"># Initialize absolute positional embedding with pretrain image size</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">img_size</span> <span class="o">//</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">img_size</span> <span class="o">//</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">))</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">blocks</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ModuleList</span><span class="p">()</span>
@@ -2103,7 +2103,7 @@ encoded representation through a neck module.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
-<p>Encodes different types of prompts for input to SAM's mask decoder, producing sparse and dense embeddings.</p>
+<p>Encode different types of prompts for input to SAM's mask decoder, producing sparse and dense embeddings.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2239,7 +2239,7 @@ encoded representation through a neck module.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.PromptEncoder.get_dense_pe" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_dense_pe&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.encoders.PromptEncoder.get_dense_pe&lt;/code&gt;)'>get_dense_pe</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns the positional encoding used to encode point prompts.</p>
+<p>Return the positional encoding used to encode point prompts.</p>
 </div>
 </td>
 </tr>
@@ -2247,7 +2247,7 @@ encoded representation through a neck module.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.encoders.PromptEncoder.forward" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.encoders.PromptEncoder.forward&lt;/code&gt;)'>forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Embeds different types of prompts, returning both sparse and dense embeddings.</p>
+<p>Embed different types of prompts, returning both sparse and dense embeddings.</p>
 </div>
 </td>
 </tr>
@@ -2545,20 +2545,28 @@ shape (B, N).</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<td><code>sparse_embeddings</code></td> <td>
+<code><span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A tuple containing:
-- sparse_embeddings (torch.Tensor): Sparse embeddings for points and boxes with shape (B, N, embed_dim).
-- dense_embeddings (torch.Tensor): Dense embeddings for masks of shape (B, embed_dim, embed_H, embed_W).</p>
+<p>Sparse embeddings for points and boxes with shape (B, N, embed_dim).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>dense_embeddings</code></td> <td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dense embeddings for masks of shape (B, embed_dim, embed_H, embed_W).</p>
 </div>
 </td>
 </tr>
@@ -2621,8 +2629,7 @@ shape (B, N).</p>
 <span>350</span>
 <span>351</span>
 <span>352</span>
-<span>353</span>
-<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span>
 <span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
@@ -2639,9 +2646,8 @@ shape (B, N).</p>
 <span></span><span class="sd">        masks (torch.Tensor | None): Masks to embed with shape (B, 1, H, W).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Tuple[torch.Tensor, torch.Tensor]): A tuple containing:</span>
-<span></span><span class="sd">            - sparse_embeddings (torch.Tensor): Sparse embeddings for points and boxes with shape (B, N, embed_dim).</span>
-<span></span><span class="sd">            - dense_embeddings (torch.Tensor): Dense embeddings for masks of shape (B, embed_dim, embed_H, embed_W).</span>
+<span></span><span class="sd">        sparse_embeddings (torch.Tensor): Sparse embeddings for points and boxes with shape (B, N, embed_dim).</span>
+<span></span><span class="sd">        dense_embeddings (torch.Tensor): Dense embeddings for masks of shape (B, embed_dim, embed_H, embed_W).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; encoder = PromptEncoder(256, (64, 64), (1024, 1024), 16)</span>
@@ -2901,7 +2907,7 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 </td>
 <td>
 <div class="doc-md-description">
-<p>Input dimension of the pixel features. Default is 256.</p>
+<p>Input dimension of the pixel features.</p>
 </div>
 </td>
 <td>
@@ -2920,7 +2926,8 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>384</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>383</span>
+<span>384</span>
 <span>385</span>
 <span>386</span>
 <span>387</span>
@@ -2951,8 +2958,7 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 <span>412</span>
 <span>413</span>
 <span>414</span>
-<span>415</span>
-<span>416</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>415</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">out_dim</span><span class="p">,</span>
 <span></span>    <span class="n">in_dim</span><span class="o">=</span><span class="mi">256</span><span class="p">,</span>  <span class="c1"># in_dim of pix_feats</span>
@@ -2965,7 +2971,7 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        out_dim (int): Output dimension of the encoded features.</span>
-<span></span><span class="sd">        in_dim (int): Input dimension of the pixel features. Default is 256.</span>
+<span></span><span class="sd">        in_dim (int): Input dimension of the pixel features.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; encoder = MemoryEncoder(out_dim=256, in_dim=256)</span>
@@ -2994,13 +3000,14 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="n">pix_feat</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">masks</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">skip_mask_sigmoid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process pixel features and masks to generate encoded memory representations for segmentation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>418</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>417</span>
+<span>418</span>
 <span>419</span>
 <span>420</span>
 <span>421</span>
@@ -3020,13 +3027,12 @@ suitable for downstream tasks in image segmentation models like SAM (Segment Any
 <span>435</span>
 <span>436</span>
 <span>437</span>
-<span>438</span>
-<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>438</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">pix_feat</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">skip_mask_sigmoid</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Process pixel features and masks to generate encoded memory representations for segmentation."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">skip_mask_sigmoid</span><span class="p">:</span>
 <span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span>
@@ -3209,7 +3215,8 @@ and positional encoding generation. It can optionally discard the lowest resolut
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>467</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>466</span>
+<span>467</span>
 <span>468</span>
 <span>469</span>
 <span>470</span>
@@ -3240,8 +3247,7 @@ and positional encoding generation. It can optionally discard the lowest resolut
 <span>495</span>
 <span>496</span>
 <span>497</span>
-<span>498</span>
-<span>499</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>498</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">trunk</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">neck</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
@@ -3284,10 +3290,11 @@ and positional encoding generation. It can optionally discard the lowest resolut
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">sample</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Encode input through patch embedding, positional embedding, transformer blocks, and neck module.</p>
+<p>Encode input through trunk and neck networks, returning multiscale features and positional encodings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>501</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>500</span>
+<span>501</span>
 <span>502</span>
 <span>503</span>
 <span>504</span>
@@ -3298,9 +3305,8 @@ and positional encoding generation. It can optionally discard the lowest resolut
 <span>509</span>
 <span>510</span>
 <span>511</span>
-<span>512</span>
-<span>513</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Encode input through patch embedding, positional embedding, transformer blocks, and neck module."""</span>
+<span>512</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">sample</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Encode input through trunk and neck networks, returning multiscale features and positional encodings."""</span>
 <span></span>    <span class="n">features</span><span class="p">,</span> <span class="n">pos</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">neck</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">trunk</span><span class="p">(</span><span class="n">sample</span><span class="p">))</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">scalp</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="c1"># Discard the lowest resolution features</span>
@@ -3595,7 +3601,8 @@ similar to ViT positional embedding interpolation.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>543</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>542</span>
+<span>543</span>
 <span>544</span>
 <span>545</span>
 <span>546</span>
@@ -3655,8 +3662,7 @@ similar to ViT positional embedding interpolation.</p>
 <span>600</span>
 <span>601</span>
 <span>602</span>
-<span>603</span>
-<span>604</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>603</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">backbone_channel_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
@@ -3668,7 +3674,7 @@ similar to ViT positional embedding interpolation.</p>
 <span></span>    <span class="n">fpn_top_down_levels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initializes a modified Feature Pyramid Network (FPN) neck.</span>
+<span></span><span class="sd">    Initialize a modified Feature Pyramid Network (FPN) neck.</span>
 <span></span>
 <span></span><span class="sd">    This FPN variant removes the output convolution and uses bicubic interpolation for feature resizing,</span>
 <span></span><span class="sd">    similar to ViT positional embedding interpolation.</span>
@@ -3710,12 +3716,12 @@ similar to ViT positional embedding interpolation.</p>
 <span></span>    <span class="k">assert</span> <span class="n">fuse_type</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"sum"</span><span class="p">,</span> <span class="s2">"avg"</span><span class="p">}</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fuse_type</span> <span class="o">=</span> <span class="n">fuse_type</span>
 <span></span>
-<span></span>    <span class="c1"># levels to have top-down features in its outputs</span>
+<span></span>    <span class="c1"># Levels to have top-down features in its outputs</span>
 <span></span>    <span class="c1"># e.g. if fpn_top_down_levels is [2, 3], then only outputs of level 2 and 3</span>
 <span></span>    <span class="c1"># have top-down propagation, while outputs of level 0 and level 1 have only</span>
-<span></span>    <span class="c1"># lateral features from the same backbone level.</span>
+<span></span>    <span class="c1"># lateral features from the same backbone level</span>
 <span></span>    <span class="k">if</span> <span class="n">fpn_top_down_levels</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span></span>        <span class="c1"># default is to have top-down features on all levels</span>
+<span></span>        <span class="c1"># Default is to have top-down features on all levels</span>
 <span></span>        <span class="n">fpn_top_down_levels</span> <span class="o">=</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">))</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">fpn_top_down_levels</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">fpn_top_down_levels</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3728,7 +3734,7 @@ similar to ViT positional embedding interpolation.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Performs forward pass through the Feature Pyramid Network (FPN) neck.</p>
+<p>Perform forward pass through the Feature Pyramid Network (FPN) neck.</p>
 <p>This method processes a list of input tensors from the backbone through the FPN, applying lateral connections
 and top-down feature fusion. It generates output feature maps and corresponding positional encodings.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3764,21 +3770,29 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>], <span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]]</code>
+<td><code>out</code></td> <td>
+<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A tuple containing:
-- out (List[torch.Tensor]): List of output feature maps after FPN processing, each with shape
-  (B, d_model, H, W).
-- pos (List[torch.Tensor]): List of positional encodings corresponding to each output feature map.</p>
+<p>List of output feature maps after FPN processing, each with shape
+(B, d_model, H, W).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code>pos</code></td> <td>
+<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of positional encodings corresponding to each output feature map.</p>
 </div>
 </td>
 </tr>
@@ -3793,7 +3807,8 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>606</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>605</span>
+<span>606</span>
 <span>607</span>
 <span>608</span>
 <span>609</span>
@@ -3842,11 +3857,9 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <span>652</span>
 <span>653</span>
 <span>654</span>
-<span>655</span>
-<span>656</span>
-<span>657</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
+<span>655</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Performs forward pass through the Feature Pyramid Network (FPN) neck.</span>
+<span></span><span class="sd">    Perform forward pass through the Feature Pyramid Network (FPN) neck.</span>
 <span></span>
 <span></span><span class="sd">    This method processes a list of input tensors from the backbone through the FPN, applying lateral connections</span>
 <span></span><span class="sd">    and top-down feature fusion. It generates output feature maps and corresponding positional encodings.</span>
@@ -3855,10 +3868,9 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <span></span><span class="sd">        xs (List[torch.Tensor]): List of input tensors from the backbone, each with shape (B, C, H, W).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Tuple[List[torch.Tensor], List[torch.Tensor]]): A tuple containing:</span>
-<span></span><span class="sd">            - out (List[torch.Tensor]): List of output feature maps after FPN processing, each with shape</span>
-<span></span><span class="sd">              (B, d_model, H, W).</span>
-<span></span><span class="sd">            - pos (List[torch.Tensor]): List of positional encodings corresponding to each output feature map.</span>
+<span></span><span class="sd">        out (List[torch.Tensor]): List of output feature maps after FPN processing, each with shape</span>
+<span></span><span class="sd">            (B, d_model, H, W).</span>
+<span></span><span class="sd">        pos (List[torch.Tensor]): List of positional encodings corresponding to each output feature map.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; fpn_neck = FpnNeck(d_model=256, backbone_channel_list=[64, 128, 256, 512])</span>
@@ -3870,10 +3882,10 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <span></span>    <span class="n">out</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
 <span></span>    <span class="n">pos</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
 <span></span>    <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">xs</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span>
-<span></span>    <span class="c1"># fpn forward pass</span>
+<span></span>    <span class="c1"># FPN forward pass</span>
 <span></span>    <span class="c1"># see https://github.com/facebookresearch/detectron2/blob/main/detectron2/modeling/backbone/fpn.py</span>
 <span></span>    <span class="n">prev_features</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>    <span class="c1"># forward in top-down order (from low to high resolution)</span>
+<span></span>    <span class="c1"># Forward in top-down order (from low to high resolution)</span>
 <span></span>    <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span>
 <span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">):</span>
 <span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">xs</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -4324,7 +4336,9 @@ pooling and global attention mechanisms.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>694</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>692</span>
+<span>693</span>
+<span>694</span>
 <span>695</span>
 <span>696</span>
 <span>697</span>
@@ -4437,10 +4451,7 @@ pooling and global attention mechanisms.</p>
 <span>804</span>
 <span>805</span>
 <span>806</span>
-<span>807</span>
-<span>808</span>
-<span>809</span>
-<span>810</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>807</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">96</span><span class="p">,</span>  <span class="c1"># initial embed dim</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># initial number of heads</span>
@@ -4512,7 +4523,7 @@ pooling and global attention mechanisms.</p>
 <span></span>        <span class="n">stride</span><span class="o">=</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
 <span></span>        <span class="n">padding</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
 <span></span>    <span class="p">)</span>
-<span></span>    <span class="c1"># Which blocks have global att?</span>
+<span></span>    <span class="c1"># Which blocks have global attention?</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">global_att_blocks</span> <span class="o">=</span> <span class="n">global_att_blocks</span>
 <span></span>
 <span></span>    <span class="c1"># Windowed positional embedding (https://arxiv.org/abs/2311.05613)</span>
@@ -4527,8 +4538,7 @@ pooling and global attention mechanisms.</p>
 <span></span>
 <span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">depth</span><span class="p">):</span>
 <span></span>        <span class="n">dim_out</span> <span class="o">=</span> <span class="n">embed_dim</span>
-<span></span>        <span class="c1"># lags by a block, so first block of</span>
-<span></span>        <span class="c1"># next stage uses an initial window size</span>
+<span></span>        <span class="c1"># Lags by a block, so first block of next stage uses an initial window size</span>
 <span></span>        <span class="c1"># of previous stage and final window size of current stage</span>
 <span></span>        <span class="n">window_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">window_spec</span><span class="p">[</span><span class="n">cur_stage</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
 <span></span>
@@ -4630,7 +4640,10 @@ is True, otherwise contains only the final output.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>821</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>818</span>
+<span>819</span>
+<span>820</span>
+<span>821</span>
 <span>822</span>
 <span>823</span>
 <span>824</span>
@@ -4660,10 +4673,7 @@ is True, otherwise contains only the final output.</p>
 <span>848</span>
 <span>849</span>
 <span>850</span>
-<span>851</span>
-<span>852</span>
-<span>853</span>
-<span>854</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>851</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform forward pass through Hiera model, extracting multiscale features from input images.</span>
 <span></span>
@@ -4686,7 +4696,7 @@ is True, otherwise contains only the final output.</p>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">patch_embed</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span></span>    <span class="c1"># x: (B, H, W, C)</span>
 <span></span>
-<span></span>    <span class="c1"># Add pos embed</span>
+<span></span>    <span class="c1"># Add positional embedding</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_pos_embed</span><span class="p">(</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">])</span>
 <span></span>
 <span></span>    <span class="n">outputs</span> <span class="o">=</span> <span class="p">[]</span>

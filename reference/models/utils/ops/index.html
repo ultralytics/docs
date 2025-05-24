@@ -1195,21 +1195,21 @@
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.utils.ops.HungarianMatcher</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">HungarianMatcher</span><span class="p">(</span>
-<span></span>    <span class="n">cost_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">with_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">num_sample_points</span><span class="o">=</span><span class="mi">12544</span><span class="p">,</span>
-<span></span>    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span>
-<span></span>    <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+<span></span>    <span class="n">cost_gain</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">use_fl</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">with_mask</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">num_sample_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12544</span><span class="p">,</span>
+<span></span>    <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+<span></span>    <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
-<p>A module implementing the HungarianMatcher, which is a differentiable module to solve the assignment problem in an
-end-to-end fashion.</p>
-<p>HungarianMatcher performs optimal assignment over the predicted and ground truth bounding boxes using a cost
-function that considers classification scores, bounding box coordinates, and optionally, mask predictions.</p>
+<p>A module implementing the HungarianMatcher for optimal assignment between predictions and ground truth.</p>
+<p>HungarianMatcher performs optimal bipartite assignment over predicted and ground truth bounding boxes using a cost
+function that considers classification scores, bounding box coordinates, and optionally mask predictions. This is
+used in end-to-end object detection models like DETR.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1223,11 +1223,12 @@ function that considers classification scores, bounding box coordinates, and opt
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher.cost_gain">cost_gain</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary of cost coefficients: 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
+<p>Dictionary of cost coefficients for 'class', 'bbox', 'giou', 'mask', and 'dice'
+components.</p>
 </div>
 </td>
 </tr>
@@ -1238,7 +1239,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </td>
 <td>
 <div class="doc-md-description">
-<p>Indicates whether to use Focal Loss for the classification cost calculation.</p>
+<p>Whether to use Focal Loss for classification cost calculation.</p>
 </div>
 </td>
 </tr>
@@ -1249,7 +1250,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </td>
 <td>
 <div class="doc-md-description">
-<p>Indicates whether the model makes mask predictions.</p>
+<p>Whether the model makes mask predictions.</p>
 </div>
 </td>
 </tr>
@@ -1260,7 +1261,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </td>
 <td>
 <div class="doc-md-description">
-<p>The number of sample points used in mask cost calculation.</p>
+<p>Number of sample points used in mask cost calculation.</p>
 </div>
 </td>
 </tr>
@@ -1271,7 +1272,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </td>
 <td>
 <div class="doc-md-description">
-<p>The alpha factor in Focal Loss calculation.</p>
+<p>Alpha factor in Focal Loss calculation.</p>
 </div>
 </td>
 </tr>
@@ -1282,7 +1283,7 @@ function that considers classification scores, bounding box coordinates, and opt
 </td>
 <td>
 <div class="doc-md-description">
-<p>The gamma factor in Focal Loss calculation.</p>
+<p>Gamma factor in Focal Loss calculation.</p>
 </div>
 </td>
 </tr>
@@ -1301,7 +1302,7 @@ function that considers classification scores, bounding box coordinates, and opt
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.utils.ops.HungarianMatcher.forward" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward&lt;/span&gt; (&lt;code&gt;ultralytics.models.utils.ops.HungarianMatcher.forward&lt;/code&gt;)'>forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Computes the assignment between predictions and ground truths for a batch.</p>
+<p>Compute optimal assignment between predictions and ground truths for a batch.</p>
 </div>
 </td>
 </tr>
@@ -1309,14 +1310,24 @@ function that considers classification scores, bounding box coordinates, and opt
 <td><code><span title="ultralytics.models.utils.ops.HungarianMatcher._cost_mask">_cost_mask</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Computes the mask cost and dice cost if masks are predicted.</p>
+<p>Compute mask cost and dice cost if masks are predicted.</p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
-<p>The HungarianMatcher uses a cost function that considers classification scores, bounding box coordinates,
-and optionally mask predictions to perform optimal bipartite matching between predictions and ground truths.</p>
+<p><span class="doc-section-title">Examples:</span></p>
+<p>Initialize a HungarianMatcher with custom cost gains</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">matcher</span> <span class="o">=</span> <span class="n">HungarianMatcher</span><span class="p">(</span><span class="n">cost_gain</span><span class="o">=</span><span class="p">{</span><span class="s2">"class"</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span> <span class="s2">"bbox"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"giou"</span><span class="p">:</span> <span class="mi">2</span><span class="p">})</span>
+</code></pre></div>
+<p>Perform matching between predictions and ground truth</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pred_boxes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># batch_size=2, num_queries=100</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pred_scores</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">80</span><span class="p">)</span>  <span class="c1"># 80 classes</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gt_boxes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>  <span class="c1"># 10 ground truth boxes</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gt_classes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="p">(</span><span class="mi">10</span><span class="p">,))</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">gt_groups</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">]</span>  <span class="c1"># 5 GT boxes per image</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">indices</span> <span class="o">=</span> <span class="n">matcher</span><span class="p">(</span><span class="n">pred_boxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">,</span> <span class="n">gt_boxes</span><span class="p">,</span> <span class="n">gt_classes</span><span class="p">,</span> <span class="n">gt_groups</span><span class="p">)</span>
+</code></pre></div>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1333,12 +1344,12 @@ and optionally mask predictions to perform optimal bipartite matching between pr
 <code>cost_gain</code>
 </td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary of cost coefficients for different components of the matching cost.
-Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
+<p>Dictionary of cost coefficients for different matching cost
+components. Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 </div>
 </td>
 <td>
@@ -1354,7 +1365,7 @@ Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to use Focal Loss for the classification cost calculation.</p>
+<p>Whether to use Focal Loss for classification cost calculation.</p>
 </div>
 </td>
 <td>
@@ -1429,22 +1440,7 @@ Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span>
-<span>38</span>
-<span>39</span>
-<span>40</span>
-<span>41</span>
-<span>42</span>
-<span>43</span>
-<span>44</span>
-<span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>48</span>
 <span>49</span>
 <span>50</span>
 <span>51</span>
@@ -1453,21 +1449,46 @@ Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 <span>54</span>
 <span>55</span>
 <span>56</span>
-<span>57</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cost_gain</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">use_fl</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">with_mask</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">num_sample_points</span><span class="o">=</span><span class="mi">12544</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">2.0</span><span class="p">):</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">cost_gain</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">use_fl</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">with_mask</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">num_sample_points</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">12544</span><span class="p">,</span>
+<span></span>    <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+<span></span>    <span class="n">gamma</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize a HungarianMatcher module for optimal assignment of predicted and ground truth bounding boxes.</span>
-<span></span>
-<span></span><span class="sd">    The HungarianMatcher uses a cost function that considers classification scores, bounding box coordinates,</span>
-<span></span><span class="sd">    and optionally mask predictions to perform optimal bipartite matching between predictions and ground truths.</span>
+<span></span><span class="sd">    Initialize HungarianMatcher for optimal assignment of predicted and ground truth bounding boxes.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cost_gain (dict, optional): Dictionary of cost coefficients for different components of the matching cost.</span>
-<span></span><span class="sd">            Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</span>
-<span></span><span class="sd">        use_fl (bool, optional): Whether to use Focal Loss for the classification cost calculation.</span>
-<span></span><span class="sd">        with_mask (bool, optional): Whether the model makes mask predictions.</span>
-<span></span><span class="sd">        num_sample_points (int, optional): Number of sample points used in mask cost calculation.</span>
-<span></span><span class="sd">        alpha (float, optional): Alpha factor in Focal Loss calculation.</span>
-<span></span><span class="sd">        gamma (float, optional): Gamma factor in Focal Loss calculation.</span>
+<span></span><span class="sd">        cost_gain (Dict[str, float], optional): Dictionary of cost coefficients for different matching cost</span>
+<span></span><span class="sd">            components. Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</span>
+<span></span><span class="sd">        use_fl (bool): Whether to use Focal Loss for classification cost calculation.</span>
+<span></span><span class="sd">        with_mask (bool): Whether the model makes mask predictions.</span>
+<span></span><span class="sd">        num_sample_points (int): Number of sample points used in mask cost calculation.</span>
+<span></span><span class="sd">        alpha (float): Alpha factor in Focal Loss calculation.</span>
+<span></span><span class="sd">        gamma (float): Gamma factor in Focal Loss calculation.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">cost_gain</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
@@ -1486,18 +1507,19 @@ Should contain keys 'class', 'bbox', 'giou', 'mask', and 'dice'.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span>
-<span></span>    <span class="n">pred_bboxes</span><span class="p">,</span>
-<span></span>    <span class="n">pred_scores</span><span class="p">,</span>
-<span></span>    <span class="n">gt_bboxes</span><span class="p">,</span>
-<span></span>    <span class="n">gt_cls</span><span class="p">,</span>
-<span></span>    <span class="n">gt_groups</span><span class="p">,</span>
-<span></span>    <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">gt_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span><span class="p">)</span>
+<span></span>    <span class="n">pred_bboxes</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">pred_scores</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">gt_bboxes</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">gt_cls</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">gt_groups</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">gt_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Forward pass for HungarianMatcher. Computes costs based on prediction and ground truth and finds the optimal
-matching between predictions and ground truth based on these costs.</p>
+<p>Compute optimal assignment between predictions and ground truth using Hungarian algorithm.</p>
+<p>This method calculates matching costs based on classification scores, bounding box coordinates, and optionally
+mask predictions, then finds the optimal bipartite assignment between predictions and ground truth.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1534,23 +1556,8 @@ matching between predictions and ground truth based on these costs.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Predicted scores with shape (batch_size, num_queries, num_classes).</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code>gt_cls</code>
-</td>
-<td>
-<code><span title="torch.Tensor">Tensor</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Ground truth classes with shape (num_gts, ).</p>
+<p>Predicted classification scores with shape (batch_size, num_queries,
+num_classes).</p>
 </div>
 </td>
 <td>
@@ -1575,15 +1582,30 @@ matching between predictions and ground truth based on these costs.</p>
 </tr>
 <tr class="doc-section-item">
 <td>
-<code>gt_groups</code>
+<code>gt_cls</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of length equal to batch size, containing the number of ground truths for
-each image.</p>
+<p>Ground truth class labels with shape (num_gts,).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>gt_groups</code>
+</td>
+<td>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of ground truth boxes for each image in the batch.</p>
 </div>
 </td>
 <td>
@@ -1611,11 +1633,11 @@ each image.</p>
 <code>gt_mask</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of ground truth masks, each with shape (num_masks, Height, Width).</p>
+<p>Ground truth masks, each with shape (num_masks, Height, Width).</p>
 </div>
 </td>
 <td>
@@ -1635,15 +1657,14 @@ each image.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of size batch_size, each element is a tuple (index_i, index_j), where:
-- index_i is the tensor of indices of the selected predictions (in order)
-- index_j is the tensor of indices of the corresponding selected ground truth targets (in order)
-For each batch element, it holds:
-    len(index_i) = len(index_j) = min(num_queries, num_target_boxes)</p>
+<p>A list of size batch_size, each element is a tuple
+(index_i, index_j), where index_i is the tensor of indices of the selected predictions (in order)
+and index_j is the tensor of indices of the corresponding selected ground truth targets (in order).
+For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries, num_target_boxes).</p>
 </div>
 </td>
 </tr>
@@ -1651,27 +1672,7 @@ For each batch element, it holds:
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 59</span>
-<span> 60</span>
-<span> 61</span>
-<span> 62</span>
-<span> 63</span>
-<span> 64</span>
-<span> 65</span>
-<span> 66</span>
-<span> 67</span>
-<span> 68</span>
-<span> 69</span>
-<span> 70</span>
-<span> 71</span>
-<span> 72</span>
-<span> 73</span>
-<span> 74</span>
-<span> 75</span>
-<span> 76</span>
-<span> 77</span>
-<span> 78</span>
-<span> 79</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 79</span>
 <span> 80</span>
 <span> 81</span>
 <span> 82</span>
@@ -1719,41 +1720,78 @@ For each batch element, it holds:
 <span>124</span>
 <span>125</span>
 <span>126</span>
-<span>127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred_bboxes</span><span class="p">,</span> <span class="n">pred_scores</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="p">,</span> <span class="n">gt_cls</span><span class="p">,</span> <span class="n">gt_groups</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gt_mask</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">pred_bboxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">pred_scores</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">gt_bboxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">gt_cls</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">gt_groups</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">gt_mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Forward pass for HungarianMatcher. Computes costs based on prediction and ground truth and finds the optimal</span>
-<span></span><span class="sd">    matching between predictions and ground truth based on these costs.</span>
+<span></span><span class="sd">    Compute optimal assignment between predictions and ground truth using Hungarian algorithm.</span>
+<span></span>
+<span></span><span class="sd">    This method calculates matching costs based on classification scores, bounding box coordinates, and optionally</span>
+<span></span><span class="sd">    mask predictions, then finds the optimal bipartite assignment between predictions and ground truth.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        pred_bboxes (torch.Tensor): Predicted bounding boxes with shape (batch_size, num_queries, 4).</span>
-<span></span><span class="sd">        pred_scores (torch.Tensor): Predicted scores with shape (batch_size, num_queries, num_classes).</span>
-<span></span><span class="sd">        gt_cls (torch.Tensor): Ground truth classes with shape (num_gts, ).</span>
+<span></span><span class="sd">        pred_scores (torch.Tensor): Predicted classification scores with shape (batch_size, num_queries,</span>
+<span></span><span class="sd">            num_classes).</span>
 <span></span><span class="sd">        gt_bboxes (torch.Tensor): Ground truth bounding boxes with shape (num_gts, 4).</span>
-<span></span><span class="sd">        gt_groups (List[int]): List of length equal to batch size, containing the number of ground truths for</span>
-<span></span><span class="sd">            each image.</span>
+<span></span><span class="sd">        gt_cls (torch.Tensor): Ground truth class labels with shape (num_gts,).</span>
+<span></span><span class="sd">        gt_groups (List[int]): Number of ground truth boxes for each image in the batch.</span>
 <span></span><span class="sd">        masks (torch.Tensor, optional): Predicted masks with shape (batch_size, num_queries, height, width).</span>
-<span></span><span class="sd">        gt_mask (List[torch.Tensor], optional): List of ground truth masks, each with shape (num_masks, Height, Width).</span>
+<span></span><span class="sd">        gt_mask (List[torch.Tensor], optional): Ground truth masks, each with shape (num_masks, Height, Width).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[Tuple[torch.Tensor, torch.Tensor]]): A list of size batch_size, each element is a tuple (index_i, index_j), where:</span>
-<span></span><span class="sd">            - index_i is the tensor of indices of the selected predictions (in order)</span>
-<span></span><span class="sd">            - index_j is the tensor of indices of the corresponding selected ground truth targets (in order)</span>
-<span></span><span class="sd">            For each batch element, it holds:</span>
-<span></span><span class="sd">                len(index_i) = len(index_j) = min(num_queries, num_target_boxes)</span>
+<span></span><span class="sd">        (List[Tuple[torch.Tensor, torch.Tensor]]): A list of size batch_size, each element is a tuple</span>
+<span></span><span class="sd">            (index_i, index_j), where index_i is the tensor of indices of the selected predictions (in order)</span>
+<span></span><span class="sd">            and index_j is the tensor of indices of the corresponding selected ground truth targets (in order).</span>
+<span></span><span class="sd">            For each batch element, it holds: len(index_i) = len(index_j) = min(num_queries, num_target_boxes).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">bs</span><span class="p">,</span> <span class="n">nq</span><span class="p">,</span> <span class="n">nc</span> <span class="o">=</span> <span class="n">pred_scores</span><span class="o">.</span><span class="n">shape</span>
 <span></span>
 <span></span>    <span class="k">if</span> <span class="nb">sum</span><span class="p">(</span><span class="n">gt_groups</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="p">[(</span><span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">),</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">bs</span><span class="p">)]</span>
 <span></span>
-<span></span>    <span class="c1"># We flatten to compute the cost matrices in a batch</span>
-<span></span>    <span class="c1"># (batch_size * num_queries, num_classes)</span>
+<span></span>    <span class="c1"># Flatten to compute cost matrices in batch format</span>
 <span></span>    <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">pred_scores</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">nc</span><span class="p">)</span>
 <span></span>    <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">sigmoid</span><span class="p">(</span><span class="n">pred_scores</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_fl</span> <span class="k">else</span> <span class="n">F</span><span class="o">.</span><span class="n">softmax</span><span class="p">(</span><span class="n">pred_scores</span><span class="p">,</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">)</span>
-<span></span>    <span class="c1"># (batch_size * num_queries, 4)</span>
 <span></span>    <span class="n">pred_bboxes</span> <span class="o">=</span> <span class="n">pred_bboxes</span><span class="o">.</span><span class="n">detach</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="c1"># Compute the classification cost</span>
+<span></span>    <span class="c1"># Compute classification cost</span>
 <span></span>    <span class="n">pred_scores</span> <span class="o">=</span> <span class="n">pred_scores</span><span class="p">[:,</span> <span class="n">gt_cls</span><span class="p">]</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_fl</span><span class="p">:</span>
 <span></span>        <span class="n">neg_cost_class</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">alpha</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">pred_scores</span><span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">gamma</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">pred_scores</span> <span class="o">+</span> <span class="mf">1e-8</span><span class="p">)</span><span class="o">.</span><span class="n">log</span><span class="p">())</span>
@@ -1762,23 +1800,24 @@ For each batch element, it holds:
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="n">cost_class</span> <span class="o">=</span> <span class="o">-</span><span class="n">pred_scores</span>
 <span></span>
-<span></span>    <span class="c1"># Compute the L1 cost between boxes</span>
+<span></span>    <span class="c1"># Compute L1 cost between boxes</span>
 <span></span>    <span class="n">cost_bbox</span> <span class="o">=</span> <span class="p">(</span><span class="n">pred_bboxes</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="n">gt_bboxes</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span><span class="o">.</span><span class="n">abs</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (bs*num_queries, num_gt)</span>
 <span></span>
-<span></span>    <span class="c1"># Compute the GIoU cost between boxes, (bs*num_queries, num_gt)</span>
+<span></span>    <span class="c1"># Compute GIoU cost between boxes, (bs*num_queries, num_gt)</span>
 <span></span>    <span class="n">cost_giou</span> <span class="o">=</span> <span class="mf">1.0</span> <span class="o">-</span> <span class="n">bbox_iou</span><span class="p">(</span><span class="n">pred_bboxes</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span> <span class="n">gt_bboxes</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">GIoU</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="c1"># Final cost matrix</span>
+<span></span>    <span class="c1"># Combine costs into final cost matrix</span>
 <span></span>    <span class="n">C</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">cost_gain</span><span class="p">[</span><span class="s2">"class"</span><span class="p">]</span> <span class="o">*</span> <span class="n">cost_class</span>
 <span></span>        <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_gain</span><span class="p">[</span><span class="s2">"bbox"</span><span class="p">]</span> <span class="o">*</span> <span class="n">cost_bbox</span>
 <span></span>        <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">cost_gain</span><span class="p">[</span><span class="s2">"giou"</span><span class="p">]</span> <span class="o">*</span> <span class="n">cost_giou</span>
 <span></span>    <span class="p">)</span>
-<span></span>    <span class="c1"># Compute the mask cost and dice cost</span>
+<span></span>
+<span></span>    <span class="c1"># Add mask costs if available</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">with_mask</span><span class="p">:</span>
 <span></span>        <span class="n">C</span> <span class="o">+=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cost_mask</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">gt_groups</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">gt_mask</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="c1"># Set invalid values (NaNs and infinities) to 0 (fixes ValueError: matrix contains invalid numeric entries)</span>
+<span></span>    <span class="c1"># Set invalid values (NaNs and infinities) to 0</span>
 <span></span>    <span class="n">C</span><span class="p">[</span><span class="n">C</span><span class="o">.</span><span class="n">isnan</span><span class="p">()</span> <span class="o">|</span> <span class="n">C</span><span class="o">.</span><span class="n">isinf</span><span class="p">()]</span> <span class="o">=</span> <span class="mf">0.0</span>
 <span></span>
 <span></span>    <span class="n">C</span> <span class="o">=</span> <span class="n">C</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">nq</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
@@ -1800,18 +1839,25 @@ For each batch element, it holds:
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.models.utils.ops.get_cdn_group</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_cdn_group</span><span class="p">(</span>
-<span></span>    <span class="n">batch</span><span class="p">,</span>
-<span></span>    <span class="n">num_classes</span><span class="p">,</span>
-<span></span>    <span class="n">num_queries</span><span class="p">,</span>
-<span></span>    <span class="n">class_embed</span><span class="p">,</span>
-<span></span>    <span class="n">num_dn</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-<span></span>    <span class="n">cls_noise_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
-<span></span>    <span class="n">box_noise_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span>
-<span></span>    <span class="n">training</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span><span class="p">)</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span></span>    <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">num_queries</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">class_embed</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">num_dn</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+<span></span>    <span class="n">cls_noise_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+<span></span>    <span class="n">box_noise_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+<span></span>    <span class="n">training</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span>
+<span></span>    <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+<span></span>    <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+<span></span>    <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
+<span></span>    <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]],</span>
+<span></span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Get contrastive denoising training group with positive and negative samples from ground truths.</p>
+<p>Generate contrastive denoising training group with positive and negative samples from ground truths.</p>
+<p>This function creates denoising queries for contrastive denoising training by adding noise to ground truth
+bounding boxes and class labels. It generates both positive and negative samples to improve model robustness.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1828,13 +1874,13 @@ For each batch element, it holds:
 <code>batch</code>
 </td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A dict that includes 'gt_cls' (torch.Tensor with shape (num_gts, )), 'gt_bboxes'
-(torch.Tensor with shape (num_gts, 4)), 'gt_groups' (List[int]) which is a list of batch size length
-indicating the number of gts of each image.</p>
+<p>Batch dictionary containing 'gt_cls' (torch.Tensor with shape (num_gts,)),
+'gt_bboxes' (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (List[int]) indicating number of
+ground truths per image.</p>
 </div>
 </td>
 <td>
@@ -1850,7 +1896,7 @@ indicating the number of gts of each image.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Number of classes.</p>
+<p>Total number of object classes.</p>
 </div>
 </td>
 <td>
@@ -1866,7 +1912,7 @@ indicating the number of gts of each image.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Number of queries.</p>
+<p>Number of object queries.</p>
 </div>
 </td>
 <td>
@@ -1882,7 +1928,7 @@ indicating the number of gts of each image.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Embedding weights to map class labels to embedding space.</p>
+<p>Class embedding weights to map labels to embedding space.</p>
 </div>
 </td>
 <td>
@@ -1898,7 +1944,7 @@ indicating the number of gts of each image.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Number of denoising queries.</p>
+<p>Number of denoising queries to generate.</p>
 </div>
 </td>
 <td>
@@ -1946,7 +1992,7 @@ indicating the number of gts of each image.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>If it's in training mode.</p>
+<p>Whether model is in training mode.</p>
 </div>
 </td>
 <td>
@@ -1966,78 +2012,60 @@ indicating the number of gts of each image.</p>
 <tbody>
 <tr class="doc-section-item">
 <td><code>padding_cls</code></td> <td>
-<code><span title="Optional">Optional</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="torch.Tensor">Tensor</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The modified class embeddings for denoising.</p>
+<p>Modified class embeddings for denoising with shape (bs, num_dn, embed_dim).</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
 <td><code>padding_bbox</code></td> <td>
-<code><span title="Optional">Optional</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="torch.Tensor">Tensor</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The modified bounding boxes for denoising.</p>
+<p>Modified bounding boxes for denoising with shape (bs, num_dn, 4).</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
 <td><code>attn_mask</code></td> <td>
-<code><span title="Optional">Optional</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="torch.Tensor">Tensor</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The attention mask for denoising.</p>
+<p>Attention mask for denoising with shape (tgt_size, tgt_size).</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
 <td><code>dn_meta</code></td> <td>
-<code><span title="Optional">Optional</span>[<span title="Dict">Dict</span>]</code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Meta information for denoising.</p>
+<p>Meta information dictionary containing denoising parameters.</p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Examples:</span></p>
+<p>Generate denoising group for training</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">batch</span> <span class="o">=</span> <span class="p">{</span>
+<span></span><span class="gp">... </span>    <span class="s2">"cls"</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]),</span>
+<span></span><span class="gp">... </span>    <span class="s2">"bboxes"</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span>
+<span></span><span class="gp">... </span>    <span class="s2">"batch_idx"</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">]),</span>
+<span></span><span class="gp">... </span>    <span class="s2">"gt_groups"</span><span class="p">:</span> <span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+<span></span><span class="gp">... </span><span class="p">}</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">class_embed</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">80</span><span class="p">,</span> <span class="mi">256</span><span class="p">)</span>  <span class="c1"># 80 classes, 256 embedding dim</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">cdn_outputs</span> <span class="o">=</span> <span class="n">get_cdn_group</span><span class="p">(</span><span class="n">batch</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">class_embed</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>160</span>
-<span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span>
-<span>169</span>
-<span>170</span>
-<span>171</span>
-<span>172</span>
-<span>173</span>
-<span>174</span>
-<span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span>
-<span>179</span>
-<span>180</span>
-<span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
-<span>187</span>
-<span>188</span>
-<span>189</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>189</span>
 <span>190</span>
 <span>191</span>
 <span>192</span>
@@ -2116,29 +2144,99 @@ indicating the number of gts of each image.</p>
 <span>265</span>
 <span>266</span>
 <span>267</span>
-<span>268</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_cdn_group</span><span class="p">(</span>
-<span></span>    <span class="n">batch</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="n">num_queries</span><span class="p">,</span> <span class="n">class_embed</span><span class="p">,</span> <span class="n">num_dn</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">cls_noise_ratio</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">box_noise_scale</span><span class="o">=</span><span class="mf">1.0</span><span class="p">,</span> <span class="n">training</span><span class="o">=</span><span class="kc">False</span>
-<span></span><span class="p">):</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_cdn_group</span><span class="p">(</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span></span>    <span class="n">num_classes</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">num_queries</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">class_embed</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">num_dn</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span>
+<span></span>    <span class="n">cls_noise_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+<span></span>    <span class="n">box_noise_scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span>
+<span></span>    <span class="n">training</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Get contrastive denoising training group with positive and negative samples from ground truths.</span>
+<span></span><span class="sd">    Generate contrastive denoising training group with positive and negative samples from ground truths.</span>
+<span></span>
+<span></span><span class="sd">    This function creates denoising queries for contrastive denoising training by adding noise to ground truth</span>
+<span></span><span class="sd">    bounding boxes and class labels. It generates both positive and negative samples to improve model robustness.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        batch (dict): A dict that includes 'gt_cls' (torch.Tensor with shape (num_gts, )), 'gt_bboxes'</span>
-<span></span><span class="sd">            (torch.Tensor with shape (num_gts, 4)), 'gt_groups' (List[int]) which is a list of batch size length</span>
-<span></span><span class="sd">            indicating the number of gts of each image.</span>
-<span></span><span class="sd">        num_classes (int): Number of classes.</span>
-<span></span><span class="sd">        num_queries (int): Number of queries.</span>
-<span></span><span class="sd">        class_embed (torch.Tensor): Embedding weights to map class labels to embedding space.</span>
-<span></span><span class="sd">        num_dn (int, optional): Number of denoising queries.</span>
-<span></span><span class="sd">        cls_noise_ratio (float, optional): Noise ratio for class labels.</span>
-<span></span><span class="sd">        box_noise_scale (float, optional): Noise scale for bounding box coordinates.</span>
-<span></span><span class="sd">        training (bool, optional): If it's in training mode.</span>
+<span></span><span class="sd">        batch (Dict[str, Any]): Batch dictionary containing 'gt_cls' (torch.Tensor with shape (num_gts,)),</span>
+<span></span><span class="sd">            'gt_bboxes' (torch.Tensor with shape (num_gts, 4)), and 'gt_groups' (List[int]) indicating number of</span>
+<span></span><span class="sd">            ground truths per image.</span>
+<span></span><span class="sd">        num_classes (int): Total number of object classes.</span>
+<span></span><span class="sd">        num_queries (int): Number of object queries.</span>
+<span></span><span class="sd">        class_embed (torch.Tensor): Class embedding weights to map labels to embedding space.</span>
+<span></span><span class="sd">        num_dn (int): Number of denoising queries to generate.</span>
+<span></span><span class="sd">        cls_noise_ratio (float): Noise ratio for class labels.</span>
+<span></span><span class="sd">        box_noise_scale (float): Noise scale for bounding box coordinates.</span>
+<span></span><span class="sd">        training (bool): Whether model is in training mode.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        padding_cls (Optional[torch.Tensor]): The modified class embeddings for denoising.</span>
-<span></span><span class="sd">        padding_bbox (Optional[torch.Tensor]): The modified bounding boxes for denoising.</span>
-<span></span><span class="sd">        attn_mask (Optional[torch.Tensor]): The attention mask for denoising.</span>
-<span></span><span class="sd">        dn_meta (Optional[Dict]): Meta information for denoising.</span>
+<span></span><span class="sd">        padding_cls (torch.Tensor | None): Modified class embeddings for denoising with shape (bs, num_dn, embed_dim).</span>
+<span></span><span class="sd">        padding_bbox (torch.Tensor | None): Modified bounding boxes for denoising with shape (bs, num_dn, 4).</span>
+<span></span><span class="sd">        attn_mask (torch.Tensor | None): Attention mask for denoising with shape (tgt_size, tgt_size).</span>
+<span></span><span class="sd">        dn_meta (Dict[str, Any] | None): Meta information dictionary containing denoising parameters.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        Generate denoising group for training</span>
+<span></span><span class="sd">        &gt;&gt;&gt; batch = {</span>
+<span></span><span class="sd">        ...     "cls": torch.tensor([0, 1, 2]),</span>
+<span></span><span class="sd">        ...     "bboxes": torch.rand(3, 4),</span>
+<span></span><span class="sd">        ...     "batch_idx": torch.tensor([0, 0, 1]),</span>
+<span></span><span class="sd">        ...     "gt_groups": [2, 1],</span>
+<span></span><span class="sd">        ... }</span>
+<span></span><span class="sd">        &gt;&gt;&gt; class_embed = torch.rand(80, 256)  # 80 classes, 256 embedding dim</span>
+<span></span><span class="sd">        &gt;&gt;&gt; cdn_outputs = get_cdn_group(batch, 80, 100, class_embed, training=True)</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">training</span><span class="p">)</span> <span class="ow">or</span> <span class="n">num_dn</span> <span class="o">&lt;=</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">batch</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
@@ -2156,7 +2254,7 @@ indicating the number of gts of each image.</p>
 <span></span>    <span class="n">gt_bbox</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">]</span>  <span class="c1"># bs*num, 4</span>
 <span></span>    <span class="n">b_idx</span> <span class="o">=</span> <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span>
 <span></span>
-<span></span>    <span class="c1"># Each group has positive and negative queries.</span>
+<span></span>    <span class="c1"># Each group has positive and negative queries</span>
 <span></span>    <span class="n">dn_cls</span> <span class="o">=</span> <span class="n">gt_cls</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">num_group</span><span class="p">)</span>  <span class="c1"># (2*num_group*bs*num, )</span>
 <span></span>    <span class="n">dn_bbox</span> <span class="o">=</span> <span class="n">gt_bbox</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">num_group</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># 2*num_group*bs*num, 4</span>
 <span></span>    <span class="n">dn_b_idx</span> <span class="o">=</span> <span class="n">b_idx</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">num_group</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>  <span class="c1"># (2*num_group*bs*num, )</span>
@@ -2166,10 +2264,10 @@ indicating the number of gts of each image.</p>
 <span></span>    <span class="n">neg_idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">total_num</span> <span class="o">*</span> <span class="n">num_group</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">long</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">gt_bbox</span><span class="o">.</span><span class="n">device</span><span class="p">)</span> <span class="o">+</span> <span class="n">num_group</span> <span class="o">*</span> <span class="n">total_num</span>
 <span></span>
 <span></span>    <span class="k">if</span> <span class="n">cls_noise_ratio</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-<span></span>        <span class="c1"># Half of bbox prob</span>
+<span></span>        <span class="c1"># Apply class label noise to half of the samples</span>
 <span></span>        <span class="n">mask</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">dn_cls</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&lt;</span> <span class="p">(</span><span class="n">cls_noise_ratio</span> <span class="o">*</span> <span class="mf">0.5</span><span class="p">)</span>
 <span></span>        <span class="n">idx</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">nonzero</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-<span></span>        <span class="c1"># Randomly put a new one here</span>
+<span></span>        <span class="c1"># Randomly assign new class labels</span>
 <span></span>        <span class="n">new_label</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">randint_like</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">num_classes</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dn_cls</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">dn_cls</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>        <span class="n">dn_cls</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">new_label</span>
 <span></span>
@@ -2188,7 +2286,6 @@ indicating the number of gts of each image.</p>
 <span></span>        <span class="n">dn_bbox</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">logit</span><span class="p">(</span><span class="n">dn_bbox</span><span class="p">,</span> <span class="n">eps</span><span class="o">=</span><span class="mf">1e-6</span><span class="p">)</span>  <span class="c1"># inverse sigmoid</span>
 <span></span>
 <span></span>    <span class="n">num_dn</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">max_nums</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">num_group</span><span class="p">)</span>  <span class="c1"># total denoising queries</span>
-<span></span>    <span class="c1"># class_embed = torch.cat([class_embed, torch.zeros([1, class_embed.shape[-1]], device=class_embed.device)])</span>
 <span></span>    <span class="n">dn_cls_embed</span> <span class="o">=</span> <span class="n">class_embed</span><span class="p">[</span><span class="n">dn_cls</span><span class="p">]</span>  <span class="c1"># bs*num * 2 * num_group, 256</span>
 <span></span>    <span class="n">padding_cls</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">num_dn</span><span class="p">,</span> <span class="n">dn_cls_embed</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="n">gt_cls</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>    <span class="n">padding_bbox</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="n">num_dn</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">gt_bbox</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>

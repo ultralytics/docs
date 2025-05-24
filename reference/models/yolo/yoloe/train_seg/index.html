@@ -1344,14 +1344,16 @@
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train_seg.YOLOESegTrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.train_seg.YOLOESegTrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOESegTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOESegTrainer</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../train/#ultralytics.models.yolo.yoloe.train.YOLOETrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainer&lt;/span&gt;'>YOLOETrainer</a></code>, <code><a class="autorefs autorefs-internal" href="../../segment/train/#ultralytics.models.yolo.segment.train.SegmentationTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.segment.train.SegmentationTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.segment.SegmentationTrainer&lt;/code&gt;)'>SegmentationTrainer</a></code></p>
 <p>Trainer class for YOLOE segmentation models.</p>
-<p>This class combines YOLOETrainer and SegmentationTrainer to provide training functionality
-specifically for YOLOE segmentation models.</p>
+<p>This class combines YOLOETrainer and SegmentationTrainer to provide training functionality specifically for YOLOE
+segmentation models, enabling both object detection and instance segmentation capabilities.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1399,22 +1401,22 @@ specifically for YOLOE segmentation models.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>22</span>
-<span>23</span>
-<span>24</span>
-<span>25</span>
-<span>26</span>
-<span>27</span>
-<span>28</span>
-<span>29</span>
-<span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -1553,7 +1555,7 @@ specifically for YOLOE segmentation models.</p>
 <span></span><span class="sd">    Return YOLOESegModel initialized with specified config and weights.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict | str): Model configuration dictionary or YAML file path.</span>
+<span></span><span class="sd">        cfg (dict | str, optional): Model configuration dictionary or YAML file path.</span>
 <span></span><span class="sd">        weights (str, optional): Path to pretrained weights file.</span>
 <span></span><span class="sd">        verbose (bool): Whether to display model information.</span>
 <span></span>
@@ -1639,19 +1641,42 @@ specifically for YOLOE segmentation models.</p>
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train_seg.YOLOEPESegTrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.train_seg.YOLOEPESegTrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOEPESegTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOEPESegTrainer</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../segment/train/#ultralytics.models.yolo.segment.train.SegmentationTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.segment.train.SegmentationTrainer&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.segment.SegmentationTrainer&lt;/code&gt;)'>SegmentationTrainer</a></code></p>
 <p>Fine-tune YOLOESeg model in linear probing way.</p>
 <p>This trainer specializes in fine-tuning YOLOESeg models using a linear probing approach, which involves freezing
-most of the model and only training specific layers.</p>
+most of the model and only training specific layers for efficient adaptation to new tasks.</p>
+<p><span class="doc-section-title">Attributes:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.yolo.yoloe.train_seg.YOLOEPESegTrainer.data">data</span></code></td>
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dataset configuration containing channels, class names, and number of classes.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>28</span>
-<span>29</span>
-<span>30</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>30</span>
 <span>31</span>
 <span>32</span>
 <span>33</span>
@@ -1670,7 +1695,9 @@ most of the model and only training specific layers.</p>
 <span>46</span>
 <span>47</span>
 <span>48</span>
-<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>49</span>
+<span>50</span>
+<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SegmentationTrainer object.</span>
 <span></span>
@@ -1678,7 +1705,7 @@ most of the model and only training specific layers.</p>
 <span></span><span class="sd">    functionality. It sets the task to 'segment' and prepares the trainer for training segmentation models.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict): Configuration dictionary with default training settings. Defaults to DEFAULT_CFG.</span>
+<span></span><span class="sd">        cfg (dict): Configuration dictionary with default training settings.</span>
 <span></span><span class="sd">        overrides (dict, optional): Dictionary of parameter overrides for the default configuration.</span>
 <span></span><span class="sd">        _callbacks (list, optional): List of callback functions to be executed during training.</span>
 <span></span>
@@ -1787,10 +1814,7 @@ most of the model and only training specific layers.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train_seg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 72</span>
-<span> 73</span>
-<span> 74</span>
-<span> 75</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 75</span>
 <span> 76</span>
 <span> 77</span>
 <span> 78</span>
@@ -1827,12 +1851,15 @@ most of the model and only training specific layers.</p>
 <span>109</span>
 <span>110</span>
 <span>111</span>
-<span>112</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return YOLOESegModel initialized with specified config and weights for linear probing.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict | str): Model configuration dictionary or YAML file path.</span>
+<span></span><span class="sd">        cfg (dict | str, optional): Model configuration dictionary or YAML file path.</span>
 <span></span><span class="sd">        weights (str, optional): Path to pretrained weights file.</span>
 <span></span><span class="sd">        verbose (bool): Whether to display model information.</span>
 <span></span>
@@ -1879,30 +1906,32 @@ most of the model and only training specific layers.</p>
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train_seg.YOLOESegTrainerFromScratch">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.train_seg.YOLOESegTrainerFromScratch</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOESegTrainerFromScratch</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOESegTrainerFromScratch</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../train/#ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOETrainerFromScratch&lt;/span&gt;'>YOLOETrainerFromScratch</a></code>, <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train_seg.YOLOESegTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train_seg.YOLOESegTrainer&lt;/span&gt;'>YOLOESegTrainer</a></code></p>
-<p>Trainer for YOLOE segmentation from scratch.</p>
+<p>Trainer for YOLOE segmentation models trained from scratch without pretrained weights.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>22</span>
-<span>23</span>
-<span>24</span>
-<span>25</span>
-<span>26</span>
-<span>27</span>
-<span>28</span>
-<span>29</span>
-<span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>
@@ -1928,30 +1957,32 @@ most of the model and only training specific layers.</p>
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.train_seg.YOLOESegVPTrainer">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.train_seg.YOLOESegVPTrainer</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOESegVPTrainer</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOESegVPTrainer</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../train/#ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train.YOLOEVPTrainer&lt;/span&gt;'>YOLOEVPTrainer</a></code>, <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.train_seg.YOLOESegTrainerFromScratch" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.train_seg.YOLOESegTrainerFromScratch&lt;/span&gt;'>YOLOESegTrainerFromScratch</a></code></p>
-<p>Trainer for YOLOE segmentation with VP.</p>
+<p>Trainer for YOLOE segmentation models with Vision Prompt (VP) capabilities.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/yoloe/train.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>22</span>
-<span>23</span>
-<span>24</span>
-<span>25</span>
-<span>26</span>
-<span>27</span>
-<span>28</span>
-<span>29</span>
-<span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span>
+<span>50</span>
+<span>51</span>
+<span>52</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the YOLOE Trainer with specified configurations.</span>
 <span></span>

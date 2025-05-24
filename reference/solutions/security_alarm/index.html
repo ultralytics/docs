@@ -1365,7 +1365,7 @@ visualization.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.security_alarm.SecurityAlarm.authenticate">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">authenticate</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">authenticate</span><span class="p">(</span><span class="n">from_email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">to_email</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">authenticate</span><span class="p">(</span><span class="n">from_email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">to_email</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Authenticate the email server for sending alert notifications.</p>
@@ -1458,7 +1458,7 @@ visualization.</p>
 <span>67</span>
 <span>68</span>
 <span>69</span>
-<span>70</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_email</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">to_email</span><span class="p">):</span>
+<span>70</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">authenticate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">from_email</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">password</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">to_email</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Authenticate the email server for sending alert notifications.</span>
 <span></span>
@@ -1636,7 +1636,7 @@ already been sent.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.security_alarm.SecurityAlarm.send_email">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">send_email</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">send_email</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">records</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">send_email</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">records</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Send an email notification with an image attachment indicating the number of objects detected.</p>
@@ -1737,13 +1737,13 @@ to the specified recipient.</p>
 <span>112</span>
 <span>113</span>
 <span>114</span>
-<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">send_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">records</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">send_email</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">records</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Send an email notification with an image attachment indicating the number of objects detected.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im0 (numpy.ndarray): The input image or frame to be attached to the email.</span>
-<span></span><span class="sd">        records (int): The number of detected objects to be included in the email message.</span>
+<span></span><span class="sd">        records (int, optional): The number of detected objects to be included in the email message.</span>
 <span></span>
 <span></span><span class="sd">    This method encodes the input image, composes the email message with details about the detection, and sends it</span>
 <span></span><span class="sd">    to the specified recipient.</span>

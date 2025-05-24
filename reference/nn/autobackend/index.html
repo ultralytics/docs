@@ -1227,7 +1227,7 @@
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
-<p>Handles dynamic backend selection for running inference using Ultralytics YOLO models.</p>
+<p>Handle dynamic backend selection for running inference using Ultralytics YOLO models.</p>
 <p>The AutoBackend class is designed to provide an abstraction layer for various inference engines. It supports a wide
 range of formats, each with specific naming conventions as outlined below:</p>
 <div class="highlight"><pre><span></span><code>Supported Formats and Naming Conventions:
@@ -1323,6 +1323,204 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <td>
 <div class="doc-md-description">
 <p>Whether the model uses half-precision (FP16) inference.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.nhwc">nhwc</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model expects NHWC input format instead of NCHW.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.pt">pt</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a PyTorch model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.jit">jit</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a TorchScript model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.onnx">onnx</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is an ONNX model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.xml">xml</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is an OpenVINO model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.engine">engine</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a TensorRT engine.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.coreml">coreml</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a CoreML model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.saved_model">saved_model</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a TensorFlow SavedModel.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.pb">pb</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a TensorFlow GraphDef.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.tflite">tflite</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a TensorFlow Lite model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.edgetpu">edgetpu</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a TensorFlow Edge TPU model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.tfjs">tfjs</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a TensorFlow.js model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.paddle">paddle</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a PaddlePaddle model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.mnn">mnn</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is an MNN model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.ncnn">ncnn</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is an NCNN model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.imx">imx</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is an IMX model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.rknn">rknn</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is an RKNN model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.nn.autobackend.AutoBackend.triton">triton</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether the model is a Triton Inference Server model.</p>
 </div>
 </td>
 </tr>
@@ -1439,7 +1637,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <code>data</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="optional">optional</span></code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1518,44 +1716,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span>
-<span>108</span>
-<span>109</span>
-<span>110</span>
-<span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span>
-<span>115</span>
-<span>116</span>
-<span>117</span>
-<span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
-<span>122</span>
-<span>123</span>
-<span>124</span>
-<span>125</span>
-<span>126</span>
-<span>127</span>
-<span>128</span>
-<span>129</span>
-<span>130</span>
-<span>131</span>
-<span>132</span>
-<span>133</span>
-<span>134</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>134</span>
 <span>135</span>
 <span>136</span>
 <span>137</span>
@@ -1989,7 +2150,44 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>565</span>
 <span>566</span>
 <span>567</span>
-<span>568</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span>568</span>
+<span>569</span>
+<span>570</span>
+<span>571</span>
+<span>572</span>
+<span>573</span>
+<span>574</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span>
+<span>581</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span>
+<span>590</span>
+<span>591</span>
+<span>592</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
@@ -2008,7 +2206,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span><span class="sd">        weights (str | List[str] | torch.nn.Module): Path to the model weights file or a module instance.</span>
 <span></span><span class="sd">        device (torch.device): Device to run the model on.</span>
 <span></span><span class="sd">        dnn (bool): Use OpenCV DNN module for ONNX inference.</span>
-<span></span><span class="sd">        data (str | Path | optional): Path to the additional data.yaml file containing class names.</span>
+<span></span><span class="sd">        data (str | Path, optional): Path to the additional data.yaml file containing class names.</span>
 <span></span><span class="sd">        fp16 (bool): Enable half-precision inference. Supported only on specific backends.</span>
 <span></span><span class="sd">        batch (int): Batch-size to assume for inference.</span>
 <span></span><span class="sd">        fuse (bool): Fuse Conv2D + BatchNorm layers for optimization.</span>
@@ -2468,10 +2666,16 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <h3 class="doc doc-heading" id="ultralytics.nn.autobackend.AutoBackend.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span>
+<span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">augment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">visualize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">embed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Runs inference on the YOLOv8 MultiBackend model.</p>
+<p>Run inference on an AutoBackend model.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2536,7 +2740,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <code>embed</code>
 </td>
 <td>
-<code><span title="list">list</span> | None</code>
+<code><span title="list">list</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2552,7 +2756,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2588,44 +2792,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>570</span>
-<span>571</span>
-<span>572</span>
-<span>573</span>
-<span>574</span>
-<span>575</span>
-<span>576</span>
-<span>577</span>
-<span>578</span>
-<span>579</span>
-<span>580</span>
-<span>581</span>
-<span>582</span>
-<span>583</span>
-<span>584</span>
-<span>585</span>
-<span>586</span>
-<span>587</span>
-<span>588</span>
-<span>589</span>
-<span>590</span>
-<span>591</span>
-<span>592</span>
-<span>593</span>
-<span>594</span>
-<span>595</span>
-<span>596</span>
-<span>597</span>
-<span>598</span>
-<span>599</span>
-<span>600</span>
-<span>601</span>
-<span>602</span>
-<span>603</span>
-<span>604</span>
-<span>605</span>
-<span>606</span>
-<span>607</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>607</span>
 <span>608</span>
 <span>609</span>
 <span>610</span>
@@ -2799,15 +2966,66 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>778</span>
 <span>779</span>
 <span>780</span>
-<span>781</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>781</span>
+<span>782</span>
+<span>783</span>
+<span>784</span>
+<span>785</span>
+<span>786</span>
+<span>787</span>
+<span>788</span>
+<span>789</span>
+<span>790</span>
+<span>791</span>
+<span>792</span>
+<span>793</span>
+<span>794</span>
+<span>795</span>
+<span>796</span>
+<span>797</span>
+<span>798</span>
+<span>799</span>
+<span>800</span>
+<span>801</span>
+<span>802</span>
+<span>803</span>
+<span>804</span>
+<span>805</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span>
+<span>810</span>
+<span>811</span>
+<span>812</span>
+<span>813</span>
+<span>814</span>
+<span>815</span>
+<span>816</span>
+<span>817</span>
+<span>818</span>
+<span>819</span>
+<span>820</span>
+<span>821</span>
+<span>822</span>
+<span>823</span>
+<span>824</span>
+<span>825</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">augment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">visualize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">embed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Runs inference on the YOLOv8 MultiBackend model.</span>
+<span></span><span class="sd">    Run inference on an AutoBackend model.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im (torch.Tensor): The image tensor to perform inference on.</span>
 <span></span><span class="sd">        augment (bool): Whether to perform data augmentation during inference.</span>
 <span></span><span class="sd">        visualize (bool): Whether to visualize the output predictions.</span>
-<span></span><span class="sd">        embed (list | None): A list of feature vectors/embeddings to return.</span>
+<span></span><span class="sd">        embed (list, optional): A list of feature vectors/embeddings to return.</span>
 <span></span><span class="sd">        **kwargs (Any): Additional keyword arguments for model configuration.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -2864,7 +3082,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>            <span class="n">results</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span><span class="p">]</span> <span class="o">*</span> <span class="n">n</span>  <span class="c1"># preallocate list with None to match the number of images</span>
 <span></span>
 <span></span>            <span class="k">def</span><span class="w"> </span><span class="nf">callback</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="n">userdata</span><span class="p">):</span>
-<span></span><span class="w">                </span><span class="sd">"""Places result in preallocated list using userdata index."""</span>
+<span></span><span class="w">                </span><span class="sd">"""Place result in preallocated list using userdata index."""</span>
 <span></span>                <span class="n">results</span><span class="p">[</span><span class="n">userdata</span><span class="p">]</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">results</span>
 <span></span>
 <span></span>            <span class="c1"># Create AsyncInferQueue, set the callback and start asynchronous inference for each input image</span>
@@ -3019,7 +3237,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <h3 class="doc doc-heading" id="ultralytics.nn.autobackend.AutoBackend.from_numpy">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">from_numpy</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">from_numpy</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert a numpy array to a tensor.</p>
@@ -3075,17 +3293,17 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>783</span>
-<span>784</span>
-<span>785</span>
-<span>786</span>
-<span>787</span>
-<span>788</span>
-<span>789</span>
-<span>790</span>
-<span>791</span>
-<span>792</span>
-<span>793</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>827</span>
+<span>828</span>
+<span>829</span>
+<span>830</span>
+<span>831</span>
+<span>832</span>
+<span>833</span>
+<span>834</span>
+<span>835</span>
+<span>836</span>
+<span>837</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a numpy array to a tensor.</span>
 <span></span>
@@ -3104,7 +3322,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <h3 class="doc doc-heading" id="ultralytics.nn.autobackend.AutoBackend.warmup">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">warmup</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">warmup</span><span class="p">(</span><span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">warmup</span><span class="p">(</span><span class="n">imgsz</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Warm up the model by running one forward pass with a dummy input.</p>
@@ -3139,20 +3357,20 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>795</span>
-<span>796</span>
-<span>797</span>
-<span>798</span>
-<span>799</span>
-<span>800</span>
-<span>801</span>
-<span>802</span>
-<span>803</span>
-<span>804</span>
-<span>805</span>
-<span>806</span>
-<span>807</span>
-<span>808</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">)):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>839</span>
+<span>840</span>
+<span>841</span>
+<span>842</span>
+<span>843</span>
+<span>844</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+<span>848</span>
+<span>849</span>
+<span>850</span>
+<span>851</span>
+<span>852</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Warm up the model by running one forward pass with a dummy input.</span>
 <span></span>
@@ -3177,10 +3395,81 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <h2 class="doc doc-heading" id="ultralytics.nn.autobackend.check_class_names">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.nn.autobackend.check_class_names</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_class_names</span><span class="p">(</span><span class="n">names</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_class_names</span><span class="p">(</span><span class="n">names</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Check class names and convert to dict format if needed.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>names</code>
+</td>
+<td>
+<code><span title="list">list</span> | <span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Class names as list or dict format.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Class names in dict format with integer keys and string values.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Raises:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="KeyError">KeyError</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>If class indices are invalid for the dataset size.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>22</span>
@@ -3199,8 +3488,30 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>35</span>
 <span>36</span>
 <span>37</span>
-<span>38</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_class_names</span><span class="p">(</span><span class="n">names</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Check class names and convert to dict format if needed."""</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span>
+<span>43</span>
+<span>44</span>
+<span>45</span>
+<span>46</span>
+<span>47</span>
+<span>48</span>
+<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_class_names</span><span class="p">(</span><span class="n">names</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">List</span><span class="p">,</span> <span class="n">Dict</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Check class names and convert to dict format if needed.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        names (list | dict): Class names as list or dict format.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (dict): Class names in dict format with integer keys and string values.</span>
+<span></span>
+<span></span><span class="sd">    Raises:</span>
+<span></span><span class="sd">        KeyError: If class indices are invalid for the dataset size.</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="nb">list</span><span class="p">):</span>  <span class="c1"># names is a list</span>
 <span></span>        <span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>  <span class="c1"># convert to dict</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">names</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
@@ -3224,21 +3535,87 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <h2 class="doc doc-heading" id="ultralytics.nn.autobackend.default_class_names">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.nn.autobackend.default_class_names</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">default_class_names</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">default_class_names</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Applies default class names to an input YAML file or returns numerical class names.</p>
+<p>Apply default class names to an input YAML file or return numerical class names.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>data</code>
+</td>
+<td>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to YAML file containing class names.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dictionary mapping class indices to class names.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>41</span>
-<span>42</span>
-<span>43</span>
-<span>44</span>
-<span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">default_class_names</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Applies default class names to an input YAML file or returns numerical class names."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">default_class_names</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Apply default class names to an input YAML file or return numerical class names.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        data (str | Path, optional): Path to YAML file containing class names.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (dict): Dictionary mapping class indices to class names.</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">data</span><span class="p">:</span>
 <span></span>        <span class="k">try</span><span class="p">:</span>
 <span></span>            <span class="k">return</span> <span class="n">YAML</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">check_yaml</span><span class="p">(</span><span class="n">data</span><span class="p">))[</span><span class="s2">"names"</span><span class="p">]</span>

@@ -1227,6 +1227,17 @@ update settings.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
+<td><code><span title="ultralytics.hub.utils.Events.events">events</span></code></td>
+<td>
+<code><span title="list">list</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of collected events to be sent.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
 <td><code><span title="ultralytics.hub.utils.Events.rate_limit">rate_limit</span></code></td>
 <td>
 <code><span title="float">float</span></code>
@@ -1234,6 +1245,17 @@ update settings.</p>
 <td>
 <div class="doc-md-description">
 <p>The rate limit in seconds for sending events.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.hub.utils.Events.t">t</span></code></td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Rate limit timer in seconds.</p>
 </div>
 </td>
 </tr>
@@ -1263,21 +1285,7 @@ update settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>187</span>
-<span>188</span>
-<span>189</span>
-<span>190</span>
-<span>191</span>
-<span>192</span>
-<span>193</span>
-<span>194</span>
-<span>195</span>
-<span>196</span>
-<span>197</span>
-<span>198</span>
-<span>199</span>
-<span>200</span>
-<span>201</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>201</span>
 <span>202</span>
 <span>203</span>
 <span>204</span>
@@ -1285,7 +1293,21 @@ update settings.</p>
 <span>206</span>
 <span>207</span>
 <span>208</span>
-<span>209</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the Events object with default values for events, rate_limit, and metadata."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">events</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># events list</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">rate_limit</span> <span class="o">=</span> <span class="mf">30.0</span>  <span class="c1"># rate limit (seconds)</span>
@@ -1366,21 +1388,7 @@ update settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>211</span>
-<span>212</span>
-<span>213</span>
-<span>214</span>
-<span>215</span>
-<span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>225</span>
 <span>226</span>
 <span>227</span>
 <span>228</span>
@@ -1404,13 +1412,27 @@ update settings.</p>
 <span>246</span>
 <span>247</span>
 <span>248</span>
-<span>249</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Attempt to add a new event to the events list and send events if the rate limit is reached.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (IterableSimpleNamespace): The configuration object containing mode and task information.</span>
-<span></span><span class="sd">        device (torch.device | str): The device type (e.g., 'cpu', 'cuda').</span>
+<span></span><span class="sd">        device (torch.device | str, optional): The device type (e.g., 'cpu', 'cuda').</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">enabled</span><span class="p">:</span>
 <span></span>        <span class="c1"># Events disabled, do nothing</span>
@@ -1454,7 +1476,7 @@ update settings.</p>
 <h2 class="doc doc-heading" id="ultralytics.hub.utils.request_with_credentials">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.utils.request_with_credentials</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">request_with_credentials</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">request_with_credentials</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Make an AJAX request with cookies attached in a Google Colab environment.</p>
@@ -1498,7 +1520,7 @@ update settings.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1531,8 +1553,7 @@ update settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>39</span>
-<span>40</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>40</span>
 <span>41</span>
 <span>42</span>
 <span>43</span>
@@ -1569,7 +1590,8 @@ update settings.</p>
 <span>74</span>
 <span>75</span>
 <span>76</span>
-<span>77</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">request_with_credentials</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">any</span><span class="p">:</span>
+<span>77</span>
+<span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">request_with_credentials</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Make an AJAX request with cookies attached in a Google Colab environment.</span>
 <span></span>
@@ -1616,7 +1638,7 @@ update settings.</p>
 <h2 class="doc doc-heading" id="ultralytics.hub.utils.requests_with_progress">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.utils.requests_with_progress</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">requests_with_progress</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">requests_with_progress</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Make an HTTP request using the specified method and URL, with an optional progress bar.</p>
@@ -1668,7 +1690,7 @@ update settings.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1712,8 +1734,7 @@ update settings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 80</span>
-<span> 81</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 81</span>
 <span> 82</span>
 <span> 83</span>
 <span> 84</span>
@@ -1741,7 +1762,8 @@ update settings.</p>
 <span>106</span>
 <span>107</span>
 <span>108</span>
-<span>109</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">requests_with_progress</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>109</span>
+<span>110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">requests_with_progress</span><span class="p">(</span><span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Make an HTTP request using the specified method and URL, with an optional progress bar.</span>
 <span></span>
@@ -1780,16 +1802,16 @@ update settings.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.hub.utils.smart_request</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">smart_request</span><span class="p">(</span>
-<span></span>    <span class="n">method</span><span class="p">,</span>
-<span></span>    <span class="n">url</span><span class="p">,</span>
-<span></span>    <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-<span></span>    <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span>
-<span></span>    <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">code</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
-<span></span>    <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">progress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">retry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+<span></span>    <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+<span></span>    <span class="n">thread</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<span></span>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span>
-<span></span><span class="p">)</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Make an HTTP request using the 'requests' library, with exponential backoff retries up to a specified timeout.</p>
@@ -1937,7 +1959,7 @@ update settings.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1961,11 +1983,12 @@ update settings.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="requests.Response">Response</span></code>
+<code><span title="requests.Response">Response</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The HTTP response object. If the request is executed in a separate thread, returns None.</p>
+<p>The HTTP response object. If the request is executed in a separate thread, returns
+None.</p>
 </div>
 </td>
 </tr>
@@ -1973,8 +1996,7 @@ update settings.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>112</span>
-<span>113</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
 <span>114</span>
 <span>115</span>
 <span>116</span>
@@ -2029,7 +2051,29 @@ update settings.</p>
 <span>165</span>
 <span>166</span>
 <span>167</span>
-<span>168</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smart_request</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">thread</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">code</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">progress</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smart_request</span><span class="p">(</span>
+<span></span>    <span class="n">method</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">retry</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
+<span></span>    <span class="n">timeout</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">30</span><span class="p">,</span>
+<span></span>    <span class="n">thread</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">code</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<span></span>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">progress</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">requests</span><span class="o">.</span><span class="n">Response</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Make an HTTP request using the 'requests' library, with exponential backoff retries up to a specified timeout.</span>
 <span></span>
@@ -2045,7 +2089,8 @@ update settings.</p>
 <span></span><span class="sd">        **kwargs (Any): Keyword arguments to be passed to the requests function specified in method.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (requests.Response): The HTTP response object. If the request is executed in a separate thread, returns None.</span>
+<span></span><span class="sd">        (requests.Response | None): The HTTP response object. If the request is executed in a separate thread, returns</span>
+<span></span><span class="sd">            None.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">retry_codes</span> <span class="o">=</span> <span class="p">(</span><span class="mi">408</span><span class="p">,</span> <span class="mi">500</span><span class="p">)</span>  <span class="c1"># retry only these codes</span>
 <span></span>

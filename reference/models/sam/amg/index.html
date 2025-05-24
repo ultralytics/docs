@@ -1325,7 +1325,111 @@
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Determines if bounding boxes are near the edge of a cropped image region using a specified tolerance.</p>
+<p>Determine if bounding boxes are near the edge of a cropped image region using a specified tolerance.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>boxes</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Bounding boxes in XYXY format.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>crop_box</code>
+</td>
+<td>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Crop box coordinates in [x0, y0, x1, y1] format.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>orig_box</code>
+</td>
+<td>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Original image box coordinates in [x0, y0, x1, y1] format.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>atol</code>
+</td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Absolute tolerance for edge proximity detection.</p>
+</div>
+</td>
+<td>
+<code>20.0</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Boolean tensor indicating which boxes are near crop edges.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">boxes</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">150</span><span class="p">]])</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">crop_box</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">]</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">orig_box</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">near_edge</span> <span class="o">=</span> <span class="n">is_box_near_crop_edge</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">,</span> <span class="n">orig_box</span><span class="p">,</span> <span class="n">atol</span><span class="o">=</span><span class="mf">20.0</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>11</span>
@@ -1338,10 +1442,44 @@
 <span>18</span>
 <span>19</span>
 <span>20</span>
-<span>21</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_box_near_crop_edge</span><span class="p">(</span>
+<span>21</span>
+<span>22</span>
+<span>23</span>
+<span>24</span>
+<span>25</span>
+<span>26</span>
+<span>27</span>
+<span>28</span>
+<span>29</span>
+<span>30</span>
+<span>31</span>
+<span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_box_near_crop_edge</span><span class="p">(</span>
 <span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">orig_box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">atol</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">20.0</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Determines if bounding boxes are near the edge of a cropped image region using a specified tolerance."""</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Determine if bounding boxes are near the edge of a cropped image region using a specified tolerance.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        boxes (torch.Tensor): Bounding boxes in XYXY format.</span>
+<span></span><span class="sd">        crop_box (List[int]): Crop box coordinates in [x0, y0, x1, y1] format.</span>
+<span></span><span class="sd">        orig_box (List[int]): Original image box coordinates in [x0, y0, x1, y1] format.</span>
+<span></span><span class="sd">        atol (float, optional): Absolute tolerance for edge proximity detection.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (torch.Tensor): Boolean tensor indicating which boxes are near crop edges.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; boxes = torch.tensor([[10, 10, 50, 50], [100, 100, 150, 150]])</span>
+<span></span><span class="sd">        &gt;&gt;&gt; crop_box = [0, 0, 200, 200]</span>
+<span></span><span class="sd">        &gt;&gt;&gt; orig_box = [0, 0, 300, 300]</span>
+<span></span><span class="sd">        &gt;&gt;&gt; near_edge = is_box_near_crop_edge(boxes, crop_box, orig_box, atol=20.0)</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">crop_box_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">crop_box</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">boxes</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>    <span class="n">orig_box_torch</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">orig_box</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">boxes</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>    <span class="n">boxes</span> <span class="o">=</span> <span class="n">uncrop_boxes_xyxy</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>
@@ -1440,24 +1578,7 @@ iterables. All input iterables must have the same length.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>24</span>
-<span>25</span>
-<span>26</span>
-<span>27</span>
-<span>28</span>
-<span>29</span>
-<span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
-<span>36</span>
-<span>37</span>
-<span>38</span>
-<span>39</span>
-<span>40</span>
-<span>41</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>41</span>
 <span>42</span>
 <span>43</span>
 <span>44</span>
@@ -1466,7 +1587,24 @@ iterables. All input iterables must have the same length.</p>
 <span>47</span>
 <span>48</span>
 <span>49</span>
-<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_iterator</span><span class="p">(</span><span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+<span>50</span>
+<span>51</span>
+<span>52</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
+<span>60</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batch_iterator</span><span class="p">(</span><span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Generator</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Yield batches of data from input arguments with specified batch size for efficient processing.</span>
 <span></span>
@@ -1506,7 +1644,7 @@ iterables. All input iterables must have the same length.</p>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Computes the stability score for a batch of masks.</p>
+<p>Compute the stability score for a batch of masks.</p>
 <p>The stability score is the IoU between binary masks obtained by thresholding the predicted mask logits at
 high and low values.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1606,24 +1744,7 @@ high and low values.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
-<span>54</span>
-<span>55</span>
-<span>56</span>
-<span>57</span>
-<span>58</span>
-<span>59</span>
-<span>60</span>
-<span>61</span>
-<span>62</span>
-<span>63</span>
-<span>64</span>
-<span>65</span>
-<span>66</span>
-<span>67</span>
-<span>68</span>
-<span>69</span>
-<span>70</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>70</span>
 <span>71</span>
 <span>72</span>
 <span>73</span>
@@ -1633,9 +1754,26 @@ high and low values.</p>
 <span>77</span>
 <span>78</span>
 <span>79</span>
-<span>80</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_stability_score</span><span class="p">(</span><span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">mask_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">threshold_offset</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>80</span>
+<span>81</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calculate_stability_score</span><span class="p">(</span><span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">mask_threshold</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">threshold_offset</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Computes the stability score for a batch of masks.</span>
+<span></span><span class="sd">    Compute the stability score for a batch of masks.</span>
 <span></span>
 <span></span><span class="sd">    The stability score is the IoU between binary masks obtained by thresholding the predicted mask logits at</span>
 <span></span><span class="sd">    high and low values.</span>
@@ -1675,13 +1813,13 @@ high and low values.</p>
 <p>Generate a 2D grid of evenly spaced points in the range [0,1]x[0,1] for image segmentation tasks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span>
-<span>88</span>
-<span>89</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_point_grid</span><span class="p">(</span><span class="n">n_per_side</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_point_grid</span><span class="p">(</span><span class="n">n_per_side</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Generate a 2D grid of evenly spaced points in the range [0,1]x[0,1] for image segmentation tasks."""</span>
 <span></span>    <span class="n">offset</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="n">n_per_side</span><span class="p">)</span>
 <span></span>    <span class="n">points_one_side</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">offset</span><span class="p">,</span> <span class="n">n_per_side</span><span class="p">)</span>
@@ -1701,13 +1839,13 @@ high and low values.</p>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Generates point grids for multiple crop layers with varying scales and densities.</p>
+<p>Generate point grids for multiple crop layers with varying scales and densities.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>92</span>
-<span>93</span>
-<span>94</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_all_layer_point_grids</span><span class="p">(</span><span class="n">n_per_side</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">scale_per_layer</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Generates point grids for multiple crop layers with varying scales and densities."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
+<span>110</span>
+<span>111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_all_layer_point_grids</span><span class="p">(</span><span class="n">n_per_side</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">scale_per_layer</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span></span><span class="w">    </span><span class="sd">"""Generate point grids for multiple crop layers with varying scales and densities."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">build_point_grid</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">n_per_side</span> <span class="o">/</span> <span class="p">(</span><span class="n">scale_per_layer</span><span class="o">**</span><span class="n">i</span><span class="p">)))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layers</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)]</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1722,7 +1860,7 @@ high and low values.</p>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Generates crop boxes of varying sizes for multiscale image processing, with layered overlapping regions.</p>
+<p>Generate crop boxes of varying sizes for multiscale image processing, with layered overlapping regions.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1788,13 +1926,13 @@ high and low values.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>crop_boxes</code></td> <td>
 <code><span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="int">int</span>]]</code>
 </td>
 <td>
@@ -1804,7 +1942,7 @@ high and low values.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>layer_idxs</code></td> <td>
 <code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
@@ -1823,24 +1961,7 @@ high and low values.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span>
-<span>108</span>
-<span>109</span>
-<span>110</span>
-<span>111</span>
-<span>112</span>
-<span>113</span>
-<span>114</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
 <span>115</span>
 <span>116</span>
 <span>117</span>
@@ -1872,11 +1993,28 @@ high and low values.</p>
 <span>143</span>
 <span>144</span>
 <span>145</span>
-<span>146</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_crop_boxes</span><span class="p">(</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_crop_boxes</span><span class="p">(</span>
 <span></span>    <span class="n">im_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">],</span> <span class="n">n_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">overlap_ratio</span><span class="p">:</span> <span class="nb">float</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]],</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Generates crop boxes of varying sizes for multiscale image processing, with layered overlapping regions.</span>
+<span></span><span class="sd">    Generate crop boxes of varying sizes for multiscale image processing, with layered overlapping regions.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im_size (Tuple[int, ...]): Height and width of the input image.</span>
@@ -1884,8 +2022,8 @@ high and low values.</p>
 <span></span><span class="sd">        overlap_ratio (float): Ratio of overlap between adjacent crop boxes.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[List[int]]): List of crop boxes in [x0, y0, x1, y1] format.</span>
-<span></span><span class="sd">        (List[int]): List of layer indices corresponding to each crop box.</span>
+<span></span><span class="sd">        crop_boxes (List[List[int]]): List of crop boxes in [x0, y0, x1, y1] format.</span>
+<span></span><span class="sd">        layer_idxs (List[int]): List of layer indices corresponding to each crop box.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; im_size = (800, 1200)  # Height, width</span>
@@ -1902,7 +2040,7 @@ high and low values.</p>
 <span></span>    <span class="n">layer_idxs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">crop_len</span><span class="p">(</span><span class="n">orig_len</span><span class="p">,</span> <span class="n">n_crops</span><span class="p">,</span> <span class="n">overlap</span><span class="p">):</span>
-<span></span><span class="w">        </span><span class="sd">"""Calculates the length of each crop given the original length, number of crops, and overlap."""</span>
+<span></span><span class="w">        </span><span class="sd">"""Calculate the length of each crop given the original length, number of crops, and overlap."""</span>
 <span></span>        <span class="k">return</span> <span class="nb">int</span><span class="p">(</span><span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">((</span><span class="n">overlap</span> <span class="o">*</span> <span class="p">(</span><span class="n">n_crops</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">orig_len</span><span class="p">)</span> <span class="o">/</span> <span class="n">n_crops</span><span class="p">))</span>
 <span></span>
 <span></span>    <span class="k">for</span> <span class="n">i_layer</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_layers</span><span class="p">):</span>
@@ -1936,14 +2074,14 @@ high and low values.</p>
 <p>Uncrop bounding boxes by adding the crop box offset to their coordinates.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>149</span>
-<span>150</span>
-<span>151</span>
-<span>152</span>
-<span>153</span>
-<span>154</span>
-<span>155</span>
-<span>156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uncrop_boxes_xyxy</span><span class="p">(</span><span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uncrop_boxes_xyxy</span><span class="p">(</span><span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Uncrop bounding boxes by adding the crop box offset to their coordinates."""</span>
 <span></span>    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">crop_box</span>
 <span></span>    <span class="n">offset</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">]],</span> <span class="n">device</span><span class="o">=</span><span class="n">boxes</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -1965,14 +2103,14 @@ high and low values.</p>
 <p>Uncrop points by adding the crop box offset to their coordinates.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>159</span>
-<span>160</span>
-<span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uncrop_points</span><span class="p">(</span><span class="n">points</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uncrop_points</span><span class="p">(</span><span class="n">points</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Uncrop points by adding the crop box offset to their coordinates."""</span>
 <span></span>    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">crop_box</span>
 <span></span>    <span class="n">offset</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">]],</span> <span class="n">device</span><span class="o">=</span><span class="n">points</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -1996,15 +2134,15 @@ high and low values.</p>
 <p>Uncrop masks by padding them to the original image size, handling coordinate transformations.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>169</span>
-<span>170</span>
-<span>171</span>
-<span>172</span>
-<span>173</span>
-<span>174</span>
-<span>175</span>
-<span>176</span>
-<span>177</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uncrop_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">orig_h</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">orig_w</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">uncrop_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">crop_box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span> <span class="n">orig_h</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">orig_w</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Uncrop masks by padding them to the original image size, handling coordinate transformations."""</span>
 <span></span>    <span class="n">x0</span><span class="p">,</span> <span class="n">y0</span><span class="p">,</span> <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span> <span class="o">=</span> <span class="n">crop_box</span>
 <span></span>    <span class="k">if</span> <span class="n">x0</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">y0</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">x1</span> <span class="o">==</span> <span class="n">orig_w</span> <span class="ow">and</span> <span class="n">y1</span> <span class="o">==</span> <span class="n">orig_h</span><span class="p">:</span>
@@ -2026,7 +2164,7 @@ high and low values.</p>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Removes small disconnected regions or holes in a mask based on area threshold and mode.</p>
+<p>Remove small disconnected regions or holes in a mask based on area threshold and mode.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2079,7 +2217,8 @@ high and low values.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Processing mode, either 'holes' to fill small holes or 'islands' to remove small disconnected regions.</p>
+<p>Processing mode, either 'holes' to fill small holes or 'islands' to remove small disconnected
+regions.</p>
 </div>
 </td>
 <td>
@@ -2092,13 +2231,13 @@ high and low values.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>processed_mask</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2108,7 +2247,7 @@ high and low values.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>modified</code></td> <td>
 <code><span title="bool">bool</span></code>
 </td>
 <td>
@@ -2127,24 +2266,7 @@ high and low values.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>180</span>
-<span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
-<span>187</span>
-<span>188</span>
-<span>189</span>
-<span>190</span>
-<span>191</span>
-<span>192</span>
-<span>193</span>
-<span>194</span>
-<span>195</span>
-<span>196</span>
-<span>197</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>197</span>
 <span>198</span>
 <span>199</span>
 <span>200</span>
@@ -2161,18 +2283,37 @@ high and low values.</p>
 <span>211</span>
 <span>212</span>
 <span>213</span>
-<span>214</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_small_regions</span><span class="p">(</span><span class="n">mask</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">area_thresh</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_small_regions</span><span class="p">(</span><span class="n">mask</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">area_thresh</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">bool</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Removes small disconnected regions or holes in a mask based on area threshold and mode.</span>
+<span></span><span class="sd">    Remove small disconnected regions or holes in a mask based on area threshold and mode.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        mask (np.ndarray): Binary mask to process.</span>
 <span></span><span class="sd">        area_thresh (float): Area threshold below which regions will be removed.</span>
-<span></span><span class="sd">        mode (str): Processing mode, either 'holes' to fill small holes or 'islands' to remove small disconnected regions.</span>
+<span></span><span class="sd">        mode (str): Processing mode, either 'holes' to fill small holes or 'islands' to remove small disconnected</span>
+<span></span><span class="sd">            regions.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Processed binary mask with small regions removed.</span>
-<span></span><span class="sd">        (bool): Whether any regions were modified.</span>
+<span></span><span class="sd">        processed_mask (np.ndarray): Processed binary mask with small regions removed.</span>
+<span></span><span class="sd">        modified (bool): Whether any regions were modified.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; mask = np.zeros((100, 100), dtype=np.bool_)</span>
@@ -2207,7 +2348,7 @@ high and low values.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">batched_mask_to_box</span><span class="p">(</span><span class="n">masks</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Calculates bounding boxes in XYXY format around binary masks.</p>
+<p>Calculate bounding boxes in XYXY format around binary masks.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2267,25 +2408,7 @@ high and low values.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/amg.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
-<span>235</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>235</span>
 <span>236</span>
 <span>237</span>
 <span>238</span>
@@ -2310,9 +2433,27 @@ high and low values.</p>
 <span>257</span>
 <span>258</span>
 <span>259</span>
-<span>260</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batched_mask_to_box</span><span class="p">(</span><span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">batched_mask_to_box</span><span class="p">(</span><span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Calculates bounding boxes in XYXY format around binary masks.</span>
+<span></span><span class="sd">    Calculate bounding boxes in XYXY format around binary masks.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        masks (torch.Tensor): Binary masks with shape (B, H, W) or (B, C, H, W).</span>

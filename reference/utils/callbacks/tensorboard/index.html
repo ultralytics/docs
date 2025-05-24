@@ -1335,8 +1335,8 @@ corresponding scalar values.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Log training metrics</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">"accuracy"</span><span class="p">:</span> <span class="mf">0.95</span><span class="p">}</span>
+<p>Log training metrics</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">metrics</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"loss"</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">"accuracy"</span><span class="p">:</span> <span class="mf">0.95</span><span class="p">}</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">_log_scalars</span><span class="p">(</span><span class="n">metrics</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
@@ -1367,7 +1367,7 @@ corresponding scalar values.</p>
 <span></span><span class="sd">        step (int): Global step value to record with the scalar values. Used for x-axis in TensorBoard graphs.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; # Log training metrics</span>
+<span></span><span class="sd">        Log training metrics</span>
 <span></span><span class="sd">        &gt;&gt;&gt; metrics = {"loss": 0.5, "accuracy": 0.95}</span>
 <span></span><span class="sd">        &gt;&gt;&gt; _log_scalars(metrics, step=100)</span>
 <span></span><span class="sd">    """</span>
@@ -1405,13 +1405,12 @@ approach for models like RTDETR that may require special handling.</p>
 <code>trainer</code>
 </td>
 <td>
-<code><span title="BaseTrainer">BaseTrainer</span></code>
+<code><a class="autorefs autorefs-internal" href="../../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'>BaseTrainer</a></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The trainer object containing the model to visualize. Must have attributes:
-- model: PyTorch model to visualize
-- args: Configuration arguments with 'imgsz' attribute</p>
+<p>The trainer object containing the model to visualize.
+Must have attributes model and args with imgsz.</p>
 </div>
 </td>
 <td>
@@ -1476,8 +1475,7 @@ model architectures.</p>
 <span>88</span>
 <span>89</span>
 <span>90</span>
-<span>91</span>
-<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_tensorboard_graph</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>91</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_tensorboard_graph</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log model graph to TensorBoard.</span>
 <span></span>
@@ -1486,9 +1484,8 @@ model architectures.</p>
 <span></span><span class="sd">    approach for models like RTDETR that may require special handling.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        trainer (BaseTrainer): The trainer object containing the model to visualize. Must have attributes:</span>
-<span></span><span class="sd">            - model: PyTorch model to visualize</span>
-<span></span><span class="sd">            - args: Configuration arguments with 'imgsz' attribute</span>
+<span></span><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The trainer object containing the model to visualize.</span>
+<span></span><span class="sd">            Must have attributes model and args with imgsz.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        This function requires TensorBoard integration to be enabled and the global WRITER to be initialized.</span>
@@ -1541,15 +1538,15 @@ model architectures.</p>
 <p>Initialize TensorBoard logging with SummaryWriter.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 95</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
+<span> 95</span>
 <span> 96</span>
 <span> 97</span>
 <span> 98</span>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
-<span>102</span>
-<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TensorBoard logging with SummaryWriter."""</span>
 <span></span>    <span class="k">if</span> <span class="n">SummaryWriter</span><span class="p">:</span>
 <span></span>        <span class="k">try</span><span class="p">:</span>
@@ -1572,10 +1569,10 @@ model architectures.</p>
 <p>Log TensorBoard graph.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>105</span>
+<span>106</span>
 <span>107</span>
-<span>108</span>
-<span>109</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log TensorBoard graph."""</span>
 <span></span>    <span class="k">if</span> <span class="n">WRITER</span><span class="p">:</span>
 <span></span>        <span class="n">_log_tensorboard_graph</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
@@ -1590,14 +1587,14 @@ model architectures.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Logs scalar statistics at the end of a training epoch.</p>
+<p>Log scalar statistics at the end of a training epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>112</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>111</span>
+<span>112</span>
 <span>113</span>
-<span>114</span>
-<span>115</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Logs scalar statistics at the end of a training epoch."""</span>
+<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log scalar statistics at the end of a training epoch."""</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">),</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1611,13 +1608,13 @@ model architectures.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Logs epoch metrics at end of training epoch.</p>
+<p>Log epoch metrics at end of training epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/tensorboard.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>118</span>
-<span>119</span>
-<span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Logs epoch metrics at end of training epoch."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>117</span>
+<span>118</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log epoch metrics at end of training epoch."""</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>

@@ -1380,7 +1380,7 @@ different classes.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Title for the plot; defaults to 'Precision Recall Curve'.</p>
+<p>Title for the plot.</p>
 </div>
 </td>
 <td>
@@ -1396,7 +1396,7 @@ different classes.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Label for the x-axis; defaults to 'Recall'.</p>
+<p>Label for the x-axis.</p>
 </div>
 </td>
 <td>
@@ -1412,7 +1412,7 @@ different classes.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Label for the y-axis; defaults to 'Precision'.</p>
+<p>Label for the y-axis.</p>
 </div>
 </td>
 <td>
@@ -1482,9 +1482,9 @@ different classes.</p>
 <span></span><span class="sd">        x (list): Values for the x-axis; expected to have length N.</span>
 <span></span><span class="sd">        y (list): Corresponding values for the y-axis; also expected to have length N.</span>
 <span></span><span class="sd">        classes (list): Labels identifying the class of each point; length N.</span>
-<span></span><span class="sd">        title (str): Title for the plot; defaults to 'Precision Recall Curve'.</span>
-<span></span><span class="sd">        x_title (str): Label for the x-axis; defaults to 'Recall'.</span>
-<span></span><span class="sd">        y_title (str): Label for the y-axis; defaults to 'Precision'.</span>
+<span></span><span class="sd">        title (str, optional): Title for the plot.</span>
+<span></span><span class="sd">        x_title (str, optional): Label for the x-axis.</span>
+<span></span><span class="sd">        y_title (str, optional): Label for the y-axis.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (wandb.Object): A wandb object suitable for logging, showcasing the crafted metric visualization.</span>
@@ -1755,13 +1755,13 @@ The curve can represent aggregated data (mean) or individual class data, dependi
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        x (np.ndarray): Data points for the x-axis with length N.</span>
 <span></span><span class="sd">        y (np.ndarray): Corresponding data points for the y-axis with shape (C, N), where C is the number of classes.</span>
-<span></span><span class="sd">        names (list): Names of the classes corresponding to the y-axis data; length C.</span>
-<span></span><span class="sd">        id (str): Unique identifier for the logged data in wandb.</span>
-<span></span><span class="sd">        title (str): Title for the visualization plot.</span>
-<span></span><span class="sd">        x_title (str): Label for the x-axis.</span>
-<span></span><span class="sd">        y_title (str): Label for the y-axis.</span>
-<span></span><span class="sd">        num_x (int): Number of interpolated data points for visualization.</span>
-<span></span><span class="sd">        only_mean (bool): Flag to indicate if only the mean curve should be plotted.</span>
+<span></span><span class="sd">        names (list, optional): Names of the classes corresponding to the y-axis data; length C.</span>
+<span></span><span class="sd">        id (str, optional): Unique identifier for the logged data in wandb.</span>
+<span></span><span class="sd">        title (str, optional): Title for the visualization plot.</span>
+<span></span><span class="sd">        x_title (str, optional): Label for the x-axis.</span>
+<span></span><span class="sd">        y_title (str, optional): Label for the y-axis.</span>
+<span></span><span class="sd">        num_x (int, optional): Number of interpolated data points for visualization.</span>
+<span></span><span class="sd">        only_mean (bool, optional): Flag to indicate if only the mean curve should be plotted.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        The function leverages the '_custom_table' function to generate the actual visualization.</span>
@@ -1849,11 +1849,9 @@ containing plot metadata including timestamps.</p>
 </table>
 <details class="notes" open="">
 <summary>Notes</summary>
-<ul>
-<li>The function uses a shallow copy of the plots dictionary to prevent modification during iteration</li>
-<li>Plots are identified by their stem name (filename without extension)</li>
-<li>Each plot is logged as a WandB Image object</li>
-</ul>
+<p>The function uses a shallow copy of the plots dictionary to prevent modification during iteration.
+Plots are identified by their stem name (filename without extension).
+Each plot is logged as a WandB Image object.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
@@ -1891,9 +1889,9 @@ containing plot metadata including timestamps.</p>
 <span></span><span class="sd">        step (int): The step/epoch at which to log the plots in the WandB run.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
-<span></span><span class="sd">        - The function uses a shallow copy of the plots dictionary to prevent modification during iteration</span>
-<span></span><span class="sd">        - Plots are identified by their stem name (filename without extension)</span>
-<span></span><span class="sd">        - Each plot is logged as a WandB Image object</span>
+<span></span><span class="sd">        The function uses a shallow copy of the plots dictionary to prevent modification during iteration.</span>
+<span></span><span class="sd">        Plots are identified by their stem name (filename without extension).</span>
+<span></span><span class="sd">        Each plot is logged as a WandB Image object.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">params</span> <span class="ow">in</span> <span class="n">plots</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>  <span class="c1"># shallow copy to prevent plots dict changing during iteration</span>
 <span></span>        <span class="n">timestamp</span> <span class="o">=</span> <span class="n">params</span><span class="p">[</span><span class="s2">"timestamp"</span><span class="p">]</span>
@@ -1911,7 +1909,7 @@ containing plot metadata including timestamps.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Initiate and start wandb project if module is present.</p>
+<p>Initialize and start wandb project if module is present.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/wb.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>125</span>
@@ -1922,7 +1920,7 @@ containing plot metadata including timestamps.</p>
 <span>130</span>
 <span>131</span>
 <span>132</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Initiate and start wandb project if module is present."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize and start wandb project if module is present."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">wb</span><span class="o">.</span><span class="n">run</span><span class="p">:</span>
 <span></span>        <span class="n">wb</span><span class="o">.</span><span class="n">init</span><span class="p">(</span>
 <span></span>            <span class="n">project</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">project</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"/"</span><span class="p">,</span> <span class="s2">"-"</span><span class="p">)</span> <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">project</span> <span class="k">else</span> <span class="s2">"Ultralytics"</span><span class="p">,</span>

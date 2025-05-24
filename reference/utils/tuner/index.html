@@ -1182,7 +1182,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>The hyperparameter search space.</p>
+<p>The hyperparameter search space. If not provided, uses default space.</p>
 </div>
 </td>
 <td>
@@ -1266,11 +1266,11 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="ray.tune.ResultGrid">ResultGrid</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A dictionary containing the results of the hyperparameter search.</p>
+<p>A ResultGrid containing the results of the hyperparameter search.</p>
 </div>
 </td>
 </tr>
@@ -1450,14 +1450,14 @@
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        model (YOLO): Model to run the tuner on.</span>
-<span></span><span class="sd">        space (dict, optional): The hyperparameter search space.</span>
+<span></span><span class="sd">        space (dict, optional): The hyperparameter search space. If not provided, uses default space.</span>
 <span></span><span class="sd">        grace_period (int, optional): The grace period in epochs of the ASHA scheduler.</span>
 <span></span><span class="sd">        gpu_per_trial (int, optional): The number of GPUs to allocate per trial.</span>
 <span></span><span class="sd">        max_samples (int, optional): The maximum number of trials to run.</span>
 <span></span><span class="sd">        **train_args (Any): Additional arguments to pass to the `train()` method.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (dict): A dictionary containing the results of the hyperparameter search.</span>
+<span></span><span class="sd">        (ray.tune.ResultGrid): A ResultGrid containing the results of the hyperparameter search.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics import YOLO</span>
@@ -1521,7 +1521,7 @@
 <span></span>    <span class="n">model_in_store</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">_tune</span><span class="p">(</span><span class="n">config</span><span class="p">):</span>
-<span></span><span class="w">        </span><span class="sd">"""Train the YOLO model with the specified hyperparameters."""</span>
+<span></span><span class="w">        </span><span class="sd">"""Train the YOLO model with the specified hyperparameters and return results."""</span>
 <span></span>        <span class="n">model_to_train</span> <span class="o">=</span> <span class="n">ray</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">model_in_store</span><span class="p">)</span>  <span class="c1"># get the model from ray store for tuning</span>
 <span></span>        <span class="n">model_to_train</span><span class="o">.</span><span class="n">reset_callbacks</span><span class="p">()</span>
 <span></span>        <span class="n">config</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">train_args</span><span class="p">)</span>
@@ -1531,13 +1531,13 @@
 <span></span>    <span class="c1"># Get search space</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">space</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">train_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"resume"</span><span class="p">):</span>
 <span></span>        <span class="n">space</span> <span class="o">=</span> <span class="n">default_space</span>
-<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"search space not provided, using default search space."</span><span class="p">)</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"Search space not provided, using default search space."</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Get dataset</span>
 <span></span>    <span class="n">data</span> <span class="o">=</span> <span class="n">train_args</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"data"</span><span class="p">,</span> <span class="n">TASK2DATA</span><span class="p">[</span><span class="n">task</span><span class="p">])</span>
 <span></span>    <span class="n">space</span><span class="p">[</span><span class="s2">"data"</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span>
 <span></span>    <span class="k">if</span> <span class="s2">"data"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">train_args</span><span class="p">:</span>
-<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'data not provided, using default "data=</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s1">".'</span><span class="p">)</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Data not provided, using default "data=</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s1">".'</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Define the trainable function with allocated resources</span>
 <span></span>    <span class="n">trainable_with_resources</span> <span class="o">=</span> <span class="n">tune</span><span class="o">.</span><span class="n">with_resources</span><span class="p">(</span><span class="n">_tune</span><span class="p">,</span> <span class="p">{</span><span class="s2">"cpu"</span><span class="p">:</span> <span class="n">NUM_THREADS</span><span class="p">,</span> <span class="s2">"gpu"</span><span class="p">:</span> <span class="n">gpu_per_trial</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">})</span>

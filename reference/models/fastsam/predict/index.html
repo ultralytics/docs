@@ -1300,7 +1300,7 @@ single-class segmentation.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.fastsam.predict.FastSAMPredictor.postprocess" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;postprocess&lt;/span&gt; (&lt;code&gt;ultralytics.models.fastsam.predict.FastSAMPredictor.postprocess&lt;/code&gt;)'>postprocess</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Applies box postprocessing for FastSAM predictions.</p>
+<p>Apply postprocessing to FastSAM predictions and handle prompts.</p>
 </div>
 </td>
 </tr>
@@ -1308,15 +1308,7 @@ single-class segmentation.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.fastsam.predict.FastSAMPredictor.prompt" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;prompt&lt;/span&gt; (&lt;code&gt;ultralytics.models.fastsam.predict.FastSAMPredictor.prompt&lt;/code&gt;)'>prompt</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Performs image segmentation inference based on various prompt types.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.models.fastsam.predict.FastSAMPredictor._clip_inference">_clip_inference</span></code></td>
-<td>
-<div class="doc-md-description">
-<p>Performs CLIP inference to calculate similarity between images and text prompts.</p>
+<p>Perform image segmentation inference based on various prompt types.</p>
 </div>
 </td>
 </tr>
@@ -1324,7 +1316,7 @@ single-class segmentation.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.fastsam.predict.FastSAMPredictor.set_prompts" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;set_prompts&lt;/span&gt; (&lt;code&gt;ultralytics.models.fastsam.predict.FastSAMPredictor.set_prompts&lt;/code&gt;)'>set_prompts</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Sets prompts to be used during inference.</p>
+<p>Set prompts to be used during inference.</p>
 </div>
 </td>
 </tr>
@@ -1353,7 +1345,7 @@ optimized for single-class segmentation.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Configuration for the predictor. Defaults to Ultralytics DEFAULT_CFG.</p>
+<p>Configuration for the predictor.</p>
 </div>
 </td>
 <td>
@@ -1396,7 +1388,8 @@ optimized for single-class segmentation.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>35</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>34</span>
+<span>35</span>
 <span>36</span>
 <span>37</span>
 <span>38</span>
@@ -1409,8 +1402,7 @@ optimized for single-class segmentation.</p>
 <span>45</span>
 <span>46</span>
 <span>47</span>
-<span>48</span>
-<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>48</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the FastSAMPredictor with configuration and callbacks.</span>
 <span></span>
@@ -1419,7 +1411,7 @@ optimized for single-class segmentation.</p>
 <span></span><span class="sd">    optimized for single-class segmentation.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict): Configuration for the predictor. Defaults to Ultralytics DEFAULT_CFG.</span>
+<span></span><span class="sd">        cfg (dict): Configuration for the predictor.</span>
 <span></span><span class="sd">        overrides (dict, optional): Configuration overrides.</span>
 <span></span><span class="sd">        _callbacks (list, optional): List of callback functions.</span>
 <span></span><span class="sd">    """</span>
@@ -1520,7 +1512,8 @@ optimized for single-class segmentation.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>51</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
+<span>51</span>
 <span>52</span>
 <span>53</span>
 <span>54</span>
@@ -1545,8 +1538,7 @@ optimized for single-class segmentation.</p>
 <span>73</span>
 <span>74</span>
 <span>75</span>
-<span>76</span>
-<span>77</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply postprocessing to FastSAM predictions and handle prompts.</span>
 <span></span>
@@ -1701,7 +1693,8 @@ optimized for single-class segmentation.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 79</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 78</span>
+<span> 79</span>
 <span> 80</span>
 <span> 81</span>
 <span> 82</span>
@@ -1772,8 +1765,7 @@ optimized for single-class segmentation.</p>
 <span>147</span>
 <span>148</span>
 <span>149</span>
-<span>150</span>
-<span>151</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prompt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>150</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prompt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">texts</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform image segmentation inference based on cues like bounding boxes, points, and text prompts.</span>
 <span></span>
@@ -1817,7 +1809,7 @@ optimized for single-class segmentation.</p>
 <span></span>                <span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">points</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 <span></span>            <span class="n">labels</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">labels</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>            <span class="k">assert</span> <span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">),</span> <span class="p">(</span>
-<span></span>                <span class="sa">f</span><span class="s2">"Excepted `labels` got same size as `point`, but got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
+<span></span>                <span class="sa">f</span><span class="s2">"Expected `labels` with same size as `point`, but got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">labels</span><span class="p">)</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">points</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span>
 <span></span>            <span class="p">)</span>
 <span></span>            <span class="n">point_idx</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>                <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">result</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
@@ -1860,9 +1852,9 @@ optimized for single-class segmentation.</p>
 <p>Set prompts to be used during inference.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>179</span>
-<span>180</span>
-<span>181</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>178</span>
+<span>179</span>
+<span>180</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set prompts to be used during inference."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prompts</span> <span class="o">=</span> <span class="n">prompts</span>
 </code></pre></div></td></tr></table></div>

@@ -1426,7 +1426,7 @@ taken as a direct observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.initiate" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;initiate&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.initiate&lt;/code&gt;)'>initiate</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Creates a track from an unassociated measurement.</p>
+<p>Create a track from an unassociated measurement.</p>
 </div>
 </td>
 </tr>
@@ -1434,7 +1434,7 @@ taken as a direct observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.predict" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;predict&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.predict&lt;/code&gt;)'>predict</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Runs the Kalman filter prediction step.</p>
+<p>Run the Kalman filter prediction step.</p>
 </div>
 </td>
 </tr>
@@ -1442,7 +1442,7 @@ taken as a direct observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.project" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;project&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.project&lt;/code&gt;)'>project</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Projects the state distribution to measurement space.</p>
+<p>Project the state distribution to measurement space.</p>
 </div>
 </td>
 </tr>
@@ -1450,7 +1450,7 @@ taken as a direct observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.multi_predict" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;multi_predict&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.multi_predict&lt;/code&gt;)'>multi_predict</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Runs the Kalman filter prediction step (vectorized version).</p>
+<p>Run the Kalman filter prediction step (vectorized version).</p>
 </div>
 </td>
 </tr>
@@ -1458,7 +1458,7 @@ taken as a direct observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.update" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.update&lt;/code&gt;)'>update</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Runs the Kalman filter correction step.</p>
+<p>Run the Kalman filter correction step.</p>
 </div>
 </td>
 </tr>
@@ -1466,7 +1466,7 @@ taken as a direct observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.gating_distance" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;gating_distance&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYAH.gating_distance&lt;/code&gt;)'>gating_distance</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Computes the gating distance between state distribution and measurements.</p>
+<p>Compute the gating distance between state distribution and measurements.</p>
 </div>
 </td>
 </tr>
@@ -1750,8 +1750,8 @@ Euclidean distance and 'maha' for the squared Mahalanobis distance.</p>
 <span></span><span class="sd">        covariance (np.ndarray): Covariance of the state distribution (8x8 dimensional).</span>
 <span></span><span class="sd">        measurements (np.ndarray): An (N, 4) matrix of N measurements, each in format (x, y, a, h) where (x, y) is the</span>
 <span></span><span class="sd">            bounding box center position, a the aspect ratio, and h the height.</span>
-<span></span><span class="sd">        only_position (bool): If True, distance computation is done with respect to box center position only.</span>
-<span></span><span class="sd">        metric (str): The metric to use for calculating the distance. Options are 'gaussian' for the squared</span>
+<span></span><span class="sd">        only_position (bool, optional): If True, distance computation is done with respect to box center position only.</span>
+<span></span><span class="sd">        metric (str, optional): The metric to use for calculating the distance. Options are 'gaussian' for the squared</span>
 <span></span><span class="sd">            Euclidean distance and 'maha' for the squared Mahalanobis distance.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -1826,13 +1826,13 @@ and height h.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -1842,7 +1842,7 @@ and height h.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -1901,8 +1901,8 @@ and height h.</p>
 <span></span><span class="sd">            and height h.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Mean vector (8-dimensional) of the new track. Unobserved velocities are initialized to 0 mean.</span>
-<span></span><span class="sd">        (np.ndarray): Covariance matrix (8x8 dimensional) of the new track.</span>
+<span></span><span class="sd">        mean (np.ndarray): Mean vector (8-dimensional) of the new track. Unobserved velocities are initialized to 0 mean.</span>
+<span></span><span class="sd">        covariance (np.ndarray): Covariance matrix (8x8 dimensional) of the new track.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYAH()</span>
@@ -1986,13 +1986,13 @@ and height h.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2002,7 +2002,7 @@ and height h.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2067,8 +2067,8 @@ and height h.</p>
 <span></span><span class="sd">        covariance (np.ndarray): The Nx8x8 covariance matrix of the object states at the previous time step.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Mean matrix of the predicted states with shape (N, 8).</span>
-<span></span><span class="sd">        (np.ndarray): Covariance matrix of the predicted states with shape (N, 8, 8).</span>
+<span></span><span class="sd">        mean (np.ndarray): Mean matrix of the predicted states with shape (N, 8).</span>
+<span></span><span class="sd">        covariance (np.ndarray): Covariance matrix of the predicted states with shape (N, 8, 8).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; mean = np.random.rand(10, 8)  # 10 object states</span>
@@ -2158,13 +2158,13 @@ and height h.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2174,7 +2174,7 @@ and height h.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2237,8 +2237,8 @@ and height h.</p>
 <span></span><span class="sd">        covariance (np.ndarray): The 8x8-dimensional covariance matrix of the object state at the previous time step.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Mean vector of the predicted state. Unobserved velocities are initialized to 0 mean.</span>
-<span></span><span class="sd">        (np.ndarray): Covariance matrix of the predicted state.</span>
+<span></span><span class="sd">        mean (np.ndarray): Mean vector of the predicted state. Unobserved velocities are initialized to 0 mean.</span>
+<span></span><span class="sd">        covariance (np.ndarray): Covariance matrix of the predicted state.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYAH()</span>
@@ -2325,13 +2325,13 @@ and height h.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2341,7 +2341,7 @@ and height h.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2397,8 +2397,8 @@ and height h.</p>
 <span></span><span class="sd">        covariance (np.ndarray): The state's covariance matrix (8x8 dimensional).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Projected mean of the given state estimate.</span>
-<span></span><span class="sd">        (np.ndarray): Projected covariance matrix of the given state estimate.</span>
+<span></span><span class="sd">        mean (np.ndarray): Projected mean of the given state estimate.</span>
+<span></span><span class="sd">        covariance (np.ndarray): Projected covariance matrix of the given state estimate.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYAH()</span>
@@ -2495,13 +2495,13 @@ position, a the aspect ratio, and h the height of the bounding box.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>new_mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2511,7 +2511,7 @@ position, a the aspect ratio, and h the height of the bounding box.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>new_covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2573,8 +2573,8 @@ position, a the aspect ratio, and h the height of the bounding box.</p>
 <span></span><span class="sd">            position, a the aspect ratio, and h the height of the bounding box.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Measurement-corrected state mean.</span>
-<span></span><span class="sd">        (np.ndarray): Measurement-corrected state covariance.</span>
+<span></span><span class="sd">        new_mean (np.ndarray): Measurement-corrected state mean.</span>
+<span></span><span class="sd">        new_covariance (np.ndarray): Measurement-corrected state covariance.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYAH()</span>
@@ -2684,7 +2684,7 @@ observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.initiate" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;initiate&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.initiate&lt;/code&gt;)'>initiate</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Creates a track from an unassociated measurement.</p>
+<p>Create a track from an unassociated measurement.</p>
 </div>
 </td>
 </tr>
@@ -2692,7 +2692,7 @@ observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.predict" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;predict&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.predict&lt;/code&gt;)'>predict</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Runs the Kalman filter prediction step.</p>
+<p>Run the Kalman filter prediction step.</p>
 </div>
 </td>
 </tr>
@@ -2700,7 +2700,7 @@ observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.project" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;project&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.project&lt;/code&gt;)'>project</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Projects the state distribution to measurement space.</p>
+<p>Project the state distribution to measurement space.</p>
 </div>
 </td>
 </tr>
@@ -2708,7 +2708,7 @@ observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.multi_predict" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;multi_predict&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.multi_predict&lt;/code&gt;)'>multi_predict</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Runs the Kalman filter prediction step in a vectorized manner.</p>
+<p>Run the Kalman filter prediction step in a vectorized manner.</p>
 </div>
 </td>
 </tr>
@@ -2716,7 +2716,7 @@ observation of the state space (linear observation model).</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.update" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update&lt;/span&gt; (&lt;code&gt;ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.update&lt;/code&gt;)'>update</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Runs the Kalman filter correction step.</p>
+<p>Run the Kalman filter correction step.</p>
 </div>
 </td>
 </tr>
@@ -2823,13 +2823,13 @@ observation of the state space (linear observation model).</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2839,7 +2839,7 @@ observation of the state space (linear observation model).</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -2918,8 +2918,8 @@ observation of the state space (linear observation model).</p>
 <span></span><span class="sd">        measurement (np.ndarray): Bounding box coordinates (x, y, w, h) with center position (x, y), width, and height.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Mean vector (8 dimensional) of the new track. Unobserved velocities are initialized to 0 mean.</span>
-<span></span><span class="sd">        (np.ndarray): Covariance matrix (8x8 dimensional) of the new track.</span>
+<span></span><span class="sd">        mean (np.ndarray): Mean vector (8 dimensional) of the new track. Unobserved velocities are initialized to 0 mean.</span>
+<span></span><span class="sd">        covariance (np.ndarray): Covariance matrix (8x8 dimensional) of the new track.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYWH()</span>
@@ -2961,7 +2961,7 @@ observation of the state space (linear observation model).</p>
 <h3 class="doc doc-heading" id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.multi_predict">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">multi_predict</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">multi_predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">multi_predict</span><span class="p">(</span><span class="n">mean</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Run Kalman filter prediction step (Vectorized version).</p>
@@ -3014,13 +3014,13 @@ observation of the state space (linear observation model).</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3030,7 +3030,7 @@ observation of the state space (linear observation model).</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3088,7 +3088,7 @@ observation of the state space (linear observation model).</p>
 <span>467</span>
 <span>468</span>
 <span>469</span>
-<span>470</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">):</span>
+<span>470</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">multi_predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Run Kalman filter prediction step (Vectorized version).</span>
 <span></span>
@@ -3097,8 +3097,8 @@ observation of the state space (linear observation model).</p>
 <span></span><span class="sd">        covariance (np.ndarray): The Nx8x8 covariance matrix of the object states at the previous time step.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Mean matrix of the predicted states with shape (N, 8).</span>
-<span></span><span class="sd">        (np.ndarray): Covariance matrix of the predicted states with shape (N, 8, 8).</span>
+<span></span><span class="sd">        mean (np.ndarray): Mean matrix of the predicted states with shape (N, 8).</span>
+<span></span><span class="sd">        covariance (np.ndarray): Covariance matrix of the predicted states with shape (N, 8, 8).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; mean = np.random.rand(5, 8)  # 5 objects with 8-dimensional state vectors</span>
@@ -3136,7 +3136,7 @@ observation of the state space (linear observation model).</p>
 <h3 class="doc doc-heading" id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.predict">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">predict</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">predict</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">predict</span><span class="p">(</span><span class="n">mean</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Run Kalman filter prediction step.</p>
@@ -3189,13 +3189,13 @@ observation of the state space (linear observation model).</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3205,7 +3205,7 @@ observation of the state space (linear observation model).</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3259,7 +3259,7 @@ observation of the state space (linear observation model).</p>
 <span>396</span>
 <span>397</span>
 <span>398</span>
-<span>399</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">):</span>
+<span>399</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Run Kalman filter prediction step.</span>
 <span></span>
@@ -3268,8 +3268,8 @@ observation of the state space (linear observation model).</p>
 <span></span><span class="sd">        covariance (np.ndarray): The 8x8-dimensional covariance matrix of the object state at the previous time step.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Mean vector of the predicted state. Unobserved velocities are initialized to 0 mean.</span>
-<span></span><span class="sd">        (np.ndarray): Covariance matrix of the predicted state.</span>
+<span></span><span class="sd">        mean (np.ndarray): Mean vector of the predicted state. Unobserved velocities are initialized to 0 mean.</span>
+<span></span><span class="sd">        covariance (np.ndarray): Covariance matrix of the predicted state.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYWH()</span>
@@ -3303,7 +3303,7 @@ observation of the state space (linear observation model).</p>
 <h3 class="doc doc-heading" id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.project">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">project</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">project</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">project</span><span class="p">(</span><span class="n">mean</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Project state distribution to measurement space.</p>
@@ -3356,13 +3356,13 @@ observation of the state space (linear observation model).</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3372,7 +3372,7 @@ observation of the state space (linear observation model).</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3419,7 +3419,7 @@ observation of the state space (linear observation model).</p>
 <span>426</span>
 <span>427</span>
 <span>428</span>
-<span>429</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">):</span>
+<span>429</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">project</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Project state distribution to measurement space.</span>
 <span></span>
@@ -3428,8 +3428,8 @@ observation of the state space (linear observation model).</p>
 <span></span><span class="sd">        covariance (np.ndarray): The state's covariance matrix (8x8 dimensional).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Projected mean of the given state estimate.</span>
-<span></span><span class="sd">        (np.ndarray): Projected covariance matrix of the given state estimate.</span>
+<span></span><span class="sd">        mean (np.ndarray): Projected mean of the given state estimate.</span>
+<span></span><span class="sd">        covariance (np.ndarray): Projected covariance matrix of the given state estimate.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYWH()</span>
@@ -3456,7 +3456,7 @@ observation of the state space (linear observation model).</p>
 <h3 class="doc doc-heading" id="ultralytics.trackers.utils.kalman_filter.KalmanFilterXYWH.update">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurement</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="n">mean</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Run Kalman filter correction step.</p>
@@ -3526,13 +3526,13 @@ position, w the width, and h the height of the bounding box.</p>
 <table>
 <thead>
 <tr>
-<th>Type</th>
+<th>Name</th> <th>Type</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td>
+<td><code>new_mean</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3542,7 +3542,7 @@ position, w the width, and h the height of the bounding box.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td>
+<td><code>new_covariance</code></td> <td>
 <code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
@@ -3583,7 +3583,7 @@ position, w the width, and h the height of the bounding box.</p>
 <span>490</span>
 <span>491</span>
 <span>492</span>
-<span>493</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">,</span> <span class="n">covariance</span><span class="p">,</span> <span class="n">measurement</span><span class="p">):</span>
+<span>493</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mean</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">covariance</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">measurement</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Run Kalman filter correction step.</span>
 <span></span>
@@ -3594,8 +3594,8 @@ position, w the width, and h the height of the bounding box.</p>
 <span></span><span class="sd">            position, w the width, and h the height of the bounding box.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (np.ndarray): Measurement-corrected state mean.</span>
-<span></span><span class="sd">        (np.ndarray): Measurement-corrected state covariance.</span>
+<span></span><span class="sd">        new_mean (np.ndarray): Measurement-corrected state mean.</span>
+<span></span><span class="sd">        new_covariance (np.ndarray): Measurement-corrected state covariance.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; kf = KalmanFilterXYWH()</span>

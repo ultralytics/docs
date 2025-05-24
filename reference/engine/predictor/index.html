@@ -1339,7 +1339,11 @@
 <h2 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.predictor.BasePredictor</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">BasePredictor</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">BasePredictor</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span>
+<span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">_callbacks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">callable</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>A base class for creating predictors.</p>
@@ -1435,7 +1439,7 @@ and result processing across various input sources.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.predictor.BasePredictor.vid_writer">vid_writer</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="cv2.VideoWriter">VideoWriter</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1479,7 +1483,7 @@ and result processing across various input sources.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.predictor.BasePredictor.windows">windows</span></code></td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="typing.List">List</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1501,7 +1505,7 @@ and result processing across various input sources.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.predictor.BasePredictor.results">results</span></code></td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="typing.List">List</span>[<span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1523,7 +1527,7 @@ and result processing across various input sources.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.predictor.BasePredictor.callbacks">callbacks</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.List">List</span>[<span title="callable">callable</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1694,7 +1698,7 @@ and result processing across various input sources.</p>
 <code>overrides</code>
 </td>
 <td>
-<code><span title="dict">dict</span> | None</code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1710,7 +1714,7 @@ and result processing across various input sources.</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="dict">dict</span> | None</code>
+<code><span title="dict">dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1725,8 +1729,7 @@ and result processing across various input sources.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
-<span>109</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
 <span>110</span>
 <span>111</span>
 <span>112</span>
@@ -1759,14 +1762,25 @@ and result processing across various input sources.</p>
 <span>139</span>
 <span>140</span>
 <span>141</span>
-<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span>
+<span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">_callbacks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">callable</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the BasePredictor class.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (str | dict): Path to a configuration file or a configuration dictionary.</span>
-<span></span><span class="sd">        overrides (dict | None): Configuration overrides.</span>
-<span></span><span class="sd">        _callbacks (dict | None): Dictionary of callback functions.</span>
+<span></span><span class="sd">        overrides (dict, optional): Configuration overrides.</span>
+<span></span><span class="sd">        _callbacks (dict, optional): Dictionary of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
@@ -1801,7 +1815,7 @@ and result processing across various input sources.</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.__call__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__call__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__call__</span><span class="p">(</span><span class="nf">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__call__</span><span class="p">(</span><span class="nf">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform inference on an image or stream.</p>
@@ -1821,7 +1835,7 @@ and result processing across various input sources.</p>
 <code>source</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="List">List</span>[<span title="str">str</span>] | <span title="List">List</span>[<span title="pathlib.Path">Path</span>] | <span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="typing.List">List</span>[<span title="str">str</span>] | <span title="typing.List">List</span>[<span title="pathlib.Path">Path</span>] | <span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1837,7 +1851,7 @@ and result processing across various input sources.</p>
 <code>model</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="torch.nn.Module">Module</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1869,7 +1883,7 @@ and result processing across various input sources.</p>
 <code>*args</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1885,7 +1899,7 @@ and result processing across various input sources.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1909,7 +1923,7 @@ and result processing across various input sources.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<a class="autorefs autorefs-internal" href="../results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>] | <span title="generator">generator</span></code>
+<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" href="../results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>] | <span title="generator">generator</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1921,16 +1935,7 @@ and result processing across various input sources.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>199</span>
-<span>200</span>
-<span>201</span>
-<span>202</span>
-<span>203</span>
-<span>204</span>
-<span>205</span>
-<span>206</span>
-<span>207</span>
-<span>208</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>208</span>
 <span>209</span>
 <span>210</span>
 <span>211</span>
@@ -1940,14 +1945,23 @@ and result processing across various input sources.</p>
 <span>215</span>
 <span>216</span>
 <span>217</span>
-<span>218</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform inference on an image or stream.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        source (str | Path | List[str] | List[Path] | List[np.ndarray] | np.ndarray | torch.Tensor | None):</span>
+<span></span><span class="sd">        source (str | Path | List[str] | List[Path] | List[np.ndarray] | np.ndarray | torch.Tensor, optional):</span>
 <span></span><span class="sd">            Source for inference.</span>
-<span></span><span class="sd">        model (str | Path | torch.nn.Module | None): Model for inference.</span>
+<span></span><span class="sd">        model (str | Path | torch.nn.Module, optional): Model for inference.</span>
 <span></span><span class="sd">        stream (bool): Whether to stream the inference results. If True, returns a generator.</span>
 <span></span><span class="sd">        *args (Any): Additional arguments for the inference method.</span>
 <span></span><span class="sd">        **kwargs (Any): Additional keyword arguments for the inference method.</span>
@@ -1968,15 +1982,15 @@ and result processing across various input sources.</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.add_callback">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">add_callback</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">add_callback</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">add_callback</span><span class="p">(</span><span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="nb">callable</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Add a callback function for a specific event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>493</span>
-<span>494</span>
-<span>495</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>502</span>
+<span>503</span>
+<span>504</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">func</span><span class="p">:</span> <span class="nb">callable</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Add a callback function for a specific event."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">func</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1987,20 +2001,20 @@ and result processing across various input sources.</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.inference">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">inference</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">inference</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">inference</span><span class="p">(</span><span class="n">im</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Run inference on a given image using the specified model and arguments.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>166</span>
-<span>167</span>
-<span>168</span>
-<span>169</span>
-<span>170</span>
-<span>171</span>
-<span>172</span>
-<span>173</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run inference on a given image using the specified model and arguments."""</span>
 <span></span>    <span class="n">visualize</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>        <span class="n">increment_path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">Path</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">batch</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">mkdir</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2022,9 +2036,9 @@ and result processing across various input sources.</p>
 <p>Post-process predictions for an image and return them.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>195</span>
-<span>196</span>
-<span>197</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>204</span>
+<span>205</span>
+<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Post-process predictions for an image and return them."""</span>
 <span></span>    <span class="k">return</span> <span class="n">preds</span>
 </code></pre></div></td></tr></table></div>
@@ -2035,7 +2049,7 @@ and result processing across various input sources.</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.pre_transform">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">pre_transform</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">pre_transform</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">pre_transform</span><span class="p">(</span><span class="n">im</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Pre-transform input image before inference.</p>
@@ -2055,11 +2069,11 @@ and result processing across various input sources.</p>
 <code>im</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Images of shape (N, 3, h, w) for tensor, [(h, w, 3) x N] for list.</p>
+<p>List of images with shape [(H, W, 3) x N].</p>
 </div>
 </td>
 <td>
@@ -2079,11 +2093,11 @@ and result processing across various input sources.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A list of transformed images.</p>
+<p>List of transformed images.</p>
 </div>
 </td>
 </tr>
@@ -2091,16 +2105,7 @@ and result processing across various input sources.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span>
-<span>179</span>
-<span>180</span>
-<span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>184</span>
 <span>185</span>
 <span>186</span>
 <span>187</span>
@@ -2109,15 +2114,24 @@ and result processing across various input sources.</p>
 <span>190</span>
 <span>191</span>
 <span>192</span>
-<span>193</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Pre-transform input image before inference.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        im (List[np.ndarray]): Images of shape (N, 3, h, w) for tensor, [(h, w, 3) x N] for list.</span>
+<span></span><span class="sd">        im (List[np.ndarray]): List of images with shape [(H, W, 3) x N].</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[np.ndarray]): A list of transformed images.</span>
+<span></span><span class="sd">        (List[np.ndarray]): List of transformed images.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">same_shapes</span> <span class="o">=</span> <span class="nb">len</span><span class="p">({</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">im</span><span class="p">})</span> <span class="o">==</span> <span class="mi">1</span>
 <span></span>    <span class="n">letterbox</span> <span class="o">=</span> <span class="n">LetterBox</span><span class="p">(</span>
@@ -2159,7 +2173,7 @@ generator without storing results.</p>
 <code>source</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="List">List</span>[<span title="str">str</span>] | <span title="List">List</span>[<span title="pathlib.Path">Path</span>] | <span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="typing.List">List</span>[<span title="str">str</span>] | <span title="typing.List">List</span>[<span title="pathlib.Path">Path</span>] | <span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2175,7 +2189,7 @@ generator without storing results.</p>
 <code>model</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="torch.nn.Module">Module</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2195,16 +2209,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>229</span>
 <span>230</span>
 <span>231</span>
 <span>232</span>
@@ -2214,7 +2219,16 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>236</span>
 <span>237</span>
 <span>238</span>
-<span>239</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_cli</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_cli</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Method used for Command Line Interface (CLI) prediction.</span>
 <span></span>
@@ -2223,9 +2237,9 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span></span><span class="sd">    generator without storing results.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        source (str | Path | List[str] | List[Path] | List[np.ndarray] | np.ndarray | torch.Tensor | None):</span>
+<span></span><span class="sd">        source (str | Path | List[str] | List[Path] | List[np.ndarray] | np.ndarray | torch.Tensor, optional):</span>
 <span></span><span class="sd">            Source for inference.</span>
-<span></span><span class="sd">        model (str | Path | torch.nn.Module | None): Model for inference.</span>
+<span></span><span class="sd">        model (str | Path | torch.nn.Module, optional): Model for inference.</span>
 <span></span>
 <span></span><span class="sd">    Note:</span>
 <span></span><span class="sd">        Do not modify this function or remove the generator. The generator ensures that no outputs are</span>
@@ -2242,10 +2256,10 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.preprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">preprocess</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess</span><span class="p">(</span><span class="n">im</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">ndarray</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Prepares input image before inference.</p>
+<p>Prepare input image before inference.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2262,11 +2276,11 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>im</code>
 </td>
 <td>
-<code>torch.Tensor | List(np.ndarray</code>
+<code><span title="torch.Tensor">Tensor</span> | <span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Images of shape (N, 3, h, w) for tensor, [(h, w, 3) x N] for list.</p>
+<p>Images of shape (N, 3, H, W) for tensor, [(H, W, 3) x N] for list.</p>
 </div>
 </td>
 <td>
@@ -2275,15 +2289,30 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Preprocessed image tensor of shape (N, 3, H, W).</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>144</span>
-<span>145</span>
-<span>146</span>
-<span>147</span>
-<span>148</span>
-<span>149</span>
-<span>150</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>150</span>
 <span>151</span>
 <span>152</span>
 <span>153</span>
@@ -2297,12 +2326,24 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>161</span>
 <span>162</span>
 <span>163</span>
-<span>164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Prepares input image before inference.</span>
+<span></span><span class="sd">    Prepare input image before inference.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        im (torch.Tensor | List(np.ndarray)): Images of shape (N, 3, h, w) for tensor, [(h, w, 3) x N] for list.</span>
+<span></span><span class="sd">        im (torch.Tensor | List[np.ndarray]): Images of shape (N, 3, H, W) for tensor, [(H, W, 3) x N] for list.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (torch.Tensor): Preprocessed image tensor of shape (N, 3, H, W).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">not_tensor</span> <span class="o">=</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">not_tensor</span><span class="p">:</span>
@@ -2332,10 +2373,10 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <p>Run all registered callbacks for a specific event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>488</span>
-<span>489</span>
-<span>490</span>
-<span>491</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>497</span>
+<span>498</span>
+<span>499</span>
+<span>500</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run all registered callbacks for a specific event."""</span>
 <span></span>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
 <span></span>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -2347,7 +2388,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.save_predicted_images">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save_predicted_images</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="n">save_path</span><span class="o">=</span><span class="s1">''</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="n">save_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Save video predictions as mp4 or images as jpg at specified path.</p>
@@ -2398,16 +2439,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
-<span>445</span>
-<span>446</span>
-<span>447</span>
-<span>448</span>
-<span>449</span>
-<span>450</span>
-<span>451</span>
-<span>452</span>
-<span>453</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>453</span>
 <span>454</span>
 <span>455</span>
 <span>456</span>
@@ -2430,7 +2462,16 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>473</span>
 <span>474</span>
 <span>475</span>
-<span>476</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">frame</span><span class="o">=</span><span class="mi">0</span><span class="p">):</span>
+<span>476</span>
+<span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span>
+<span>484</span>
+<span>485</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save video predictions as mp4 or images as jpg at specified path.</span>
 <span></span>
@@ -2471,7 +2512,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.setup_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">setup_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">setup_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">setup_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Initialize YOLO model with given parameters and set it to evaluation mode.</p>
@@ -2491,7 +2532,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>model</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="torch.nn.Module">Module</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2522,16 +2563,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>368</span>
-<span>369</span>
-<span>370</span>
-<span>371</span>
-<span>372</span>
-<span>373</span>
-<span>374</span>
-<span>375</span>
-<span>376</span>
-<span>377</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>377</span>
 <span>378</span>
 <span>379</span>
 <span>380</span>
@@ -2545,12 +2577,21 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>388</span>
 <span>389</span>
 <span>390</span>
-<span>391</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize YOLO model with given parameters and set it to evaluation mode.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        model (str | Path | torch.nn.Module | None): Model to load or use.</span>
+<span></span><span class="sd">        model (str | Path | torch.nn.Module, optional): Model to load or use.</span>
 <span></span><span class="sd">        verbose (bool): Whether to print verbose output.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">AutoBackend</span><span class="p">(</span>
@@ -2597,7 +2638,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>source</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="List">List</span>[<span title="str">str</span>] | <span title="List">List</span>[<span title="pathlib.Path">Path</span>] | <span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="typing.List">List</span>[<span title="str">str</span>] | <span title="typing.List">List</span>[<span title="pathlib.Path">Path</span>] | <span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2612,16 +2653,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>241</span>
-<span>242</span>
-<span>243</span>
-<span>244</span>
-<span>245</span>
-<span>246</span>
-<span>247</span>
-<span>248</span>
-<span>249</span>
-<span>250</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>250</span>
 <span>251</span>
 <span>252</span>
 <span>253</span>
@@ -2636,7 +2668,16 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>262</span>
 <span>263</span>
 <span>264</span>
-<span>265</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set up source and inference mode.</span>
 <span></span>
@@ -2669,21 +2710,21 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.show">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">show</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">show</span><span class="p">(</span><span class="n">p</span><span class="o">=</span><span class="s1">''</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">show</span><span class="p">(</span><span class="n">p</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Display an image in a window.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>478</span>
-<span>479</span>
-<span>480</span>
-<span>481</span>
-<span>482</span>
-<span>483</span>
-<span>484</span>
-<span>485</span>
-<span>486</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>487</span>
+<span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span>
+<span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Display an image in a window."""</span>
 <span></span>    <span class="n">im</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotted_img</span>
 <span></span>    <span class="k">if</span> <span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"Linux"</span> <span class="ow">and</span> <span class="n">p</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">windows</span><span class="p">:</span>
@@ -2720,7 +2761,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>source</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="List">List</span>[<span title="str">str</span>] | <span title="List">List</span>[<span title="pathlib.Path">Path</span>] | <span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="typing.List">List</span>[<span title="str">str</span>] | <span title="typing.List">List</span>[<span title="pathlib.Path">Path</span>] | <span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2736,7 +2777,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>model</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="torch.nn.Module">Module</span> | None</code>
+<code><span title="str">str</span> | <span title="pathlib.Path">Path</span> | <span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2752,7 +2793,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>*args</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2768,7 +2809,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2804,16 +2845,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>267</span>
-<span>268</span>
-<span>269</span>
-<span>270</span>
-<span>271</span>
-<span>272</span>
-<span>273</span>
-<span>274</span>
-<span>275</span>
-<span>276</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>276</span>
 <span>277</span>
 <span>278</span>
 <span>279</span>
@@ -2903,15 +2935,24 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>363</span>
 <span>364</span>
 <span>365</span>
-<span>366</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">stream_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Stream real-time inference on camera feed and save results to file.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        source (str | Path | List[str] | List[Path] | List[np.ndarray] | np.ndarray | torch.Tensor | None):</span>
+<span></span><span class="sd">        source (str | Path | List[str] | List[Path] | List[np.ndarray] | np.ndarray | torch.Tensor, optional):</span>
 <span></span><span class="sd">            Source for inference.</span>
-<span></span><span class="sd">        model (str | Path | torch.nn.Module | None): Model for inference.</span>
+<span></span><span class="sd">        model (str | Path | torch.nn.Module, optional): Model for inference.</span>
 <span></span><span class="sd">        *args (Any): Additional arguments for the inference method.</span>
 <span></span><span class="sd">        **kwargs (Any): Additional keyword arguments for the inference method.</span>
 <span></span>
@@ -3011,7 +3052,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.write_results">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">write_results</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">write_results</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">write_results</span><span class="p">(</span><span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Write inference results to a file or directory.</p>
@@ -3079,7 +3120,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>s</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="str">str</span>]</code>
+<code><span title="typing.List">List</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3115,16 +3156,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>393</span>
-<span>394</span>
-<span>395</span>
-<span>396</span>
-<span>397</span>
-<span>398</span>
-<span>399</span>
-<span>400</span>
-<span>401</span>
-<span>402</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>402</span>
 <span>403</span>
 <span>404</span>
 <span>405</span>
@@ -3164,7 +3196,16 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>439</span>
 <span>440</span>
 <span>441</span>
-<span>442</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">write_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">write_results</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">p</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">s</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Write inference results to a file or directory.</span>
 <span></span>

@@ -1245,8 +1245,8 @@ environment variable if successfully authenticated.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>API key to use for authentication. If not provided, it will be retrieved from SETTINGS
-or HUB_API_KEY environment variable.</p>
+<p>API key to use for authentication. If not provided, it will be retrieved from
+SETTINGS or HUB_API_KEY environment variable.</p>
 </div>
 </td>
 <td>
@@ -1343,8 +1343,8 @@ or HUB_API_KEY environment variable.</p>
 <span></span><span class="sd">    environment variable if successfully authenticated.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        api_key (str, optional): API key to use for authentication. If not provided, it will be retrieved from SETTINGS</span>
-<span></span><span class="sd">            or HUB_API_KEY environment variable.</span>
+<span></span><span class="sd">        api_key (str, optional): API key to use for authentication. If not provided, it will be retrieved from</span>
+<span></span><span class="sd">            SETTINGS or HUB_API_KEY environment variable.</span>
 <span></span><span class="sd">        save (bool, optional): Whether to save the API key to SETTINGS if authentication is successful.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -1388,30 +1388,14 @@ or HUB_API_KEY environment variable.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">logout</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Log out of Ultralytics HUB by removing the API key from the settings file. To log in again, use 'yolo login'.</p>
-<p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hub</span><span class="o">.</span><span class="n">logout</span><span class="p">()</span>
-</code></pre></div>
+<p>Log out of Ultralytics HUB by removing the API key from the settings file.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>70</span>
 <span>71</span>
 <span>72</span>
-<span>73</span>
-<span>74</span>
-<span>75</span>
-<span>76</span>
-<span>77</span>
-<span>78</span>
-<span>79</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logout</span><span class="p">():</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log out of Ultralytics HUB by removing the API key from the settings file. To log in again, use 'yolo login'.</span>
-<span></span>
-<span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; from ultralytics import hub</span>
-<span></span><span class="sd">        &gt;&gt;&gt; hub.logout()</span>
-<span></span><span class="sd">    """</span>
+<span>73</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">logout</span><span class="p">():</span>
+<span></span><span class="w">    </span><span class="sd">"""Log out of Ultralytics HUB by removing the API key from the settings file."""</span>
 <span></span>    <span class="n">SETTINGS</span><span class="p">[</span><span class="s2">"api_key"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">""</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">PREFIX</span><span class="si">}</span><span class="s2">logged out ✅. To log in again, use 'yolo login'."</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1428,13 +1412,13 @@ or HUB_API_KEY environment variable.</p>
 <p>Reset a trained model to an untrained state.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>82</span>
-<span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span>
-<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
+<span>81</span>
+<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset a trained model to an untrained state."""</span>
 <span></span>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/model-reset"</span><span class="p">,</span> <span class="n">json</span><span class="o">=</span><span class="p">{</span><span class="s2">"modelId"</span><span class="p">:</span> <span class="n">model_id</span><span class="p">},</span> <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">"x-api-key"</span><span class="p">:</span> <span class="n">Auth</span><span class="p">()</span><span class="o">.</span><span class="n">api_key</span><span class="p">})</span>
 <span></span>    <span class="k">if</span> <span class="n">r</span><span class="o">.</span><span class="n">status_code</span> <span class="o">==</span> <span class="mi">200</span><span class="p">:</span>
@@ -1452,15 +1436,15 @@ or HUB_API_KEY environment variable.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">export_fmts_hub</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Returns a list of HUB-supported export formats.</p>
+<p>Return a list of HUB-supported export formats.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>91</span>
-<span>92</span>
-<span>93</span>
-<span>94</span>
-<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_fmts_hub</span><span class="p">():</span>
-<span></span><span class="w">    </span><span class="sd">"""Returns a list of HUB-supported export formats."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_fmts_hub</span><span class="p">():</span>
+<span></span><span class="w">    </span><span class="sd">"""Return a list of HUB-supported export formats."""</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.engine.exporter</span><span class="w"> </span><span class="kn">import</span> <span class="n">export_formats</span>
 <span></span>
 <span></span>    <span class="k">return</span> <span class="nb">list</span><span class="p">(</span><span class="n">export_formats</span><span class="p">()[</span><span class="s2">"Argument"</span><span class="p">][</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="p">[</span><span class="s2">"ultralytics_tflite"</span><span class="p">,</span> <span class="s2">"ultralytics_coreml"</span><span class="p">]</span>
@@ -1549,7 +1533,13 @@ export_fmts_hub().</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
@@ -1564,13 +1554,7 @@ export_fmts_hub().</p>
 <span>110</span>
 <span>111</span>
 <span>112</span>
-<span>113</span>
-<span>114</span>
-<span>115</span>
-<span>116</span>
-<span>117</span>
-<span>118</span>
-<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"torchscript"</span><span class="p">):</span>
+<span>113</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_model</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"torchscript"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Export a model to a specified format for deployment via the Ultralytics HUB API.</span>
 <span></span>
@@ -1640,11 +1624,33 @@ export_fmts_hub().</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The export format to retrieve. Must be one of the supported formats returned by export_fmts_hub().</p>
+<p>The export format to retrieve. Must be one of the supported formats returned by
+export_fmts_hub().</p>
 </div>
 </td>
 <td>
 <code>'torchscript'</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="dict">dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>JSON response containing the exported model information.</p>
+</div>
 </td>
 </tr>
 </tbody>
@@ -1672,11 +1678,17 @@ export_fmts_hub().</p>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">hub</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">hub</span><span class="o">.</span><span class="n">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">"your_model_id"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"torchscript"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">result</span> <span class="o">=</span> <span class="n">hub</span><span class="o">.</span><span class="n">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="o">=</span><span class="s2">"your_model_id"</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"torchscript"</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>122</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
 <span>123</span>
 <span>124</span>
 <span>125</span>
@@ -1696,22 +1708,24 @@ export_fmts_hub().</p>
 <span>139</span>
 <span>140</span>
 <span>141</span>
-<span>142</span>
-<span>143</span>
-<span>144</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"torchscript"</span><span class="p">):</span>
+<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_export</span><span class="p">(</span><span class="n">model_id</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"torchscript"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve an exported model in the specified format from Ultralytics HUB using the model ID.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        model_id (str): The ID of the model to retrieve from Ultralytics HUB.</span>
-<span></span><span class="sd">        format (str): The export format to retrieve. Must be one of the supported formats returned by export_fmts_hub().</span>
+<span></span><span class="sd">        format (str): The export format to retrieve. Must be one of the supported formats returned by</span>
+<span></span><span class="sd">            export_fmts_hub().</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (dict): JSON response containing the exported model information.</span>
 <span></span>
 <span></span><span class="sd">    Raises:</span>
 <span></span><span class="sd">        AssertionError: If the specified format is not supported or if the API request fails.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics import hub</span>
-<span></span><span class="sd">        &gt;&gt;&gt; hub.get_export(model_id="your_model_id", format="torchscript")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; result = hub.get_export(model_id="your_model_id", format="torchscript")</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">assert</span> <span class="nb">format</span> <span class="ow">in</span> <span class="n">export_fmts_hub</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"Unsupported export format '</span><span class="si">{</span><span class="nb">format</span><span class="si">}</span><span class="s2">', valid formats are </span><span class="si">{</span><span class="n">export_fmts_hub</span><span class="p">()</span><span class="si">}</span><span class="s2">"</span>
 <span></span>    <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
@@ -1786,14 +1800,16 @@ export_fmts_hub().</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/dota8.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"obb"</span><span class="p">)</span>  <span class="c1"># OBB dataset</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">check_dataset</span><span class="p">(</span><span class="s2">"path/to/imagenet10.zip"</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"classify"</span><span class="p">)</span>  <span class="c1"># classification dataset</span>
 </code></pre></div>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>Download *.zip files from <a href="https://github.com/ultralytics/hub/tree/main/example_datasets">https://github.com/ultralytics/hub/tree/main/example_datasets</a>
 i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip">https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip</a> for coco8.zip.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>147</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>145</span>
+<span>146</span>
+<span>147</span>
 <span>148</span>
 <span>149</span>
 <span>150</span>
@@ -1812,9 +1828,7 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <span>163</span>
 <span>164</span>
 <span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>166</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_dataset</span><span class="p">(</span><span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">task</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check HUB dataset Zip file for errors before upload.</span>
 <span></span>
@@ -1830,7 +1844,7 @@ i.e. <a href="https://github.com/ultralytics/hub/raw/main/example_datasets/coco8
 <span></span><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/dota8.zip", task="obb")  # OBB dataset</span>
 <span></span><span class="sd">        &gt;&gt;&gt; check_dataset("path/to/imagenet10.zip", task="classify")  # classification dataset</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Download *.zip files from https://github.com/ultralytics/hub/tree/main/example_datasets</span>
 <span></span><span class="sd">        i.e. https://github.com/ultralytics/hub/raw/main/example_datasets/coco8.zip for coco8.zip.</span>
 <span></span><span class="sd">    """</span>

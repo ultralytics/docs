@@ -1791,6 +1791,120 @@ generate memory-based attention outputs.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process input tensors through self-attention, cross-attention, and feedforward network layers.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>tgt</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Target tensor for self-attention with shape (N, L, D).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>memory</code>
+</td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Memory tensor for cross-attention with shape (N, S, D).</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>pos</code>
+</td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="torch.Tensor">Tensor</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Positional encoding for memory tensor.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>query_pos</code>
+</td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="torch.Tensor">Tensor</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Positional encoding for target tensor.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>num_k_exclude_rope</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of keys to exclude from rotary position embedding.</p>
+</div>
+</td>
+<td>
+<code>0</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Processed tensor after attention and feedforward layers with shape (N, L, D).</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/memory_attention.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>139</span>
@@ -1808,7 +1922,19 @@ generate memory-based attention outputs.</p>
 <span>151</span>
 <span>152</span>
 <span>153</span>
-<span>154</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">tgt</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">memory</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
@@ -1816,7 +1942,19 @@ generate memory-based attention outputs.</p>
 <span></span>    <span class="n">query_pos</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">num_k_exclude_rope</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Process input tensors through self-attention, cross-attention, and feedforward network layers."""</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Process input tensors through self-attention, cross-attention, and feedforward network layers.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        tgt (Tensor): Target tensor for self-attention with shape (N, L, D).</span>
+<span></span><span class="sd">        memory (Tensor): Memory tensor for cross-attention with shape (N, S, D).</span>
+<span></span><span class="sd">        pos (Optional[Tensor]): Positional encoding for memory tensor.</span>
+<span></span><span class="sd">        query_pos (Optional[Tensor]): Positional encoding for target tensor.</span>
+<span></span><span class="sd">        num_k_exclude_rope (int): Number of keys to exclude from rotary position embedding.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (torch.Tensor): Processed tensor after attention and feedforward layers with shape (N, L, D).</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">tgt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_sa</span><span class="p">(</span><span class="n">tgt</span><span class="p">,</span> <span class="n">query_pos</span><span class="p">)</span>
 <span></span>    <span class="n">tgt</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_forward_ca</span><span class="p">(</span><span class="n">tgt</span><span class="p">,</span> <span class="n">memory</span><span class="p">,</span> <span class="n">query_pos</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">num_k_exclude_rope</span><span class="p">)</span>
 <span></span>    <span class="c1"># MLP</span>
@@ -2067,19 +2205,7 @@ for processing sequential data, particularly useful in transformer-like architec
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/memory_attention.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>188</span>
-<span>189</span>
-<span>190</span>
-<span>191</span>
-<span>192</span>
-<span>193</span>
-<span>194</span>
-<span>195</span>
-<span>196</span>
-<span>197</span>
-<span>198</span>
-<span>199</span>
-<span>200</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>200</span>
 <span>201</span>
 <span>202</span>
 <span>203</span>
@@ -2106,7 +2232,19 @@ for processing sequential data, particularly useful in transformer-like architec
 <span>224</span>
 <span>225</span>
 <span>226</span>
-<span>227</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">pos_enc_at_input</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
@@ -2291,19 +2429,7 @@ for processing sequential data, particularly useful in transformer-like architec
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/memory_attention.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
-<span>235</span>
-<span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span>
-<span>241</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>241</span>
 <span>242</span>
 <span>243</span>
 <span>244</span>
@@ -2361,7 +2487,19 @@ for processing sequential data, particularly useful in transformer-like architec
 <span>296</span>
 <span>297</span>
 <span>298</span>
-<span>299</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">curr</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>  <span class="c1"># self-attention inputs</span>
 <span></span>    <span class="n">memory</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>  <span class="c1"># cross-attention inputs</span>

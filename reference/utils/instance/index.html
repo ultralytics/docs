@@ -1490,9 +1490,9 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Bboxes</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'xyxy'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>A class for handling bounding boxes.</p>
-<p>The class supports various bounding box formats like 'xyxy', 'xywh', and 'ltwh'.
-Bounding box data should be provided in numpy arrays.</p>
+<p>A class for handling bounding boxes in multiple formats.</p>
+<p>The class supports various bounding box formats like 'xyxy', 'xywh', and 'ltwh' and provides methods for format
+conversion, scaling, and area calculation. Bounding box data should be provided as numpy arrays.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1527,8 +1527,68 @@ Bounding box data should be provided in numpy arrays.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.instance.Bboxes.convert" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;convert&lt;/span&gt; (&lt;code&gt;ultralytics.utils.instance.Bboxes.convert&lt;/code&gt;)'>convert</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Convert bounding box format from one type to another.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.instance.Bboxes.areas" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;areas&lt;/span&gt; (&lt;code&gt;ultralytics.utils.instance.Bboxes.areas&lt;/code&gt;)'>areas</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Calculate the area of bounding boxes.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.instance.Bboxes.mul" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;mul&lt;/span&gt; (&lt;code&gt;ultralytics.utils.instance.Bboxes.mul&lt;/code&gt;)'>mul</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Multiply bounding box coordinates by scale factor(s).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.instance.Bboxes.add" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;add&lt;/span&gt; (&lt;code&gt;ultralytics.utils.instance.Bboxes.add&lt;/code&gt;)'>add</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Add offset to bounding box coordinates.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.utils.instance.Bboxes.concatenate" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;concatenate&lt;/span&gt;
+  &lt;span class="doc doc-labels"&gt;
+      &lt;small class="doc doc-label doc-label-classmethod"&gt;&lt;code&gt;classmethod&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;ultralytics.utils.instance.Bboxes.concatenate&lt;/code&gt;)'>concatenate</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Concatenate multiple Bboxes objects.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<p>Create bounding boxes in YOLO format</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bboxes</span> <span class="o">=</span> <span class="n">Bboxes</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">100</span><span class="p">]]),</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"xywh"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">bboxes</span><span class="o">.</span><span class="n">convert</span><span class="p">(</span><span class="s2">"xyxy"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">bboxes</span><span class="o">.</span><span class="n">areas</span><span class="p">())</span>
+</code></pre></div>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>This class does not handle normalization or denormalization of bounding boxes.</p>
 </details>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1578,20 +1638,20 @@ Bounding box data should be provided in numpy arrays.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>49</span>
-<span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span>
-<span>54</span>
-<span>55</span>
-<span>56</span>
-<span>57</span>
-<span>58</span>
-<span>59</span>
-<span>60</span>
-<span>61</span>
-<span>62</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"xyxy"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
+<span>67</span>
+<span>68</span>
+<span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"xyxy"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Bboxes class with bounding box data in a specified format.</span>
 <span></span>
@@ -1636,8 +1696,7 @@ Bounding box data should be provided in numpy arrays.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The index, slice, or boolean array to select
-                              the desired bounding boxes.</p>
+<p>The index, slice, or boolean array to select the desired bounding boxes.</p>
 </div>
 </td>
 <td>
@@ -1667,35 +1726,18 @@ Bounding box data should be provided in numpy arrays.</p>
 </tr>
 </tbody>
 </table>
-<p><span class="doc-section-title">Raises:</span></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code><span title="AssertionError">AssertionError</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>If the indexed bounding boxes do not form a 2-dimensional matrix.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-<details class="note" open="">
-<summary>Note</summary>
-<p>When using boolean indexing, make sure to provide a boolean array with the same
-length as the number of bounding boxes.</p>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>When using boolean indexing, make sure to provide a boolean array with the same length as the number of
+bounding boxes.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>170</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
 <span>171</span>
 <span>172</span>
 <span>173</span>
@@ -1709,31 +1751,19 @@ length as the number of bounding boxes.</p>
 <span>181</span>
 <span>182</span>
 <span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
-<span>187</span>
-<span>188</span>
-<span>189</span>
-<span>190</span>
-<span>191</span>
-<span>192</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Bboxes"</span><span class="p">:</span>
+<span>184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Bboxes"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve a specific bounding box or a set of bounding boxes using indexing.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        index (int | slice | np.ndarray): The index, slice, or boolean array to select</span>
-<span></span><span class="sd">                                          the desired bounding boxes.</span>
+<span></span><span class="sd">        index (int | slice | np.ndarray): The index, slice, or boolean array to select the desired bounding boxes.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Bboxes): A new Bboxes object containing the selected bounding boxes.</span>
 <span></span>
-<span></span><span class="sd">    Raises:</span>
-<span></span><span class="sd">        AssertionError: If the indexed bounding boxes do not form a 2-dimensional matrix.</span>
-<span></span>
-<span></span><span class="sd">    Note:</span>
-<span></span><span class="sd">        When using boolean indexing, make sure to provide a boolean array with the same</span>
-<span></span><span class="sd">        length as the number of bounding boxes.</span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        When using boolean indexing, make sure to provide a boolean array with the same length as the number of</span>
+<span></span><span class="sd">        bounding boxes.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">index</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
 <span></span>        <span class="k">return</span> <span class="n">Bboxes</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
@@ -1751,13 +1781,13 @@ length as the number of bounding boxes.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__len__</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Return the number of boxes.</p>
+<p>Return the number of bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>142</span>
-<span>143</span>
-<span>144</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Return the number of boxes."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
+<span>139</span>
+<span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Return the number of bounding boxes."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1791,8 +1821,8 @@ length as the number of bounding boxes.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Offset(s) for four coordinates.
-If int, the same offset is applied to all coordinates.</p>
+<p>Offset(s) for four coordinates. If int, the same offset is applied to
+all coordinates.</p>
 </div>
 </td>
 <td>
@@ -1803,7 +1833,11 @@ If int, the same offset is applied to all coordinates.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>125</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
 <span>126</span>
 <span>127</span>
 <span>128</span>
@@ -1814,17 +1848,13 @@ If int, the same offset is applied to all coordinates.</p>
 <span>133</span>
 <span>134</span>
 <span>135</span>
-<span>136</span>
-<span>137</span>
-<span>138</span>
-<span>139</span>
-<span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+<span>136</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add offset to bounding box coordinates.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        offset (int | tuple | list): Offset(s) for four coordinates.</span>
-<span></span><span class="sd">            If int, the same offset is applied to all coordinates.</span>
+<span></span><span class="sd">        offset (int | tuple | list): Offset(s) for four coordinates. If int, the same offset is applied to</span>
+<span></span><span class="sd">            all coordinates.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">offset</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
 <span></span>        <span class="n">offset</span> <span class="o">=</span> <span class="n">to_4tuple</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
@@ -1845,17 +1875,17 @@ If int, the same offset is applied to all coordinates.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">areas</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Return box areas.</p>
+<p>Calculate the area of bounding boxes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span>
-<span>88</span>
-<span>89</span>
-<span>90</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Return box areas."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
+<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Calculate the area of bounding boxes."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span>
 <span></span>        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># format xyxy</span>
 <span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="s2">"xyxy"</span>
@@ -1942,13 +1972,17 @@ If int, the same offset is applied to all coordinates.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>The input should be a list or tuple of Bboxes objects.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
 <span>147</span>
 <span>148</span>
 <span>149</span>
@@ -1966,11 +2000,7 @@ If int, the same offset is applied to all coordinates.</p>
 <span>161</span>
 <span>162</span>
 <span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
+<span>164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">boxes_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"Bboxes"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Bboxes"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Concatenate a list of Bboxes objects into a single Bboxes object.</span>
@@ -1982,7 +2012,7 @@ If int, the same offset is applied to all coordinates.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Bboxes): A new Bboxes object containing the concatenated bounding boxes.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        The input should be a list or tuple of Bboxes objects.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">boxes_list</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span>
@@ -2036,24 +2066,24 @@ If int, the same offset is applied to all coordinates.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>65</span>
-<span>66</span>
-<span>67</span>
-<span>68</span>
-<span>69</span>
-<span>70</span>
-<span>71</span>
-<span>72</span>
-<span>73</span>
-<span>74</span>
-<span>75</span>
-<span>76</span>
-<span>77</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>77</span>
 <span>78</span>
 <span>79</span>
 <span>80</span>
 <span>81</span>
-<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+<span>82</span>
+<span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span>
+<span>89</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box format from one type to another.</span>
 <span></span>
@@ -2103,8 +2133,8 @@ If int, the same offset is applied to all coordinates.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Scale factor(s) for four coordinates.
-If int, the same scale is applied to all coordinates.</p>
+<p>Scale factor(s) for four coordinates. If int, the same scale is applied to
+all coordinates.</p>
 </div>
 </td>
 <td>
@@ -2115,7 +2145,11 @@ If int, the same scale is applied to all coordinates.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
 <span>109</span>
 <span>110</span>
 <span>111</span>
@@ -2126,17 +2160,13 @@ If int, the same scale is applied to all coordinates.</p>
 <span>116</span>
 <span>117</span>
 <span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
-<span>122</span>
-<span>123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Multiply bounding box coordinates by scale factor(s).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        scale (int | tuple | list): Scale factor(s) for four coordinates.</span>
-<span></span><span class="sd">            If int, the same scale is applied to all coordinates.</span>
+<span></span><span class="sd">        scale (int | tuple | list): Scale factor(s) for four coordinates. If int, the same scale is applied to</span>
+<span></span><span class="sd">            all coordinates.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">scale</span><span class="p">,</span> <span class="n">Number</span><span class="p">):</span>
 <span></span>        <span class="n">scale</span> <span class="o">=</span> <span class="n">to_4tuple</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
@@ -2163,6 +2193,9 @@ If int, the same scale is applied to all coordinates.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Container for bounding boxes, segments, and keypoints of detected objects in an image.</p>
+<p>This class provides a unified interface for handling different types of object annotations including bounding
+boxes, segmentation masks, and keypoints. It supports various operations like scaling, normalization, clipping,
+and format conversion.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2322,6 +2355,7 @@ If int, the same scale is applied to all coordinates.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
+<p>Create instances with bounding boxes and segments</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">instances</span> <span class="o">=</span> <span class="n">Instances</span><span class="p">(</span>
 <span></span><span class="gp">... </span>    <span class="n">bboxes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">30</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">]]),</span>
 <span></span><span class="gp">... </span>    <span class="n">segments</span><span class="o">=</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">],</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">]]),</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">],</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">]])],</span>
@@ -2348,7 +2382,7 @@ If int, the same scale is applied to all coordinates.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Bounding boxes, shape (N, 4).</p>
+<p>Bounding boxes with shape (N, 4).</p>
 </div>
 </td>
 <td>
@@ -2380,7 +2414,7 @@ If int, the same scale is applied to all coordinates.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Keypoints, shape (N, 17, 3) in format (x, y, visible).</p>
+<p>Keypoints with shape (N, 17, 3) in format (x, y, visible).</p>
 </div>
 </td>
 <td>
@@ -2423,7 +2457,10 @@ If int, the same scale is applied to all coordinates.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>226</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
 <span>227</span>
 <span>228</span>
 <span>229</span>
@@ -2434,19 +2471,16 @@ If int, the same scale is applied to all coordinates.</p>
 <span>234</span>
 <span>235</span>
 <span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bbox_format</span><span class="o">=</span><span class="s2">"xywh"</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>237</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bbox_format</span><span class="o">=</span><span class="s2">"xywh"</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initialize the object with bounding boxes, segments, and keypoints.</span>
+<span></span><span class="sd">    Initialize the Instances object with bounding boxes, segments, and keypoints.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        bboxes (np.ndarray): Bounding boxes, shape (N, 4).</span>
+<span></span><span class="sd">        bboxes (np.ndarray): Bounding boxes with shape (N, 4).</span>
 <span></span><span class="sd">        segments (List | np.ndarray, optional): Segmentation masks.</span>
-<span></span><span class="sd">        keypoints (np.ndarray, optional): Keypoints, shape (N, 17, 3) in format (x, y, visible).</span>
-<span></span><span class="sd">        bbox_format (str, optional): Format of bboxes.</span>
-<span></span><span class="sd">        normalized (bool, optional): Whether the coordinates are normalized.</span>
+<span></span><span class="sd">        keypoints (np.ndarray, optional): Keypoints with shape (N, 17, 3) in format (x, y, visible).</span>
+<span></span><span class="sd">        bbox_format (str): Format of bboxes.</span>
+<span></span><span class="sd">        normalized (bool): Whether the coordinates are normalized.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_bboxes</span> <span class="o">=</span> <span class="n">Bboxes</span><span class="p">(</span><span class="n">bboxes</span><span class="o">=</span><span class="n">bboxes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">bbox_format</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="o">=</span> <span class="n">keypoints</span>
@@ -2539,14 +2573,17 @@ If int, the same scale is applied to all coordinates.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
-<p>When using boolean indexing, make sure to provide a boolean array with the same
-length as the number of instances.</p>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>When using boolean indexing, make sure to provide a boolean array with the same length as the number of
+instances.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>326</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
 <span>327</span>
 <span>328</span>
 <span>329</span>
@@ -2567,10 +2604,7 @@ length as the number of instances.</p>
 <span>344</span>
 <span>345</span>
 <span>346</span>
-<span>347</span>
-<span>348</span>
-<span>349</span>
-<span>350</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
+<span>347</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve a specific instance or a set of instances using indexing.</span>
 <span></span>
@@ -2580,9 +2614,9 @@ length as the number of instances.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Instances): A new Instances object containing the selected boxes, segments, and keypoints if present.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
-<span></span><span class="sd">        When using boolean indexing, make sure to provide a boolean array with the same</span>
-<span></span><span class="sd">        length as the number of instances.</span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        When using boolean indexing, make sure to provide a boolean array with the same length as the number of</span>
+<span></span><span class="sd">        instances.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">segments</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">segments</span><span class="p">)</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">segments</span>
 <span></span>    <span class="n">keypoints</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="n">index</span><span class="p">]</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span>
@@ -2606,13 +2640,13 @@ length as the number of instances.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__len__</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Return the length of the instance list.</p>
+<p>Return the number of instances.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
-<span>445</span>
-<span>446</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Return the length of the instance list."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>441</span>
+<span>442</span>
+<span>443</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Return the number of instances."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2673,7 +2707,10 @@ length as the number of instances.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>310</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
 <span>311</span>
 <span>312</span>
 <span>313</span>
@@ -2684,10 +2721,7 @@ length as the number of instances.</p>
 <span>318</span>
 <span>319</span>
 <span>320</span>
-<span>321</span>
-<span>322</span>
-<span>323</span>
-<span>324</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_padding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">padw</span><span class="p">,</span> <span class="n">padh</span><span class="p">):</span>
+<span>321</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_padding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">padw</span><span class="p">,</span> <span class="n">padh</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add padding to coordinates.</span>
 <span></span>
@@ -2761,7 +2795,10 @@ length as the number of instances.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>388</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
 <span>389</span>
 <span>390</span>
 <span>391</span>
@@ -2781,10 +2818,7 @@ length as the number of instances.</p>
 <span>405</span>
 <span>406</span>
 <span>407</span>
-<span>408</span>
-<span>409</span>
-<span>410</span>
-<span>411</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>408</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clip coordinates to stay within image boundaries.</span>
 <span></span>
@@ -2883,22 +2917,24 @@ length as the number of instances.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>A new Instances object containing the concatenated bounding boxes,
-       segments, and keypoints if present.</p>
+<p>A new Instances object containing the concatenated bounding boxes, segments, and keypoints
+if present.</p>
 </div>
 </td>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
-<p>The <code>Instances</code> objects in the list should have the same properties, such as
-the format of the bounding boxes, whether keypoints are present, and if the
-coordinates are normalized.</p>
+<details class="notes" open="">
+<summary>Notes</summary>
+<p>The <code>Instances</code> objects in the list should have the same properties, such as the format of the bounding
+boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>448</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
 <span>449</span>
 <span>450</span>
 <span>451</span>
@@ -2940,11 +2976,7 @@ coordinates are normalized.</p>
 <span>487</span>
 <span>488</span>
 <span>489</span>
-<span>490</span>
-<span>491</span>
-<span>492</span>
-<span>493</span>
-<span>494</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
+<span>490</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">instances_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"Instances"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Concatenate a list of Instances objects into a single Instances object.</span>
@@ -2954,13 +2986,12 @@ coordinates are normalized.</p>
 <span></span><span class="sd">        axis (int, optional): The axis along which the arrays will be concatenated.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Instances): A new Instances object containing the concatenated bounding boxes,</span>
-<span></span><span class="sd">                   segments, and keypoints if present.</span>
+<span></span><span class="sd">        (Instances): A new Instances object containing the concatenated bounding boxes, segments, and keypoints</span>
+<span></span><span class="sd">            if present.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
-<span></span><span class="sd">        The `Instances` objects in the list should have the same properties, such as</span>
-<span></span><span class="sd">        the format of the bounding boxes, whether keypoints are present, and if the</span>
-<span></span><span class="sd">        coordinates are normalized.</span>
+<span></span><span class="sd">    Notes:</span>
+<span></span><span class="sd">        The `Instances` objects in the list should have the same properties, such as the format of the bounding</span>
+<span></span><span class="sd">        boxes, whether keypoints are present, and if the coordinates are normalized.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">instances_list</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">instances_list</span><span class="p">:</span>
@@ -3034,14 +3065,14 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>242</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
 <span>243</span>
 <span>244</span>
 <span>245</span>
-<span>246</span>
-<span>247</span>
-<span>248</span>
-<span>249</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+<span>246</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box format.</span>
 <span></span>
@@ -3108,7 +3139,10 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>274</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
 <span>275</span>
 <span>276</span>
 <span>277</span>
@@ -3121,10 +3155,7 @@ coordinates are normalized.</p>
 <span>284</span>
 <span>285</span>
 <span>286</span>
-<span>287</span>
-<span>288</span>
-<span>289</span>
-<span>290</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">denormalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>287</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">denormalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert normalized coordinates to absolute coordinates.</span>
 <span></span>
@@ -3184,7 +3215,10 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>370</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
 <span>371</span>
 <span>372</span>
 <span>373</span>
@@ -3197,10 +3231,7 @@ coordinates are normalized.</p>
 <span>380</span>
 <span>381</span>
 <span>382</span>
-<span>383</span>
-<span>384</span>
-<span>385</span>
-<span>386</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fliplr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span>383</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fliplr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Flip coordinates horizontally.</span>
 <span></span>
@@ -3260,7 +3291,10 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>352</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
 <span>353</span>
 <span>354</span>
 <span>355</span>
@@ -3273,10 +3307,7 @@ coordinates are normalized.</p>
 <span>362</span>
 <span>363</span>
 <span>364</span>
-<span>365</span>
-<span>366</span>
-<span>367</span>
-<span>368</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">flipud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">flipud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Flip coordinates vertically.</span>
 <span></span>
@@ -3352,7 +3383,10 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>292</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
 <span>293</span>
 <span>294</span>
 <span>295</span>
@@ -3365,10 +3399,7 @@ coordinates are normalized.</p>
 <span>302</span>
 <span>303</span>
 <span>304</span>
-<span>305</span>
-<span>306</span>
-<span>307</span>
-<span>308</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>305</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert absolute coordinates to normalized coordinates.</span>
 <span></span>
@@ -3420,7 +3451,10 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>413</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
 <span>414</span>
 <span>415</span>
 <span>416</span>
@@ -3431,10 +3465,7 @@ coordinates are normalized.</p>
 <span>421</span>
 <span>422</span>
 <span>423</span>
-<span>424</span>
-<span>425</span>
-<span>426</span>
-<span>427</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_zero_area_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>424</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_zero_area_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Remove zero-area boxes, i.e. after clipping some boxes may have zero width or height.</span>
 <span></span>
@@ -3524,7 +3555,10 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>256</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
 <span>257</span>
 <span>258</span>
 <span>259</span>
@@ -3537,10 +3571,7 @@ coordinates are normalized.</p>
 <span>266</span>
 <span>267</span>
 <span>268</span>
-<span>269</span>
-<span>270</span>
-<span>271</span>
-<span>272</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale_w</span><span class="p">,</span> <span class="n">scale_h</span><span class="p">,</span> <span class="n">bbox_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>269</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale_w</span><span class="p">,</span> <span class="n">scale_h</span><span class="p">,</span> <span class="n">bbox_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Scale coordinates by given factors.</span>
 <span></span>
@@ -3632,7 +3663,10 @@ coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>429</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
 <span>430</span>
 <span>431</span>
 <span>432</span>
@@ -3642,10 +3676,7 @@ coordinates are normalized.</p>
 <span>436</span>
 <span>437</span>
 <span>438</span>
-<span>439</span>
-<span>440</span>
-<span>441</span>
-<span>442</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update instance variables.</span>
 <span></span>
@@ -3673,7 +3704,7 @@ coordinates are normalized.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">_ntuple</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>From PyTorch internals.</p>
+<p>Create a function that converts input to n-tuple by repeating singleton values.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>13</span>
@@ -3684,7 +3715,7 @@ coordinates are normalized.</p>
 <span>18</span>
 <span>19</span>
 <span>20</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_ntuple</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""From PyTorch internals."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Create a function that converts input to n-tuple by repeating singleton values."""</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">parse</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">        </span><span class="sd">"""Parse input to return n-tuple by repeating singleton values n times."""</span>

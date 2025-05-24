@@ -1215,7 +1215,7 @@
               Bases: <code><span title="torch.nn.Module">Module</span></code></p>
 <p>Unified activation function module from AGLU.</p>
 <p>This class implements a parameterized activation function with learnable parameters lambda and kappa, based on the
-AGLU (Adaptive Gated Linear Unit) approach (<a href="https://github.com/kostas1515/AGLU">https://github.com/kostas1515/AGLU</a>).</p>
+AGLU (Adaptive Gated Linear Unit) approach.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1288,14 +1288,18 @@ AGLU (Adaptive Gated Linear Unit) approach (<a href="https://github.com/kostas15
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">output</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span><span class="go">torch.Size([2])</span>
 </code></pre></div>
+<details class="references" open="">
+<summary>References</summary>
+<p><a href="https://github.com/kostas1515/AGLU">https://github.com/kostas1515/AGLU</a></p>
+</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/activation.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>32</span>
-<span>33</span>
-<span>34</span>
-<span>35</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>35</span>
 <span>36</span>
-<span>37</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the Unified activation function with learnable parameters."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">act</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Softplus</span><span class="p">(</span><span class="n">beta</span><span class="o">=-</span><span class="mf">1.0</span><span class="p">)</span>
@@ -1366,10 +1370,7 @@ The function applies a transformation that adaptively combines linear and non-li
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/modules/activation.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>39</span>
-<span>40</span>
-<span>41</span>
-<span>42</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
 <span>43</span>
 <span>44</span>
 <span>45</span>
@@ -1380,7 +1381,10 @@ The function applies a transformation that adaptively combines linear and non-li
 <span>50</span>
 <span>51</span>
 <span>52</span>
-<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>53</span>
+<span>54</span>
+<span>55</span>
+<span>56</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply the Adaptive Gated Linear Unit (AGLU) activation function.</span>
 <span></span>

@@ -1336,7 +1336,11 @@
 <h2 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOEVPDetectPredictor</span><span class="p">(</span><span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">YOLOEVPDetectPredictor</span><span class="p">(</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span>
+<span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">_callbacks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">callable</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1379,7 +1383,7 @@ model setup, prompt handling, and preprocessing transformations.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor.prompts">prompts</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="dict">dict</span> | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1407,14 +1411,6 @@ model setup, prompt handling, and preprocessing transformations.</p>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor.set_return_vpe">set_return_vpe</span></code></td>
-<td>
-<div class="doc-md-description">
-<p>Set whether to return visual prompt embeddings.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor.set_prompts" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;set_prompts&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor.set_prompts&lt;/code&gt;)'>set_prompts</a></code></td>
 <td>
 <div class="doc-md-description">
@@ -1438,12 +1434,19 @@ model setup, prompt handling, and preprocessing transformations.</p>
 </div>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor.get_vpe" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;get_vpe&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor.get_vpe&lt;/code&gt;)'>get_vpe</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Process source to get visual prompt embeddings.</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/predictor.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
-<span>109</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
 <span>110</span>
 <span>111</span>
 <span>112</span>
@@ -1476,14 +1479,25 @@ model setup, prompt handling, and preprocessing transformations.</p>
 <span>139</span>
 <span>140</span>
 <span>141</span>
-<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span>
+<span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">_callbacks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">callable</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the BasePredictor class.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (str | dict): Path to a configuration file or a configuration dictionary.</span>
-<span></span><span class="sd">        overrides (dict | None): Configuration overrides.</span>
-<span></span><span class="sd">        _callbacks (dict | None): Dictionary of callback functions.</span>
+<span></span><span class="sd">        overrides (dict, optional): Configuration overrides.</span>
+<span></span><span class="sd">        _callbacks (dict, optional): Dictionary of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
@@ -1521,7 +1535,7 @@ model setup, prompt handling, and preprocessing transformations.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_vpe</span><span class="p">(</span><span class="n">source</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Processes the source to get the visual prompt embeddings (VPE).</p>
+<p>Process the source to get the visual prompt embeddings (VPE).</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1594,7 +1608,7 @@ images, numpy arrays, and torch tensors.</p>
 <span>162</span>
 <span>163</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vpe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Processes the source to get the visual prompt embeddings (VPE).</span>
+<span></span><span class="sd">    Process the source to get the visual prompt embeddings (VPE).</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        source (str | Path | int | PIL.Image | np.ndarray | torch.Tensor | List | Tuple): The source</span>
@@ -1971,10 +1985,10 @@ Must include a 'cls' key with class indices.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor.setup_model">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">setup_model</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">setup_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">setup_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Sets up the model for prediction.</p>
+<p>Set up the model for prediction.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2031,13 +2045,13 @@ Must include a 'cls' key with class indices.</p>
 <span>37</span>
 <span>38</span>
 <span>39</span>
-<span>40</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>40</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Sets up the model for prediction.</span>
+<span></span><span class="sd">    Set up the model for prediction.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        model (torch.nn.Module): Model to load or use.</span>
-<span></span><span class="sd">        verbose (bool): If True, provides detailed logging.</span>
+<span></span><span class="sd">        verbose (bool, optional): If True, provides detailed logging.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">setup_model</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">done_warmup</span> <span class="o">=</span> <span class="kc">True</span>
@@ -2057,7 +2071,7 @@ Must include a 'cls' key with class indices.</p>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor&lt;/span&gt;'>YOLOEVPDetectPredictor</a></code>, <code><a class="autorefs autorefs-internal" href="../../segment/predict/#ultralytics.models.yolo.segment.predict.SegmentationPredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.segment.predict.SegmentationPredictor&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.segment.SegmentationPredictor&lt;/code&gt;)'>SegmentationPredictor</a></code></p>
-<p>Predictor for YOLOE VP segmentation.</p>
+<p>Predictor for YOLO-EVP segmentation tasks combining detection and segmentation capabilities.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/predict.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>33</span>
@@ -2081,7 +2095,7 @@ Must include a 'cls' key with class indices.</p>
 <span></span><span class="sd">    prediction results.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        cfg (dict): Configuration for the predictor. Defaults to Ultralytics DEFAULT_CFG.</span>
+<span></span><span class="sd">        cfg (dict): Configuration for the predictor.</span>
 <span></span><span class="sd">        overrides (dict, optional): Configuration overrides that take precedence over cfg.</span>
 <span></span><span class="sd">        _callbacks (list, optional): List of callback functions to be invoked during prediction.</span>
 <span></span><span class="sd">    """</span>

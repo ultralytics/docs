@@ -1214,7 +1214,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.source">source</span></code></td>
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
+<code><span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1225,7 +1225,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.model">model</span></code></td>
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
+<code><span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1236,7 +1236,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.classes">classes</span></code></td>
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="int">int</span>]]</code>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1269,7 +1269,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.region">region</span></code></td>
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1280,7 +1280,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.colormap">colormap</span></code></td>
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="int">int</span>]</code>
+<code><span title="int">int</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1357,7 +1357,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.figsize">figsize</span></code></td>
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1511,7 +1511,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.device">device</span></code></td>
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="str">str</span>]</code>
+<code><span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1627,9 +1627,9 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <span></span>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 <span></span>            <span class="nb">setattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
 <span></span>        <span class="k">else</span><span class="p">:</span>
-<span></span>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span>
-<span></span>                <span class="sa">f</span><span class="s2">"❌ </span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is not a valid solution argument, available arguments here: https://docs.ultralytics.com/solutions/#solutions-arguments"</span>
-<span></span>            <span class="p">)</span>
+<span></span>            <span class="n">url</span> <span class="o">=</span> <span class="s2">"https://docs.ultralytics.com/solutions/#solutions-arguments"</span>
+<span></span>            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2"> is not a valid solution argument, see </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
 </details>

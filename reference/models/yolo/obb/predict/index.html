@@ -1308,7 +1308,6 @@ bounding boxes.</p>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span> <span class="o">=</span> <span class="n">OBBPredictor</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">predictor</span><span class="o">.</span><span class="n">predict_cli</span><span class="p">()</span>
 </code></pre></div>
-<p>This constructor sets up an OBBPredictor instance for oriented bounding box detection tasks.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1394,13 +1393,9 @@ bounding boxes.</p>
 <span>42</span>
 <span>43</span>
 <span>44</span>
-<span>45</span>
-<span>46</span>
-<span>47</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>45</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize OBBPredictor with optional model and data configuration overrides.</span>
-<span></span>
-<span></span><span class="sd">    This constructor sets up an OBBPredictor instance for oriented bounding box detection tasks.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cfg (dict, optional): Default configuration for the predictor.</span>
@@ -1446,7 +1441,7 @@ bounding boxes.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The predicted bounding boxes, scores, and rotation angles with shape (N, 6) where
+<p>The predicted bounding boxes, scores, and rotation angles with shape (N, 7) where
 the last dimension contains [x, y, w, h, confidence, class_id, angle].</p>
 </div>
 </td>
@@ -1519,7 +1514,8 @@ the last dimension contains [x, y, w, h, confidence, class_id, angle].</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The result object containing the original image, image path, class names, and oriented bounding boxes.</p>
+<p>The result object containing the original image, image path, class names, and oriented bounding
+boxes.</p>
 </div>
 </td>
 </tr>
@@ -1527,7 +1523,9 @@ the last dimension contains [x, y, w, h, confidence, class_id, angle].</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/obb/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>49</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>47</span>
+<span>48</span>
+<span>49</span>
 <span>50</span>
 <span>51</span>
 <span>52</span>
@@ -1543,20 +1541,20 @@ the last dimension contains [x, y, w, h, confidence, class_id, angle].</p>
 <span>62</span>
 <span>63</span>
 <span>64</span>
-<span>65</span>
-<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construct_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
+<span>65</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">construct_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">img_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Construct the result object from the prediction.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        pred (torch.Tensor): The predicted bounding boxes, scores, and rotation angles with shape (N, 6) where</span>
+<span></span><span class="sd">        pred (torch.Tensor): The predicted bounding boxes, scores, and rotation angles with shape (N, 7) where</span>
 <span></span><span class="sd">            the last dimension contains [x, y, w, h, confidence, class_id, angle].</span>
 <span></span><span class="sd">        img (torch.Tensor): The image after preprocessing with shape (B, C, H, W).</span>
 <span></span><span class="sd">        orig_img (np.ndarray): The original image before preprocessing.</span>
 <span></span><span class="sd">        img_path (str): The path to the original image.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Results): The result object containing the original image, image path, class names, and oriented bounding boxes.</span>
+<span></span><span class="sd">        (Results): The result object containing the original image, image path, class names, and oriented bounding</span>
+<span></span><span class="sd">            boxes.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">rboxes</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">regularize_rboxes</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">pred</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">pred</span><span class="p">[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">:]],</span> <span class="n">dim</span><span class="o">=-</span><span class="mi">1</span><span class="p">))</span>
 <span></span>    <span class="n">rboxes</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_boxes</span><span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:],</span> <span class="n">rboxes</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="n">orig_img</span><span class="o">.</span><span class="n">shape</span><span class="p">,</span> <span class="n">xywh</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>

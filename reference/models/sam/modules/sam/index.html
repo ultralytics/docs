@@ -1441,6 +1441,28 @@ and input prompts.</p>
 </div>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAMModel.pixel_mean">pixel_mean</span></code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Mean values for normalizing pixels in the input image.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAMModel.pixel_std">pixel_std</span></code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Standard deviation values for normalizing pixels in the input image.</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Methods:</span></p>
@@ -1452,6 +1474,14 @@ and input prompts.</p>
 </tr>
 </thead>
 <tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.sam.SAMModel.set_imgsz" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;set_imgsz&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.sam.SAMModel.set_imgsz&lt;/code&gt;)'>set_imgsz</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Set image size to make model compatible with different image sizes.</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
@@ -1549,7 +1579,7 @@ and input prompts.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Std values for normalizing pixels in the input image.</p>
+<p>Standard deviation values for normalizing pixels in the input image.</p>
 </div>
 </td>
 <td>
@@ -1571,9 +1601,7 @@ and input prompts.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>57</span>
-<span>58</span>
-<span>59</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>59</span>
 <span>60</span>
 <span>61</span>
 <span>62</span>
@@ -1604,7 +1632,9 @@ and input prompts.</p>
 <span>87</span>
 <span>88</span>
 <span>89</span>
-<span>90</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>90</span>
+<span>91</span>
+<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_encoder</span><span class="p">:</span> <span class="n">ImageEncoderViT</span><span class="p">,</span>
 <span></span>    <span class="n">prompt_encoder</span><span class="p">:</span> <span class="n">PromptEncoder</span><span class="p">,</span>
@@ -1620,7 +1650,7 @@ and input prompts.</p>
 <span></span><span class="sd">        prompt_encoder (PromptEncoder): Encodes various types of input prompts.</span>
 <span></span><span class="sd">        mask_decoder (MaskDecoder): Predicts masks from the image embeddings and encoded prompts.</span>
 <span></span><span class="sd">        pixel_mean (List[float]): Mean values for normalizing pixels in the input image.</span>
-<span></span><span class="sd">        pixel_std (List[float]): Std values for normalizing pixels in the input image.</span>
+<span></span><span class="sd">        pixel_std (List[float]): Standard deviation values for normalizing pixels in the input image.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; image_encoder = ImageEncoderViT(...)</span>
@@ -1649,55 +1679,16 @@ and input prompts.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Set image size to make model compatible with different image sizes.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>imgsz</code>
-</td>
-<td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>The size of the input image.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 92</span>
-<span> 93</span>
-<span> 94</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
 <span> 95</span>
 <span> 96</span>
 <span> 97</span>
 <span> 98</span>
 <span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Set image size to make model compatible with different image sizes.</span>
-<span></span>
-<span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        imgsz (Tuple[int, int]): The size of the input image.</span>
-<span></span><span class="sd">    """</span>
+<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">,</span> <span class="s2">"set_imgsz"</span><span class="p">):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">set_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
@@ -1911,6 +1902,332 @@ for temporal consistency and efficient tracking of objects across frames.</p>
 </div>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.hidden_dim">hidden_dim</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Hidden dimension of the model.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.mem_dim">mem_dim</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Memory dimension for encoding features.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.use_high_res_features_in_sam">use_high_res_features_in_sam</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use high-resolution feature maps in the SAM mask decoder.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.use_obj_ptrs_in_encoder">use_obj_ptrs_in_encoder</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to cross-attend to object pointers from other frames in the encoder.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.max_obj_ptrs_in_encoder">max_obj_ptrs_in_encoder</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum number of object pointers from other frames in encoder cross-attention.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.add_tpos_enc_to_obj_ptrs">add_tpos_enc_to_obj_ptrs</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to add temporal positional encoding to object pointers.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.proj_tpos_enc_in_obj_ptrs">proj_tpos_enc_in_obj_ptrs</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to add an extra linear projection layer for temporal positional
+encoding in object pointers.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.use_signed_tpos_enc_to_obj_ptrs">use_signed_tpos_enc_to_obj_ptrs</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use signed distance in temporal positional encoding.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.only_obj_ptrs_in_the_past_for_eval">only_obj_ptrs_in_the_past_for_eval</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to only attend to object pointers in the past during
+evaluation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.pred_obj_scores">pred_obj_scores</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to predict if there is an object in the frame.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.pred_obj_scores_mlp">pred_obj_scores_mlp</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use an MLP to predict object scores.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.fixed_no_obj_ptr">fixed_no_obj_ptr</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to have a fixed no-object pointer when there is no object present.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.soft_no_obj_ptr">soft_no_obj_ptr</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to mix in no-object pointer softly for easier recovery and error mitigation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.use_mlp_for_obj_ptr_proj">use_mlp_for_obj_ptr_proj</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use MLP for object pointer projection.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.no_obj_embed_spatial">no_obj_embed_spatial</span></code></td>
+<td>
+<code><span title="torch.Tensor">Tensor</span> | None</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>No-object embedding for spatial frames.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.max_cond_frames_in_attn">max_cond_frames_in_attn</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum number of conditioning frames to participate in memory attention.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.directly_add_no_mem_embed">directly_add_no_mem_embed</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to directly add no-memory embedding to image feature on the
+first frame.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.multimask_output_in_sam">multimask_output_in_sam</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to output multiple masks for the first click on initial
+conditioning frames.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.multimask_min_pt_num">multimask_min_pt_num</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Minimum number of clicks to use multimask output in SAM.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.multimask_max_pt_num">multimask_max_pt_num</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum number of clicks to use multimask output in SAM.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.multimask_output_for_tracking">multimask_output_for_tracking</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use multimask output for tracking.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.use_multimask_token_for_obj_ptr">use_multimask_token_for_obj_ptr</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use multimask tokens for object pointers.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.iou_prediction_use_sigmoid">iou_prediction_use_sigmoid</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to use sigmoid to restrict IoU prediction to [0-1].</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.memory_temporal_stride_for_eval">memory_temporal_stride_for_eval</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Memory bank's temporal stride during evaluation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.non_overlap_masks_for_mem_enc">non_overlap_masks_for_mem_enc</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to apply non-overlapping constraints on object masks in
+memory encoder during evaluation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.sigmoid_scale_for_mem_enc">sigmoid_scale_for_mem_enc</span></code></td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Scale factor for mask sigmoid probability.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.sigmoid_bias_for_mem_enc">sigmoid_bias_for_mem_enc</span></code></td>
+<td>
+<code><span title="float">float</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Bias factor for mask sigmoid probability.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.binarize_mask_from_pts_for_mem_enc">binarize_mask_from_pts_for_mem_enc</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to binarize sigmoid mask logits on interacted frames
+with clicks during evaluation.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.models.sam.modules.sam.SAM2Model.use_mask_input_as_output_without_sam">use_mask_input_as_output_without_sam</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Whether to directly output the input mask without using SAM
+prompt encoder and mask decoder on frames with mask input.</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Methods:</span></p>
@@ -1926,7 +2243,7 @@ for temporal consistency and efficient tracking of objects across frames.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.sam.SAM2Model.forward_image" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward_image&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.sam.SAM2Model.forward_image&lt;/code&gt;)'>forward_image</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Processes image batch through encoder to extract multi-level features.</p>
+<p>Process image batch through encoder to extract multi-level features.</p>
 </div>
 </td>
 </tr>
@@ -1934,7 +2251,23 @@ for temporal consistency and efficient tracking of objects across frames.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.sam.SAM2Model.track_step" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;track_step&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.sam.SAM2Model.track_step&lt;/code&gt;)'>track_step</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Performs a single tracking step, updating object masks and memory features.</p>
+<p>Perform a single tracking step, updating object masks and memory features.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.sam.SAM2Model.set_binarize" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;set_binarize&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.sam.SAM2Model.set_binarize&lt;/code&gt;)'>set_binarize</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Set binarize for VideoPredictor.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.sam.SAM2Model.set_imgsz" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;set_imgsz&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.sam.SAM2Model.set_imgsz&lt;/code&gt;)'>set_imgsz</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Set image size to make model compatible with different image sizes.</p>
 </div>
 </td>
 </tr>
@@ -2014,7 +2347,7 @@ for temporal consistency and efficient tracking of objects across frames.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Number of accessible memory frames. Default is 7 (1 input frame + 6 previous frames).</p>
+<p>Number of accessible memory frames.</p>
 </div>
 </td>
 <td>
@@ -2128,8 +2461,7 @@ prompt encoder and mask decoder on frames with mask input.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Maximum number of conditioning frames to participate in memory attention.
--1 means no limit.</p>
+<p>Maximum number of conditioning frames to participate in memory attention.</p>
 </div>
 </td>
 <td>
@@ -2178,7 +2510,7 @@ first frame.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to output multiple (3) masks for the first click on initial
+<p>Whether to output multiple masks for the first click on initial
 conditioning frames.</p>
 </div>
 </td>
@@ -2375,9 +2707,8 @@ encoding in object pointers.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to use signed distance (instead of unsigned absolute distance)
-in the temporal positional encoding in the object pointers, only relevant when both
-<code>use_obj_ptrs_in_encoder=True</code> and <code>add_tpos_enc_to_obj_ptrs=True</code>.</p>
+<p>Whether to use signed distance in the temporal positional encoding
+in the object pointers.</p>
 </div>
 </td>
 <td>
@@ -2502,7 +2833,7 @@ during evaluation.</p>
 <code>sam_mask_decoder_extra_args</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span> | None</code>
+<code><span title="dict">dict</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2542,42 +2873,7 @@ during evaluation.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
-<span>142</span>
-<span>143</span>
-<span>144</span>
-<span>145</span>
-<span>146</span>
-<span>147</span>
-<span>148</span>
-<span>149</span>
-<span>150</span>
-<span>151</span>
-<span>152</span>
-<span>153</span>
-<span>154</span>
-<span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span>
-<span>159</span>
-<span>160</span>
-<span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span>
-<span>169</span>
-<span>170</span>
-<span>171</span>
-<span>172</span>
-<span>173</span>
-<span>174</span>
-<span>175</span>
-<span>176</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>176</span>
 <span>177</span>
 <span>178</span>
 <span>179</span>
@@ -2733,7 +3029,40 @@ during evaluation.</p>
 <span>329</span>
 <span>330</span>
 <span>331</span>
-<span>332</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>332</span>
+<span>333</span>
+<span>334</span>
+<span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_encoder</span><span class="p">,</span>
 <span></span>    <span class="n">memory_attention</span><span class="p">,</span>
@@ -2778,7 +3107,7 @@ during evaluation.</p>
 <span></span><span class="sd">        image_encoder (nn.Module): Visual encoder for extracting image features.</span>
 <span></span><span class="sd">        memory_attention (nn.Module): Module for attending to memory features.</span>
 <span></span><span class="sd">        memory_encoder (nn.Module): Encoder for generating memory representations.</span>
-<span></span><span class="sd">        num_maskmem (int): Number of accessible memory frames. Default is 7 (1 input frame + 6 previous frames).</span>
+<span></span><span class="sd">        num_maskmem (int): Number of accessible memory frames.</span>
 <span></span><span class="sd">        image_size (int): Size of input images.</span>
 <span></span><span class="sd">        backbone_stride (int): Stride of the image backbone output.</span>
 <span></span><span class="sd">        sigmoid_scale_for_mem_enc (float): Scale factor for mask sigmoid probability.</span>
@@ -2788,11 +3117,10 @@ during evaluation.</p>
 <span></span><span class="sd">        use_mask_input_as_output_without_sam (bool): Whether to directly output the input mask without using SAM</span>
 <span></span><span class="sd">            prompt encoder and mask decoder on frames with mask input.</span>
 <span></span><span class="sd">        max_cond_frames_in_attn (int): Maximum number of conditioning frames to participate in memory attention.</span>
-<span></span><span class="sd">            -1 means no limit.</span>
 <span></span><span class="sd">        directly_add_no_mem_embed (bool): Whether to directly add no-memory embedding to image feature on the</span>
 <span></span><span class="sd">            first frame.</span>
 <span></span><span class="sd">        use_high_res_features_in_sam (bool): Whether to use high-resolution feature maps in the SAM mask decoder.</span>
-<span></span><span class="sd">        multimask_output_in_sam (bool): Whether to output multiple (3) masks for the first click on initial</span>
+<span></span><span class="sd">        multimask_output_in_sam (bool): Whether to output multiple masks for the first click on initial</span>
 <span></span><span class="sd">            conditioning frames.</span>
 <span></span><span class="sd">        multimask_min_pt_num (int): Minimum number of clicks to use multimask output in SAM.</span>
 <span></span><span class="sd">        multimask_max_pt_num (int): Maximum number of clicks to use multimask output in SAM.</span>
@@ -2809,9 +3137,8 @@ during evaluation.</p>
 <span></span><span class="sd">            the encoder.</span>
 <span></span><span class="sd">        proj_tpos_enc_in_obj_ptrs (bool): Whether to add an extra linear projection layer for temporal positional</span>
 <span></span><span class="sd">            encoding in object pointers.</span>
-<span></span><span class="sd">        use_signed_tpos_enc_to_obj_ptrs (bool): Whether to use signed distance (instead of unsigned absolute distance)</span>
-<span></span><span class="sd">            in the temporal positional encoding in the object pointers, only relevant when both</span>
-<span></span><span class="sd">            `use_obj_ptrs_in_encoder=True` and `add_tpos_enc_to_obj_ptrs=True`.</span>
+<span></span><span class="sd">        use_signed_tpos_enc_to_obj_ptrs (bool): Whether to use signed distance in the temporal positional encoding</span>
+<span></span><span class="sd">            in the object pointers.</span>
 <span></span><span class="sd">        only_obj_ptrs_in_the_past_for_eval (bool): Whether to only attend to object pointers in the past</span>
 <span></span><span class="sd">            during evaluation.</span>
 <span></span><span class="sd">        pred_obj_scores (bool): Whether to predict if there is an object in the frame.</span>
@@ -2820,7 +3147,7 @@ during evaluation.</p>
 <span></span><span class="sd">        soft_no_obj_ptr (bool): Whether to mix in no-object pointer softly for easier recovery and error mitigation.</span>
 <span></span><span class="sd">        use_mlp_for_obj_ptr_proj (bool): Whether to use MLP for object pointer projection.</span>
 <span></span><span class="sd">        no_obj_embed_spatial (bool): Whether add no obj embedding to spatial frames.</span>
-<span></span><span class="sd">        sam_mask_decoder_extra_args (Dict | None): Extra arguments for constructing the SAM mask decoder.</span>
+<span></span><span class="sd">        sam_mask_decoder_extra_args (dict | None): Extra arguments for constructing the SAM mask decoder.</span>
 <span></span><span class="sd">        compile_image_encoder (bool): Whether to compile the image encoder for faster inference.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
@@ -2951,12 +3278,12 @@ during evaluation.</p>
 <p>Process image and prompt inputs to generate object masks and scores in video sequences.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>339</span>
-<span>340</span>
-<span>341</span>
-<span>342</span>
-<span>343</span>
-<span>344</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process image and prompt inputs to generate object masks and scores in video sequences."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
 <span></span>        <span class="s2">"Please use the corresponding methods in SAM2VideoPredictor for inference."</span>
@@ -2976,15 +3303,15 @@ during evaluation.</p>
 <p>Process image batch through encoder to extract multi-level features for SAM model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>595</span>
-<span>596</span>
-<span>597</span>
-<span>598</span>
-<span>599</span>
-<span>600</span>
-<span>601</span>
-<span>602</span>
-<span>603</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process image batch through encoder to extract multi-level features for SAM model."""</span>
 <span></span>    <span class="n">backbone_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">img_batch</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_high_res_features_in_sam</span><span class="p">:</span>
@@ -3007,9 +3334,9 @@ during evaluation.</p>
 <p>Set binarize for VideoPredictor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 998</span>
-<span> 999</span>
-<span>1000</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1029</span>
+<span>1030</span>
+<span>1031</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set binarize for VideoPredictor."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">binarize_mask_from_pts_for_mem_enc</span> <span class="o">=</span> <span class="n">binarize</span>
 </code></pre></div></td></tr></table></div>
@@ -3026,11 +3353,11 @@ during evaluation.</p>
 <p>Set image size to make model compatible with different image sizes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1002</span>
-<span>1003</span>
-<span>1004</span>
-<span>1005</span>
-<span>1006</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1033</span>
+<span>1034</span>
+<span>1035</span>
+<span>1036</span>
+<span>1037</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
@@ -3062,63 +3389,63 @@ during evaluation.</p>
 <p>Perform a single tracking step, updating object masks and memory features based on current frame inputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>913</span>
-<span>914</span>
-<span>915</span>
-<span>916</span>
-<span>917</span>
-<span>918</span>
-<span>919</span>
-<span>920</span>
-<span>921</span>
-<span>922</span>
-<span>923</span>
-<span>924</span>
-<span>925</span>
-<span>926</span>
-<span>927</span>
-<span>928</span>
-<span>929</span>
-<span>930</span>
-<span>931</span>
-<span>932</span>
-<span>933</span>
-<span>934</span>
-<span>935</span>
-<span>936</span>
-<span>937</span>
-<span>938</span>
-<span>939</span>
-<span>940</span>
-<span>941</span>
-<span>942</span>
-<span>943</span>
-<span>944</span>
-<span>945</span>
-<span>946</span>
-<span>947</span>
-<span>948</span>
-<span>949</span>
-<span>950</span>
-<span>951</span>
-<span>952</span>
-<span>953</span>
-<span>954</span>
-<span>955</span>
-<span>956</span>
-<span>957</span>
-<span>958</span>
-<span>959</span>
-<span>960</span>
-<span>961</span>
-<span>962</span>
-<span>963</span>
-<span>964</span>
-<span>965</span>
-<span>966</span>
-<span>967</span>
-<span>968</span>
-<span>969</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 944</span>
+<span> 945</span>
+<span> 946</span>
+<span> 947</span>
+<span> 948</span>
+<span> 949</span>
+<span> 950</span>
+<span> 951</span>
+<span> 952</span>
+<span> 953</span>
+<span> 954</span>
+<span> 955</span>
+<span> 956</span>
+<span> 957</span>
+<span> 958</span>
+<span> 959</span>
+<span> 960</span>
+<span> 961</span>
+<span> 962</span>
+<span> 963</span>
+<span> 964</span>
+<span> 965</span>
+<span> 966</span>
+<span> 967</span>
+<span> 968</span>
+<span> 969</span>
+<span> 970</span>
+<span> 971</span>
+<span> 972</span>
+<span> 973</span>
+<span> 974</span>
+<span> 975</span>
+<span> 976</span>
+<span> 977</span>
+<span> 978</span>
+<span> 979</span>
+<span> 980</span>
+<span> 981</span>
+<span> 982</span>
+<span> 983</span>
+<span> 984</span>
+<span> 985</span>
+<span> 986</span>
+<span> 987</span>
+<span> 988</span>
+<span> 989</span>
+<span> 990</span>
+<span> 991</span>
+<span> 992</span>
+<span> 993</span>
+<span> 994</span>
+<span> 995</span>
+<span> 996</span>
+<span> 997</span>
+<span> 998</span>
+<span> 999</span>
+<span>1000</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">frame_idx</span><span class="p">,</span>
 <span></span>    <span class="n">is_init_cond_frame</span><span class="p">,</span>

@@ -1149,10 +1149,12 @@
 <h2 class="doc doc-heading" id="ultralytics.data.split.split_classify_dataset">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.data.split.split_classify_dataset</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">split_classify_dataset</span><span class="p">(</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">train_ratio</span><span class="o">=</span><span class="mf">0.8</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">split_classify_dataset</span><span class="p">(</span>
+<span></span>    <span class="n">source_dir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">train_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Split dataset into train and val directories in a new directory.</p>
+<p>Split classification dataset into train and val directories in a new directory.</p>
 <p>Creates a new directory '{source_dir}_split' with train/val subdirectories, preserving the original class
 structure with an 80/20 split by default.</p>
 <details class="directory-structure" open="">
@@ -1205,7 +1207,7 @@ structure with an 80/20 split by default.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Path to Caltech dataset root directory.</p>
+<p>Path to classification dataset root directory.</p>
 </div>
 </td>
 <td>
@@ -1230,16 +1232,37 @@ structure with an 80/20 split by default.</p>
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="pathlib.Path">Path</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to the created split directory.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="doc-section-title">Examples:</span></p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Split dataset with default 80/20 ratio</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">split_classify_dataset</span><span class="p">(</span><span class="s2">"path/to/caltech"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Split with custom ratio</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">split_classify_dataset</span><span class="p">(</span><span class="s2">"path/to/caltech"</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
+<p>Split dataset with default 80/20 ratio</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">split_classify_dataset</span><span class="p">(</span><span class="s2">"path/to/caltech"</span><span class="p">)</span>
+</code></pre></div>
+<p>Split with custom ratio</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">split_classify_dataset</span><span class="p">(</span><span class="s2">"path/to/caltech"</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">)</span>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>11</span>
-<span>12</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>12</span>
 <span>13</span>
 <span>14</span>
 <span>15</span>
@@ -1317,9 +1340,14 @@ structure with an 80/20 split by default.</p>
 <span>87</span>
 <span>88</span>
 <span>89</span>
-<span>90</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_classify_dataset</span><span class="p">(</span><span class="n">source_dir</span><span class="p">,</span> <span class="n">train_ratio</span><span class="o">=</span><span class="mf">0.8</span><span class="p">):</span>
+<span>90</span>
+<span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">split_classify_dataset</span><span class="p">(</span><span class="n">source_dir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">train_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Split dataset into train and val directories in a new directory.</span>
+<span></span><span class="sd">    Split classification dataset into train and val directories in a new directory.</span>
 <span></span>
 <span></span><span class="sd">    Creates a new directory '{source_dir}_split' with train/val subdirectories, preserving the original class</span>
 <span></span><span class="sd">    structure with an 80/20 split by default.</span>
@@ -1355,13 +1383,17 @@ structure with an 80/20 split by default.</p>
 <span></span><span class="sd">                └── ...</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        source_dir (str | Path): Path to Caltech dataset root directory.</span>
+<span></span><span class="sd">        source_dir (str | Path): Path to classification dataset root directory.</span>
 <span></span><span class="sd">        train_ratio (float): Ratio for train split, between 0 and 1.</span>
 <span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (Path): Path to the created split directory.</span>
+<span></span>
 <span></span><span class="sd">    Examples:</span>
-<span></span><span class="sd">        &gt;&gt;&gt; # Split dataset with default 80/20 ratio</span>
+<span></span><span class="sd">        Split dataset with default 80/20 ratio</span>
 <span></span><span class="sd">        &gt;&gt;&gt; split_classify_dataset("path/to/caltech")</span>
-<span></span><span class="sd">        &gt;&gt;&gt; # Split with custom ratio</span>
+<span></span>
+<span></span><span class="sd">        Split with custom ratio</span>
 <span></span><span class="sd">        &gt;&gt;&gt; split_classify_dataset("path/to/caltech", 0.75)</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">source_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">source_dir</span><span class="p">)</span>
@@ -1406,10 +1438,10 @@ structure with an 80/20 split by default.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.data.split.autosplit</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">autosplit</span><span class="p">(</span>
-<span></span>    <span class="n">path</span><span class="o">=</span><span class="n">DATASETS_DIR</span> <span class="o">/</span> <span class="s2">"coco8/images"</span><span class="p">,</span>
-<span></span>    <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
-<span></span>    <span class="n">annotated_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span><span class="p">)</span>
+<span></span>    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">DATASETS_DIR</span> <span class="o">/</span> <span class="s2">"coco8/images"</span><span class="p">,</span>
+<span></span>    <span class="n">weights</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span></span>    <span class="n">annotated_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Automatically split a dataset into train/val/test splits and save the resulting splits into autosplit_*.txt files.</p>
@@ -1445,7 +1477,7 @@ structure with an 80/20 split by default.</p>
 <code>weights</code>
 </td>
 <td>
-<code><span title="list">list</span> | <span title="tuple">tuple</span></code>
+<code><span title="tuple">tuple</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1475,17 +1507,16 @@ structure with an 80/20 split by default.</p>
 </tbody>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
+<p>Split images with default weights</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.split</span><span class="w"> </span><span class="kn">import</span> <span class="n">autosplit</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">autosplit</span><span class="p">()</span>
 </code></pre></div>
+<p>Split with custom weights and annotated images only</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">autosplit</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="s2">"path/to/images"</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.8</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">),</span> <span class="n">annotated_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/split.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 93</span>
-<span> 94</span>
-<span> 95</span>
-<span> 96</span>
-<span> 97</span>
-<span> 98</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
@@ -1508,18 +1539,39 @@ structure with an 80/20 split by default.</p>
 <span>118</span>
 <span>119</span>
 <span>120</span>
-<span>121</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autosplit</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">DATASETS_DIR</span> <span class="o">/</span> <span class="s2">"coco8/images"</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="n">annotated_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autosplit</span><span class="p">(</span>
+<span></span>    <span class="n">path</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">DATASETS_DIR</span> <span class="o">/</span> <span class="s2">"coco8/images"</span><span class="p">,</span>
+<span></span>    <span class="n">weights</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">0.9</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span>
+<span></span>    <span class="n">annotated_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Automatically split a dataset into train/val/test splits and save the resulting splits into autosplit_*.txt files.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        path (Path, optional): Path to images directory.</span>
-<span></span><span class="sd">        weights (list | tuple, optional): Train, validation, and test split fractions.</span>
-<span></span><span class="sd">        annotated_only (bool, optional): If True, only images with an associated txt file are used.</span>
+<span></span><span class="sd">        path (Path): Path to images directory.</span>
+<span></span><span class="sd">        weights (tuple): Train, validation, and test split fractions.</span>
+<span></span><span class="sd">        annotated_only (bool): If True, only images with an associated txt file are used.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        Split images with default weights</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.data.split import autosplit</span>
 <span></span><span class="sd">        &gt;&gt;&gt; autosplit()</span>
+<span></span>
+<span></span><span class="sd">        Split with custom weights and annotated images only</span>
+<span></span><span class="sd">        &gt;&gt;&gt; autosplit(path="path/to/images", weights=(0.8, 0.15, 0.05), annotated_only=True)</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>  <span class="c1"># images dir</span>
 <span></span>    <span class="n">files</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">x</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">path</span><span class="o">.</span><span class="n">rglob</span><span class="p">(</span><span class="s2">"*.*"</span><span class="p">)</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">suffix</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">IMG_FORMATS</span><span class="p">)</span>  <span class="c1"># image files only</span>

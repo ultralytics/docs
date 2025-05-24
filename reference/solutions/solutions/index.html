@@ -1481,12 +1481,13 @@
 <h2 class="doc doc-heading" id="ultralytics.solutions.solutions.BaseSolution">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.solutions.solutions.BaseSolution</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">BaseSolution</span><span class="p">(</span><span class="n">is_cli</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">BaseSolution</span><span class="p">(</span><span class="n">is_cli</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>A base class for managing Ultralytics Solutions.</p>
 <p>This class provides core functionality for various Ultralytics Solutions, including model loading, object tracking,
-and region initialization.</p>
+and region initialization. It serves as the foundation for implementing specific computer vision solutions such as
+object counting, pose estimation, and analytics.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1500,55 +1501,187 @@ and region initialization.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.BaseSolution.LineString">LineString</span></code></td>
 <td>
-<code><span title="shapely.geometry.LineString">LineString</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Class for creating line string geometries.</p>
+<p>Class for creating line string geometries from shapely.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.BaseSolution.Polygon">Polygon</span></code></td>
 <td>
-<code><span title="shapely.geometry.Polygon">Polygon</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Class for creating polygon geometries.</p>
+<p>Class for creating polygon geometries from shapely.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.BaseSolution.Point">Point</span></code></td>
 <td>
-<code><span title="shapely.geometry.Point">Point</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Class for creating point geometries.</p>
+<p>Class for creating point geometries from shapely.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.prep">prep</span></code></td>
+<td>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Prepared geometry function from shapely for optimized spatial operations.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.BaseSolution.CFG">CFG</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Configuration dictionary loaded from a YAML file and updated with kwargs.</p>
+<p>Configuration dictionary loaded from YAML file and updated with kwargs.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.LOGGER">LOGGER</span></code></td>
+<td>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Logger instance for solution-specific logging.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.annotator">annotator</span></code></td>
+<td>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Annotator instance for drawing on images.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.tracks">tracks</span></code></td>
+<td>
+</td>
+<td>
+<div class="doc-md-description">
+<p>YOLO tracking results from the latest inference.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.track_data">track_data</span></code></td>
+<td>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Extracted tracking data (boxes or OBB) from tracks.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.boxes">boxes</span></code></td>
+<td>
+<code><span title="typing.List">List</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Bounding box coordinates from tracking results.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.clss">clss</span></code></td>
+<td>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Class indices from tracking results.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.track_ids">track_ids</span></code></td>
+<td>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Track IDs from tracking results.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.confs">confs</span></code></td>
+<td>
+<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Confidence scores from tracking results.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.track_line">track_line</span></code></td>
+<td>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Current track line for storing tracking history.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.masks">masks</span></code></td>
+<td>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Segmentation masks from tracking results.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.r_s">r_s</span></code></td>
+<td>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Region or line geometry object for spatial operations.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.frame_no">frame_no</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Current frame number for logging purposes.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.BaseSolution.region">region</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of coordinate tuples defining a region of interest.</p>
+<p>List of coordinate tuples defining region of interest.</p>
 </div>
 </td>
 </tr>
@@ -1577,11 +1710,66 @@ and region initialization.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.BaseSolution.names">names</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
 <p>Dictionary mapping class indices to class names.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.classes">classes</span></code></td>
+<td>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of class indices to track.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.show_conf">show_conf</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Flag to show confidence scores in annotations.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.show_labels">show_labels</span></code></td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Flag to show class labels in annotations.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.device">device</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Device for model inference.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.track_add_args">track_add_args</span></code></td>
+<td>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Additional arguments for tracking configuration.</p>
 </div>
 </td>
 </tr>
@@ -1592,7 +1780,7 @@ and region initialization.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Flag indicating whether the environment supports image display.</p>
+<p>Flag indicating whether environment supports image display.</p>
 </div>
 </td>
 </tr>
@@ -1603,7 +1791,18 @@ and region initialization.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary to store tracking history for each object.</p>
+<p>Dictionary storing tracking history for each object.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.BaseSolution.profilers">profilers</span></code></td>
+<td>
+<code><span title="typing.Tuple">Tuple</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Profiler instances for performance monitoring.</p>
 </div>
 </td>
 </tr>
@@ -1619,10 +1818,18 @@ and region initialization.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.BaseSolution.adjust_box_label" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;adjust_box_label&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.BaseSolution.adjust_box_label&lt;/code&gt;)'>adjust_box_label</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Generate formatted label for bounding box.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.BaseSolution.extract_tracks" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;extract_tracks&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.BaseSolution.extract_tracks&lt;/code&gt;)'>extract_tracks</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Apply object tracking and extract tracks from an input image.</p>
+<p>Apply object tracking and extract tracks from input image.</p>
 </div>
 </td>
 </tr>
@@ -1630,7 +1837,7 @@ and region initialization.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.BaseSolution.store_tracking_history" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;store_tracking_history&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.BaseSolution.store_tracking_history&lt;/code&gt;)'>store_tracking_history</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Store object tracking history for a given track ID and bounding box.</p>
+<p>Store object tracking history for given track ID and bounding box.</p>
 </div>
 </td>
 </tr>
@@ -1638,7 +1845,7 @@ and region initialization.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.BaseSolution.initialize_region" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;initialize_region&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.BaseSolution.initialize_region&lt;/code&gt;)'>initialize_region</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Initialize the counting region and line segment based on configuration.</p>
+<p>Initialize counting region and line segment based on configuration.</p>
 </div>
 </td>
 </tr>
@@ -1646,7 +1853,15 @@ and region initialization.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.BaseSolution.display_output" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;display_output&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.BaseSolution.display_output&lt;/code&gt;)'>display_output</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Display the results of processing, including showing frames or saving results.</p>
+<p>Display processing results including frames or saved results.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.BaseSolution.process" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;process&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.BaseSolution.process&lt;/code&gt;)'>process</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Process method to be implemented by each Solution subclass.</p>
 </div>
 </td>
 </tr>
@@ -1679,7 +1894,7 @@ and region initialization.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Enables CLI mode if set to True.</p>
+<p>Enable CLI mode if set to True.</p>
 </div>
 </td>
 <td>
@@ -1691,7 +1906,7 @@ and region initialization.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1706,30 +1921,7 @@ and region initialization.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 49</span>
-<span> 50</span>
-<span> 51</span>
-<span> 52</span>
-<span> 53</span>
-<span> 54</span>
-<span> 55</span>
-<span> 56</span>
-<span> 57</span>
-<span> 58</span>
-<span> 59</span>
-<span> 60</span>
-<span> 61</span>
-<span> 62</span>
-<span> 63</span>
-<span> 64</span>
-<span> 65</span>
-<span> 66</span>
-<span> 67</span>
-<span> 68</span>
-<span> 69</span>
-<span> 70</span>
-<span> 71</span>
-<span> 72</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 72</span>
 <span> 73</span>
 <span> 74</span>
 <span> 75</span>
@@ -1770,12 +1962,35 @@ and region initialization.</p>
 <span>110</span>
 <span>111</span>
 <span>112</span>
-<span>113</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_cli</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_cli</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initializes the BaseSolution class with configuration settings and the YOLO model.</span>
+<span></span><span class="sd">    Initialize the BaseSolution class with configuration settings and YOLO model.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        is_cli (bool): Enables CLI mode if set to True.</span>
+<span></span><span class="sd">        is_cli (bool): Enable CLI mode if set to True.</span>
 <span></span><span class="sd">        **kwargs (Any): Additional configuration parameters that override defaults.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">SolutionConfig</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
@@ -1848,23 +2063,23 @@ and region initialization.</p>
 <p>Allow instances to be called like a function with flexible arguments.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>219</span>
-<span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
-<span>235</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Allow instances to be called like a function with flexible arguments."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">profilers</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
 <span></span>        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Call the subclass-specific process method</span>
@@ -1889,10 +2104,12 @@ and region initialization.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.BaseSolution.adjust_box_label">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">adjust_box_label</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">adjust_box_label</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">track_id</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">adjust_box_label</span><span class="p">(</span>
+<span></span>    <span class="bp">cls</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Generates a formatted label for a bounding box.</p>
+<p>Generate a formatted label for a bounding box.</p>
 <p>This method constructs a label string for a bounding box using the class index and confidence score.
 Optionally includes the track ID if provided. The label format adapts based on the display settings
 defined in <code>self.show_conf</code> and <code>self.show_labels</code>.</p>
@@ -1948,7 +2165,7 @@ defined in <code>self.show_conf</code> and <code>self.show_labels</code>.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The unique identifier for the tracked object. Defaults to None.</p>
+<p>The unique identifier for the tracked object.</p>
 </div>
 </td>
 <td>
@@ -1968,7 +2185,7 @@ defined in <code>self.show_conf</code> and <code>self.show_labels</code>.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="str">str</span> or None</code>
+<code><span title="str">str</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1980,26 +2197,26 @@ defined in <code>self.show_conf</code> and <code>self.show_labels</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>115</span>
-<span>116</span>
-<span>117</span>
-<span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
-<span>122</span>
-<span>123</span>
-<span>124</span>
-<span>125</span>
-<span>126</span>
-<span>127</span>
-<span>128</span>
-<span>129</span>
-<span>130</span>
-<span>131</span>
-<span>132</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">adjust_box_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">conf</span><span class="p">,</span> <span class="n">track_id</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span>
+<span>143</span>
+<span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">adjust_box_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Generates a formatted label for a bounding box.</span>
+<span></span><span class="sd">    Generate a formatted label for a bounding box.</span>
 <span></span>
 <span></span><span class="sd">    This method constructs a label string for a bounding box using the class index and confidence score.</span>
 <span></span><span class="sd">    Optionally includes the track ID if provided. The label format adapts based on the display settings</span>
@@ -2008,10 +2225,10 @@ defined in <code>self.show_conf</code> and <code>self.show_labels</code>.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        cls (int): The class index of the detected object.</span>
 <span></span><span class="sd">        conf (float): The confidence score of the detection.</span>
-<span></span><span class="sd">        track_id (int, optional): The unique identifier for the tracked object. Defaults to None.</span>
+<span></span><span class="sd">        track_id (int, optional): The unique identifier for the tracked object.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (str or None): The formatted label string if `self.show_labels` is True; otherwise, None.</span>
+<span></span><span class="sd">        (str | None): The formatted label string if `self.show_labels` is True; otherwise, None.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">name</span> <span class="o">=</span> <span class="p">(</span><span class="s2">""</span> <span class="k">if</span> <span class="n">track_id</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">track_id</span><span class="si">}</span><span class="s2"> "</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">cls</span><span class="p">]</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">conf</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_conf</span> <span class="k">else</span> <span class="n">name</span><span class="p">)</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">show_labels</span> <span class="k">else</span> <span class="kc">None</span>
@@ -2023,7 +2240,7 @@ defined in <code>self.show_conf</code> and <code>self.show_labels</code>.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.BaseSolution.display_output">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">display_output</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Display the results of the processing, which could involve showing frames, printing counts, or saving results.</p>
@@ -2073,31 +2290,31 @@ the processed frame with annotations, and allows for user interaction to close t
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>190</span>
-<span>191</span>
-<span>192</span>
-<span>193</span>
-<span>194</span>
-<span>195</span>
-<span>196</span>
-<span>197</span>
-<span>198</span>
-<span>199</span>
-<span>200</span>
-<span>201</span>
-<span>202</span>
-<span>203</span>
-<span>204</span>
-<span>205</span>
-<span>206</span>
-<span>207</span>
-<span>208</span>
-<span>209</span>
-<span>210</span>
-<span>211</span>
-<span>212</span>
-<span>213</span>
-<span>214</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_im</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_im</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the results of the processing, which could involve showing frames, printing counts, or saving results.</span>
 <span></span>
@@ -2105,7 +2322,7 @@ the processed frame with annotations, and allows for user interaction to close t
 <span></span><span class="sd">    the processed frame with annotations, and allows for user interaction to close the display.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        plot_im (numpy.ndarray): The image or frame that has been processed and annotated.</span>
+<span></span><span class="sd">        plot_im (np.ndarray): The image or frame that has been processed and annotated.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; solution = BaseSolution()</span>
@@ -2130,10 +2347,10 @@ the processed frame with annotations, and allows for user interaction to close t
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.BaseSolution.extract_tracks">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">extract_tracks</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Applies object tracking and extracts tracks from an input image or frame.</p>
+<p>Apply object tracking and extract tracks from an input image or frame.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2170,34 +2387,34 @@ the processed frame with annotations, and allows for user interaction to close t
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>134</span>
-<span>135</span>
-<span>136</span>
-<span>137</span>
-<span>138</span>
-<span>139</span>
-<span>140</span>
-<span>141</span>
-<span>142</span>
-<span>143</span>
-<span>144</span>
-<span>145</span>
-<span>146</span>
-<span>147</span>
-<span>148</span>
-<span>149</span>
-<span>150</span>
-<span>151</span>
-<span>152</span>
-<span>153</span>
-<span>154</span>
-<span>155</span>
-<span>156</span>
-<span>157</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>157</span>
 <span>158</span>
-<span>159</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Applies object tracking and extracts tracks from an input image or frame.</span>
+<span></span><span class="sd">    Apply object tracking and extract tracks from an input image or frame.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im0 (np.ndarray): The input image or frame.</span>
@@ -2235,13 +2452,13 @@ the processed frame with annotations, and allows for user interaction to close t
 <p>Initialize the counting region and line segment based on configuration settings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>182</span>
-<span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
-<span>187</span>
-<span>188</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_region</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the counting region and line segment based on configuration settings."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">180</span><span class="p">)]</span>
@@ -2262,8 +2479,8 @@ the processed frame with annotations, and allows for user interaction to close t
 <p>Process method should be implemented by each Solution subclass.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>216</span>
-<span>217</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>239</span>
+<span>240</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process method should be implemented by each Solution subclass."""</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2273,10 +2490,10 @@ the processed frame with annotations, and allows for user interaction to close t
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.BaseSolution.store_tracking_history">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">store_tracking_history</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="n">track_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Stores the tracking history of an object.</p>
+<p>Store the tracking history of an object.</p>
 <p>This method updates the tracking history for a given object by appending the center point of its
 bounding box to the track line. It maintains a maximum of 30 points in the tracking history.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2311,7 +2528,7 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 <code>box</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2330,28 +2547,28 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span>
-<span>169</span>
-<span>170</span>
-<span>171</span>
-<span>172</span>
-<span>173</span>
-<span>174</span>
-<span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span>
-<span>179</span>
-<span>180</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">,</span> <span class="n">box</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span>
+<span>192</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span>
+<span>202</span>
+<span>203</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">box</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Stores the tracking history of an object.</span>
+<span></span><span class="sd">    Store the tracking history of an object.</span>
 <span></span>
 <span></span><span class="sd">    This method updates the tracking history for a given object by appending the center point of its</span>
 <span></span><span class="sd">    bounding box to the track line. It maintains a maximum of 30 points in the tracking history.</span>
@@ -2381,12 +2598,12 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.solutions.solutions.SolutionAnnotator</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">SolutionAnnotator</span><span class="p">(</span>
-<span></span>    <span class="n">im</span><span class="p">,</span>
-<span></span>    <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span>
-<span></span>    <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">example</span><span class="o">=</span><span class="s2">"abc"</span><span class="p">,</span>
+<span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">line_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">font_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">font</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Arial.ttf"</span><span class="p">,</span>
+<span></span>    <span class="n">pil</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">example</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"abc"</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -2394,8 +2611,8 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
               Bases: <code><a class="autorefs autorefs-internal" href="../../utils/plotting/#ultralytics.utils.plotting.Annotator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.plotting.Annotator&lt;/span&gt;'>Annotator</a></code></p>
 <p>A specialized annotator class for visualizing and analyzing computer vision tasks.</p>
 <p>This class extends the base Annotator class, providing additional methods for drawing regions, centroids, tracking
-trails, and visual annotations for Ultralytics Solutions: <a href="https://docs.ultralytics.com/solutions/">https://docs.ultralytics.com/solutions/</a>.
-and parking management.</p>
+trails, and visual annotations for Ultralytics Solutions. It offers comprehensive visualization capabilities for
+various computer vision applications including object detection, tracking, pose estimation, and analytics.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2487,7 +2704,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.draw_region" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;draw_region&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.draw_region&lt;/code&gt;)'>draw_region</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Draws a region using specified points, colors, and thickness.</p>
+<p>Draw a region using specified points, colors, and thickness.</p>
 </div>
 </td>
 </tr>
@@ -2495,7 +2712,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.queue_counts_display" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;queue_counts_display&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.queue_counts_display&lt;/code&gt;)'>queue_counts_display</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Displays queue counts in the specified region.</p>
+<p>Display queue counts in the specified region.</p>
 </div>
 </td>
 </tr>
@@ -2503,7 +2720,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.display_analytics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;display_analytics&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.display_analytics&lt;/code&gt;)'>display_analytics</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Displays overall statistics for parking lot management.</p>
+<p>Display overall statistics for parking lot management.</p>
 </div>
 </td>
 </tr>
@@ -2514,15 +2731,15 @@ and parking management.</p>
   &lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.estimate_pose_angle&lt;/code&gt;)'>estimate_pose_angle</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Calculates the angle between three points in an object pose.</p>
+<p>Calculate the angle between three points in an object pose.</p>
 </div>
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.solutions.solutions.SolutionAnnotator.draw_specific_points">draw_specific_points</span></code></td>
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.draw_specific_kpts" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;draw_specific_kpts&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.draw_specific_kpts&lt;/code&gt;)'>draw_specific_kpts</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Draws specific keypoints on the image.</p>
+<p>Draw specific keypoints on the image.</p>
 </div>
 </td>
 </tr>
@@ -2530,7 +2747,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.plot_workout_information" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;plot_workout_information&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.plot_workout_information&lt;/code&gt;)'>plot_workout_information</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Draws a labeled text box on the image.</p>
+<p>Draw a labeled text box on the image.</p>
 </div>
 </td>
 </tr>
@@ -2538,7 +2755,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.plot_angle_and_count_and_stage" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;plot_angle_and_count_and_stage&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.plot_angle_and_count_and_stage&lt;/code&gt;)'>plot_angle_and_count_and_stage</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Visualizes angle, step count, and stage for workout monitoring.</p>
+<p>Visualize angle, step count, and stage for workout monitoring.</p>
 </div>
 </td>
 </tr>
@@ -2546,7 +2763,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.plot_distance_and_line" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;plot_distance_and_line&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.plot_distance_and_line&lt;/code&gt;)'>plot_distance_and_line</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Displays the distance between centroids and connects them with a line.</p>
+<p>Display the distance between centroids and connect them with a line.</p>
 </div>
 </td>
 </tr>
@@ -2554,7 +2771,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.display_objects_labels" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;display_objects_labels&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.display_objects_labels&lt;/code&gt;)'>display_objects_labels</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Annotates bounding boxes with object class labels.</p>
+<p>Annotate bounding boxes with object class labels.</p>
 </div>
 </td>
 </tr>
@@ -2562,7 +2779,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.sweep_annotator" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;sweep_annotator&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.sweep_annotator&lt;/code&gt;)'>sweep_annotator</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Visualizes a vertical sweep line and optional label.</p>
+<p>Visualize a vertical sweep line and optional label.</p>
 </div>
 </td>
 </tr>
@@ -2570,7 +2787,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.visioneye" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;visioneye&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.visioneye&lt;/code&gt;)'>visioneye</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Maps and connects object centroids to a visual "eye" point.</p>
+<p>Map and connect object centroids to a visual "eye" point.</p>
 </div>
 </td>
 </tr>
@@ -2578,7 +2795,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.circle_label" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;circle_label&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.circle_label&lt;/code&gt;)'>circle_label</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Draws a circular label within a bounding box.</p>
+<p>Draw a circular label within a bounding box.</p>
 </div>
 </td>
 </tr>
@@ -2586,7 +2803,7 @@ and parking management.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.solutions.SolutionAnnotator.text_label" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;text_label&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.solutions.SolutionAnnotator.text_label&lt;/code&gt;)'>text_label</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Draws a rectangular label within a bounding box.</p>
+<p>Draw a rectangular label within a bounding box.</p>
 </div>
 </td>
 </tr>
@@ -2710,29 +2927,45 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>277</span>
-<span>278</span>
-<span>279</span>
-<span>280</span>
-<span>281</span>
-<span>282</span>
-<span>283</span>
-<span>284</span>
-<span>285</span>
-<span>286</span>
-<span>287</span>
-<span>288</span>
-<span>289</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span> <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">example</span><span class="o">=</span><span class="s2">"abc"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">line_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">font_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">font</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Arial.ttf"</span><span class="p">,</span>
+<span></span>    <span class="n">pil</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">example</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"abc"</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initializes the SolutionAnnotator class with an image for annotation.</span>
+<span></span><span class="sd">    Initialize the SolutionAnnotator class with an image for annotation.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        im (np.ndarray): The image to be annotated.</span>
 <span></span><span class="sd">        line_width (int, optional): Line thickness for drawing on the image.</span>
 <span></span><span class="sd">        font_size (int, optional): Font size for text annotations.</span>
-<span></span><span class="sd">        font (str, optional): Path to the font file.</span>
-<span></span><span class="sd">        pil (bool, optional): Indicates whether to use PIL for rendering text.</span>
-<span></span><span class="sd">        example (str, optional): An example parameter for demonstration purposes.</span>
+<span></span><span class="sd">        font (str): Path to the font file.</span>
+<span></span><span class="sd">        pil (bool): Indicates whether to use PIL for rendering text.</span>
+<span></span><span class="sd">        example (str): An example parameter for demonstration purposes.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">line_width</span><span class="p">,</span> <span class="n">font_size</span><span class="p">,</span> <span class="n">font</span><span class="p">,</span> <span class="n">pil</span><span class="p">,</span> <span class="n">example</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2743,7 +2976,11 @@ and parking management.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">circle_label</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">circle_label</span><span class="p">(</span>
-<span></span>    <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">2</span>
+<span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">margin</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -2764,7 +3001,7 @@ and parking management.</p>
 <code>box</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2796,7 +3033,7 @@ and parking management.</p>
 <code>color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2812,7 +3049,7 @@ and parking management.</p>
 <code>txt_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2843,43 +3080,57 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>603</span>
-<span>604</span>
-<span>605</span>
-<span>606</span>
-<span>607</span>
-<span>608</span>
-<span>609</span>
-<span>610</span>
-<span>611</span>
-<span>612</span>
-<span>613</span>
-<span>614</span>
-<span>615</span>
-<span>616</span>
-<span>617</span>
-<span>618</span>
-<span>619</span>
-<span>620</span>
-<span>621</span>
-<span>622</span>
-<span>623</span>
-<span>624</span>
-<span>625</span>
-<span>626</span>
-<span>627</span>
-<span>628</span>
-<span>629</span>
-<span>630</span>
-<span>631</span>
-<span>632</span>
-<span>633</span>
-<span>634</span>
-<span>635</span>
-<span>636</span>
-<span>637</span>
-<span>638</span>
-<span>639</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>696</span>
+<span>697</span>
+<span>698</span>
+<span>699</span>
+<span>700</span>
+<span>701</span>
+<span>702</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span>
+<span>707</span>
+<span>708</span>
+<span>709</span>
+<span>710</span>
+<span>711</span>
+<span>712</span>
+<span>713</span>
+<span>714</span>
+<span>715</span>
+<span>716</span>
+<span>717</span>
+<span>718</span>
+<span>719</span>
+<span>720</span>
+<span>721</span>
+<span>722</span>
+<span>723</span>
+<span>724</span>
+<span>725</span>
+<span>726</span>
+<span>727</span>
+<span>728</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span>
+<span>733</span>
+<span>734</span>
+<span>735</span>
+<span>736</span>
+<span>737</span>
+<span>738</span>
+<span>739</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">margin</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a label with a background circle centered within a given bounding box.</span>
 <span></span>
@@ -2924,7 +3175,13 @@ and parking management.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.SolutionAnnotator.display_analytics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">display_analytics</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">display_analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">margin</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">display_analytics</span><span class="p">(</span>
+<span></span>    <span class="n">im0</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">text</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">bg_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">margin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Display the overall statistics for parking lots, object counter etc.</p>
@@ -2960,7 +3217,7 @@ and parking management.</p>
 <code>text</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="Any">Any</span>]</code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2976,7 +3233,7 @@ and parking management.</p>
 <code>txt_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2992,7 +3249,7 @@ and parking management.</p>
 <code>bg_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3023,34 +3280,48 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>346</span>
-<span>347</span>
-<span>348</span>
-<span>349</span>
-<span>350</span>
-<span>351</span>
-<span>352</span>
-<span>353</span>
-<span>354</span>
-<span>355</span>
-<span>356</span>
-<span>357</span>
-<span>358</span>
-<span>359</span>
-<span>360</span>
-<span>361</span>
-<span>362</span>
-<span>363</span>
-<span>364</span>
-<span>365</span>
-<span>366</span>
-<span>367</span>
-<span>368</span>
-<span>369</span>
-<span>370</span>
-<span>371</span>
-<span>372</span>
-<span>373</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_analytics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_analytics</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">text</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">bg_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">margin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the overall statistics for parking lots, object counter etc.</span>
 <span></span>
@@ -3087,7 +3358,13 @@ and parking management.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">display_objects_labels</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">display_objects_labels</span><span class="p">(</span>
-<span></span>    <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">,</span> <span class="n">margin</span>
+<span></span>    <span class="n">im0</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">bg_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">x_center</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span></span>    <span class="n">y_center</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span></span>    <span class="n">margin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -3140,7 +3417,7 @@ and parking management.</p>
 <code>txt_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3156,7 +3433,7 @@ and parking management.</p>
 <code>bg_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3219,45 +3496,63 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>514</span>
-<span>515</span>
-<span>516</span>
-<span>517</span>
-<span>518</span>
-<span>519</span>
-<span>520</span>
-<span>521</span>
-<span>522</span>
-<span>523</span>
-<span>524</span>
-<span>525</span>
-<span>526</span>
-<span>527</span>
-<span>528</span>
-<span>529</span>
-<span>530</span>
-<span>531</span>
-<span>532</span>
-<span>533</span>
-<span>534</span>
-<span>535</span>
-<span>536</span>
-<span>537</span>
-<span>538</span>
-<span>539</span>
-<span>540</span>
-<span>541</span>
-<span>542</span>
-<span>543</span>
-<span>544</span>
-<span>545</span>
-<span>546</span>
-<span>547</span>
-<span>548</span>
-<span>549</span>
-<span>550</span>
-<span>551</span>
-<span>552</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_objects_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">,</span> <span class="n">bg_color</span><span class="p">,</span> <span class="n">x_center</span><span class="p">,</span> <span class="n">y_center</span><span class="p">,</span> <span class="n">margin</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span>
+<span>589</span>
+<span>590</span>
+<span>591</span>
+<span>592</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
+<span>613</span>
+<span>614</span>
+<span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_objects_labels</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">bg_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">x_center</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span></span>    <span class="n">y_center</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span></span>    <span class="n">margin</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the bounding boxes labels in parking management app.</span>
 <span></span>
@@ -3304,7 +3599,11 @@ and parking management.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.SolutionAnnotator.draw_region">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">draw_region</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">draw_region</span><span class="p">(</span><span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">draw_region</span><span class="p">(</span>
+<span></span>    <span class="n">reg_pts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span></span>    <span class="n">thickness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Draw a region or line on the image.</p>
@@ -3324,7 +3623,7 @@ and parking management.</p>
 <code>reg_pts</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3340,7 +3639,7 @@ and parking management.</p>
 <code>color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3371,25 +3670,35 @@ and parking management.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>291</span>
-<span>292</span>
-<span>293</span>
-<span>294</span>
-<span>295</span>
-<span>296</span>
-<span>297</span>
-<span>298</span>
-<span>299</span>
-<span>300</span>
-<span>301</span>
-<span>302</span>
-<span>303</span>
-<span>304</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_region</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reg_pts</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
+<span>331</span>
+<span>332</span>
+<span>333</span>
+<span>334</span>
+<span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_region</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">reg_pts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span></span>    <span class="n">thickness</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a region or line on the image.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        reg_pts (List[Tuple[int, int]]): Region points (for line 2 points, for region 4+ points).</span>
+<span></span><span class="sd">        reg_pts (List[Tuple[int, int]], optional): Region points (for line 2 points, for region 4+ points).</span>
 <span></span><span class="sd">        color (Tuple[int, int, int]): RGB color value for the region.</span>
 <span></span><span class="sd">        thickness (int): Line thickness for drawing the region.</span>
 <span></span><span class="sd">    """</span>
@@ -3406,7 +3715,12 @@ and parking management.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.SolutionAnnotator.draw_specific_kpts">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">draw_specific_kpts</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">draw_specific_kpts</span><span class="p">(</span><span class="n">keypoints</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">conf_thresh</span><span class="o">=</span><span class="mf">0.25</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">draw_specific_kpts</span><span class="p">(</span>
+<span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
+<span></span>    <span class="n">indices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<span></span>    <span class="n">conf_thresh</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Draw specific keypoints for gym steps counting.</p>
@@ -3426,7 +3740,7 @@ and parking management.</p>
 <code>keypoints</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]]</code>
+<code><span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="float">float</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3442,7 +3756,7 @@ and parking management.</p>
 <code>indices</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3508,55 +3822,67 @@ and parking management.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
+<details class="notes" open="">
+<summary>Notes</summary>
 <p>Keypoint format: [x, y] or [x, y, confidence].
 Modifies self.im in-place.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>392</span>
-<span>393</span>
-<span>394</span>
-<span>395</span>
-<span>396</span>
-<span>397</span>
-<span>398</span>
-<span>399</span>
-<span>400</span>
-<span>401</span>
-<span>402</span>
-<span>403</span>
-<span>404</span>
-<span>405</span>
-<span>406</span>
-<span>407</span>
-<span>408</span>
-<span>409</span>
-<span>410</span>
-<span>411</span>
-<span>412</span>
-<span>413</span>
-<span>414</span>
-<span>415</span>
-<span>416</span>
-<span>417</span>
-<span>418</span>
-<span>419</span>
-<span>420</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_specific_kpts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">indices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">radius</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">conf_thresh</span><span class="o">=</span><span class="mf">0.25</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span>
+<span>460</span>
+<span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span>
+<span>475</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_specific_kpts</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
+<span></span>    <span class="n">indices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
+<span></span>    <span class="n">conf_thresh</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw specific keypoints for gym steps counting.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        keypoints (List[List[float]]): Keypoints data to be plotted, each in format [x, y, confidence].</span>
 <span></span><span class="sd">        indices (List[int], optional): Keypoint indices to be plotted.</span>
-<span></span><span class="sd">        radius (int, optional): Keypoint radius.</span>
-<span></span><span class="sd">        conf_thresh (float, optional): Confidence threshold for keypoints.</span>
+<span></span><span class="sd">        radius (int): Keypoint radius.</span>
+<span></span><span class="sd">        conf_thresh (float): Confidence threshold for keypoints.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (np.ndarray): Image with drawn keypoints.</span>
 <span></span>
-<span></span><span class="sd">    Note:</span>
+<span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Keypoint format: [x, y] or [x, y, confidence].</span>
 <span></span><span class="sd">        Modifies self.im in-place.</span>
 <span></span><span class="sd">    """</span>
@@ -3583,7 +3909,7 @@ Modifies self.im in-place.</p>
 <small class="doc doc-label doc-label-staticmethod"><code>staticmethod</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">estimate_pose_angle</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">estimate_pose_angle</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">c</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Calculate the angle between three points for workout monitoring.</p>
@@ -3603,7 +3929,7 @@ Modifies self.im in-place.</p>
 <code>a</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3619,7 +3945,7 @@ Modifies self.im in-place.</p>
 <code>b</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3635,7 +3961,7 @@ Modifies self.im in-place.</p>
 <code>c</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3671,23 +3997,23 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>375</span>
-<span>376</span>
-<span>377</span>
-<span>378</span>
-<span>379</span>
-<span>380</span>
-<span>381</span>
-<span>382</span>
-<span>383</span>
-<span>384</span>
-<span>385</span>
-<span>386</span>
-<span>387</span>
-<span>388</span>
-<span>389</span>
-<span>390</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">estimate_pose_angle</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">estimate_pose_angle</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">c</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate the angle between three points for workout monitoring.</span>
 <span></span>
@@ -3711,12 +4037,12 @@ Modifies self.im in-place.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot_angle_and_count_and_stage</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
-<span></span>    <span class="n">angle_text</span><span class="p">,</span>
-<span></span>    <span class="n">count_text</span><span class="p">,</span>
-<span></span>    <span class="n">stage_text</span><span class="p">,</span>
-<span></span>    <span class="n">center_kpt</span><span class="p">,</span>
-<span></span>    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
-<span></span>    <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">angle_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">count_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">stage_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">center_kpt</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -3785,7 +4111,7 @@ Modifies self.im in-place.</p>
 <code>center_kpt</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3801,7 +4127,7 @@ Modifies self.im in-place.</p>
 <code>color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3817,7 +4143,7 @@ Modifies self.im in-place.</p>
 <code>txt_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3832,34 +4158,46 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>450</span>
-<span>451</span>
-<span>452</span>
-<span>453</span>
-<span>454</span>
-<span>455</span>
-<span>456</span>
-<span>457</span>
-<span>458</span>
-<span>459</span>
-<span>460</span>
-<span>461</span>
-<span>462</span>
-<span>463</span>
-<span>464</span>
-<span>465</span>
-<span>466</span>
-<span>467</span>
-<span>468</span>
-<span>469</span>
-<span>470</span>
-<span>471</span>
-<span>472</span>
-<span>473</span>
-<span>474</span>
-<span>475</span>
-<span>476</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
-<span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">angle_text</span><span class="p">,</span> <span class="n">count_text</span><span class="p">,</span> <span class="n">stage_text</span><span class="p">,</span> <span class="n">center_kpt</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>511</span>
+<span>512</span>
+<span>513</span>
+<span>514</span>
+<span>515</span>
+<span>516</span>
+<span>517</span>
+<span>518</span>
+<span>519</span>
+<span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span>
+<span>533</span>
+<span>534</span>
+<span>535</span>
+<span>536</span>
+<span>537</span>
+<span>538</span>
+<span>539</span>
+<span>540</span>
+<span>541</span>
+<span>542</span>
+<span>543</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">angle_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">count_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">stage_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">center_kpt</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot the pose angle, count value, and step stage for workout monitoring.</span>
@@ -3869,8 +4207,8 @@ Modifies self.im in-place.</p>
 <span></span><span class="sd">        count_text (str): Counts value for workout monitoring.</span>
 <span></span><span class="sd">        stage_text (str): Stage decision for workout monitoring.</span>
 <span></span><span class="sd">        center_kpt (List[int]): Centroid pose index for workout monitoring.</span>
-<span></span><span class="sd">        color (Tuple[int, int, int], optional): Text background color.</span>
-<span></span><span class="sd">        txt_color (Tuple[int, int, int], optional): Text foreground color.</span>
+<span></span><span class="sd">        color (Tuple[int, int, int]): Text background color.</span>
+<span></span><span class="sd">        txt_color (Tuple[int, int, int]): Text foreground color.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Format text</span>
 <span></span>    <span class="n">angle_text</span><span class="p">,</span> <span class="n">count_text</span><span class="p">,</span> <span class="n">stage_text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">" </span><span class="si">{</span><span class="n">angle_text</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"Steps : </span><span class="si">{</span><span class="n">count_text</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span> <span class="sa">f</span><span class="s2">" </span><span class="si">{</span><span class="n">stage_text</span><span class="si">}</span><span class="s2">"</span>
@@ -3894,10 +4232,10 @@ Modifies self.im in-place.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot_distance_and_line</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
-<span></span>    <span class="n">pixels_distance</span><span class="p">,</span>
-<span></span>    <span class="n">centroids</span><span class="p">,</span>
-<span></span>    <span class="n">line_color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
-<span></span>    <span class="n">centroid_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">pixels_distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span></span>    <span class="n">centroids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
+<span></span>    <span class="n">line_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+<span></span>    <span class="n">centroid_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -3934,7 +4272,7 @@ Modifies self.im in-place.</p>
 <code>centroids</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3950,7 +4288,7 @@ Modifies self.im in-place.</p>
 <code>line_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3966,7 +4304,7 @@ Modifies self.im in-place.</p>
 <code>centroid_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3981,42 +4319,50 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>478</span>
-<span>479</span>
-<span>480</span>
-<span>481</span>
-<span>482</span>
-<span>483</span>
-<span>484</span>
-<span>485</span>
-<span>486</span>
-<span>487</span>
-<span>488</span>
-<span>489</span>
-<span>490</span>
-<span>491</span>
-<span>492</span>
-<span>493</span>
-<span>494</span>
-<span>495</span>
-<span>496</span>
-<span>497</span>
-<span>498</span>
-<span>499</span>
-<span>500</span>
-<span>501</span>
-<span>502</span>
-<span>503</span>
-<span>504</span>
-<span>505</span>
-<span>506</span>
-<span>507</span>
-<span>508</span>
-<span>509</span>
-<span>510</span>
-<span>511</span>
-<span>512</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
-<span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">pixels_distance</span><span class="p">,</span> <span class="n">centroids</span><span class="p">,</span> <span class="n">line_color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">centroid_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>545</span>
+<span>546</span>
+<span>547</span>
+<span>548</span>
+<span>549</span>
+<span>550</span>
+<span>551</span>
+<span>552</span>
+<span>553</span>
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span>
+<span>558</span>
+<span>559</span>
+<span>560</span>
+<span>561</span>
+<span>562</span>
+<span>563</span>
+<span>564</span>
+<span>565</span>
+<span>566</span>
+<span>567</span>
+<span>568</span>
+<span>569</span>
+<span>570</span>
+<span>571</span>
+<span>572</span>
+<span>573</span>
+<span>574</span>
+<span>575</span>
+<span>576</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span>
+<span>581</span>
+<span>582</span>
+<span>583</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">pixels_distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+<span></span>    <span class="n">centroids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
+<span></span>    <span class="n">line_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+<span></span>    <span class="n">centroid_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot the distance and line between two centroids on the frame.</span>
@@ -4024,8 +4370,8 @@ Modifies self.im in-place.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        pixels_distance (float): Pixels distance between two bbox centroids.</span>
 <span></span><span class="sd">        centroids (List[Tuple[int, int]]): Bounding box centroids data.</span>
-<span></span><span class="sd">        line_color (Tuple[int, int, int], optional): Distance line color.</span>
-<span></span><span class="sd">        centroid_color (Tuple[int, int, int], optional): Bounding box centroid color.</span>
+<span></span><span class="sd">        line_color (Tuple[int, int, int]): Distance line color.</span>
+<span></span><span class="sd">        centroid_color (Tuple[int, int, int]): Bounding box centroid color.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Get the text size</span>
 <span></span>    <span class="n">text</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"Pixels Distance: </span><span class="si">{</span><span class="n">pixels_distance</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span>
@@ -4059,8 +4405,11 @@ Modifies self.im in-place.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot_workout_information</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_workout_information</span><span class="p">(</span>
-<span></span>    <span class="n">display_text</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
-<span></span><span class="p">)</span>
+<span></span>    <span class="n">display_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Draw workout text with a background on the image.</p>
@@ -4096,7 +4445,7 @@ Modifies self.im in-place.</p>
 <code>position</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4112,7 +4461,7 @@ Modifies self.im in-place.</p>
 <code>color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4128,7 +4477,7 @@ Modifies self.im in-place.</p>
 <code>txt_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4164,46 +4513,58 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>422</span>
-<span>423</span>
-<span>424</span>
-<span>425</span>
-<span>426</span>
-<span>427</span>
-<span>428</span>
-<span>429</span>
-<span>430</span>
-<span>431</span>
-<span>432</span>
-<span>433</span>
-<span>434</span>
-<span>435</span>
-<span>436</span>
-<span>437</span>
-<span>438</span>
-<span>439</span>
-<span>440</span>
-<span>441</span>
-<span>442</span>
-<span>443</span>
-<span>444</span>
-<span>445</span>
-<span>446</span>
-<span>447</span>
-<span>448</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_workout_information</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">display_text</span><span class="p">,</span> <span class="n">position</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>477</span>
+<span>478</span>
+<span>479</span>
+<span>480</span>
+<span>481</span>
+<span>482</span>
+<span>483</span>
+<span>484</span>
+<span>485</span>
+<span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span>
+<span>490</span>
+<span>491</span>
+<span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span>
+<span>496</span>
+<span>497</span>
+<span>498</span>
+<span>499</span>
+<span>500</span>
+<span>501</span>
+<span>502</span>
+<span>503</span>
+<span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_workout_information</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">display_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw workout text with a background on the image.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        display_text (str): The text to be displayed.</span>
 <span></span><span class="sd">        position (Tuple[int, int]): Coordinates (x, y) on the image where the text will be placed.</span>
-<span></span><span class="sd">        color (Tuple[int, int, int], optional): Text background color.</span>
-<span></span><span class="sd">        txt_color (Tuple[int, int, int], optional): Text foreground color.</span>
+<span></span><span class="sd">        color (Tuple[int, int, int]): Text background color.</span>
+<span></span><span class="sd">        txt_color (Tuple[int, int, int]): Text foreground color.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (int): The height of the text.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="p">(</span><span class="n">text_width</span><span class="p">,</span> <span class="n">text_height</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span><span class="n">display_text</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">)</span>
+<span></span>    <span class="p">(</span><span class="n">text_width</span><span class="p">,</span> <span class="n">text_height</span><span class="p">),</span> <span class="n">_</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">getTextSize</span><span class="p">(</span><span class="n">display_text</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fontScale</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">sf</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tf</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Draw background rectangle</span>
 <span></span>    <span class="n">cv2</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span>
@@ -4226,11 +4587,14 @@ Modifies self.im in-place.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">queue_counts_display</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">queue_counts_display</span><span class="p">(</span>
-<span></span>    <span class="n">label</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">region_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Displays queue counts on an image centered at the points with customizable font size and colors.</p>
+<p>Display queue counts on an image centered at the points with customizable font size and colors.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -4263,7 +4627,7 @@ Modifies self.im in-place.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4279,7 +4643,7 @@ Modifies self.im in-place.</p>
 <code>region_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4295,7 +4659,7 @@ Modifies self.im in-place.</p>
 <code>txt_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4310,51 +4674,63 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>306</span>
-<span>307</span>
-<span>308</span>
-<span>309</span>
-<span>310</span>
-<span>311</span>
-<span>312</span>
-<span>313</span>
-<span>314</span>
-<span>315</span>
-<span>316</span>
-<span>317</span>
-<span>318</span>
-<span>319</span>
-<span>320</span>
-<span>321</span>
-<span>322</span>
-<span>323</span>
-<span>324</span>
-<span>325</span>
-<span>326</span>
-<span>327</span>
-<span>328</span>
-<span>329</span>
-<span>330</span>
-<span>331</span>
-<span>332</span>
-<span>333</span>
-<span>334</span>
-<span>335</span>
-<span>336</span>
-<span>337</span>
-<span>338</span>
-<span>339</span>
-<span>340</span>
-<span>341</span>
-<span>342</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>342</span>
 <span>343</span>
-<span>344</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">queue_counts_display</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">region_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)):</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">queue_counts_display</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">region_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Displays queue counts on an image centered at the points with customizable font size and colors.</span>
+<span></span><span class="sd">    Display queue counts on an image centered at the points with customizable font size and colors.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        label (str): Queue counts label.</span>
-<span></span><span class="sd">        points (List[Tuple[int, int]]): Region points for center point calculation to display text.</span>
+<span></span><span class="sd">        points (List[Tuple[int, int]], optional): Region points for center point calculation to display text.</span>
 <span></span><span class="sd">        region_color (Tuple[int, int, int]): RGB queue region color.</span>
 <span></span><span class="sd">        txt_color (Tuple[int, int, int]): RGB text display color.</span>
 <span></span><span class="sd">    """</span>
@@ -4396,11 +4772,11 @@ Modifies self.im in-place.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">sweep_annotator</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">sweep_annotator</span><span class="p">(</span>
-<span></span>    <span class="n">line_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<span></span>    <span class="n">line_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
-<span></span>    <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span>
-<span></span>    <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">line_x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">line_y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -4469,7 +4845,7 @@ Modifies self.im in-place.</p>
 <code>color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4485,7 +4861,7 @@ Modifies self.im in-place.</p>
 <code>txt_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4500,39 +4876,53 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>554</span>
-<span>555</span>
-<span>556</span>
-<span>557</span>
-<span>558</span>
-<span>559</span>
-<span>560</span>
-<span>561</span>
-<span>562</span>
-<span>563</span>
-<span>564</span>
-<span>565</span>
-<span>566</span>
-<span>567</span>
-<span>568</span>
-<span>569</span>
-<span>570</span>
-<span>571</span>
-<span>572</span>
-<span>573</span>
-<span>574</span>
-<span>575</span>
-<span>576</span>
-<span>577</span>
-<span>578</span>
-<span>579</span>
-<span>580</span>
-<span>581</span>
-<span>582</span>
-<span>583</span>
-<span>584</span>
-<span>585</span>
-<span>586</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sweep_annotator</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">line_x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">line_y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>634</span>
+<span>635</span>
+<span>636</span>
+<span>637</span>
+<span>638</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span>
+<span>643</span>
+<span>644</span>
+<span>645</span>
+<span>646</span>
+<span>647</span>
+<span>648</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span>
+<span>653</span>
+<span>654</span>
+<span>655</span>
+<span>656</span>
+<span>657</span>
+<span>658</span>
+<span>659</span>
+<span>660</span>
+<span>661</span>
+<span>662</span>
+<span>663</span>
+<span>664</span>
+<span>665</span>
+<span>666</span>
+<span>667</span>
+<span>668</span>
+<span>669</span>
+<span>670</span>
+<span>671</span>
+<span>672</span>
+<span>673</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sweep_annotator</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">line_x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">line_y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">221</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">186</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a sweep annotation line and an optional label.</span>
 <span></span>
@@ -4574,7 +4964,11 @@ Modifies self.im in-place.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">text_label</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">text_label</span><span class="p">(</span>
-<span></span>    <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">5</span>
+<span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">margin</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -4595,7 +4989,7 @@ Modifies self.im in-place.</p>
 <code>box</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4627,7 +5021,7 @@ Modifies self.im in-place.</p>
 <code>color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4643,7 +5037,7 @@ Modifies self.im in-place.</p>
 <code>txt_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4674,42 +5068,56 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>641</span>
-<span>642</span>
-<span>643</span>
-<span>644</span>
-<span>645</span>
-<span>646</span>
-<span>647</span>
-<span>648</span>
-<span>649</span>
-<span>650</span>
-<span>651</span>
-<span>652</span>
-<span>653</span>
-<span>654</span>
-<span>655</span>
-<span>656</span>
-<span>657</span>
-<span>658</span>
-<span>659</span>
-<span>660</span>
-<span>661</span>
-<span>662</span>
-<span>663</span>
-<span>664</span>
-<span>665</span>
-<span>666</span>
-<span>667</span>
-<span>668</span>
-<span>669</span>
-<span>670</span>
-<span>671</span>
-<span>672</span>
-<span>673</span>
-<span>674</span>
-<span>675</span>
-<span>676</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span> <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">margin</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>741</span>
+<span>742</span>
+<span>743</span>
+<span>744</span>
+<span>745</span>
+<span>746</span>
+<span>747</span>
+<span>748</span>
+<span>749</span>
+<span>750</span>
+<span>751</span>
+<span>752</span>
+<span>753</span>
+<span>754</span>
+<span>755</span>
+<span>756</span>
+<span>757</span>
+<span>758</span>
+<span>759</span>
+<span>760</span>
+<span>761</span>
+<span>762</span>
+<span>763</span>
+<span>764</span>
+<span>765</span>
+<span>766</span>
+<span>767</span>
+<span>768</span>
+<span>769</span>
+<span>770</span>
+<span>771</span>
+<span>772</span>
+<span>773</span>
+<span>774</span>
+<span>775</span>
+<span>776</span>
+<span>777</span>
+<span>778</span>
+<span>779</span>
+<span>780</span>
+<span>781</span>
+<span>782</span>
+<span>783</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">,</span> <span class="mi">128</span><span class="p">),</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span>    <span class="n">margin</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Draw a label with a background rectangle centered within a given bounding box.</span>
 <span></span>
@@ -4753,7 +5161,12 @@ Modifies self.im in-place.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.SolutionAnnotator.visioneye">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">visioneye</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">visioneye</span><span class="p">(</span><span class="n">box</span><span class="p">,</span> <span class="n">center_point</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">235</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">pin_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">visioneye</span><span class="p">(</span>
+<span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+<span></span>    <span class="n">center_point</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">235</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<span></span>    <span class="n">pin_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform pinpoint human-vision eye mapping and plotting.</p>
@@ -4773,7 +5186,7 @@ Modifies self.im in-place.</p>
 <code>box</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4789,7 +5202,7 @@ Modifies self.im in-place.</p>
 <code>center_point</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4805,7 +5218,7 @@ Modifies self.im in-place.</p>
 <code>color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4821,7 +5234,7 @@ Modifies self.im in-place.</p>
 <code>pin_color</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4836,20 +5249,32 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>588</span>
-<span>589</span>
-<span>590</span>
-<span>591</span>
-<span>592</span>
-<span>593</span>
-<span>594</span>
-<span>595</span>
-<span>596</span>
-<span>597</span>
-<span>598</span>
-<span>599</span>
-<span>600</span>
-<span>601</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visioneye</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">,</span> <span class="n">center_point</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">235</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span> <span class="n">pin_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>675</span>
+<span>676</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
+<span>685</span>
+<span>686</span>
+<span>687</span>
+<span>688</span>
+<span>689</span>
+<span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span>
+<span>694</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visioneye</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
+<span></span>    <span class="n">center_point</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">235</span><span class="p">,</span> <span class="mi">219</span><span class="p">,</span> <span class="mi">11</span><span class="p">),</span>
+<span></span>    <span class="n">pin_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform pinpoint human-vision eye mapping and plotting.</span>
 <span></span>
@@ -4879,7 +5304,8 @@ Modifies self.im in-place.</p>
 <div class="doc doc-contents first">
 <p>A class to encapsulate the results of Ultralytics Solutions.</p>
 <p>This class is designed to store and manage various outputs generated by the solution pipeline, including counts,
-angles, and workout stages.</p>
+angles, workout stages, and other analytics data. It provides a structured way to access and manipulate results
+from different computer vision solutions such as object counting, pose estimation, and tracking analytics.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -4926,7 +5352,7 @@ angles, and workout stages.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.SolutionResults.classwise_count">classwise_count</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5036,7 +5462,7 @@ angles, and workout stages.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.SolutionResults.region_counts">region_counts</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5047,7 +5473,7 @@ angles, and workout stages.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.solutions.SolutionResults.speed_dict">speed_dict</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5063,6 +5489,17 @@ angles, and workout stages.</p>
 <td>
 <div class="doc-md-description">
 <p>Total number of cropped objects using ObjectCropper class.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.solutions.SolutionResults.speed">speed</span></code></td>
+<td>
+<code><span title="typing.Dict">Dict</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Performance timing information for tracking and solution processing.</p>
 </div>
 </td>
 </tr>
@@ -5084,7 +5521,7 @@ angles, and workout stages.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5099,33 +5536,33 @@ angles, and workout stages.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>705</span>
-<span>706</span>
-<span>707</span>
-<span>708</span>
-<span>709</span>
-<span>710</span>
-<span>711</span>
-<span>712</span>
-<span>713</span>
-<span>714</span>
-<span>715</span>
-<span>716</span>
-<span>717</span>
-<span>718</span>
-<span>719</span>
-<span>720</span>
-<span>721</span>
-<span>722</span>
-<span>723</span>
-<span>724</span>
-<span>725</span>
-<span>726</span>
-<span>727</span>
-<span>728</span>
-<span>729</span>
-<span>730</span>
-<span>731</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>814</span>
+<span>815</span>
+<span>816</span>
+<span>817</span>
+<span>818</span>
+<span>819</span>
+<span>820</span>
+<span>821</span>
+<span>822</span>
+<span>823</span>
+<span>824</span>
+<span>825</span>
+<span>826</span>
+<span>827</span>
+<span>828</span>
+<span>829</span>
+<span>830</span>
+<span>831</span>
+<span>832</span>
+<span>833</span>
+<span>834</span>
+<span>835</span>
+<span>836</span>
+<span>837</span>
+<span>838</span>
+<span>839</span>
+<span>840</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SolutionResults object with default or user-specified values.</span>
 <span></span>
@@ -5159,7 +5596,7 @@ angles, and workout stages.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.solutions.SolutionResults.__str__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__str__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__str__</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__str__</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a formatted string representation of the SolutionResults object.</p>
@@ -5186,19 +5623,19 @@ angles, and workout stages.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>733</span>
-<span>734</span>
-<span>735</span>
-<span>736</span>
-<span>737</span>
-<span>738</span>
-<span>739</span>
-<span>740</span>
-<span>741</span>
-<span>742</span>
-<span>743</span>
-<span>744</span>
-<span>745</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>842</span>
+<span>843</span>
+<span>844</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+<span>848</span>
+<span>849</span>
+<span>850</span>
+<span>851</span>
+<span>852</span>
+<span>853</span>
+<span>854</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a formatted string representation of the SolutionResults object.</span>
 <span></span>

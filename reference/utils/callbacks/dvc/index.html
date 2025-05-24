@@ -1419,7 +1419,7 @@ accordingly.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        path (Path): Path to the image file to be logged.</span>
-<span></span><span class="sd">        prefix (str): Optional prefix to add to the image name when logging.</span>
+<span></span><span class="sd">        prefix (str, optional): Optional prefix to add to the image name when logging.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from pathlib import Path</span>
@@ -1553,33 +1553,12 @@ the matrix into lists of target and prediction labels.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The validator object containing the confusion matrix and class names.
-Must have attributes: confusion_matrix.matrix, confusion_matrix.task, and names.</p>
+<p>The validator object containing the confusion matrix and class names. Must have
+attributes: confusion_matrix.matrix, confusion_matrix.task, and names.</p>
 </div>
 </td>
 <td>
 <em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
-<p><span class="doc-section-title">Returns:</span></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>None</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>None</p>
-</div>
 </td>
 </tr>
 </tbody>
@@ -1609,10 +1588,7 @@ Must have attributes: confusion_matrix.matrix, confusion_matrix.task, and names.
 <span>92</span>
 <span>93</span>
 <span>94</span>
-<span>95</span>
-<span>96</span>
-<span>97</span>
-<span>98</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_confusion_matrix</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_confusion_matrix</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log confusion matrix for a validator using DVCLive.</span>
 <span></span>
@@ -1620,11 +1596,8 @@ Must have attributes: confusion_matrix.matrix, confusion_matrix.task, and names.
 <span></span><span class="sd">    the matrix into lists of target and prediction labels.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        validator (BaseValidator): The validator object containing the confusion matrix and class names.</span>
-<span></span><span class="sd">            Must have attributes: confusion_matrix.matrix, confusion_matrix.task, and names.</span>
-<span></span>
-<span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        None</span>
+<span></span><span class="sd">        validator (BaseValidator): The validator object containing the confusion matrix and class names. Must have</span>
+<span></span><span class="sd">            attributes: confusion_matrix.matrix, confusion_matrix.task, and names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">targets</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="n">preds</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1650,18 +1623,18 @@ Must have attributes: confusion_matrix.matrix, confusion_matrix.task, and names.
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Initializes DVCLive logger for training metadata during pre-training routine.</p>
+<p>Initialize DVCLive logger for training metadata during pre-training routine.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>101</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
+<span> 99</span>
+<span>100</span>
+<span>101</span>
 <span>102</span>
 <span>103</span>
 <span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span>
-<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Initializes DVCLive logger for training metadata during pre-training routine."""</span>
+<span>105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize DVCLive logger for training metadata during pre-training routine."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="k">global</span> <span class="n">live</span>
 <span></span>        <span class="n">live</span> <span class="o">=</span> <span class="n">dvclive</span><span class="o">.</span><span class="n">Live</span><span class="p">(</span><span class="n">save_dvc_exp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cache_images</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -1679,13 +1652,13 @@ Must have attributes: confusion_matrix.matrix, confusion_matrix.task, and names.
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Logs plots related to the training process at the end of the pretraining routine.</p>
+<p>Log plots related to the training process at the end of the pretraining routine.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>111</span>
-<span>112</span>
-<span>113</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Logs plots related to the training process at the end of the pretraining routine."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>108</span>
+<span>109</span>
+<span>110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log plots related to the training process at the end of the pretraining routine."""</span>
 <span></span>    <span class="n">_log_plots</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="s2">"train"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1698,14 +1671,14 @@ Must have attributes: confusion_matrix.matrix, confusion_matrix.task, and names.
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Logs the training parameters if DVCLive logging is active.</p>
+<p>Log the training parameters if DVCLive logging is active.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>116</span>
-<span>117</span>
-<span>118</span>
-<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Logs the training parameters if DVCLive logging is active."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log the training parameters if DVCLive logging is active."""</span>
 <span></span>    <span class="k">if</span> <span class="n">live</span><span class="p">:</span>
 <span></span>        <span class="n">live</span><span class="o">.</span><span class="n">log_params</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">args</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1719,14 +1692,14 @@ Must have attributes: confusion_matrix.matrix, confusion_matrix.task, and names.
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_epoch_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Sets the global variable _training_epoch value to True at the start of training each epoch.</p>
+<p>Set the global variable _training_epoch value to True at the start of training each epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>122</span>
-<span>123</span>
-<span>124</span>
-<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Sets the global variable _training_epoch value to True at the start of training each epoch."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Set the global variable _training_epoch value to True at the start of training each epoch."""</span>
 <span></span>    <span class="k">global</span> <span class="n">_training_epoch</span>
 <span></span>    <span class="n">_training_epoch</span> <span class="o">=</span> <span class="kc">True</span>
 </code></pre></div></td></tr></table></div>
@@ -1780,7 +1753,10 @@ The global variable _training_epoch is used to track whether the current epoch i
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>128</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
 <span>129</span>
 <span>130</span>
 <span>131</span>
@@ -1808,10 +1784,7 @@ The global variable _training_epoch is used to track whether the current epoch i
 <span>153</span>
 <span>154</span>
 <span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span>
-<span>159</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log training metrics, model info, and advance to next step at the end of each fit epoch.</span>
 <span></span>
@@ -1894,7 +1867,10 @@ validation plots, and confusion matrix for later analysis.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/dvc.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>162</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
 <span>163</span>
 <span>164</span>
 <span>165</span>
@@ -1920,10 +1896,7 @@ validation plots, and confusion matrix for later analysis.</p>
 <span>185</span>
 <span>186</span>
 <span>187</span>
-<span>188</span>
-<span>189</span>
-<span>190</span>
-<span>191</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>188</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Log best metrics, plots, and confusion matrix at the end of training.</span>
 <span></span>

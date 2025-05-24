@@ -1265,12 +1265,12 @@ The file contains the necessary configuration to initialize the trainer in a dis
 <code>trainer</code>
 </td>
 <td>
-<code><span title="object">object</span></code>
+<code><a class="autorefs autorefs-internal" href="../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'>BaseTrainer</a></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The trainer object containing training configuration and arguments.
-             Must have args attribute and be a class instance.</p>
+<p>The trainer containing training configuration and arguments.
+Must have args attribute and be a class instance.</p>
 </div>
 </td>
 <td>
@@ -1365,8 +1365,8 @@ The file contains the necessary configuration to initialize the trainer in a dis
 <span></span><span class="sd">    The file contains the necessary configuration to initialize the trainer in a distributed environment.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        trainer (object): The trainer object containing training configuration and arguments.</span>
-<span></span><span class="sd">                         Must have args attribute and be a class instance.</span>
+<span></span><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The trainer containing training configuration and arguments.</span>
+<span></span><span class="sd">            Must have args attribute and be a class instance.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (str): Path to the generated temporary DDP file.</span>
@@ -1413,7 +1413,7 @@ The file contains the necessary configuration to initialize the trainer in a dis
 <h2 class="doc doc-heading" id="ultralytics.utils.dist.generate_ddp_command">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.dist.generate_ddp_command</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Generate command for distributed training.</p>
@@ -1449,11 +1449,11 @@ The file contains the necessary configuration to initialize the trainer in a dis
 <code>trainer</code>
 </td>
 <td>
-<code><span title="object">object</span></code>
+<code><a class="autorefs autorefs-internal" href="../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'>BaseTrainer</a></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The trainer object containing configuration for distributed training.</p>
+<p>The trainer containing configuration for distributed training.</p>
 </div>
 </td>
 <td>
@@ -1515,13 +1515,13 @@ The file contains the necessary configuration to initialize the trainer in a dis
 <span>96</span>
 <span>97</span>
 <span>98</span>
-<span>99</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">,</span> <span class="n">trainer</span><span class="p">):</span>
+<span>99</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate_ddp_command</span><span class="p">(</span><span class="n">world_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate command for distributed training.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        world_size (int): Number of processes to spawn for distributed training.</span>
-<span></span><span class="sd">        trainer (object): The trainer object containing configuration for distributed training.</span>
+<span></span><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The trainer containing configuration for distributed training.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        cmd (List[str]): The command to execute for distributed training.</span>
@@ -1566,11 +1566,11 @@ as a temporary file for DDP training, and deletes it if so.</p>
 <code>trainer</code>
 </td>
 <td>
-<code><span title="object">object</span></code>
+<code><a class="autorefs autorefs-internal" href="../../engine/trainer/#ultralytics.engine.trainer.BaseTrainer" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.trainer.BaseTrainer&lt;/span&gt;'>BaseTrainer</a></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The trainer object used for distributed training.</p>
+<p>The trainer used for distributed training.</p>
 </div>
 </td>
 <td>
@@ -1627,7 +1627,7 @@ as a temporary file for DDP training, and deletes it if so.</p>
 <span></span><span class="sd">    as a temporary file for DDP training, and deletes it if so.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        trainer (object): The trainer object used for distributed training.</span>
+<span></span><span class="sd">        trainer (ultralytics.engine.trainer.BaseTrainer): The trainer used for distributed training.</span>
 <span></span><span class="sd">        file (str): Path to the file that might need to be deleted.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>

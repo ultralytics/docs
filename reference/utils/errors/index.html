@@ -1135,7 +1135,9 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.errors.HUBModelError">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.errors.HUBModelError</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">HUBModelError</span><span class="p">(</span><span class="n">message</span><span class="o">=</span><span class="s1">'Model not found. Please check model URL and try again.'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">HUBModelError</span><span class="p">(</span>
+<span></span>    <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Model not found. Please check model URL and try again."</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1179,10 +1181,10 @@ The error message is processed to include emojis for better user experience.</p>
 </table>
 <p><span class="doc-section-title">Examples:</span></p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">try</span><span class="p">:</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Code that might fail to find a model</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="k">raise</span> <span class="n">HUBModelError</span><span class="p">(</span><span class="s2">"Custom model not found message"</span><span class="p">)</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">except</span> <span class="n">HUBModelError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># Displays the emoji-enhanced error message</span>
+<span></span><span class="gp">... </span>    <span class="c1"># Code that might fail to find a model</span>
+<span></span><span class="gp">... </span>    <span class="k">raise</span> <span class="n">HUBModelError</span><span class="p">(</span><span class="s2">"Custom model not found message"</span><span class="p">)</span>
+<span></span><span class="gp">... </span><span class="k">except</span> <span class="n">HUBModelError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span></span><span class="gp">... </span>    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>  <span class="c1"># Displays the emoji-enhanced error message</span>
 </code></pre></div>
 <p>This exception is raised when a requested model is not found or cannot be retrieved from Ultralytics HUB.
 The message is processed to include emojis for better user experience.</p>
@@ -1239,7 +1241,7 @@ The message is processed to include emojis for better user experience.</p>
 <span>40</span>
 <span>41</span>
 <span>42</span>
-<span>43</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="o">=</span><span class="s2">"Model not found. Please check model URL and try again."</span><span class="p">):</span>
+<span>43</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">message</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Model not found. Please check model URL and try again."</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a HUBModelError exception.</span>
 <span></span>

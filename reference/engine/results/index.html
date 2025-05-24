@@ -1905,12 +1905,15 @@
 <h2 class="doc doc-heading" id="ultralytics.engine.results.BaseTensor">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.results.BaseTensor</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">BaseTensor</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">BaseTensor</span><span class="p">(</span><span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code></p>
 <p>Base tensor class with additional methods for easy manipulation and device handling.</p>
+<p>This class provides a foundation for tensor-like objects with device management capabilities,
+supporting both PyTorch tensors and NumPy arrays. It includes methods for moving data between
+devices and converting between tensor types.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1935,7 +1938,7 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.BaseTensor.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1966,7 +1969,7 @@
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.numpy" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;numpy&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.BaseTensor.numpy&lt;/code&gt;)'>numpy</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the tensor as a numpy array.</p>
+<p>Return a copy of the tensor as a numpy array.</p>
 </div>
 </td>
 </tr>
@@ -1974,7 +1977,7 @@
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cuda" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cuda&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.BaseTensor.cuda&lt;/code&gt;)'>cuda</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Moves the tensor to GPU memory, returning a new instance if necessary.</p>
+<p>Move the tensor to GPU memory, returning a new instance if necessary.</p>
 </div>
 </td>
 </tr>
@@ -2029,7 +2032,7 @@
 <code>orig_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2050,12 +2053,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>45</span>
-<span>46</span>
-<span>47</span>
-<span>48</span>
-<span>49</span>
-<span>50</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>50</span>
 <span>51</span>
 <span>52</span>
 <span>53</span>
@@ -2066,7 +2064,12 @@
 <span>58</span>
 <span>59</span>
 <span>60</span>
-<span>61</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>61</span>
+<span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize BaseTensor with prediction data and the original shape of the image.</span>
 <span></span>
@@ -2093,10 +2096,10 @@
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">shape</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the shape of the underlying data tensor.</p>
+<p>Return the shape of the underlying data tensor.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -2108,7 +2111,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2133,7 +2136,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__getitem__</span><span class="p">(</span><span class="nf">idx</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a new BaseTensor instance containing the specified indexed elements of the data tensor.</p>
+<p>Return a new BaseTensor instance containing the specified indexed elements of the data tensor.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -2150,7 +2153,7 @@
 <code>idx</code>
 </td>
 <td>
-<code><span title="int">int</span> | <span title="List">List</span>[<span title="int">int</span>] | <span title="torch.Tensor">Tensor</span></code>
+<code><span title="int">int</span> | <span title="typing.List">List</span>[<span title="int">int</span>] | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2193,12 +2196,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>166</span>
-<span>167</span>
-<span>168</span>
-<span>169</span>
-<span>170</span>
-<span>171</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>171</span>
 <span>172</span>
 <span>173</span>
 <span>174</span>
@@ -2210,9 +2208,14 @@
 <span>180</span>
 <span>181</span>
 <span>182</span>
-<span>183</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns a new BaseTensor instance containing the specified indexed elements of the data tensor.</span>
+<span></span><span class="sd">    Return a new BaseTensor instance containing the specified indexed elements of the data tensor.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        idx (int | List[int] | torch.Tensor): Index or indices to select from the data tensor.</span>
@@ -2236,10 +2239,10 @@
 <h3 class="doc doc-heading" id="ultralytics.engine.results.BaseTensor.__len__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__len__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__len__</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__len__</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the length of the underlying data tensor.</p>
+<p>Return the length of the underlying data tensor.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -2269,12 +2272,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>151</span>
-<span>152</span>
-<span>153</span>
-<span>154</span>
-<span>155</span>
-<span>156</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>156</span>
 <span>157</span>
 <span>158</span>
 <span>159</span>
@@ -2282,9 +2280,14 @@
 <span>161</span>
 <span>162</span>
 <span>163</span>
-<span>164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>  <span class="c1"># override len(results)</span>
+<span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns the length of the underlying data tensor.</span>
+<span></span><span class="sd">    Return the length of the underlying data tensor.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (int): The number of elements in the first dimension of the data tensor.</span>
@@ -2307,7 +2310,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">cpu</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a copy of the tensor stored in CPU memory.</p>
+<p>Return a copy of the tensor stored in CPU memory.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -2340,25 +2343,25 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span>
-<span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span>
-<span>87</span>
-<span>88</span>
-<span>89</span>
-<span>90</span>
-<span>91</span>
-<span>92</span>
-<span>93</span>
-<span>94</span>
-<span>95</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 84</span>
+<span> 85</span>
+<span> 86</span>
+<span> 87</span>
+<span> 88</span>
+<span> 89</span>
+<span> 90</span>
+<span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns a copy of the tensor stored in CPU memory.</span>
+<span></span><span class="sd">    Return a copy of the tensor stored in CPU memory.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (BaseTensor): A new BaseTensor object with the data tensor moved to CPU memory.</span>
@@ -2384,7 +2387,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">cuda</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Moves the tensor to GPU memory.</p>
+<p>Move the tensor to GPU memory.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -2418,12 +2421,7 @@ numpy array, otherwise returns self.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
-<span>115</span>
-<span>116</span>
-<span>117</span>
-<span>118</span>
-<span>119</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>119</span>
 <span>120</span>
 <span>121</span>
 <span>122</span>
@@ -2435,9 +2433,14 @@ numpy array, otherwise returns self.</p>
 <span>128</span>
 <span>129</span>
 <span>130</span>
-<span>131</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Moves the tensor to GPU memory.</span>
+<span></span><span class="sd">    Move the tensor to GPU memory.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (BaseTensor): A new BaseTensor instance with the data moved to GPU memory if it's not already a</span>
@@ -2464,7 +2467,7 @@ numpy array, otherwise returns self.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">numpy</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a copy of the tensor as a numpy array.</p>
+<p>Return a copy of the tensor as a numpy array.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -2496,12 +2499,7 @@ numpy array, otherwise returns self.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>102</span>
 <span>103</span>
 <span>104</span>
 <span>105</span>
@@ -2511,9 +2509,14 @@ numpy array, otherwise returns self.</p>
 <span>109</span>
 <span>110</span>
 <span>111</span>
-<span>112</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns a copy of the tensor as a numpy array.</span>
+<span></span><span class="sd">    Return a copy of the tensor as a numpy array.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (np.ndarray): A numpy array containing the same data as the original tensor.</span>
@@ -2555,7 +2558,7 @@ numpy array, otherwise returns self.</p>
 <code>*args</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2571,7 +2574,7 @@ numpy array, otherwise returns self.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2612,12 +2615,7 @@ numpy array, otherwise returns self.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>133</span>
-<span>134</span>
-<span>135</span>
-<span>136</span>
-<span>137</span>
-<span>138</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
 <span>139</span>
 <span>140</span>
 <span>141</span>
@@ -2628,7 +2626,12 @@ numpy array, otherwise returns self.</p>
 <span>146</span>
 <span>147</span>
 <span>148</span>
-<span>149</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a copy of the tensor with the specified device and dtype.</span>
 <span></span>
@@ -2657,23 +2660,24 @@ numpy array, otherwise returns self.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.results.Results</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Results</span><span class="p">(</span>
-<span></span>    <span class="n">orig_img</span><span class="p">,</span>
-<span></span>    <span class="n">path</span><span class="p">,</span>
-<span></span>    <span class="n">names</span><span class="p">,</span>
-<span></span>    <span class="n">boxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">obb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">speed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">orig_img</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">probs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">obb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">speed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.SimpleClass" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.SimpleClass&lt;/span&gt;'>SimpleClass</a></code>, <code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.DataExportMixin&lt;/span&gt;'>DataExportMixin</a></code></p>
 <p>A class for storing and manipulating inference results.</p>
-<p>This class provides methods for accessing, manipulating, and visualizing inference results from various
-Ultralytics models, including detection, segmentation, classification, and pose estimation.</p>
+<p>This class provides comprehensive functionality for handling inference results from various
+Ultralytics models, including detection, segmentation, classification, and pose estimation.
+It supports visualization, data export, and various coordinate transformations.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -2698,7 +2702,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Results.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2820,7 +2824,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.update" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;update&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.update&lt;/code&gt;)'>update</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Updates the Results object with new detection data.</p>
+<p>Update the Results object with new detection data.</p>
 </div>
 </td>
 </tr>
@@ -2828,7 +2832,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.cpu" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cpu&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.cpu&lt;/code&gt;)'>cpu</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the Results object with all tensors moved to CPU memory.</p>
+<p>Return a copy of the Results object with all tensors moved to CPU memory.</p>
 </div>
 </td>
 </tr>
@@ -2836,7 +2840,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.numpy" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;numpy&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.numpy&lt;/code&gt;)'>numpy</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts all tensors in the Results object to numpy arrays.</p>
+<p>Convert all tensors in the Results object to numpy arrays.</p>
 </div>
 </td>
 </tr>
@@ -2844,7 +2848,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.cuda" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cuda&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.cuda&lt;/code&gt;)'>cuda</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Moves all tensors in the Results object to GPU memory.</p>
+<p>Move all tensors in the Results object to GPU memory.</p>
 </div>
 </td>
 </tr>
@@ -2852,7 +2856,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.to" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.to&lt;/code&gt;)'>to</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Moves all tensors to the specified device and dtype.</p>
+<p>Move all tensors to the specified device and dtype.</p>
 </div>
 </td>
 </tr>
@@ -2860,7 +2864,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.new" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;new&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.new&lt;/code&gt;)'>new</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Creates a new Results object with the same image, path, names, and speed attributes.</p>
+<p>Create a new Results object with the same image, path, names, and speed attributes.</p>
 </div>
 </td>
 </tr>
@@ -2868,7 +2872,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.plot" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;plot&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.plot&lt;/code&gt;)'>plot</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Plots detection results on an input RGB image.</p>
+<p>Plot detection results on an input RGB image.</p>
 </div>
 </td>
 </tr>
@@ -2876,7 +2880,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.show" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;show&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.show&lt;/code&gt;)'>show</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Displays the image with annotated inference results.</p>
+<p>Display the image with annotated inference results.</p>
 </div>
 </td>
 </tr>
@@ -2884,7 +2888,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.save" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;save&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.save&lt;/code&gt;)'>save</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Saves annotated inference results image to file.</p>
+<p>Save annotated inference results image to file.</p>
 </div>
 </td>
 </tr>
@@ -2892,7 +2896,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.verbose" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;verbose&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.verbose&lt;/code&gt;)'>verbose</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a log string for each task in the results.</p>
+<p>Return a log string for each task in the results.</p>
 </div>
 </td>
 </tr>
@@ -2900,7 +2904,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.save_txt" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;save_txt&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.save_txt&lt;/code&gt;)'>save_txt</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Saves detection results to a text file.</p>
+<p>Save detection results to a text file.</p>
 </div>
 </td>
 </tr>
@@ -2908,7 +2912,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.save_crop" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;save_crop&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.save_crop&lt;/code&gt;)'>save_crop</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Saves cropped detection images to specified directory.</p>
+<p>Save cropped detection images to specified directory.</p>
 </div>
 </td>
 </tr>
@@ -2916,7 +2920,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.Results.summary" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;summary&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.summary&lt;/code&gt;)'>summary</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts inference results to a summarized dictionary.</p>
+<p>Convert inference results to a summarized dictionary.</p>
 </div>
 </td>
 </tr>
@@ -2924,7 +2928,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin.to_df" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to_df&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.to_df&lt;/code&gt;)'>to_df</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts detection results to a Pandas Dataframe.</p>
+<p>Convert detection results to a Pandas Dataframe.</p>
 </div>
 </td>
 </tr>
@@ -2932,7 +2936,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin.to_json" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to_json&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.to_json&lt;/code&gt;)'>to_json</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts detection results to JSON format.</p>
+<p>Convert detection results to JSON format.</p>
 </div>
 </td>
 </tr>
@@ -2940,7 +2944,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin.to_csv" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to_csv&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.to_csv&lt;/code&gt;)'>to_csv</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts detection results to a CSV format.</p>
+<p>Convert detection results to a CSV format.</p>
 </div>
 </td>
 </tr>
@@ -2948,7 +2952,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin.to_xml" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to_xml&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.to_xml&lt;/code&gt;)'>to_xml</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts detection results to XML format.</p>
+<p>Convert detection results to XML format.</p>
 </div>
 </td>
 </tr>
@@ -2956,7 +2960,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin.to_html" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to_html&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.to_html&lt;/code&gt;)'>to_html</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts detection results to HTML format.</p>
+<p>Convert detection results to HTML format.</p>
 </div>
 </td>
 </tr>
@@ -2964,7 +2968,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <td><code><a class="autorefs autorefs-internal" href="../../utils/__init__/#ultralytics.utils.DataExportMixin.to_sql" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to_sql&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Results.to_sql&lt;/code&gt;)'>to_sql</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Converts detection results to an SQL-compatible format.</p>
+<p>Convert detection results to an SQL-compatible format.</p>
 </div>
 </td>
 </tr>
@@ -3122,7 +3126,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <code>speed</code>
 </td>
 <td>
-<code><span title="Dict">Dict</span> | None</code>
+<code><span title="typing.Dict">Dict</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3151,13 +3155,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span>
-<span>241</span>
-<span>242</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>242</span>
 <span>243</span>
 <span>244</span>
 <span>245</span>
@@ -3192,8 +3190,32 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <span>274</span>
 <span>275</span>
 <span>276</span>
-<span>277</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
-<span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">orig_img</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">obb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">speed</span><span class="o">=</span><span class="kc">None</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span>
+<span>285</span>
+<span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">orig_img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">],</span>
+<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">probs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">obb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">speed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Results class for storing and manipulating inference results.</span>
@@ -3302,22 +3324,22 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>279</span>
-<span>280</span>
-<span>281</span>
-<span>282</span>
-<span>283</span>
-<span>284</span>
-<span>285</span>
-<span>286</span>
-<span>287</span>
-<span>288</span>
-<span>289</span>
-<span>290</span>
-<span>291</span>
-<span>292</span>
-<span>293</span>
-<span>294</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span>
+<span>299</span>
+<span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a Results object for a specific index of inference results.</span>
 <span></span>
@@ -3341,7 +3363,7 @@ Ultralytics models, including detection, segmentation, classification, and pose 
 <h3 class="doc doc-heading" id="ultralytics.engine.results.Results.__len__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__len__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__len__</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__len__</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the number of detections in the Results object.</p>
@@ -3374,23 +3396,23 @@ attribute in (masks, probs, keypoints, or obb).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>296</span>
-<span>297</span>
-<span>298</span>
-<span>299</span>
-<span>300</span>
-<span>301</span>
-<span>302</span>
-<span>303</span>
-<span>304</span>
-<span>305</span>
-<span>306</span>
-<span>307</span>
-<span>308</span>
-<span>309</span>
-<span>310</span>
-<span>311</span>
-<span>312</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span>
+<span>315</span>
+<span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return the number of detections in the Results object.</span>
 <span></span>
@@ -3418,7 +3440,7 @@ attribute in (masks, probs, keypoints, or obb).</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">cpu</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a copy of the Results object with all its tensors moved to CPU memory.</p>
+<p>Return a copy of the Results object with all its tensors moved to CPU memory.</p>
 <p>This method creates a new Results object with all tensor attributes (boxes, masks, probs, keypoints, obb)
 transferred to CPU memory. It's useful for moving data from GPU to CPU for further processing or saving.</p>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -3449,24 +3471,24 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>372</span>
-<span>373</span>
-<span>374</span>
-<span>375</span>
-<span>376</span>
-<span>377</span>
-<span>378</span>
-<span>379</span>
-<span>380</span>
-<span>381</span>
-<span>382</span>
-<span>383</span>
-<span>384</span>
-<span>385</span>
-<span>386</span>
-<span>387</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cpu</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns a copy of the Results object with all its tensors moved to CPU memory.</span>
+<span></span><span class="sd">    Return a copy of the Results object with all its tensors moved to CPU memory.</span>
 <span></span>
 <span></span><span class="sd">    This method creates a new Results object with all tensor attributes (boxes, masks, probs, keypoints, obb)</span>
 <span></span><span class="sd">    transferred to CPU memory. It's useful for moving data from GPU to CPU for further processing or saving.</span>
@@ -3491,7 +3513,7 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">cuda</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Moves all tensors in the Results object to GPU memory.</p>
+<p>Move all tensors in the Results object to GPU memory.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -3521,22 +3543,22 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>408</span>
-<span>409</span>
-<span>410</span>
-<span>411</span>
-<span>412</span>
-<span>413</span>
-<span>414</span>
-<span>415</span>
-<span>416</span>
-<span>417</span>
-<span>418</span>
-<span>419</span>
-<span>420</span>
-<span>421</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span>
+<span>440</span>
+<span>441</span>
+<span>442</span>
+<span>443</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cuda</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Moves all tensors in the Results object to GPU memory.</span>
+<span></span><span class="sd">    Move all tensors in the Results object to GPU memory.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Results): A new Results object with all tensors moved to CUDA device.</span>
@@ -3559,7 +3581,7 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">new</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Creates a new Results object with the same image, path, names, and speed attributes.</p>
+<p>Create a new Results object with the same image, path, names, and speed attributes.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -3587,20 +3609,20 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>442</span>
-<span>443</span>
-<span>444</span>
-<span>445</span>
-<span>446</span>
-<span>447</span>
-<span>448</span>
-<span>449</span>
-<span>450</span>
-<span>451</span>
-<span>452</span>
-<span>453</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>464</span>
+<span>465</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span>
+<span>475</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">new</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Creates a new Results object with the same image, path, names, and speed attributes.</span>
+<span></span><span class="sd">    Create a new Results object with the same image, path, names, and speed attributes.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Results): A new Results object with copied attributes from the original instance.</span>
@@ -3621,7 +3643,7 @@ transferred to CPU memory. It's useful for moving data from GPU to CPU for furth
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">numpy</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Converts all tensors in the Results object to numpy arrays.</p>
+<p>Convert all tensors in the Results object to numpy arrays.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -3656,26 +3678,26 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>389</span>
-<span>390</span>
-<span>391</span>
-<span>392</span>
-<span>393</span>
-<span>394</span>
-<span>395</span>
-<span>396</span>
-<span>397</span>
-<span>398</span>
-<span>399</span>
-<span>400</span>
-<span>401</span>
-<span>402</span>
-<span>403</span>
-<span>404</span>
-<span>405</span>
-<span>406</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Converts all tensors in the Results object to numpy arrays.</span>
+<span></span><span class="sd">    Convert all tensors in the Results object to numpy arrays.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Results): A new Results object with all tensors converted to numpy arrays.</span>
@@ -3700,28 +3722,28 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot</span><span class="p">(</span>
-<span></span>    <span class="n">conf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span>
-<span></span>    <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">im_gpu</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">kpt_radius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-<span></span>    <span class="n">kpt_line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">boxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">masks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">probs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">color_mode</span><span class="o">=</span><span class="s2">"class"</span><span class="p">,</span>
-<span></span>    <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
-<span></span><span class="p">)</span>
+<span></span>    <span class="n">conf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">line_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">font_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">font</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Arial.ttf"</span><span class="p">,</span>
+<span></span>    <span class="n">pil</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">img</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">im_gpu</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">kpt_radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<span></span>    <span class="n">kpt_line</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">probs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">color_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"class"</span><span class="p">,</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Plots detection results on an input RGB image.</p>
+<p>Plot detection results on an input RGB image.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -3994,11 +4016,11 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 <code>color_mode</code>
 </td>
 <td>
-<code><span title="bool">bool</span></code>
+<code><span title="str">str</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Specify the color mode, e.g., 'instance' or 'class'. Default to 'class'.</p>
+<p>Specify the color mode, e.g., 'instance' or 'class'.</p>
 </div>
 </td>
 <td>
@@ -4014,7 +4036,7 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 </td>
 <td>
 <div class="doc-md-description">
-<p>Specify the RGB text color for classification task</p>
+<p>Specify the RGB text color for classification task.</p>
 </div>
 </td>
 <td>
@@ -4052,29 +4074,7 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>455</span>
-<span>456</span>
-<span>457</span>
-<span>458</span>
-<span>459</span>
-<span>460</span>
-<span>461</span>
-<span>462</span>
-<span>463</span>
-<span>464</span>
-<span>465</span>
-<span>466</span>
-<span>467</span>
-<span>468</span>
-<span>469</span>
-<span>470</span>
-<span>471</span>
-<span>472</span>
-<span>473</span>
-<span>474</span>
-<span>475</span>
-<span>476</span>
-<span>477</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>477</span>
 <span>478</span>
 <span>479</span>
 <span>480</span>
@@ -4190,29 +4190,51 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 <span>590</span>
 <span>591</span>
 <span>592</span>
-<span>593</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span>
+<span>593</span>
+<span>594</span>
+<span>595</span>
+<span>596</span>
+<span>597</span>
+<span>598</span>
+<span>599</span>
+<span>600</span>
+<span>601</span>
+<span>602</span>
+<span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span>
+<span>607</span>
+<span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
+<span>613</span>
+<span>614</span>
+<span>615</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">conf</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">line_width</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">font_size</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">font</span><span class="o">=</span><span class="s2">"Arial.ttf"</span><span class="p">,</span>
-<span></span>    <span class="n">pil</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">img</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">im_gpu</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">kpt_radius</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span>
-<span></span>    <span class="n">kpt_line</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">labels</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">boxes</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">masks</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">probs</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">show</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">color_mode</span><span class="o">=</span><span class="s2">"class"</span><span class="p">,</span>
-<span></span>    <span class="n">txt_color</span><span class="o">=</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
-<span></span><span class="p">):</span>
+<span></span>    <span class="n">conf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">line_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">font_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">font</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Arial.ttf"</span><span class="p">,</span>
+<span></span>    <span class="n">pil</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">img</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">im_gpu</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">kpt_radius</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">,</span>
+<span></span>    <span class="n">kpt_line</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">probs</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">save</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">color_mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"class"</span><span class="p">,</span>
+<span></span>    <span class="n">txt_color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Plots detection results on an input RGB image.</span>
+<span></span><span class="sd">    Plot detection results on an input RGB image.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        conf (bool): Whether to plot detection confidence scores.</span>
@@ -4231,8 +4253,8 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 <span></span><span class="sd">        show (bool): Whether to display the annotated image.</span>
 <span></span><span class="sd">        save (bool): Whether to save the annotated image.</span>
 <span></span><span class="sd">        filename (str | None): Filename to save image if save is True.</span>
-<span></span><span class="sd">        color_mode (bool): Specify the color mode, e.g., 'instance' or 'class'. Default to 'class'.</span>
-<span></span><span class="sd">        txt_color (tuple[int, int, int]): Specify the RGB text color for classification task</span>
+<span></span><span class="sd">        color_mode (str): Specify the color mode, e.g., 'instance' or 'class'.</span>
+<span></span><span class="sd">        txt_color (tuple[int, int, int]): Specify the RGB text color for classification task.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (np.ndarray): Annotated image as a numpy array.</span>
@@ -4337,10 +4359,10 @@ interoperability with numpy-based libraries or when CPU-based operations are req
 <h3 class="doc doc-heading" id="ultralytics.engine.results.Results.save">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Saves annotated inference results image to file.</p>
+<p>Save annotated inference results image to file.</p>
 <p>This method plots the detection results on the original image and saves the annotated image to a file. It
 utilizes the <code>plot</code> method to generate the annotated image and then saves it to the specified filename.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -4376,7 +4398,7 @@ is generated based on the original image path.</p>
 <code>*args</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4392,7 +4414,7 @@ is generated based on the original image path.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4401,6 +4423,27 @@ is generated based on the original image path.</p>
 </td>
 <td>
 <code>{}</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The filename where the image was saved.</p>
+</div>
 </td>
 </tr>
 </tbody>
@@ -4415,33 +4458,36 @@ is generated based on the original image path.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>614</span>
-<span>615</span>
-<span>616</span>
-<span>617</span>
-<span>618</span>
-<span>619</span>
-<span>620</span>
-<span>621</span>
-<span>622</span>
-<span>623</span>
-<span>624</span>
-<span>625</span>
-<span>626</span>
-<span>627</span>
-<span>628</span>
-<span>629</span>
-<span>630</span>
-<span>631</span>
-<span>632</span>
-<span>633</span>
-<span>634</span>
-<span>635</span>
-<span>636</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>636</span>
 <span>637</span>
-<span>638</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>638</span>
+<span>639</span>
+<span>640</span>
+<span>641</span>
+<span>642</span>
+<span>643</span>
+<span>644</span>
+<span>645</span>
+<span>646</span>
+<span>647</span>
+<span>648</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span>
+<span>653</span>
+<span>654</span>
+<span>655</span>
+<span>656</span>
+<span>657</span>
+<span>658</span>
+<span>659</span>
+<span>660</span>
+<span>661</span>
+<span>662</span>
+<span>663</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Saves annotated inference results image to file.</span>
+<span></span><span class="sd">    Save annotated inference results image to file.</span>
 <span></span>
 <span></span><span class="sd">    This method plots the detection results on the original image and saves the annotated image to a file. It</span>
 <span></span><span class="sd">    utilizes the `plot` method to generate the annotated image and then saves it to the specified filename.</span>
@@ -4451,6 +4497,9 @@ is generated based on the original image path.</p>
 <span></span><span class="sd">            is generated based on the original image path.</span>
 <span></span><span class="sd">        *args (Any): Variable length argument list to be passed to the `plot` method.</span>
 <span></span><span class="sd">        **kwargs (Any): Arbitrary keyword arguments to be passed to the `plot` method.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (str): The filename where the image was saved.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; results = model("path/to/image.jpg")</span>
@@ -4472,10 +4521,12 @@ is generated based on the original image path.</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.results.Results.save_crop">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save_crop</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_crop</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s1">'im.jpg'</span><span class="p">))</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_crop</span><span class="p">(</span>
+<span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">file_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"im.jpg"</span><span class="p">)</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Saves cropped detection images to specified directory.</p>
+<p>Save cropped detection images to specified directory.</p>
 <p>This method saves cropped images of detected objects to a specified directory. Each crop is saved in a
 subdirectory named after the object's class, with the filename based on the input file_name.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -4514,7 +4565,7 @@ subdirectory named after the object's class, with the filename based on the inpu
 </td>
 <td>
 <div class="doc-md-description">
-<p>Base filename for the saved cropped images. Default is Path("im.jpg").</p>
+<p>Base filename for the saved cropped images.</p>
 </div>
 </td>
 <td>
@@ -4539,50 +4590,50 @@ subdirectory named after the object's class, with the filename based on the inpu
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>727</span>
-<span>728</span>
-<span>729</span>
-<span>730</span>
-<span>731</span>
-<span>732</span>
-<span>733</span>
-<span>734</span>
-<span>735</span>
-<span>736</span>
-<span>737</span>
-<span>738</span>
-<span>739</span>
-<span>740</span>
-<span>741</span>
-<span>742</span>
-<span>743</span>
-<span>744</span>
-<span>745</span>
-<span>746</span>
-<span>747</span>
-<span>748</span>
-<span>749</span>
-<span>750</span>
-<span>751</span>
-<span>752</span>
-<span>753</span>
-<span>754</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>754</span>
 <span>755</span>
 <span>756</span>
 <span>757</span>
 <span>758</span>
 <span>759</span>
 <span>760</span>
-<span>761</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">file_name</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">"im.jpg"</span><span class="p">)):</span>
+<span>761</span>
+<span>762</span>
+<span>763</span>
+<span>764</span>
+<span>765</span>
+<span>766</span>
+<span>767</span>
+<span>768</span>
+<span>769</span>
+<span>770</span>
+<span>771</span>
+<span>772</span>
+<span>773</span>
+<span>774</span>
+<span>775</span>
+<span>776</span>
+<span>777</span>
+<span>778</span>
+<span>779</span>
+<span>780</span>
+<span>781</span>
+<span>782</span>
+<span>783</span>
+<span>784</span>
+<span>785</span>
+<span>786</span>
+<span>787</span>
+<span>788</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_crop</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">file_name</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"im.jpg"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Saves cropped detection images to specified directory.</span>
+<span></span><span class="sd">    Save cropped detection images to specified directory.</span>
 <span></span>
 <span></span><span class="sd">    This method saves cropped images of detected objects to a specified directory. Each crop is saved in a</span>
 <span></span><span class="sd">    subdirectory named after the object's class, with the filename based on the input file_name.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        save_dir (str | Path): Directory path where cropped images will be saved.</span>
-<span></span><span class="sd">        file_name (str | Path): Base filename for the saved cropped images. Default is Path("im.jpg").</span>
+<span></span><span class="sd">        file_name (str | Path): Base filename for the saved cropped images.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        - This method does not support Classify or Oriented Bounding Box (OBB) tasks.</span>
@@ -4616,7 +4667,7 @@ subdirectory named after the object's class, with the filename based on the inpu
 <h3 class="doc doc-heading" id="ultralytics.engine.results.Results.save_txt">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save_txt</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_txt</span><span class="p">(</span><span class="n">txt_file</span><span class="p">,</span> <span class="n">save_conf</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_txt</span><span class="p">(</span><span class="n">txt_file</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Save detection results to a text file.</p>
@@ -4707,32 +4758,7 @@ subdirectory named after the object's class, with the filename based on the inpu
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>672</span>
-<span>673</span>
-<span>674</span>
-<span>675</span>
-<span>676</span>
-<span>677</span>
-<span>678</span>
-<span>679</span>
-<span>680</span>
-<span>681</span>
-<span>682</span>
-<span>683</span>
-<span>684</span>
-<span>685</span>
-<span>686</span>
-<span>687</span>
-<span>688</span>
-<span>689</span>
-<span>690</span>
-<span>691</span>
-<span>692</span>
-<span>693</span>
-<span>694</span>
-<span>695</span>
-<span>696</span>
-<span>697</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>697</span>
 <span>698</span>
 <span>699</span>
 <span>700</span>
@@ -4760,7 +4786,34 @@ subdirectory named after the object's class, with the filename based on the inpu
 <span>722</span>
 <span>723</span>
 <span>724</span>
-<span>725</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt_file</span><span class="p">,</span> <span class="n">save_conf</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>725</span>
+<span>726</span>
+<span>727</span>
+<span>728</span>
+<span>729</span>
+<span>730</span>
+<span>731</span>
+<span>732</span>
+<span>733</span>
+<span>734</span>
+<span>735</span>
+<span>736</span>
+<span>737</span>
+<span>738</span>
+<span>739</span>
+<span>740</span>
+<span>741</span>
+<span>742</span>
+<span>743</span>
+<span>744</span>
+<span>745</span>
+<span>746</span>
+<span>747</span>
+<span>748</span>
+<span>749</span>
+<span>750</span>
+<span>751</span>
+<span>752</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">txt_file</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save detection results to a text file.</span>
 <span></span>
@@ -4814,6 +4867,8 @@ subdirectory named after the object's class, with the filename based on the inpu
 <span></span>        <span class="n">Path</span><span class="p">(</span><span class="n">txt_file</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># make directory</span>
 <span></span>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">txt_file</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
 <span></span>            <span class="n">f</span><span class="o">.</span><span class="n">writelines</span><span class="p">(</span><span class="n">text</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="k">return</span> <span class="nb">str</span><span class="p">(</span><span class="n">txt_file</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4844,7 +4899,7 @@ visualize the model's predictions directly.</p>
 <code>*args</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4860,7 +4915,7 @@ visualize the model's predictions directly.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4881,24 +4936,24 @@ visualize the model's predictions directly.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>595</span>
-<span>596</span>
-<span>597</span>
-<span>598</span>
-<span>599</span>
-<span>600</span>
-<span>601</span>
-<span>602</span>
-<span>603</span>
-<span>604</span>
-<span>605</span>
-<span>606</span>
-<span>607</span>
-<span>608</span>
-<span>609</span>
-<span>610</span>
-<span>611</span>
-<span>612</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>617</span>
+<span>618</span>
+<span>619</span>
+<span>620</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the image with annotated inference results.</span>
 <span></span>
@@ -4924,10 +4979,10 @@ visualize the model's predictions directly.</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.results.Results.summary">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">summary</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Converts inference results to a summarized dictionary with optional normalization for box coordinates.</p>
+<p>Convert inference results to a summarized dictionary with optional normalization for box coordinates.</p>
 <p>This method creates a list of detection dictionaries, each containing information about a single
 detection or classification result. For classification tasks, it returns the top class and its
 confidence. For detection tasks, it includes class information, bounding box coordinates, and
@@ -4988,7 +5043,7 @@ optionally mask segments and keypoints.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="Dict">Dict</span>]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5008,34 +5063,7 @@ or classification result. The structure of each dictionary varies based on the t
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>763</span>
-<span>764</span>
-<span>765</span>
-<span>766</span>
-<span>767</span>
-<span>768</span>
-<span>769</span>
-<span>770</span>
-<span>771</span>
-<span>772</span>
-<span>773</span>
-<span>774</span>
-<span>775</span>
-<span>776</span>
-<span>777</span>
-<span>778</span>
-<span>779</span>
-<span>780</span>
-<span>781</span>
-<span>782</span>
-<span>783</span>
-<span>784</span>
-<span>785</span>
-<span>786</span>
-<span>787</span>
-<span>788</span>
-<span>789</span>
-<span>790</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>790</span>
 <span>791</span>
 <span>792</span>
 <span>793</span>
@@ -5072,9 +5100,36 @@ or classification result. The structure of each dictionary varies based on the t
 <span>824</span>
 <span>825</span>
 <span>826</span>
-<span>827</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span>827</span>
+<span>828</span>
+<span>829</span>
+<span>830</span>
+<span>831</span>
+<span>832</span>
+<span>833</span>
+<span>834</span>
+<span>835</span>
+<span>836</span>
+<span>837</span>
+<span>838</span>
+<span>839</span>
+<span>840</span>
+<span>841</span>
+<span>842</span>
+<span>843</span>
+<span>844</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+<span>848</span>
+<span>849</span>
+<span>850</span>
+<span>851</span>
+<span>852</span>
+<span>853</span>
+<span>854</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Converts inference results to a summarized dictionary with optional normalization for box coordinates.</span>
+<span></span><span class="sd">    Convert inference results to a summarized dictionary with optional normalization for box coordinates.</span>
 <span></span>
 <span></span><span class="sd">    This method creates a list of detection dictionaries, each containing information about a single</span>
 <span></span><span class="sd">    detection or classification result. For classification tasks, it returns the top class and its</span>
@@ -5148,7 +5203,7 @@ or classification result. The structure of each dictionary varies based on the t
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">to</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Moves all tensors in the Results object to the specified device and dtype.</p>
+<p>Move all tensors in the Results object to the specified device and dtype.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -5165,7 +5220,7 @@ or classification result. The structure of each dictionary varies based on the t
 <code>*args</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5181,7 +5236,7 @@ or classification result. The structure of each dictionary varies based on the t
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5223,26 +5278,26 @@ or classification result. The structure of each dictionary varies based on the t
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>423</span>
-<span>424</span>
-<span>425</span>
-<span>426</span>
-<span>427</span>
-<span>428</span>
-<span>429</span>
-<span>430</span>
-<span>431</span>
-<span>432</span>
-<span>433</span>
-<span>434</span>
-<span>435</span>
-<span>436</span>
-<span>437</span>
-<span>438</span>
-<span>439</span>
-<span>440</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span>
+<span>460</span>
+<span>461</span>
+<span>462</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Moves all tensors in the Results object to the specified device and dtype.</span>
+<span></span><span class="sd">    Move all tensors in the Results object to the specified device and dtype.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        *args (Any): Variable length argument list to be passed to torch.Tensor.to().</span>
@@ -5266,10 +5321,16 @@ or classification result. The structure of each dictionary varies based on the t
 <h3 class="doc doc-heading" id="ultralytics.engine.results.Results.update">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="n">boxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">obb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span>
+<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">probs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">obb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Updates the Results object with new detection data.</p>
+<p>Update the Results object with new detection data.</p>
 <p>This method allows updating the boxes, masks, probabilities, and oriented bounding boxes (OBB) of the
 Results object. It ensures that boxes are clipped to the original image shape.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -5373,22 +5434,7 @@ confidence scores. The format is (x1, y1, x2, y2, conf, class).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
-<span>315</span>
-<span>316</span>
-<span>317</span>
-<span>318</span>
-<span>319</span>
-<span>320</span>
-<span>321</span>
-<span>322</span>
-<span>323</span>
-<span>324</span>
-<span>325</span>
-<span>326</span>
-<span>327</span>
-<span>328</span>
-<span>329</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>329</span>
 <span>330</span>
 <span>331</span>
 <span>332</span>
@@ -5402,9 +5448,38 @@ confidence scores. The format is (x1, y1, x2, y2, conf, class).</p>
 <span>340</span>
 <span>341</span>
 <span>342</span>
-<span>343</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">probs</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">obb</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">probs</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">obb</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Updates the Results object with new detection data.</span>
+<span></span><span class="sd">    Update the Results object with new detection data.</span>
 <span></span>
 <span></span><span class="sd">    This method allows updating the boxes, masks, probabilities, and oriented bounding boxes (OBB) of the</span>
 <span></span><span class="sd">    Results object. It ensures that boxes are clipped to the original image shape.</span>
@@ -5440,10 +5515,10 @@ confidence scores. The format is (x1, y1, x2, y2, conf, class).</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.results.Results.verbose">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">verbose</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">verbose</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">verbose</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a log string for each task in the results, detailing detection and classification outcomes.</p>
+<p>Return a log string for each task in the results, detailing detection and classification outcomes.</p>
 <p>This method generates a human-readable string summarizing the detection and classification results. It includes
 the number of detections for each class and the top probabilities for classification tasks.</p>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -5485,39 +5560,39 @@ number of detections per class. For classification tasks, it includes the top 5 
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>640</span>
-<span>641</span>
-<span>642</span>
-<span>643</span>
-<span>644</span>
-<span>645</span>
-<span>646</span>
-<span>647</span>
-<span>648</span>
-<span>649</span>
-<span>650</span>
-<span>651</span>
-<span>652</span>
-<span>653</span>
-<span>654</span>
-<span>655</span>
-<span>656</span>
-<span>657</span>
-<span>658</span>
-<span>659</span>
-<span>660</span>
-<span>661</span>
-<span>662</span>
-<span>663</span>
-<span>664</span>
-<span>665</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>665</span>
 <span>666</span>
 <span>667</span>
 <span>668</span>
 <span>669</span>
-<span>670</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>670</span>
+<span>671</span>
+<span>672</span>
+<span>673</span>
+<span>674</span>
+<span>675</span>
+<span>676</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span>
+<span>685</span>
+<span>686</span>
+<span>687</span>
+<span>688</span>
+<span>689</span>
+<span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span>
+<span>694</span>
+<span>695</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">verbose</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Returns a log string for each task in the results, detailing detection and classification outcomes.</span>
+<span></span><span class="sd">    Return a log string for each task in the results, detailing detection and classification outcomes.</span>
 <span></span>
 <span></span><span class="sd">    This method generates a human-readable string summarizing the detection and classification results. It includes</span>
 <span></span><span class="sd">    the number of detections for each class and the top probabilities for classification tasks.</span>
@@ -5557,15 +5632,15 @@ number of detections per class. For classification tasks, it includes the top 5 
 <h2 class="doc doc-heading" id="ultralytics.engine.results.Boxes">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.results.Boxes</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
 <p>A class for managing and manipulating detection boxes.</p>
-<p>This class provides functionality for handling detection boxes, including their coordinates, confidence scores,
-class labels, and optional tracking IDs. It supports various box formats and offers methods for easy manipulation
-and conversion between different coordinate systems.</p>
+<p>This class provides comprehensive functionality for handling detection boxes, including their coordinates,
+confidence scores, class labels, and optional tracking IDs. It supports various box formats and offers
+methods for easy manipulation and conversion between different coordinate systems.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -5590,7 +5665,7 @@ and conversion between different coordinate systems.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Boxes.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5725,7 +5800,7 @@ and conversion between different coordinate systems.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cpu" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cpu&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Boxes.cpu&lt;/code&gt;)'>cpu</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the object with all tensors on CPU memory.</p>
+<p>Return a copy of the object with all tensors on CPU memory.</p>
 </div>
 </td>
 </tr>
@@ -5733,7 +5808,7 @@ and conversion between different coordinate systems.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.numpy" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;numpy&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Boxes.numpy&lt;/code&gt;)'>numpy</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the object with all tensors as numpy arrays.</p>
+<p>Return a copy of the object with all tensors as numpy arrays.</p>
 </div>
 </td>
 </tr>
@@ -5741,7 +5816,7 @@ and conversion between different coordinate systems.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cuda" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cuda&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Boxes.cuda&lt;/code&gt;)'>cuda</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the object with all tensors on GPU memory.</p>
+<p>Return a copy of the object with all tensors on GPU memory.</p>
 </div>
 </td>
 </tr>
@@ -5749,7 +5824,7 @@ and conversion between different coordinate systems.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.to" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Boxes.to&lt;/code&gt;)'>to</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the object with tensors on specified device and dtype.</p>
+<p>Return a copy of the object with tensors on specified device and dtype.</p>
 </div>
 </td>
 </tr>
@@ -5802,7 +5877,7 @@ for box coordinates, including both absolute and normalized forms.</p>
 <code>orig_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5839,7 +5914,7 @@ for box coordinates, including both absolute and normalized forms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Boxes.__init__.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5870,40 +5945,40 @@ for box coordinates, including both absolute and normalized forms.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>867</span>
-<span>868</span>
-<span>869</span>
-<span>870</span>
-<span>871</span>
-<span>872</span>
-<span>873</span>
-<span>874</span>
-<span>875</span>
-<span>876</span>
-<span>877</span>
-<span>878</span>
-<span>879</span>
-<span>880</span>
-<span>881</span>
-<span>882</span>
-<span>883</span>
-<span>884</span>
-<span>885</span>
-<span>886</span>
-<span>887</span>
-<span>888</span>
-<span>889</span>
-<span>890</span>
-<span>891</span>
-<span>892</span>
-<span>893</span>
-<span>894</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>894</span>
 <span>895</span>
 <span>896</span>
 <span>897</span>
 <span>898</span>
 <span>899</span>
-<span>900</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>900</span>
+<span>901</span>
+<span>902</span>
+<span>903</span>
+<span>904</span>
+<span>905</span>
+<span>906</span>
+<span>907</span>
+<span>908</span>
+<span>909</span>
+<span>910</span>
+<span>911</span>
+<span>912</span>
+<span>913</span>
+<span>914</span>
+<span>915</span>
+<span>916</span>
+<span>917</span>
+<span>918</span>
+<span>919</span>
+<span>920</span>
+<span>921</span>
+<span>922</span>
+<span>923</span>
+<span>924</span>
+<span>925</span>
+<span>926</span>
+<span>927</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Boxes class with detection box data and the original image shape.</span>
 <span></span>
@@ -5947,10 +6022,10 @@ for box coordinates, including both absolute and normalized forms.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="bp">cls</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="bp">cls</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the class ID tensor representing category predictions for each bounding box.</p>
+<p>Return the class ID tensor representing category predictions for each bounding box.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -5988,10 +6063,10 @@ The shape is (N,), where N is the number of boxes.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">conf</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">conf</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the confidence scores for each detection box.</p>
+<p>Return the confidence scores for each detection box.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6029,10 +6104,10 @@ with shape (N,) where N is the number of detections.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nb">id</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the tracking IDs for each detection box if available.</p>
+<p>Return the tracking IDs for each detection box if available.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6082,7 +6157,7 @@ otherwise None. Shape is (N,) where N is the number of boxes.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xywh</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xywh</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert bounding boxes from [x1, y1, x2, y2] format to [x, y, width, height] format.</p>
@@ -6101,9 +6176,10 @@ otherwise None. Shape is (N,) where N is the number of boxes.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Boxes in [x_center, y_center, width, height] format, where x_center, y_center are the coordinates of
-the center point of the bounding box, width, height are the dimensions of the bounding box and the
-shape of the returned tensor is (N, 4), where N is the number of boxes.</p>
+<p>Boxes in [x_center, y_center, width, height] format, where x_center,
+y_center are the coordinates of the center point of the bounding box, width, height are the
+dimensions of the bounding box and the shape of the returned tensor is (N, 4), where N is the
+number of boxes.</p>
 </div>
 </td>
 </tr>
@@ -6126,10 +6202,10 @@ shape of the returned tensor is (N, 4), where N is the number of boxes.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xywhn</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xywhn</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns normalized bounding boxes in [x, y, width, height] format.</p>
+<p>Return normalized bounding boxes in [x, y, width, height] format.</p>
 <p>This property calculates and returns the normalized bounding box coordinates in the format
 [x_center, y_center, width, height], where all values are relative to the original image dimensions.</p>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -6170,10 +6246,10 @@ to [0, 1] based on the original image dimensions.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxy</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxy</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns bounding boxes in [x1, y1, x2, y2] format.</p>
+<p>Return bounding boxes in [x1, y1, x2, y2] format.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6212,10 +6288,10 @@ coordinates in [x1, y1, x2, y2] format, where n is the number of boxes.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxyn</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxyn</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns normalized bounding box coordinates relative to the original image size.</p>
+<p>Return normalized bounding box coordinates relative to the original image size.</p>
 <p>This property calculates and returns the bounding box coordinates in [x1, y1, x2, y2] format,
 normalized to the range [0, 1] based on the original image dimensions.</p>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -6255,7 +6331,7 @@ the number of boxes. Each row contains [x1, y1, x2, y2] values normalized to [0,
 <h2 class="doc doc-heading" id="ultralytics.engine.results.Masks">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.results.Masks</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Masks</span><span class="p">(</span><span class="n">masks</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -6302,7 +6378,7 @@ including methods for converting between pixel and normalized coordinates.</p>
       &lt;small class="doc doc-label doc-label-property"&gt;&lt;code&gt;property&lt;/code&gt;&lt;/small&gt;
   &lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Masks.xy&lt;/code&gt;)'>xy</a></code></td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6317,7 +6393,7 @@ including methods for converting between pixel and normalized coordinates.</p>
       &lt;small class="doc doc-label doc-label-property"&gt;&lt;code&gt;property&lt;/code&gt;&lt;/small&gt;
   &lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Masks.xyn&lt;/code&gt;)'>xyn</a></code></td>
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6340,7 +6416,7 @@ including methods for converting between pixel and normalized coordinates.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cpu" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cpu&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Masks.cpu&lt;/code&gt;)'>cpu</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the Masks object with the mask tensor on CPU memory.</p>
+<p>Return a copy of the Masks object with the mask tensor on CPU memory.</p>
 </div>
 </td>
 </tr>
@@ -6348,7 +6424,7 @@ including methods for converting between pixel and normalized coordinates.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.numpy" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;numpy&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Masks.numpy&lt;/code&gt;)'>numpy</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the Masks object with the mask tensor as a numpy array.</p>
+<p>Return a copy of the Masks object with the mask tensor as a numpy array.</p>
 </div>
 </td>
 </tr>
@@ -6356,7 +6432,7 @@ including methods for converting between pixel and normalized coordinates.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cuda" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cuda&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Masks.cuda&lt;/code&gt;)'>cuda</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the Masks object with the mask tensor on GPU memory.</p>
+<p>Return a copy of the Masks object with the mask tensor on GPU memory.</p>
 </div>
 </td>
 </tr>
@@ -6364,7 +6440,7 @@ including methods for converting between pixel and normalized coordinates.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.to" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Masks.to&lt;/code&gt;)'>to</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the Masks object with the mask tensor on specified device and dtype.</p>
+<p>Return a copy of the Masks object with the mask tensor on specified device and dtype.</p>
 </div>
 </td>
 </tr>
@@ -6431,24 +6507,24 @@ including methods for converting between pixel and normalized coordinates.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1075</span>
-<span>1076</span>
-<span>1077</span>
-<span>1078</span>
-<span>1079</span>
-<span>1080</span>
-<span>1081</span>
-<span>1082</span>
-<span>1083</span>
-<span>1084</span>
-<span>1085</span>
-<span>1086</span>
-<span>1087</span>
-<span>1088</span>
-<span>1089</span>
-<span>1090</span>
-<span>1091</span>
-<span>1092</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1103</span>
+<span>1104</span>
+<span>1105</span>
+<span>1106</span>
+<span>1107</span>
+<span>1108</span>
+<span>1109</span>
+<span>1110</span>
+<span>1111</span>
+<span>1112</span>
+<span>1113</span>
+<span>1114</span>
+<span>1115</span>
+<span>1116</span>
+<span>1117</span>
+<span>1118</span>
+<span>1119</span>
+<span>1120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Masks class with detection mask data and the original image shape.</span>
 <span></span>
@@ -6477,10 +6553,10 @@ including methods for converting between pixel and normalized coordinates.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xy</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xy</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the [x, y] pixel coordinates for each segment in the mask tensor.</p>
+<p>Return the [x, y] pixel coordinates for each segment in the mask tensor.</p>
 <p>This property calculates and returns a list of pixel coordinates for each segmentation mask in the
 Masks object. The coordinates are scaled to match the original image dimensions.</p>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -6494,7 +6570,7 @@ Masks object. The coordinates are scaled to match the original image dimensions.
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6523,10 +6599,10 @@ number of points in the segment.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyn</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyn</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns normalized xy-coordinates of the segmentation masks.</p>
+<p>Return normalized xy-coordinates of the segmentation masks.</p>
 <p>This property calculates and caches the normalized xy-coordinates of the segmentation masks. The coordinates
 are normalized relative to the original image shape.</p>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -6540,7 +6616,7 @@ are normalized relative to the original image shape.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6567,14 +6643,15 @@ mask contour.</p>
 <h2 class="doc doc-heading" id="ultralytics.engine.results.Keypoints">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.results.Keypoints</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Keypoints</span><span class="p">(</span><span class="n">keypoints</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Keypoints</span><span class="p">(</span><span class="n">keypoints</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
 <p>A class for storing and manipulating detection keypoints.</p>
 <p>This class encapsulates functionality for handling keypoint data, including coordinate manipulation,
-normalization, and confidence values.</p>
+normalization, and confidence values. It supports keypoint detection results with optional visibility
+information.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -6599,7 +6676,7 @@ normalization, and confidence values.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Keypoints.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6678,7 +6755,7 @@ normalization, and confidence values.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cpu" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cpu&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Keypoints.cpu&lt;/code&gt;)'>cpu</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the keypoints tensor on CPU memory.</p>
+<p>Return a copy of the keypoints tensor on CPU memory.</p>
 </div>
 </td>
 </tr>
@@ -6686,7 +6763,7 @@ normalization, and confidence values.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.numpy" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;numpy&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Keypoints.numpy&lt;/code&gt;)'>numpy</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the keypoints tensor as a numpy array.</p>
+<p>Return a copy of the keypoints tensor as a numpy array.</p>
 </div>
 </td>
 </tr>
@@ -6694,7 +6771,7 @@ normalization, and confidence values.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cuda" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cuda&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Keypoints.cuda&lt;/code&gt;)'>cuda</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the keypoints tensor on GPU memory.</p>
+<p>Return a copy of the keypoints tensor on GPU memory.</p>
 </div>
 </td>
 </tr>
@@ -6702,7 +6779,7 @@ normalization, and confidence values.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.to" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Keypoints.to&lt;/code&gt;)'>to</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the keypoints tensor with specified device and dtype.</p>
+<p>Return a copy of the keypoints tensor with specified device and dtype.</p>
 </div>
 </td>
 </tr>
@@ -6754,7 +6831,7 @@ normalization, and confidence values.</p>
 <code>orig_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6774,35 +6851,35 @@ normalization, and confidence values.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1178</span>
-<span>1179</span>
-<span>1180</span>
-<span>1181</span>
-<span>1182</span>
-<span>1183</span>
-<span>1184</span>
-<span>1185</span>
-<span>1186</span>
-<span>1187</span>
-<span>1188</span>
-<span>1189</span>
-<span>1190</span>
-<span>1191</span>
-<span>1192</span>
-<span>1193</span>
-<span>1194</span>
-<span>1195</span>
-<span>1196</span>
-<span>1197</span>
-<span>1198</span>
-<span>1199</span>
-<span>1200</span>
-<span>1201</span>
-<span>1202</span>
-<span>1203</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>  <span class="c1"># avoid keypoints &lt; conf in-place error</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1207</span>
+<span>1208</span>
+<span>1209</span>
+<span>1210</span>
+<span>1211</span>
+<span>1212</span>
+<span>1213</span>
+<span>1214</span>
+<span>1215</span>
+<span>1216</span>
+<span>1217</span>
+<span>1218</span>
+<span>1219</span>
+<span>1220</span>
+<span>1221</span>
+<span>1222</span>
+<span>1223</span>
+<span>1224</span>
+<span>1225</span>
+<span>1226</span>
+<span>1227</span>
+<span>1228</span>
+<span>1229</span>
+<span>1230</span>
+<span>1231</span>
+<span>1232</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>  <span class="c1"># avoid keypoints &lt; conf in-place error</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Initializes the Keypoints object with detection keypoints and original image dimensions.</span>
+<span></span><span class="sd">    Initialize the Keypoints object with detection keypoints and original image dimensions.</span>
 <span></span>
 <span></span><span class="sd">    This method processes the input keypoints tensor, handling both 2D and 3D formats. For 3D tensors</span>
 <span></span><span class="sd">    (x, y, confidence), it masks out low-confidence keypoints by setting their coordinates to zero.</span>
@@ -6836,10 +6913,10 @@ normalization, and confidence values.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">conf</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">conf</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns confidence values for each keypoint.</p>
+<p>Return confidence values for each keypoint.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6878,10 +6955,10 @@ for single detection.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xy</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xy</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns x, y coordinates of keypoints.</p>
+<p>Return x, y coordinates of keypoints.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6929,10 +7006,10 @@ the number of detections and K is the number of keypoints per detection.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyn</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyn</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns normalized coordinates (x, y) of keypoints relative to the original image size.</p>
+<p>Return normalized coordinates (x, y) of keypoints relative to the original image size.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -6971,7 +7048,9 @@ dimension contains [x, y] values in the range [0, 1].</p>
 <h2 class="doc doc-heading" id="ultralytics.engine.results.Probs">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.results.Probs</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Probs</span><span class="p">(</span><span class="n">probs</span><span class="p">,</span> <span class="n">orig_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Probs</span><span class="p">(</span>
+<span></span>    <span class="n">probs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -7033,7 +7112,7 @@ classification probabilities, including top-1 and top-5 predictions.</p>
       &lt;small class="doc doc-label doc-label-property"&gt;&lt;code&gt;property&lt;/code&gt;&lt;/small&gt;
   &lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Probs.top5&lt;/code&gt;)'>top5</a></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7086,7 +7165,7 @@ classification probabilities, including top-1 and top-5 predictions.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cpu" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cpu&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Probs.cpu&lt;/code&gt;)'>cpu</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the probabilities tensor on CPU memory.</p>
+<p>Return a copy of the probabilities tensor on CPU memory.</p>
 </div>
 </td>
 </tr>
@@ -7094,7 +7173,7 @@ classification probabilities, including top-1 and top-5 predictions.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.numpy" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;numpy&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Probs.numpy&lt;/code&gt;)'>numpy</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the probabilities tensor as a numpy array.</p>
+<p>Return a copy of the probabilities tensor as a numpy array.</p>
 </div>
 </td>
 </tr>
@@ -7102,7 +7181,7 @@ classification probabilities, including top-1 and top-5 predictions.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cuda" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cuda&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Probs.cuda&lt;/code&gt;)'>cuda</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the probabilities tensor on GPU memory.</p>
+<p>Return a copy of the probabilities tensor on GPU memory.</p>
 </div>
 </td>
 </tr>
@@ -7110,7 +7189,7 @@ classification probabilities, including top-1 and top-5 predictions.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.to" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.Probs.to&lt;/code&gt;)'>to</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the probabilities tensor with specified device and dtype.</p>
+<p>Return a copy of the probabilities tensor with specified device and dtype.</p>
 </div>
 </td>
 </tr>
@@ -7166,8 +7245,8 @@ confidences.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>The original image shape as (height, width). Not used in this class but kept for
-consistency with other result classes.</p>
+<p>The original image shape as (height, width). Not used in this class but kept
+for consistency with other result classes.</p>
 </div>
 </td>
 <td>
@@ -7211,7 +7290,7 @@ consistency with other result classes.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.Probs.__init__.top5">top5</span></code></td>
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7256,37 +7335,37 @@ consistency with other result classes.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1304</span>
-<span>1305</span>
-<span>1306</span>
-<span>1307</span>
-<span>1308</span>
-<span>1309</span>
-<span>1310</span>
-<span>1311</span>
-<span>1312</span>
-<span>1313</span>
-<span>1314</span>
-<span>1315</span>
-<span>1316</span>
-<span>1317</span>
-<span>1318</span>
-<span>1319</span>
-<span>1320</span>
-<span>1321</span>
-<span>1322</span>
-<span>1323</span>
-<span>1324</span>
-<span>1325</span>
-<span>1326</span>
-<span>1327</span>
-<span>1328</span>
-<span>1329</span>
-<span>1330</span>
-<span>1331</span>
-<span>1332</span>
-<span>1333</span>
-<span>1334</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">probs</span><span class="p">,</span> <span class="n">orig_shape</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1333</span>
+<span>1334</span>
+<span>1335</span>
+<span>1336</span>
+<span>1337</span>
+<span>1338</span>
+<span>1339</span>
+<span>1340</span>
+<span>1341</span>
+<span>1342</span>
+<span>1343</span>
+<span>1344</span>
+<span>1345</span>
+<span>1346</span>
+<span>1347</span>
+<span>1348</span>
+<span>1349</span>
+<span>1350</span>
+<span>1351</span>
+<span>1352</span>
+<span>1353</span>
+<span>1354</span>
+<span>1355</span>
+<span>1356</span>
+<span>1357</span>
+<span>1358</span>
+<span>1359</span>
+<span>1360</span>
+<span>1361</span>
+<span>1362</span>
+<span>1363</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">probs</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Probs class with classification probabilities.</span>
 <span></span>
@@ -7295,8 +7374,8 @@ consistency with other result classes.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        probs (torch.Tensor | np.ndarray): A 1D tensor or array of classification probabilities.</span>
-<span></span><span class="sd">        orig_shape (tuple | None): The original image shape as (height, width). Not used in this class but kept for</span>
-<span></span><span class="sd">            consistency with other result classes.</span>
+<span></span><span class="sd">        orig_shape (tuple | None): The original image shape as (height, width). Not used in this class but kept</span>
+<span></span><span class="sd">            for consistency with other result classes.</span>
 <span></span>
 <span></span><span class="sd">    Attributes:</span>
 <span></span><span class="sd">        data (torch.Tensor | np.ndarray): The raw tensor or array containing classification probabilities.</span>
@@ -7328,10 +7407,10 @@ consistency with other result classes.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">top1</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">top1</span><span class="p">:</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the index of the class with the highest probability.</p>
+<p>Return the index of the class with the highest probability.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -7368,10 +7447,10 @@ consistency with other result classes.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">top1conf</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">top1conf</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the confidence score of the highest probability class.</p>
+<p>Return the confidence score of the highest probability class.</p>
 <p>This property retrieves the confidence score (probability) of the class with the highest predicted probability
 from the classification results.</p>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -7411,10 +7490,10 @@ from the classification results.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">top5</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">top5</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the indices of the top 5 class probabilities.</p>
+<p>Return the indices of the top 5 class probabilities.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -7426,7 +7505,7 @@ from the classification results.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="List">List</span>[<span title="int">int</span>]</code>
+<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7451,10 +7530,10 @@ from the classification results.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">top5conf</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">top5conf</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns confidence scores for the top 5 classification predictions.</p>
+<p>Return confidence scores for the top 5 classification predictions.</p>
 <p>This property retrieves the confidence scores corresponding to the top 5 class probabilities
 predicted by the model. It provides a quick way to access the most likely class predictions
 along with their associated confidence levels.</p>
@@ -7495,14 +7574,15 @@ top 5 predicted classes, sorted in descending order of probability.</p>
 <h2 class="doc doc-heading" id="ultralytics.engine.results.OBB">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.results.OBB</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">OBB</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">OBB</span><span class="p">(</span><span class="n">boxes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.BaseTensor&lt;/span&gt;'>BaseTensor</a></code></p>
 <p>A class for storing and manipulating Oriented Bounding Boxes (OBB).</p>
 <p>This class provides functionality to handle oriented bounding boxes, including conversion between
-different formats, normalization, and access to various properties of the boxes.</p>
+different formats, normalization, and access to various properties of the boxes. It supports
+both tracking and non-tracking scenarios.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -7662,7 +7742,7 @@ different formats, normalization, and access to various properties of the boxes.
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cpu" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cpu&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.OBB.cpu&lt;/code&gt;)'>cpu</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the OBB object with all tensors on CPU memory.</p>
+<p>Return a copy of the OBB object with all tensors on CPU memory.</p>
 </div>
 </td>
 </tr>
@@ -7670,7 +7750,7 @@ different formats, normalization, and access to various properties of the boxes.
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.numpy" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;numpy&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.OBB.numpy&lt;/code&gt;)'>numpy</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the OBB object with all tensors as numpy arrays.</p>
+<p>Return a copy of the OBB object with all tensors as numpy arrays.</p>
 </div>
 </td>
 </tr>
@@ -7678,7 +7758,7 @@ different formats, normalization, and access to various properties of the boxes.
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.cuda" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;cuda&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.OBB.cuda&lt;/code&gt;)'>cuda</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the OBB object with all tensors on GPU memory.</p>
+<p>Return a copy of the OBB object with all tensors on GPU memory.</p>
 </div>
 </td>
 </tr>
@@ -7686,7 +7766,7 @@ different formats, normalization, and access to various properties of the boxes.
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.results.BaseTensor.to" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;to&lt;/span&gt; (&lt;code&gt;ultralytics.engine.results.OBB.to&lt;/code&gt;)'>to</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Returns a copy of the OBB object with tensors on specified device and dtype.</p>
+<p>Return a copy of the OBB object with tensors on specified device and dtype.</p>
 </div>
 </td>
 </tr>
@@ -7735,7 +7815,7 @@ If present, the third last column contains track IDs, and the fifth column conta
 <code>orig_shape</code>
 </td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7772,7 +7852,7 @@ If present, the third last column contains track IDs, and the fifth column conta
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.results.OBB.__init__.orig_shape">orig_shape</span></code></td>
 <td>
-<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7823,41 +7903,41 @@ If present, the third last column contains track IDs, and the fifth column conta
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/results.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1444</span>
-<span>1445</span>
-<span>1446</span>
-<span>1447</span>
-<span>1448</span>
-<span>1449</span>
-<span>1450</span>
-<span>1451</span>
-<span>1452</span>
-<span>1453</span>
-<span>1454</span>
-<span>1455</span>
-<span>1456</span>
-<span>1457</span>
-<span>1458</span>
-<span>1459</span>
-<span>1460</span>
-<span>1461</span>
-<span>1462</span>
-<span>1463</span>
-<span>1464</span>
-<span>1465</span>
-<span>1466</span>
-<span>1467</span>
-<span>1468</span>
-<span>1469</span>
-<span>1470</span>
-<span>1471</span>
-<span>1472</span>
-<span>1473</span>
-<span>1474</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1474</span>
 <span>1475</span>
 <span>1476</span>
 <span>1477</span>
-<span>1478</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">orig_shape</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1478</span>
+<span>1479</span>
+<span>1480</span>
+<span>1481</span>
+<span>1482</span>
+<span>1483</span>
+<span>1484</span>
+<span>1485</span>
+<span>1486</span>
+<span>1487</span>
+<span>1488</span>
+<span>1489</span>
+<span>1490</span>
+<span>1491</span>
+<span>1492</span>
+<span>1493</span>
+<span>1494</span>
+<span>1495</span>
+<span>1496</span>
+<span>1497</span>
+<span>1498</span>
+<span>1499</span>
+<span>1500</span>
+<span>1501</span>
+<span>1502</span>
+<span>1503</span>
+<span>1504</span>
+<span>1505</span>
+<span>1506</span>
+<span>1507</span>
+<span>1508</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">boxes</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">orig_shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an OBB (Oriented Bounding Box) instance with oriented bounding box data and original image shape.</span>
 <span></span>
@@ -7902,10 +7982,10 @@ If present, the third last column contains track IDs, and the fifth column conta
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="bp">cls</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="bp">cls</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the class values of the oriented bounding boxes.</p>
+<p>Return the class values of the oriented bounding boxes.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -7944,10 +8024,10 @@ bounding box. The shape is (N,), where N is the number of boxes.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">conf</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">conf</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the confidence scores for Oriented Bounding Boxes (OBBs).</p>
+<p>Return the confidence scores for Oriented Bounding Boxes (OBBs).</p>
 <p>This property retrieves the confidence values associated with each OBB detection. The confidence score
 represents the model's certainty in the detection.</p>
 <p><span class="doc-section-title">Returns:</span></p>
@@ -7987,10 +8067,10 @@ for N detections, where each score is in the range [0, 1].</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nb">id</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nb">id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns the tracking IDs of the oriented bounding boxes (if available).</p>
+<p>Return the tracking IDs of the oriented bounding boxes (if available).</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -8030,10 +8110,10 @@ oriented bounding box. Returns None if tracking IDs are not available.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xywhr</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xywhr</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns boxes in [x_center, y_center, width, height, rotation] format.</p>
+<p>Return boxes in [x_center, y_center, width, height, rotation] format.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -8073,10 +8153,10 @@ oriented bounding box. Returns None if tracking IDs are not available.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxy</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxy</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Converts oriented bounding boxes (OBB) to axis-aligned bounding boxes in xyxy format.</p>
+<p>Convert oriented bounding boxes (OBB) to axis-aligned bounding boxes in xyxy format.</p>
 <p>This property calculates the minimal enclosing rectangle for each oriented bounding box and returns it in
 xyxy format (x1, y1, x2, y2). This is useful for operations that require axis-aligned bounding boxes, such
 as IoU calculation with non-rotated boxes.</p>
@@ -8131,10 +8211,10 @@ is the number of boxes. Each row contains [x1, y1, x2, y2] coordinates.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxyxyxy</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxyxyxy</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Converts OBB format to 8-point (xyxyxyxy) coordinate format for rotated bounding boxes.</p>
+<p>Convert OBB format to 8-point (xyxyxyxy) coordinate format for rotated bounding boxes.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>
@@ -8174,10 +8254,10 @@ moving clockwise.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxyxyxyn</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">xyxyxyxyn</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Converts rotated bounding boxes to normalized xyxyxyxy format.</p>
+<p>Convert rotated bounding boxes to normalized xyxyxyxy format.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>

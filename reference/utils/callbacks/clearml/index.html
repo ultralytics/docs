@@ -1491,7 +1491,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Runs at start of pretraining routine; initializes and connects/logs task to ClearML.</p>
+<p>Initialize and connect ClearML task at the start of pretraining routine.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>58</span>
@@ -1521,7 +1521,7 @@
 <span>82</span>
 <span>83</span>
 <span>84</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Runs at start of pretraining routine; initializes and connects/logs task to ClearML."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize and connect ClearML task at the start of pretraining routine."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
 <span></span>            <span class="c1"># WARNING: make sure the automatic pytorch and matplotlib bindings are disabled!</span>
@@ -1558,7 +1558,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Logs debug samples for the first epoch of YOLO training and reports current training progress.</p>
+<p>Log debug samples for the first epoch and report current training progress.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>87</span>
@@ -1572,9 +1572,9 @@
 <span>95</span>
 <span>96</span>
 <span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Logs debug samples for the first epoch of YOLO training and reports current training progress."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Log debug samples for the first epoch and report current training progress."""</span>
 <span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<span></span>        <span class="c1"># Log debug samples</span>
+<span></span>        <span class="c1"># Log debug samples for first epoch only</span>
 <span></span>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
 <span></span>            <span class="n">_log_debug_samples</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"train_batch*.jpg"</span><span class="p">)),</span> <span class="s2">"Mosaic"</span><span class="p">)</span>
 <span></span>        <span class="c1"># Report the current training progress</span>
@@ -1593,7 +1593,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Reports model information to logger at the end of an epoch.</p>
+<p>Report model information and metrics to logger at the end of an epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>100</span>
@@ -1610,7 +1610,7 @@
 <span>111</span>
 <span>112</span>
 <span>113</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Reports model information to logger at the end of an epoch."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Report model information and metrics to logger at the end of an epoch."""</span>
 <span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
 <span></span>        <span class="c1"># Report epoch time and validation metrics</span>
 <span></span>        <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span>
@@ -1634,7 +1634,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Logs validation results including labels and predictions.</p>
+<p>Log validation results including labels and predictions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>116</span>
@@ -1642,9 +1642,9 @@
 <span>118</span>
 <span>119</span>
 <span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Logs validation results including labels and predictions."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Log validation results including labels and predictions."""</span>
 <span></span>    <span class="k">if</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<span></span>        <span class="c1"># Log val_labels and val_pred</span>
+<span></span>        <span class="c1"># Log validation labels and predictions</span>
 <span></span>        <span class="n">_log_debug_samples</span><span class="p">(</span><span class="nb">sorted</span><span class="p">(</span><span class="n">validator</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"val*.jpg"</span><span class="p">)),</span> <span class="s2">"Validation"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1657,7 +1657,7 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Logs final model and its name on training completion.</p>
+<p>Log final model and training results on training completion.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>123</span>
@@ -1678,16 +1678,16 @@
 <span>138</span>
 <span>139</span>
 <span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Logs final model and its name on training completion."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Log final model and training results on training completion."""</span>
 <span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
-<span></span>        <span class="c1"># Log final results, CM matrix + PR plots</span>
+<span></span>        <span class="c1"># Log final results, confusion matrix and PR plots</span>
 <span></span>        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span>
 <span></span>            <span class="s2">"results.png"</span><span class="p">,</span>
 <span></span>            <span class="s2">"confusion_matrix.png"</span><span class="p">,</span>
 <span></span>            <span class="s2">"confusion_matrix_normalized.png"</span><span class="p">,</span>
 <span></span>            <span class="o">*</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">_curve.png"</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">"F1"</span><span class="p">,</span> <span class="s2">"PR"</span><span class="p">,</span> <span class="s2">"P"</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">)),</span>
 <span></span>        <span class="p">]</span>
-<span></span>        <span class="n">files</span> <span class="o">=</span> <span class="p">[(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()]</span>  <span class="c1"># filter</span>
+<span></span>        <span class="n">files</span> <span class="o">=</span> <span class="p">[(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span> <span class="k">if</span> <span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">f</span><span class="p">)</span><span class="o">.</span><span class="n">exists</span><span class="p">()]</span>  <span class="c1"># filter existing files</span>
 <span></span>        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
 <span></span>            <span class="n">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">stem</span><span class="p">,</span> <span class="n">plot_path</span><span class="o">=</span><span class="n">f</span><span class="p">)</span>
 <span></span>        <span class="c1"># Report final metrics</span>

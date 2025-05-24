@@ -1315,7 +1315,7 @@ geographical location, tier classification, and network latency.</p>
 <span>72</span>
 <span>73</span>
 <span>74</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Initializes the GCPRegions class with predefined Google Cloud Platform regions and their details."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize the GCPRegions class with predefined Google Cloud Platform regions and their details."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">regions</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"asia-east1"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"Taiwan"</span><span class="p">,</span> <span class="s2">"China"</span><span class="p">),</span>
 <span></span>        <span class="s2">"asia-east2"</span><span class="p">:</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">"Hong Kong"</span><span class="p">,</span> <span class="s2">"China"</span><span class="p">),</span>
@@ -1371,7 +1371,7 @@ geographical location, tier classification, and network latency.</p>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Determines the GCP regions with the lowest latency based on ping tests.</p>
+<p>Determine the GCP regions with the lowest latency based on ping tests.</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1464,17 +1464,8 @@ geographical location, tier classification, and network latency.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>List of tuples containing region information and</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="str">str</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]]</code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>latency statistics. Each tuple contains (region, mean_latency, std_dev, min_latency, max_latency).</p>
+<p>List of tuples containing region information and
+latency statistics. Each tuple contains (region, mean_latency, std_dev, min_latency, max_latency).</p>
 </div>
 </td>
 </tr>
@@ -1544,17 +1535,17 @@ geographical location, tier classification, and network latency.</p>
 <span></span>    <span class="n">attempts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Determines the GCP regions with the lowest latency based on ping tests.</span>
+<span></span><span class="sd">    Determine the GCP regions with the lowest latency based on ping tests.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        top (int): Number of top regions to return.</span>
-<span></span><span class="sd">        verbose (bool): If True, prints detailed latency information for all tested regions.</span>
-<span></span><span class="sd">        tier (int | None): Filter regions by tier (1 or 2). If None, all regions are tested.</span>
-<span></span><span class="sd">        attempts (int): Number of ping attempts per region.</span>
+<span></span><span class="sd">        top (int, optional): Number of top regions to return.</span>
+<span></span><span class="sd">        verbose (bool, optional): If True, prints detailed latency information for all tested regions.</span>
+<span></span><span class="sd">        tier (int | None, optional): Filter regions by tier (1 or 2). If None, all regions are tested.</span>
+<span></span><span class="sd">        attempts (int, optional): Number of ping attempts per region.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (List[Tuple[str, float, float, float, float]]): List of tuples containing region information and</span>
-<span></span><span class="sd">        latency statistics. Each tuple contains (region, mean_latency, std_dev, min_latency, max_latency).</span>
+<span></span><span class="sd">            latency statistics. Each tuple contains (region, mean_latency, std_dev, min_latency, max_latency).</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; regions = GCPRegions()</span>
@@ -1597,13 +1588,13 @@ geographical location, tier classification, and network latency.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tier1</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a list of GCP regions classified as tier 1 based on predefined criteria.</p>
+<p>Return a list of GCP regions classified as tier 1 based on predefined criteria.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>76</span>
 <span>77</span>
 <span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier1</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Returns a list of GCP regions classified as tier 1 based on predefined criteria."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Return a list of GCP regions classified as tier 1 based on predefined criteria."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">region</span> <span class="k">for</span> <span class="n">region</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1616,13 +1607,13 @@ geographical location, tier classification, and network latency.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tier2</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a list of GCP regions classified as tier 2 based on predefined criteria.</p>
+<p>Return a list of GCP regions classified as tier 2 based on predefined criteria.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>80</span>
 <span>81</span>
 <span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Returns a list of GCP regions classified as tier 2 based on predefined criteria."""</span>
+<span></span><span class="w">    </span><span class="sd">"""Return a list of GCP regions classified as tier 2 based on predefined criteria."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">region</span> <span class="k">for</span> <span class="n">region</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>

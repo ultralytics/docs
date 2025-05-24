@@ -1387,7 +1387,7 @@
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        scalars (dict): Dictionary of scalar values to log to NeptuneAI.</span>
-<span></span><span class="sd">        step (int): The current step or iteration number for logging.</span>
+<span></span><span class="sd">        step (int, optional): The current step or iteration number for logging.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; metrics = {"mAP": 0.85, "loss": 0.32}</span>
@@ -1508,51 +1508,6 @@ under the specified group name.</p>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Log plots to the NeptuneAI experiment logger.</p>
-<p><span class="doc-section-title">Parameters:</span></p>
-<table>
-<thead>
-<tr>
-<th>Name</th>
-<th>Type</th>
-<th>Description</th>
-<th>Default</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code>title</code>
-</td>
-<td>
-<code><span title="str">str</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Title of the plot.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
-<code>plot_path</code>
-</td>
-<td>
-<code><span title="str">str</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Path to the saved image file.</p>
-</div>
-</td>
-<td>
-<em>required</em>
-</td>
-</tr>
-</tbody>
-</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>57</span>
@@ -1564,20 +1519,8 @@ under the specified group name.</p>
 <span>63</span>
 <span>64</span>
 <span>65</span>
-<span>66</span>
-<span>67</span>
-<span>68</span>
-<span>69</span>
-<span>70</span>
-<span>71</span>
-<span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""</span>
-<span></span><span class="sd">    Log plots to the NeptuneAI experiment logger.</span>
-<span></span>
-<span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        title (str): Title of the plot.</span>
-<span></span><span class="sd">        plot_path (str): Path to the saved image file.</span>
-<span></span><span class="sd">    """</span>
+<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_log_plot</span><span class="p">(</span><span class="n">title</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">plot_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log plots to the NeptuneAI experiment logger."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.image</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mpimg</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
 <span></span>
@@ -1597,22 +1540,22 @@ under the specified group name.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Callback function called before the training routine starts.</p>
+<p>Initialize NeptuneAI run and log hyperparameters before training starts.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>75</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>69</span>
+<span>70</span>
+<span>71</span>
+<span>72</span>
+<span>73</span>
+<span>74</span>
+<span>75</span>
 <span>76</span>
 <span>77</span>
 <span>78</span>
 <span>79</span>
-<span>80</span>
-<span>81</span>
-<span>82</span>
-<span>83</span>
-<span>84</span>
-<span>85</span>
-<span>86</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Callback function called before the training routine starts."""</span>
+<span>80</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize NeptuneAI run and log hyperparameters before training starts."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="k">global</span> <span class="n">run</span>
 <span></span>        <span class="n">run</span> <span class="o">=</span> <span class="n">neptune</span><span class="o">.</span><span class="n">init_run</span><span class="p">(</span>
@@ -1634,16 +1577,16 @@ under the specified group name.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Callback function called at end of each training epoch.</p>
+<p>Log training metrics and learning rate at the end of each training epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>89</span>
-<span>90</span>
-<span>91</span>
-<span>92</span>
-<span>93</span>
-<span>94</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Callback function called at end of each training epoch."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>83</span>
+<span>84</span>
+<span>85</span>
+<span>86</span>
+<span>87</span>
+<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log training metrics and learning rate at the end of each training epoch."""</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">label_loss_items</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">tloss</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">"train"</span><span class="p">),</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="n">_log_scalars</span><span class="p">(</span><span class="n">trainer</span><span class="o">.</span><span class="n">lr</span><span class="p">,</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
@@ -1659,17 +1602,17 @@ under the specified group name.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Callback function called at end of each fit (train+val) epoch.</p>
+<p>Log model info and validation metrics at the end of each fit epoch.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Callback function called at end of each fit (train+val) epoch."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log model info and validation metrics at the end of each fit epoch."""</span>
 <span></span>    <span class="k">if</span> <span class="n">run</span> <span class="ow">and</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_info_for_loggers</span>
 <span></span>
@@ -1686,15 +1629,15 @@ under the specified group name.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Callback function called at end of each validation.</p>
+<p>Log validation images at the end of validation.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
-<span>107</span>
-<span>108</span>
-<span>109</span>
-<span>110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Callback function called at end of each validation."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>100</span>
+<span>101</span>
+<span>102</span>
+<span>103</span>
+<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log validation images at the end of validation."""</span>
 <span></span>    <span class="k">if</span> <span class="n">run</span><span class="p">:</span>
 <span></span>        <span class="c1"># Log val_labels and val_pred</span>
 <span></span>        <span class="n">_log_images</span><span class="p">({</span><span class="n">f</span><span class="o">.</span><span class="n">stem</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">validator</span><span class="o">.</span><span class="n">save_dir</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s2">"val*.jpg"</span><span class="p">)},</span> <span class="s2">"Validation"</span><span class="p">)</span>
@@ -1709,10 +1652,16 @@ under the specified group name.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Callback function called at end of training.</p>
+<p>Log final results, plots, and model weights at the end of training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/neptune.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
 <span>114</span>
 <span>115</span>
 <span>116</span>
@@ -1720,14 +1669,8 @@ under the specified group name.</p>
 <span>118</span>
 <span>119</span>
 <span>120</span>
-<span>121</span>
-<span>122</span>
-<span>123</span>
-<span>124</span>
-<span>125</span>
-<span>126</span>
-<span>127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-<span></span><span class="w">    </span><span class="sd">"""Callback function called at end of training."""</span>
+<span>121</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Log final results, plots, and model weights at the end of training."""</span>
 <span></span>    <span class="k">if</span> <span class="n">run</span><span class="p">:</span>
 <span></span>        <span class="c1"># Log final results, CM matrix + PR plots</span>
 <span></span>        <span class="n">files</span> <span class="o">=</span> <span class="p">[</span>

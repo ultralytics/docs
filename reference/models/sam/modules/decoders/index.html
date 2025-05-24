@@ -1470,7 +1470,7 @@ generate mask predictions along with their quality scores.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.decoders.MaskDecoder.forward" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.decoders.MaskDecoder.forward&lt;/code&gt;)'>forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Predicts masks given image and prompt embeddings.</p>
+<p>Predict masks given image and prompt embeddings.</p>
 </div>
 </td>
 </tr>
@@ -1895,8 +1895,7 @@ generate mask predictions along with their quality scores.</p>
 <span>129</span>
 <span>130</span>
 <span>131</span>
-<span>132</span>
-<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>132</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
@@ -1939,7 +1938,6 @@ generate mask predictions along with their quality scores.</p>
 <span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[:,</span> <span class="n">mask_slice</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span>
 <span></span>    <span class="n">iou_pred</span> <span class="o">=</span> <span class="n">iou_pred</span><span class="p">[:,</span> <span class="n">mask_slice</span><span class="p">]</span>
 <span></span>
-<span></span>    <span class="c1"># Prepare output</span>
 <span></span>    <span class="k">return</span> <span class="n">masks</span><span class="p">,</span> <span class="n">iou_pred</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1960,7 +1958,8 @@ generate mask predictions along with their quality scores.</p>
 <p>Predict masks and quality scores using image and prompt embeddings via transformer architecture.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/decoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>135</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>134</span>
+<span>135</span>
 <span>136</span>
 <span>137</span>
 <span>138</span>
@@ -1996,8 +1995,7 @@ generate mask predictions along with their quality scores.</p>
 <span>168</span>
 <span>169</span>
 <span>170</span>
-<span>171</span>
-<span>172</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_masks</span><span class="p">(</span>
+<span>171</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_masks</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
@@ -2303,7 +2301,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.decoders.SAM2MaskDecoder.forward" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;forward&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.decoders.SAM2MaskDecoder.forward&lt;/code&gt;)'>forward</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Predicts masks given image and prompt embeddings.</p>
+<p>Predict masks given image and prompt embeddings.</p>
 </div>
 </td>
 </tr>
@@ -2311,7 +2309,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.sam.modules.decoders.SAM2MaskDecoder.predict_masks" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;predict_masks&lt;/span&gt; (&lt;code&gt;ultralytics.models.sam.modules.decoders.SAM2MaskDecoder.predict_masks&lt;/code&gt;)'>predict_masks</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Predicts instance segmentation masks from image and prompt embeddings.</p>
+<p>Predict instance segmentation masks from image and prompt embeddings.</p>
 </div>
 </td>
 </tr>
@@ -2319,7 +2317,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <td><code><span title="ultralytics.models.sam.modules.decoders.SAM2MaskDecoder._get_stability_scores">_get_stability_scores</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Computes mask stability scores based on IoU between thresholds.</p>
+<p>Compute mask stability scores based on IoU between thresholds.</p>
 </div>
 </td>
 </tr>
@@ -2327,7 +2325,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <td><code><span title="ultralytics.models.sam.modules.decoders.SAM2MaskDecoder._dynamic_multimask_via_stability">_dynamic_multimask_via_stability</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Dynamically selects the most stable mask output.</p>
+<p>Dynamically select the most stable mask output.</p>
 </div>
 </td>
 </tr>
@@ -2589,7 +2587,8 @@ high-resolution feature processing, dynamic multimask output, and object score p
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/decoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>220</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>219</span>
+<span>220</span>
 <span>221</span>
 <span>222</span>
 <span>223</span>
@@ -2679,8 +2678,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span>307</span>
 <span>308</span>
 <span>309</span>
-<span>310</span>
-<span>311</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>310</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">transformer_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">transformer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
@@ -2979,7 +2977,8 @@ high-resolution feature processing, dynamic multimask output, and object score p
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/decoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>313</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>312</span>
+<span>313</span>
 <span>314</span>
 <span>315</span>
 <span>316</span>
@@ -3045,9 +3044,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span>376</span>
 <span>377</span>
 <span>378</span>
-<span>379</span>
-<span>380</span>
-<span>381</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>379</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
@@ -3067,7 +3064,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span></span><span class="sd">        dense_prompt_embeddings (torch.Tensor): Embeddings of the mask inputs with shape (B, C, H, W).</span>
 <span></span><span class="sd">        multimask_output (bool): Whether to return multiple masks or a single mask.</span>
 <span></span><span class="sd">        repeat_image (bool): Flag to repeat the image embeddings.</span>
-<span></span><span class="sd">        high_res_features (List[torch.Tensor] | None): Optional high-resolution features.</span>
+<span></span><span class="sd">        high_res_features (List[torch.Tensor] | None, optional): Optional high-resolution features.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        masks (torch.Tensor): Batched predicted masks with shape (B, N, H, W).</span>
@@ -3114,7 +3111,6 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span></span>        <span class="c1"># are always the single mask token (and we'll let it be the object-memory token).</span>
 <span></span>        <span class="n">sam_tokens_out</span> <span class="o">=</span> <span class="n">mask_tokens_out</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># [b, 1, c] shape</span>
 <span></span>
-<span></span>    <span class="c1"># Prepare output</span>
 <span></span>    <span class="k">return</span> <span class="n">masks</span><span class="p">,</span> <span class="n">iou_pred</span><span class="p">,</span> <span class="n">sam_tokens_out</span><span class="p">,</span> <span class="n">object_score_logits</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -3137,7 +3133,9 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <p>Predict instance segmentation masks from image and prompt embeddings using a transformer.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/decoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>383</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>381</span>
+<span>382</span>
+<span>383</span>
 <span>384</span>
 <span>385</span>
 <span>386</span>
@@ -3204,9 +3202,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span>447</span>
 <span>448</span>
 <span>449</span>
-<span>450</span>
-<span>451</span>
-<span>452</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_masks</span><span class="p">(</span>
+<span>450</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict_masks</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>

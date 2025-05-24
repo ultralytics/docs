@@ -1149,7 +1149,13 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.autobatch.check_train_batch_size">
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.autobatch.check_train_batch_size</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_train_batch_size</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">check_train_batch_size</span><span class="p">(</span>
+<span></span>    <span class="n">model</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
+<span></span>    <span class="n">imgsz</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span>
+<span></span>    <span class="n">amp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<span></span>    <span class="n">max_num_obj</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Compute optimal YOLO training batch size using the autobatch() function.</p>
@@ -1217,7 +1223,7 @@
 <code>batch</code>
 </td>
 <td>
-<code><span title="float">float</span></code>
+<code><span title="int">int</span> | <span title="float">float</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1274,8 +1280,7 @@ Otherwise, a default fraction of 0.6 is used.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autobatch.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>14</span>
-<span>15</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>15</span>
 <span>16</span>
 <span>17</span>
 <span>18</span>
@@ -1295,7 +1300,20 @@ Otherwise, a default fraction of 0.6 is used.</p>
 <span>32</span>
 <span>33</span>
 <span>34</span>
-<span>35</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_train_batch_size</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">amp</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span>35</span>
+<span>36</span>
+<span>37</span>
+<span>38</span>
+<span>39</span>
+<span>40</span>
+<span>41</span>
+<span>42</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_train_batch_size</span><span class="p">(</span>
+<span></span>    <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+<span></span>    <span class="n">imgsz</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span>
+<span></span>    <span class="n">amp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+<span></span>    <span class="n">max_num_obj</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute optimal YOLO training batch size using the autobatch() function.</span>
 <span></span>
@@ -1303,7 +1321,7 @@ Otherwise, a default fraction of 0.6 is used.</p>
 <span></span><span class="sd">        model (torch.nn.Module): YOLO model to check batch size for.</span>
 <span></span><span class="sd">        imgsz (int, optional): Image size used for training.</span>
 <span></span><span class="sd">        amp (bool, optional): Use automatic mixed precision if True.</span>
-<span></span><span class="sd">        batch (float, optional): Fraction of GPU memory to use. If -1, use default.</span>
+<span></span><span class="sd">        batch (int | float, optional): Fraction of GPU memory to use. If -1, use default.</span>
 <span></span><span class="sd">        max_num_obj (int, optional): The maximum number of objects from dataset.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
@@ -1326,8 +1344,12 @@ Otherwise, a default fraction of 0.6 is used.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.autobatch.autobatch</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">autobatch</span><span class="p">(</span>
-<span></span>    <span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.6</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span>
-<span></span><span class="p">)</span>
+<span></span>    <span class="n">model</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
+<span></span>    <span class="n">imgsz</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span>
+<span></span>    <span class="n">fraction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.6</span><span class="p">,</span>
+<span></span>    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span>
+<span></span>    <span class="n">max_num_obj</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>Automatically estimate the best YOLO batch size to use a fraction of the available CUDA memory.</p>
@@ -1447,14 +1469,7 @@ Otherwise, a default fraction of 0.6 is used.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autobatch.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 38</span>
-<span> 39</span>
-<span> 40</span>
-<span> 41</span>
-<span> 42</span>
-<span> 43</span>
-<span> 44</span>
-<span> 45</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 45</span>
 <span> 46</span>
 <span> 47</span>
 <span> 48</span>
@@ -1515,7 +1530,26 @@ Otherwise, a default fraction of 0.6 is used.</p>
 <span>103</span>
 <span>104</span>
 <span>105</span>
-<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autobatch</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">imgsz</span><span class="o">=</span><span class="mi">640</span><span class="p">,</span> <span class="n">fraction</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span> <span class="n">batch_size</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span> <span class="n">max_num_obj</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span>106</span>
+<span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autobatch</span><span class="p">(</span>
+<span></span>    <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
+<span></span>    <span class="n">imgsz</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span>
+<span></span>    <span class="n">fraction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.60</span><span class="p">,</span>
+<span></span>    <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">batch</span><span class="p">,</span>
+<span></span>    <span class="n">max_num_obj</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Automatically estimate the best YOLO batch size to use a fraction of the available CUDA memory.</span>
 <span></span>

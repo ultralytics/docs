@@ -1200,8 +1200,8 @@
 <p class="doc doc-class-bases">
               Bases: <code><a class="autorefs autorefs-internal" href="../../../engine/model/#ultralytics.engine.model.Model" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.model.Model&lt;/span&gt;'>Model</a></code></p>
 <p>Interface for Baidu's RT-DETR model, a Vision Transformer-based real-time object detector.</p>
-<p>This model provides real-time performance with high accuracy. It supports efficient hybrid encoding, IoU-aware query
-selection, and adaptable inference speed.</p>
+<p>This model provides real-time performance with high accuracy. It supports efficient hybrid encoding, IoU-aware
+query selection, and adaptable inference speed.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1225,7 +1225,30 @@ selection, and adaptable inference speed.</p>
 </tr>
 </tbody>
 </table>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.models.rtdetr.model.RTDETR.task_map" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-attribute"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-attribute-name"&gt;task_map&lt;/span&gt;
+  &lt;span class="doc doc-labels"&gt;
+      &lt;small class="doc doc-label doc-label-property"&gt;&lt;code&gt;property&lt;/code&gt;&lt;/small&gt;
+  &lt;/span&gt; (&lt;code&gt;ultralytics.models.rtdetr.model.RTDETR.task_map&lt;/code&gt;)'>task_map</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Return a task map for RT-DETR, associating tasks with corresponding Ultralytics classes.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
 <p><span class="doc-section-title">Examples:</span></p>
+<p>Initialize RT-DETR with a pre-trained model</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">RTDETR</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">RTDETR</span><span class="p">(</span><span class="s2">"rtdetr-l.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="p">(</span><span class="s2">"image.jpg"</span><span class="p">)</span>
@@ -1259,48 +1282,21 @@ selection, and adaptable inference speed.</p>
 </tr>
 </tbody>
 </table>
-<p><span class="doc-section-title">Raises:</span></p>
-<table>
-<thead>
-<tr>
-<th>Type</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr class="doc-section-item">
-<td>
-<code><span title="NotImplementedError">NotImplementedError</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>If the model file extension is not 'pt', 'yaml', or 'yml'.</p>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/rtdetr/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
-<span>37</span>
-<span>38</span>
-<span>39</span>
-<span>40</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>40</span>
 <span>41</span>
 <span>42</span>
 <span>43</span>
 <span>44</span>
 <span>45</span>
-<span>46</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"rtdetr-l.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>46</span>
+<span>47</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"rtdetr-l.pt"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the RT-DETR model with the given pre-trained model file.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        model (str): Path to the pre-trained model. Supports .pt, .yaml, and .yml formats.</span>
-<span></span>
-<span></span><span class="sd">    Raises:</span>
-<span></span><span class="sd">        NotImplementedError: If the model file extension is not 'pt', 'yaml', or 'yml'.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="s2">"detect"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1316,7 +1312,7 @@ selection, and adaptable inference speed.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">task_map</span><span class="p">:</span> <span class="nb">dict</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Returns a task map for RT-DETR, associating tasks with corresponding Ultralytics classes.</p>
+<p>Return a task map for RT-DETR, associating tasks with corresponding Ultralytics classes.</p>
 <p><span class="doc-section-title">Returns:</span></p>
 <table>
 <thead>

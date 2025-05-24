@@ -1157,7 +1157,7 @@
 <h2 class="doc doc-heading" id="ultralytics.engine.tuner.Tuner">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.engine.tuner.Tuner</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Tuner</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Tuner</span><span class="p">(</span><span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>A class for hyperparameter tuning of YOLO models.</p>
@@ -1176,7 +1176,7 @@ search space and retraining the model to evaluate their performance.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.tuner.Tuner.space">space</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="tuple">tuple</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1254,7 +1254,7 @@ search space and retraining the model to evaluate their performance.</p>
 <td><code><span title="ultralytics.engine.tuner.Tuner._mutate">_mutate</span></code></td>
 <td>
 <div class="doc-md-description">
-<p>Mutates the given hyperparameters within the specified bounds.</p>
+<p>Mutate hyperparameters based on bounds and scaling factors.</p>
 </div>
 </td>
 </tr>
@@ -1262,7 +1262,7 @@ search space and retraining the model to evaluate their performance.</p>
 <td><code><a class="autorefs autorefs-internal" href="#ultralytics.engine.tuner.Tuner.__call__" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;__call__&lt;/span&gt; (&lt;code&gt;ultralytics.engine.tuner.Tuner.__call__&lt;/code&gt;)'>__call__</a></code></td>
 <td>
 <div class="doc-md-description">
-<p>Executes the hyperparameter evolution across multiple iterations.</p>
+<p>Execute the hyperparameter evolution across multiple iterations.</p>
 </div>
 </td>
 </tr>
@@ -1311,7 +1311,7 @@ search space and retraining the model to evaluate their performance.</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="list">list</span></code>
+<code><span title="typing.List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1326,8 +1326,7 @@ search space and retraining the model to evaluate their performance.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/tuner.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 61</span>
-<span> 62</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 62</span>
 <span> 63</span>
 <span> 64</span>
 <span> 65</span>
@@ -1372,13 +1371,14 @@ search space and retraining the model to evaluate their performance.</p>
 <span>104</span>
 <span>105</span>
 <span>106</span>
-<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>107</span>
+<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Tuner with configurations.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        args (dict): Configuration for hyperparameter evolution.</span>
-<span></span><span class="sd">        _callbacks (list, optional): Callback functions to be executed during tuning.</span>
+<span></span><span class="sd">        _callbacks (List, optional): Callback functions to be executed during tuning.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">space</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"space"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{</span>  <span class="c1"># key: (min, max, gain(optional))</span>
 <span></span>        <span class="c1"># 'optimizer': tune.choice(['SGD', 'Adam', 'AdamW', 'NAdam', 'RAdam', 'RMSProp']),</span>
@@ -1426,14 +1426,14 @@ search space and retraining the model to evaluate their performance.</p>
 <h3 class="doc doc-heading" id="ultralytics.engine.tuner.Tuner.__call__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__call__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__call__</span><span class="p">(</span><span class="nf">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cleanup</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="fm">__call__</span><span class="p">(</span><span class="nf">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cleanup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Execute the hyperparameter evolution process when the Tuner instance is called.</p>
 <p>This method iterates through the number of iterations, performing the following steps in each iteration:</p>
 <ol>
 <li>Load the existing hyperparameters or initialize new ones.</li>
-<li>Mutate the hyperparameters using the <code>mutate</code> method.</li>
+<li>Mutate the hyperparameters using the <code>_mutate</code> method.</li>
 <li>Train a YOLO model with the mutated hyperparameters.</li>
 <li>Log the fitness score and mutated hyperparameters to a CSV file.</li>
 </ol>
@@ -1505,10 +1505,7 @@ Ensure this path is set correctly in the Tuner instance.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/tuner.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>155</span>
-<span>156</span>
-<span>157</span>
-<span>158</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>158</span>
 <span>159</span>
 <span>160</span>
 <span>161</span>
@@ -1593,14 +1590,17 @@ Ensure this path is set correctly in the Tuner instance.</p>
 <span>240</span>
 <span>241</span>
 <span>242</span>
-<span>243</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cleanup</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cleanup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Execute the hyperparameter evolution process when the Tuner instance is called.</span>
 <span></span>
 <span></span><span class="sd">    This method iterates through the number of iterations, performing the following steps in each iteration:</span>
 <span></span>
 <span></span><span class="sd">    1. Load the existing hyperparameters or initialize new ones.</span>
-<span></span><span class="sd">    2. Mutate the hyperparameters using the `mutate` method.</span>
+<span></span><span class="sd">    2. Mutate the hyperparameters using the `_mutate` method.</span>
 <span></span><span class="sd">    3. Train a YOLO model with the mutated hyperparameters.</span>
 <span></span><span class="sd">    4. Log the fitness score and mutated hyperparameters to a CSV file.</span>
 <span></span>
