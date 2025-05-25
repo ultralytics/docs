@@ -1814,11 +1814,7 @@ and 'total_tracks' (int, total number of tracked objects).</p>
 <span>194</span>
 <span>195</span>
 <span>196</span>
-<span>197</span>
-<span>198</span>
-<span>199</span>
-<span>200</span>
-<span>201</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>197</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process input data (frames or object tracks) and update object counts.</span>
 <span></span>
@@ -1844,10 +1840,6 @@ and 'total_tracks' (int, total number of tracked objects).</p>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>  <span class="c1"># Initialize annotator</span>
-<span></span>
-<span></span>    <span class="n">is_obb</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"obb"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>  <span class="c1"># True if OBB results exist</span>
-<span></span>    <span class="k">if</span> <span class="n">is_obb</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_data</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_data</span><span class="o">.</span><span class="n">is_track</span><span class="p">:</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">track_data</span><span class="o">.</span><span class="n">xyxyxyxy</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span><span class="o">.</span><span class="n">draw_region</span><span class="p">(</span>
 <span></span>        <span class="n">reg_pts</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">region</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">123</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">*</span> <span class="mi">2</span>

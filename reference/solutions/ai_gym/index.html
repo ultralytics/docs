@@ -1451,9 +1451,7 @@ angle thresholds.</p>
 <span>111</span>
 <span>112</span>
 <span>113</span>
-<span>114</span>
-<span>115</span>
-<span>116</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Monitor workouts using Ultralytics YOLO Pose Model.</span>
 <span></span>
@@ -1480,14 +1478,12 @@ angle thresholds.</p>
 <span></span>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="n">line_width</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>  <span class="c1"># Initialize annotator</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks (bounding boxes, classes, and masks)</span>
-<span></span>    <span class="n">tracks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>
-<span></span>    <span class="k">if</span> <span class="n">tracks</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">is_track</span><span class="p">:</span>
-<span></span>        <span class="n">track_ids</span> <span class="o">=</span> <span class="n">tracks</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
-<span></span>        <span class="n">kpt_data</span> <span class="o">=</span> <span class="n">tracks</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>  <span class="c1"># Avoid repeated .cpu() calls</span>
+<span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">):</span>
+<span></span>        <span class="n">kpt_data</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>  <span class="c1"># Avoid repeated .cpu() calls</span>
 <span></span>
 <span></span>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kpt_data</span><span class="p">):</span>
-<span></span>            <span class="n">track_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">track_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>  <span class="c1"># get track id</span>
+<span></span>            <span class="n">track_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>  <span class="c1"># get track id</span>
 <span></span>            <span class="n">state</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">states</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>  <span class="c1"># get state details</span>
 <span></span>            <span class="c1"># Get keypoints and estimate the angle</span>
 <span></span>            <span class="n">state</span><span class="p">[</span><span class="s2">"angle"</span><span class="p">]</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">estimate_pose_angle</span><span class="p">(</span><span class="o">*</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">idx</span><span class="p">)]</span> <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">kpts</span><span class="p">])</span>
