@@ -1482,7 +1482,7 @@ angle thresholds.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks (bounding boxes, classes, and masks)</span>
 <span></span>    <span class="n">tracks</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>
-<span></span>    <span class="k">if</span> <span class="n">tracks</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>    <span class="k">if</span> <span class="n">tracks</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">is_track</span><span class="p">:</span>
 <span></span>        <span class="n">track_ids</span> <span class="o">=</span> <span class="n">tracks</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
 <span></span>        <span class="n">kpt_data</span> <span class="o">=</span> <span class="n">tracks</span><span class="o">.</span><span class="n">keypoints</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>  <span class="c1"># Avoid repeated .cpu() calls</span>
 <span></span>
