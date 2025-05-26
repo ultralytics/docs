@@ -3465,14 +3465,14 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>765</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>764</span>
+<span>765</span>
 <span>766</span>
 <span>767</span>
 <span>768</span>
 <span>769</span>
 <span>770</span>
-<span>771</span>
-<span>772</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>771</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a Metric instance for computing evaluation metrics for the YOLOv8 model."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">p</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># (nc, )</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="p">[]</span>  <span class="c1"># (nc, )</span>
@@ -3770,9 +3770,9 @@
 <p>Return class-aware result, p[i], r[i], ap50[i], ap[i].</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>848</span>
-<span>849</span>
-<span>850</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>847</span>
+<span>848</span>
+<span>849</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return class-aware result, p[i], r[i], ap50[i], ap[i]."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">p</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">r</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ap50</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">ap</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -3789,10 +3789,10 @@
 <p>Return model fitness as a weighted combination of metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>860</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>859</span>
+<span>860</span>
 <span>861</span>
-<span>862</span>
-<span>863</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<span>862</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fitness</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return model fitness as a weighted combination of metrics."""</span>
 <span></span>    <span class="n">w</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.9</span><span class="p">]</span>  <span class="c1"># weights for [P, R, mAP@0.5, mAP@0.5:0.95]</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">nan_to_num</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()))</span> <span class="o">*</span> <span class="n">w</span><span class="p">)</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
@@ -3810,9 +3810,9 @@
 <p>Return mean of results, mp, mr, map50, map.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>844</span>
-<span>845</span>
-<span>846</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>843</span>
+<span>844</span>
+<span>845</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return mean of results, mp, mr, map50, map."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">mp</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">map</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -3868,7 +3868,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>865</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>864</span>
+<span>865</span>
 <span>866</span>
 <span>867</span>
 <span>868</span>
@@ -3895,8 +3896,7 @@
 <span>889</span>
 <span>890</span>
 <span>891</span>
-<span>892</span>
-<span>893</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">):</span>
+<span>892</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">results</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update the evaluation metrics with a new set of results.</span>
 <span></span>
@@ -3936,7 +3936,9 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.DetMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.DetMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{})</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">DetMetrics</span><span class="p">(</span>
+<span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -3977,7 +3979,7 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.DetMetrics.names">names</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3999,7 +4001,7 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.DetMetrics.speed">speed</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4068,11 +4070,11 @@
 <code>names</code>
 </td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary mapping class indices to names.</p>
+<p>Dictionary of class names.</p>
 </div>
 </td>
 <td>
@@ -4083,7 +4085,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>924</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>923</span>
+<span>924</span>
 <span>925</span>
 <span>926</span>
 <span>927</span>
@@ -4096,15 +4099,14 @@
 <span>934</span>
 <span>935</span>
 <span>936</span>
-<span>937</span>
-<span>938</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>937</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a DetMetrics instance with a save directory, plot flag, and class names.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save plots.</span>
 <span></span><span class="sd">        plot (bool, optional): Whether to plot precision-recall curves.</span>
-<span></span><span class="sd">        names (dict, optional): Dictionary mapping class indices to names.</span>
+<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
@@ -4216,9 +4218,9 @@
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>973</span>
-<span>974</span>
-<span>975</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>972</span>
+<span>973</span>
+<span>974</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4235,9 +4237,9 @@
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>969</span>
-<span>970</span>
-<span>971</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>968</span>
+<span>969</span>
+<span>970</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -4353,7 +4355,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>940</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>939</span>
+<span>940</span>
 <span>941</span>
 <span>942</span>
 <span>943</span>
@@ -4374,8 +4377,7 @@
 <span>958</span>
 <span>959</span>
 <span>960</span>
-<span>961</span>
-<span>962</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>961</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process predicted results for object detection and update metrics.</span>
 <span></span>
@@ -4412,7 +4414,8 @@
 <p>Return per-class detection metrics with shared scalar values included.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1007</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1006</span>
+<span>1007</span>
 <span>1008</span>
 <span>1009</span>
 <span>1010</span>
@@ -4430,8 +4433,7 @@
 <span>1022</span>
 <span>1023</span>
 <span>1024</span>
-<span>1025</span>
-<span>1026</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span>1025</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return per-class detection metrics with shared scalar values included."""</span>
 <span></span>    <span class="n">scalars</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
@@ -4463,7 +4465,7 @@
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.SegmentMetrics</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">SegmentMetrics</span><span class="p">(</span>
-<span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">()</span>
+<span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -4505,7 +4507,7 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.SegmentMetrics.names">names</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4520,7 +4522,7 @@
 </td>
 <td>
 <div class="doc-md-description">
-<p>An instance of the Metric class to calculate box detection metrics.</p>
+<p>An instance of the Metric class for storing detection results.</p>
 </div>
 </td>
 </tr>
@@ -4538,11 +4540,11 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.SegmentMetrics.speed">speed</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary to store the time taken in different phases of inference.</p>
+<p>A dictionary for storing execution times of different parts of the detection process.</p>
 </div>
 </td>
 </tr>
@@ -4607,22 +4609,23 @@
 <code>names</code>
 </td>
 <td>
-<code><span title="tuple">tuple</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Tuple mapping class indices to names.</p>
+<p>Dictionary of class names.</p>
 </div>
 </td>
 <td>
-<code>()</code>
+<code>{}</code>
 </td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1043</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1042</span>
+<span>1043</span>
 <span>1044</span>
 <span>1045</span>
 <span>1046</span>
@@ -4636,15 +4639,14 @@
 <span>1054</span>
 <span>1055</span>
 <span>1056</span>
-<span>1057</span>
-<span>1058</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1057</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SegmentMetrics instance with a save directory, plot flag, and class names.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save plots.</span>
 <span></span><span class="sd">        plot (bool, optional): Whether to plot precision-recall curves.</span>
-<span></span><span class="sd">        names (tuple, optional): Tuple mapping class indices to names.</span>
+<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
@@ -4757,9 +4759,9 @@
 <p>Return classification results for a specified class index.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1125</span>
-<span>1126</span>
-<span>1127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1124</span>
+<span>1125</span>
+<span>1126</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return classification results for a specified class index."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4776,9 +4778,9 @@
 <p>Return the mean metrics for bounding box and segmentation results.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1121</span>
-<span>1122</span>
-<span>1123</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1120</span>
+<span>1121</span>
+<span>1122</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the mean metrics for bounding box and segmentation results."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -4911,7 +4913,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1060</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1059</span>
+<span>1060</span>
 <span>1061</span>
 <span>1062</span>
 <span>1063</span>
@@ -4955,8 +4958,7 @@
 <span>1101</span>
 <span>1102</span>
 <span>1103</span>
-<span>1104</span>
-<span>1105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
+<span>1104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">tp_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -5016,7 +5018,8 @@
 <p>Return per-class segmentation metrics with shared scalar values included (box + mask).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1168</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1167</span>
+<span>1168</span>
 <span>1169</span>
 <span>1170</span>
 <span>1171</span>
@@ -5036,8 +5039,7 @@
 <span>1185</span>
 <span>1186</span>
 <span>1187</span>
-<span>1188</span>
-<span>1189</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span>1188</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return per-class segmentation metrics with shared scalar values included (box + mask)."""</span>
 <span></span>    <span class="n">scalars</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
@@ -5070,7 +5072,9 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.PoseMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.PoseMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">PoseMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">PoseMetrics</span><span class="p">(</span>
+<span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -5111,22 +5115,11 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.PoseMetrics.names">names</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
 <p>Dictionary of class names.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.metrics.PoseMetrics.box">box</span></code></td>
-<td>
-<code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.Metric" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.Metric&lt;/span&gt;'>Metric</a></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>An instance of the Metric class to calculate box detection metrics.</p>
 </div>
 </td>
 </tr>
@@ -5142,13 +5135,24 @@
 </td>
 </tr>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.utils.metrics.PoseMetrics.speed">speed</span></code></td>
+<td><code><span title="ultralytics.utils.metrics.PoseMetrics.box">box</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><a class="autorefs autorefs-internal" href="#ultralytics.utils.metrics.Metric" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.Metric&lt;/span&gt;'>Metric</a></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dictionary to store the time taken in different phases of inference.</p>
+<p>An instance of the Metric class for storing detection results.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.utils.metrics.PoseMetrics.speed">speed</span></code></td>
+<td>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A dictionary for storing execution times of different parts of the detection process.</p>
 </div>
 </td>
 </tr>
@@ -5292,22 +5296,23 @@
 <code>names</code>
 </td>
 <td>
-<code><span title="tuple">tuple</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Tuple mapping class indices to names.</p>
+<p>Dictionary of class names.</p>
 </div>
 </td>
 <td>
-<code>()</code>
+<code>{}</code>
 </td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1215</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1214</span>
+<span>1215</span>
 <span>1216</span>
 <span>1217</span>
 <span>1218</span>
@@ -5322,15 +5327,14 @@
 <span>1227</span>
 <span>1228</span>
 <span>1229</span>
-<span>1230</span>
-<span>1231</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1230</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the PoseMetrics class with directory path, class names, and plotting options.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save plots.</span>
 <span></span><span class="sd">        plot (bool, optional): Whether to plot precision-recall curves.</span>
-<span></span><span class="sd">        names (tuple, optional): Tuple mapping class indices to names.</span>
+<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">plot</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
@@ -5418,9 +5422,9 @@
 <p>Return the class-wise detection results for a specific class i.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1298</span>
-<span>1299</span>
-<span>1300</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1297</span>
+<span>1298</span>
+<span>1299</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the class-wise detection results for a specific class i."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5437,9 +5441,9 @@
 <p>Return the mean results of box and pose.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1294</span>
-<span>1295</span>
-<span>1296</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1293</span>
+<span>1294</span>
+<span>1295</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the mean results of box and pose."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -5572,7 +5576,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1233</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1232</span>
+<span>1233</span>
 <span>1234</span>
 <span>1235</span>
 <span>1236</span>
@@ -5616,8 +5621,7 @@
 <span>1274</span>
 <span>1275</span>
 <span>1276</span>
-<span>1277</span>
-<span>1278</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
+<span>1277</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">tp_p</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -5677,7 +5681,8 @@
 <p>Return per-class pose metrics with shared scalar values included (box + pose).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1331</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1330</span>
+<span>1331</span>
 <span>1332</span>
 <span>1333</span>
 <span>1334</span>
@@ -5697,8 +5702,7 @@
 <span>1348</span>
 <span>1349</span>
 <span>1350</span>
-<span>1351</span>
-<span>1352</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span>1351</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return per-class pose metrics with shared scalar values included (box + pose)."""</span>
 <span></span>    <span class="n">scalars</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
@@ -5795,12 +5799,12 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1366</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1365</span>
+<span>1366</span>
 <span>1367</span>
 <span>1368</span>
 <span>1369</span>
-<span>1370</span>
-<span>1371</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1370</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a ClassifyMetrics instance."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">top1</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">top5</span> <span class="o">=</span> <span class="mi">0</span>
@@ -5929,7 +5933,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1373</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1372</span>
+<span>1373</span>
 <span>1374</span>
 <span>1375</span>
 <span>1376</span>
@@ -5939,8 +5944,7 @@
 <span>1380</span>
 <span>1381</span>
 <span>1382</span>
-<span>1383</span>
-<span>1384</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<span>1383</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process target classes and predicted classes to compute metrics.</span>
 <span></span>
@@ -5966,9 +5970,9 @@
 <p>Return a single-row summary for classification metrics (top1/top5).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1411</span>
-<span>1412</span>
-<span>1413</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1410</span>
+<span>1411</span>
+<span>1412</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a single-row summary for classification metrics (top1/top5)."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[{</span><span class="s2">"classify-top1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">top1</span><span class="p">,</span> <span class="s2">"classify-top5"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">top5</span><span class="p">}]</span>
 </code></pre></div></td></tr></table></div>
@@ -5982,7 +5986,9 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.metrics.OBBMetrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.metrics.OBBMetrics</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">OBBMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s1">'.'</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">())</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">OBBMetrics</span><span class="p">(</span>
+<span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -6023,7 +6029,7 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.OBBMetrics.names">names</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6045,7 +6051,7 @@
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.utils.metrics.OBBMetrics.speed">speed</span></code></td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6118,22 +6124,23 @@
 <code>names</code>
 </td>
 <td>
-<code><span title="tuple">tuple</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Tuple mapping class indices to names.</p>
+<p>Dictionary of class names.</p>
 </div>
 </td>
 <td>
-<code>()</code>
+<code>{}</code>
 </td>
 </tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1432</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1431</span>
+<span>1432</span>
 <span>1433</span>
 <span>1434</span>
 <span>1435</span>
@@ -6146,15 +6153,14 @@
 <span>1442</span>
 <span>1443</span>
 <span>1444</span>
-<span>1445</span>
-<span>1446</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">())</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1445</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an OBBMetrics instance with directory, plotting, and class names.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save plots.</span>
 <span></span><span class="sd">        plot (bool, optional): Whether to plot precision-recall curves.</span>
-<span></span><span class="sd">        names (tuple, optional): Tuple mapping class indices to names.</span>
+<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">=</span> <span class="n">save_dir</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="n">plot</span>
@@ -6266,9 +6272,9 @@
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1481</span>
-<span>1482</span>
-<span>1483</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1480</span>
+<span>1481</span>
+<span>1482</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -6285,9 +6291,9 @@
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1477</span>
-<span>1478</span>
-<span>1479</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1476</span>
+<span>1477</span>
+<span>1478</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -6403,7 +6409,8 @@
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1448</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1447</span>
+<span>1448</span>
 <span>1449</span>
 <span>1450</span>
 <span>1451</span>
@@ -6424,8 +6431,7 @@
 <span>1466</span>
 <span>1467</span>
 <span>1468</span>
-<span>1469</span>
-<span>1470</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1469</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process predicted results for object detection and update metrics.</span>
 <span></span>
@@ -6462,7 +6468,8 @@
 <p>Return per-class detection metrics with shared scalar values included.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1515</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1514</span>
+<span>1515</span>
 <span>1516</span>
 <span>1517</span>
 <span>1518</span>
@@ -6472,8 +6479,7 @@
 <span>1522</span>
 <span>1523</span>
 <span>1524</span>
-<span>1525</span>
-<span>1526</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span>1525</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return per-class detection metrics with shared scalar values included."""</span>
 <span></span>    <span class="n">scalars</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
@@ -8054,7 +8060,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span>    <span class="n">py</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">ap</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"pr_curve.png"</span><span class="p">),</span>
-<span></span>    <span class="n">names</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
+<span></span>    <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
 <span></span>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
@@ -8140,7 +8146,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <code>names</code>
 </td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -8218,7 +8224,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span>    <span class="n">py</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">ap</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"pr_curve.png"</span><span class="p">),</span>
-<span></span>    <span class="n">names</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
+<span></span>    <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
 <span></span>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -8229,7 +8235,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span><span class="sd">        py (np.ndarray): Y values for the PR curve.</span>
 <span></span><span class="sd">        ap (np.ndarray): Average precision values.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Path to save the plot.</span>
-<span></span><span class="sd">        names (dict, optional): Dictionary mapping class indices to class names.</span>
+<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary mapping class indices to class names.</span>
 <span></span><span class="sd">        on_plot (callable, optional): Function to call after plot is saved.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
@@ -8266,7 +8272,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span>    <span class="n">px</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">py</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"mc_curve.png"</span><span class="p">),</span>
-<span></span>    <span class="n">names</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
+<span></span>    <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
 <span></span>    <span class="n">xlabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Confidence"</span><span class="p">,</span>
 <span></span>    <span class="n">ylabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Metric"</span><span class="p">,</span>
 <span></span>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -8338,7 +8344,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <code>names</code>
 </td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -8449,7 +8455,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span>    <span class="n">px</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">py</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"mc_curve.png"</span><span class="p">),</span>
-<span></span>    <span class="n">names</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
+<span></span>    <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
 <span></span>    <span class="n">xlabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Confidence"</span><span class="p">,</span>
 <span></span>    <span class="n">ylabel</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"Metric"</span><span class="p">,</span>
 <span></span>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -8461,7 +8467,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span><span class="sd">        px (np.ndarray): X values for the metric-confidence curve.</span>
 <span></span><span class="sd">        py (np.ndarray): Y values for the metric-confidence curve.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Path to save the plot.</span>
-<span></span><span class="sd">        names (dict, optional): Dictionary mapping class indices to class names.</span>
+<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary mapping class indices to class names.</span>
 <span></span><span class="sd">        xlabel (str, optional): X-axis label.</span>
 <span></span><span class="sd">        ylabel (str, optional): Y-axis label.</span>
 <span></span><span class="sd">        on_plot (callable, optional): Function to call after plot is saved.</span>
@@ -8667,7 +8673,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span>    <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(),</span>
-<span></span>    <span class="n">names</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
+<span></span>    <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
 <span></span>    <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-16</span><span class="p">,</span>
 <span></span>    <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span>
@@ -8802,11 +8808,11 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <code>names</code>
 </td>
 <td>
-<code><span title="dict">dict</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Dict of class names to plot PR curves.</p>
+<p>Dictionary of class names to plot PR curves.</p>
 </div>
 </td>
 <td>
@@ -9074,8 +9080,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span>731</span>
 <span>732</span>
 <span>733</span>
-<span>734</span>
-<span>735</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ap_per_class</span><span class="p">(</span>
+<span>734</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ap_per_class</span><span class="p">(</span>
 <span></span>    <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -9083,7 +9088,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span>    <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(),</span>
-<span></span>    <span class="n">names</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="p">{},</span>
+<span></span>    <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
 <span></span>    <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">1e-16</span><span class="p">,</span>
 <span></span>    <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">:</span>
@@ -9098,7 +9103,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span><span class="sd">        plot (bool, optional): Whether to plot PR curves or not.</span>
 <span></span><span class="sd">        on_plot (callable, optional): A callback to pass plots path and data when they are rendered.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save the PR curves.</span>
-<span></span><span class="sd">        names (dict, optional): Dict of class names to plot PR curves.</span>
+<span></span><span class="sd">        names (Dict[int, str], optional): Dictionary of class names to plot PR curves.</span>
 <span></span><span class="sd">        eps (float, optional): A small value to avoid division by zero.</span>
 <span></span><span class="sd">        prefix (str, optional): A prefix string for saving the plot files.</span>
 <span></span>
@@ -9158,8 +9163,7 @@ or (x1, y1, x2, y2) if <code>xywh=False</code>.</p>
 <span></span>
 <span></span>    <span class="c1"># Compute F1 (harmonic mean of precision and recall)</span>
 <span></span>    <span class="n">f1_curve</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">p_curve</span> <span class="o">*</span> <span class="n">r_curve</span> <span class="o">/</span> <span class="p">(</span><span class="n">p_curve</span> <span class="o">+</span> <span class="n">r_curve</span> <span class="o">+</span> <span class="n">eps</span><span class="p">)</span>
-<span></span>    <span class="n">names</span> <span class="o">=</span> <span class="p">[</span><span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">names</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">unique_classes</span><span class="p">]</span>  <span class="c1"># list: only classes that have data</span>
-<span></span>    <span class="n">names</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">names</span><span class="p">))</span>  <span class="c1"># to dict</span>
+<span></span>    <span class="n">names</span> <span class="o">=</span> <span class="p">{</span><span class="n">i</span><span class="p">:</span> <span class="n">names</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">unique_classes</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">names</span><span class="p">}</span>  <span class="c1"># dict: only classes that have data</span>
 <span></span>    <span class="k">if</span> <span class="n">plot</span><span class="p">:</span>
 <span></span>        <span class="n">plot_pr_curve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">prec_values</span><span class="p">,</span> <span class="n">ap</span><span class="p">,</span> <span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">PR_curve.png"</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">)</span>
 <span></span>        <span class="n">plot_mc_curve</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">f1_curve</span><span class="p">,</span> <span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2">F1_curve.png"</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">ylabel</span><span class="o">=</span><span class="s2">"F1"</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="n">on_plot</span><span class="p">)</span>
