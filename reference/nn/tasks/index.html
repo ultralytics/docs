@@ -7786,7 +7786,13 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1474</span>
 <span>1475</span>
 <span>1476</span>
-<span>1477</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch_safe_load</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">safe_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>1477</span>
+<span>1478</span>
+<span>1479</span>
+<span>1480</span>
+<span>1481</span>
+<span>1482</span>
+<span>1483</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch_safe_load</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">safe_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Attempt to load a PyTorch model with the torch.load() function. If a ModuleNotFoundError is raised, it catches the</span>
 <span></span><span class="sd">    error, logs a warning message, and attempts to install the missing module via the check_requirements() function.</span>
@@ -7840,6 +7846,12 @@ After installation, the function again attempts to load the model using torch.lo
 <span></span>                    <span class="sa">f</span><span class="s2">"YOLOv8 at https://github.com/ultralytics/ultralytics."</span>
 <span></span>                    <span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Recommend fixes are to train a new model using the latest 'ultralytics' package or to "</span>
 <span></span>                    <span class="sa">f</span><span class="s2">"run a command with an official Ultralytics model, i.e. 'yolo predict model=yolo11n.pt'"</span>
+<span></span>                <span class="p">)</span>
+<span></span>            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
+<span></span>        <span class="k">elif</span> <span class="n">e</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s2">"numpy._core"</span><span class="p">:</span>
+<span></span>            <span class="k">raise</span> <span class="ne">ModuleNotFoundError</span><span class="p">(</span>
+<span></span>                <span class="n">emojis</span><span class="p">(</span>
+<span></span>                    <span class="sa">f</span><span class="s2">"ERROR ❌️ </span><span class="si">{</span><span class="n">weight</span><span class="si">}</span><span class="s2"> requires numpy&gt;=1.26.1, however numpy==</span><span class="si">{</span><span class="nb">__import__</span><span class="p">(</span><span class="s1">'numpy'</span><span class="p">)</span><span class="o">.</span><span class="n">__version__</span><span class="si">}</span><span class="s2"> is installed."</span>
 <span></span>                <span class="p">)</span>
 <span></span>            <span class="p">)</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span>
@@ -7972,13 +7984,7 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1480</span>
-<span>1481</span>
-<span>1482</span>
-<span>1483</span>
-<span>1484</span>
-<span>1485</span>
-<span>1486</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1486</span>
 <span>1487</span>
 <span>1488</span>
 <span>1489</span>
@@ -8018,7 +8024,13 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1523</span>
 <span>1524</span>
 <span>1525</span>
-<span>1526</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_load_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>1526</span>
+<span>1527</span>
+<span>1528</span>
+<span>1529</span>
+<span>1530</span>
+<span>1531</span>
+<span>1532</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_load_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load an ensemble of models weights=[a,b,c] or a single model weights=[a] or weights=a.</span>
 <span></span>
@@ -8187,13 +8199,7 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1529</span>
-<span>1530</span>
-<span>1531</span>
-<span>1532</span>
-<span>1533</span>
-<span>1534</span>
-<span>1535</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1535</span>
 <span>1536</span>
 <span>1537</span>
 <span>1538</span>
@@ -8222,7 +8228,13 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1561</span>
 <span>1562</span>
 <span>1563</span>
-<span>1564</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_load_one_weight</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>1564</span>
+<span>1565</span>
+<span>1566</span>
+<span>1567</span>
+<span>1568</span>
+<span>1569</span>
+<span>1570</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_load_one_weight</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load a single model weights.</span>
 <span></span>
@@ -8364,13 +8376,7 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1567</span>
-<span>1568</span>
-<span>1569</span>
-<span>1570</span>
-<span>1571</span>
-<span>1572</span>
-<span>1573</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1573</span>
 <span>1574</span>
 <span>1575</span>
 <span>1576</span>
@@ -8540,7 +8546,13 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1740</span>
 <span>1741</span>
 <span>1742</span>
-<span>1743</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_model</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>1743</span>
+<span>1744</span>
+<span>1745</span>
+<span>1746</span>
+<span>1747</span>
+<span>1748</span>
+<span>1749</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_model</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Parse a YOLO model.yaml dictionary into a PyTorch model.</span>
 <span></span>
@@ -8781,13 +8793,7 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1746</span>
-<span>1747</span>
-<span>1748</span>
-<span>1749</span>
-<span>1750</span>
-<span>1751</span>
-<span>1752</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1752</span>
 <span>1753</span>
 <span>1754</span>
 <span>1755</span>
@@ -8802,7 +8808,13 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1764</span>
 <span>1765</span>
 <span>1766</span>
-<span>1767</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">yaml_model_load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span>1767</span>
+<span>1768</span>
+<span>1769</span>
+<span>1770</span>
+<span>1771</span>
+<span>1772</span>
+<span>1773</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">yaml_model_load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load a YOLOv8 model from a YAML file.</span>
 <span></span>
@@ -8888,20 +8900,20 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1770</span>
-<span>1771</span>
-<span>1772</span>
-<span>1773</span>
-<span>1774</span>
-<span>1775</span>
-<span>1776</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1776</span>
 <span>1777</span>
 <span>1778</span>
 <span>1779</span>
 <span>1780</span>
 <span>1781</span>
 <span>1782</span>
-<span>1783</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_model_scale</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
+<span>1783</span>
+<span>1784</span>
+<span>1785</span>
+<span>1786</span>
+<span>1787</span>
+<span>1788</span>
+<span>1789</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_model_scale</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Extract the size character n, s, m, l, or x of the model's scale from the model path.</span>
 <span></span>
@@ -8979,13 +8991,7 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1786</span>
-<span>1787</span>
-<span>1788</span>
-<span>1789</span>
-<span>1790</span>
-<span>1791</span>
-<span>1792</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1792</span>
 <span>1793</span>
 <span>1794</span>
 <span>1795</span>
@@ -9047,7 +9053,13 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1851</span>
 <span>1852</span>
 <span>1853</span>
-<span>1854</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_model_task</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span>1854</span>
+<span>1855</span>
+<span>1856</span>
+<span>1857</span>
+<span>1858</span>
+<span>1859</span>
+<span>1860</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_model_task</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Guess the task of a PyTorch model from its architecture or configuration.</span>
 <span></span>
