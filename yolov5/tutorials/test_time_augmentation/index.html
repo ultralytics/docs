@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Test-Time Augmentation (TTA)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Test-Time Augmentation, TTA, machine learning, deep learning, object detection, mAP, Recall, PyTorch" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation" property="og:url"/><meta content="Test-Time Augmentation (TTA)" property="og:title"/><meta content="Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation" property="twitter:url"/><meta content="Test-Time Augmentation (TTA)" property="twitter:title"/><meta content="Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Test-Time Augmentation (TTA)", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-04-09 02:50:54 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall."}</script></head>
+<meta content="Test-Time Augmentation (TTA)" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, Test-Time Augmentation, TTA, machine learning, deep learning, object detection, mAP, Recall, PyTorch" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation" property="og:url"/><meta content="Test-Time Augmentation (TTA)" property="og:title"/><meta content="Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/test_time_augmentation" property="twitter:url"/><meta content="Test-Time Augmentation (TTA)" property="twitter:title"/><meta content="Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Test-Time Augmentation (TTA)", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-06-05 03:40:08 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Boost your YOLOv5 performance with Test-Time Augmentation (TTA). Learn setup, testing, and inference techniques to elevate mAP and Recall."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -949,82 +949,82 @@
 <div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="go">val: data=./data/coco.yaml, weights=['yolov5x.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.65, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True</span>
-<span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<div class="highlight"><pre><span></span><code><span></span>val: data=./data/coco.yaml, weights=['yolov5x.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.65, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True
+<span></span>YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)
 <span></span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients</span>
+<span></span>Fusing layers...
+<span></span>Model Summary: 476 layers, 87730285 parameters, 0 gradients
 <span></span>
-<span></span><span class="go">val: Scanning '../datasets/coco/val2017' images and labels...4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:01&lt;00:00, 2846.03it/s]</span>
-<span></span><span class="go">val: New cache created: ../datasets/coco/val2017.cache</span>
-<span></span><span class="go">               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [02:30&lt;00:00,  1.05it/s]</span>
-<span></span><span class="go">                 all       5000      36335      0.746      0.626       0.68       0.49</span>
-<span></span><span class="go">Speed: 0.1ms pre-process, 22.4ms inference, 1.4ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- baseline speed</span>
+<span></span>val: Scanning '../datasets/coco/val2017' images and labels...4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:01&lt;00:00, 2846.03it/s]
+<span></span>val: New cache created: ../datasets/coco/val2017.cache
+<span></span>               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [02:30&lt;00:00,  1.05it/s]
+<span></span>                 all       5000      36335      0.746      0.626       0.68       0.49
+<span></span>Speed: 0.1ms pre-process, 22.4ms inference, 1.4ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- baseline speed
 <span></span>
-<span></span><span class="go">Evaluating pycocotools mAP... saving runs/val/exp/yolov5x_predictions.json...</span>
-<span></span><span class="go">...</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.504  # &lt;--- baseline mAP</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.688</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.546</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.351</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.551</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.644</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.382</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.628</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.681  # &lt;--- baseline mAR</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.524</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.735</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.826</span>
+<span></span>Evaluating pycocotools mAP... saving runs/val/exp/yolov5x_predictions.json...
+<span></span>...
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.504  # &lt;--- baseline mAP
+<span></span> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.688
+<span></span> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.546
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.351
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.551
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.644
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.382
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.628
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.681  # &lt;--- baseline mAR
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.524
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.735
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.826
 </code></pre></div>
 <h2 id="test-with-tta">Test with TTA</h2>
 <p>Append <code>--augment</code> to any existing <code>val.py</code> command to enable TTA, and increase the image size by about 30% for improved results. Note that inference with TTA enabled will typically take about 2-3X the time of normal inference as the images are being left-right flipped and processed at 3 different resolutions, with the outputs merged before <a href="https://www.ultralytics.com/glossary/non-maximum-suppression-nms">NMS</a>. Part of the speed decrease is simply due to larger image sizes (832 vs 640), while part is due to the actual TTA operations.</p>
 <div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">832</span><span class="w"> </span>--augment<span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="go">val: data=./data/coco.yaml, weights=['yolov5x.pt'], batch_size=32, imgsz=832, conf_thres=0.001, iou_thres=0.6, task=val, device=, single_cls=False, augment=True, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True</span>
-<span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<div class="highlight"><pre><span></span><code><span></span>val: data=./data/coco.yaml, weights=['yolov5x.pt'], batch_size=32, imgsz=832, conf_thres=0.001, iou_thres=0.6, task=val, device=, single_cls=False, augment=True, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True
+<span></span>YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)
 <span></span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">/usr/local/lib/python3.7/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)</span>
-<span></span><span class="go">  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)</span>
-<span></span><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients</span>
-<span></span><span class="go">val: Scanning '../datasets/coco/val2017' images and labels...4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:01&lt;00:00, 2885.61it/s]</span>
-<span></span><span class="go">val: New cache created: ../datasets/coco/val2017.cache</span>
-<span></span><span class="go">               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [07:29&lt;00:00,  2.86s/it]</span>
-<span></span><span class="go">                 all       5000      36335      0.718      0.656      0.695      0.503</span>
-<span></span><span class="go">Speed: 0.2ms pre-process, 80.6ms inference, 2.7ms NMS per image at shape (32, 3, 832, 832)  # &lt;--- TTA speed</span>
+<span></span>Fusing layers...
+<span></span>/usr/local/lib/python3.7/dist-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /pytorch/c10/core/TensorImpl.h:1156.)
+<span></span>  return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
+<span></span>Model Summary: 476 layers, 87730285 parameters, 0 gradients
+<span></span>val: Scanning '../datasets/coco/val2017' images and labels...4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:01&lt;00:00, 2885.61it/s]
+<span></span>val: New cache created: ../datasets/coco/val2017.cache
+<span></span>               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [07:29&lt;00:00,  2.86s/it]
+<span></span>                 all       5000      36335      0.718      0.656      0.695      0.503
+<span></span>Speed: 0.2ms pre-process, 80.6ms inference, 2.7ms NMS per image at shape (32, 3, 832, 832)  # &lt;--- TTA speed
 <span></span>
-<span></span><span class="go">Evaluating pycocotools mAP... saving runs/val/exp2/yolov5x_predictions.json...</span>
-<span></span><span class="go">...</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.516  # &lt;--- TTA mAP</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.701</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.562</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.361</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.564</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.656</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.388</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.640</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.696  # &lt;--- TTA mAR</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.553</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.744</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.833</span>
+<span></span>Evaluating pycocotools mAP... saving runs/val/exp2/yolov5x_predictions.json...
+<span></span>...
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.516  # &lt;--- TTA mAP
+<span></span> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.701
+<span></span> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.562
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.361
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.564
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.656
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.388
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.640
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.696  # &lt;--- TTA mAR
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.553
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.744
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.833
 </code></pre></div>
 <h2 id="inference-with-tta">Inference with TTA</h2>
 <p><code>detect.py</code> TTA inference operates identically to <code>val.py</code> TTA: simply append <code>--augment</code> to any existing <code>detect.py</code> command:</p>
 <div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5s.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">832</span><span class="w"> </span>--source<span class="w"> </span>data/images<span class="w"> </span>--augment
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<div class="highlight"><pre><span></span><code><span></span>YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)
 <span></span>
-<span></span><span class="go">Downloading https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt to yolov5s.pt...</span>
-<span></span><span class="go">100% 14.1M/14.1M [00:00&lt;00:00, 81.9MB/s]</span>
+<span></span>Downloading https://github.com/ultralytics/yolov5/releases/download/v5.0/yolov5s.pt to yolov5s.pt...
+<span></span>100% 14.1M/14.1M [00:00&lt;00:00, 81.9MB/s]
 <span></span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">Model Summary: 224 layers, 7266973 parameters, 0 gradients</span>
-<span></span><span class="go">image 1/2 /content/yolov5/data/images/bus.jpg: 832x640 4 persons, 1 bus, 1 fire hydrant, Done. (0.029s)</span>
-<span></span><span class="go">image 2/2 /content/yolov5/data/images/zidane.jpg: 480x832 3 persons, 3 ties, Done. (0.024s)</span>
-<span></span><span class="go">Results saved to runs/detect/exp</span>
-<span></span><span class="go">Done. (0.156s)</span>
+<span></span>Fusing layers...
+<span></span>Model Summary: 224 layers, 7266973 parameters, 0 gradients
+<span></span>image 1/2 /content/yolov5/data/images/bus.jpg: 832x640 4 persons, 1 bus, 1 fire hydrant, Done. (0.029s)
+<span></span>image 2/2 /content/yolov5/data/images/zidane.jpg: 480x832 3 persons, 3 ties, Done. (0.024s)
+<span></span>Results saved to runs/detect/exp
+<span></span>Done. (0.156s)
 </code></pre></div>
 <p><img alt="YOLOv5 test time augmentations" src="https://github.com/ultralytics/docs/releases/download/0/yolov5-test-time-augmentations.avif" width="500"/></p>
 <h3 id="pytorch-hub-tta">PyTorch Hub TTA</h3>
@@ -1072,19 +1072,19 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on April 09, 2025">
-<span class="hover-item">✏️</span> Updated 1 month ago
+<span class="date-item" title="This page was last updated on June 05, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
 <a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (10 changes)">
 <img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
+<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (2 changes)">
+<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
-<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>

@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="TFLite, ONNX, CoreML, TensorRT Export" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 export, TFLite, ONNX, CoreML, TensorRT, model conversion, YOLOv5 tutorial, PyTorch export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_export" property="og:url"/><meta content="TFLite, ONNX, CoreML, TensorRT Export" property="og:title"/><meta content="Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_export" property="twitter:url"/><meta content="TFLite, ONNX, CoreML, TensorRT Export" property="twitter:title"/><meta content="Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TFLite, ONNX, CoreML, TensorRT Export", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-03-20 20:24:06 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide."}</script></head>
+<meta content="TFLite, ONNX, CoreML, TensorRT Export" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5 export, TFLite, ONNX, CoreML, TensorRT, model conversion, YOLOv5 tutorial, PyTorch export" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_export" property="og:url"/><meta content="TFLite, ONNX, CoreML, TensorRT Export" property="og:title"/><meta content="Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide." property="og:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_export" property="twitter:url"/><meta content="TFLite, ONNX, CoreML, TensorRT Export" property="twitter:title"/><meta content="Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide." property="twitter:description"/><meta content="https://colab.research.google.com/assets/colab-badge.svg" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "TFLite, ONNX, CoreML, TensorRT Export", "image": ["https://colab.research.google.com/assets/colab-badge.svg"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-06-05 03:40:08 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn to export YOLOv5 models to various formats like TFLite, ONNX, CoreML and TensorRT. Increase model efficiency and deployment flexibility with our step-by-step guide."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -1120,29 +1120,29 @@
 <p>Add <code>--half</code> to export models at FP16 half <a href="https://www.ultralytics.com/glossary/precision">precision</a> for smaller file sizes</p>
 </div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="go">export: data=data/coco128.yaml, weights=['yolov5s.pt'], imgsz=[640, 640], batch_size=1, device=cpu, half=False, inplace=False, train=False, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=12, verbose=False, workspace=4, nms=False, agnostic_nms=False, topk_per_class=100, topk_all=100, iou_thres=0.45, conf_thres=0.25, include=['torchscript', 'onnx']</span>
-<span></span><span class="go">YOLOv5 🚀 v6.2-104-ge3e5122 Python-3.8.0 torch-1.12.1+cu113 CPU</span>
+<div class="highlight"><pre><span></span><code><span></span>export: data=data/coco128.yaml, weights=['yolov5s.pt'], imgsz=[640, 640], batch_size=1, device=cpu, half=False, inplace=False, train=False, keras=False, optimize=False, int8=False, dynamic=False, simplify=False, opset=12, verbose=False, workspace=4, nms=False, agnostic_nms=False, topk_per_class=100, topk_all=100, iou_thres=0.45, conf_thres=0.25, include=['torchscript', 'onnx']
+<span></span>YOLOv5 🚀 v6.2-104-ge3e5122 Python-3.8.0 torch-1.12.1+cu113 CPU
 <span></span>
-<span></span><span class="go">Downloading https://github.com/ultralytics/yolov5/releases/download/v6.2/yolov5s.pt to yolov5s.pt...</span>
-<span></span><span class="go">100% 14.1M/14.1M [00:00&lt;00:00, 274MB/s]</span>
+<span></span>Downloading https://github.com/ultralytics/yolov5/releases/download/v6.2/yolov5s.pt to yolov5s.pt...
+<span></span>100% 14.1M/14.1M [00:00&lt;00:00, 274MB/s]
 <span></span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">YOLOv5s summary: 213 layers, 7225885 parameters, 0 gradients</span>
+<span></span>Fusing layers...
+<span></span>YOLOv5s summary: 213 layers, 7225885 parameters, 0 gradients
 <span></span>
-<span></span><span class="go">PyTorch: starting from yolov5s.pt with output shape (1, 25200, 85) (14.1 MB)</span>
+<span></span>PyTorch: starting from yolov5s.pt with output shape (1, 25200, 85) (14.1 MB)
 <span></span>
-<span></span><span class="go">TorchScript: starting export with torch 1.12.1+cu113...</span>
-<span></span><span class="go">TorchScript: export success ✅ 1.7s, saved as yolov5s.torchscript (28.1 MB)</span>
+<span></span>TorchScript: starting export with torch 1.12.1+cu113...
+<span></span>TorchScript: export success ✅ 1.7s, saved as yolov5s.torchscript (28.1 MB)
 <span></span>
-<span></span><span class="go">ONNX: starting export with onnx 1.12.0...</span>
-<span></span><span class="go">ONNX: export success ✅ 2.3s, saved as yolov5s.onnx (28.0 MB)</span>
+<span></span>ONNX: starting export with onnx 1.12.0...
+<span></span>ONNX: export success ✅ 2.3s, saved as yolov5s.onnx (28.0 MB)
 <span></span>
-<span></span><span class="go">Export complete (5.5s)</span>
-<span></span><span class="go">Results saved to /content/yolov5</span>
-<span></span><span class="go">Detect:          python detect.py --weights yolov5s.onnx</span>
-<span></span><span class="go">Validate:        python val.py --weights yolov5s.onnx</span>
-<span></span><span class="go">PyTorch Hub:     model = torch.hub.load('ultralytics/yolov5', 'custom', 'yolov5s.onnx')</span>
-<span></span><span class="go">Visualize:       https://netron.app/</span>
+<span></span>Export complete (5.5s)
+<span></span>Results saved to /content/yolov5
+<span></span>Detect:          python detect.py --weights yolov5s.onnx
+<span></span>Validate:        python val.py --weights yolov5s.onnx
+<span></span>PyTorch Hub:     model = torch.hub.load('ultralytics/yolov5', 'custom', 'yolov5s.onnx')
+<span></span>Visualize:       https://netron.app/
 </code></pre></div>
 <p>The 3 exported models will be saved alongside the original PyTorch model:</p>
 <p align="center"><img alt="YOLO export locations" src="https://github.com/ultralytics/docs/releases/download/0/yolo-export-locations.avif" width="700"/></p>
@@ -1240,8 +1240,8 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on March 20, 2025">
-<span class="hover-item">✏️</span> Updated 2 months ago
+<span class="date-item" title="This page was last updated on June 05, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
@@ -1253,6 +1253,9 @@
 </a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
+<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
 <button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/yolov5/tutorials/model_export', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">

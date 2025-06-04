@@ -21,7 +21,7 @@
 <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="Model Ensembling" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, model ensembling, testing, inference, mAP, Recall, Ultralytics, object detection, PyTorch" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_ensembling" property="og:url"/><meta content="Model Ensembling" property="og:title"/><meta content="Learn how to use YOLOv5 model ensembling during testing and inference to enhance mAP and Recall for more accurate predictions." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolo-inference-result.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_ensembling" property="twitter:url"/><meta content="Model Ensembling" property="twitter:title"/><meta content="Learn how to use YOLOv5 model ensembling during testing and inference to enhance mAP and Recall for more accurate predictions." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolo-inference-result.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Model Ensembling", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolo-inference-result.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-04-09 02:50:54 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to use YOLOv5 model ensembling during testing and inference to enhance mAP and Recall for more accurate predictions."}</script></head>
+<meta content="Model Ensembling" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, model ensembling, testing, inference, mAP, Recall, Ultralytics, object detection, PyTorch" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_ensembling" property="og:url"/><meta content="Model Ensembling" property="og:title"/><meta content="Learn how to use YOLOv5 model ensembling during testing and inference to enhance mAP and Recall for more accurate predictions." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolo-inference-result.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/yolov5/tutorials/model_ensembling" property="twitter:url"/><meta content="Model Ensembling" property="twitter:title"/><meta content="Learn how to use YOLOv5 model ensembling during testing and inference to enhance mAP and Recall for more accurate predictions." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/yolo-inference-result.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "Model Ensembling", "image": ["https://github.com/ultralytics/docs/releases/download/0/yolo-inference-result.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-06-05 03:40:08 +0800", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Learn how to use YOLOv5 model ensembling during testing and inference to enhance mAP and Recall for more accurate predictions."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -931,32 +931,32 @@
 <div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="go">val: data=./data/coco.yaml, weights=['yolov5x.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.65, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True</span>
-<span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<div class="highlight"><pre><span></span><code><span></span>val: data=./data/coco.yaml, weights=['yolov5x.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.65, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True
+<span></span>YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)
 <span></span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients</span>
+<span></span>Fusing layers...
+<span></span>Model Summary: 476 layers, 87730285 parameters, 0 gradients
 <span></span>
-<span></span><span class="go">val: Scanning '../datasets/coco/val2017' images and labels...4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:01&lt;00:00, 2846.03it/s]</span>
-<span></span><span class="go">val: New cache created: ../datasets/coco/val2017.cache</span>
-<span></span><span class="go">               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [02:30&lt;00:00,  1.05it/s]</span>
-<span></span><span class="go">                 all       5000      36335      0.746      0.626       0.68       0.49</span>
-<span></span><span class="go">Speed: 0.1ms pre-process, 22.4ms inference, 1.4ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- baseline speed</span>
+<span></span>val: Scanning '../datasets/coco/val2017' images and labels...4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:01&lt;00:00, 2846.03it/s]
+<span></span>val: New cache created: ../datasets/coco/val2017.cache
+<span></span>               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [02:30&lt;00:00,  1.05it/s]
+<span></span>                 all       5000      36335      0.746      0.626       0.68       0.49
+<span></span>Speed: 0.1ms pre-process, 22.4ms inference, 1.4ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- baseline speed
 <span></span>
-<span></span><span class="go">Evaluating pycocotools mAP... saving runs/val/exp/yolov5x_predictions.json...</span>
-<span></span><span class="go">...</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.504  # &lt;--- baseline mAP</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.688</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.546</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.351</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.551</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.644</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.382</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.628</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.681  # &lt;--- baseline mAR</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.524</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.735</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.826</span>
+<span></span>Evaluating pycocotools mAP... saving runs/val/exp/yolov5x_predictions.json...
+<span></span>...
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.504  # &lt;--- baseline mAP
+<span></span> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.688
+<span></span> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.546
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.351
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.551
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.644
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.382
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.628
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.681  # &lt;--- baseline mAR
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.524
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.735
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.826
 </code></pre></div>
 <h2 id="ensemble-test">Ensemble Test</h2>
 <p>Multiple pretrained models can be ensembled together at test and inference time by simply appending extra models to the <code>--weights</code> argument in any existing val.py or detect.py command. This example tests an ensemble of 2 models together:</p>
@@ -967,52 +967,52 @@
 <div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>val.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>yolov5l6.pt<span class="w"> </span>--data<span class="w"> </span>coco.yaml<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--half
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="go">val: data=./data/coco.yaml, weights=['yolov5x.pt', 'yolov5l6.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.6, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True</span>
-<span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<div class="highlight"><pre><span></span><code><span></span>val: data=./data/coco.yaml, weights=['yolov5x.pt', 'yolov5l6.pt'], batch_size=32, imgsz=640, conf_thres=0.001, iou_thres=0.6, task=val, device=, single_cls=False, augment=False, verbose=False, save_txt=False, save_conf=False, save_json=True, project=runs/val, name=exp, exist_ok=False, half=True
+<span></span>YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)
 <span></span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients  # Model 1</span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">Model Summary: 501 layers, 77218620 parameters, 0 gradients  # Model 2</span>
-<span></span><span class="go">Ensemble created with ['yolov5x.pt', 'yolov5l6.pt']  # Ensemble notice</span>
+<span></span>Fusing layers...
+<span></span>Model Summary: 476 layers, 87730285 parameters, 0 gradients  # Model 1
+<span></span>Fusing layers...
+<span></span>Model Summary: 501 layers, 77218620 parameters, 0 gradients  # Model 2
+<span></span>Ensemble created with ['yolov5x.pt', 'yolov5l6.pt']  # Ensemble notice
 <span></span>
-<span></span><span class="go">val: Scanning '../datasets/coco/val2017.cache' images and labels... 4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:00&lt;00:00, 49695545.02it/s]</span>
-<span></span><span class="go">               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [03:58&lt;00:00,  1.52s/it]</span>
-<span></span><span class="go">                 all       5000      36335      0.747      0.637      0.692      0.502</span>
-<span></span><span class="go">Speed: 0.1ms pre-process, 39.5ms inference, 2.0ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- ensemble speed</span>
+<span></span>val: Scanning '../datasets/coco/val2017.cache' images and labels... 4952 found, 48 missing, 0 empty, 0 corrupted: 100% 5000/5000 [00:00&lt;00:00, 49695545.02it/s]
+<span></span>               Class     Images     Labels          P          R     mAP@.5 mAP@.5:.95: 100% 157/157 [03:58&lt;00:00,  1.52s/it]
+<span></span>                 all       5000      36335      0.747      0.637      0.692      0.502
+<span></span>Speed: 0.1ms pre-process, 39.5ms inference, 2.0ms NMS per image at shape (32, 3, 640, 640)  # &lt;--- ensemble speed
 <span></span>
-<span></span><span class="go">Evaluating pycocotools mAP... saving runs/val/exp3/yolov5x_predictions.json...</span>
-<span></span><span class="go">...</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.515  # &lt;--- ensemble mAP</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.699</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.557</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.356</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.563</span>
-<span></span><span class="go"> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.668</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.387</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.638</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.689  # &lt;--- ensemble mAR</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.526</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.743</span>
-<span></span><span class="go"> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.844</span>
+<span></span>Evaluating pycocotools mAP... saving runs/val/exp3/yolov5x_predictions.json...
+<span></span>...
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.515  # &lt;--- ensemble mAP
+<span></span> Average Precision  (AP) @[ IoU=0.50      | area=   all | maxDets=100 ] = 0.699
+<span></span> Average Precision  (AP) @[ IoU=0.75      | area=   all | maxDets=100 ] = 0.557
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.356
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.563
+<span></span> Average Precision  (AP) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.668
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=  1 ] = 0.387
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets= 10 ] = 0.638
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=   all | maxDets=100 ] = 0.689  # &lt;--- ensemble mAR
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area= small | maxDets=100 ] = 0.526
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area=medium | maxDets=100 ] = 0.743
+<span></span> Average Recall     (AR) @[ IoU=0.50:0.95 | area= large | maxDets=100 ] = 0.844
 </code></pre></div>
 <h2 id="ensemble-inference">Ensemble Inference</h2>
 <p>Append extra models to the <code>--weights</code> argument to run ensemble inference:</p>
 <div class="highlight"><pre><span></span><code><span></span>python<span class="w"> </span>detect.py<span class="w"> </span>--weights<span class="w"> </span>yolov5x.pt<span class="w"> </span>yolov5l6.pt<span class="w"> </span>--img<span class="w"> </span><span class="m">640</span><span class="w"> </span>--source<span class="w"> </span>data/images
 </code></pre></div>
 <p>Output:</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="go">YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)</span>
+<div class="highlight"><pre><span></span><code><span></span>YOLOv5 🚀 v5.0-267-g6a3ee7c torch 1.9.0+cu102 CUDA:0 (Tesla P100-PCIE-16GB, 16280.875MB)
 <span></span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">Model Summary: 476 layers, 87730285 parameters, 0 gradients</span>
-<span></span><span class="go">Fusing layers...</span>
-<span></span><span class="go">Model Summary: 501 layers, 77218620 parameters, 0 gradients</span>
-<span></span><span class="go">Ensemble created with ['yolov5x.pt', 'yolov5l6.pt']</span>
+<span></span>Fusing layers...
+<span></span>Model Summary: 476 layers, 87730285 parameters, 0 gradients
+<span></span>Fusing layers...
+<span></span>Model Summary: 501 layers, 77218620 parameters, 0 gradients
+<span></span>Ensemble created with ['yolov5x.pt', 'yolov5l6.pt']
 <span></span>
-<span></span><span class="go">image 1/2 /content/yolov5/data/images/bus.jpg: 640x512 4 persons, 1 bus, 1 tie, Done. (0.063s)</span>
-<span></span><span class="go">image 2/2 /content/yolov5/data/images/zidane.jpg: 384x640 3 persons, 2 ties, Done. (0.056s)</span>
-<span></span><span class="go">Results saved to runs/detect/exp2</span>
-<span></span><span class="go">Done. (0.223s)</span>
+<span></span>image 1/2 /content/yolov5/data/images/bus.jpg: 640x512 4 persons, 1 bus, 1 tie, Done. (0.063s)
+<span></span>image 2/2 /content/yolov5/data/images/zidane.jpg: 384x640 3 persons, 2 ties, Done. (0.056s)
+<span></span>Results saved to runs/detect/exp2
+<span></span>Done. (0.223s)
 </code></pre></div>
 <p><img alt="YOLO inference result" src="https://github.com/ultralytics/docs/releases/download/0/yolo-inference-result.avif" width="500"/></p>
 <h2 id="benefits-of-model-ensembling">Benefits of Model Ensembling</h2>
@@ -1051,19 +1051,19 @@
 <span class="date-item" title="This page was first created on November 12, 2023">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on April 09, 2025">
-<span class="hover-item">✏️</span> Updated 1 month ago
+<span class="date-item" title="This page was last updated on June 05, 2025">
+<span class="hover-item">✏️</span> Updated 0 days ago
     </span>
 </div>
 <div class="authors-container">
 <a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (9 changes)">
 <img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
 </a>
+<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (2 changes)">
+<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
+</a>
 <a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
 <img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
-</a>
-<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
-<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
 </a>
 <a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
 <img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
