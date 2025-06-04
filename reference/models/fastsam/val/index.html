@@ -1172,9 +1172,7 @@
 <h2 class="doc doc-heading" id="ultralytics.models.fastsam.val.FastSAMValidator">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.fastsam.val.FastSAMValidator</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">FastSAMValidator</span><span class="p">(</span>
-<span></span>    <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span>
-<span></span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">FastSAMValidator</span><span class="p">(</span><span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1212,17 +1210,6 @@ to avoid errors during validation.</p>
 <td>
 <div class="doc-md-description">
 <p>The directory where validation results will be saved.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.models.fastsam.val.FastSAMValidator.pbar">pbar</span></code></td>
-<td>
-<code><span title="tqdm.tqdm">tqdm</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>A progress bar object for displaying validation progress.</p>
 </div>
 </td>
 </tr>
@@ -1317,22 +1304,6 @@ to avoid errors during validation.</p>
 </tr>
 <tr class="doc-section-item">
 <td>
-<code>pbar</code>
-</td>
-<td>
-<code><span title="tqdm.tqdm">tqdm</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Progress bar for displaying progress.</p>
-</div>
-</td>
-<td>
-<code>None</code>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td>
 <code>args</code>
 </td>
 <td>
@@ -1371,7 +1342,8 @@ to avoid errors during validation.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>27</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>26</span>
+<span>27</span>
 <span>28</span>
 <span>29</span>
 <span>30</span>
@@ -1386,23 +1358,20 @@ to avoid errors during validation.</p>
 <span>39</span>
 <span>40</span>
 <span>41</span>
-<span>42</span>
-<span>43</span>
-<span>44</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">pbar</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>42</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the FastSAMValidator class, setting the task to 'segment' and metrics to SegmentMetrics.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        dataloader (torch.utils.data.DataLoader, optional): Dataloader to be used for validation.</span>
 <span></span><span class="sd">        save_dir (Path, optional): Directory to save results.</span>
-<span></span><span class="sd">        pbar (tqdm.tqdm, optional): Progress bar for displaying progress.</span>
 <span></span><span class="sd">        args (SimpleNamespace, optional): Configuration for the validator.</span>
 <span></span><span class="sd">        _callbacks (list, optional): List of callback functions to be invoked during validation.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        Plots for ConfusionMatrix and other related metrics are disabled in this class to avoid errors.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">pbar</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
+<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"segment"</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># disable ConfusionMatrix and other plots to avoid errors</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">SegmentMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>
