@@ -3260,7 +3260,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 </td>
 <td>
 <div class="doc-md-description">
-<p>List[Dict[str, float]]: A list of dictionaries, each representing one predicted class with corresponding values for all actual classes.</p>
+<p>A list of dictionaries, each representing one predicted class with corresponding values for all actual classes.</p>
 </div>
 </td>
 </tr>
@@ -3317,7 +3317,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span></span><span class="sd">        decimals (int): Number of decimal places to round the output values to.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        List[Dict[str, float]]: A list of dictionaries, each representing one predicted class with corresponding values for all actual classes.</span>
+<span></span><span class="sd">        (List[Dict[str, float]]): A list of dictionaries, each representing one predicted class with corresponding values for all actual classes.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="coco8.yaml", plots=True)</span>
@@ -4581,10 +4581,84 @@ normalization. This is useful for exporting the matrix to various formats such a
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.DetMetrics.summary">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">summary</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span>
+<span></span>    <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Return per-class detection metrics with shared scalar values included.</p>
+<p>Generate a summarized representation of per-class detection metrics as a list of dictionaries. Includes shared
+scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>normalize</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>For Detect metrics, everything is normalized  by default [0-1].</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>decimals</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of decimal places to round the metrics values to.</p>
+</div>
+</td>
+<td>
+<code>5</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="float">float</span>]]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A list of dictionaries, each representing one class with corresponding metric values.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">detection_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">()</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">detection_summary</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1042</span>
@@ -4606,12 +4680,38 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span>1058</span>
 <span>1059</span>
 <span>1060</span>
-<span>1061</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Return per-class detection metrics with shared scalar values included."""</span>
+<span>1061</span>
+<span>1062</span>
+<span>1063</span>
+<span>1064</span>
+<span>1065</span>
+<span>1066</span>
+<span>1067</span>
+<span>1068</span>
+<span>1069</span>
+<span>1070</span>
+<span>1071</span>
+<span>1072</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Generate a summarized representation of per-class detection metrics as a list of dictionaries. Includes shared</span>
+<span></span><span class="sd">    scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">       normalize (bool): For Detect metrics, everything is normalized  by default [0-1].</span>
+<span></span><span class="sd">       decimals (int): Number of decimal places to round the metrics values to.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">       (List[Dict[str, Union[str, float]]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">       &gt;&gt;&gt; results = model.val(data="coco8.yaml")</span>
+<span></span><span class="sd">       &gt;&gt;&gt; detection_summary = results.summary()</span>
+<span></span><span class="sd">       &gt;&gt;&gt; print(detection_summary)</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">scalars</span> <span class="o">=</span> <span class="p">{</span>
-<span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
-<span></span>        <span class="s2">"box-map50"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span>
-<span></span>        <span class="s2">"box-map75"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span>
+<span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"box-map50"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"box-map75"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="n">per_class</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"box-p"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">p</span><span class="p">,</span>
@@ -4619,11 +4719,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span></span>        <span class="s2">"box-f1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">f1</span><span class="p">,</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
-<span></span>        <span class="p">{</span>
-<span></span>            <span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s2">"names"</span><span class="p">)</span> <span class="ow">and</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
-<span></span>            <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
-<span></span>            <span class="o">**</span><span class="n">scalars</span><span class="p">,</span>
-<span></span>        <span class="p">}</span>
+<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
 <span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="p">[])))</span>
 <span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -4797,22 +4893,22 @@ normalization. This is useful for exporting the matrix to various formats such a
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1078</span>
-<span>1079</span>
-<span>1080</span>
-<span>1081</span>
-<span>1082</span>
-<span>1083</span>
-<span>1084</span>
-<span>1085</span>
-<span>1086</span>
-<span>1087</span>
-<span>1088</span>
-<span>1089</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1089</span>
 <span>1090</span>
 <span>1091</span>
 <span>1092</span>
-<span>1093</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1093</span>
+<span>1094</span>
+<span>1095</span>
+<span>1096</span>
+<span>1097</span>
+<span>1098</span>
+<span>1099</span>
+<span>1100</span>
+<span>1101</span>
+<span>1102</span>
+<span>1103</span>
+<span>1104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SegmentMetrics instance with a save directory, plot flag, and class names.</span>
 <span></span>
@@ -4932,9 +5028,9 @@ normalization. This is useful for exporting the matrix to various formats such a
 <p>Return classification results for a specified class index.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1160</span>
-<span>1161</span>
-<span>1162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1171</span>
+<span>1172</span>
+<span>1173</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return classification results for a specified class index."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -4951,9 +5047,9 @@ normalization. This is useful for exporting the matrix to various formats such a
 <p>Return the mean metrics for bounding box and segmentation results.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1156</span>
-<span>1157</span>
-<span>1158</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1167</span>
+<span>1168</span>
+<span>1169</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the mean metrics for bounding box and segmentation results."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -5086,18 +5182,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1095</span>
-<span>1096</span>
-<span>1097</span>
-<span>1098</span>
-<span>1099</span>
-<span>1100</span>
-<span>1101</span>
-<span>1102</span>
-<span>1103</span>
-<span>1104</span>
-<span>1105</span>
-<span>1106</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1106</span>
 <span>1107</span>
 <span>1108</span>
 <span>1109</span>
@@ -5131,7 +5216,18 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span>1137</span>
 <span>1138</span>
 <span>1139</span>
-<span>1140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
+<span>1140</span>
+<span>1141</span>
+<span>1142</span>
+<span>1143</span>
+<span>1144</span>
+<span>1145</span>
+<span>1146</span>
+<span>1147</span>
+<span>1148</span>
+<span>1149</span>
+<span>1150</span>
+<span>1151</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">tp_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -5185,24 +5281,87 @@ normalization. This is useful for exporting the matrix to various formats such a
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.SegmentMetrics.summary">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">summary</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span>
+<span></span>    <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Return per-class segmentation metrics with shared scalar values included (box + mask).</p>
+<p>Generate a summarized representation of per-class segmentation metrics as a list of dictionaries. Includes both
+box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>normalize</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>For Segment metrics, everything is normalized  by default [0-1].</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>decimals</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of decimal places to round the metrics values to.</p>
+</div>
+</td>
+<td>
+<code>5</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="float">float</span>]]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A list of dictionaries, each representing one class with corresponding metric values.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8-seg.yaml"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">seg_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">seg_summary</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1203</span>
-<span>1204</span>
-<span>1205</span>
-<span>1206</span>
-<span>1207</span>
-<span>1208</span>
-<span>1209</span>
-<span>1210</span>
-<span>1211</span>
-<span>1212</span>
-<span>1213</span>
-<span>1214</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1214</span>
 <span>1215</span>
 <span>1216</span>
 <span>1217</span>
@@ -5212,15 +5371,56 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span>1221</span>
 <span>1222</span>
 <span>1223</span>
-<span>1224</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Return per-class segmentation metrics with shared scalar values included (box + mask)."""</span>
+<span>1224</span>
+<span>1225</span>
+<span>1226</span>
+<span>1227</span>
+<span>1228</span>
+<span>1229</span>
+<span>1230</span>
+<span>1231</span>
+<span>1232</span>
+<span>1233</span>
+<span>1234</span>
+<span>1235</span>
+<span>1236</span>
+<span>1237</span>
+<span>1238</span>
+<span>1239</span>
+<span>1240</span>
+<span>1241</span>
+<span>1242</span>
+<span>1243</span>
+<span>1244</span>
+<span>1245</span>
+<span>1246</span>
+<span>1247</span>
+<span>1248</span>
+<span>1249</span>
+<span>1250</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Generate a summarized representation of per-class segmentation metrics as a list of dictionaries. Includes both</span>
+<span></span><span class="sd">    box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        normalize (bool): For Segment metrics, everything is normalized  by default [0-1].</span>
+<span></span><span class="sd">        decimals (int): Number of decimal places to round the metrics values to.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (List[Dict[str, Union[str, float]]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="coco8-seg.yaml")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; seg_summary = results.summary(decimals=4)</span>
+<span></span><span class="sd">        &gt;&gt;&gt; print(seg_summary)</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">scalars</span> <span class="o">=</span> <span class="p">{</span>
-<span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
-<span></span>        <span class="s2">"box-map50"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span>
-<span></span>        <span class="s2">"box-map75"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span>
-<span></span>        <span class="s2">"mask-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
-<span></span>        <span class="s2">"mask-map50"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span>
-<span></span>        <span class="s2">"mask-map75"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span>
+<span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"box-map50"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"box-map75"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"mask-map"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"mask-map50"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"mask-map75"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="n">per_class</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"box-p"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">p</span><span class="p">,</span>
@@ -5231,7 +5431,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span></span>        <span class="s2">"mask-f1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">f1</span><span class="p">,</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
-<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
+<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
 <span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="p">[])))</span>
 <span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -5484,23 +5684,23 @@ normalization. This is useful for exporting the matrix to various formats such a
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1250</span>
-<span>1251</span>
-<span>1252</span>
-<span>1253</span>
-<span>1254</span>
-<span>1255</span>
-<span>1256</span>
-<span>1257</span>
-<span>1258</span>
-<span>1259</span>
-<span>1260</span>
-<span>1261</span>
-<span>1262</span>
-<span>1263</span>
-<span>1264</span>
-<span>1265</span>
-<span>1266</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1276</span>
+<span>1277</span>
+<span>1278</span>
+<span>1279</span>
+<span>1280</span>
+<span>1281</span>
+<span>1282</span>
+<span>1283</span>
+<span>1284</span>
+<span>1285</span>
+<span>1286</span>
+<span>1287</span>
+<span>1288</span>
+<span>1289</span>
+<span>1290</span>
+<span>1291</span>
+<span>1292</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the PoseMetrics class with directory path, class names, and plotting options.</span>
 <span></span>
@@ -5595,9 +5795,9 @@ normalization. This is useful for exporting the matrix to various formats such a
 <p>Return the class-wise detection results for a specific class i.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1333</span>
-<span>1334</span>
-<span>1335</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1359</span>
+<span>1360</span>
+<span>1361</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the class-wise detection results for a specific class i."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5614,9 +5814,9 @@ normalization. This is useful for exporting the matrix to various formats such a
 <p>Return the mean results of box and pose.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1329</span>
-<span>1330</span>
-<span>1331</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1355</span>
+<span>1356</span>
+<span>1357</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the mean results of box and pose."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -5749,33 +5949,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1268</span>
-<span>1269</span>
-<span>1270</span>
-<span>1271</span>
-<span>1272</span>
-<span>1273</span>
-<span>1274</span>
-<span>1275</span>
-<span>1276</span>
-<span>1277</span>
-<span>1278</span>
-<span>1279</span>
-<span>1280</span>
-<span>1281</span>
-<span>1282</span>
-<span>1283</span>
-<span>1284</span>
-<span>1285</span>
-<span>1286</span>
-<span>1287</span>
-<span>1288</span>
-<span>1289</span>
-<span>1290</span>
-<span>1291</span>
-<span>1292</span>
-<span>1293</span>
-<span>1294</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1294</span>
 <span>1295</span>
 <span>1296</span>
 <span>1297</span>
@@ -5794,7 +5968,33 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span>1310</span>
 <span>1311</span>
 <span>1312</span>
-<span>1313</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
+<span>1313</span>
+<span>1314</span>
+<span>1315</span>
+<span>1316</span>
+<span>1317</span>
+<span>1318</span>
+<span>1319</span>
+<span>1320</span>
+<span>1321</span>
+<span>1322</span>
+<span>1323</span>
+<span>1324</span>
+<span>1325</span>
+<span>1326</span>
+<span>1327</span>
+<span>1328</span>
+<span>1329</span>
+<span>1330</span>
+<span>1331</span>
+<span>1332</span>
+<span>1333</span>
+<span>1334</span>
+<span>1335</span>
+<span>1336</span>
+<span>1337</span>
+<span>1338</span>
+<span>1339</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">tp_p</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -5848,42 +6048,146 @@ normalization. This is useful for exporting the matrix to various formats such a
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.PoseMetrics.summary">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">summary</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span>
+<span></span>    <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Return per-class pose metrics with shared scalar values included (box + pose).</p>
+<p>Generate a summarized representation of per-class pose metrics as a list of dictionaries. Includes both box and
+pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>normalize</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>For Pose metrics, everything is normalized  by default [0-1].</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>decimals</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of decimal places to round the metrics values to.</p>
+</div>
+</td>
+<td>
+<code>5</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="float">float</span>]]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A list of dictionaries, each representing one class with corresponding metric values.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"coco8-pose.yaml"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">pose_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">pose_summary</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1366</span>
-<span>1367</span>
-<span>1368</span>
-<span>1369</span>
-<span>1370</span>
-<span>1371</span>
-<span>1372</span>
-<span>1373</span>
-<span>1374</span>
-<span>1375</span>
-<span>1376</span>
-<span>1377</span>
-<span>1378</span>
-<span>1379</span>
-<span>1380</span>
-<span>1381</span>
-<span>1382</span>
-<span>1383</span>
-<span>1384</span>
-<span>1385</span>
-<span>1386</span>
-<span>1387</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Return per-class pose metrics with shared scalar values included (box + pose)."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1392</span>
+<span>1393</span>
+<span>1394</span>
+<span>1395</span>
+<span>1396</span>
+<span>1397</span>
+<span>1398</span>
+<span>1399</span>
+<span>1400</span>
+<span>1401</span>
+<span>1402</span>
+<span>1403</span>
+<span>1404</span>
+<span>1405</span>
+<span>1406</span>
+<span>1407</span>
+<span>1408</span>
+<span>1409</span>
+<span>1410</span>
+<span>1411</span>
+<span>1412</span>
+<span>1413</span>
+<span>1414</span>
+<span>1415</span>
+<span>1416</span>
+<span>1417</span>
+<span>1418</span>
+<span>1419</span>
+<span>1420</span>
+<span>1421</span>
+<span>1422</span>
+<span>1423</span>
+<span>1424</span>
+<span>1425</span>
+<span>1426</span>
+<span>1427</span>
+<span>1428</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Generate a summarized representation of per-class pose metrics as a list of dictionaries. Includes both box and</span>
+<span></span><span class="sd">    pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        normalize (bool): For Pose metrics, everything is normalized  by default [0-1].</span>
+<span></span><span class="sd">        decimals (int): Number of decimal places to round the metrics values to.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (List[Dict[str, Union[str, float]]]): A list of dictionaries, each representing one class with corresponding metric values.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="coco8-pose.yaml")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; pose_summary = results.summary(decimals=4)</span>
+<span></span><span class="sd">        &gt;&gt;&gt; print(pose_summary)</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">scalars</span> <span class="o">=</span> <span class="p">{</span>
-<span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
-<span></span>        <span class="s2">"box-map50"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span>
-<span></span>        <span class="s2">"box-map75"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span>
-<span></span>        <span class="s2">"pose-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
-<span></span>        <span class="s2">"pose-map50"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span>
-<span></span>        <span class="s2">"pose-map75"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span>
+<span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"box-map50"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"box-map75"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"pose-map"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"pose-map50"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"pose-map75"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="n">per_class</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"box-p"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">p</span><span class="p">,</span>
@@ -5894,7 +6198,7 @@ normalization. This is useful for exporting the matrix to various formats such a
 <span></span>        <span class="s2">"pose-f1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">f1</span><span class="p">,</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
-<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
+<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
 <span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="p">[])))</span>
 <span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -5972,12 +6276,12 @@ normalization. This is useful for exporting the matrix to various formats such a
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1401</span>
-<span>1402</span>
-<span>1403</span>
-<span>1404</span>
-<span>1405</span>
-<span>1406</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1442</span>
+<span>1443</span>
+<span>1444</span>
+<span>1445</span>
+<span>1446</span>
+<span>1447</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a ClassifyMetrics instance."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">top1</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">top5</span> <span class="o">=</span> <span class="mi">0</span>
@@ -6106,18 +6410,18 @@ normalization. This is useful for exporting the matrix to various formats such a
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1408</span>
-<span>1409</span>
-<span>1410</span>
-<span>1411</span>
-<span>1412</span>
-<span>1413</span>
-<span>1414</span>
-<span>1415</span>
-<span>1416</span>
-<span>1417</span>
-<span>1418</span>
-<span>1419</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1449</span>
+<span>1450</span>
+<span>1451</span>
+<span>1452</span>
+<span>1453</span>
+<span>1454</span>
+<span>1455</span>
+<span>1456</span>
+<span>1457</span>
+<span>1458</span>
+<span>1459</span>
+<span>1460</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process target classes and predicted classes to compute metrics.</span>
 <span></span>
@@ -6137,17 +6441,116 @@ normalization. This is useful for exporting the matrix to various formats such a
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.ClassifyMetrics.summary">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">summary</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span><span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Return a single-row summary for classification metrics (top1/top5).</p>
+<p>Generate a single-row summary of classification metrics (Top-1 and Top-5 accuracy).</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>normalize</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>For Classify metrics, everything is normalized  by default [0-1].</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>decimals</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of decimal places to round the metrics values to.</p>
+</div>
+</td>
+<td>
+<code>5</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="float">float</span>]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A list with one dictionary containing Top-1 and Top-5 classification accuracy.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"imagenet10"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">classify_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">classify_summary</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1446</span>
-<span>1447</span>
-<span>1448</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Return a single-row summary for classification metrics (top1/top5)."""</span>
-<span></span>    <span class="k">return</span> <span class="p">[{</span><span class="s2">"classify-top1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">top1</span><span class="p">,</span> <span class="s2">"classify-top5"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">top5</span><span class="p">}]</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1487</span>
+<span>1488</span>
+<span>1489</span>
+<span>1490</span>
+<span>1491</span>
+<span>1492</span>
+<span>1493</span>
+<span>1494</span>
+<span>1495</span>
+<span>1496</span>
+<span>1497</span>
+<span>1498</span>
+<span>1499</span>
+<span>1500</span>
+<span>1501</span>
+<span>1502</span>
+<span>1503</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Generate a single-row summary of classification metrics (Top-1 and Top-5 accuracy).</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        normalize (bool): For Classify metrics, everything is normalized  by default [0-1].</span>
+<span></span><span class="sd">        decimals (int): Number of decimal places to round the metrics values to.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (List[Dict[str, float]]): A list with one dictionary containing Top-1 and Top-5 classification accuracy.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="imagenet10")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; classify_summary = results.summary(decimals=4)</span>
+<span></span><span class="sd">        &gt;&gt;&gt; print(classify_summary)</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">return</span> <span class="p">[{</span><span class="s2">"classify-top1"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top1</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span> <span class="s2">"classify-top5"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">top5</span><span class="p">,</span> <span class="n">decimals</span><span class="p">)}]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -6312,21 +6715,21 @@ normalization. This is useful for exporting the matrix to various formats such a
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1467</span>
-<span>1468</span>
-<span>1469</span>
-<span>1470</span>
-<span>1471</span>
-<span>1472</span>
-<span>1473</span>
-<span>1474</span>
-<span>1475</span>
-<span>1476</span>
-<span>1477</span>
-<span>1478</span>
-<span>1479</span>
-<span>1480</span>
-<span>1481</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1522</span>
+<span>1523</span>
+<span>1524</span>
+<span>1525</span>
+<span>1526</span>
+<span>1527</span>
+<span>1528</span>
+<span>1529</span>
+<span>1530</span>
+<span>1531</span>
+<span>1532</span>
+<span>1533</span>
+<span>1534</span>
+<span>1535</span>
+<span>1536</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an OBBMetrics instance with directory, plotting, and class names.</span>
 <span></span>
@@ -6445,9 +6848,9 @@ normalization. This is useful for exporting the matrix to various formats such a
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1516</span>
-<span>1517</span>
-<span>1518</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1571</span>
+<span>1572</span>
+<span>1573</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -6464,9 +6867,9 @@ normalization. This is useful for exporting the matrix to various formats such a
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1512</span>
-<span>1513</span>
-<span>1514</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1567</span>
+<span>1568</span>
+<span>1569</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -6582,29 +6985,29 @@ normalization. This is useful for exporting the matrix to various formats such a
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1483</span>
-<span>1484</span>
-<span>1485</span>
-<span>1486</span>
-<span>1487</span>
-<span>1488</span>
-<span>1489</span>
-<span>1490</span>
-<span>1491</span>
-<span>1492</span>
-<span>1493</span>
-<span>1494</span>
-<span>1495</span>
-<span>1496</span>
-<span>1497</span>
-<span>1498</span>
-<span>1499</span>
-<span>1500</span>
-<span>1501</span>
-<span>1502</span>
-<span>1503</span>
-<span>1504</span>
-<span>1505</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1538</span>
+<span>1539</span>
+<span>1540</span>
+<span>1541</span>
+<span>1542</span>
+<span>1543</span>
+<span>1544</span>
+<span>1545</span>
+<span>1546</span>
+<span>1547</span>
+<span>1548</span>
+<span>1549</span>
+<span>1550</span>
+<span>1551</span>
+<span>1552</span>
+<span>1553</span>
+<span>1554</span>
+<span>1555</span>
+<span>1556</span>
+<span>1557</span>
+<span>1558</span>
+<span>1559</span>
+<span>1560</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process predicted results for object detection and update metrics.</span>
 <span></span>
@@ -6635,33 +7038,137 @@ normalization. This is useful for exporting the matrix to various formats such a
 <h3 class="doc doc-heading" id="ultralytics.utils.metrics.OBBMetrics.summary">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">summary</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">summary</span><span class="p">(</span>
+<span></span>    <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Return per-class detection metrics with shared scalar values included.</p>
+<p>Generate a summarized representation of per-class detection metrics as a list of dictionaries. Includes shared
+scalar metrics (mAP, mAP50, mAP75) along with precision, recall, and F1-score for each class.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>normalize</code>
+</td>
+<td>
+<code><span title="bool">bool</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>For OBB metrics, everything is normalized  by default [0-1].</p>
+</div>
+</td>
+<td>
+<code>True</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>decimals</code>
+</td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Number of decimal places to round the metrics values to.</p>
+</div>
+</td>
+<td>
+<code>5</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Union">Union</span>[<span title="str">str</span>, <span title="float">float</span>]]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>A list of dictionaries, each representing one class with detection metrics.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">val</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"dota8.yaml"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">detection_summary</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">summary</span><span class="p">(</span><span class="n">decimals</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">detection_summary</span><span class="p">)</span>
+</code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1550</span>
-<span>1551</span>
-<span>1552</span>
-<span>1553</span>
-<span>1554</span>
-<span>1555</span>
-<span>1556</span>
-<span>1557</span>
-<span>1558</span>
-<span>1559</span>
-<span>1560</span>
-<span>1561</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
-<span></span><span class="w">    </span><span class="sd">"""Return per-class detection metrics with shared scalar values included."""</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1605</span>
+<span>1606</span>
+<span>1607</span>
+<span>1608</span>
+<span>1609</span>
+<span>1610</span>
+<span>1611</span>
+<span>1612</span>
+<span>1613</span>
+<span>1614</span>
+<span>1615</span>
+<span>1616</span>
+<span>1617</span>
+<span>1618</span>
+<span>1619</span>
+<span>1620</span>
+<span>1621</span>
+<span>1622</span>
+<span>1623</span>
+<span>1624</span>
+<span>1625</span>
+<span>1626</span>
+<span>1627</span>
+<span>1628</span>
+<span>1629</span>
+<span>1630</span>
+<span>1631</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Generate a summarized representation of per-class detection metrics as a list of dictionaries. Includes shared</span>
+<span></span><span class="sd">    scalar metrics (mAP, mAP50, mAP75) along with precision, recall, and F1-score for each class.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        normalize (bool): For OBB metrics, everything is normalized  by default [0-1].</span>
+<span></span><span class="sd">        decimals (int): Number of decimal places to round the metrics values to.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (List[Dict[str, Union[str, float]]]): A list of dictionaries, each representing one class with detection metrics.</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; results = model.val(data="dota8.yaml")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; detection_summary = results.summary(decimals=4)</span>
+<span></span><span class="sd">        &gt;&gt;&gt; print(detection_summary)</span>
+<span></span><span class="sd">    """</span>
 <span></span>    <span class="n">scalars</span> <span class="o">=</span> <span class="p">{</span>
-<span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span>
-<span></span>        <span class="s2">"box-map50"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span>
-<span></span>        <span class="s2">"box-map75"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span>
+<span></span>        <span class="s2">"box-map"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"box-map50"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map50</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
+<span></span>        <span class="s2">"box-map75"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">map75</span><span class="p">,</span> <span class="n">decimals</span><span class="p">),</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="n">per_class</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"box-p"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="s2">"box-r"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="s2">"box-f1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">f1</span><span class="p">}</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
-<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
+<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
 <span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="p">[])))</span>
 <span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
