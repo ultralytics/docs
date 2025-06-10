@@ -4693,7 +4693,11 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <span>1070</span>
 <span>1071</span>
 <span>1072</span>
-<span>1073</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span>1073</span>
+<span>1074</span>
+<span>1075</span>
+<span>1076</span>
+<span>1077</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a summarized representation of per-class detection metrics as a list of dictionaries. Includes shared</span>
 <span></span><span class="sd">    scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</span>
@@ -4721,8 +4725,12 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <span></span>        <span class="s2">"box-f1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">f1</span><span class="p">,</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
-<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
-<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="p">[])))</span>
+<span></span>        <span class="p">{</span>
+<span></span>            <span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ap_class_index</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>
+<span></span>            <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+<span></span>            <span class="o">**</span><span class="n">scalars</span><span class="p">,</span>
+<span></span>        <span class="p">}</span>
+<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">per_class</span><span class="p">[</span><span class="s2">"box-p"</span><span class="p">]))</span>
 <span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4895,11 +4903,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1090</span>
-<span>1091</span>
-<span>1092</span>
-<span>1093</span>
-<span>1094</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1094</span>
 <span>1095</span>
 <span>1096</span>
 <span>1097</span>
@@ -4910,7 +4914,11 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <span>1102</span>
 <span>1103</span>
 <span>1104</span>
-<span>1105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1105</span>
+<span>1106</span>
+<span>1107</span>
+<span>1108</span>
+<span>1109</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SegmentMetrics instance with a save directory, plot flag, and class names.</span>
 <span></span>
@@ -5030,9 +5038,9 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <p>Return classification results for a specified class index.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1172</span>
-<span>1173</span>
-<span>1174</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1176</span>
+<span>1177</span>
+<span>1178</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return classification results for a specified class index."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5049,9 +5057,9 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <p>Return the mean metrics for bounding box and segmentation results.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1168</span>
-<span>1169</span>
-<span>1170</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1172</span>
+<span>1173</span>
+<span>1174</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the mean metrics for bounding box and segmentation results."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -5184,11 +5192,7 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1107</span>
-<span>1108</span>
-<span>1109</span>
-<span>1110</span>
-<span>1111</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1111</span>
 <span>1112</span>
 <span>1113</span>
 <span>1114</span>
@@ -5229,7 +5233,11 @@ scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for
 <span>1149</span>
 <span>1150</span>
 <span>1151</span>
-<span>1152</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
+<span>1152</span>
+<span>1153</span>
+<span>1154</span>
+<span>1155</span>
+<span>1156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">tp_m</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -5363,11 +5371,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1215</span>
-<span>1216</span>
-<span>1217</span>
-<span>1218</span>
-<span>1219</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1219</span>
 <span>1220</span>
 <span>1221</span>
 <span>1222</span>
@@ -5399,7 +5403,15 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <span>1248</span>
 <span>1249</span>
 <span>1250</span>
-<span>1251</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span>1251</span>
+<span>1252</span>
+<span>1253</span>
+<span>1254</span>
+<span>1255</span>
+<span>1256</span>
+<span>1257</span>
+<span>1258</span>
+<span>1259</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a summarized representation of per-class segmentation metrics as a list of dictionaries. Includes both</span>
 <span></span><span class="sd">    box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</span>
@@ -5433,8 +5445,12 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <span></span>        <span class="s2">"mask-f1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">seg</span><span class="o">.</span><span class="n">f1</span><span class="p">,</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
-<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
-<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="p">[])))</span>
+<span></span>        <span class="p">{</span>
+<span></span>            <span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ap_class_index</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>
+<span></span>            <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+<span></span>            <span class="o">**</span><span class="n">scalars</span><span class="p">,</span>
+<span></span>        <span class="p">}</span>
+<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">per_class</span><span class="p">[</span><span class="s2">"box-p"</span><span class="p">]))</span>
 <span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -5686,15 +5702,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1277</span>
-<span>1278</span>
-<span>1279</span>
-<span>1280</span>
-<span>1281</span>
-<span>1282</span>
-<span>1283</span>
-<span>1284</span>
-<span>1285</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1285</span>
 <span>1286</span>
 <span>1287</span>
 <span>1288</span>
@@ -5702,7 +5710,15 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <span>1290</span>
 <span>1291</span>
 <span>1292</span>
-<span>1293</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1293</span>
+<span>1294</span>
+<span>1295</span>
+<span>1296</span>
+<span>1297</span>
+<span>1298</span>
+<span>1299</span>
+<span>1300</span>
+<span>1301</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the PoseMetrics class with directory path, class names, and plotting options.</span>
 <span></span>
@@ -5797,9 +5813,9 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <p>Return the class-wise detection results for a specific class i.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1360</span>
-<span>1361</span>
-<span>1362</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1368</span>
+<span>1369</span>
+<span>1370</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the class-wise detection results for a specific class i."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -5816,9 +5832,9 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <p>Return the mean results of box and pose.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1356</span>
-<span>1357</span>
-<span>1358</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1364</span>
+<span>1365</span>
+<span>1366</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the mean results of box and pose."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -5951,15 +5967,7 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1295</span>
-<span>1296</span>
-<span>1297</span>
-<span>1298</span>
-<span>1299</span>
-<span>1300</span>
-<span>1301</span>
-<span>1302</span>
-<span>1303</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1303</span>
 <span>1304</span>
 <span>1305</span>
 <span>1306</span>
@@ -5996,7 +6004,15 @@ box and mask scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and
 <span>1337</span>
 <span>1338</span>
 <span>1339</span>
-<span>1340</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
+<span>1340</span>
+<span>1341</span>
+<span>1342</span>
+<span>1343</span>
+<span>1344</span>
+<span>1345</span>
+<span>1346</span>
+<span>1347</span>
+<span>1348</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">tp_p</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
@@ -6130,15 +6146,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1393</span>
-<span>1394</span>
-<span>1395</span>
-<span>1396</span>
-<span>1397</span>
-<span>1398</span>
-<span>1399</span>
-<span>1400</span>
-<span>1401</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1401</span>
 <span>1402</span>
 <span>1403</span>
 <span>1404</span>
@@ -6166,7 +6174,19 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <span>1426</span>
 <span>1427</span>
 <span>1428</span>
-<span>1429</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span>1429</span>
+<span>1430</span>
+<span>1431</span>
+<span>1432</span>
+<span>1433</span>
+<span>1434</span>
+<span>1435</span>
+<span>1436</span>
+<span>1437</span>
+<span>1438</span>
+<span>1439</span>
+<span>1440</span>
+<span>1441</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a summarized representation of per-class pose metrics as a list of dictionaries. Includes both box and</span>
 <span></span><span class="sd">    pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-score for each class.</span>
@@ -6200,8 +6220,12 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <span></span>        <span class="s2">"pose-f1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">pose</span><span class="o">.</span><span class="n">f1</span><span class="p">,</span>
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
-<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
-<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="p">[])))</span>
+<span></span>        <span class="p">{</span>
+<span></span>            <span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ap_class_index</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>
+<span></span>            <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+<span></span>            <span class="o">**</span><span class="n">scalars</span><span class="p">,</span>
+<span></span>        <span class="p">}</span>
+<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">per_class</span><span class="p">[</span><span class="s2">"box-p"</span><span class="p">]))</span>
 <span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -6278,12 +6302,12 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1443</span>
-<span>1444</span>
-<span>1445</span>
-<span>1446</span>
-<span>1447</span>
-<span>1448</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1455</span>
+<span>1456</span>
+<span>1457</span>
+<span>1458</span>
+<span>1459</span>
+<span>1460</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a ClassifyMetrics instance."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">top1</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">top5</span> <span class="o">=</span> <span class="mi">0</span>
@@ -6412,18 +6436,18 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1450</span>
-<span>1451</span>
-<span>1452</span>
-<span>1453</span>
-<span>1454</span>
-<span>1455</span>
-<span>1456</span>
-<span>1457</span>
-<span>1458</span>
-<span>1459</span>
-<span>1460</span>
-<span>1461</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1462</span>
+<span>1463</span>
+<span>1464</span>
+<span>1465</span>
+<span>1466</span>
+<span>1467</span>
+<span>1468</span>
+<span>1469</span>
+<span>1470</span>
+<span>1471</span>
+<span>1472</span>
+<span>1473</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">targets</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">pred</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process target classes and predicted classes to compute metrics.</span>
 <span></span>
@@ -6520,23 +6544,23 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1488</span>
-<span>1489</span>
-<span>1490</span>
-<span>1491</span>
-<span>1492</span>
-<span>1493</span>
-<span>1494</span>
-<span>1495</span>
-<span>1496</span>
-<span>1497</span>
-<span>1498</span>
-<span>1499</span>
-<span>1500</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1500</span>
 <span>1501</span>
 <span>1502</span>
 <span>1503</span>
-<span>1504</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span>1504</span>
+<span>1505</span>
+<span>1506</span>
+<span>1507</span>
+<span>1508</span>
+<span>1509</span>
+<span>1510</span>
+<span>1511</span>
+<span>1512</span>
+<span>1513</span>
+<span>1514</span>
+<span>1515</span>
+<span>1516</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a single-row summary of classification metrics (Top-1 and Top-5 accuracy).</span>
 <span></span>
@@ -6717,21 +6741,21 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1523</span>
-<span>1524</span>
-<span>1525</span>
-<span>1526</span>
-<span>1527</span>
-<span>1528</span>
-<span>1529</span>
-<span>1530</span>
-<span>1531</span>
-<span>1532</span>
-<span>1533</span>
-<span>1534</span>
-<span>1535</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1535</span>
 <span>1536</span>
-<span>1537</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1537</span>
+<span>1538</span>
+<span>1539</span>
+<span>1540</span>
+<span>1541</span>
+<span>1542</span>
+<span>1543</span>
+<span>1544</span>
+<span>1545</span>
+<span>1546</span>
+<span>1547</span>
+<span>1548</span>
+<span>1549</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"."</span><span class="p">),</span> <span class="n">plot</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">names</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">{})</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an OBBMetrics instance with directory, plotting, and class names.</span>
 <span></span>
@@ -6850,9 +6874,9 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <p>Return the result of evaluating the performance of an object detection model on a specific class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1572</span>
-<span>1573</span>
-<span>1574</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1584</span>
+<span>1585</span>
+<span>1586</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">class_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">i</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the result of evaluating the performance of an object detection model on a specific class."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -6869,9 +6893,9 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <p>Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1568</span>
-<span>1569</span>
-<span>1570</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1580</span>
+<span>1581</span>
+<span>1582</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mean_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate mean of detected objects &amp; return precision, recall, mAP50, and mAP50-95."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -6987,19 +7011,7 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1539</span>
-<span>1540</span>
-<span>1541</span>
-<span>1542</span>
-<span>1543</span>
-<span>1544</span>
-<span>1545</span>
-<span>1546</span>
-<span>1547</span>
-<span>1548</span>
-<span>1549</span>
-<span>1550</span>
-<span>1551</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1551</span>
 <span>1552</span>
 <span>1553</span>
 <span>1554</span>
@@ -7009,7 +7021,19 @@ pose scalar metrics (mAP, mAP50, mAP75) alongside precision, recall, and F1-scor
 <span>1558</span>
 <span>1559</span>
 <span>1560</span>
-<span>1561</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1561</span>
+<span>1562</span>
+<span>1563</span>
+<span>1564</span>
+<span>1565</span>
+<span>1566</span>
+<span>1567</span>
+<span>1568</span>
+<span>1569</span>
+<span>1570</span>
+<span>1571</span>
+<span>1572</span>
+<span>1573</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tp</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">pred_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">target_cls</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process predicted results for object detection and update metrics.</span>
 <span></span>
@@ -7120,19 +7144,7 @@ scalar metrics (mAP, mAP50, mAP75) along with precision, recall, and F1-score fo
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/metrics.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1606</span>
-<span>1607</span>
-<span>1608</span>
-<span>1609</span>
-<span>1610</span>
-<span>1611</span>
-<span>1612</span>
-<span>1613</span>
-<span>1614</span>
-<span>1615</span>
-<span>1616</span>
-<span>1617</span>
-<span>1618</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1618</span>
 <span>1619</span>
 <span>1620</span>
 <span>1621</span>
@@ -7146,7 +7158,23 @@ scalar metrics (mAP, mAP50, mAP75) along with precision, recall, and F1-score fo
 <span>1629</span>
 <span>1630</span>
 <span>1631</span>
-<span>1632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
+<span>1632</span>
+<span>1633</span>
+<span>1634</span>
+<span>1635</span>
+<span>1636</span>
+<span>1637</span>
+<span>1638</span>
+<span>1639</span>
+<span>1640</span>
+<span>1641</span>
+<span>1642</span>
+<span>1643</span>
+<span>1644</span>
+<span>1645</span>
+<span>1646</span>
+<span>1647</span>
+<span>1648</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">summary</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">decimals</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">5</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a summarized representation of per-class detection metrics as a list of dictionaries. Includes shared</span>
 <span></span><span class="sd">    scalar metrics (mAP, mAP50, mAP75) along with precision, recall, and F1-score for each class.</span>
@@ -7170,8 +7198,12 @@ scalar metrics (mAP, mAP50, mAP75) along with precision, recall, and F1-score fo
 <span></span>    <span class="p">}</span>
 <span></span>    <span class="n">per_class</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"box-p"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">p</span><span class="p">,</span> <span class="s2">"box-r"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">r</span><span class="p">,</span> <span class="s2">"box-f1"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">box</span><span class="o">.</span><span class="n">f1</span><span class="p">}</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span>
-<span></span>        <span class="p">{</span><span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span> <span class="o">**</span><span class="n">scalars</span><span class="p">}</span>
-<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="nb">next</span><span class="p">(</span><span class="nb">iter</span><span class="p">(</span><span class="n">per_class</span><span class="o">.</span><span class="n">values</span><span class="p">()),</span> <span class="p">[])))</span>
+<span></span>        <span class="p">{</span>
+<span></span>            <span class="s2">"class_name"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">ap_class_index</span><span class="p">[</span><span class="n">i</span><span class="p">]],</span>
+<span></span>            <span class="o">**</span><span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">decimals</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">per_class</span><span class="o">.</span><span class="n">items</span><span class="p">()},</span>
+<span></span>            <span class="o">**</span><span class="n">scalars</span><span class="p">,</span>
+<span></span>        <span class="p">}</span>
+<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">per_class</span><span class="p">[</span><span class="s2">"box-p"</span><span class="p">]))</span>
 <span></span>    <span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
