@@ -2744,7 +2744,9 @@ called when executing a script with arguments related to YOLO settings managemen
 <span>625</span>
 <span>626</span>
 <span>627</span>
-<span>628</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>628</span>
+<span>629</span>
+<span>630</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Handle YOLO settings command-line interface (CLI) commands.</span>
 <span></span>
@@ -2778,6 +2780,8 @@ called when executing a script with arguments related to YOLO settings managemen
 <span></span>                <span class="n">new</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">parse_key_value_pair</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">args</span><span class="p">)</span>
 <span></span>                <span class="n">check_dict_alignment</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">,</span> <span class="n">new</span><span class="p">)</span>
 <span></span>                <span class="n">SETTINGS</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">new</span><span class="p">)</span>
+<span></span>                <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">new</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span></span>                    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"✅ Updated '</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">'"</span><span class="p">)</span>
 <span></span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">SETTINGS</span><span class="p">)</span>  <span class="c1"># print the current settings</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"💡 Learn more about Ultralytics Settings at </span><span class="si">{</span><span class="n">url</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -2853,9 +2857,7 @@ and other configuration parameters.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>631</span>
-<span>632</span>
-<span>633</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>633</span>
 <span>634</span>
 <span>635</span>
 <span>636</span>
@@ -2962,7 +2964,9 @@ and other configuration parameters.</p>
 <span>737</span>
 <span>738</span>
 <span>739</span>
-<span>740</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_solutions</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>740</span>
+<span>741</span>
+<span>742</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_solutions</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process YOLO solutions arguments and run the specified computer vision solutions pipeline.</span>
 <span></span>
@@ -3184,9 +3188,7 @@ and other configuration parameters.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>743</span>
-<span>744</span>
-<span>745</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>745</span>
 <span>746</span>
 <span>747</span>
 <span>748</span>
@@ -3215,7 +3217,9 @@ and other configuration parameters.</p>
 <span>771</span>
 <span>772</span>
 <span>773</span>
-<span>774</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_key_value_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"key=value"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span>774</span>
+<span>775</span>
+<span>776</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_key_value_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"key=value"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Parse a key-value pair string into separate key and value components.</span>
 <span></span>
@@ -3334,9 +3338,7 @@ is applicable.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>777</span>
-<span>778</span>
-<span>779</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>779</span>
 <span>780</span>
 <span>781</span>
 <span>782</span>
@@ -3376,7 +3378,9 @@ is applicable.</p>
 <span>816</span>
 <span>817</span>
 <span>818</span>
-<span>819</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span>819</span>
+<span>820</span>
+<span>821</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a string representation of a value to its appropriate Python type.</span>
 <span></span>
@@ -3482,9 +3486,7 @@ executing the corresponding tasks such as training, validation, prediction, expo
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>822</span>
-<span>823</span>
-<span>824</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>824</span>
 <span>825</span>
 <span>826</span>
 <span>827</span>
@@ -3650,7 +3652,9 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <span>987</span>
 <span>988</span>
 <span>989</span>
-<span>990</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>990</span>
+<span>991</span>
+<span>992</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Ultralytics entrypoint function for parsing and executing command-line arguments.</span>
 <span></span>
@@ -3852,9 +3856,7 @@ to create a custom configuration file based on the default settings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 994</span>
-<span> 995</span>
-<span> 996</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 996</span>
 <span> 997</span>
 <span> 998</span>
 <span> 999</span>
@@ -3878,7 +3880,9 @@ to create a custom configuration file based on the default settings.</p>
 <span>1017</span>
 <span>1018</span>
 <span>1019</span>
-<span>1020</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">copy_default_cfg</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1020</span>
+<span>1021</span>
+<span>1022</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">copy_default_cfg</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Copy the default configuration file and create a new one with '_copy' appended to its name.</span>
 <span></span>
