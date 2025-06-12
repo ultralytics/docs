@@ -1244,7 +1244,9 @@ thresholds.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>45</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
+<span>44</span>
+<span>45</span>
 <span>46</span>
 <span>47</span>
 <span>48</span>
@@ -1259,11 +1261,7 @@ thresholds.</p>
 <span>57</span>
 <span>58</span>
 <span>59</span>
-<span>60</span>
-<span>61</span>
-<span>62</span>
-<span>63</span>
-<span>64</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>60</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize detection validator with necessary variables and settings.</span>
 <span></span>
@@ -1274,15 +1272,13 @@ thresholds.</p>
 <span></span><span class="sd">        _callbacks (List[Any], optional): List of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_image</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"detect"</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">iouv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># IoU vector for mAP@0.5:0.95</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">niou</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iouv</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">DetMetrics</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">

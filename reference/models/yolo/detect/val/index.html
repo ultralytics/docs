@@ -1474,28 +1474,6 @@ prediction processing, and visualization of results.</p>
 </thead>
 <tbody>
 <tr class="doc-section-item">
-<td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.nt_per_class">nt_per_class</span></code></td>
-<td>
-<code><span title="numpy.ndarray">ndarray</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Number of targets per class.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.nt_per_image">nt_per_image</span></code></td>
-<td>
-<code><span title="numpy.ndarray">ndarray</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Number of targets per image.</p>
-</div>
-</td>
-</tr>
-<tr class="doc-section-item">
 <td><code><span title="ultralytics.models.yolo.detect.val.DetectionValidator.is_coco">is_coco</span></code></td>
 <td>
 <code><span title="bool">bool</span></code>
@@ -1681,7 +1659,9 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>45</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
+<span>44</span>
+<span>45</span>
 <span>46</span>
 <span>47</span>
 <span>48</span>
@@ -1696,11 +1676,7 @@ prediction processing, and visualization of results.</p>
 <span>57</span>
 <span>58</span>
 <span>59</span>
-<span>60</span>
-<span>61</span>
-<span>62</span>
-<span>63</span>
-<span>64</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>60</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize detection validator with necessary variables and settings.</span>
 <span></span>
@@ -1711,15 +1687,13 @@ prediction processing, and visualization of results.</p>
 <span></span><span class="sd">        _callbacks (List[Any], optional): List of callback functions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_image</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"detect"</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">DetMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">iouv</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>  <span class="c1"># IoU vector for mAP@0.5:0.95</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">niou</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">iouv</span><span class="o">.</span><span class="n">numel</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">DetMetrics</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1817,19 +1791,19 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>283</span>
-<span>284</span>
-<span>285</span>
-<span>286</span>
-<span>287</span>
-<span>288</span>
-<span>289</span>
-<span>290</span>
-<span>291</span>
-<span>292</span>
-<span>293</span>
-<span>294</span>
-<span>295</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"val"</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span>
+<span>278</span>
+<span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span>
+<span>283</span>
+<span>284</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mode</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"val"</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">Dataset</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset.</span>
 <span></span>
@@ -1906,7 +1880,9 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>389</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>387</span>
+<span>388</span>
+<span>389</span>
 <span>390</span>
 <span>391</span>
 <span>392</span>
@@ -1957,9 +1933,7 @@ prediction processing, and visualization of results.</p>
 <span>437</span>
 <span>438</span>
 <span>439</span>
-<span>440</span>
-<span>441</span>
-<span>442</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>440</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Evaluate YOLO output in JSON format and return performance statistics.</span>
 <span></span>
@@ -2027,13 +2001,13 @@ prediction processing, and visualization of results.</p>
 <p>Set final values for metrics speed and confusion matrix.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
-<span>235</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">finalize_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">finalize_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Set final values for metrics speed and confusion matrix."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span><span class="p">:</span>
 <span></span>        <span class="k">for</span> <span class="n">normalize</span> <span class="ow">in</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">False</span><span class="p">:</span>
@@ -2122,19 +2096,19 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>297</span>
-<span>298</span>
-<span>299</span>
-<span>300</span>
-<span>301</span>
-<span>302</span>
-<span>303</span>
-<span>304</span>
-<span>305</span>
-<span>306</span>
-<span>307</span>
-<span>308</span>
-<span>309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>286</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span>
+<span>296</span>
+<span>297</span>
+<span>298</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataloader</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataset_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">utils</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">DataLoader</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Construct and return dataloader.</span>
 <span></span>
@@ -2161,9 +2135,9 @@ prediction processing, and visualization of results.</p>
 <p>Return a formatted string summarizing class metrics of YOLO model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
-<span>110</span>
-<span>111</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>103</span>
+<span>104</span>
+<span>105</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a formatted string summarizing class metrics of YOLO model."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span><span class="s2">"</span><span class="si">%22s</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"</span><span class="si">%11s</span><span class="s2">"</span> <span class="o">*</span> <span class="mi">6</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span><span class="s2">"Class"</span><span class="p">,</span> <span class="s2">"Images"</span><span class="p">,</span> <span class="s2">"Instances"</span><span class="p">,</span> <span class="s2">"Box(P"</span><span class="p">,</span> <span class="s2">"R"</span><span class="p">,</span> <span class="s2">"mAP50"</span><span class="p">,</span> <span class="s2">"mAP50-95)"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2201,32 +2175,24 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span>
-<span>241</span>
-<span>242</span>
-<span>243</span>
-<span>244</span>
-<span>245</span>
-<span>246</span>
-<span>247</span>
-<span>248</span>
-<span>249</span>
-<span>250</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate and return metrics statistics.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Dict[str, Any]): Dictionary containing metrics results.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">stats</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>  <span class="c1"># to numpy</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">"target_cls"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">minlength</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_image</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">bincount</span><span class="p">(</span><span class="n">stats</span><span class="p">[</span><span class="s2">"target_img"</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">minlength</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">)</span>
-<span></span>    <span class="n">stats</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"target_img"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
-<span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">stats</span><span class="p">):</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">**</span><span class="n">stats</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">,</span> <span class="n">plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span><span class="p">,</span> <span class="n">on_plot</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">on_plot</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">clear_stats</span><span class="p">()</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">results_dict</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2271,7 +2237,11 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 83</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 79</span>
+<span> 80</span>
+<span> 81</span>
+<span> 82</span>
+<span> 83</span>
 <span> 84</span>
 <span> 85</span>
 <span> 86</span>
@@ -2289,13 +2259,7 @@ prediction processing, and visualization of results.</p>
 <span> 98</span>
 <span> 99</span>
 <span>100</span>
-<span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span>
-<span>105</span>
-<span>106</span>
-<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>101</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize evaluation metrics for YOLO detection validation.</span>
 <span></span>
@@ -2314,12 +2278,10 @@ prediction processing, and visualization of results.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">names</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">end2end</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"end2end"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">plot</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">ConfusionMatrix</span><span class="p">(</span><span class="n">nc</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">seen</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">jdict</span> <span class="o">=</span> <span class="p">[]</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">stats</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">tp</span><span class="o">=</span><span class="p">[],</span> <span class="n">conf</span><span class="o">=</span><span class="p">[],</span> <span class="n">pred_cls</span><span class="o">=</span><span class="p">[],</span> <span class="n">target_cls</span><span class="o">=</span><span class="p">[],</span> <span class="n">target_img</span><span class="o">=</span><span class="p">[])</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">ConfusionMatrix</span><span class="p">(</span><span class="n">names</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2328,7 +2290,12 @@ prediction processing, and visualization of results.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.val.DetectionValidator.plot_predictions">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot_predictions</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_predictions</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_predictions</span><span class="p">(</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span></span>    <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]],</span>
+<span></span>    <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
+<span></span>    <span class="n">max_det</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Plot predicted bounding boxes on input images and save the result.</p>
@@ -2364,7 +2331,7 @@ prediction processing, and visualization of results.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2391,11 +2358,41 @@ prediction processing, and visualization of results.</p>
 <em>required</em>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td>
+<code>max_det</code>
+</td>
+<td>
+<code><span title="typing.Optional">Optional</span>[<span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum number of detections to plot.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
 </tbody>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>330</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span>
+<span>329</span>
+<span>330</span>
 <span>331</span>
 <span>332</span>
 <span>333</span>
@@ -2408,21 +2405,29 @@ prediction processing, and visualization of results.</p>
 <span>340</span>
 <span>341</span>
 <span>342</span>
-<span>343</span>
-<span>344</span>
-<span>345</span>
-<span>346</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>343</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">max_det</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot predicted bounding boxes on input images and save the result.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        batch (Dict[str, Any]): Batch containing images and annotations.</span>
-<span></span><span class="sd">        preds (List[torch.Tensor]): List of predictions from the model.</span>
+<span></span><span class="sd">        preds (List[Dict[str, torch.Tensor]]): List of predictions from the model.</span>
 <span></span><span class="sd">        ni (int): Batch index.</span>
+<span></span><span class="sd">        max_det (Optional[int]): Maximum number of detections to plot.</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="c1"># TODO: optimize this</span>
+<span></span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preds</span><span class="p">):</span>
+<span></span>        <span class="n">pred</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">]</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">pred</span><span class="p">[</span><span class="s2">"conf"</span><span class="p">])</span> <span class="o">*</span> <span class="n">i</span>  <span class="c1"># add batch index to predictions</span>
+<span></span>    <span class="n">keys</span> <span class="o">=</span> <span class="n">preds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span></span>    <span class="n">max_det</span> <span class="o">=</span> <span class="n">max_det</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">max_det</span>
+<span></span>    <span class="n">batched_preds</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">k</span><span class="p">][:</span><span class="n">max_det</span><span class="p">]</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">preds</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">}</span>
+<span></span>    <span class="c1"># TODO: fix this</span>
+<span></span>    <span class="n">batched_preds</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">][:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">batched_preds</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">][:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># convert to xywh format</span>
 <span></span>    <span class="n">plot_images</span><span class="p">(</span>
-<span></span>        <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">],</span>
-<span></span>        <span class="o">*</span><span class="n">output_to_target</span><span class="p">(</span><span class="n">preds</span><span class="p">,</span> <span class="n">max_det</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">max_det</span><span class="p">),</span>
+<span></span>        <span class="n">images</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">],</span>
+<span></span>        <span class="n">labels</span><span class="o">=</span><span class="n">batched_preds</span><span class="p">,</span>
 <span></span>        <span class="n">paths</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">],</span>
 <span></span>        <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"val_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s2">_pred.jpg"</span><span class="p">,</span>
 <span></span>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
@@ -2487,24 +2492,21 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>300</span>
+<span>301</span>
+<span>302</span>
+<span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
 <span>312</span>
 <span>313</span>
-<span>314</span>
-<span>315</span>
-<span>316</span>
-<span>317</span>
-<span>318</span>
-<span>319</span>
-<span>320</span>
-<span>321</span>
-<span>322</span>
-<span>323</span>
-<span>324</span>
-<span>325</span>
-<span>326</span>
-<span>327</span>
-<span>328</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>314</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_val_samples</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot validation image samples.</span>
 <span></span>
@@ -2513,10 +2515,7 @@ prediction processing, and visualization of results.</p>
 <span></span><span class="sd">        ni (int): Batch index.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">plot_images</span><span class="p">(</span>
-<span></span>        <span class="n">batch</span><span class="p">[</span><span class="s2">"img"</span><span class="p">],</span>
-<span></span>        <span class="n">batch</span><span class="p">[</span><span class="s2">"batch_idx"</span><span class="p">],</span>
-<span></span>        <span class="n">batch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">squeeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-<span></span>        <span class="n">batch</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">],</span>
+<span></span>        <span class="n">labels</span><span class="o">=</span><span class="n">batch</span><span class="p">,</span>
 <span></span>        <span class="n">paths</span><span class="o">=</span><span class="n">batch</span><span class="p">[</span><span class="s2">"im_file"</span><span class="p">],</span>
 <span></span>        <span class="n">fname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"val_batch</span><span class="si">{</span><span class="n">ni</span><span class="si">}</span><span class="s2">_labels.jpg"</span><span class="p">,</span>
 <span></span>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
@@ -2530,7 +2529,7 @@ prediction processing, and visualization of results.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.val.DetectionValidator.postprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">postprocess</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply Non-maximum suppression to prediction outputs.</p>
@@ -2574,11 +2573,12 @@ prediction processing, and visualization of results.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Processed predictions after NMS.</p>
+<p>Processed predictions after NMS, where each dict contains
+'bboxes', 'conf', 'cls', and 'extra' tensors.</p>
 </div>
 </td>
 </tr>
@@ -2586,7 +2586,13 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>107</span>
+<span>108</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
 <span>114</span>
 <span>115</span>
 <span>116</span>
@@ -2602,11 +2608,7 @@ prediction processing, and visualization of results.</p>
 <span>126</span>
 <span>127</span>
 <span>128</span>
-<span>129</span>
-<span>130</span>
-<span>131</span>
-<span>132</span>
-<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>129</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply Non-maximum suppression to prediction outputs.</span>
 <span></span>
@@ -2614,9 +2616,10 @@ prediction processing, and visualization of results.</p>
 <span></span><span class="sd">        preds (torch.Tensor): Raw predictions from the model.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (List[torch.Tensor]): Processed predictions after NMS.</span>
+<span></span><span class="sd">        (List[Dict[str, torch.Tensor]]): Processed predictions after NMS, where each dict contains</span>
+<span></span><span class="sd">            'bboxes', 'conf', 'cls', and 'extra' tensors.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="k">return</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span>
+<span></span>    <span class="n">outputs</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">non_max_suppression</span><span class="p">(</span>
 <span></span>        <span class="n">preds</span><span class="p">,</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">,</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">iou</span><span class="p">,</span>
@@ -2627,6 +2630,7 @@ prediction processing, and visualization of results.</p>
 <span></span>        <span class="n">end2end</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">end2end</span><span class="p">,</span>
 <span></span>        <span class="n">rotated</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">==</span> <span class="s2">"obb"</span><span class="p">,</span>
 <span></span>    <span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="p">[{</span><span class="s2">"bboxes"</span><span class="p">:</span> <span class="n">x</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">],</span> <span class="s2">"conf"</span><span class="p">:</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">],</span> <span class="s2">"cls"</span><span class="p">:</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">],</span> <span class="s2">"extra"</span><span class="p">:</span> <span class="n">x</span><span class="p">[:,</span> <span class="mi">6</span><span class="p">:]}</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">outputs</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2635,7 +2639,7 @@ prediction processing, and visualization of results.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.val.DetectionValidator.pred_to_json">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">pred_to_json</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">pred_to_json</span><span class="p">(</span><span class="n">predn</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">pred_to_json</span><span class="p">(</span><span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Serialize YOLO predictions to COCO json format.</p>
@@ -2655,11 +2659,12 @@ prediction processing, and visualization of results.</p>
 <code>predn</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Predictions in the format (x1, y1, x2, y2, conf, class).</p>
+<p>Predictions dictionary containing 'bboxes', 'conf', and 'cls' keys
+with bounding box coordinates, confidence scores, and class predictions.</p>
 </div>
 </td>
 <td>
@@ -2686,7 +2691,10 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>367</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
 <span>368</span>
 <span>369</span>
 <span>370</span>
@@ -2704,27 +2712,26 @@ prediction processing, and visualization of results.</p>
 <span>382</span>
 <span>383</span>
 <span>384</span>
-<span>385</span>
-<span>386</span>
-<span>387</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>385</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Serialize YOLO predictions to COCO json format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (torch.Tensor): Predictions in the format (x1, y1, x2, y2, conf, class).</span>
+<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Predictions dictionary containing 'bboxes', 'conf', and 'cls' keys</span>
+<span></span><span class="sd">            with bounding box coordinates, confidence scores, and class predictions.</span>
 <span></span><span class="sd">        filename (str): Image filename.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">stem</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
 <span></span>    <span class="n">image_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">stem</span><span class="p">)</span> <span class="k">if</span> <span class="n">stem</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="k">else</span> <span class="n">stem</span>
-<span></span>    <span class="n">box</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">predn</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">4</span><span class="p">])</span>  <span class="c1"># xywh</span>
+<span></span>    <span class="n">box</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">predn</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">])</span>  <span class="c1"># xywh</span>
 <span></span>    <span class="n">box</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">box</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># xy center to top-left corner</span>
-<span></span>    <span class="k">for</span> <span class="n">p</span><span class="p">,</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">predn</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">box</span><span class="o">.</span><span class="n">tolist</span><span class="p">()):</span>
+<span></span>    <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">box</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">predn</span><span class="p">[</span><span class="s2">"conf"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">predn</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
 <span></span>            <span class="p">{</span>
 <span></span>                <span class="s2">"image_id"</span><span class="p">:</span> <span class="n">image_id</span><span class="p">,</span>
-<span></span>                <span class="s2">"category_id"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">5</span><span class="p">])],</span>
+<span></span>                <span class="s2">"category_id"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)],</span>
 <span></span>                <span class="s2">"bbox"</span><span class="p">:</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">b</span><span class="p">],</span>
-<span></span>                <span class="s2">"score"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="mi">5</span><span class="p">),</span>
+<span></span>                <span class="s2">"score"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
 <span></span>            <span class="p">}</span>
 <span></span>        <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2791,7 +2798,11 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>66</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>62</span>
+<span>63</span>
+<span>64</span>
+<span>65</span>
+<span>66</span>
 <span>67</span>
 <span>68</span>
 <span>69</span>
@@ -2802,11 +2813,7 @@ prediction processing, and visualization of results.</p>
 <span>74</span>
 <span>75</span>
 <span>76</span>
-<span>77</span>
-<span>78</span>
-<span>79</span>
-<span>80</span>
-<span>81</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>77</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Preprocess batch of images for YOLO validation.</span>
 <span></span>
@@ -2836,30 +2843,42 @@ prediction processing, and visualization of results.</p>
 <p>Print training/validation set metrics per class.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>252</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
 <span>253</span>
-<span>254</span>
-<span>255</span>
-<span>256</span>
-<span>257</span>
-<span>258</span>
-<span>259</span>
-<span>260</span>
-<span>261</span>
-<span>262</span>
-<span>263</span>
-<span>264</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>254</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_results</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Print training/validation set metrics per class."""</span>
 <span></span>    <span class="n">pf</span> <span class="o">=</span> <span class="s2">"</span><span class="si">%22s</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"</span><span class="si">%11i</span><span class="s2">"</span> <span class="o">*</span> <span class="mi">2</span> <span class="o">+</span> <span class="s2">"</span><span class="si">%11.3g</span><span class="s2">"</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">)</span>  <span class="c1"># print format</span>
-<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">pf</span> <span class="o">%</span> <span class="p">(</span><span class="s2">"all"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">seen</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()))</span>
-<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="n">pf</span> <span class="o">%</span> <span class="p">(</span><span class="s2">"all"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">seen</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">nt_per_class</span><span class="o">.</span><span class="n">sum</span><span class="p">(),</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">mean_results</span><span class="p">()))</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">nt_per_class</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"no labels found in </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span><span class="si">}</span><span class="s2"> set, can not compute metrics without labels"</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Print results per class</span>
-<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">):</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">training</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">stats</span><span class="p">):</span>
 <span></span>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">ap_class_index</span><span class="p">):</span>
 <span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
-<span></span>                <span class="n">pf</span> <span class="o">%</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_image</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">nt_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">],</span> <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span></span>                <span class="n">pf</span>
+<span></span>                <span class="o">%</span> <span class="p">(</span>
+<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">c</span><span class="p">],</span>
+<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">nt_per_image</span><span class="p">[</span><span class="n">c</span><span class="p">],</span>
+<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">nt_per_class</span><span class="p">[</span><span class="n">c</span><span class="p">],</span>
+<span></span>                    <span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">class_result</span><span class="p">(</span><span class="n">i</span><span class="p">),</span>
+<span></span>                <span class="p">)</span>
 <span></span>            <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2870,7 +2889,10 @@ prediction processing, and visualization of results.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save_one_txt</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_one_txt</span><span class="p">(</span>
-<span></span>    <span class="n">predn</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span>
+<span></span>    <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span>
+<span></span>    <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
+<span></span>    <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -2891,11 +2913,11 @@ prediction processing, and visualization of results.</p>
 <code>predn</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Predictions in the format (x1, y1, x2, y2, conf, class).</p>
+<p>Dictionary containing predictions with keys 'bboxes', 'conf', and 'cls'.</p>
 </div>
 </td>
 <td>
@@ -2927,7 +2949,7 @@ prediction processing, and visualization of results.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Shape of the original image.</p>
+<p>Shape of the original image (height, width).</p>
 </div>
 </td>
 <td>
@@ -2954,7 +2976,10 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>348</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
 <span>349</span>
 <span>350</span>
 <span>351</span>
@@ -2968,17 +2993,14 @@ prediction processing, and visualization of results.</p>
 <span>359</span>
 <span>360</span>
 <span>361</span>
-<span>362</span>
-<span>363</span>
-<span>364</span>
-<span>365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>362</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save YOLO detections to a txt file in normalized coordinates in a specific format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        predn (torch.Tensor): Predictions in the format (x1, y1, x2, y2, conf, class).</span>
+<span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Dictionary containing predictions with keys 'bboxes', 'conf', and 'cls'.</span>
 <span></span><span class="sd">        save_conf (bool): Whether to save confidence scores.</span>
-<span></span><span class="sd">        shape (Tuple[int, int]): Shape of the original image.</span>
+<span></span><span class="sd">        shape (Tuple[int, int]): Shape of the original image (height, width).</span>
 <span></span><span class="sd">        file (Path): File path to save the detections.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.engine.results</span><span class="w"> </span><span class="kn">import</span> <span class="n">Results</span>
@@ -2987,7 +3009,7 @@ prediction processing, and visualization of results.</p>
 <span></span>        <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">),</span>
 <span></span>        <span class="n">path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>        <span class="n">names</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">,</span>
-<span></span>        <span class="n">boxes</span><span class="o">=</span><span class="n">predn</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">6</span><span class="p">],</span>
+<span></span>        <span class="n">boxes</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="n">predn</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">],</span> <span class="n">predn</span><span class="p">[</span><span class="s2">"conf"</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span> <span class="n">predn</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
 <span></span>    <span class="p">)</span><span class="o">.</span><span class="n">save_txt</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">save_conf</span><span class="o">=</span><span class="n">save_conf</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2997,7 +3019,7 @@ prediction processing, and visualization of results.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.val.DetectionValidator.update_metrics">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update_metrics</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update_metrics</span><span class="p">(</span><span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update_metrics</span><span class="p">(</span><span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]],</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Update metrics with new predictions and ground truth.</p>
@@ -3017,7 +3039,7 @@ prediction processing, and visualization of results.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3048,7 +3070,8 @@ prediction processing, and visualization of results.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>174</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>173</span>
+<span>174</span>
 <span>175</span>
 <span>176</span>
 <span>177</span>
@@ -3089,61 +3112,38 @@ prediction processing, and visualization of results.</p>
 <span>212</span>
 <span>213</span>
 <span>214</span>
-<span>215</span>
-<span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>215</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update metrics with new predictions and ground truth.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        preds (List[torch.Tensor]): List of predictions from the model.</span>
+<span></span><span class="sd">        preds (List[Dict[str, torch.Tensor]]): List of predictions from the model.</span>
 <span></span><span class="sd">        batch (Dict[str, Any]): Batch data containing ground truth.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">for</span> <span class="n">si</span><span class="p">,</span> <span class="n">pred</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">preds</span><span class="p">):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">seen</span> <span class="o">+=</span> <span class="mi">1</span>
-<span></span>        <span class="n">npr</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">pred</span><span class="p">)</span>
-<span></span>        <span class="n">stat</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span>
-<span></span>            <span class="n">conf</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>
-<span></span>            <span class="n">pred_cls</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>
-<span></span>            <span class="n">tp</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">npr</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">niou</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>
-<span></span>        <span class="p">)</span>
 <span></span>        <span class="n">pbatch</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_batch</span><span class="p">(</span><span class="n">si</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>
-<span></span>        <span class="bp">cls</span><span class="p">,</span> <span class="n">bbox</span> <span class="o">=</span> <span class="n">pbatch</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"cls"</span><span class="p">),</span> <span class="n">pbatch</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"bbox"</span><span class="p">)</span>
-<span></span>        <span class="n">nl</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span>
-<span></span>        <span class="n">stat</span><span class="p">[</span><span class="s2">"target_cls"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span>
-<span></span>        <span class="n">stat</span><span class="p">[</span><span class="s2">"target_img"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-<span></span>        <span class="k">if</span> <span class="n">npr</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span></span>            <span class="k">if</span> <span class="n">nl</span><span class="p">:</span>
-<span></span>                <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stat</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
-<span></span>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span><span class="p">:</span>
-<span></span>                    <span class="bp">self</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">process_batch</span><span class="p">(</span><span class="n">detections</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">gt_bboxes</span><span class="o">=</span><span class="n">bbox</span><span class="p">,</span> <span class="n">gt_cls</span><span class="o">=</span><span class="bp">cls</span><span class="p">)</span>
-<span></span>            <span class="k">continue</span>
-<span></span>
-<span></span>        <span class="c1"># Predictions</span>
-<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">single_cls</span><span class="p">:</span>
-<span></span>            <span class="n">pred</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>        <span class="n">predn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_pred</span><span class="p">(</span><span class="n">pred</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">)</span>
-<span></span>        <span class="n">stat</span><span class="p">[</span><span class="s2">"conf"</span><span class="p">]</span> <span class="o">=</span> <span class="n">predn</span><span class="p">[:,</span> <span class="mi">4</span><span class="p">]</span>
-<span></span>        <span class="n">stat</span><span class="p">[</span><span class="s2">"pred_cls"</span><span class="p">]</span> <span class="o">=</span> <span class="n">predn</span><span class="p">[:,</span> <span class="mi">5</span><span class="p">]</span>
 <span></span>
+<span></span>        <span class="bp">cls</span> <span class="o">=</span> <span class="n">pbatch</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span></span>        <span class="n">no_pred</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">predn</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">])</span> <span class="o">==</span> <span class="mi">0</span>
+<span></span>        <span class="k">if</span> <span class="n">no_pred</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>            <span class="k">continue</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">update_stats</span><span class="p">(</span>
+<span></span>            <span class="p">{</span>
+<span></span>                <span class="o">**</span><span class="bp">self</span><span class="o">.</span><span class="n">_process_batch</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">),</span>
+<span></span>                <span class="s2">"target_cls"</span><span class="p">:</span> <span class="bp">cls</span><span class="p">,</span>
+<span></span>                <span class="s2">"target_img"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="bp">cls</span><span class="p">),</span>
+<span></span>                <span class="s2">"conf"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">no_pred</span> <span class="k">else</span> <span class="n">predn</span><span class="p">[</span><span class="s2">"conf"</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+<span></span>                <span class="s2">"pred_cls"</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="k">if</span> <span class="n">no_pred</span> <span class="k">else</span> <span class="n">predn</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">(),</span>
+<span></span>            <span class="p">}</span>
+<span></span>        <span class="p">)</span>
 <span></span>        <span class="c1"># Evaluate</span>
-<span></span>        <span class="k">if</span> <span class="n">nl</span><span class="p">:</span>
-<span></span>            <span class="n">stat</span><span class="p">[</span><span class="s2">"tp"</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_process_batch</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="n">bbox</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span><span class="p">:</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">process_batch</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="n">bbox</span><span class="p">,</span> <span class="bp">cls</span><span class="p">)</span>
-<span></span>        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">stats</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">stat</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">confusion_matrix</span><span class="o">.</span><span class="n">process_batch</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">conf</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="k">if</span> <span class="n">no_pred</span><span class="p">:</span>
+<span></span>            <span class="k">continue</span>
 <span></span>
 <span></span>        <span class="c1"># Save</span>
 <span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span><span class="p">:</span>

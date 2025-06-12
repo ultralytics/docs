@@ -1238,7 +1238,7 @@ to avoid errors during validation.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.fastsam.val.FastSAMValidator.metrics">metrics</span></code></td>
 <td>
-<code><a class="autorefs autorefs-internal" href="../../../utils/metrics/#ultralytics.utils.metrics.SegmentMetrics" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.metrics.SegmentMetrics&lt;/span&gt;'>SegmentMetrics</a></code>
+<code><span title="SegmentMetrics">SegmentMetrics</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1342,7 +1342,8 @@ to avoid errors during validation.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/fastsam/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>26</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>25</span>
+<span>26</span>
 <span>27</span>
 <span>28</span>
 <span>29</span>
@@ -1356,9 +1357,7 @@ to avoid errors during validation.</p>
 <span>37</span>
 <span>38</span>
 <span>39</span>
-<span>40</span>
-<span>41</span>
-<span>42</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>40</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the FastSAMValidator class, setting the task to 'segment' and metrics to SegmentMetrics.</span>
 <span></span>
@@ -1374,7 +1373,6 @@ to avoid errors during validation.</p>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">dataloader</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">,</span> <span class="n">args</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"segment"</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">plots</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># disable ConfusionMatrix and other plots to avoid errors</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">metrics</span> <span class="o">=</span> <span class="n">SegmentMetrics</span><span class="p">(</span><span class="n">save_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
