@@ -1561,7 +1561,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <span> 97</span>
 <span> 98</span>
 <span> 99</span>
-<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the ParkingPtsSelection class, setting up UI and properties for parking zone point selection."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>  <span class="c1"># Check if tkinter is installed</span>
 <span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
@@ -1619,7 +1619,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.draw_box">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">draw_box</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">draw_box</span><span class="p">(</span><span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">draw_box</span><span class="p">(</span><span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Draw a bounding box on the canvas using the provided coordinates.</p>
@@ -1628,7 +1628,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>144</span>
 <span>145</span>
 <span>146</span>
-<span>147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]):</span>
+<span>147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Draw a bounding box on the canvas using the provided coordinates."""</span>
 <span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_line</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">box</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span><span class="p">],</span> <span class="n">fill</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
@@ -1640,7 +1640,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.initialize_properties">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">initialize_properties</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">initialize_properties</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">initialize_properties</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Initialize properties for image, canvas, bounding boxes, and dimensions.</p>
@@ -1651,7 +1651,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <span>104</span>
 <span>105</span>
 <span>106</span>
-<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize properties for image, canvas, bounding boxes, and dimensions."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_image</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_box</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
@@ -1665,7 +1665,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.on_canvas_click">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">on_canvas_click</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_canvas_click</span><span class="p">(</span><span class="n">event</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_canvas_click</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Handle mouse clicks to add points for bounding boxes on the canvas.</p>
@@ -1678,7 +1678,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <span>139</span>
 <span>140</span>
 <span>141</span>
-<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_canvas_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_canvas_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Handle mouse clicks to add points for bounding boxes on the canvas."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">current_box</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">event</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_oval</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
@@ -1694,7 +1694,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.redraw_canvas">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">redraw_canvas</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">redraw_canvas</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">redraw_canvas</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Redraw the canvas with the image and all bounding boxes.</p>
@@ -1705,7 +1705,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <span>159</span>
 <span>160</span>
 <span>161</span>
-<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">redraw_canvas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">redraw_canvas</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Redraw the canvas with the image and all bounding boxes."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_image</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">NW</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_image</span><span class="p">)</span>
@@ -1719,7 +1719,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.remove_last_bounding_box">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">remove_last_bounding_box</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">remove_last_bounding_box</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">remove_last_bounding_box</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Remove the last bounding box from the list and redraw the canvas.</p>
@@ -1731,7 +1731,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <span>152</span>
 <span>153</span>
 <span>154</span>
-<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_last_bounding_box</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_last_bounding_box</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Remove the last bounding box from the list and redraw the canvas."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">"Warning"</span><span class="p">,</span> <span class="s2">"No bounding boxes to remove."</span><span class="p">)</span>
@@ -1746,7 +1746,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.save_to_json">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save_to_json</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_to_json</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_to_json</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Save the selected parking zone points to a JSON file with scaled coordinates.</p>
@@ -1763,7 +1763,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <span>172</span>
 <span>173</span>
 <span>174</span>
-<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Save the selected parking zone points to a JSON file with scaled coordinates."""</span>
 <span></span>    <span class="n">scale_w</span><span class="p">,</span> <span class="n">scale_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgw</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">winfo_width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgh</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">winfo_height</span><span class="p">()</span>
 <span></span>    <span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"points"</span><span class="p">:</span> <span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">scale_w</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">scale_h</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">box</span><span class="p">]}</span> <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="p">]</span>
@@ -1783,7 +1783,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.upload_image">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">upload_image</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">upload_image</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">upload_image</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Upload and display an image on the canvas, resizing it to fit within specified dimensions.</p>
@@ -1813,7 +1813,7 @@ selected points to a JSON file. It uses Tkinter for the graphical user interface
 <span>130</span>
 <span>131</span>
 <span>132</span>
-<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">upload_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">upload_image</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Upload and display an image on the canvas, resizing it to fit within specified dimensions."""</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageTk</span>  <span class="c1"># Scoped import because ImageTk requires tkinter package</span>
 <span></span>
@@ -1978,7 +1978,7 @@ occupied spaces, visualization of parking regions, and display of occupancy stat
 <span>216</span>
 <span>217</span>
 <span>218</span>
-<span>219</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span>219</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the parking management system with a YOLO model and visualization settings."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span></span>

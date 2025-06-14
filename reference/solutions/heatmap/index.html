@@ -1171,7 +1171,7 @@
 <h2 class="doc doc-heading" id="ultralytics.solutions.heatmap.Heatmap">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.solutions.heatmap.Heatmap</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Heatmap</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Heatmap</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -1284,7 +1284,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1299,9 +1299,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>34</span>
-<span>35</span>
-<span>36</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
 <span>37</span>
 <span>38</span>
 <span>39</span>
@@ -1314,7 +1312,9 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <span>46</span>
 <span>47</span>
 <span>48</span>
-<span>49</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>49</span>
+<span>50</span>
+<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Heatmap class for real-time video stream heatmap generation based on object tracks.</span>
 <span></span>
@@ -1337,7 +1337,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <h3 class="doc doc-heading" id="ultralytics.solutions.heatmap.Heatmap.heatmap_effect">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">heatmap_effect</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">heatmap_effect</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">heatmap_effect</span><span class="p">(</span><span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Efficiently calculate heatmap area and effect location for applying colormap.</p>
@@ -1357,7 +1357,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <code>box</code>
 </td>
 <td>
-<code><span title="List">List</span>[<span title="float">float</span>]</code>
+<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1372,9 +1372,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>51</span>
-<span>52</span>
-<span>53</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
 <span>54</span>
 <span>55</span>
 <span>56</span>
@@ -1392,7 +1390,9 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <span>68</span>
 <span>69</span>
 <span>70</span>
-<span>71</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">heatmap_effect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">):</span>
+<span>71</span>
+<span>72</span>
+<span>73</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">heatmap_effect</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Efficiently calculate heatmap area and effect location for applying colormap.</span>
 <span></span>
@@ -1421,7 +1421,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <h3 class="doc doc-heading" id="ultralytics.solutions.heatmap.Heatmap.process">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">process</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">process</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">process</span><span class="p">(</span><span class="n">im0</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Generate heatmap for each frame using Ultralytics tracking.</p>
@@ -1481,9 +1481,7 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/heatmap.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 73</span>
-<span> 74</span>
-<span> 75</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 75</span>
 <span> 76</span>
 <span> 77</span>
 <span> 78</span>
@@ -1535,7 +1533,9 @@ streams. It uses tracked object positions to create a cumulative heatmap effect 
 <span>124</span>
 <span>125</span>
 <span>126</span>
-<span>127</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">):</span>
+<span>127</span>
+<span>128</span>
+<span>129</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate heatmap for each frame using Ultralytics tracking.</span>
 <span></span>

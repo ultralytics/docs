@@ -1480,7 +1480,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>75</span>
 <span>76</span>
 <span>77</span>
-<span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Inference class, checking Streamlit requirements and setting up the model path.</span>
 <span></span>
@@ -1514,7 +1514,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.streamlit_inference.Inference.configure">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">configure</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">configure</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">configure</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Configure the model and load selected classes for inference.</p>
@@ -1538,7 +1538,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>148</span>
 <span>149</span>
 <span>150</span>
-<span>151</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>151</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Configure the model and load selected classes for inference."""</span>
 <span></span>    <span class="c1"># Add dropdown menu for model selection</span>
 <span></span>    <span class="n">available_models</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">"yolo"</span><span class="p">,</span> <span class="s2">"YOLO"</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">GITHUB_ASSETS_STEMS</span> <span class="k">if</span> <span class="n">x</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">"yolo11"</span><span class="p">)]</span>
@@ -1565,7 +1565,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.streamlit_inference.Inference.inference">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">inference</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">inference</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">inference</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform real-time object detection inference on video or webcam feed.</p>
@@ -1609,7 +1609,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>188</span>
 <span>189</span>
 <span>190</span>
-<span>191</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>191</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform real-time object detection inference on video or webcam feed."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">web_ui</span><span class="p">()</span>  <span class="c1"># Initialize the web interface</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sidebar</span><span class="p">()</span>  <span class="c1"># Create the sidebar</span>
@@ -1656,7 +1656,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.streamlit_inference.Inference.sidebar">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">sidebar</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">sidebar</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">sidebar</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Configure the Streamlit sidebar for model and inference settings.</p>
@@ -1681,7 +1681,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>115</span>
 <span>116</span>
 <span>117</span>
-<span>118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sidebar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>118</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sidebar</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Configure the Streamlit sidebar for model and inference settings."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="p">:</span>  <span class="c1"># Add Ultralytics LOGO</span>
 <span></span>        <span class="n">logo</span> <span class="o">=</span> <span class="s2">"https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg"</span>
@@ -1709,7 +1709,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.streamlit_inference.Inference.source_upload">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">source_upload</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">source_upload</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">source_upload</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Handle video file uploads through the Streamlit interface.</p>
@@ -1726,7 +1726,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>128</span>
 <span>129</span>
 <span>130</span>
-<span>131</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">source_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>131</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">source_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Handle video file uploads through the Streamlit interface."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">vid_file_name</span> <span class="o">=</span> <span class="s2">""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s2">"video"</span><span class="p">:</span>
@@ -1746,7 +1746,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <h3 class="doc doc-heading" id="ultralytics.solutions.streamlit_inference.Inference.web_ui">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">web_ui</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">web_ui</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">web_ui</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Set up the Streamlit web interface with custom HTML elements.</p>
@@ -1769,7 +1769,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>94</span>
 <span>95</span>
 <span>96</span>
-<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">web_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">web_ui</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Set up the Streamlit web interface with custom HTML elements."""</span>
 <span></span>    <span class="n">menu_style_cfg</span> <span class="o">=</span> <span class="s2">"""&lt;style&gt;MainMenu {visibility: hidden;}&lt;/style&gt;"""</span>  <span class="c1"># Hide main menu style</span>
 <span></span>
