@@ -5061,9 +5061,7 @@ class specification and CLIP model integration for zero-shot detection capabilit
 <span>902</span>
 <span>903</span>
 <span>904</span>
-<span>905</span>
-<span>906</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_text_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">cache_clip_model</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>905</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_text_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">cache_clip_model</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set classes in advance so that model could do offline-inference without clip model.</span>
 <span></span>
@@ -5145,7 +5143,8 @@ class specification and CLIP model integration for zero-shot detection capabilit
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>953</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>952</span>
+<span>953</span>
 <span>954</span>
 <span>955</span>
 <span>956</span>
@@ -5157,8 +5156,7 @@ class specification and CLIP model integration for zero-shot detection capabilit
 <span>962</span>
 <span>963</span>
 <span>964</span>
-<span>965</span>
-<span>966</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>965</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute loss.</span>
 <span></span>
@@ -5318,7 +5316,8 @@ class specification and CLIP model integration for zero-shot detection capabilit
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>908</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>907</span>
+<span>908</span>
 <span>909</span>
 <span>910</span>
 <span>911</span>
@@ -5360,8 +5359,7 @@ class specification and CLIP model integration for zero-shot detection capabilit
 <span>947</span>
 <span>948</span>
 <span>949</span>
-<span>950</span>
-<span>951</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">txt_feats</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>950</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">txt_feats</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform a forward pass through the model.</span>
 <span></span>
@@ -5713,7 +5711,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 997</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 996</span>
+<span> 997</span>
 <span> 998</span>
 <span> 999</span>
 <span>1000</span>
@@ -5722,8 +5721,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1003</span>
 <span>1004</span>
 <span>1005</span>
-<span>1006</span>
-<span>1007</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="s2">"yoloe-v8s.yaml"</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>1006</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="s2">"yoloe-v8s.yaml"</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize YOLOE model with given config and parameters.</span>
 <span></span>
@@ -5813,7 +5811,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1128</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1127</span>
+<span>1128</span>
 <span>1129</span>
 <span>1130</span>
 <span>1131</span>
@@ -5832,8 +5831,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1144</span>
 <span>1145</span>
 <span>1146</span>
-<span>1147</span>
-<span>1148</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_cls_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tpe</span><span class="p">,</span> <span class="n">vpe</span><span class="p">):</span>
+<span>1147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_cls_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">tpe</span><span class="p">,</span> <span class="n">vpe</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get class positional embeddings.</span>
 <span></span>
@@ -5966,7 +5964,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1009</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1008</span>
+<span>1009</span>
 <span>1010</span>
 <span>1011</span>
 <span>1012</span>
@@ -5997,8 +5996,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1037</span>
 <span>1038</span>
 <span>1039</span>
-<span>1040</span>
-<span>1041</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1040</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_text_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span> <span class="n">cache_clip_model</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">without_reprta</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set classes in advance so that model could do offline-inference without clip model.</span>
@@ -6111,7 +6109,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1043</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1042</span>
+<span>1043</span>
 <span>1044</span>
 <span>1045</span>
 <span>1046</span>
@@ -6122,8 +6121,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1051</span>
 <span>1052</span>
 <span>1053</span>
-<span>1054</span>
-<span>1055</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1054</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_visual_pe</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">visual</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get visual embeddings.</span>
@@ -6200,7 +6198,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1086</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1085</span>
+<span>1086</span>
 <span>1087</span>
 <span>1088</span>
 <span>1089</span>
@@ -6223,8 +6222,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1106</span>
 <span>1107</span>
 <span>1108</span>
-<span>1109</span>
-<span>1110</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vocab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+<span>1109</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_vocab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get fused vocabulary layer from the model.</span>
 <span></span>
@@ -6308,7 +6306,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1200</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1199</span>
+<span>1200</span>
 <span>1201</span>
 <span>1202</span>
 <span>1203</span>
@@ -6323,8 +6322,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1212</span>
 <span>1213</span>
 <span>1214</span>
-<span>1215</span>
-<span>1216</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1215</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute loss.</span>
 <span></span>
@@ -6526,7 +6524,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1150</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1149</span>
+<span>1150</span>
 <span>1151</span>
 <span>1152</span>
 <span>1153</span>
@@ -6573,8 +6572,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1194</span>
 <span>1195</span>
 <span>1196</span>
-<span>1197</span>
-<span>1198</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
+<span>1197</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">tpe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">embed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">vpe</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">return_vpe</span><span class="o">=</span><span class="kc">False</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -6682,7 +6680,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1112</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1111</span>
+<span>1112</span>
 <span>1113</span>
 <span>1114</span>
 <span>1115</span>
@@ -6695,8 +6694,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1122</span>
 <span>1123</span>
 <span>1124</span>
-<span>1125</span>
-<span>1126</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">):</span>
+<span>1125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set classes in advance so that model could do offline-inference without clip model.</span>
 <span></span>
@@ -6770,7 +6768,8 @@ supporting both prompt-based and prompt-free inference modes.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1057</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1056</span>
+<span>1057</span>
 <span>1058</span>
 <span>1059</span>
 <span>1060</span>
@@ -6796,8 +6795,7 @@ supporting both prompt-based and prompt-free inference modes.</p>
 <span>1080</span>
 <span>1081</span>
 <span>1082</span>
-<span>1083</span>
-<span>1084</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_vocab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
+<span>1083</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_vocab</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab</span><span class="p">,</span> <span class="n">names</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set vocabulary for the prompt-free model.</span>
 <span></span>
@@ -6947,7 +6945,8 @@ providing specialized loss computation for pixel-level object detection and segm
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1236</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1235</span>
+<span>1236</span>
 <span>1237</span>
 <span>1238</span>
 <span>1239</span>
@@ -6956,8 +6955,7 @@ providing specialized loss computation for pixel-level object detection and segm
 <span>1242</span>
 <span>1243</span>
 <span>1244</span>
-<span>1245</span>
-<span>1246</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="s2">"yoloe-v8s-seg.yaml"</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>1245</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="s2">"yoloe-v8s-seg.yaml"</span><span class="p">,</span> <span class="n">ch</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">nc</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize YOLOE segmentation model with given config and parameters.</span>
 <span></span>
@@ -7026,7 +7024,8 @@ providing specialized loss computation for pixel-level object detection and segm
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1248</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1247</span>
+<span>1248</span>
 <span>1249</span>
 <span>1250</span>
 <span>1251</span>
@@ -7041,8 +7040,7 @@ providing specialized loss computation for pixel-level object detection and segm
 <span>1260</span>
 <span>1261</span>
 <span>1262</span>
-<span>1263</span>
-<span>1264</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1263</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">loss</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="n">preds</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute loss.</span>
 <span></span>
@@ -7106,9 +7104,9 @@ model averaging or other ensemble techniques.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1286</span>
-<span>1287</span>
-<span>1288</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1285</span>
+<span>1286</span>
+<span>1287</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize an ensemble of models."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -7232,7 +7230,8 @@ model averaging or other ensemble techniques.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1290</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1289</span>
+<span>1290</span>
 <span>1291</span>
 <span>1292</span>
 <span>1293</span>
@@ -7249,8 +7248,7 @@ model averaging or other ensemble techniques.</p>
 <span>1304</span>
 <span>1305</span>
 <span>1306</span>
-<span>1307</span>
-<span>1308</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>1307</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">augment</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">visualize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate the YOLO network's final layer.</span>
 <span></span>
@@ -7286,9 +7284,9 @@ model averaging or other ensemble techniques.</p>
 <p>A placeholder class to replace unknown classes during unpickling.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1366</span>
-<span>1367</span>
-<span>1368</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1365</span>
+<span>1366</span>
+<span>1367</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize SafeClass instance, ignoring all arguments."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -7304,9 +7302,9 @@ model averaging or other ensemble techniques.</p>
 <p>Run SafeClass instance, ignoring all arguments.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1370</span>
-<span>1371</span>
-<span>1372</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1369</span>
+<span>1370</span>
+<span>1371</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run SafeClass instance, ignoring all arguments."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -7401,7 +7399,8 @@ model averaging or other ensemble techniques.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1378</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1377</span>
+<span>1378</span>
 <span>1379</span>
 <span>1380</span>
 <span>1381</span>
@@ -7423,8 +7422,7 @@ model averaging or other ensemble techniques.</p>
 <span>1397</span>
 <span>1398</span>
 <span>1399</span>
-<span>1400</span>
-<span>1401</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+<span>1400</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">find_class</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">module</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Attempt to find a class, returning SafeClass if not among safe modules.</span>
 <span></span>
@@ -7524,7 +7522,8 @@ applications or libraries. Use this function with caution.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1314</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1313</span>
+<span>1314</span>
 <span>1315</span>
 <span>1316</span>
 <span>1317</span>
@@ -7569,8 +7568,7 @@ applications or libraries. Use this function with caution.</p>
 <span>1356</span>
 <span>1357</span>
 <span>1358</span>
-<span>1359</span>
-<span>1360</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
+<span>1359</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@contextlib</span><span class="o">.</span><span class="n">contextmanager</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">temporary_modules</span><span class="p">(</span><span class="n">modules</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">attributes</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Context manager for temporarily adding or modifying modules in Python's module cache (`sys.modules`).</span>
@@ -7713,7 +7711,8 @@ After installation, the function again attempts to load the model using torch.lo
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1404</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1403</span>
+<span>1404</span>
 <span>1405</span>
 <span>1406</span>
 <span>1407</span>
@@ -7791,8 +7790,7 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1479</span>
 <span>1480</span>
 <span>1481</span>
-<span>1482</span>
-<span>1483</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch_safe_load</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">safe_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>1482</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch_safe_load</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">safe_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Attempt to load a PyTorch model with the torch.load() function. If a ModuleNotFoundError is raised, it catches the</span>
 <span></span><span class="sd">    error, logs a warning message, and attempts to install the missing module via the check_requirements() function.</span>
@@ -7984,7 +7982,8 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1486</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1485</span>
+<span>1486</span>
 <span>1487</span>
 <span>1488</span>
 <span>1489</span>
@@ -8029,8 +8028,7 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1528</span>
 <span>1529</span>
 <span>1530</span>
-<span>1531</span>
-<span>1532</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_load_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>1531</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_load_weights</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load an ensemble of models weights=[a,b,c] or a single model weights=[a] or weights=a.</span>
 <span></span>
@@ -8199,7 +8197,8 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1535</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1534</span>
+<span>1535</span>
 <span>1536</span>
 <span>1537</span>
 <span>1538</span>
@@ -8233,8 +8232,7 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1566</span>
 <span>1567</span>
 <span>1568</span>
-<span>1569</span>
-<span>1570</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_load_one_weight</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>1569</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_load_one_weight</span><span class="p">(</span><span class="n">weight</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load a single model weights.</span>
 <span></span>
@@ -8376,7 +8374,8 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1573</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1572</span>
+<span>1573</span>
 <span>1574</span>
 <span>1575</span>
 <span>1576</span>
@@ -8551,8 +8550,7 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1745</span>
 <span>1746</span>
 <span>1747</span>
-<span>1748</span>
-<span>1749</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_model</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>1748</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_model</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">ch</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Parse a YOLO model.yaml dictionary into a PyTorch model.</span>
 <span></span>
@@ -8793,7 +8791,8 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1752</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1751</span>
+<span>1752</span>
 <span>1753</span>
 <span>1754</span>
 <span>1755</span>
@@ -8813,8 +8812,7 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1769</span>
 <span>1770</span>
 <span>1771</span>
-<span>1772</span>
-<span>1773</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">yaml_model_load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
+<span>1772</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">yaml_model_load</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load a YOLOv8 model from a YAML file.</span>
 <span></span>
@@ -8900,7 +8898,8 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1776</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1775</span>
+<span>1776</span>
 <span>1777</span>
 <span>1778</span>
 <span>1779</span>
@@ -8912,8 +8911,7 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1785</span>
 <span>1786</span>
 <span>1787</span>
-<span>1788</span>
-<span>1789</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_model_scale</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
+<span>1788</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_model_scale</span><span class="p">(</span><span class="n">model_path</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Extract the size character n, s, m, l, or x of the model's scale from the model path.</span>
 <span></span>
@@ -8991,7 +8989,8 @@ After installation, the function again attempts to load the model using torch.lo
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/tasks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1792</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1791</span>
+<span>1792</span>
 <span>1793</span>
 <span>1794</span>
 <span>1795</span>
@@ -9058,8 +9057,7 @@ After installation, the function again attempts to load the model using torch.lo
 <span>1856</span>
 <span>1857</span>
 <span>1858</span>
-<span>1859</span>
-<span>1860</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_model_task</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
+<span>1859</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">guess_model_task</span><span class="p">(</span><span class="n">model</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Guess the task of a PyTorch model from its architecture or configuration.</span>
 <span></span>
