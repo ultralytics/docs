@@ -1070,6 +1070,20 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.patches.arange_patch">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> arange_patch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.patches.override_configs">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> override_configs
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </li>
@@ -1171,6 +1185,20 @@
     </span>
 </a>
 </li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.patches.arange_patch">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> arange_patch
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.utils.patches.override_configs">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> override_configs
+    </span>
+</a>
+</li>
 </ul>
 </nav>
 </div>
@@ -1267,9 +1295,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>16</span>
-<span>17</span>
-<span>18</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>18</span>
 <span>19</span>
 <span>20</span>
 <span>21</span>
@@ -1291,7 +1317,9 @@
 <span>37</span>
 <span>38</span>
 <span>39</span>
-<span>40</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
+<span>40</span>
+<span>41</span>
+<span>42</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">imread</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">flags</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">IMREAD_COLOR</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Read an image from a file with multilanguage filename support.</span>
 <span></span>
@@ -1421,9 +1449,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
-<span>44</span>
-<span>45</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>45</span>
 <span>46</span>
 <span>47</span>
 <span>48</span>
@@ -1444,7 +1470,9 @@
 <span>63</span>
 <span>64</span>
 <span>65</span>
-<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">imwrite</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>66</span>
+<span>67</span>
+<span>68</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">imwrite</span><span class="p">(</span><span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">params</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Write an image to a file with multilanguage filename support.</span>
 <span></span>
@@ -1536,9 +1564,7 @@ exists, the image will be displayed in that window.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>69</span>
-<span>70</span>
-<span>71</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>71</span>
 <span>72</span>
 <span>73</span>
 <span>74</span>
@@ -1554,7 +1580,9 @@ exists, the image will be displayed in that window.</p>
 <span>84</span>
 <span>85</span>
 <span>86</span>
-<span>87</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">imshow</span><span class="p">(</span><span class="n">winname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>87</span>
+<span>88</span>
+<span>89</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">imshow</span><span class="p">(</span><span class="n">winname</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">mat</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display an image in the specified window with multilanguage window name support.</span>
 <span></span>
@@ -1602,7 +1630,7 @@ exists, the image will be displayed in that window.</p>
 <code>*args</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1618,7 +1646,7 @@ exists, the image will be displayed in that window.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1642,7 +1670,7 @@ exists, the image will be displayed in that window.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1659,9 +1687,7 @@ if the argument is not provided, to avoid deprecation warnings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 95</span>
-<span> 96</span>
-<span> 97</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 97</span>
 <span> 98</span>
 <span> 99</span>
 <span>100</span>
@@ -1681,7 +1707,9 @@ if the argument is not provided, to avoid deprecation warnings.</p>
 <span>114</span>
 <span>115</span>
 <span>116</span>
-<span>117</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch_load</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>117</span>
+<span>118</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch_load</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load a PyTorch model with updated arguments to avoid warnings.</span>
 <span></span>
@@ -1734,7 +1762,7 @@ due to device flushing delays or antivirus scanning.</p>
 <code>*args</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1750,7 +1778,7 @@ due to device flushing delays or antivirus scanning.</p>
 <code>**kwargs</code>
 </td>
 <td>
-<code><span title="Any">Any</span></code>
+<code><span title="typing.Any">Any</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1769,9 +1797,7 @@ due to device flushing delays or antivirus scanning.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>120</span>
-<span>121</span>
-<span>122</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>122</span>
 <span>123</span>
 <span>124</span>
 <span>125</span>
@@ -1790,7 +1816,9 @@ due to device flushing delays or antivirus scanning.</p>
 <span>138</span>
 <span>139</span>
 <span>140</span>
-<span>141</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>141</span>
+<span>142</span>
+<span>143</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">torch_save</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save PyTorch objects with retry mechanism for robustness.</span>
 <span></span>
@@ -1812,6 +1840,181 @@ due to device flushing delays or antivirus scanning.</p>
 <span></span>            <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">3</span><span class="p">:</span>
 <span></span>                <span class="k">raise</span> <span class="n">e</span>
 <span></span>            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">((</span><span class="mi">2</span><span class="o">**</span><span class="n">i</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>  <span class="c1"># Exponential backoff: 0.5s, 1.0s, 2.0s</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><p><br/><br/><hr/><br/></p>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="ultralytics.utils.patches.arange_patch">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.patches.arange_patch</span>
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">arange_patch</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents first">
+<p>Workaround for ONNX torch.arange incompatibility with FP16.</p>
+<p><a href="https://github.com/pytorch/pytorch/issues/148041">https://github.com/pytorch/pytorch/issues/148041</a>.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>146</span>
+<span>147</span>
+<span>148</span>
+<span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span>
+<span>156</span>
+<span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span>
+<span>163</span>
+<span>164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@contextmanager</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">arange_patch</span><span class="p">(</span><span class="n">args</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Workaround for ONNX torch.arange incompatibility with FP16.</span>
+<span></span>
+<span></span><span class="sd">    https://github.com/pytorch/pytorch/issues/148041.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">if</span> <span class="n">args</span><span class="o">.</span><span class="n">dynamic</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">half</span> <span class="ow">and</span> <span class="n">args</span><span class="o">.</span><span class="n">format</span> <span class="o">==</span> <span class="s2">"onnx"</span><span class="p">:</span>
+<span></span>        <span class="n">func</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span>
+<span></span>
+<span></span>        <span class="k">def</span><span class="w"> </span><span class="nf">arange</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span></span><span class="w">            </span><span class="sd">"""Return a 1-D tensor of size with values from the interval and common difference."""</span>
+<span></span>            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="p">)</span>  <span class="c1"># cast to dtype instead of passing dtype</span>
+<span></span>
+<span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">arange</span> <span class="o">=</span> <span class="n">arange</span>  <span class="c1"># patch</span>
+<span></span>        <span class="k">yield</span>
+<span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">arange</span> <span class="o">=</span> <span class="n">func</span>  <span class="c1"># unpatch</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">yield</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div><p><br/><br/><hr/><br/></p>
+<div class="doc doc-object doc-function">
+<h2 class="doc doc-heading" id="ultralytics.utils.patches.override_configs">
+<code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.utils.patches.override_configs</span>
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">override_configs</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents first">
+<p>Context manager to temporarily override configurations in args.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>args</code>
+</td>
+<td>
+<code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.IterableSimpleNamespace" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.IterableSimpleNamespace&lt;/span&gt;'>IterableSimpleNamespace</a></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Original configuration arguments.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>overrides</code>
+</td>
+<td>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dictionary of overrides to apply.</p>
+</div>
+</td>
+<td>
+<code>None</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Yields:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><a class="autorefs autorefs-internal" href="../__init__/#ultralytics.utils.IterableSimpleNamespace" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.utils.IterableSimpleNamespace&lt;/span&gt;'>IterableSimpleNamespace</a></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Configuration arguments with overrides applied.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>ultralytics/utils/patches.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span>
+<span>187</span>
+<span>188</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@contextmanager</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">override_configs</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Context manager to temporarily override configurations in args.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        args (IterableSimpleNamespace): Original configuration arguments.</span>
+<span></span><span class="sd">        overrides (Dict[str, Any]): Dictionary of overrides to apply.</span>
+<span></span>
+<span></span><span class="sd">    Yields:</span>
+<span></span><span class="sd">        (IterableSimpleNamespace): Configuration arguments with overrides applied.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">if</span> <span class="n">overrides</span><span class="p">:</span>
+<span></span>        <span class="n">original_args</span> <span class="o">=</span> <span class="n">copy</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+<span></span>        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">overrides</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span></span>            <span class="nb">setattr</span><span class="p">(</span><span class="n">args</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
+<span></span>        <span class="k">try</span><span class="p">:</span>
+<span></span>            <span class="k">yield</span> <span class="n">args</span>
+<span></span>        <span class="k">finally</span><span class="p">:</span>
+<span></span>            <span class="n">args</span><span class="o">.</span><span class="vm">__dict__</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">original_args</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">yield</span> <span class="n">args</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1838,6 +2041,9 @@ due to device flushing delays or antivirus scanning.</p>
 </a>
 <a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
 <img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (1 change)">
+<img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
 </a>
 </div></div><div class="share-buttons">
 <button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/utils/patches', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
