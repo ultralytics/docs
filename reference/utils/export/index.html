@@ -1814,7 +1814,12 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span>230</span>
 <span>231</span>
 <span>232</span>
-<span>233</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_engine</span><span class="p">(</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_engine</span><span class="p">(</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">engine_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">workspace</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1911,11 +1916,12 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span></span>        <span class="k">for</span> <span class="n">inp</span> <span class="ow">in</span> <span class="n">inputs</span><span class="p">:</span>
 <span></span>            <span class="n">profile</span><span class="o">.</span><span class="n">set_shape</span><span class="p">(</span><span class="n">inp</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="n">min_shape</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="n">max_shape</span><span class="p">)</span>
 <span></span>        <span class="n">config</span><span class="o">.</span><span class="n">add_optimization_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
+<span></span>        <span class="k">if</span> <span class="n">int8</span><span class="p">:</span>
+<span></span>            <span class="n">config</span><span class="o">.</span><span class="n">set_calibration_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">prefix</span><span class="si">}</span><span class="s2"> building </span><span class="si">{</span><span class="s1">'INT8'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">int8</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'FP'</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="p">(</span><span class="s1">'16'</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">half</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">'32'</span><span class="p">)</span><span class="si">}</span><span class="s2"> engine as </span><span class="si">{</span><span class="n">engine_file</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">int8</span><span class="p">:</span>
 <span></span>        <span class="n">config</span><span class="o">.</span><span class="n">set_flag</span><span class="p">(</span><span class="n">trt</span><span class="o">.</span><span class="n">BuilderFlag</span><span class="o">.</span><span class="n">INT8</span><span class="p">)</span>
-<span></span>        <span class="n">config</span><span class="o">.</span><span class="n">set_calibration_profile</span><span class="p">(</span><span class="n">profile</span><span class="p">)</span>
 <span></span>        <span class="n">config</span><span class="o">.</span><span class="n">profiling_verbosity</span> <span class="o">=</span> <span class="n">trt</span><span class="o">.</span><span class="n">ProfilingVerbosity</span><span class="o">.</span><span class="n">DETAILED</span>
 <span></span>
 <span></span>        <span class="k">class</span><span class="w"> </span><span class="nc">EngineCalibrator</span><span class="p">(</span><span class="n">trt</span><span class="o">.</span><span class="n">IInt8Calibrator</span><span class="p">):</span>
@@ -1949,7 +1955,11 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span></span>                <span class="n">trt</span><span class="o">.</span><span class="n">IInt8Calibrator</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 <span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span> <span class="o">=</span> <span class="n">dataset</span>
 <span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">data_iter</span> <span class="o">=</span> <span class="nb">iter</span><span class="p">(</span><span class="n">dataset</span><span class="p">)</span>
-<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">algo</span> <span class="o">=</span> <span class="n">trt</span><span class="o">.</span><span class="n">CalibrationAlgoType</span><span class="o">.</span><span class="n">MINMAX_CALIBRATION</span>
+<span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">algo</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>                    <span class="n">trt</span><span class="o">.</span><span class="n">CalibrationAlgoType</span><span class="o">.</span><span class="n">ENTROPY_CALIBRATION_2</span>  <span class="c1"># DLA quantization needs ENTROPY_CALIBRATION_2</span>
+<span></span>                    <span class="k">if</span> <span class="n">dla</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span>
+<span></span>                    <span class="k">else</span> <span class="n">trt</span><span class="o">.</span><span class="n">CalibrationAlgoType</span><span class="o">.</span><span class="n">MINMAX_CALIBRATION</span>
+<span></span>                <span class="p">)</span>
 <span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">batch</span> <span class="o">=</span> <span class="n">dataset</span><span class="o">.</span><span class="n">batch_size</span>
 <span></span>                <span class="bp">self</span><span class="o">.</span><span class="n">cache</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">cache</span><span class="p">)</span>
 <span></span>
