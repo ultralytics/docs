@@ -151,10 +151,19 @@ jobs:
             # Add the summary to GitHub step summary
             cat summary.txt >> $GITHUB_STEP_SUMMARY
 
-            # Prepare the summary for Slack (escape newlines, remove [], remove .html, and escape special characters)
-            # Ignore lines starting with [TIMEOUT] on the next line or keep them in the following line
-            # ESCAPED_SUMMARY=$(awk '!/^\[TIMEOUT\]/ {printf "%s\\n", $0}' summary.txt | sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g')
-            ESCAPED_SUMMARY=$(sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g' summary.txt | awk '!/^TIMEOUT/ {printf "%s\\n", $0}')
+            # Simple two-pass approach to remove timeout entries completely
+            # First pass: identify page names followed by TIMEOUT and create a pattern file
+            grep -B1 "^\[TIMEOUT\]" summary.txt | grep "\.html\]:$" > /tmp/timeout_pages.txt 2>/dev/null || true
+
+            # Second pass: remove TIMEOUT lines, pages that had timeouts, and squeeze blank lines
+            ESCAPED_SUMMARY=$(grep -v "^\[TIMEOUT\]" summary.txt | \
+              grep -F -v -f /tmp/timeout_pages.txt | \
+              cat -s | \
+              sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g' | \
+              awk '{printf "%s\\n", $0}')
+
+            # Cleanup
+            rm -f /tmp/timeout_pages.txt
 
             echo "SUMMARY<<EOF" >> $GITHUB_ENV
             echo "$ESCAPED_SUMMARY" >> $GITHUB_ENV
