@@ -18,7 +18,7 @@ Choosing the optimal object detection model is a critical decision in computer v
 [YOLOv6-3.0](https://github.com/meituan/YOLOv6), developed by Meituan, is engineered for industrial applications demanding high-performance object detection with a focus on speed and efficiency. Version 3.0 significantly enhances its predecessors, offering improved accuracy and faster inference times, making it a strong contender for real-time systems.
 
 **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu  
-**Organization:** [Meituan](https://x.com/meituan)  
+**Organization:** [Meituan](about.meituan.com/en-US/about-us)  
 **Date:** 2023-01-13  
 **Arxiv:** <https://arxiv.org/abs/2301.05586>  
 **GitHub:** <https://github.com/meituan/YOLOv6>  

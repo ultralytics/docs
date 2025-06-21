@@ -18,7 +18,7 @@ Choosing the optimal object detection model is critical for successful computer 
 YOLOv6-3.0, developed by Meituan, is an object detection framework designed primarily for industrial applications. Released in early 2023, it aimed to provide a balance between speed and accuracy suitable for real-world deployment scenarios.
 
 - **Authors**: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
-- **Organization**: [Meituan](https://x.com/meituan)
+- **Organization**: [Meituan](about.meituan.com/en-US/about-us)
 - **Date**: 2023-01-13
 - **Arxiv**: [https://arxiv.org/abs/2301.05586](https://arxiv.org/abs/2301.05586)
 - **GitHub**: [https://github.com/meituan/YOLOv6](https://github.com/meituan/YOLOv6)

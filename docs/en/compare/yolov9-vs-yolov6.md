@@ -54,7 +54,7 @@ YOLOv9 is ideal for applications where high precision is non-negotiable:
 
 ## YOLOv6-3.0: Optimized for Industrial Speed
 
-YOLOv6-3.0 is an iteration of the YOLOv6 series developed by [Meituan](https://x.com/meituan), a Chinese technology platform. Released in January 2023, it was designed with a strong focus on inference speed and efficiency for industrial deployment.
+YOLOv6-3.0 is an iteration of the YOLOv6 series developed by [Meituan](about.meituan.com/en-US/about-us), a Chinese technology platform. Released in January 2023, it was designed with a strong focus on inference speed and efficiency for industrial deployment.
 
 **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.  
 **Organization:** Meituan  

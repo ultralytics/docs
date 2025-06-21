@@ -16,7 +16,7 @@ Choosing the right object detection model is a critical decision that directly i
 ## YOLOv6-3.0
 
 **Authors**: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu  
-**Organization**: [Meituan](https://x.com/meituan)  
+**Organization**: [Meituan](about.meituan.com/en-US/about-us)  
 **Date**: 2023-01-13  
 **Arxiv**: <https://arxiv.org/abs/2301.05586>  
 **GitHub**: <https://github.com/meituan/YOLOv6>  

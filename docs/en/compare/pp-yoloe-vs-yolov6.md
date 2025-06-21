@@ -53,7 +53,7 @@ YOLOv6-3.0 was developed by a team at Meituan and released on January 13, 2023. 
 **Technical Details:**
 
 - **Authors**: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
-- **Organization**: [Meituan](https://x.com/meituan)
+- **Organization**: [Meituan](about.meituan.com/en-US/about-us)
 - **Date**: 2023-01-13
 - **Arxiv Link**: <https://arxiv.org/abs/2301.05586>
 - **GitHub Link**: <https://github.com/meituan/YOLOv6>

@@ -59,7 +59,7 @@ YOLOv10 is exceptionally well-suited for applications where low latency and high
 YOLOv6-3.0, developed by Meituan and released in early 2023, is an object detection framework designed with a strong focus on industrial applications. It aims to provide a practical balance between inference speed and accuracy for real-world deployment scenarios.
 
 **Authors:** Chuyi Li, Lulu Li, Yifei Geng, et al.  
-**Organization:** [Meituan](https://x.com/meituan)  
+**Organization:** [Meituan](about.meituan.com/en-US/about-us)  
 **Date:** 2023-01-13  
 **Arxiv:** <https://arxiv.org/abs/2301.05586>  
 **GitHub:** <https://github.com/meituan/YOLOv6>  
