@@ -1316,17 +1316,6 @@ and postprocessing predictions to generate classification results.</p>
 </div>
 </td>
 </tr>
-<tr class="doc-section-item">
-<td><code><span title="ultralytics.models.yolo.classify.predict.ClassificationPredictor._legacy_transform_name">_legacy_transform_name</span></code></td>
-<td>
-<code><span title="str">str</span></code>
-</td>
-<td>
-<div class="doc-md-description">
-<p>Name of the legacy transform class for backward compatibility.</p>
-</div>
-</td>
-</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Methods:</span></p>
@@ -1434,7 +1423,8 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>39</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
+<span>39</span>
 <span>40</span>
 <span>41</span>
 <span>42</span>
@@ -1446,9 +1436,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span>48</span>
 <span>49</span>
 <span>50</span>
-<span>51</span>
-<span>52</span>
-<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the ClassificationPredictor with the specified configuration and set task to 'classify'.</span>
 <span></span>
@@ -1462,7 +1450,6 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">overrides</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">task</span> <span class="o">=</span> <span class="s2">"classify"</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">_legacy_transform_name</span> <span class="o">=</span> <span class="s2">"ultralytics.yolo.data.augment.ToTensor"</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -1558,7 +1545,13 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>80</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>74</span>
+<span>75</span>
+<span>76</span>
+<span>77</span>
+<span>78</span>
+<span>79</span>
+<span>80</span>
 <span>81</span>
 <span>82</span>
 <span>83</span>
@@ -1571,13 +1564,7 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span>90</span>
 <span>91</span>
 <span>92</span>
-<span>93</span>
-<span>94</span>
-<span>95</span>
-<span>96</span>
-<span>97</span>
-<span>98</span>
-<span>99</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<span>93</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process predictions to return Results objects with classification probabilities.</span>
 <span></span>
@@ -1618,24 +1605,12 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span>69</span>
 <span>70</span>
 <span>71</span>
-<span>72</span>
-<span>73</span>
-<span>74</span>
-<span>75</span>
-<span>76</span>
-<span>77</span>
-<span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
+<span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert input images to model-compatible tensor format with appropriate normalization."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-<span></span>        <span class="n">is_legacy_transform</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">_legacy_transform_name</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">transform</span><span class="p">)</span> <span class="k">for</span> <span class="n">transform</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">transforms</span>
+<span></span>        <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
+<span></span>            <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)))</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span>
 <span></span>        <span class="p">)</span>
-<span></span>        <span class="k">if</span> <span class="n">is_legacy_transform</span><span class="p">:</span>  <span class="c1"># Handle legacy transforms</span>
-<span></span>            <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">im</span><span class="p">)</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
-<span></span>        <span class="k">else</span><span class="p">:</span>
-<span></span>            <span class="n">img</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span>
-<span></span>                <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">transforms</span><span class="p">(</span><span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">cv2</span><span class="o">.</span><span class="n">cvtColor</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLOR_BGR2RGB</span><span class="p">)))</span> <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">img</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span>
-<span></span>            <span class="p">)</span>
 <span></span>    <span class="n">img</span> <span class="o">=</span> <span class="p">(</span><span class="n">img</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">img</span><span class="p">))</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="n">img</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">fp16</span> <span class="k">else</span> <span class="n">img</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># Convert uint8 to fp16/32</span>
 </code></pre></div></td></tr></table></div>
@@ -1652,7 +1627,9 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <p>Set up source and inference mode and classify transforms.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/classify/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
+<span>54</span>
+<span>55</span>
 <span>56</span>
 <span>57</span>
 <span>58</span>
@@ -1666,9 +1643,11 @@ tasks. It ensures the task is set to 'classify' regardless of input configuratio
 <span></span>    <span class="n">updated</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">transforms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">size</span> <span class="o">!=</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"transforms"</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span><span class="o">.</span><span class="n">transforms</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="s2">"size"</span><span class="p">)</span>
-<span></span>        <span class="k">else</span> <span class="kc">True</span>
+<span></span>        <span class="k">else</span> <span class="kc">False</span>
 <span></span>    <span class="p">)</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">updated</span> <span class="k">else</span> <span class="n">classify_transforms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">transforms</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>        <span class="n">classify_transforms</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">)</span> <span class="k">if</span> <span class="n">updated</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pt</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">transforms</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

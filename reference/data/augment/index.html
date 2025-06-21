@@ -11141,7 +11141,7 @@ the color channels are reversed from BGR to RGB.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Input image as a numpy array with shape (H, W, C) in BGR order.</p>
+<p>Input image as a numpy array with shape (H, W, C) in RGB order.</p>
 </div>
 </td>
 <td>
@@ -11216,7 +11216,7 @@ to [0, 1] with shape (C, H, W) in RGB order.</p>
 <span></span><span class="sd">    the color channels are reversed from BGR to RGB.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        im (numpy.ndarray): Input image as a numpy array with shape (H, W, C) in BGR order.</span>
+<span></span><span class="sd">        im (numpy.ndarray): Input image as a numpy array with shape (H, W, C) in RGB order.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor): The transformed image as a PyTorch tensor in float32 or float16, normalized</span>
@@ -11229,7 +11229,7 @@ to [0, 1] with shape (C, H, W) in RGB order.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; print(tensor_img.shape, tensor_img.dtype)</span>
 <span></span><span class="sd">        torch.Size([3, 640, 640]) torch.float16</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">))[::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># HWC to CHW -&gt; BGR to RGB -&gt; contiguous</span>
+<span></span>    <span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ascontiguousarray</span><span class="p">(</span><span class="n">im</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)))</span>  <span class="c1"># HWC to CHW -&gt; contiguous</span>
 <span></span>    <span class="n">im</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>  <span class="c1"># to torch</span>
 <span></span>    <span class="n">im</span> <span class="o">=</span> <span class="n">im</span><span class="o">.</span><span class="n">half</span><span class="p">()</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">half</span> <span class="k">else</span> <span class="n">im</span><span class="o">.</span><span class="n">float</span><span class="p">()</span>  <span class="c1"># uint8 to fp16/32</span>
 <span></span>    <span class="n">im</span> <span class="o">/=</span> <span class="mf">255.0</span>  <span class="c1"># 0-255 to 0.0-1.0</span>
