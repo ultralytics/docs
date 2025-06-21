@@ -36,13 +36,13 @@ EfficientDet's architecture is built on three core innovations:
 
 - **Strengths:**
 
-  - **High Parameter Efficiency:** Delivers strong accuracy with significantly fewer parameters and FLOPs compared to many other architectures.
-  - **Scalability:** The model family (D0 to D7) provides a clear and effective way to scale the model up or down based on resource constraints, from mobile devices to large-scale cloud servers.
-  - **Strong Accuracy:** Achieves competitive mAP scores, especially when considering its low computational footprint.
+    - **High Parameter Efficiency:** Delivers strong accuracy with significantly fewer parameters and FLOPs compared to many other architectures.
+    - **Scalability:** The model family (D0 to D7) provides a clear and effective way to scale the model up or down based on resource constraints, from mobile devices to large-scale cloud servers.
+    - **Strong Accuracy:** Achieves competitive mAP scores, especially when considering its low computational footprint.
 
 - **Weaknesses:**
-  - **Inference Speed:** While computationally efficient, its raw inference latency can be higher than models specifically optimized for real-time performance, such as the Ultralytics YOLO series.
-  - **Framework Dependency:** The original implementation and primary support are for [TensorFlow](https://www.ultralytics.com/glossary/tensorflow), which may require extra effort for developers working within the [PyTorch](https://www.ultralytics.com/glossary/pytorch) ecosystem.
+    - **Inference Speed:** While computationally efficient, its raw inference latency can be higher than models specifically optimized for real-time performance, such as the Ultralytics YOLO series.
+    - **Framework Dependency:** The original implementation and primary support are for [TensorFlow](https://www.ultralytics.com/glossary/tensorflow), which may require extra effort for developers working within the [PyTorch](https://www.ultralytics.com/glossary/pytorch) ecosystem.
 
 ### Use Cases
 
@@ -77,13 +77,13 @@ PP-YOLOE+ is an [anchor-free detector](https://www.ultralytics.com/glossary/anch
 
 - **Strengths:**
 
-  - **Excellent Speed-Accuracy Balance:** Delivers high mAP scores while maintaining very fast inference speeds, particularly on GPUs with [TensorRT](https://www.ultralytics.com/glossary/tensorrt) optimization.
-  - **Anchor-Free Design:** Simplifies the model structure and reduces the number of hyperparameters that need tuning.
-  - **Strong Performance:** Often outperforms other models in both speed and accuracy for its size.
+    - **Excellent Speed-Accuracy Balance:** Delivers high mAP scores while maintaining very fast inference speeds, particularly on GPUs with [TensorRT](https://www.ultralytics.com/glossary/tensorrt) optimization.
+    - **Anchor-Free Design:** Simplifies the model structure and reduces the number of hyperparameters that need tuning.
+    - **Strong Performance:** Often outperforms other models in both speed and accuracy for its size.
 
 - **Weaknesses:**
-  - **Ecosystem Lock-in:** Its primary optimization and support are for the PaddlePaddle framework, which can pose a challenge for users outside of that ecosystem.
-  - **Community and Resources:** May have a smaller global community and fewer third-party resources compared to more widely adopted models like those from Ultralytics.
+    - **Ecosystem Lock-in:** Its primary optimization and support are for the PaddlePaddle framework, which can pose a challenge for users outside of that ecosystem.
+    - **Community and Resources:** May have a smaller global community and fewer third-party resources compared to more widely adopted models like those from Ultralytics.
 
 ### Use Cases
 

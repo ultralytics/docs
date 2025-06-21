@@ -34,14 +34,14 @@ YOLOv7 is renowned for its exceptional performance on GPU hardware, delivering h
 
 - **Strengths:**
 
-  - **Excellent Speed-Accuracy Trade-off:** Provides a strong combination of mAP and inference speed, ideal for real-time tasks.
-  - **Efficient Training:** Leverages "bag-of-freebies" to improve accuracy without adding computational overhead during [inference](https://www.ultralytics.com/glossary/inference-engine).
-  - **Proven Performance:** Established and well-benchmarked on standard datasets like [MS COCO](https://docs.ultralytics.com/datasets/detect/coco/).
+    - **Excellent Speed-Accuracy Trade-off:** Provides a strong combination of mAP and inference speed, ideal for real-time tasks.
+    - **Efficient Training:** Leverages "bag-of-freebies" to improve accuracy without adding computational overhead during [inference](https://www.ultralytics.com/glossary/inference-engine).
+    - **Proven Performance:** Established and well-benchmarked on standard datasets like [MS COCO](https://docs.ultralytics.com/datasets/detect/coco/).
 
 - **Weaknesses:**
-  - **Complexity:** The architecture and advanced training techniques can be complex to fully understand and customize.
-  - **Resource Intensive:** Larger YOLOv7 models require significant GPU resources for training.
-  - **Limited Versatility:** Primarily designed for [object detection](https://www.ultralytics.com/glossary/object-detection), with community-driven extensions for other tasks, unlike models with integrated multi-task support.
+    - **Complexity:** The architecture and advanced training techniques can be complex to fully understand and customize.
+    - **Resource Intensive:** Larger YOLOv7 models require significant GPU resources for training.
+    - **Limited Versatility:** Primarily designed for [object detection](https://www.ultralytics.com/glossary/object-detection), with community-driven extensions for other tasks, unlike models with integrated multi-task support.
 
 [Learn more about YOLOv7](https://docs.ultralytics.com/models/yolov7/){ .md-button }
 
@@ -65,12 +65,12 @@ The primary advantage of RT-DETRv2 is its high accuracy, especially for detectin
 
 - **Strengths:**
 
-  - **High Accuracy:** The transformer architecture enables superior object detection accuracy by effectively processing global image context.
-  - **Robust Feature Representation:** Excels at understanding intricate details and relationships between objects.
+    - **High Accuracy:** The transformer architecture enables superior object detection accuracy by effectively processing global image context.
+    - **Robust Feature Representation:** Excels at understanding intricate details and relationships between objects.
 
 - **Weaknesses:**
-  - **High Computational Cost:** Transformer-based models like RT-DETRv2 are computationally intensive, particularly during training. They typically require significantly more CUDA memory and longer training times compared to CNN-based models.
-  - **Slower Inference on Some Hardware:** While optimized for real-time performance, it may not match the raw speed of highly optimized CNNs like YOLOv7 on all hardware configurations.
+    - **High Computational Cost:** Transformer-based models like RT-DETRv2 are computationally intensive, particularly during training. They typically require significantly more CUDA memory and longer training times compared to CNN-based models.
+    - **Slower Inference on Some Hardware:** While optimized for real-time performance, it may not match the raw speed of highly optimized CNNs like YOLOv7 on all hardware configurations.
 
 [Learn more about RT-DETR](https://docs.ultralytics.com/models/rtdetr/){ .md-button }
 
