@@ -112,14 +112,14 @@ From the table, we can draw several conclusions:
 
 - **DAMO-YOLO** is best suited for applications where speed is paramount, such as:
 
-  - **Real-time Video Surveillance:** Processing high-framerate video feeds for applications like [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/).
-  - **Edge AI Deployments:** Running on resource-constrained devices like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) or [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/).
-  - **Robotics:** Enabling rapid perception for robots that require quick decision-making, as discussed in [AI's role in robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
+    - **Real-time Video Surveillance:** Processing high-framerate video feeds for applications like [security alarm systems](https://docs.ultralytics.com/guides/security-alarm-system/).
+    - **Edge AI Deployments:** Running on resource-constrained devices like the [NVIDIA Jetson](https://docs.ultralytics.com/guides/nvidia-jetson/) or [Raspberry Pi](https://docs.ultralytics.com/guides/raspberry-pi/).
+    - **Robotics:** Enabling rapid perception for robots that require quick decision-making, as discussed in [AI's role in robotics](https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics).
 
 - **RTDETRv2** excels in scenarios where accuracy is the top priority:
-  - **Autonomous Driving:** Reliably detecting pedestrians, vehicles, and obstacles in complex urban environments.
-  - **High-Stakes Security:** Identifying threats in crowded public spaces where precision is critical.
-  - **Retail Analytics:** Accurately counting and tracking a large number of products on shelves or customers in a store.
+    - **Autonomous Driving:** Reliably detecting pedestrians, vehicles, and obstacles in complex urban environments.
+    - **High-Stakes Security:** Identifying threats in crowded public spaces where precision is critical.
+    - **Retail Analytics:** Accurately counting and tracking a large number of products on shelves or customers in a store.
 
 ## The Ultralytics Advantage: YOLOv8 and YOLO11
 

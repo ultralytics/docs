@@ -38,13 +38,13 @@ PP-YOLOE+ introduces several architectural enhancements to improve performance:
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - High accuracy potential, often outperforming other models in mAP on benchmark datasets.
-  - Efficient inference speeds, especially when optimized with TensorRT on GPUs.
-  - The anchor-free approach can simplify the training pipeline in certain scenarios.
+    - High accuracy potential, often outperforming other models in mAP on benchmark datasets.
+    - Efficient inference speeds, especially when optimized with TensorRT on GPUs.
+    - The anchor-free approach can simplify the training pipeline in certain scenarios.
 - **Weaknesses**:
-  - **Ecosystem Lock-in**: Primarily designed for and optimized within the PaddlePaddle framework, which can create a significant barrier for developers accustomed to PyTorch or other ecosystems.
-  - **Smaller Community**: The community and available resources are less extensive compared to the vast ecosystem surrounding Ultralytics YOLO models.
-  - **Complexity**: Integration into non-PaddlePaddle workflows can be complex and time-consuming.
+    - **Ecosystem Lock-in**: Primarily designed for and optimized within the PaddlePaddle framework, which can create a significant barrier for developers accustomed to PyTorch or other ecosystems.
+    - **Smaller Community**: The community and available resources are less extensive compared to the vast ecosystem surrounding Ultralytics YOLO models.
+    - **Complexity**: Integration into non-PaddlePaddle workflows can be complex and time-consuming.
 
 ### Use Cases
 
@@ -80,14 +80,14 @@ YOLOv5's architecture is highly optimized for efficiency and performance:
 ### Strengths and Weaknesses
 
 - **Strengths**:
-  - **Ease of Use**: YOLOv5 is famous for its streamlined user experience, with a simple [Python API](https://docs.ultralytics.com/usage/python/), easy-to-use [CLI](https://docs.ultralytics.com/usage/cli/), and extensive documentation.
-  - **Well-Maintained Ecosystem**: It is supported by the comprehensive Ultralytics ecosystem, which includes active development, a large and helpful community, frequent updates, and tools like [Ultralytics HUB](https://www.ultralytics.com/hub) for no-code training and deployment.
-  - **Performance Balance**: It offers an outstanding balance between inference speed and accuracy, making it ideal for [real-time applications](https://www.ultralytics.com/glossary/real-time-inference).
-  - **Training Efficiency**: YOLOv5 features an efficient training process with readily available pre-trained weights, enabling faster convergence and reducing development time.
-  - **Versatility**: Beyond object detection, YOLOv5 also supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [image classification](https://docs.ultralytics.com/tasks/classify/), providing a flexible solution for multiple vision tasks.
+    - **Ease of Use**: YOLOv5 is famous for its streamlined user experience, with a simple [Python API](https://docs.ultralytics.com/usage/python/), easy-to-use [CLI](https://docs.ultralytics.com/usage/cli/), and extensive documentation.
+    - **Well-Maintained Ecosystem**: It is supported by the comprehensive Ultralytics ecosystem, which includes active development, a large and helpful community, frequent updates, and tools like [Ultralytics HUB](https://www.ultralytics.com/hub) for no-code training and deployment.
+    - **Performance Balance**: It offers an outstanding balance between inference speed and accuracy, making it ideal for [real-time applications](https://www.ultralytics.com/glossary/real-time-inference).
+    - **Training Efficiency**: YOLOv5 features an efficient training process with readily available pre-trained weights, enabling faster convergence and reducing development time.
+    - **Versatility**: Beyond object detection, YOLOv5 also supports [instance segmentation](https://docs.ultralytics.com/tasks/segment/) and [image classification](https://docs.ultralytics.com/tasks/classify/), providing a flexible solution for multiple vision tasks.
 - **Weaknesses**:
-  - While highly accurate, the largest PP-YOLOE+ models may achieve slightly higher mAP on certain benchmarks.
-  - Its anchor-based approach may require some tuning for datasets with unconventional object aspect ratios.
+    - While highly accurate, the largest PP-YOLOE+ models may achieve slightly higher mAP on certain benchmarks.
+    - Its anchor-based approach may require some tuning for datasets with unconventional object aspect ratios.
 
 ### Use Cases
 
