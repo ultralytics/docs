@@ -107,14 +107,14 @@ When comparing the two models, we observe distinct trade-offs. DAMO-YOLO general
 
 From the table, DAMO-YOLOt achieves a higher mAP (42.0) with faster inference (2.32 ms) than PP-YOLOE+t (39.9 mAP, 2.84 ms). However, PP-YOLOE+s is more parameter- and FLOPs-efficient. At the high end, PP-YOLOE+x reaches the highest accuracy (54.7 mAP) but at a significant cost in size and latency.
 
-## The Ultralytics Advantage: Why Choose YOLOv11?
+## The Ultralytics Advantage: Why Choose YOLO11?
 
 While both PP-YOLOE+ and DAMO-YOLO offer compelling features, developers seeking a holistic, high-performance, and user-friendly solution should consider [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/). It represents the culmination of years of research and development, providing an optimal blend of performance and usability.
 
 - **Ease of Use**: Ultralytics models are known for their streamlined user experience. With a simple Python API, extensive [documentation](https://docs.ultralytics.com/), and numerous [guides](https://docs.ultralytics.com/guides/), getting started is incredibly fast.
 - **Well-Maintained Ecosystem**: Ultralytics provides a comprehensive ecosystem that includes active development on [GitHub](https://github.com/ultralytics/ultralytics), strong community support, and the [Ultralytics HUB](https://docs.ultralytics.com/hub/) platform for training, deploying, and managing models without code.
 - **Performance Balance**: [YOLO11](https://docs.ultralytics.com/models/yolo11/) is engineered to provide an excellent trade-off between speed and accuracy, making it suitable for a wide range of real-world deployment scenarios, from cloud servers to low-power edge devices.
-- **Versatility**: Unlike specialized detectors, Ultralytics YOLO models are multi-tasking powerhouses. A single YOLOv11 model can perform [object detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/), offering unmatched flexibility.
+- **Versatility**: Unlike specialized detectors, Ultralytics YOLO models are multi-tasking powerhouses. A single YOLO11 model can perform [object detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/), offering unmatched flexibility.
 - **Training Efficiency**: With readily available pre-trained weights and an efficient training process, users can achieve state-of-the-art results on custom datasets with minimal effort. Ultralytics models are also optimized for lower memory usage during training and inference compared to many alternatives.
 
 For developers looking for a robust, versatile, and easy-to-use model, other Ultralytics models like [YOLOv8](https://docs.ultralytics.com/models/yolov8/) and [YOLOv10](https://docs.ultralytics.com/models/yolov10/) also provide significant advantages over PP-YOLOE+ and DAMO-YOLO.

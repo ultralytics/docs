@@ -117,7 +117,7 @@ Both YOLOv7 and YOLOv9 are powerful models, but they cater to slightly different
 
 - **Choose YOLOv7** if you need a battle-tested, extremely fast model for standard real-time applications and prefer to work with a more established architecture with vast community resources.
 
-For developers and researchers looking for the best overall experience, we recommend using these models within the Ultralytics ecosystem. Newer models like [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) and [YOLOv11](https://docs.ultralytics.com/models/yolo11/) not only offer competitive performance but also come with significant advantages:
+For developers and researchers looking for the best overall experience, we recommend using these models within the Ultralytics ecosystem. Newer models like [Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) and [YOLO11](https://docs.ultralytics.com/models/yolo11/) not only offer competitive performance but also come with significant advantages:
 
 - **Ease of Use:** A streamlined user experience with a simple [Python API](https://docs.ultralytics.com/usage/python/) and extensive [documentation](https://docs.ultralytics.com/).
 - **Well-Maintained Ecosystem:** Active development, strong community support, and integration with tools like [Ultralytics HUB](https://www.ultralytics.com/hub) for no-code training and deployment.

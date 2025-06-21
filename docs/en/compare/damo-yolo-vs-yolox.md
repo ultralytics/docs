@@ -143,7 +143,7 @@ Ultralytics models provide several key advantages:
 
 DAMO-YOLO and YOLOX are both formidable object detection models that have pushed the field forward. DAMO-YOLO stands out for its exceptional GPU speed and innovative NAS-based design, making it ideal for high-throughput, real-time systems. YOLOX offers a robust, high-accuracy, anchor-free alternative that has proven its value in both research and industry.
 
-However, for most developers and researchers, **Ultralytics YOLO models like YOLOv11 present the most compelling overall package.** They combine state-of-the-art performance with unparalleled ease of use, multi-task versatility, and a thriving, well-supported ecosystem. This holistic approach makes Ultralytics models the recommended choice for building practical, high-performance, and scalable computer vision solutions.
+However, for most developers and researchers, **Ultralytics YOLO models like YOLO11 present the most compelling overall package.** They combine state-of-the-art performance with unparalleled ease of use, multi-task versatility, and a thriving, well-supported ecosystem. This holistic approach makes Ultralytics models the recommended choice for building practical, high-performance, and scalable computer vision solutions.
 
 ## Explore Other Models
 

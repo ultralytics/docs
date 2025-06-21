@@ -117,7 +117,7 @@ YOLOv8 demonstrates superior speed across all model sizes, especially on CPU, wh
 
 RTDETRv2 is an impressive model that showcases the potential of transformers for high-accuracy object detection, making it a strong choice for research and specialized applications with abundant computational resources.
 
-However, for the vast majority of developers, researchers, and businesses, **[Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) is the superior choice**. It offers an exceptional balance of speed and accuracy, is far more computationally efficient, and is significantly easier to use. Its versatility across multiple computer vision tasks, combined with a robust and well-maintained ecosystem, makes it a more practical, cost-effective, and powerful solution for building and deploying real-world AI systems. For those looking for the latest advancements, newer models like [YOLOv11](https://docs.ultralytics.com/models/yolo11/) push these advantages even further.
+However, for the vast majority of developers, researchers, and businesses, **[Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) is the superior choice**. It offers an exceptional balance of speed and accuracy, is far more computationally efficient, and is significantly easier to use. Its versatility across multiple computer vision tasks, combined with a robust and well-maintained ecosystem, makes it a more practical, cost-effective, and powerful solution for building and deploying real-world AI systems. For those looking for the latest advancements, newer models like [YOLO11](https://docs.ultralytics.com/models/yolo11/) push these advantages even further.
 
 ## Explore Other Models
 

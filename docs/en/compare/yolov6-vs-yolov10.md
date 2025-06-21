@@ -83,7 +83,7 @@ YOLOv10 introduces several groundbreaking innovations to optimize the entire det
 ### Weaknesses
 
 - **Newer Model:** As a very recent model, the community and third-party tooling are still growing compared to long-established models like YOLOv8.
-- **Task Specialization:** Like YOLOv6-3.0, YOLOv10 is primarily focused on object detection. For projects requiring multi-task capabilities like segmentation or pose estimation out-of-the-box, a model like [Ultralytics YOLOv11](https://docs.ultralytics.com/models/yolo11/) would be a more suitable choice.
+- **Task Specialization:** Like YOLOv6-3.0, YOLOv10 is primarily focused on object detection. For projects requiring multi-task capabilities like segmentation or pose estimation out-of-the-box, a model like [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) would be a more suitable choice.
 
 ### Ideal Use Cases
 

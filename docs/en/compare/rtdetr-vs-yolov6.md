@@ -126,7 +126,7 @@ Both RTDETRv2 and YOLOv6-3.0 are capable models, but they serve different needs.
 - **RTDETRv2** is the choice for experts who require maximum accuracy for complex object detection tasks and have access to powerful computational resources.
 - **YOLOv6-3.0** is a solid option for industrial applications where inference speed and efficiency are the top priorities.
 
-However, for the vast majority of developers and researchers, **Ultralytics models like [YOLOv11](https://docs.ultralytics.com/models/yolo11/) offer the best overall package**. They provide a state-of-the-art balance of speed and accuracy, exceptional versatility across multiple vision tasks, and superior ease of use. The comprehensive and actively maintained Ultralytics ecosystem empowers users to move from concept to production faster and more efficiently, making it the recommended choice for a wide array of real-world applications.
+However, for the vast majority of developers and researchers, **Ultralytics models like [YOLO11](https://docs.ultralytics.com/models/yolo11/) offer the best overall package**. They provide a state-of-the-art balance of speed and accuracy, exceptional versatility across multiple vision tasks, and superior ease of use. The comprehensive and actively maintained Ultralytics ecosystem empowers users to move from concept to production faster and more efficiently, making it the recommended choice for a wide array of real-world applications.
 
 ### Explore Other Models
 
