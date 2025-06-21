@@ -8,7 +8,7 @@
 <link href="https://docs.ultralytics.com/compare/efficientdet-vs-yolo11/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
-<title>EfficientDet vs YOLO11: A Technical Comparison - Ultralytics YOLO Docs</title>
+<title>EfficientDet vs. YOLO11: A Detailed Technical Comparison</title>
 <link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -19,13 +19,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="EfficientDet vs YOLO11: A Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO11, EfficientDet, model comparison, object detection, Ultralytics, EfficientDet-Dx, YOLO performance, computer vision, real-time detection, AI models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/efficientdet-vs-yolo11" property="og:url"/><meta content="EfficientDet vs YOLO11: A Technical Comparison" property="og:title"/><meta content="Explore a detailed comparison of YOLO11 and EfficientDet, analyzing architecture, performance, and use cases to guide your object detection model choice." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/efficientdet-vs-yolo11" property="twitter:url"/><meta content="EfficientDet vs YOLO11: A Technical Comparison" property="twitter:title"/><meta content="Explore a detailed comparison of YOLO11 and EfficientDet, analyzing architecture, performance, and use cases to guide your object detection model choice." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "EfficientDet vs YOLO11: A Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-06-20 11:00:01 +0000", "dateModified": "2025-05-11 11:00:01 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed comparison of YOLO11 and EfficientDet, analyzing architecture, performance, and use cases to guide your object detection model choice."}</script></head>
+<meta content="EfficientDet vs. YOLO11: A Detailed Technical Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLO11, EfficientDet, model comparison, object detection, Ultralytics, EfficientDet-Dx, YOLO performance, computer vision, real-time detection, AI models" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/efficientdet-vs-yolo11" property="og:url"/><meta content="EfficientDet vs. YOLO11: A Detailed Technical Comparison" property="og:title"/><meta content="Explore a detailed comparison of YOLO11 and EfficientDet, analyzing architecture, performance, and use cases to guide your object detection model choice." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/efficientdet-vs-yolo11" property="twitter:url"/><meta content="EfficientDet vs. YOLO11: A Detailed Technical Comparison" property="twitter:title"/><meta content="Explore a detailed comparison of YOLO11 and EfficientDet, analyzing architecture, performance, and use cases to guide your object detection model choice." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "EfficientDet vs. YOLO11: A Detailed Technical Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-06-21 11:47:13 +0000", "dateModified": "2025-05-12 11:47:13 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore a detailed comparison of YOLO11 and EfficientDet, analyzing architecture, performance, and use cases to guide your object detection model choice."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#efficientdet-vs-yolo11-a-technical-comparison">
+<a class="md-skip" href="#efficientdet-vs-yolo11-a-detailed-technical-comparison">
           Skip to content
         </a>
 </div>
@@ -58,7 +58,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              EfficientDet vs YOLO11: A Technical Comparison
+              EfficientDet vs. YOLO11: A Detailed Technical Comparison
           </span>
 </div>
 </div>
@@ -382,13 +382,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics">
-<span class="md-ellipsis">
-      Performance Metrics
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#strengths">
 <span class="md-ellipsis">
       Strengths
@@ -399,13 +392,6 @@
 <a class="md-nav__link" href="#weaknesses">
 <span class="md-ellipsis">
       Weaknesses
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ideal-use-cases">
-<span class="md-ellipsis">
-      Ideal Use Cases
     </span>
 </a>
 </li>
@@ -428,13 +414,6 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics_1">
-<span class="md-ellipsis">
-      Performance Metrics
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
 <a class="md-nav__link" href="#strengths_1">
 <span class="md-ellipsis">
       Strengths
@@ -448,10 +427,35 @@
     </span>
 </a>
 </li>
+</ul>
+</nav>
+</li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#ideal-use-cases_1">
+<a class="md-nav__link" href="#performance-and-benchmarks">
+<span class="md-ellipsis">
+      Performance and Benchmarks
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ideal-use-cases">
 <span class="md-ellipsis">
       Ideal Use Cases
+    </span>
+</a>
+<nav aria-label="Ideal Use Cases" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#efficientdet_1">
+<span class="md-ellipsis">
+      EfficientDet
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#yolo11">
+<span class="md-ellipsis">
+      YOLO11
     </span>
 </a>
 </li>
@@ -459,16 +463,16 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-comparison">
+<a class="md-nav__link" href="#conclusion">
 <span class="md-ellipsis">
-      Performance Comparison
+      Conclusion
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
+<a class="md-nav__link" href="#explore-other-models">
 <span class="md-ellipsis">
-      Conclusion
+      Explore Other Models
     </span>
 </a>
 </li>
@@ -482,79 +486,77 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/efficientdet-vs-yolo11.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="efficientdet-vs-yolo11-a-technical-comparison">EfficientDet vs YOLO11: A Technical Comparison</h1>
-<p>Choosing the right object detection model involves understanding the trade-offs between different architectures. This page provides a detailed technical comparison between Google's EfficientDet and Ultralytics YOLO11, analyzing their architectures, performance metrics, and ideal use cases to guide your selection process for computer vision tasks.</p>
+<h1 id="efficientdet-vs-yolo11-a-detailed-technical-comparison">EfficientDet vs. YOLO11: A Detailed Technical Comparison</h1>
+<p>This page offers a detailed technical comparison between Google's EfficientDet and <a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a>, two prominent <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> models. We analyze their architectures, performance benchmarks, and suitability for different applications to assist you in selecting the optimal model for your <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> needs. While both models aim for efficient and accurate object detection, they stem from different research lines (<a href="https://ai.google/">Google</a> and <a href="https://www.ultralytics.com/">Ultralytics</a>) and employ distinct architectural philosophies.</p>
 <script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["EfficientDet", "YOLO11"]' height="400" id="modelComparisonChart" width="1024"></canvas>
 <h2 id="efficientdet">EfficientDet</h2>
-<p><strong>Authors:</strong> Mingxing Tan, Ruoming Pang, Quoc V. Le<br/>
-<strong>Organization:</strong> Google<br/>
-<strong>Date:</strong> 2019-11-20<br/>
-<strong>Arxiv Link:</strong> <a href="https://arxiv.org/abs/1911.09070">https://arxiv.org/abs/1911.09070</a><br/>
-<strong>GitHub Link:</strong> <a href="https://github.com/google/automl/tree/master/efficientdet">https://github.com/google/automl/tree/master/efficientdet</a><br/>
-<strong>Docs Link:</strong> <a href="https://github.com/google/automl/tree/master/efficientdet#readme">https://github.com/google/automl/tree/master/efficientdet#readme</a></p>
-<p>EfficientDet is a family of object detection models developed by Google Research, introduced in 2019. It focuses on achieving high efficiency and accuracy through architectural innovations.</p>
+<p>EfficientDet is a family of object detection models developed by researchers at Google Brain. Introduced in 2019, it set a new standard for efficiency by combining a powerful backbone with a novel feature fusion mechanism and a unique scaling method.</p>
+<p><strong>Technical Details:</strong></p>
+<ul>
+<li><strong>Authors:</strong> Mingxing Tan, Ruoming Pang, and Quoc V. Le</li>
+<li><strong>Organization:</strong> <a href="https://ai.google/">Google</a></li>
+<li><strong>Date:</strong> 2019-11-20</li>
+<li><strong>Arxiv:</strong> <a href="https://arxiv.org/abs/1911.09070">https://arxiv.org/abs/1911.09070</a></li>
+<li><strong>GitHub:</strong> <a href="https://github.com/google/automl/tree/master/efficientdet">https://github.com/google/automl/tree/master/efficientdet</a></li>
+<li><strong>Docs:</strong> <a href="https://github.com/google/automl/tree/master/efficientdet#readme">https://github.com/google/automl/tree/master/efficientdet#readme</a></li>
+</ul>
 <h3 id="architecture-and-key-features">Architecture and Key Features</h3>
-<p>EfficientDet utilizes the <strong>EfficientNet</strong> backbone, known for its compound scaling method that balances network depth, width, and resolution. A key feature is the <strong>BiFPN (Bi-directional Feature Pyramid Network)</strong>, a weighted feature fusion mechanism designed for efficient multi-scale feature aggregation. This architecture allows EfficientDet models to scale effectively from small, fast variants (e.g., EfficientDet-D0) to larger, more accurate ones (e.g., EfficientDet-D7).</p>
-<h3 id="performance-metrics">Performance Metrics</h3>
-<p>EfficientDet models offer a range of performance points, trading off speed for accuracy. As seen in the table below, smaller variants like EfficientDet-D0 are very fast on CPU (10.2 ms ONNX) and have low parameter counts (3.9M), while larger variants like D7 achieve higher mAP (53.7) but with significantly increased latency and computational cost.</p>
+<p>EfficientDet's architecture is built on three core components:</p>
+<ol>
+<li><strong>EfficientNet Backbone:</strong> It uses the highly efficient <a href="https://arxiv.org/abs/1905.11946">EfficientNet</a> as its <a href="https://www.ultralytics.com/glossary/backbone">backbone</a> for feature extraction.</li>
+<li><strong>BiFPN (Bi-directional Feature Pyramid Network):</strong> A novel, weighted feature pyramid network that allows for simple and fast multi-scale feature fusion. It introduces learnable weights to understand the importance of different input features and applies both top-down and bottom-up connections.</li>
+<li><strong>Compound Scaling:</strong> A key innovation where the model depth, width, and resolution are scaled up together using a single compound coefficient. This allows the model family (from D0 to D7) to scale efficiently across a wide range of resource constraints.</li>
+</ol>
 <h3 id="strengths">Strengths</h3>
 <ul>
-<li><strong>Scalability:</strong> Offers a wide range of models balancing efficiency and accuracy.</li>
-<li><strong>Accuracy:</strong> Larger models achieve competitive mAP scores on benchmarks like COCO.</li>
-<li><strong>Efficient Architecture:</strong> BiFPN and EfficientNet contribute to good performance per parameter.</li>
+<li><strong>High Efficiency:</strong> EfficientDet models are renowned for their low parameter and <a href="https://www.ultralytics.com/glossary/flops">FLOPs</a> counts, achieving strong accuracy for their computational budget.</li>
+<li><strong>Scalability:</strong> The compound scaling method provides a clear path to scale the model up or down, making it adaptable to various hardware profiles, from mobile devices to data centers.</li>
+<li><strong>Strong Academic Benchmark:</strong> It was a state-of-the-art model upon release and remains a strong baseline for efficiency-focused research.</li>
 </ul>
 <h3 id="weaknesses">Weaknesses</h3>
 <ul>
-<li><strong>Primarily Detection Focused:</strong> Less inherently versatile compared to models supporting multiple tasks out-of-the-box.</li>
-<li><strong>Ecosystem:</strong> May lack the integrated ecosystem, extensive documentation, and active community support found with Ultralytics models.</li>
-<li><strong>Real-time Speed:</strong> While efficient, larger variants may not match the GPU inference speeds of highly optimized models like YOLO11 for real-time applications.</li>
-</ul>
-<h3 id="ideal-use-cases">Ideal Use Cases</h3>
-<p>EfficientDet is suitable for applications where a balance between accuracy and computational efficiency is needed, particularly when deploying across different hardware tiers. Examples include:</p>
-<ul>
-<li>Cloud-based image analysis.</li>
-<li>Applications where moderate latency is acceptable.</li>
-<li>Scenarios requiring scalable model options.</li>
+<li><strong>Slower GPU Inference:</strong> Despite its FLOP efficiency, EfficientDet can be slower in terms of real-world <a href="https://www.ultralytics.com/glossary/inference-latency">inference latency</a> on GPUs compared to models like YOLO11, which are specifically designed for parallel processing hardware.</li>
+<li><strong>Limited Versatility:</strong> EfficientDet is primarily an object detector. It lacks the native support for other tasks like <a href="https://www.ultralytics.com/glossary/instance-segmentation">instance segmentation</a>, <a href="https://www.ultralytics.com/blog/what-is-pose-estimation-and-where-can-it-be-used">pose estimation</a>, or classification that is integrated into modern frameworks like Ultralytics.</li>
+<li><strong>Less Maintained Ecosystem:</strong> The official repository is not as actively developed as the Ultralytics ecosystem. This can lead to challenges in usability, community support, and integration with the latest tools and deployment platforms.</li>
 </ul>
 <p><a class="md-button" href="https://github.com/google/automl/tree/master/efficientdet#readme">Learn more about EfficientDet</a></p>
 <h2 id="ultralytics-yolo11">Ultralytics YOLO11</h2>
-<p><strong>Authors:</strong> Glenn Jocher, Jing Qiu<br/>
-<strong>Organization:</strong> Ultralytics<br/>
-<strong>Date:</strong> 2024-09-27<br/>
-<strong>Arxiv Link:</strong> None<br/>
-<strong>GitHub Link:</strong> <a href="https://github.com/ultralytics/ultralytics">https://github.com/ultralytics/ultralytics</a><br/>
-<strong>Docs Link:</strong> <a href="https://docs.ultralytics.com/models/yolo11/">https://docs.ultralytics.com/models/yolo11/</a></p>
-<p><a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a> is the latest state-of-the-art model in the YOLO series from Ultralytics, released in September 2024. It builds upon the success of predecessors like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, focusing on enhancing speed, accuracy, and overall usability within a comprehensive ecosystem.</p>
+<p><a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a> is the latest advancement in the YOLO (You Only Look Once) series, developed by Ultralytics. It builds upon the success of its predecessors like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, focusing on pushing the boundaries of both accuracy and real-time performance while offering unparalleled ease of use and versatility.</p>
+<p><strong>Technical Details:</strong></p>
+<ul>
+<li><strong>Authors:</strong> Glenn Jocher, Jing Qiu</li>
+<li><strong>Organization:</strong> <a href="https://www.ultralytics.com/">Ultralytics</a></li>
+<li><strong>Date:</strong> 2024-09-27</li>
+<li><strong>GitHub:</strong> <a href="https://github.com/ultralytics/ultralytics">https://github.com/ultralytics/ultralytics</a></li>
+<li><strong>Docs:</strong> <a href="https://docs.ultralytics.com/models/yolo11/">https://docs.ultralytics.com/models/yolo11/</a></li>
+</ul>
 <h3 id="architecture-and-key-features_1">Architecture and Key Features</h3>
-<p>YOLO11 employs a single-stage, anchor-free architecture optimized for real-time performance. It features architectural refinements in the backbone, neck, and head to improve feature extraction and detection speed while maintaining high accuracy. A significant advantage is its <strong>Versatility</strong>, supporting multiple tasks like <a href="https://docs.ultralytics.com/tasks/detect/">object detection</a>, <a href="https://docs.ultralytics.com/tasks/segment/">instance segmentation</a>, <a href="https://docs.ultralytics.com/tasks/pose/">pose estimation</a>, <a href="https://docs.ultralytics.com/tasks/classify/">image classification</a>, and oriented bounding boxes (OBB) within a unified framework.</p>
-<h3 id="performance-metrics_1">Performance Metrics</h3>
-<p>YOLO11 demonstrates an excellent <strong>Performance Balance</strong>, achieving high mAP scores with remarkable inference speeds, especially on GPUs (e.g., YOLO11n at 1.5 ms on T4 TensorRT10). It often requires lower memory during training and inference compared to more complex architectures. The range of models (n, s, m, l, x) allows users to select the optimal trade-off for their specific needs, from edge devices to cloud servers.</p>
+<p>YOLO11 employs a single-stage, <a href="https://www.ultralytics.com/blog/benefits-ultralytics-yolo11-being-anchor-free-detector">anchor-free detector</a> architecture optimized for speed and precision. Its design features refined feature extraction layers and a streamlined network structure, which reduces parameter count and computational load without sacrificing accuracy. This ensures exceptional performance across diverse hardware, from <a href="https://www.ultralytics.com/glossary/edge-ai">edge devices</a> like the <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a> to powerful cloud servers.</p>
+<p>A significant advantage of YOLO11 is its integration within the comprehensive Ultralytics ecosystem. This provides developers with:</p>
+<ul>
+<li><strong>Ease of Use:</strong> A simple and intuitive <a href="https://docs.ultralytics.com/usage/python/">Python API</a> and <a href="https://docs.ultralytics.com/usage/cli/">CLI</a> make training, validation, and inference straightforward.</li>
+<li><strong>Versatility:</strong> YOLO11 is a multi-task model supporting <a href="https://docs.ultralytics.com/tasks/detect/">object detection</a>, <a href="https://docs.ultralytics.com/tasks/segment/">instance segmentation</a>, <a href="https://docs.ultralytics.com/tasks/classify/">image classification</a>, <a href="https://docs.ultralytics.com/tasks/pose/">pose estimation</a>, and oriented bounding boxes (OBB) within a single unified framework.</li>
+<li><strong>Well-Maintained Ecosystem:</strong> The model benefits from active development, a large and supportive open-source community, frequent updates, and seamless integration with tools like <a href="https://www.ultralytics.com/hub">Ultralytics HUB</a> for end-to-end MLOps.</li>
+<li><strong>Training and Memory Efficiency:</strong> YOLO11 is designed for efficient training, often requiring less CUDA memory and converging faster than alternatives. It comes with readily available pre-trained weights on datasets like <a href="https://docs.ultralytics.com/datasets/detect/coco/">COCO</a>.</li>
+</ul>
 <h3 id="strengths_1">Strengths</h3>
 <ul>
-<li><strong>Ease of Use:</strong> Offers a streamlined user experience with a simple <a href="https://docs.ultralytics.com/usage/python/">Python API</a> and extensive <a href="https://docs.ultralytics.com/">documentation</a>.</li>
-<li><strong>Well-Maintained Ecosystem:</strong> Benefits from the integrated <a href="https://www.ultralytics.com/hub">Ultralytics HUB</a> platform for training and deployment, active development, strong community support, and frequent updates.</li>
-<li><strong>High Speed:</strong> Optimized for real-time inference, particularly on GPUs using <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT</a>.</li>
-<li><strong>Versatility:</strong> Supports a wide array of computer vision tasks beyond just object detection.</li>
-<li><strong>Training Efficiency:</strong> Efficient training processes with readily available pre-trained weights and lower memory requirements compared to many alternatives.</li>
+<li><strong>State-of-the-Art Performance:</strong> Achieves an excellent balance of high <a href="https://www.ultralytics.com/glossary/mean-average-precision-map">mAP</a> scores and fast inference speeds, especially on GPUs.</li>
+<li><strong>Deployment Flexibility:</strong> Optimized for a wide range of hardware, with easy export to formats like <a href="https://docs.ultralytics.com/integrations/onnx/">ONNX</a> and <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT</a> for maximum performance.</li>
+<li><strong>User-Friendly Framework:</strong> Backed by extensive <a href="https://docs.ultralytics.com/">documentation</a>, tutorials, and a strong community, lowering the barrier to entry for both beginners and experts.</li>
+<li><strong>Multi-Task Support:</strong> A single YOLO11 model can be trained for various vision tasks, reducing development complexity and time.</li>
 </ul>
 <h3 id="weaknesses_1">Weaknesses</h3>
 <ul>
-<li><strong>Resource Needs (Large Models):</strong> Larger variants (l, x) require significant computational resources, similar to other high-accuracy models.</li>
-<li><strong>Small Object Detection:</strong> Like most one-stage detectors, may face challenges with extremely small objects compared to specialized two-stage detectors in certain niche scenarios.</li>
-</ul>
-<h3 id="ideal-use-cases_1">Ideal Use Cases</h3>
-<p>YOLO11 excels in applications demanding high speed, accuracy, and ease of development:</p>
-<ul>
-<li><strong>Real-time applications:</strong> Robotics, <a href="https://www.ultralytics.com/solutions/ai-in-automotive">autonomous driving</a>, surveillance, and <a href="https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8">security systems</a>.</li>
-<li><strong>Edge AI:</strong> Deployment on resource-constrained devices like <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a> or <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a>.</li>
-<li><strong>Multi-task solutions:</strong> Projects requiring detection, segmentation, and pose estimation simultaneously.</li>
-<li><strong>Rapid Prototyping:</strong> Quick development cycles thanks to the user-friendly ecosystem.</li>
+<li><strong>CPU Performance Trade-offs:</strong> While highly optimized for GPUs, the larger YOLO11 models can be slower on CPU-only environments compared to the smallest EfficientDet variants.</li>
+<li><strong>Small Object Detection:</strong> Like other one-stage detectors, it can sometimes be challenged by detecting extremely small or heavily occluded objects in dense scenes, though continuous improvements are made with each version.</li>
 </ul>
 <p><a class="md-button" href="https://docs.ultralytics.com/models/yolo11/">Learn more about YOLO11</a></p>
-<h2 id="performance-comparison">Performance Comparison</h2>
-<p>The table below provides a quantitative comparison of various EfficientDet and YOLO11 model variants based on performance metrics on the COCO dataset. Values in <strong>bold</strong> indicate the best performance in that column across all listed models.</p>
+<h2 id="performance-and-benchmarks">Performance and Benchmarks</h2>
+<p>The performance comparison on the <a href="https://cocodataset.org/">COCO val2017 dataset</a> highlights the different design philosophies of EfficientDet and YOLO11. EfficientDet excels in theoretical efficiency (mAP per parameter/FLOP), especially with its smaller models. However, when it comes to practical deployment, particularly on GPUs, YOLO11 demonstrates a clear advantage in inference speed.</p>
+<p>For example, YOLO11s achieves a comparable mAP (47.0) to EfficientDet-d3 (47.5) but with a staggering <strong>2.9x</strong> faster inference speed on a T4 GPU. The largest model, YOLO11x, surpasses all EfficientDet models in accuracy (54.7 mAP) while remaining significantly faster on GPU than even mid-sized EfficientDet models. This makes YOLO11 the superior choice for applications where <a href="https://www.ultralytics.com/glossary/real-time-inference">real-time inference</a> is critical.</p>
 <table>
 <thead>
 <tr>
@@ -696,17 +698,41 @@
 </tr>
 </tbody>
 </table>
+<h2 id="ideal-use-cases">Ideal Use Cases</h2>
+<h3 id="efficientdet_1">EfficientDet</h3>
+<p>EfficientDet is best suited for scenarios where computational resources are the primary bottleneck and GPU optimization is less critical.</p>
+<ul>
+<li><strong>Academic Research:</strong> Excellent for studies focused on model efficiency and architecture design.</li>
+<li><strong>CPU-Bound Applications:</strong> Smaller variants (D0-D2) can perform well in environments without dedicated GPUs.</li>
+<li><strong>Cost-Sensitive Cloud Deployment:</strong> Where billing is directly tied to FLOPs or CPU usage.</li>
+</ul>
+<h3 id="yolo11">YOLO11</h3>
+<p>YOLO11 excels in a vast range of real-world applications that demand high accuracy, speed, and development efficiency.</p>
+<ul>
+<li><strong>Autonomous Systems:</strong> Powering <a href="https://www.ultralytics.com/glossary/robotics">robotics</a> and <a href="https://www.ultralytics.com/solutions/ai-in-automotive">self-driving cars</a> with low-latency perception.</li>
+<li><strong>Security and Surveillance:</strong> Enabling real-time monitoring for <a href="https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8">security systems</a> and public safety.</li>
+<li><strong>Industrial Automation:</strong> Used for high-speed <a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">quality control</a> and defect detection on production lines.</li>
+<li><strong>Retail Analytics:</strong> Driving applications like <a href="https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management">inventory management</a> and customer behavior analysis.</li>
+</ul>
 <h2 id="conclusion">Conclusion</h2>
-<p>Both EfficientDet and YOLO11 are powerful object detection models, but they cater to different priorities. EfficientDet offers strong scalability and accuracy, particularly suitable for applications where inference time is less critical than maximizing mAP per parameter.</p>
-<p>However, <strong>Ultralytics YOLO11 is generally recommended</strong> for most users due to its superior <strong>ease of use</strong>, <strong>versatility</strong> across multiple vision tasks, faster <strong>real-time inference speeds</strong> (especially on GPU), and the robust, <strong>well-maintained ecosystem</strong> provided by Ultralytics. Its efficient training, readily available pre-trained models, and lower memory footprint make it an excellent choice for both researchers and developers looking for rapid development and deployment across diverse platforms.</p>
-<p>For users exploring alternatives, Ultralytics offers comparisons with other models like <a href="https://docs.ultralytics.com/compare/yolo11-vs-yolov10/">YOLOv10</a>, <a href="https://docs.ultralytics.com/compare/yolo11-vs-yolov9/">YOLOv9</a>, <a href="https://docs.ultralytics.com/compare/yolo11-vs-yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/compare/yolo11-vs-rtdetr/">RT-DETR</a>, and <a href="https://docs.ultralytics.com/compare/yolo11-vs-damo-yolo/">DAMO-YOLO</a> within the <a href="https://docs.ultralytics.com/">Ultralytics documentation</a>.</p>
+<p>EfficientDet is a landmark architecture that pushed the boundaries of model efficiency. Its scalable design remains a valuable contribution to the field, particularly for resource-constrained environments.</p>
+<p>However, for developers and researchers seeking a state-of-the-art, versatile, and user-friendly solution, <strong><a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a> is the clear choice</strong>. It offers a superior combination of accuracy and real-world speed, especially on modern hardware. The key advantages of YOLO11 lie not just in its performance but in the robust ecosystem that surrounds it. The streamlined API, extensive documentation, multi-task capabilities, and active community support significantly accelerate the development and deployment lifecycle, making it the most practical and powerful option for a wide array of computer vision challenges today.</p>
+<h2 id="explore-other-models">Explore Other Models</h2>
+<p>For further exploration, consider these comparisons with other state-of-the-art models:</p>
+<ul>
+<li><a href="https://docs.ultralytics.com/compare/yolo11-vs-yolov10/">YOLO11 vs. YOLOv10</a></li>
+<li><a href="https://docs.ultralytics.com/compare/yolo11-vs-yolov9/">YOLO11 vs. YOLOv9</a></li>
+<li><a href="https://docs.ultralytics.com/compare/yolo11-vs-rtdetr/">YOLO11 vs. RT-DETR</a></li>
+<li><a href="https://docs.ultralytics.com/compare/efficientdet-vs-yolov8/">EfficientDet vs. YOLOv8</a></li>
+<li><a href="https://docs.ultralytics.com/compare/efficientdet-vs-yolox/">EfficientDet vs. YOLOX</a></li>
+</ul>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on June 20, 2024">
+<span class="date-item" title="This page was first created on June 21, 2024">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on May 11, 2025">
+<span class="date-item" title="This page was last updated on May 12, 2025">
 <span class="hover-item">✏️</span> Updated 1 month ago
     </span>
 </div>

@@ -8,7 +8,7 @@
 <link href="https://docs.ultralytics.com/compare/yolov5-vs-yolov7/" rel="canonical"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.6.14" name="generator"/>
-<title>YOLOv5 vs YOLOv7: Detailed Technical Comparison for Object Detection</title>
+<title>YOLOv5 vs YOLOv7: A Detailed Comparison - Ultralytics YOLO Docs</title>
 <link href="../../assets/stylesheets/main.342714a4.min.css" rel="stylesheet"/>
 <link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
@@ -19,13 +19,13 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLOv5 vs YOLOv7: Detailed Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, YOLOv7, object detection, model comparison, AI, deep learning, computer vision, benchmarks, accuracy, inference speed, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolov5-vs-yolov7" property="og:url"/><meta content="YOLOv5 vs YOLOv7: Detailed Technical Comparison for Object Detection" property="og:title"/><meta content="Discover the technical comparison between YOLOv5 and YOLOv7, covering architectures, benchmarks, strengths, and ideal use cases for object detection." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolov5-vs-yolov7" property="twitter:url"/><meta content="YOLOv5 vs YOLOv7: Detailed Technical Comparison for Object Detection" property="twitter:title"/><meta content="Discover the technical comparison between YOLOv5 and YOLOv7, covering architectures, benchmarks, strengths, and ideal use cases for object detection." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLOv5 vs YOLOv7: Detailed Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-06-20 11:00:01 +0000", "dateModified": "2025-05-11 11:00:01 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the technical comparison between YOLOv5 and YOLOv7, covering architectures, benchmarks, strengths, and ideal use cases for object detection."}</script></head>
+<meta content="YOLOv5 vs YOLOv7: A Detailed Comparison" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv5, YOLOv7, object detection, model comparison, AI, deep learning, computer vision, benchmarks, accuracy, inference speed, Ultralytics" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolov5-vs-yolov7" property="og:url"/><meta content="YOLOv5 vs YOLOv7: A Detailed Comparison" property="og:title"/><meta content="Discover the technical comparison between YOLOv5 and YOLOv7, covering architectures, benchmarks, strengths, and ideal use cases for object detection." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolov5-vs-yolov7" property="twitter:url"/><meta content="YOLOv5 vs YOLOv7: A Detailed Comparison" property="twitter:title"/><meta content="Discover the technical comparison between YOLOv5 and YOLOv7, covering architectures, benchmarks, strengths, and ideal use cases for object detection." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLOv5 vs YOLOv7: A Detailed Comparison", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-06-21 11:47:13 +0000", "dateModified": "2025-05-12 11:47:13 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the technical comparison between YOLOv5 and YOLOv7, covering architectures, benchmarks, strengths, and ideal use cases for object detection."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#yolov5-vs-yolov7-detailed-technical-comparison-for-object-detection">
+<a class="md-skip" href="#yolov5-vs-yolov7-a-detailed-comparison">
           Skip to content
         </a>
 </div>
@@ -58,7 +58,7 @@
 </div>
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
-              YOLOv5 vs YOLOv7: Detailed Technical Comparison for Object Detection
+              YOLOv5 vs YOLOv7: A Detailed Comparison
           </span>
 </div>
 </div>
@@ -367,12 +367,12 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolov5-streamlined-and-efficient">
+<a class="md-nav__link" href="#ultralytics-yolov5-the-established-industry-standard">
 <span class="md-ellipsis">
-      YOLOv5: Streamlined and Efficient
+      Ultralytics YOLOv5: The Established Industry Standard
     </span>
 </a>
-<nav aria-label="YOLOv5: Streamlined and Efficient" class="md-nav">
+<nav aria-label="Ultralytics YOLOv5: The Established Industry Standard" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#architecture-and-key-features-of-yolov5">
@@ -445,16 +445,23 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#performance-comparison-yolov5-vs-yolov7">
+<a class="md-nav__link" href="#performance-and-technical-comparison">
 <span class="md-ellipsis">
-      Performance Comparison: YOLOv5 vs YOLOv7
+      Performance and Technical Comparison
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
+<a class="md-nav__link" href="#conclusion-which-model-should-you-choose">
 <span class="md-ellipsis">
-      Conclusion
+      Conclusion: Which Model Should You Choose?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#explore-other-models">
+<span class="md-ellipsis">
+      Explore Other Models
     </span>
 </a>
 </li>
@@ -468,40 +475,35 @@
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/docs/tree/main/docs/en/compare/yolov5-vs-yolov7.md" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
-<h1 id="yolov5-vs-yolov7-detailed-technical-comparison-for-object-detection">YOLOv5 vs YOLOv7: Detailed Technical Comparison for Object Detection</h1>
-<p>Ultralytics YOLO models are favored for their speed and accuracy in object detection. This page offers a technical comparison between two popular models: <a href="https://docs.ultralytics.com/models/yolov5/">Ultralytics YOLOv5</a> and YOLOv7, detailing their architectural nuances, performance benchmarks, and ideal applications for object detection tasks. While both models have contributed significantly to the field, YOLOv5, developed by Ultralytics, offers distinct advantages in terms of ease of use, ecosystem support, and deployment flexibility.</p>
+<h1 id="yolov5-vs-yolov7-a-detailed-comparison">YOLOv5 vs YOLOv7: A Detailed Comparison</h1>
+<p>Choosing the right object detection model is a critical decision that balances the need for speed, accuracy, and ease of deployment. This page offers a technical comparison between <a href="https://github.com/ultralytics/yolov5">Ultralytics YOLOv5</a> and <a href="https://github.com/WongKinYiu/yolov7">YOLOv7</a>, two influential models in the <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> landscape. While both have made significant contributions, Ultralytics YOLOv5 stands out for its exceptional balance of performance, user-friendly design, and a comprehensive, well-maintained ecosystem, making it a preferred choice for a wide range of real-world applications.</p>
 <script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["YOLOv5", "YOLOv7"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="yolov5-streamlined-and-efficient">YOLOv5: Streamlined and Efficient</h2>
-<p>Ultralytics YOLOv5, created by Glenn Jocher at Ultralytics and released on June 26, 2020, is celebrated for its user-friendliness and efficiency. Built on PyTorch, it provides a range of model sizes (n, s, m, l, x) to accommodate diverse computational needs and accuracy expectations, making it a highly versatile choice for developers.</p>
+<h2 id="ultralytics-yolov5-the-established-industry-standard">Ultralytics YOLOv5: The Established Industry Standard</h2>
+<p>Ultralytics YOLOv5, released in 2020 by Glenn Jocher, quickly became one of the most popular object detection models due to its remarkable blend of speed, accuracy, and ease of use. Developed entirely in <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a>, YOLOv5 is highly optimized, offering a streamlined experience from training to deployment.</p>
 <p><strong>Author:</strong> Glenn Jocher<br/>
-<strong>Organization:</strong> Ultralytics<br/>
+<strong>Organization:</strong> <a href="https://www.ultralytics.com/">Ultralytics</a><br/>
 <strong>Date:</strong> 2020-06-26<br/>
-<strong>GitHub Link:</strong> <a href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a><br/>
-<strong>Docs Link:</strong> <a href="https://docs.ultralytics.com/models/yolov5/">https://docs.ultralytics.com/models/yolov5/</a></p>
+<strong>GitHub:</strong> <a href="https://github.com/ultralytics/yolov5">https://github.com/ultralytics/yolov5</a><br/>
+<strong>Docs:</strong> <a href="https://docs.ultralytics.com/models/yolov5/">https://docs.ultralytics.com/models/yolov5/</a></p>
 <h3 id="architecture-and-key-features-of-yolov5">Architecture and Key Features of YOLOv5</h3>
-<ul>
-<li><strong>Modular Design</strong>: YOLOv5 adopts a highly modular structure, facilitating customization and adaptation across different tasks.</li>
-<li><strong>CSP Integration</strong>: It incorporates CSP (Cross Stage Partial) integrations in its backbone and neck to improve feature extraction and reduce computational load, enhancing efficiency.</li>
-<li><strong>AutoAnchor</strong>: The AutoAnchor learning algorithm optimizes anchor boxes for custom datasets, enhancing detection accuracy automatically.</li>
-<li><strong>Training Methodology</strong>: YOLOv5 is trained using effective techniques like Mosaic <a href="https://docs.ultralytics.com/reference/data/augment/">data augmentation</a>, auto-batching, and <a href="https://www.ultralytics.com/glossary/mixed-precision">mixed precision</a> training, leading to quicker convergence and improved generalization.</li>
-</ul>
+<p>YOLOv5 features a flexible and efficient architecture built on a CSPDarknet53 backbone and a PANet neck for effective feature aggregation. It uses an anchor-based detection head, which has been refined over numerous releases. One of its key strengths is the variety of model sizes (n, s, m, l, x), allowing developers to select the optimal trade-off between performance and computational resources. This scalability makes it suitable for everything from lightweight <a href="https://www.ultralytics.com/blog/edge-ai-and-aiot-upgrade-any-camera-with-ultralytics-yolov8-in-a-no-code-way">edge devices</a> to powerful cloud servers.</p>
 <h3 id="strengths-of-yolov5">Strengths of YOLOv5</h3>
 <ul>
-<li><strong>Ease of Use</strong>: Exceptionally well-documented and simple to use via a streamlined API, making it suitable for both novice and expert users. <a href="https://docs.ultralytics.com/">Ultralytics YOLO Docs</a> offer comprehensive tutorials and guides.</li>
-<li><strong>Scalability</strong>: With multiple model sizes, users can select the optimal balance between speed and accuracy for their specific applications, from edge devices to cloud servers.</li>
-<li><strong>Well-Maintained Ecosystem</strong>: Backed by Ultralytics with active development, frequent updates, and strong community support via <a href="https://github.com/ultralytics/yolov5/issues">GitHub</a> and <a href="https://discord.com/invite/ultralytics">Discord</a>. Integration with <a href="https://docs.ultralytics.com/hub/">Ultralytics HUB</a> simplifies training and deployment.</li>
-<li><strong>Performance Balance</strong>: Offers a strong trade-off between inference speed and accuracy, suitable for diverse real-world scenarios.</li>
-<li><strong>Training Efficiency</strong>: Efficient training process with readily available pre-trained weights and generally lower memory requirements compared to more complex architectures.</li>
+<li><strong>Ease of Use:</strong> YOLOv5 is renowned for its simple <a href="https://docs.ultralytics.com/usage/python/">Python</a> and <a href="https://docs.ultralytics.com/usage/cli/">CLI</a> interfaces, extensive <a href="https://docs.ultralytics.com/yolov5/">documentation</a>, and straightforward training and inference pipelines.</li>
+<li><strong>Well-Maintained Ecosystem:</strong> It is backed by the robust Ultralytics ecosystem, which includes active development, a large community, frequent updates, and powerful tools like <a href="https://www.ultralytics.com/hub">Ultralytics HUB</a> for no-code training and deployment.</li>
+<li><strong>Performance Balance:</strong> YOLOv5 achieves an excellent trade-off between <a href="https://www.ultralytics.com/glossary/inference-engine">inference</a> speed and detection accuracy, making it highly practical for diverse real-world scenarios.</li>
+<li><strong>Versatility and Training Efficiency:</strong> It supports multiple vision tasks, including <a href="https://docs.ultralytics.com/tasks/detect/">object detection</a>, <a href="https://docs.ultralytics.com/tasks/segment/">instance segmentation</a>, and <a href="https://docs.ultralytics.com/tasks/classify/">image classification</a>. The training process is efficient, with readily available pre-trained weights and lower memory requirements compared to more complex architectures.</li>
 </ul>
 <h3 id="weaknesses-of-yolov5">Weaknesses of YOLOv5</h3>
 <ul>
-<li><strong>Performance Gap</strong>: While highly efficient, larger YOLOv7 models may achieve slightly higher mAP on certain benchmarks, though often at the cost of increased complexity and resource usage.</li>
+<li><strong>Accuracy Limits:</strong> While highly accurate, newer models have surpassed its mAP scores on standard benchmarks like <a href="https://docs.ultralytics.com/datasets/detect/coco/">COCO</a>.</li>
+<li><strong>Anchor-Based Design:</strong> Its reliance on predefined anchor boxes can sometimes require more tuning for datasets with unusually shaped objects compared to modern anchor-free approaches.</li>
 </ul>
 <h3 id="use-cases-for-yolov5">Use Cases for YOLOv5</h3>
 <ul>
-<li><strong>Real-time Applications</strong>: Ideal for applications requiring fast <a href="https://www.ultralytics.com/glossary/inference-engine">inference</a>, such as <a href="https://www.ultralytics.com/glossary/robotics">robotics</a>, drone vision in <a href="https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations">computer vision applications in AI drone operations</a>, and real-time video analysis.</li>
+<li><strong>Real-time Applications</strong>: Ideal for applications requiring fast inference, such as <a href="https://www.ultralytics.com/glossary/robotics">robotics</a>, drone vision in <a href="https://www.ultralytics.com/blog/computer-vision-applications-ai-drone-uav-operations">computer vision applications in AI drone operations</a>, and real-time video analysis.</li>
 <li><strong>Edge Deployment</strong>: Well-suited for deployment on edge devices with limited resources due to its efficient design and smaller model sizes. Explore <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson deployment guides</a>.</li>
 <li><strong>Rapid Prototyping</strong>: An excellent choice for fast prototyping and deployment of object detection solutions, thanks to its ease of use and extensive support.</li>
 </ul>
@@ -511,9 +513,9 @@
 <p><strong>Authors:</strong> Chien-Yao Wang, Alexey Bochkovskiy, and Hong-Yuan Mark Liao<br/>
 <strong>Organization:</strong> Institute of Information Science, Academia Sinica, Taiwan<br/>
 <strong>Date:</strong> 2022-07-06<br/>
-<strong>Arxiv Link:</strong> <a href="https://arxiv.org/abs/2207.02696">https://arxiv.org/abs/2207.02696</a><br/>
-<strong>GitHub Link:</strong> <a href="https://github.com/WongKinYiu/yolov7">https://github.com/WongKinYiu/yolov7</a><br/>
-<strong>Docs Link:</strong> <a href="https://docs.ultralytics.com/models/yolov7/">https://docs.ultralytics.com/models/yolov7/</a></p>
+<strong>Arxiv:</strong> <a href="https://arxiv.org/abs/2207.02696">https://arxiv.org/abs/2207.02696</a><br/>
+<strong>GitHub:</strong> <a href="https://github.com/WongKinYiu/yolov7">https://github.com/WongKinYiu/yolov7</a><br/>
+<strong>Docs:</strong> <a href="https://docs.ultralytics.com/models/yolov7/">https://docs.ultralytics.com/models/yolov7/</a></p>
 <h3 id="architecture-and-key-features-of-yolov7">Architecture and Key Features of YOLOv7</h3>
 <ul>
 <li><strong>E-ELAN</strong>: Utilizes Extended Efficient Layer Aggregation Network (E-ELAN) in the backbone to enhance learning capability.</li>
@@ -529,114 +531,126 @@
 <h3 id="weaknesses-of-yolov7">Weaknesses of YOLOv7</h3>
 <ul>
 <li><strong>Complexity</strong>: The architecture and training process can be more complex compared to the streamlined approach of Ultralytics YOLOv5.</li>
-<li><strong>Ecosystem and Support</strong>: May lack the extensive documentation, tutorials, and integrated ecosystem provided by Ultralytics for YOLOv5.</li>
+<li><strong>Ecosystem and Support</strong>: Lacks the extensive documentation, tutorials, and integrated ecosystem provided by Ultralytics for YOLOv5.</li>
 <li><strong>Resource Intensive</strong>: Larger models demand significant computational resources, potentially limiting deployment on constrained devices.</li>
 </ul>
 <h3 id="use-cases-for-yolov7">Use Cases for YOLOv7</h3>
 <ul>
-<li><strong>High-Performance Detection</strong>: Suitable for applications where achieving the absolute highest accuracy is critical and computational resources are less constrained.</li>
+<li><strong>High-Performance Detection</strong>: Suitable for applications where achieving the absolute highest accuracy is critical and computational resources are less constrained, such as in <a href="https://www.ultralytics.com/solutions/ai-in-automotive">autonomous vehicles</a>.</li>
 <li><strong>Research</strong>: Used in academic research exploring state-of-the-art object detection techniques.</li>
 </ul>
 <p><a class="md-button" href="https://docs.ultralytics.com/models/yolov7/">Learn more about YOLOv7</a></p>
-<h2 id="performance-comparison-yolov5-vs-yolov7">Performance Comparison: YOLOv5 vs YOLOv7</h2>
-<p>The table below compares various YOLOv5 and YOLOv7 model sizes based on performance metrics on the COCO dataset. Ultralytics YOLOv5 models provide an excellent balance of speed and accuracy across different scales.</p>
+<h2 id="performance-and-technical-comparison">Performance and Technical Comparison</h2>
+<p>A direct comparison of YOLOv5 and YOLOv7 on the COCO dataset reveals key differences in their performance profiles. YOLOv7 models generally achieve higher mAP scores but often at the cost of increased complexity and resource requirements. In contrast, Ultralytics YOLOv5 offers a more balanced profile, excelling in CPU inference speed and maintaining competitive accuracy, which is crucial for many real-world deployments.</p>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Model</th>
-<th style="text-align: left;">size<br/><sup>(pixels)</sup></th>
-<th style="text-align: left;">mAP<sup>val<br/>50-95</sup></th>
-<th style="text-align: left;">Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
-<th style="text-align: left;">Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
-<th style="text-align: left;">params<br/><sup>(M)</sup></th>
-<th style="text-align: left;">FLOPs<br/><sup>(B)</sup></th>
+<th>Model</th>
+<th>size<br/><sup>(pixels)</sup></th>
+<th>mAP<sup>val<br/>50-95</sup></th>
+<th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
+<th>Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
+<th>params<br/><sup>(M)</sup></th>
+<th>FLOPs<br/><sup>(B)</sup></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">YOLOv5n</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">28.0</td>
-<td style="text-align: left;"><strong>73.6</strong></td>
-<td style="text-align: left;"><strong>1.12</strong></td>
-<td style="text-align: left;"><strong>2.6</strong></td>
-<td style="text-align: left;"><strong>7.7</strong></td>
+<td>YOLOv5n</td>
+<td>640</td>
+<td>28.0</td>
+<td><strong>73.6</strong></td>
+<td><strong>1.12</strong></td>
+<td><strong>2.6</strong></td>
+<td><strong>7.7</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv5s</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">37.4</td>
-<td style="text-align: left;">120.7</td>
-<td style="text-align: left;">1.92</td>
-<td style="text-align: left;">9.1</td>
-<td style="text-align: left;">24.0</td>
+<td>YOLOv5s</td>
+<td>640</td>
+<td>37.4</td>
+<td>120.7</td>
+<td>1.92</td>
+<td>9.1</td>
+<td>24.0</td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv5m</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">45.4</td>
-<td style="text-align: left;">233.9</td>
-<td style="text-align: left;">4.03</td>
-<td style="text-align: left;">25.1</td>
-<td style="text-align: left;">64.2</td>
+<td>YOLOv5m</td>
+<td>640</td>
+<td>45.4</td>
+<td>233.9</td>
+<td>4.03</td>
+<td>25.1</td>
+<td>64.2</td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv5l</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">49.0</td>
-<td style="text-align: left;">408.4</td>
-<td style="text-align: left;">6.61</td>
-<td style="text-align: left;">53.2</td>
-<td style="text-align: left;">135.0</td>
+<td>YOLOv5l</td>
+<td>640</td>
+<td>49.0</td>
+<td>408.4</td>
+<td>6.61</td>
+<td>53.2</td>
+<td>135.0</td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv5x</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">50.7</td>
-<td style="text-align: left;">763.2</td>
-<td style="text-align: left;">11.89</td>
-<td style="text-align: left;">97.2</td>
-<td style="text-align: left;">246.4</td>
+<td>YOLOv5x</td>
+<td>640</td>
+<td>50.7</td>
+<td>763.2</td>
+<td>11.89</td>
+<td>97.2</td>
+<td>246.4</td>
 </tr>
 <tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv7l</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">51.4</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">6.84</td>
-<td style="text-align: left;">36.9</td>
-<td style="text-align: left;">104.7</td>
+<td>YOLOv7l</td>
+<td>640</td>
+<td>51.4</td>
+<td>-</td>
+<td>6.84</td>
+<td>36.9</td>
+<td>104.7</td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv7x</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;"><strong>53.1</strong></td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">11.57</td>
-<td style="text-align: left;">71.3</td>
-<td style="text-align: left;">189.9</td>
+<td>YOLOv7x</td>
+<td>640</td>
+<td><strong>53.1</strong></td>
+<td>-</td>
+<td>11.57</td>
+<td>71.3</td>
+<td>189.9</td>
 </tr>
 </tbody>
 </table>
-<h2 id="conclusion">Conclusion</h2>
-<p>Both Ultralytics YOLOv5 and YOLOv7 are powerful object detection models. YOLOv5 stands out for its exceptional ease of use, robust ecosystem, efficient performance across various scales, and suitability for real-world deployment, especially in resource-constrained environments like edge devices. Its active maintenance and strong community support within the Ultralytics framework make it an excellent choice for developers seeking a reliable and user-friendly solution. YOLOv7 offers high accuracy, particularly with larger models, but may involve greater complexity in implementation and lack the comprehensive support system of Ultralytics models. For most users prioritizing rapid development, ease of deployment, and a balanced performance profile, Ultralytics YOLOv5 remains a highly recommended option.</p>
-<p>For those exploring the latest advancements, consider checking out newer Ultralytics models like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a>, <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, and <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>, which build upon the strengths of YOLOv5 with further improvements in performance and versatility.</p>
+<h2 id="conclusion-which-model-should-you-choose">Conclusion: Which Model Should You Choose?</h2>
+<p>The choice between YOLOv5 and YOLOv7 depends heavily on project priorities.</p>
+<p><strong>YOLOv7</strong> is a strong choice for researchers and developers who need the highest possible accuracy on standard benchmarks and have access to significant computational resources. Its innovative training techniques demonstrate how to push performance boundaries.</p>
+<p>However, for the vast majority of practical applications, <strong>Ultralytics YOLOv5</strong> remains the superior choice. Its key advantages—ease of use, rapid deployment, excellent speed-accuracy balance, and a thriving ecosystem—make it an incredibly efficient and reliable tool. It empowers developers to build robust computer vision solutions quickly, from initial prototype to production deployment.</p>
+<p>Furthermore, the Ultralytics ecosystem has continued to evolve. Newer models like <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a> and <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a> build upon the foundation of YOLOv5, offering even better performance and greater versatility across tasks like segmentation, pose estimation, and tracking. For developers seeking a modern, future-proof, and user-friendly framework, the Ultralytics YOLO family provides the most compelling and comprehensive solution.</p>
+<h2 id="explore-other-models">Explore Other Models</h2>
+<p>If you are exploring object detection models, you may also be interested in these other comparisons:</p>
+<ul>
+<li><a href="https://docs.ultralytics.com/compare/yolov5-vs-yolov8/">YOLOv5 vs YOLOv8</a></li>
+<li><a href="https://docs.ultralytics.com/compare/yolov5-vs-yolov9/">YOLOv5 vs YOLOv9</a></li>
+<li><a href="https://docs.ultralytics.com/compare/yolov7-vs-yolov8/">YOLOv7 vs YOLOv8</a></li>
+<li><a href="https://docs.ultralytics.com/compare/yolov7-vs-yolo11/">YOLOv7 vs YOLO11</a></li>
+<li><a href="https://docs.ultralytics.com/compare/rtdetr-vs-yolov7/">RT-DETR vs YOLOv7</a></li>
+<li>Explore the latest models like <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a> and <a href="https://docs.ultralytics.com/models/yolo11/">YOLO11</a>.</li>
+</ul>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on June 20, 2024">
+<span class="date-item" title="This page was first created on June 21, 2024">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on May 11, 2025">
+<span class="date-item" title="This page was last updated on May 12, 2025">
 <span class="hover-item">✏️</span> Updated 1 month ago
     </span>
 </div>

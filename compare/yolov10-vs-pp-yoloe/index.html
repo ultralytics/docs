@@ -19,7 +19,7 @@
 <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
-<meta content="YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv10,PP-YOLOE+,object detection,model comparison,computer vision,Ultralytics,YOLO models,PaddlePaddle,performance benchmark" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolov10-vs-pp-yoloe" property="og:url"/><meta content="YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection" property="og:title"/><meta content="Discover the key differences between YOLOv10 and PP-YOLOE+ with performance benchmarks, architecture insights, and ideal use cases for your projects." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolov10-vs-pp-yoloe" property="twitter:url"/><meta content="YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Discover the key differences between YOLOv10 and PP-YOLOE+ with performance benchmarks, architecture insights, and ideal use cases for your projects." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-06-20 11:00:01 +0000", "dateModified": "2025-05-11 11:00:01 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the key differences between YOLOv10 and PP-YOLOE+ with performance benchmarks, architecture insights, and ideal use cases for your projects."}</script></head>
+<meta content="YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="YOLOv10,PP-YOLOE+,object detection,model comparison,computer vision,Ultralytics,YOLO models,PaddlePaddle,performance benchmark" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/compare/yolov10-vs-pp-yoloe" property="og:url"/><meta content="YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection" property="og:title"/><meta content="Discover the key differences between YOLOv10 and PP-YOLOE+ with performance benchmarks, architecture insights, and ideal use cases for your projects." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/compare/yolov10-vs-pp-yoloe" property="twitter:url"/><meta content="YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection" property="twitter:title"/><meta content="Discover the key differences between YOLOv10 and PP-YOLOE+ with performance benchmarks, architecture insights, and ideal use cases for your projects." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-06-21 11:47:13 +0000", "dateModified": "2025-05-12 11:47:13 +0000", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover the key differences between YOLOv10 and PP-YOLOE+ with performance benchmarks, architecture insights, and ideal use cases for your projects."}</script></head>
 <body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
 <input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
@@ -367,24 +367,17 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#yolov10-overview">
+<a class="md-nav__link" href="#yolov10-end-to-end-efficiency">
 <span class="md-ellipsis">
-      YOLOv10 Overview
+      YOLOv10: End-to-End Efficiency
     </span>
 </a>
-<nav aria-label="YOLOv10 Overview" class="md-nav">
+<nav aria-label="YOLOv10: End-to-End Efficiency" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-and-architecture">
 <span class="md-ellipsis">
       Key Features and Architecture
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics">
-<span class="md-ellipsis">
-      Performance Metrics
     </span>
 </a>
 </li>
@@ -406,24 +399,17 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#pp-yoloe-overview">
+<a class="md-nav__link" href="#pp-yoloe-high-accuracy-in-the-paddlepaddle-framework">
 <span class="md-ellipsis">
-      PP-YOLOE+ Overview
+      PP-YOLOE+: High Accuracy in the PaddlePaddle Framework
     </span>
 </a>
-<nav aria-label="PP-YOLOE+ Overview" class="md-nav">
+<nav aria-label="PP-YOLOE+: High Accuracy in the PaddlePaddle Framework" class="md-nav">
 <ul class="md-nav__list">
 <li class="md-nav__item">
 <a class="md-nav__link" href="#key-features-and-architecture_1">
 <span class="md-ellipsis">
       Key Features and Architecture
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#performance-metrics_1">
-<span class="md-ellipsis">
-      Performance Metrics
     </span>
 </a>
 </li>
@@ -445,16 +431,16 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#model-comparison-table">
+<a class="md-nav__link" href="#performance-analysis-speed-accuracy-and-efficiency">
 <span class="md-ellipsis">
-      Model Comparison Table
+      Performance Analysis: Speed, Accuracy, and Efficiency
     </span>
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="#conclusion">
+<a class="md-nav__link" href="#conclusion-why-yolov10-is-the-recommended-choice">
 <span class="md-ellipsis">
-      Conclusion
+      Conclusion: Why YOLOv10 is the Recommended Choice
     </span>
 </a>
 </li>
@@ -476,12 +462,12 @@
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
 </a>
 <h1 id="yolov10-vs-pp-yoloe-a-technical-comparison-for-object-detection">YOLOv10 vs PP-YOLOE+: A Technical Comparison for Object Detection</h1>
-<p>Choosing the optimal object detection model is crucial for balancing accuracy, speed, and computational resources in computer vision tasks. This page offers a technical comparison between <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a> and PP-YOLOE+, two advanced models known for their efficiency and effectiveness. We analyze their architectures, performance, and applications to guide your decision, highlighting the advantages of YOLOv10 within the Ultralytics ecosystem.</p>
+<p>Choosing the optimal object detection model is crucial for balancing accuracy, speed, and computational resources in computer vision tasks. This page offers a technical comparison between <a href="https://docs.ultralytics.com/models/yolov10/">YOLOv10</a>, the latest advancement from Tsinghua University integrated into the Ultralytics ecosystem, and PP-YOLOE+, a high-accuracy model from Baidu. We analyze their architectures, performance, and applications to guide your decision, highlighting the advantages of YOLOv10.</p>
 <script async="" src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script defer="" src="../../javascript/benchmark.js"></script>
 <canvas active-models='["YOLOv10", "PP-YOLOE+"]' height="400" id="modelComparisonChart" width="1024"></canvas>
-<h2 id="yolov10-overview">YOLOv10 Overview</h2>
-<p>YOLOv10 is the latest iteration in the YOLO series, focusing on real-time, end-to-end object detection. Developed by researchers at Tsinghua University, YOLOv10 enhances both performance and efficiency, particularly through its NMS-free design.</p>
+<h2 id="yolov10-end-to-end-efficiency">YOLOv10: End-to-End Efficiency</h2>
+<p>Ultralytics YOLOv10 is a groundbreaking iteration in the YOLO series, focusing on true real-time, end-to-end object detection. Developed by researchers at Tsinghua University, its primary innovation is eliminating the need for <a href="https://www.ultralytics.com/glossary/non-maximum-suppression-nms">Non-Maximum Suppression (NMS)</a> post-processing, which significantly reduces inference latency and simplifies deployment pipelines.</p>
 <p><strong>Technical Details:</strong></p>
 <ul>
 <li>Authors: Ao Wang, Hui Chen, Lihao Liu, et al.</li>
@@ -491,46 +477,36 @@
 <li>GitHub Link: <a href="https://github.com/THU-MIG/yolov10">https://github.com/THU-MIG/yolov10</a></li>
 <li>Docs Link: <a href="https://docs.ultralytics.com/models/yolov10/">https://docs.ultralytics.com/models/yolov10/</a></li>
 </ul>
-<p><a class="md-button" href="https://docs.ultralytics.com/models/yolov10/">Learn more about YOLOv10</a></p>
 <h3 id="key-features-and-architecture">Key Features and Architecture</h3>
-<p>YOLOv10 introduces significant architectural improvements for efficiency and accuracy:</p>
 <ul>
-<li><strong>NMS-Free Training</strong>: Employs consistent dual assignments, eliminating the need for Non-Maximum Suppression (NMS) post-processing. This simplifies deployment and reduces inference latency, a key advantage for real-time applications.</li>
-<li><strong>Holistic Efficiency-Accuracy Driven Design</strong>: Optimizes various components like the classification head and downsampling layers to reduce computational redundancy and enhance model capability.</li>
-<li><strong>Anchor-Free Detection</strong>: Like many modern detectors, it uses an <a href="https://www.ultralytics.com/glossary/anchor-free-detectors">anchor-free</a> approach, simplifying the architecture and improving generalization.</li>
-<li><strong>Scalable Model Sizes</strong>: Offers variants from Nano (N) to Extra-large (X), allowing users to balance speed and accuracy based on hardware constraints.</li>
-<li><strong>Ultralytics Ecosystem Integration</strong>: Benefits from seamless integration with the Ultralytics <a href="https://docs.ultralytics.com/usage/python/">Python package</a> and <a href="https://www.ultralytics.com/hub">Ultralytics HUB</a>, offering a streamlined user experience, extensive documentation, efficient training processes, and readily available pre-trained weights.</li>
-</ul>
-<h3 id="performance-metrics">Performance Metrics</h3>
-<p>YOLOv10 achieves an excellent balance of speed and accuracy, often outperforming competitors in efficiency:</p>
-<ul>
-<li><strong>mAP</strong>: Reaches up to 54.4% mAP<sup>val</sup>50-95 on the COCO dataset (<a href="https://docs.ultralytics.com/guides/yolo-performance-metrics/">YOLO Performance Metrics</a>).</li>
-<li><strong>Inference Speed</strong>: YOLOv10n achieves a remarkable 1.56ms latency on T4 TensorRT10, showcasing its real-time capabilities (<a href="https://docs.ultralytics.com/guides/optimizing-openvino-latency-vs-throughput-modes/">OpenVINO Latency vs Throughput Modes</a>).</li>
-<li><strong>Model Size</strong>: Ranges from an exceptionally small 2.3M parameters (YOLOv10n) to 56.9M (YOLOv10x), demonstrating superior parameter efficiency compared to PP-YOLOE+.</li>
+<li><strong>NMS-Free Training:</strong> YOLOv10 employs consistent dual assignments during training, which allows it to generate clean predictions without requiring NMS at inference time. This is a major advantage for real-time applications where every millisecond of <a href="https://www.ultralytics.com/glossary/inference-latency">latency</a> counts.</li>
+<li><strong>Holistic Efficiency-Accuracy Driven Design:</strong> The model architecture has been comprehensively optimized to reduce computational redundancy. This includes innovations like a lightweight classification head and spatial-channel decoupled downsampling, which enhance model capability while minimizing resource usage.</li>
+<li><strong>Anchor-Free Detection:</strong> Like many modern detectors, it uses an <a href="https://www.ultralytics.com/glossary/anchor-free-detectors">anchor-free</a> approach, simplifying the architecture and improving generalization across different object sizes and aspect ratios.</li>
+<li><strong>Ultralytics Ecosystem Integration:</strong> As an Ultralytics-supported model, YOLOv10 benefits from a robust and well-maintained ecosystem. This provides users with a streamlined experience through a simple <a href="https://docs.ultralytics.com/usage/python/">Python API</a>, extensive <a href="https://docs.ultralytics.com/">documentation</a>, efficient <a href="https://docs.ultralytics.com/modes/train/">training processes</a> with readily available pre-trained weights, and seamless integration with <a href="https://www.ultralytics.com/hub">Ultralytics HUB</a> for end-to-end project management.</li>
 </ul>
 <h3 id="use-cases">Use Cases</h3>
-<p>YOLOv10's real-time capabilities and efficiency make it ideal for:</p>
 <ul>
-<li><strong>Real-time Object Detection</strong>: Suitable for autonomous driving (<a href="https://www.ultralytics.com/solutions/ai-in-automotive">AI in Self-Driving Cars</a>), <a href="https://www.ultralytics.com/glossary/robotics">robotics</a>, and surveillance (<a href="https://www.ultralytics.com/blog/computer-vision-for-theft-prevention-enhancing-security">Computer Vision for Theft Prevention</a>).</li>
-<li><strong>Edge Deployment</strong>: Smaller models (YOLOv10n/s) are optimized for resource-constrained devices like <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a> and <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a>.</li>
-<li><strong>High-Accuracy Applications</strong>: Larger models provide high precision for tasks like <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a>.</li>
+<li><strong>Real-time Video Analytics:</strong> Ideal for applications like autonomous driving, <a href="https://www.ultralytics.com/glossary/robotics">robotics</a>, and high-speed surveillance where low inference latency is critical.</li>
+<li><strong>Edge Deployment:</strong> The smaller variants (YOLOv10n/s) are highly optimized for resource-constrained devices such as <a href="https://docs.ultralytics.com/guides/nvidia-jetson/">NVIDIA Jetson</a> and <a href="https://docs.ultralytics.com/guides/raspberry-pi/">Raspberry Pi</a>, making advanced AI accessible on the edge.</li>
+<li><strong>High-Accuracy Applications:</strong> Larger models provide state-of-the-art precision for demanding tasks like <a href="https://www.ultralytics.com/glossary/medical-image-analysis">medical image analysis</a> or detailed quality inspection in <a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">manufacturing</a>.</li>
 </ul>
 <h3 id="strengths-and-weaknesses">Strengths and Weaknesses</h3>
-<p><strong>Strengths</strong>:</p>
+<p><strong>Strengths:</strong></p>
 <ul>
-<li><strong>Superior speed and efficiency</strong>, especially NMS-free inference.</li>
-<li>Excellent <strong>balance</strong> between speed and accuracy.</li>
-<li>Highly <strong>scalable</strong> across different model sizes.</li>
-<li><strong>Lower memory requirements</strong> and efficient training.</li>
+<li>Superior speed and efficiency due to its NMS-free design.</li>
+<li>Excellent balance between speed and accuracy across all model sizes.</li>
+<li>Highly scalable, offering variants from Nano (N) to Extra-large (X).</li>
+<li>Lower memory requirements and efficient training.</li>
 <li><strong>Ease of use</strong> and strong support within the well-maintained Ultralytics ecosystem.</li>
 </ul>
-<p><strong>Weaknesses</strong>:</p>
+<p><strong>Weaknesses:</strong></p>
 <ul>
-<li>As a newer model, the community outside Ultralytics might be smaller compared to long-established models.</li>
-<li>Achieving peak performance might require specific optimization for certain hardware.</li>
+<li>As a newer model, the community outside of the Ultralytics ecosystem is still growing.</li>
+<li>Achieving peak performance may require hardware-specific optimizations like <a href="https://docs.ultralytics.com/integrations/tensorrt/">TensorRT</a>.</li>
 </ul>
-<h2 id="pp-yoloe-overview">PP-YOLOE+ Overview</h2>
-<p>PP-YOLOE+, developed by Baidu, is an enhanced version of PP-YOLOE, focusing on high accuracy and efficiency within the PaddlePaddle framework.</p>
+<p><a class="md-button" href="https://docs.ultralytics.com/models/yolov10/">Learn more about YOLOv10</a></p>
+<h2 id="pp-yoloe-high-accuracy-in-the-paddlepaddle-framework">PP-YOLOE+: High Accuracy in the PaddlePaddle Framework</h2>
+<p>PP-YOLOE+, developed by <a href="https://www.baidu.com/">Baidu</a>, is an enhanced version of PP-YOLOE that focuses on achieving high accuracy while maintaining efficiency. It is a key model within the <a href="https://docs.ultralytics.com/integrations/paddlepaddle/">PaddlePaddle</a> deep learning framework.</p>
 <p><strong>Technical Details:</strong></p>
 <ul>
 <li>Authors: PaddlePaddle Authors</li>
@@ -540,184 +516,176 @@
 <li>GitHub Link: <a href="https://github.com/PaddlePaddle/PaddleDetection/">https://github.com/PaddlePaddle/PaddleDetection/</a></li>
 <li>Docs Link: <a href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md</a></li>
 </ul>
-<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
 <h3 id="key-features-and-architecture_1">Key Features and Architecture</h3>
-<p>PP-YOLOE+ builds upon an anchor-free paradigm with specific enhancements:</p>
 <ul>
-<li><strong>Anchor-Free Design</strong>: Simplifies detection heads.</li>
-<li><strong>CSPRepResNet Backbone</strong>: Uses CSPNet and RepResNet principles for feature extraction.</li>
-<li><strong>Advanced Loss and Head</strong>: Incorporates Varifocal Loss and an efficient ET-Head.</li>
-</ul>
-<h3 id="performance-metrics_1">Performance Metrics</h3>
-<p>PP-YOLOE+ offers competitive performance, particularly in accuracy for larger models:</p>
-<ul>
-<li><strong>mAP</strong>: Achieves up to 54.7% mAP<sup>val</sup>50-95 on COCO with the PP-YOLOE+x model.</li>
-<li><strong>Inference Speed</strong>: PP-YOLOE+s reaches 2.62ms latency on T4 TensorRT10.</li>
-<li><strong>Model Size</strong>: Larger models have significantly more parameters and FLOPs compared to YOLOv10 equivalents (e.g., PP-YOLOE+x has 98.42M params vs. YOLOv10x's 56.9M).</li>
+<li><strong>Anchor-Free Design:</strong> Like YOLOv10, it is an anchor-free detector, which simplifies the detection head and reduces the number of hyperparameters to tune.</li>
+<li><strong>CSPRepResNet Backbone:</strong> It utilizes a <a href="https://www.ultralytics.com/glossary/backbone">backbone</a> that combines principles from CSPNet and RepResNet for powerful feature extraction.</li>
+<li><strong>Advanced Loss and Head:</strong> The model incorporates Varifocal <a href="https://www.ultralytics.com/glossary/loss-function">Loss</a> and an efficient ET-Head to improve the alignment between classification and localization tasks.</li>
 </ul>
 <h3 id="use-cases_1">Use Cases</h3>
-<p>PP-YOLOE+ is suitable for various object detection tasks, especially within its native ecosystem:</p>
 <ul>
-<li><strong>General Object Detection</strong>: Effective for standard detection tasks.</li>
-<li><strong>Industrial Applications</strong>: Suited for industrial inspection and robotics (<a href="https://www.ultralytics.com/solutions/ai-in-manufacturing">AI in Manufacturing</a>).</li>
-<li><strong>PaddlePaddle Ecosystem</strong>: Best leveraged by users already working within the <a href="https://docs.ultralytics.com/integrations/paddlepaddle/">PaddlePaddle</a> framework.</li>
+<li><strong>Industrial Quality Inspection:</strong> Its high accuracy makes it suitable for detecting subtle defects in manufacturing lines.</li>
+<li><strong>Smart Retail:</strong> Can be used for applications like automated <a href="https://www.ultralytics.com/blog/ai-for-smarter-retail-inventory-management">inventory management</a> and customer behavior analysis.</li>
+<li><strong>Recycling Automation:</strong> Effective at identifying different materials for <a href="https://www.ultralytics.com/blog/recycling-efficiency-the-power-of-vision-ai-in-automated-sorting">automated sorting systems</a>.</li>
 </ul>
 <h3 id="strengths-and-weaknesses_1">Strengths and Weaknesses</h3>
-<p><strong>Strengths</strong>:</p>
+<p><strong>Strengths:</strong></p>
 <ul>
-<li>High accuracy, especially with larger models.</li>
+<li>Achieves high accuracy, especially with its larger model variants.</li>
+<li>Well-integrated within the PaddlePaddle ecosystem.</li>
 <li>Efficient anchor-free design.</li>
-<li>Strong integration with the PaddlePaddle framework.</li>
 </ul>
-<p><strong>Weaknesses</strong>:</p>
+<p><strong>Weaknesses:</strong></p>
 <ul>
-<li>Primarily optimized for PaddlePaddle, limiting flexibility for users of other frameworks like <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a>.</li>
-<li>Larger models are less parameter-efficient compared to YOLOv10.</li>
-<li>Smaller community support compared to the broader YOLO ecosystem fostered by Ultralytics.</li>
+<li>Primarily optimized for the PaddlePaddle framework, which can create a steep learning curve and integration challenges for developers using other frameworks like <a href="https://pytorch.org/">PyTorch</a>.</li>
+<li>Community support and available resources may be less extensive compared to the vast ecosystem surrounding Ultralytics models.</li>
+<li>Larger models have significantly more parameters than YOLOv10 equivalents, leading to higher computational costs.</li>
 </ul>
-<h2 id="model-comparison-table">Model Comparison Table</h2>
+<p><a class="md-button" href="https://github.com/PaddlePaddle/PaddleDetection/blob/release/2.8.1/configs/ppyoloe/README.md">Learn more about PP-YOLOE+</a></p>
+<h2 id="performance-analysis-speed-accuracy-and-efficiency">Performance Analysis: Speed, Accuracy, and Efficiency</h2>
 <table>
 <thead>
 <tr>
-<th style="text-align: left;">Model</th>
-<th style="text-align: left;">size<br/><sup>(pixels)</sup></th>
-<th style="text-align: left;">mAP<sup>val<br/>50-95</sup></th>
-<th style="text-align: left;">Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
-<th style="text-align: left;">Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
-<th style="text-align: left;">params<br/><sup>(M)</sup></th>
-<th style="text-align: left;">FLOPs<br/><sup>(B)</sup></th>
+<th>Model</th>
+<th>size<br/><sup>(pixels)</sup></th>
+<th>mAP<sup>val<br/>50-95</sup></th>
+<th>Speed<br/><sup>CPU ONNX<br/>(ms)</sup></th>
+<th>Speed<br/><sup>T4 TensorRT10<br/>(ms)</sup></th>
+<th>params<br/><sup>(M)</sup></th>
+<th>FLOPs<br/><sup>(B)</sup></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;">YOLOv10n</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">39.5</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;"><strong>1.56</strong></td>
-<td style="text-align: left;"><strong>2.3</strong></td>
-<td style="text-align: left;"><strong>6.7</strong></td>
+<td>YOLOv10n</td>
+<td>640</td>
+<td>39.5</td>
+<td>-</td>
+<td><strong>1.56</strong></td>
+<td><strong>2.3</strong></td>
+<td><strong>6.7</strong></td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv10s</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">46.7</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">2.66</td>
-<td style="text-align: left;">7.2</td>
-<td style="text-align: left;">21.6</td>
+<td>YOLOv10s</td>
+<td>640</td>
+<td>46.7</td>
+<td>-</td>
+<td>2.66</td>
+<td>7.2</td>
+<td>21.6</td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv10m</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">51.3</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">5.48</td>
-<td style="text-align: left;">15.4</td>
-<td style="text-align: left;">59.1</td>
+<td>YOLOv10m</td>
+<td>640</td>
+<td>51.3</td>
+<td>-</td>
+<td>5.48</td>
+<td>15.4</td>
+<td>59.1</td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv10b</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">52.7</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">6.54</td>
-<td style="text-align: left;">24.4</td>
-<td style="text-align: left;">92.0</td>
+<td>YOLOv10b</td>
+<td>640</td>
+<td>52.7</td>
+<td>-</td>
+<td>6.54</td>
+<td>24.4</td>
+<td>92.0</td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv10l</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">53.3</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">8.33</td>
-<td style="text-align: left;">29.5</td>
-<td style="text-align: left;">120.3</td>
+<td>YOLOv10l</td>
+<td>640</td>
+<td>53.3</td>
+<td>-</td>
+<td>8.33</td>
+<td>29.5</td>
+<td>120.3</td>
 </tr>
 <tr>
-<td style="text-align: left;">YOLOv10x</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">54.4</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">12.2</td>
-<td style="text-align: left;">56.9</td>
-<td style="text-align: left;">160.4</td>
+<td>YOLOv10x</td>
+<td>640</td>
+<td>54.4</td>
+<td>-</td>
+<td>12.2</td>
+<td>56.9</td>
+<td>160.4</td>
 </tr>
 <tr>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
-<td style="text-align: left;"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr>
-<td style="text-align: left;">PP-YOLOE+t</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">39.9</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">2.84</td>
-<td style="text-align: left;">4.85</td>
-<td style="text-align: left;">19.15</td>
+<td>PP-YOLOE+t</td>
+<td>640</td>
+<td>39.9</td>
+<td>-</td>
+<td>2.84</td>
+<td>4.85</td>
+<td>19.15</td>
 </tr>
 <tr>
-<td style="text-align: left;">PP-YOLOE+s</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">43.7</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">2.62</td>
-<td style="text-align: left;">7.93</td>
-<td style="text-align: left;">17.36</td>
+<td>PP-YOLOE+s</td>
+<td>640</td>
+<td>43.7</td>
+<td>-</td>
+<td>2.62</td>
+<td>7.93</td>
+<td>17.36</td>
 </tr>
 <tr>
-<td style="text-align: left;">PP-YOLOE+m</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">49.8</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">5.56</td>
-<td style="text-align: left;">23.43</td>
-<td style="text-align: left;">49.91</td>
+<td>PP-YOLOE+m</td>
+<td>640</td>
+<td>49.8</td>
+<td>-</td>
+<td>5.56</td>
+<td>23.43</td>
+<td>49.91</td>
 </tr>
 <tr>
-<td style="text-align: left;">PP-YOLOE+l</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;">52.9</td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">8.36</td>
-<td style="text-align: left;">52.2</td>
-<td style="text-align: left;">110.07</td>
+<td>PP-YOLOE+l</td>
+<td>640</td>
+<td>52.9</td>
+<td>-</td>
+<td>8.36</td>
+<td>52.2</td>
+<td>110.07</td>
 </tr>
 <tr>
-<td style="text-align: left;">PP-YOLOE+x</td>
-<td style="text-align: left;">640</td>
-<td style="text-align: left;"><strong>54.7</strong></td>
-<td style="text-align: left;">-</td>
-<td style="text-align: left;">14.3</td>
-<td style="text-align: left;">98.42</td>
-<td style="text-align: left;">206.59</td>
+<td>PP-YOLOE+x</td>
+<td>640</td>
+<td><strong>54.7</strong></td>
+<td>-</td>
+<td>14.3</td>
+<td>98.42</td>
+<td>206.59</td>
 </tr>
 </tbody>
 </table>
-<h2 id="conclusion">Conclusion</h2>
-<p>Both YOLOv10 and PP-YOLOE+ are powerful object detection models offering a balance between speed and accuracy. YOLOv10 stands out for its exceptional efficiency (especially NMS-free inference and lower parameters/FLOPs), scalability across various model sizes, and seamless integration within the comprehensive and actively maintained Ultralytics ecosystem. This makes YOLOv10 a highly versatile and user-friendly choice, particularly for developers seeking ease of use, efficient training, and deployment flexibility across different platforms. PP-YOLOE+ offers competitive accuracy, especially its largest variant, but is primarily tailored for the PaddlePaddle framework and is generally less parameter-efficient.</p>
-<p>For users prioritizing cutting-edge efficiency, ease of use, and the benefits of a robust ecosystem with strong community support, YOLOv10 is the recommended choice. For those deeply integrated into the PaddlePaddle ecosystem, PP-YOLOE+ remains a strong contender.</p>
-<h2 id="explore-other-models">Explore Other Models</h2>
-<p>Consider exploring other state-of-the-art models available within the Ultralytics documentation for diverse object detection needs:</p>
+<p>The performance metrics reveal a clear distinction between the two models. YOLOv10 consistently demonstrates superior parameter and computational efficiency. For instance, YOLOv10-L achieves a comparable 53.3% mAP to PP-YOLOE+-l's 52.9% mAP, but with nearly 44% fewer parameters (29.5M vs 52.2M). This trend continues to the largest models, where YOLOv10-X reaches 54.4% mAP with 56.9M parameters, while PP-YOLOE+-x requires a massive 98.42M parameters to achieve a slightly higher 54.7% mAP.</p>
+<p>In terms of speed, YOLOv10's NMS-free architecture gives it a distinct advantage, especially for real-time deployment. The smallest model, YOLOv10-N, boasts an impressive 1.56ms latency, making it a top choice for <a href="https://www.ultralytics.com/glossary/edge-ai">edge AI</a> applications. While PP-YOLOE+ can achieve high accuracy, it often comes at the cost of a much larger model size and higher computational demand, making YOLOv10 the more efficient and practical choice for a wider range of deployment scenarios.</p>
+<h2 id="conclusion-why-yolov10-is-the-recommended-choice">Conclusion: Why YOLOv10 is the Recommended Choice</h2>
+<p>While both YOLOv10 and PP-YOLOE+ are powerful object detectors, <strong>YOLOv10 emerges as the superior choice for the vast majority of developers and researchers.</strong> Its groundbreaking NMS-free architecture provides a significant advantage in real-world applications by reducing latency and simplifying the deployment pipeline.</p>
+<p>The key advantages of YOLOv10 include:</p>
 <ul>
-<li><a href="https://docs.ultralytics.com/models/yolov8/">Ultralytics YOLOv8</a></li>
-<li><a href="https://docs.ultralytics.com/models/yolov9/">YOLOv9</a></li>
-<li><a href="https://docs.ultralytics.com/models/yolo11/">Ultralytics YOLO11</a></li>
-<li><a href="https://docs.ultralytics.com/models/rtdetr/">RT-DETR</a></li>
-<li><a href="https://docs.ultralytics.com/models/yolo-nas/">YOLO-NAS</a></li>
+<li><strong>Unmatched Efficiency:</strong> It delivers a better speed-accuracy trade-off, achieving competitive <a href="https://docs.ultralytics.com/guides/yolo-performance-metrics/">mAP scores</a> with significantly fewer parameters and FLOPs than PP-YOLOE+. This translates to lower computational costs and the ability to run on less powerful hardware.</li>
+<li><strong>True End-to-End Detection:</strong> By eliminating the NMS bottleneck, YOLOv10 is faster and easier to deploy, especially in latency-sensitive environments like <a href="https://www.ultralytics.com/blog/from-algorithms-to-automation-ais-role-in-robotics">robotics</a> and autonomous systems.</li>
+<li><strong>Superior User Experience:</strong> Integrated into the Ultralytics ecosystem, YOLOv10 offers unparalleled <strong>ease of use</strong>, comprehensive documentation, active community support, and straightforward training and export workflows. This drastically reduces development time and effort.</li>
 </ul>
+<p>PP-YOLOE+ is a strong performer in terms of raw accuracy but is largely confined to the PaddlePaddle ecosystem. Its larger model sizes and framework dependency make it a less flexible and more resource-intensive option compared to the highly optimized and user-friendly YOLOv10. For projects that demand a balance of high performance, efficiency, and ease of development, YOLOv10 is the clear winner.</p>
+<h2 id="explore-other-models">Explore Other Models</h2>
+<p>For those interested in exploring other state-of-the-art models, Ultralytics provides detailed comparisons for a wide range of architectures. Consider looking into <a href="https://docs.ultralytics.com/models/yolov8/">YOLOv8</a> for its proven versatility across multiple vision tasks, or check out our comparisons with models like <a href="https://docs.ultralytics.com/compare/rtdetr-vs-yolov10/">RT-DETR</a> and <a href="https://docs.ultralytics.com/compare/yolov9-vs-yolov10/">YOLOv9</a> to find the perfect fit for your project.</p>
 <br/><br/>
 <div class="git-info">
 <div class="dates-container">
-<span class="date-item" title="This page was first created on June 20, 2024">
+<span class="date-item" title="This page was first created on June 21, 2024">
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
-<span class="date-item" title="This page was last updated on May 11, 2025">
+<span class="date-item" title="This page was last updated on May 12, 2025">
 <span class="hover-item">✏️</span> Updated 1 month ago
     </span>
 </div>
