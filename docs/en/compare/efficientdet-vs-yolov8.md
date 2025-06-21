@@ -109,7 +109,7 @@ EfficientDet remains a powerful and relevant architecture, especially for applic
 
 However, for the vast majority of modern computer vision applications, **[Ultralytics YOLOv8](https://docs.ultralytics.com/models/yolov8/) is the superior choice**. It offers a better overall package: state-of-the-art accuracy, blazing-fast inference speeds, and unparalleled versatility. The ability to handle detection, segmentation, pose, and more within a single, easy-to-use framework dramatically simplifies development and deployment. The well-maintained ecosystem, extensive documentation, and active community provide a level of support that accelerates any project from concept to production.
 
-For developers seeking a robust, high-performance, and future-proof solution, YOLOv8 is the clear recommendation. For those looking for the absolute latest in performance, newer Ultralytics models like [YOLOv11](https://docs.ultralytics.com/models/yolo11/) push the boundaries even further.
+For developers seeking a robust, high-performance, and future-proof solution, YOLOv8 is the clear recommendation. For those looking for the absolute latest in performance, newer Ultralytics models like [YOLO11](https://docs.ultralytics.com/models/yolo11/) push the boundaries even further.
 
 ## Explore Other Models
 
@@ -120,4 +120,4 @@ To continue your research, consider exploring other model comparisons involving 
 - [RT-DETR vs. YOLOv8](https://docs.ultralytics.com/compare/rtdetr-vs-yolov8/)
 - [EfficientDet vs. YOLOv5](https://docs.ultralytics.com/compare/efficientdet-vs-yolov5/)
 - [YOLOv8 vs. YOLOv9](https://docs.ultralytics.com/compare/yolov8-vs-yolov9/)
-- Explore the latest models like [YOLOv10](https://docs.ultralytics.com/models/yolov10/) and [YOLOv11](https://docs.ultralytics.com/models/yolo11/).
+- Explore the latest models like [YOLOv10](https://docs.ultralytics.com/models/yolov10/) and [YOLO11](https://docs.ultralytics.com/models/yolo11/).

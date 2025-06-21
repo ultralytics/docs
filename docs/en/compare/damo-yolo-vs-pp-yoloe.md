@@ -13,7 +13,7 @@ Choosing the right object detection model is a critical decision that balances a
 
 <canvas id="modelComparisonChart" width="1024" height="400" active-models='["DAMO-YOLO", "PP-YOLOE+"]'></canvas>
 
-While both models offer significant advancements, it's also important to consider alternatives like the Ultralytics YOLO series. Models such as [Ultralytics YOLOv11](https://docs.ultralytics.com/models/yolo11/) provide a highly competitive balance of performance and efficiency, coupled with a user-friendly and well-maintained ecosystem that accelerates development from research to production.
+While both models offer significant advancements, it's also important to consider alternatives like the Ultralytics YOLO series. Models such as [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) provide a highly competitive balance of performance and efficiency, coupled with a user-friendly and well-maintained ecosystem that accelerates development from research to production.
 
 ## DAMO-YOLO: A Fast and Accurate Method from Alibaba
 
@@ -113,15 +113,15 @@ From the table, we can observe:
 - **Speed:** DAMO-YOLO models consistently demonstrate faster inference speeds on a T4 GPU compared to PP-YOLOE+ models of similar size.
 - **Efficiency (Params & FLOPs):** DAMO-YOLO is generally more efficient. For instance, DAMO-YOLOm achieves a 49.2% mAP with 28.2M parameters, while the slightly more accurate PP-YOLOE+m (49.8% mAP) requires 23.43M parameters but is slower. The largest PP-YOLOE+x model is significantly larger in both parameters and FLOPs.
 
-## The Ultralytics Advantage: Why Choose YOLOv11?
+## The Ultralytics Advantage: Why Choose YOLO11?
 
-While DAMO-YOLO and PP-YOLOE+ are powerful models, they come with ecosystem constraints. For developers seeking a versatile, easy-to-use, and high-performance solution, [Ultralytics YOLOv11](https://docs.ultralytics.com/models/yolo11/) is an exceptional alternative.
+While DAMO-YOLO and PP-YOLOE+ are powerful models, they come with ecosystem constraints. For developers seeking a versatile, easy-to-use, and high-performance solution, [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) is an exceptional alternative.
 
 Ultralytics models are designed with the developer experience as a top priority. Key advantages include:
 
 - **Ease of Use:** A streamlined Python API, comprehensive [documentation](https://docs.ultralytics.com/), and a straightforward CLI make training, validation, and deployment incredibly simple.
 - **Well-Maintained Ecosystem:** Ultralytics provides a robust ecosystem with active development, strong community support on [GitHub](https://github.com/ultralytics/ultralytics), and integration with [Ultralytics HUB](https://docs.ultralytics.com/hub/) for end-to-end MLOps.
-- **Versatility:** Unlike specialized detectors, YOLOv11 is a multi-task model supporting [object detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) out-of-the-box.
+- **Versatility:** Unlike specialized detectors, YOLO11 is a multi-task model supporting [object detection](https://docs.ultralytics.com/tasks/detect/), [segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) out-of-the-box.
 - **Training Efficiency:** Ultralytics YOLO models are optimized for efficient training, often requiring less memory and time, with a rich set of pre-trained weights available to kickstart any project.
 
 ## Conclusion: Which Model is Right for You?
@@ -132,11 +132,11 @@ The choice between DAMO-YOLO and PP-YOLOE+ depends heavily on your project's spe
 
 - **Choose PP-YOLOE+** if your application demands the highest possible accuracy and you are already working within or planning to adopt the Baidu PaddlePaddle ecosystem. Its larger models are ideal for high-stakes applications where precision is paramount.
 
-- **For most developers and researchers, we recommend Ultralytics YOLOv11.** It offers a compelling combination of high performance, versatility across multiple vision tasks, and an unmatched ease of use. The robust, well-maintained ecosystem eliminates the friction associated with framework-specific models, allowing you to focus on building and deploying innovative AI solutions faster.
+- **For most developers and researchers, we recommend Ultralytics YOLO11.** It offers a compelling combination of high performance, versatility across multiple vision tasks, and an unmatched ease of use. The robust, well-maintained ecosystem eliminates the friction associated with framework-specific models, allowing you to focus on building and deploying innovative AI solutions faster.
 
 ### Explore Other Comparisons
 
 - [DAMO-YOLO vs. YOLOv8](https://docs.ultralytics.com/compare/damo-yolo-vs-yolov8/)
 - [PP-YOLOE+ vs. YOLOv10](https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov10/)
 - [DAMO-YOLO vs. RT-DETR](https://docs.ultralytics.com/compare/damo-yolo-vs-rtdetr/)
-- [YOLOv11 vs. YOLOv9](https://docs.ultralytics.com/compare/yolo11-vs-yolov9/)
+- [YOLO11 vs. YOLOv9](https://docs.ultralytics.com/compare/yolo11-vs-yolov9/)

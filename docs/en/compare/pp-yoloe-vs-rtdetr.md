@@ -114,7 +114,7 @@ While both PP-YOLOE+ and RTDETRv2 are powerful, developers often need more than 
 - **Well-Maintained Ecosystem:** The Ultralytics framework is actively developed with strong community support on [GitHub](https://github.com/ultralytics/ultralytics) and integration with tools like [Ultralytics HUB](https://www.ultralytics.com/hub) for seamless MLOps.
 - **Performance Balance:** Ultralytics YOLO models are renowned for their exceptional balance of speed and accuracy, making them suitable for everything from [edge devices](https://docs.ultralytics.com/guides/nvidia-jetson/) to cloud servers.
 - **Memory Efficiency:** Ultralytics YOLO models are designed to be memory-efficient, typically requiring less CUDA memory for training and inference compared to transformer-based models like RTDETRv2.
-- **Versatility:** Unlike PP-YOLOE+ and RTDETRv2, which focus on detection, models like YOLOv11 support multiple tasks out-of-the-box, including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented object detection](https://docs.ultralytics.com/tasks/obb/).
+- **Versatility:** Unlike PP-YOLOE+ and RTDETRv2, which focus on detection, models like YOLO11 support multiple tasks out-of-the-box, including [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and [oriented object detection](https://docs.ultralytics.com/tasks/obb/).
 - **Training Efficiency:** With readily available pre-trained weights and efficient training processes, developers can achieve state-of-the-art results faster.
 
 ## Conclusion: Which Model is Right for You?
@@ -125,12 +125,12 @@ The choice between PP-YOLOE+ and RTDETRv2 depends heavily on your project's spec
 
 - **Choose RTDETRv2** if your primary goal is to achieve maximum accuracy, especially in complex visual scenes, and you have the computational resources to handle its more demanding architecture. It is well-suited for critical applications like [autonomous vehicles](https://www.ultralytics.com/glossary/autonomous-vehicles) and advanced robotics.
 
-However, for most developers and researchers, **Ultralytics YOLO models like YOLOv11 present the most compelling option**. They offer a superior combination of performance, versatility, and ease of use, all backed by a robust and actively maintained ecosystem that accelerates the entire development lifecycle.
+However, for most developers and researchers, **Ultralytics YOLO models like YOLO11 present the most compelling option**. They offer a superior combination of performance, versatility, and ease of use, all backed by a robust and actively maintained ecosystem that accelerates the entire development lifecycle.
 
 ## Explore Other Model Comparisons
 
-- [YOLOv11 vs RT-DETR](https://docs.ultralytics.com/compare/yolo11-vs-rtdetr/)
-- [YOLOv11 vs PP-YOLOE+](https://docs.ultralytics.com/compare/yolo11-vs-pp-yoloe/)
+- [YOLO11 vs RT-DETR](https://docs.ultralytics.com/compare/yolo11-vs-rtdetr/)
+- [YOLO11 vs PP-YOLOE+](https://docs.ultralytics.com/compare/yolo11-vs-pp-yoloe/)
 - [YOLOv10 vs RT-DETR](https://docs.ultralytics.com/compare/yolov10-vs-rtdetr/)
 - [YOLOv8 vs RT-DETR](https://docs.ultralytics.com/compare/rtdetr-vs-yolov8/)
 - [PP-YOLOE+ vs YOLOv8](https://docs.ultralytics.com/compare/pp-yoloe-vs-yolov8/)

@@ -120,14 +120,14 @@ Conversely, DAMO-YOLO demonstrates a strong balance, often achieving higher accu
 
 Both DAMO-YOLO and YOLOv6-3.0 are powerful object detection models with distinct advantages. DAMO-YOLO is an excellent choice for applications where achieving the highest possible accuracy is the primary goal, thanks to its innovative architectural components. YOLOv6-3.0 stands out for its exceptional inference speed and efficiency, making it ideal for real-time industrial applications and deployment on edge devices.
 
-However, for developers and researchers seeking a more holistic solution, [Ultralytics YOLOv11](https://docs.ultralytics.com/models/yolo11/) offers a compelling alternative. YOLOv11 provides a superior balance of speed and accuracy while being part of a robust, well-maintained ecosystem. Key advantages include:
+However, for developers and researchers seeking a more holistic solution, [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) offers a compelling alternative. YOLO11 provides a superior balance of speed and accuracy while being part of a robust, well-maintained ecosystem. Key advantages include:
 
 - **Ease of Use:** A streamlined user experience with a simple API, extensive [documentation](https://docs.ultralytics.com/), and readily available pre-trained weights.
 - **Versatility:** Native support for multiple tasks, including [object detection](https://docs.ultralytics.com/tasks/detect/), [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [pose estimation](https://docs.ultralytics.com/tasks/pose/), and classification, all within a single framework.
 - **Well-Maintained Ecosystem:** Active development, strong community support, and seamless integration with [Ultralytics HUB](https://www.ultralytics.com/hub) for end-to-end model development and deployment.
 - **Training Efficiency:** Optimized training processes and lower memory requirements make it faster and more accessible to train custom models.
 
-While DAMO-YOLO and YOLOv6-3.0 are strong contenders in the object detection space, the versatility, ease of use, and comprehensive support of Ultralytics models like YOLOv11 make them a more practical and powerful choice for a wide range of real-world applications.
+While DAMO-YOLO and YOLOv6-3.0 are strong contenders in the object detection space, the versatility, ease of use, and comprehensive support of Ultralytics models like YOLO11 make them a more practical and powerful choice for a wide range of real-world applications.
 
 ## Explore Other Models
 

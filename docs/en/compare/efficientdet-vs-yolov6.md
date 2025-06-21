@@ -79,7 +79,7 @@ YOLOv6-3.0 offers various model sizes (n, s, m, l) to cater to different deploym
 
 ### Weaknesses of YOLOv6-3.0
 
-- **Accuracy vs. Newer Models:** While strong, newer models like [Ultralytics YOLOv11](https://docs.ultralytics.com/models/yolo11/) often provide a better accuracy-speed trade-off.
+- **Accuracy vs. Newer Models:** While strong, newer models like [Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/) often provide a better accuracy-speed trade-off.
 - **Limited Versatility:** Primarily focused on object detection, lacking the native support for other vision tasks such as [instance segmentation](https://docs.ultralytics.com/tasks/segment/), [classification](https://docs.ultralytics.com/tasks/classify/), and [pose estimation](https://docs.ultralytics.com/tasks/pose/) that are standard in the Ultralytics ecosystem.
 - **Ecosystem and Support:** While open-source, its ecosystem is not as comprehensive or actively maintained as the Ultralytics platform, which offers extensive documentation, tutorials, and seamless integration with tools like [Ultralytics HUB](https://www.ultralytics.com/hub).
 
@@ -131,24 +131,24 @@ YOLOv6-3.0 excels in scenarios that demand fast and efficient object detection.
 
 Both EfficientDet and YOLOv6-3.0 are highly capable object detection models, but they serve different needs. EfficientDet offers excellent accuracy and scalability, making it a great choice for precision-critical, non-real-time tasks. YOLOv6-3.0 provides impressive speed, making it ideal for industrial and real-time applications.
 
-However, for developers and researchers looking for a state-of-the-art solution that combines high performance, versatility, and an exceptional user experience, we recommend exploring models from the Ultralytics YOLO series, such as the latest **[Ultralytics YOLOv11](https://docs.ultralytics.com/models/yolo11/)**.
+However, for developers and researchers looking for a state-of-the-art solution that combines high performance, versatility, and an exceptional user experience, we recommend exploring models from the Ultralytics YOLO series, such as the latest **[Ultralytics YOLO11](https://docs.ultralytics.com/models/yolo11/)**.
 
 Ultralytics models offer several key advantages:
 
-- **Superior Performance Balance:** YOLOv11 achieves a state-of-the-art trade-off between speed and accuracy, often outperforming other models in both metrics.
-- **Unmatched Versatility:** Unlike single-task models, YOLOv11 supports object detection, instance segmentation, pose estimation, classification, and oriented bounding boxes within a single, unified framework.
+- **Superior Performance Balance:** YOLO11 achieves a state-of-the-art trade-off between speed and accuracy, often outperforming other models in both metrics.
+- **Unmatched Versatility:** Unlike single-task models, YOLO11 supports object detection, instance segmentation, pose estimation, classification, and oriented bounding boxes within a single, unified framework.
 - **Ease of Use:** With a simple Python API, extensive [documentation](https://docs.ultralytics.com/), and numerous tutorials, getting started with Ultralytics models is straightforward.
 - **Well-Maintained Ecosystem:** Benefit from active development, a strong community, frequent updates, and seamless integration with MLOps tools like [Ultralytics HUB](https://www.ultralytics.com/hub) for streamlined training and deployment.
 - **Training Efficiency:** Ultralytics models are designed for efficient training, often requiring less memory and time to converge, with readily available pre-trained weights on the [COCO dataset](https://docs.ultralytics.com/datasets/detect/coco/).
 
-While YOLOv6-3.0 is a strong contender for speed, and EfficientDet for accuracy, Ultralytics YOLOv11 provides a more holistic and powerful solution for the vast majority of modern computer vision projects.
+While YOLOv6-3.0 is a strong contender for speed, and EfficientDet for accuracy, Ultralytics YOLO11 provides a more holistic and powerful solution for the vast majority of modern computer vision projects.
 
 ### Explore Other Models
 
 For further reading, you may be interested in other comparisons involving these models:
 
 - [YOLOv8 vs. EfficientDet](https://docs.ultralytics.com/compare/yolov8-vs-efficientdet/)
-- [YOLOv11 vs. EfficientDet](https://docs.ultralytics.com/compare/yolo11-vs-efficientdet/)
+- [YOLO11 vs. EfficientDet](https://docs.ultralytics.com/compare/yolo11-vs-efficientdet/)
 - [YOLOv5 vs. YOLOv6](https://docs.ultralytics.com/compare/yolov5-vs-yolov6/)
 - [YOLOv7 vs. YOLOv6](https://docs.ultralytics.com/compare/yolov7-vs-yolov6/)
 - [RT-DETR vs. EfficientDet](https://docs.ultralytics.com/compare/rtdetr-vs-efficientdet/)
