@@ -41,7 +41,7 @@ Choosing the optimal object detection model is critical for successful computer 
 ## Meituan YOLOv6-3.0: An Industrial Contender
 
 **Authors**: Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu  
-**Organization**: [Meituan](about.meituan.com/en-US/about-us)  
+**Organization**: [Meituan](https://about.meituan.com/en-US/about-us)  
 **Date**: 2023-01-13  
 **Arxiv**: <https://arxiv.org/abs/2301.05586>  
 **GitHub**: <https://github.com/meituan/YOLOv6>  

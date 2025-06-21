@@ -15,7 +15,7 @@ Choosing the right object detection model is a critical decision that balances a
 
 ## YOLOv6-3.0: Engineered for Industrial Speed
 
-YOLOv6-3.0 was developed by researchers at [Meituan](about.meituan.com/en-US/about-us) and released in early 2023. It is specifically engineered for industrial applications where inference speed is a top priority without a significant compromise on accuracy. The model builds upon previous YOLO architectures with a focus on hardware-aware design and training optimizations.
+YOLOv6-3.0 was developed by researchers at [Meituan](https://about.meituan.com/en-US/about-us) and released in early 2023. It is specifically engineered for industrial applications where inference speed is a top priority without a significant compromise on accuracy. The model builds upon previous YOLO architectures with a focus on hardware-aware design and training optimizations.
 
 - **Authors:** Chuyi Li, Lulu Li, Yifei Geng, Hongliang Jiang, Meng Cheng, Bo Zhang, Zaidan Ke, Xiaoming Xu, and Xiangxiang Chu
 - **Organization:** Meituan
