@@ -2464,9 +2464,9 @@ process for each supported format.</p>
 <p>Append the given callback to the specified event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1415</span>
-<span>1416</span>
-<span>1417</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1417</span>
+<span>1418</span>
+<span>1419</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Append the given callback to the specified event."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2971,7 +2971,9 @@ process for each supported format.</p>
 <span>1297</span>
 <span>1298</span>
 <span>1299</span>
-<span>1300</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
+<span>1300</span>
+<span>1301</span>
+<span>1302</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@try_export</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_imx</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="n">colorstr</span><span class="p">(</span><span class="s2">"IMX:"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to IMX format."""</span>
 <span></span>    <span class="n">gptq</span> <span class="o">=</span> <span class="kc">False</span>
@@ -2981,7 +2983,9 @@ process for each supported format.</p>
 <span></span>    <span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="s2">"end2end"</span><span class="p">,</span> <span class="kc">False</span><span class="p">):</span>
 <span></span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"IMX export is not supported for end2end models."</span><span class="p">)</span>
-<span></span>    <span class="n">check_requirements</span><span class="p">((</span><span class="s2">"model-compression-toolkit&gt;=2.3.0"</span><span class="p">,</span> <span class="s2">"sony-custom-layers&gt;=0.3.0"</span><span class="p">,</span> <span class="s2">"edge-mdt-tpc&gt;=1.1.0"</span><span class="p">))</span>
+<span></span>    <span class="n">check_requirements</span><span class="p">(</span>
+<span></span>        <span class="p">(</span><span class="s2">"model-compression-toolkit&gt;=2.3.0,&lt;2.4.1"</span><span class="p">,</span> <span class="s2">"sony-custom-layers&gt;=0.3.0"</span><span class="p">,</span> <span class="s2">"edge-mdt-tpc&gt;=1.1.0"</span><span class="p">)</span>
+<span></span>    <span class="p">)</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"imx500-converter[pt]&gt;=3.16.1"</span><span class="p">)</span>  <span class="c1"># Separate requirements for imx500-converter</span>
 <span></span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">model_compression_toolkit</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">mct</span>
@@ -4201,10 +4205,10 @@ process for each supported format.</p>
 <p>Execute all callbacks for a given event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1419</span>
-<span>1420</span>
-<span>1421</span>
-<span>1422</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1421</span>
+<span>1422</span>
+<span>1423</span>
+<span>1424</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Execute all callbacks for a given event."""</span>
 <span></span>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
 <span></span>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -4272,9 +4276,7 @@ process for each supported format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1428</span>
-<span>1429</span>
-<span>1430</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1430</span>
 <span>1431</span>
 <span>1432</span>
 <span>1433</span>
@@ -4287,7 +4289,9 @@ process for each supported format.</p>
 <span>1440</span>
 <span>1441</span>
 <span>1442</span>
-<span>1443</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>1443</span>
+<span>1444</span>
+<span>1445</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the IOSDetectModel class with a YOLO model and example image.</span>
 <span></span>
@@ -4316,10 +4320,10 @@ process for each supported format.</p>
 <p>Normalize predictions of object detection model with input size-dependent factors.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1445</span>
-<span>1446</span>
-<span>1447</span>
-<span>1448</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1447</span>
+<span>1448</span>
+<span>1449</span>
+<span>1450</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Normalize predictions of object detection model with input size-dependent factors."""</span>
 <span></span>    <span class="n">xywh</span><span class="p">,</span> <span class="bp">cls</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">(</span><span class="n">x</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">((</span><span class="mi">4</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">nc</span><span class="p">),</span> <span class="mi">1</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">xywh</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">normalize</span>  <span class="c1"># confidence (3780, 80), coordinates (3780, 4)</span>
@@ -4387,9 +4391,7 @@ process for each supported format.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1454</span>
-<span>1455</span>
-<span>1456</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1456</span>
 <span>1457</span>
 <span>1458</span>
 <span>1459</span>
@@ -4399,7 +4401,9 @@ process for each supported format.</p>
 <span>1463</span>
 <span>1464</span>
 <span>1465</span>
-<span>1466</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+<span>1466</span>
+<span>1467</span>
+<span>1468</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the NMSModel.</span>
 <span></span>
@@ -4476,9 +4480,7 @@ number of detections after NMS.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/exporter.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1468</span>
-<span>1469</span>
-<span>1470</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1470</span>
 <span>1471</span>
 <span>1472</span>
 <span>1473</span>
@@ -4552,7 +4554,9 @@ number of detections after NMS.</p>
 <span>1541</span>
 <span>1542</span>
 <span>1543</span>
-<span>1544</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
+<span>1544</span>
+<span>1545</span>
+<span>1546</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform inference with NMS post-processing. Supports Detect, Segment, OBB and Pose.</span>
 <span></span>
