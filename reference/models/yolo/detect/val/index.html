@@ -721,6 +721,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.yolo.detect.val.DetectionValidator.coco_evaluate">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> coco_evaluate
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.models.yolo.detect.val.DetectionValidator.eval_json">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> eval_json
@@ -1335,6 +1342,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.models.yolo.detect.val.DetectionValidator.coco_evaluate">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> coco_evaluate
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="#ultralytics.models.yolo.detect.val.DetectionValidator.eval_json">
 <span class="md-ellipsis">
 <code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> eval_json
@@ -1821,6 +1835,268 @@ prediction processing, and visualization of results.</p>
 </div>
 </div>
 <div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.val.DetectionValidator.coco_evaluate">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">coco_evaluate</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">coco_evaluate</span><span class="p">(</span>
+<span></span>    <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span></span>    <span class="n">pred_json</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">anno_json</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">iou_types</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">"bbox"</span><span class="p">,</span>
+<span></span>    <span class="n">suffix</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">"Box"</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Evaluate COCO/LVIS metrics using faster-coco-eval library.</p>
+<p>Performs evaluation using the faster-coco-eval library to compute mAP metrics
+for object detection. Updates the provided stats dictionary with computed metrics
+including mAP50, mAP50-95, and LVIS-specific metrics if applicable.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>stats</code>
+</td>
+<td>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dictionary to store computed metrics and statistics.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>pred_json</code>
+</td>
+<td>
+<code>str | Path]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to JSON file containing predictions in COCO format.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>anno_json</code>
+</td>
+<td>
+<code>str | Path]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to JSON file containing ground truth annotations in COCO format.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>iou_types</code>
+</td>
+<td>
+<code>str | List[str]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>IoU type(s) for evaluation. Can be single string or list of strings.
+Common values include "bbox", "segm", "keypoints". Defaults to "bbox".</p>
+</div>
+</td>
+<td>
+<code>'bbox'</code>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td>
+<code>suffix</code>
+</td>
+<td>
+<code>str | List[str]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Suffix to append to metric names in stats dictionary. Should correspond
+to iou_types if multiple types provided. Defaults to "Box".</p>
+</div>
+</td>
+<td>
+<code>'Box'</code>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Updated stats dictionary containing the computed COCO/LVIS evaluation metrics.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<details class="quote">
+<summary>Source code in <code>ultralytics/models/yolo/detect/val.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
+<span>439</span>
+<span>440</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span>
+<span>451</span>
+<span>452</span>
+<span>453</span>
+<span>454</span>
+<span>455</span>
+<span>456</span>
+<span>457</span>
+<span>458</span>
+<span>459</span>
+<span>460</span>
+<span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span>
+<span>465</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">coco_evaluate</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
+<span></span>    <span class="n">pred_json</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">anno_json</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
+<span></span>    <span class="n">iou_types</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">"bbox"</span><span class="p">,</span>
+<span></span>    <span class="n">suffix</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="s2">"Box"</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Evaluate COCO/LVIS metrics using faster-coco-eval library.</span>
+<span></span>
+<span></span><span class="sd">    Performs evaluation using the faster-coco-eval library to compute mAP metrics</span>
+<span></span><span class="sd">    for object detection. Updates the provided stats dictionary with computed metrics</span>
+<span></span><span class="sd">    including mAP50, mAP50-95, and LVIS-specific metrics if applicable.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        stats (Dict[str, Any]): Dictionary to store computed metrics and statistics.</span>
+<span></span><span class="sd">        pred_json (str | Path]): Path to JSON file containing predictions in COCO format.</span>
+<span></span><span class="sd">        anno_json (str | Path]): Path to JSON file containing ground truth annotations in COCO format.</span>
+<span></span><span class="sd">        iou_types (str | List[str]]): IoU type(s) for evaluation. Can be single string or list of strings.</span>
+<span></span><span class="sd">            Common values include "bbox", "segm", "keypoints". Defaults to "bbox".</span>
+<span></span><span class="sd">        suffix (str | List[str]]): Suffix to append to metric names in stats dictionary. Should correspond</span>
+<span></span><span class="sd">            to iou_types if multiple types provided. Defaults to "Box".</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (Dict[str, Any]): Updated stats dictionary containing the computed COCO/LVIS evaluation metrics.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">):</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Evaluating faster-coco-eval mAP using </span><span class="si">{</span><span class="n">pred_json</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">anno_json</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
+<span></span>        <span class="k">try</span><span class="p">:</span>
+<span></span>            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pred_json</span><span class="p">,</span> <span class="n">anno_json</span><span class="p">:</span>
+<span></span>                <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">is_file</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> file not found"</span>
+<span></span>            <span class="n">iou_types</span> <span class="o">=</span> <span class="p">[</span><span class="n">iou_types</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">iou_types</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">iou_types</span>
+<span></span>            <span class="n">suffix</span> <span class="o">=</span> <span class="p">[</span><span class="n">suffix</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">suffix</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">suffix</span>
+<span></span>            <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"faster-coco-eval&gt;=1.6.7"</span><span class="p">)</span>
+<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">faster_coco_eval</span><span class="w"> </span><span class="kn">import</span> <span class="n">COCO</span><span class="p">,</span> <span class="n">COCOeval_faster</span>
+<span></span>
+<span></span>            <span class="n">anno</span> <span class="o">=</span> <span class="n">COCO</span><span class="p">(</span><span class="n">anno_json</span><span class="p">)</span>
+<span></span>            <span class="n">pred</span> <span class="o">=</span> <span class="n">anno</span><span class="o">.</span><span class="n">loadRes</span><span class="p">(</span><span class="n">pred_json</span><span class="p">)</span>
+<span></span>            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">iou_type</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">iou_types</span><span class="p">):</span>
+<span></span>                <span class="n">val</span> <span class="o">=</span> <span class="n">COCOeval_faster</span><span class="p">(</span>
+<span></span>                    <span class="n">anno</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">iouType</span><span class="o">=</span><span class="n">iou_type</span><span class="p">,</span> <span class="n">lvis_style</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">,</span> <span class="n">print_function</span><span class="o">=</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span>
+<span></span>                <span class="p">)</span>
+<span></span>                <span class="n">val</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">imgIds</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">im_files</span><span class="p">]</span>  <span class="c1"># images to eval</span>
+<span></span>                <span class="n">val</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
+<span></span>                <span class="n">val</span><span class="o">.</span><span class="n">accumulate</span><span class="p">()</span>
+<span></span>                <span class="n">val</span><span class="o">.</span><span class="n">summarize</span><span class="p">()</span>
+<span></span>
+<span></span>                <span class="c1"># update mAP50-95 and mAP50</span>
+<span></span>                <span class="n">stats</span><span class="p">[</span><span class="sa">f</span><span class="s2">"metrics/mAP50(</span><span class="si">{</span><span class="n">suffix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"AP_all"</span><span class="p">]</span>
+<span></span>                <span class="n">stats</span><span class="p">[</span><span class="sa">f</span><span class="s2">"metrics/mAP50-95(</span><span class="si">{</span><span class="n">suffix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"AP_50"</span><span class="p">]</span>
+<span></span>
+<span></span>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">:</span>
+<span></span>                    <span class="n">stats</span><span class="p">[</span><span class="sa">f</span><span class="s2">"metrics/APr(</span><span class="si">{</span><span class="n">suffix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"APr"</span><span class="p">]</span>
+<span></span>                    <span class="n">stats</span><span class="p">[</span><span class="sa">f</span><span class="s2">"metrics/APc(</span><span class="si">{</span><span class="n">suffix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"APc"</span><span class="p">]</span>
+<span></span>                    <span class="n">stats</span><span class="p">[</span><span class="sa">f</span><span class="s2">"metrics/APf(</span><span class="si">{</span><span class="n">suffix</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"APf"</span><span class="p">]</span>
+<span></span>
+<span></span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">:</span>
+<span></span>                <span class="n">stats</span><span class="p">[</span><span class="s2">"fitness"</span><span class="p">]</span> <span class="o">=</span> <span class="n">stats</span><span class="p">[</span><span class="s2">"metrics/mAP50-95(B)"</span><span class="p">]</span>  <span class="c1"># always use box mAP50-95 for fitness</span>
+<span></span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"faster-coco-eval unable to run: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">stats</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.detect.val.DetectionValidator.eval_json">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">eval_json</span>
 </h3>
@@ -1896,35 +2172,7 @@ prediction processing, and visualization of results.</p>
 <span>399</span>
 <span>400</span>
 <span>401</span>
-<span>402</span>
-<span>403</span>
-<span>404</span>
-<span>405</span>
-<span>406</span>
-<span>407</span>
-<span>408</span>
-<span>409</span>
-<span>410</span>
-<span>411</span>
-<span>412</span>
-<span>413</span>
-<span>414</span>
-<span>415</span>
-<span>416</span>
-<span>417</span>
-<span>418</span>
-<span>419</span>
-<span>420</span>
-<span>421</span>
-<span>422</span>
-<span>423</span>
-<span>424</span>
-<span>425</span>
-<span>426</span>
-<span>427</span>
-<span>428</span>
-<span>429</span>
-<span>430</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>402</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Evaluate YOLO output in JSON format and return performance statistics.</span>
 <span></span>
@@ -1934,41 +2182,13 @@ prediction processing, and visualization of results.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (Dict[str, Any]): Updated statistics dictionary with COCO/LVIS evaluation results.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_json</span> <span class="ow">and</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">):</span>
-<span></span>        <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
-<span></span>        <span class="n">anno_json</span> <span class="o">=</span> <span class="p">(</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span>
-<span></span>            <span class="o">/</span> <span class="s2">"annotations"</span>
-<span></span>            <span class="o">/</span> <span class="p">(</span><span class="s2">"instances_val2017.json"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"lvis_v1_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="si">}</span><span class="s2">.json"</span><span class="p">)</span>
-<span></span>        <span class="p">)</span>  <span class="c1"># annotations</span>
-<span></span>
-<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="se">\n</span><span class="s2">Evaluating faster-coco-eval mAP using </span><span class="si">{</span><span class="n">pred_json</span><span class="si">}</span><span class="s2"> and </span><span class="si">{</span><span class="n">anno_json</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
-<span></span>        <span class="k">try</span><span class="p">:</span>
-<span></span>            <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">pred_json</span><span class="p">,</span> <span class="n">anno_json</span><span class="p">:</span>
-<span></span>                <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">is_file</span><span class="p">(),</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2"> file not found"</span>
-<span></span>            <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"faster-coco-eval&gt;=1.6.7"</span><span class="p">)</span>
-<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">faster_coco_eval</span><span class="w"> </span><span class="kn">import</span> <span class="n">COCO</span><span class="p">,</span> <span class="n">COCOeval_faster</span>
-<span></span>
-<span></span>            <span class="n">anno</span> <span class="o">=</span> <span class="n">COCO</span><span class="p">(</span><span class="n">anno_json</span><span class="p">)</span>
-<span></span>            <span class="n">pred</span> <span class="o">=</span> <span class="n">anno</span><span class="o">.</span><span class="n">loadRes</span><span class="p">(</span><span class="n">pred_json</span><span class="p">)</span>
-<span></span>            <span class="n">val</span> <span class="o">=</span> <span class="n">COCOeval_faster</span><span class="p">(</span><span class="n">anno</span><span class="p">,</span> <span class="n">pred</span><span class="p">,</span> <span class="n">iouType</span><span class="o">=</span><span class="s2">"bbox"</span><span class="p">,</span> <span class="n">lvis_style</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">,</span> <span class="n">print_function</span><span class="o">=</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">)</span>
-<span></span>            <span class="n">val</span><span class="o">.</span><span class="n">params</span><span class="o">.</span><span class="n">imgIds</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataloader</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">im_files</span><span class="p">]</span>  <span class="c1"># images to eval</span>
-<span></span>            <span class="n">val</span><span class="o">.</span><span class="n">evaluate</span><span class="p">()</span>
-<span></span>            <span class="n">val</span><span class="o">.</span><span class="n">accumulate</span><span class="p">()</span>
-<span></span>            <span class="n">val</span><span class="o">.</span><span class="n">summarize</span><span class="p">()</span>
-<span></span>
-<span></span>            <span class="c1"># update mAP50-95 and mAP50</span>
-<span></span>            <span class="n">stats</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"AP_all"</span><span class="p">]</span>
-<span></span>            <span class="n">stats</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">keys</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"AP_50"</span><span class="p">]</span>
-<span></span>
-<span></span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_lvis</span><span class="p">:</span>
-<span></span>                <span class="n">stats</span><span class="p">[</span><span class="s2">"metrics/APr(B)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"APr"</span><span class="p">]</span>
-<span></span>                <span class="n">stats</span><span class="p">[</span><span class="s2">"metrics/APc(B)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"APc"</span><span class="p">]</span>
-<span></span>                <span class="n">stats</span><span class="p">[</span><span class="s2">"metrics/APf(B)"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"APf"</span><span class="p">]</span>
-<span></span>                <span class="n">stats</span><span class="p">[</span><span class="s2">"fitness"</span><span class="p">]</span> <span class="o">=</span> <span class="n">val</span><span class="o">.</span><span class="n">stats_as_dict</span><span class="p">[</span><span class="s2">"AP_all"</span><span class="p">]</span>
-<span></span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-<span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"faster-coco-eval unable to run: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span></span>    <span class="k">return</span> <span class="n">stats</span>
+<span></span>    <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
+<span></span>    <span class="n">anno_json</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span>
+<span></span>        <span class="o">/</span> <span class="s2">"annotations"</span>
+<span></span>        <span class="o">/</span> <span class="p">(</span><span class="s2">"instances_val2017.json"</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_coco</span> <span class="k">else</span> <span class="sa">f</span><span class="s2">"lvis_v1_</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">split</span><span class="si">}</span><span class="s2">.json"</span><span class="p">)</span>
+<span></span>    <span class="p">)</span>  <span class="c1"># annotations</span>
+<span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">coco_evaluate</span><span class="p">(</span><span class="n">stats</span><span class="p">,</span> <span class="n">pred_json</span><span class="p">,</span> <span class="n">anno_json</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
