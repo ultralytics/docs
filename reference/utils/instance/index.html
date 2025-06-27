@@ -2643,9 +2643,9 @@ instances.</p>
 <p>Return the number of instances.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>441</span>
-<span>442</span>
-<span>443</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>443</span>
+<span>444</span>
+<span>445</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the number of instances."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2818,7 +2818,9 @@ instances.</p>
 <span>405</span>
 <span>406</span>
 <span>407</span>
-<span>408</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>408</span>
+<span>409</span>
+<span>410</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clip coordinates to stay within image boundaries.</span>
 <span></span>
@@ -2842,6 +2844,8 @@ instances.</p>
 <span></span>            <span class="o">|</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">)</span>
 <span></span>            <span class="o">|</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">h</span><span class="p">)</span>
 <span></span>        <span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">keypoints</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2931,9 +2935,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>445</span>
-<span>446</span>
-<span>447</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>447</span>
 <span>448</span>
 <span>449</span>
 <span>450</span>
@@ -2976,7 +2978,9 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>487</span>
 <span>488</span>
 <span>489</span>
-<span>490</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
+<span>490</span>
+<span>491</span>
+<span>492</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">instances_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"Instances"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Concatenate a list of Instances objects into a single Instances object.</span>
@@ -3451,9 +3455,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>410</span>
-<span>411</span>
-<span>412</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>412</span>
 <span>413</span>
 <span>414</span>
 <span>415</span>
@@ -3465,7 +3467,9 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>421</span>
 <span>422</span>
 <span>423</span>
-<span>424</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_zero_area_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>424</span>
+<span>425</span>
+<span>426</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_zero_area_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Remove zero-area boxes, i.e. after clipping some boxes may have zero width or height.</span>
 <span></span>
@@ -3663,9 +3667,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>426</span>
-<span>427</span>
-<span>428</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>428</span>
 <span>429</span>
 <span>430</span>
 <span>431</span>
@@ -3676,7 +3678,9 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>436</span>
 <span>437</span>
 <span>438</span>
-<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>439</span>
+<span>440</span>
+<span>441</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update instance variables.</span>
 <span></span>
