@@ -33,7 +33,6 @@ YOLOv7's architecture is built upon a powerful [CNN](https://www.ultralytics.com
 YOLOv7 is renowned for its exceptional performance on GPU hardware, delivering high frames-per-second (FPS) for [real-time inference](https://www.ultralytics.com/glossary/real-time-inference). This makes it an excellent choice for applications where low latency is critical.
 
 - **Strengths:**
-
     - **Excellent Speed-Accuracy Trade-off:** Provides a strong combination of mAP and inference speed, ideal for real-time tasks.
     - **Efficient Training:** Leverages "bag-of-freebies" to improve accuracy without adding computational overhead during [inference](https://www.ultralytics.com/glossary/inference-engine).
     - **Proven Performance:** Established and well-benchmarked on standard datasets like [MS COCO](https://docs.ultralytics.com/datasets/detect/coco/).
@@ -64,7 +63,6 @@ RT-DETRv2 is based on the [Vision Transformer (ViT)](https://www.ultralytics.com
 The primary advantage of RT-DETRv2 is its high accuracy, especially for detecting objects in complex scenes with significant occlusion or clutter.
 
 - **Strengths:**
-
     - **High Accuracy:** The transformer architecture enables superior object detection accuracy by effectively processing global image context.
     - **Robust Feature Representation:** Excels at understanding intricate details and relationships between objects.
 

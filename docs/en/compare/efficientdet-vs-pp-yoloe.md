@@ -35,7 +35,6 @@ EfficientDet's architecture is built on three core innovations:
 ### Strengths and Weaknesses
 
 - **Strengths:**
-
     - **High Parameter Efficiency:** Delivers strong accuracy with significantly fewer parameters and FLOPs compared to many other architectures.
     - **Scalability:** The model family (D0 to D7) provides a clear and effective way to scale the model up or down based on resource constraints, from mobile devices to large-scale cloud servers.
     - **Strong Accuracy:** Achieves competitive mAP scores, especially when considering its low computational footprint.
@@ -76,7 +75,6 @@ PP-YOLOE+ is an [anchor-free detector](https://www.ultralytics.com/glossary/anch
 ### Strengths and Weaknesses
 
 - **Strengths:**
-
     - **Excellent Speed-Accuracy Balance:** Delivers high mAP scores while maintaining very fast inference speeds, particularly on GPUs with [TensorRT](https://www.ultralytics.com/glossary/tensorrt) optimization.
     - **Anchor-Free Design:** Simplifies the model structure and reduces the number of hyperparameters that need tuning.
     - **Strong Performance:** Often outperforms other models in both speed and accuracy for its size.
