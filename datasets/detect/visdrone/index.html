@@ -1084,8 +1084,11 @@
 <span></span><span class="w">                  </span><span class="no">cls = int(row[5]) - 1</span>
 <span></span><span class="w">                  </span><span class="no">box = convert_box(img_size, tuple(map(int, row[:4])))</span>
 <span></span><span class="w">                  </span><span class="no">lines.append(f"{cls} {' '.join(f'{x:.6f}' for x in box)}\n")</span>
-<span></span><span class="w">                  </span><span class="no">with open(str(f).replace(f"{os.sep}annotations{os.sep}", f"{os.sep}labels{os.sep}"), "w", encoding="utf-8") as fl:</span>
-<span></span><span class="w">                      </span><span class="no">fl.writelines(lines)  # write label.txt</span>
+<span></span>
+<span></span><span class="w">          </span><span class="no">label_file = str(f).replace(f"{os.sep}annotations{os.sep}", f"{os.sep}labels{os.sep}")</span>
+<span></span><span class="w">          </span><span class="no">with open(label_file, "w", encoding="utf-8") as fl:</span>
+<span></span><span class="w">                </span><span class="no">fl.writelines(lines)</span>
+<span></span>
 <span></span>
 <span></span>
 <span></span><span class="w">  </span><span class="no"># Download</span>
