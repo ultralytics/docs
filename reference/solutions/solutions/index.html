@@ -1984,8 +1984,7 @@ object counting, pose estimation, and analytics.</p>
 <span>133</span>
 <span>134</span>
 <span>135</span>
-<span>136</span>
-<span>137</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_cli</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>136</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">is_cli</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the BaseSolution class with configuration settings and YOLO model.</span>
 <span></span>
@@ -1996,60 +1995,59 @@ object counting, pose estimation, and analytics.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">SolutionConfig</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">))</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span> <span class="o">=</span> <span class="n">LOGGER</span>  <span class="c1"># Store logger object to be used in multiple solution classes</span>
 <span></span>
-<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span> <span class="o">!=</span> <span class="s2">"VisualAISearch"</span><span class="p">:</span>
-<span></span>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"shapely&gt;=2.0.0"</span><span class="p">)</span>
-<span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">LineString</span><span class="p">,</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span>
-<span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">shapely.prepared</span><span class="w"> </span><span class="kn">import</span> <span class="n">prep</span>
+<span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"shapely&gt;=2.0.0"</span><span class="p">)</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">shapely.geometry</span><span class="w"> </span><span class="kn">import</span> <span class="n">LineString</span><span class="p">,</span> <span class="n">Point</span><span class="p">,</span> <span class="n">Polygon</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">shapely.prepared</span><span class="w"> </span><span class="kn">import</span> <span class="n">prep</span>
 <span></span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">LineString</span> <span class="o">=</span> <span class="n">LineString</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">Polygon</span> <span class="o">=</span> <span class="n">Polygon</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">Point</span> <span class="o">=</span> <span class="n">Point</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">prep</span> <span class="o">=</span> <span class="n">prep</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Initialize annotator</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">track_data</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span> <span class="o">=</span> <span class="p">[]</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">clss</span> <span class="o">=</span> <span class="p">[]</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span> <span class="o">=</span> <span class="p">[]</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">masks</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">r_s</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">frame_no</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Only for logging</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">LineString</span> <span class="o">=</span> <span class="n">LineString</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">Polygon</span> <span class="o">=</span> <span class="n">Polygon</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">Point</span> <span class="o">=</span> <span class="n">Point</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prep</span> <span class="o">=</span> <span class="n">prep</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">annotator</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Initialize annotator</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tracks</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_data</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">boxes</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">clss</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_line</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">masks</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">r_s</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">frame_no</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># Only for logging</span>
 <span></span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ultralytics Solutions: ✅ </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"region"</span><span class="p">]</span>  <span class="c1"># Store region data for other classes usage</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"line_width"</span><span class="p">]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Ultralytics Solutions: ✅ </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"region"</span><span class="p">]</span>  <span class="c1"># Store region data for other classes usage</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"line_width"</span><span class="p">]</span>
 <span></span>
-<span></span>        <span class="c1"># Load Model and store additional information (classes, show_conf, show_label)</span>
-<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">])</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"classes"</span><span class="p">]</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">show_conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"show_conf"</span><span class="p">]</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">show_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"show_labels"</span><span class="p">]</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"device"</span><span class="p">]</span>
+<span></span>    <span class="c1"># Load Model and store additional information (classes, show_conf, show_label)</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">])</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">names</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">classes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"classes"</span><span class="p">]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">show_conf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"show_conf"</span><span class="p">]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">show_labels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"show_labels"</span><span class="p">]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"device"</span><span class="p">]</span>
 <span></span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">track_add_args</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># Tracker additional arguments for advance configuration</span>
-<span></span>            <span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"iou"</span><span class="p">,</span> <span class="s2">"conf"</span><span class="p">,</span> <span class="s2">"device"</span><span class="p">,</span> <span class="s2">"max_det"</span><span class="p">,</span> <span class="s2">"half"</span><span class="p">,</span> <span class="s2">"tracker"</span><span class="p">]</span>
-<span></span>        <span class="p">}</span>  <span class="c1"># verbose must be passed to track method; setting it False in YOLO still logs the track information.</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_add_args</span> <span class="o">=</span> <span class="p">{</span>  <span class="c1"># Tracker additional arguments for advance configuration</span>
+<span></span>        <span class="n">k</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">"iou"</span><span class="p">,</span> <span class="s2">"conf"</span><span class="p">,</span> <span class="s2">"device"</span><span class="p">,</span> <span class="s2">"max_det"</span><span class="p">,</span> <span class="s2">"half"</span><span class="p">,</span> <span class="s2">"tracker"</span><span class="p">]</span>
+<span></span>    <span class="p">}</span>  <span class="c1"># verbose must be passed to track method; setting it False in YOLO still logs the track information.</span>
 <span></span>
-<span></span>        <span class="k">if</span> <span class="n">is_cli</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
-<span></span>            <span class="n">d_s</span> <span class="o">=</span> <span class="s2">"solutions_ci_demo.mp4"</span> <span class="k">if</span> <span class="s2">"-pose"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="k">else</span> <span class="s2">"solution_ci_pose_demo.mp4"</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"source not provided. using default source </span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">d_s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
-<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.downloads</span><span class="w"> </span><span class="kn">import</span> <span class="n">safe_download</span>
+<span></span>    <span class="k">if</span> <span class="n">is_cli</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>        <span class="n">d_s</span> <span class="o">=</span> <span class="s2">"solutions_ci_demo.mp4"</span> <span class="k">if</span> <span class="s2">"-pose"</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"model"</span><span class="p">]</span> <span class="k">else</span> <span class="s2">"solution_ci_pose_demo.mp4"</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"source not provided. using default source </span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">d_s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.downloads</span><span class="w"> </span><span class="kn">import</span> <span class="n">safe_download</span>
 <span></span>
-<span></span>            <span class="n">safe_download</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">d_s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># download source from ultralytics assets</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_s</span>  <span class="c1"># set default source</span>
+<span></span>        <span class="n">safe_download</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">ASSETS_URL</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">d_s</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>  <span class="c1"># download source from ultralytics assets</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"source"</span><span class="p">]</span> <span class="o">=</span> <span class="n">d_s</span>  <span class="c1"># set default source</span>
 <span></span>
-<span></span>        <span class="c1"># Initialize environment and region setup</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">env_check</span> <span class="o">=</span> <span class="n">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">track_history</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
+<span></span>    <span class="c1"># Initialize environment and region setup</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">env_check</span> <span class="o">=</span> <span class="n">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">track_history</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="nb">list</span><span class="p">)</span>
 <span></span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">profilers</span> <span class="o">=</span> <span class="p">(</span>
-<span></span>            <span class="n">ops</span><span class="o">.</span><span class="n">Profile</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>  <span class="c1"># track</span>
-<span></span>            <span class="n">ops</span><span class="o">.</span><span class="n">Profile</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>  <span class="c1"># solution</span>
-<span></span>        <span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">profilers</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>        <span class="n">ops</span><span class="o">.</span><span class="n">Profile</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>  <span class="c1"># track</span>
+<span></span>        <span class="n">ops</span><span class="o">.</span><span class="n">Profile</span><span class="p">(</span><span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">device</span><span class="p">),</span>  <span class="c1"># solution</span>
+<span></span>    <span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2063,7 +2061,8 @@ object counting, pose estimation, and analytics.</p>
 <p>Allow instances to be called like a function with flexible arguments.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>244</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>243</span>
+<span>244</span>
 <span>245</span>
 <span>246</span>
 <span>247</span>
@@ -2078,8 +2077,7 @@ object counting, pose estimation, and analytics.</p>
 <span>256</span>
 <span>257</span>
 <span>258</span>
-<span>259</span>
-<span>260</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span>259</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Allow instances to be called like a function with flexible arguments."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">profilers</span><span class="p">[</span><span class="mi">1</span><span class="p">]:</span>
 <span></span>        <span class="n">result</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>  <span class="c1"># Call the subclass-specific process method</span>
@@ -2197,7 +2195,8 @@ defined in <code>self.show_conf</code> and <code>self.show_labels</code>.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>139</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
+<span>139</span>
 <span>140</span>
 <span>141</span>
 <span>142</span>
@@ -2213,8 +2212,7 @@ defined in <code>self.show_conf</code> and <code>self.show_labels</code>.</p>
 <span>152</span>
 <span>153</span>
 <span>154</span>
-<span>155</span>
-<span>156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">adjust_box_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">adjust_box_label</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="bp">cls</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">conf</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate a formatted label for a bounding box.</span>
 <span></span>
@@ -2290,7 +2288,8 @@ the processed frame with annotations, and allows for user interaction to close t
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>215</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>214</span>
+<span>215</span>
 <span>216</span>
 <span>217</span>
 <span>218</span>
@@ -2313,8 +2312,7 @@ the processed frame with annotations, and allows for user interaction to close t
 <span>235</span>
 <span>236</span>
 <span>237</span>
-<span>238</span>
-<span>239</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_im</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>238</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_output</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plot_im</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Display the results of the processing, which could involve showing frames, printing counts, or saving results.</span>
 <span></span>
@@ -2387,7 +2385,8 @@ the processed frame with annotations, and allows for user interaction to close t
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>158</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>157</span>
+<span>158</span>
 <span>159</span>
 <span>160</span>
 <span>161</span>
@@ -2412,8 +2411,7 @@ the processed frame with annotations, and allows for user interaction to close t
 <span>180</span>
 <span>181</span>
 <span>182</span>
-<span>183</span>
-<span>184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>183</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">extract_tracks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply object tracking and extract tracks from an input image or frame.</span>
 <span></span>
@@ -2454,13 +2452,13 @@ the processed frame with annotations, and allows for user interaction to close t
 <p>Initialize the counting region and line segment based on configuration settings.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>206</span>
+<span>207</span>
 <span>208</span>
 <span>209</span>
 <span>210</span>
 <span>211</span>
-<span>212</span>
-<span>213</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_region</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>212</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_region</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the counting region and line segment based on configuration settings."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">region</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">200</span><span class="p">),</span> <span class="p">(</span><span class="mi">540</span><span class="p">,</span> <span class="mi">180</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">180</span><span class="p">)]</span>
@@ -2481,8 +2479,8 @@ the processed frame with annotations, and allows for user interaction to close t
 <p>Process method should be implemented by each Solution subclass.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>241</span>
-<span>242</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>240</span>
+<span>241</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process method should be implemented by each Solution subclass."""</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2549,7 +2547,8 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>186</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>185</span>
+<span>186</span>
 <span>187</span>
 <span>188</span>
 <span>189</span>
@@ -2567,8 +2566,7 @@ bounding box to the track line. It maintains a maximum of 30 points in the track
 <span>201</span>
 <span>202</span>
 <span>203</span>
-<span>204</span>
-<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>204</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">store_tracking_history</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">track_id</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">box</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Store the tracking history of an object.</span>
 <span></span>
@@ -2930,7 +2928,8 @@ various computer vision applications including object detection, tracking, pose 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>302</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>301</span>
+<span>302</span>
 <span>303</span>
 <span>304</span>
 <span>305</span>
@@ -2949,8 +2948,7 @@ various computer vision applications including object detection, tracking, pose 
 <span>318</span>
 <span>319</span>
 <span>320</span>
-<span>321</span>
-<span>322</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>321</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">line_width</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -3083,7 +3081,8 @@ various computer vision applications including object detection, tracking, pose 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>699</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>698</span>
+<span>699</span>
 <span>700</span>
 <span>701</span>
 <span>702</span>
@@ -3125,8 +3124,7 @@ various computer vision applications including object detection, tracking, pose 
 <span>738</span>
 <span>739</span>
 <span>740</span>
-<span>741</span>
-<span>742</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span>
+<span>741</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">circle_label</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
 <span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
@@ -3283,7 +3281,8 @@ various computer vision applications including object detection, tracking, pose 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>390</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>389</span>
+<span>390</span>
 <span>391</span>
 <span>392</span>
 <span>393</span>
@@ -3316,8 +3315,7 @@ various computer vision applications including object detection, tracking, pose 
 <span>420</span>
 <span>421</span>
 <span>422</span>
-<span>423</span>
-<span>424</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_analytics</span><span class="p">(</span>
+<span>423</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_analytics</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">text</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
@@ -3499,7 +3497,8 @@ various computer vision applications including object detection, tracking, pose 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>588</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>587</span>
+<span>588</span>
 <span>589</span>
 <span>590</span>
 <span>591</span>
@@ -3545,8 +3544,7 @@ various computer vision applications including object detection, tracking, pose 
 <span>631</span>
 <span>632</span>
 <span>633</span>
-<span>634</span>
-<span>635</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_objects_labels</span><span class="p">(</span>
+<span>634</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">display_objects_labels</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
 <span></span>    <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -3673,7 +3671,8 @@ various computer vision applications including object detection, tracking, pose 
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>324</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
+<span>324</span>
 <span>325</span>
 <span>326</span>
 <span>327</span>
@@ -3690,8 +3689,7 @@ various computer vision applications including object detection, tracking, pose 
 <span>338</span>
 <span>339</span>
 <span>340</span>
-<span>341</span>
-<span>342</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_region</span><span class="p">(</span>
+<span>341</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_region</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">reg_pts</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">color</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
@@ -3832,7 +3830,8 @@ Modifies self.im in-place.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>443</span>
+<span>444</span>
 <span>445</span>
 <span>446</span>
 <span>447</span>
@@ -3865,8 +3864,7 @@ Modifies self.im in-place.</p>
 <span>474</span>
 <span>475</span>
 <span>476</span>
-<span>477</span>
-<span>478</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_specific_kpts</span><span class="p">(</span>
+<span>477</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_specific_kpts</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]],</span>
 <span></span>    <span class="n">indices</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4001,7 +3999,8 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>426</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>425</span>
+<span>426</span>
 <span>427</span>
 <span>428</span>
 <span>429</span>
@@ -4016,8 +4015,7 @@ Modifies self.im in-place.</p>
 <span>438</span>
 <span>439</span>
 <span>440</span>
-<span>441</span>
-<span>442</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>441</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="mi">256</span><span class="p">)</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">estimate_pose_angle</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">b</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span> <span class="n">c</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -4164,7 +4162,8 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>514</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>513</span>
+<span>514</span>
 <span>515</span>
 <span>516</span>
 <span>517</span>
@@ -4195,8 +4194,7 @@ Modifies self.im in-place.</p>
 <span>542</span>
 <span>543</span>
 <span>544</span>
-<span>545</span>
-<span>546</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
+<span>545</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_angle_and_count_and_stage</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">angle_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">count_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
@@ -4325,7 +4323,8 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>548</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>547</span>
+<span>548</span>
 <span>549</span>
 <span>550</span>
 <span>551</span>
@@ -4362,8 +4361,7 @@ Modifies self.im in-place.</p>
 <span>582</span>
 <span>583</span>
 <span>584</span>
-<span>585</span>
-<span>586</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
+<span>585</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_distance_and_line</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">pixels_distance</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
 <span></span>    <span class="n">centroids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]],</span>
@@ -4519,7 +4517,8 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>480</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>479</span>
+<span>480</span>
 <span>481</span>
 <span>482</span>
 <span>483</span>
@@ -4550,8 +4549,7 @@ Modifies self.im in-place.</p>
 <span>508</span>
 <span>509</span>
 <span>510</span>
-<span>511</span>
-<span>512</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_workout_information</span><span class="p">(</span>
+<span>511</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_workout_information</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">display_text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">position</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
@@ -4680,7 +4678,8 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>344</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>343</span>
+<span>344</span>
 <span>345</span>
 <span>346</span>
 <span>347</span>
@@ -4723,8 +4722,7 @@ Modifies self.im in-place.</p>
 <span>384</span>
 <span>385</span>
 <span>386</span>
-<span>387</span>
-<span>388</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">queue_counts_display</span><span class="p">(</span>
+<span>387</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">queue_counts_display</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -4882,7 +4880,8 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>637</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>636</span>
+<span>637</span>
 <span>638</span>
 <span>639</span>
 <span>640</span>
@@ -4920,8 +4919,7 @@ Modifies self.im in-place.</p>
 <span>672</span>
 <span>673</span>
 <span>674</span>
-<span>675</span>
-<span>676</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sweep_annotator</span><span class="p">(</span>
+<span>675</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">sweep_annotator</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">line_x</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <span></span>    <span class="n">line_y</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
@@ -5074,7 +5072,8 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>744</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>743</span>
+<span>744</span>
 <span>745</span>
 <span>746</span>
 <span>747</span>
@@ -5115,8 +5114,7 @@ Modifies self.im in-place.</p>
 <span>782</span>
 <span>783</span>
 <span>784</span>
-<span>785</span>
-<span>786</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span>
+<span>785</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text_label</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">],</span>
 <span></span>    <span class="n">label</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
@@ -5255,7 +5253,8 @@ Modifies self.im in-place.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>678</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>677</span>
+<span>678</span>
 <span>679</span>
 <span>680</span>
 <span>681</span>
@@ -5273,8 +5272,7 @@ Modifies self.im in-place.</p>
 <span>693</span>
 <span>694</span>
 <span>695</span>
-<span>696</span>
-<span>697</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visioneye</span><span class="p">(</span>
+<span>696</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">visioneye</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">],</span>
 <span></span>    <span class="n">center_point</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
@@ -5542,7 +5540,8 @@ from different computer vision solutions such as object counting, pose estimatio
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>817</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>816</span>
+<span>817</span>
 <span>818</span>
 <span>819</span>
 <span>820</span>
@@ -5567,8 +5566,7 @@ from different computer vision solutions such as object counting, pose estimatio
 <span>839</span>
 <span>840</span>
 <span>841</span>
-<span>842</span>
-<span>843</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>842</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a SolutionResults object with default or user-specified values.</span>
 <span></span>
@@ -5629,7 +5627,8 @@ from different computer vision solutions such as object counting, pose estimatio
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/solutions.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>845</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>844</span>
+<span>845</span>
 <span>846</span>
 <span>847</span>
 <span>848</span>
@@ -5640,8 +5639,7 @@ from different computer vision solutions such as object counting, pose estimatio
 <span>853</span>
 <span>854</span>
 <span>855</span>
-<span>856</span>
-<span>857</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>856</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a formatted string representation of the SolutionResults object.</span>
 <span></span>
