@@ -2388,7 +2388,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <h3 class="doc doc-heading" id="ultralytics.engine.predictor.BasePredictor.save_predicted_images">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save_predicted_images</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="n">save_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">''</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="n">save_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Save video predictions as mp4 or images as jpg at specified path.</p>
@@ -2408,7 +2408,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <code>save_path</code>
 </td>
 <td>
-<code><span title="str">str</span></code>
+<code><span title="pathlib.Path">Path</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2416,7 +2416,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 </div>
 </td>
 <td>
-<code>''</code>
+<em>required</em>
 </td>
 </tr>
 <tr class="doc-section-item">
@@ -2471,12 +2471,12 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span>488</span>
 <span>489</span>
 <span>490</span>
-<span>491</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span>491</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_predicted_images</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">save_path</span><span class="p">:</span> <span class="n">Path</span><span class="p">,</span> <span class="n">frame</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save video predictions as mp4 or images as jpg at specified path.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        save_path (str): Path to save the results.</span>
+<span></span><span class="sd">        save_path (Path): Path to save the results.</span>
 <span></span><span class="sd">        frame (int): Frame number for video mode.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">im</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">plotted_img</span>
@@ -2484,7 +2484,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span></span>    <span class="c1"># Save videos and streams</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">mode</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">"stream"</span><span class="p">,</span> <span class="s2">"video"</span><span class="p">}:</span>
 <span></span>        <span class="n">fps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">fps</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dataset</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s2">"video"</span> <span class="k">else</span> <span class="mi">30</span>
-<span></span>        <span class="n">frames_path</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">save_path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s2">_frames/"</span>
+<span></span>        <span class="n">frames_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">save_path</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_frames"</span>  <span class="c1"># save frames to a separate directory</span>
 <span></span>        <span class="k">if</span> <span class="n">save_path</span> <span class="ow">not</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">vid_writer</span><span class="p">:</span>  <span class="c1"># new video</span>
 <span></span>            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_frames</span><span class="p">:</span>
 <span></span>                <span class="n">Path</span><span class="p">(</span><span class="n">frames_path</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -2499,11 +2499,11 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span></span>        <span class="c1"># Save video</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">vid_writer</span><span class="p">[</span><span class="n">save_path</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save_frames</span><span class="p">:</span>
-<span></span>            <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">frames_path</span><span class="si">}{</span><span class="n">frame</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">,</span> <span class="n">im</span><span class="p">)</span>
+<span></span>            <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">frames_path</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">save_path</span><span class="o">.</span><span class="n">stem</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">frame</span><span class="si">}</span><span class="s2">.jpg"</span><span class="p">,</span> <span class="n">im</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># Save images</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
-<span></span>        <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">save_path</span><span class="p">)</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".jpg"</span><span class="p">)),</span> <span class="n">im</span><span class="p">)</span>  <span class="c1"># save to JPG for best support</span>
+<span></span>        <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">save_path</span><span class="o">.</span><span class="n">with_suffix</span><span class="p">(</span><span class="s2">".jpg"</span><span class="p">)),</span> <span class="n">im</span><span class="p">)</span>  <span class="c1"># save to JPG for best support</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -3266,7 +3266,7 @@ accumulated in memory, which is critical for preventing memory issues during lon
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">show</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">show</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="p">))</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">save</span><span class="p">:</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">save_predicted_images</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">),</span> <span class="n">frame</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">save_predicted_images</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="n">p</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="k">return</span> <span class="n">string</span>
 </code></pre></div></td></tr></table></div>
