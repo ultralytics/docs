@@ -883,7 +883,7 @@
 <article class="md-content__inner md-typeset">
 <a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/integrations/amazon-sagemaker.md" rel="edit" title="Edit this page">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
-</a>
+</a><a class="md-content__button md-icon" href="javascript:void(0)" onclick="copyMarkdownForLLM(this); return false;" title="Copy page in Markdown format"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></a>
 <h1 id="a-guide-to-deploying-yolo11-on-amazon-sagemaker-endpoints">A Guide to Deploying YOLO11 on Amazon SageMaker Endpoints</h1>
 <p>Deploying advanced <a href="https://www.ultralytics.com/glossary/computer-vision-cv">computer vision</a> models like <a href="https://github.com/ultralytics/ultralytics">Ultralytics' YOLO11</a> on Amazon SageMaker Endpoints opens up a wide range of possibilities for various <a href="https://www.ultralytics.com/glossary/machine-learning-ml">machine learning</a> applications. The key to effectively using these models lies in understanding their setup, configuration, and deployment processes. YOLO11 becomes even more powerful when integrated seamlessly with Amazon SageMaker, a robust and scalable machine learning service by AWS.</p>
 <p>This guide will take you through the process of deploying YOLO11 <a href="https://www.ultralytics.com/glossary/pytorch">PyTorch</a> models on Amazon SageMaker Endpoints step by step. You'll learn the essentials of preparing your AWS environment, configuring the model appropriately, and using tools like AWS CloudFormation and the AWS Cloud Development Kit (CDK) for deployment.</p>
@@ -1245,5 +1245,35 @@
 <script src="../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
 <script src="../../javascript/tablesort.js"></script>
-</body>
+<script>
+                    async function copyMarkdownForLLM(button) {
+                        const editBtn = document.querySelector('a[title="Edit this page"]');
+                        if (!editBtn) return;
+                        const originalHTML = button.innerHTML;
+                        const checkIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41L9 16.17z"></path></svg>';
+                        // Handle both /blob/ and /tree/ in GitHub URLs
+                        let rawUrl = editBtn.href.replace('github.com', 'raw.githubusercontent.com');
+                        // Remove /blob/ or /tree/ from the URL
+                        rawUrl = rawUrl.replace('/blob/', '/').replace('/tree/', '/');
+                        try {
+                            const response = await fetch(rawUrl);
+                            let markdown = await response.text();
+                            // Remove YAML front matter if present
+                            if (markdown.startsWith('---')) {
+                                const frontMatterEnd = markdown.indexOf('\n---\n', 3);
+                                if (frontMatterEnd !== -1) {
+                                    markdown = markdown.substring(frontMatterEnd + 5).trim();
+                                }
+                            }
+                            const title = document.querySelector('h1')?.textContent || document.title;
+                            const content = `# ${title}\n\nSource: ${window.location.href}\n\n---\n\n${markdown}`;
+                            await navigator.clipboard.writeText(content);
+                            button.innerHTML = checkIcon + ' Copied!';
+                            setTimeout(() => { button.innerHTML = originalHTML; }, 2000);
+                        } catch (err) {
+                            button.innerHTML = '❌ Failed';
+                            setTimeout(() => { button.innerHTML = originalHTML; }, 2000);
+                        }
+                    }
+                    </script></body>
 </html>
