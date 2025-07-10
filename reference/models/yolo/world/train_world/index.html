@@ -1704,7 +1704,15 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <span>111</span>
 <span>112</span>
 <span>113</span>
-<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">build_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"train"</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Build YOLO Dataset for training or validation.</span>
 <span></span>
@@ -1725,7 +1733,15 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 <span></span>    <span class="n">datasets</span> <span class="o">=</span> <span class="p">[</span>
 <span></span>        <span class="n">build_yolo_dataset</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">im_path</span><span class="p">,</span> <span class="n">batch</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">training_data</span><span class="p">[</span><span class="n">im_path</span><span class="p">],</span> <span class="n">stride</span><span class="o">=</span><span class="n">gs</span><span class="p">,</span> <span class="n">multi_modal</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im_path</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span>
-<span></span>        <span class="k">else</span> <span class="n">build_grounding</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">im_path</span><span class="p">[</span><span class="s2">"img_path"</span><span class="p">],</span> <span class="n">im_path</span><span class="p">[</span><span class="s2">"json_file"</span><span class="p">],</span> <span class="n">batch</span><span class="p">,</span> <span class="n">stride</span><span class="o">=</span><span class="n">gs</span><span class="p">)</span>
+<span></span>        <span class="k">else</span> <span class="n">build_grounding</span><span class="p">(</span>
+<span></span>            <span class="c1"># assign `nc` from validation set to max number of text samples for training consistency</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span>
+<span></span>            <span class="n">im_path</span><span class="p">[</span><span class="s2">"img_path"</span><span class="p">],</span>
+<span></span>            <span class="n">im_path</span><span class="p">[</span><span class="s2">"json_file"</span><span class="p">],</span>
+<span></span>            <span class="n">batch</span><span class="p">,</span>
+<span></span>            <span class="n">stride</span><span class="o">=</span><span class="n">gs</span><span class="p">,</span>
+<span></span>            <span class="n">max_samples</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"nc"</span><span class="p">],</span>
+<span></span>        <span class="p">)</span>
 <span></span>        <span class="k">for</span> <span class="n">im_path</span> <span class="ow">in</span> <span class="n">img_path</span>
 <span></span>    <span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">set_text_embeddings</span><span class="p">(</span><span class="n">datasets</span><span class="p">,</span> <span class="n">batch</span><span class="p">)</span>  <span class="c1"># cache text embeddings to accelerate training</span>
@@ -1766,19 +1782,19 @@ standard YOLO datasets and grounding datasets with different formats.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train_world.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
-<span>187</span>
-<span>188</span>
-<span>189</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>189</span>
 <span>190</span>
 <span>191</span>
 <span>192</span>
-<span>193</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>193</span>
+<span>194</span>
+<span>195</span>
+<span>196</span>
+<span>197</span>
+<span>198</span>
+<span>199</span>
+<span>200</span>
+<span>201</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">final_eval</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform final evaluation and validation for the YOLO-World model.</span>
 <span></span>
@@ -1859,15 +1875,7 @@ handling both YOLO detection datasets and grounding datasets.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train_world.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>116</span>
-<span>117</span>
-<span>118</span>
-<span>119</span>
-<span>120</span>
-<span>121</span>
-<span>122</span>
-<span>123</span>
-<span>124</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>124</span>
 <span>125</span>
 <span>126</span>
 <span>127</span>
@@ -1918,7 +1926,15 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <span>172</span>
 <span>173</span>
 <span>174</span>
-<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>175</span>
+<span>176</span>
+<span>177</span>
+<span>178</span>
+<span>179</span>
+<span>180</span>
+<span>181</span>
+<span>182</span>
+<span>183</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_dataset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get train and validation paths from data dictionary.</span>
 <span></span>
@@ -1992,9 +2008,9 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <p>Skip label plotting for YOLO-World training.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/world/train_world.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>177</span>
-<span>178</span>
-<span>179</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>185</span>
+<span>186</span>
+<span>187</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_training_labels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Skip label plotting for YOLO-World training."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -2011,7 +2027,7 @@ handling both YOLO detection datasets and grounding datasets.</p>
 <span class="hover-item">📅</span> Created 1 year ago
     </span>
 <span class="date-item" title="This page was last updated on September 11, 2024">
-<span class="hover-item">✏️</span> Updated 9 months ago
+<span class="hover-item">✏️</span> Updated 10 months ago
     </span>
 </div>
 <div class="authors-container">
