@@ -3146,9 +3146,9 @@ single image files, video files, and lists of image and video paths.</p>
 <span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">=</span> <span class="s2">"image"</span>
 <span></span>            <span class="k">if</span> <span class="n">path</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s2">"heic"</span><span class="p">:</span>
 <span></span>                <span class="c1"># Load HEIC image using Pillow with pillow-heif</span>
-<span></span>                <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"pillow-heif"</span><span class="p">)</span>
+<span></span>                <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"pi-heif"</span><span class="p">)</span>
 <span></span>
-<span></span>                <span class="kn">from</span><span class="w"> </span><span class="nn">pillow_heif</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_heif_opener</span>
+<span></span>                <span class="kn">from</span><span class="w"> </span><span class="nn">pi_heif</span><span class="w"> </span><span class="kn">import</span> <span class="n">register_heif_opener</span>
 <span></span>
 <span></span>                <span class="n">register_heif_opener</span><span class="p">()</span>  <span class="c1"># Register HEIF opener with Pillow</span>
 <span></span>                <span class="k">with</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">as</span> <span class="n">img</span><span class="p">:</span>
