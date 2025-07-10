@@ -1672,7 +1672,7 @@ cloud processing.</p>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="n">image_embedding</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">image_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">point_embedding</span><span class="p">:</span> <span class="n">Tensor</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process image and point embeddings through the Two-Way Transformer.</p>
@@ -1814,21 +1814,21 @@ cloud processing.</p>
 <span>124</span>
 <span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">image_embedding</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
-<span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
-<span></span>    <span class="n">point_embedding</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
+<span></span>    <span class="n">image_embedding</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span>    <span class="n">point_embedding</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process image and point embeddings through the Two-Way Transformer.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        image_embedding (Tensor): Image to attend to, with shape (B, embedding_dim, H, W).</span>
-<span></span><span class="sd">        image_pe (Tensor): Positional encoding to add to the image, with same shape as image_embedding.</span>
-<span></span><span class="sd">        point_embedding (Tensor): Embedding to add to query points, with shape (B, N_points, embedding_dim).</span>
+<span></span><span class="sd">        image_embedding (torch.Tensor): Image to attend to, with shape (B, embedding_dim, H, W).</span>
+<span></span><span class="sd">        image_pe (torch.Tensor): Positional encoding to add to the image, with same shape as image_embedding.</span>
+<span></span><span class="sd">        point_embedding (torch.Tensor): Embedding to add to query points, with shape (B, N_points, embedding_dim).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        queries (Tensor): Processed point embeddings with shape (B, N_points, embedding_dim).</span>
-<span></span><span class="sd">        keys (Tensor): Processed image embeddings with shape (B, H*W, embedding_dim).</span>
+<span></span><span class="sd">        queries (torch.Tensor): Processed point embeddings with shape (B, N_points, embedding_dim).</span>
+<span></span><span class="sd">        keys (torch.Tensor): Processed image embeddings with shape (B, H*W, embedding_dim).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># BxCxHxW -&gt; BxHWxC == B x N_image_tokens x C</span>
 <span></span>    <span class="n">image_embedding</span> <span class="o">=</span> <span class="n">image_embedding</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
@@ -2219,7 +2219,7 @@ of dense inputs to sparse inputs.</p>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="n">queries</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">:</span> <span class="n">Tensor</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply two-way attention to process query and key embeddings in a transformer block.</p>
@@ -2375,19 +2375,23 @@ of dense inputs to sparse inputs.</p>
 <span>238</span>
 <span>239</span>
 <span>240</span>
-<span>241</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]:</span>
+<span>241</span>
+<span>242</span>
+<span>243</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply two-way attention to process query and key embeddings in a transformer block.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        queries (Tensor): Query embeddings with shape (B, N_queries, embedding_dim).</span>
-<span></span><span class="sd">        keys (Tensor): Key embeddings with shape (B, N_keys, embedding_dim).</span>
-<span></span><span class="sd">        query_pe (Tensor): Positional encodings for queries with same shape as queries.</span>
-<span></span><span class="sd">        key_pe (Tensor): Positional encodings for keys with same shape as keys.</span>
+<span></span><span class="sd">        queries (torch.Tensor): Query embeddings with shape (B, N_queries, embedding_dim).</span>
+<span></span><span class="sd">        keys (torch.Tensor): Key embeddings with shape (B, N_keys, embedding_dim).</span>
+<span></span><span class="sd">        query_pe (torch.Tensor): Positional encodings for queries with same shape as queries.</span>
+<span></span><span class="sd">        key_pe (torch.Tensor): Positional encodings for keys with same shape as keys.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        queries (Tensor): Processed query embeddings with shape (B, N_queries, embedding_dim).</span>
-<span></span><span class="sd">        keys (Tensor): Processed key embeddings with shape (B, N_keys, embedding_dim).</span>
+<span></span><span class="sd">        queries (torch.Tensor): Processed query embeddings with shape (B, N_queries, embedding_dim).</span>
+<span></span><span class="sd">        keys (torch.Tensor): Processed key embeddings with shape (B, N_keys, embedding_dim).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Self attention block</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">skip_first_layer_pe</span><span class="p">:</span>
@@ -2685,9 +2689,7 @@ dimension of queries, keys, and values.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>275</span>
-<span>276</span>
-<span>277</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>277</span>
 <span>278</span>
 <span>279</span>
 <span>280</span>
@@ -2714,7 +2716,9 @@ dimension of queries, keys, and values.</p>
 <span>301</span>
 <span>302</span>
 <span>303</span>
-<span>304</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>304</span>
+<span>305</span>
+<span>306</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -2751,7 +2755,7 @@ dimension of queries, keys, and values.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.sam.modules.transformer.Attention.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">q</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply multi-head attention to query, key, and value tensors with optional downsampling.</p>
@@ -2839,9 +2843,7 @@ dimension of queries, keys, and values.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>320</span>
-<span>321</span>
-<span>322</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>322</span>
 <span>323</span>
 <span>324</span>
 <span>325</span>
@@ -2870,17 +2872,19 @@ dimension of queries, keys, and values.</p>
 <span>348</span>
 <span>349</span>
 <span>350</span>
-<span>351</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tensor</span><span class="p">:</span>
+<span>351</span>
+<span>352</span>
+<span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply multi-head attention to query, key, and value tensors with optional downsampling.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        q (Tensor): Query tensor with shape (B, N_q, embedding_dim).</span>
-<span></span><span class="sd">        k (Tensor): Key tensor with shape (B, N_k, embedding_dim).</span>
-<span></span><span class="sd">        v (Tensor): Value tensor with shape (B, N_k, embedding_dim).</span>
+<span></span><span class="sd">        q (torch.Tensor): Query tensor with shape (B, N_q, embedding_dim).</span>
+<span></span><span class="sd">        k (torch.Tensor): Key tensor with shape (B, N_k, embedding_dim).</span>
+<span></span><span class="sd">        v (torch.Tensor): Value tensor with shape (B, N_k, embedding_dim).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (Tensor): Output tensor after attention with shape (B, N_q, embedding_dim).</span>
+<span></span><span class="sd">        (torch.Tensor): Output tensor after attention with shape (B, N_q, embedding_dim).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Input projections</span>
 <span></span>    <span class="n">q</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">q_proj</span><span class="p">(</span><span class="n">q</span><span class="p">)</span>

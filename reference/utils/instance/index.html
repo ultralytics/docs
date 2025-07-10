@@ -1487,7 +1487,7 @@
 <h2 class="doc doc-heading" id="ultralytics.utils.instance.Bboxes">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.instance.Bboxes</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Bboxes</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'xyxy'</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Bboxes</span><span class="p">(</span><span class="n">bboxes</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'xyxy'</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p>A class for handling bounding boxes in multiple formats.</p>
@@ -1651,7 +1651,7 @@ conversion, scaling, and area calculation. Bounding box data should be provided 
 <span>72</span>
 <span>73</span>
 <span>74</span>
-<span>75</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s2">"xyxy"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>75</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"xyxy"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Bboxes class with bounding box data in a specified format.</span>
 <span></span>
@@ -1672,7 +1672,7 @@ conversion, scaling, and area calculation. Bounding box data should be provided 
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Bboxes.__getitem__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__getitem__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__getitem__</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bboxes</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__getitem__</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="nb">slice</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Bboxes</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Retrieve a specific bounding box or a set of bounding boxes using indexing.</p>
@@ -1751,7 +1751,7 @@ bounding boxes.</p>
 <span>181</span>
 <span>182</span>
 <span>183</span>
-<span>184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Bboxes"</span><span class="p">:</span>
+<span>184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">slice</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"Bboxes"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve a specific bounding box or a set of bounding boxes using indexing.</span>
 <span></span>
@@ -1778,7 +1778,7 @@ bounding boxes.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Bboxes.__len__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__len__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__len__</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__len__</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the number of bounding boxes.</p>
@@ -1786,7 +1786,7 @@ bounding boxes.</p>
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>138</span>
 <span>139</span>
-<span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the number of bounding boxes."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -1797,7 +1797,7 @@ bounding boxes.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Bboxes.add">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">add</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">add</span><span class="p">(</span><span class="n">offset</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">add</span><span class="p">(</span><span class="n">offset</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Add offset to bounding box coordinates.</p>
@@ -1848,7 +1848,7 @@ all coordinates.</p>
 <span>133</span>
 <span>134</span>
 <span>135</span>
-<span>136</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">):</span>
+<span>136</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">offset</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add offset to bounding box coordinates.</span>
 <span></span>
@@ -1872,7 +1872,7 @@ all coordinates.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Bboxes.areas">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">areas</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">areas</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">areas</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Calculate the area of bounding boxes.</p>
@@ -1884,7 +1884,7 @@ all coordinates.</p>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
-<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">areas</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Calculate the area of bounding boxes."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span>
 <span></span>        <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[:,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">])</span>  <span class="c1"># format xyxy</span>
@@ -1902,7 +1902,7 @@ all coordinates.</p>
 <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">concatenate</span><span class="p">(</span><span class="n">boxes_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Bboxes</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bboxes</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">concatenate</span><span class="p">(</span><span class="n">boxes_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Bboxes</span><span class="p">],</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Bboxes</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Concatenate a list of Bboxes objects into a single Bboxes object.</p>
@@ -2001,7 +2001,7 @@ all coordinates.</p>
 <span>162</span>
 <span>163</span>
 <span>164</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
-<span></span><span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">boxes_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"Bboxes"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Bboxes"</span><span class="p">:</span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">boxes_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"Bboxes"</span><span class="p">],</span> <span class="n">axis</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Bboxes"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Concatenate a list of Bboxes objects into a single Bboxes object.</span>
 <span></span>
@@ -2031,7 +2031,7 @@ all coordinates.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Bboxes.convert">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">convert</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">convert</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">convert</span><span class="p">(</span><span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert bounding box format from one type to another.</p>
@@ -2083,7 +2083,7 @@ all coordinates.</p>
 <span>91</span>
 <span>92</span>
 <span>93</span>
-<span>94</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+<span>94</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box format from one type to another.</span>
 <span></span>
@@ -2109,7 +2109,7 @@ all coordinates.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Bboxes.mul">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">mul</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">mul</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">mul</span><span class="p">(</span><span class="n">scale</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Multiply bounding box coordinates by scale factor(s).</p>
@@ -2160,7 +2160,7 @@ all coordinates.</p>
 <span>116</span>
 <span>117</span>
 <span>118</span>
-<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">):</span>
+<span>119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">mul</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Multiply bounding box coordinates by scale factor(s).</span>
 <span></span>
@@ -2188,7 +2188,11 @@ all coordinates.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.utils.instance.Instances</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Instances</span><span class="p">(</span>
-<span></span>    <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bbox_format</span><span class="o">=</span><span class="s2">"xywh"</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span>
+<span></span>    <span class="n">bboxes</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">segments</span><span class="p">:</span> <span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">bbox_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"xywh"</span><span class="p">,</span>
+<span></span>    <span class="n">normalized</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -2394,7 +2398,7 @@ and format conversion.</p>
 <code>segments</code>
 </td>
 <td>
-<code><span title="typing.List">List</span> | <span title="numpy.ndarray">ndarray</span></code>
+<code><span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2471,13 +2475,27 @@ and format conversion.</p>
 <span>234</span>
 <span>235</span>
 <span>236</span>
-<span>237</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">bbox_format</span><span class="o">=</span><span class="s2">"xywh"</span><span class="p">,</span> <span class="n">normalized</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span></span>    <span class="bp">self</span><span class="p">,</span>
+<span></span>    <span class="n">bboxes</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">segments</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">keypoints</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">bbox_format</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"xywh"</span><span class="p">,</span>
+<span></span>    <span class="n">normalized</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Instances object with bounding boxes, segments, and keypoints.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        bboxes (np.ndarray): Bounding boxes with shape (N, 4).</span>
-<span></span><span class="sd">        segments (List | np.ndarray, optional): Segmentation masks.</span>
+<span></span><span class="sd">        segments (np.ndarray, optional): Segmentation masks.</span>
 <span></span><span class="sd">        keypoints (np.ndarray, optional): Keypoints with shape (N, 17, 3) in format (x, y, visible).</span>
 <span></span><span class="sd">        bbox_format (str): Format of bboxes.</span>
 <span></span><span class="sd">        normalized (bool): Whether the coordinates are normalized.</span>
@@ -2496,7 +2514,7 @@ and format conversion.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">bbox_areas</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">bbox_areas</span><span class="p">:</span> <span class="n">ndarray</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Calculate the area of bounding boxes.</p>
@@ -2509,7 +2527,7 @@ and format conversion.</p>
 <small class="doc doc-label doc-label-property"><code>property</code></small>
 </span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">bboxes</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="n">bboxes</span><span class="p">:</span> <span class="n">ndarray</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return bounding boxes.</p>
@@ -2519,7 +2537,7 @@ and format conversion.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.__getitem__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__getitem__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__getitem__</span><span class="p">(</span><span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Instances</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__getitem__</span><span class="p">(</span><span class="n">index</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">,</span> <span class="nb">slice</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Instances</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Retrieve a specific instance or a set of instances using indexing.</p>
@@ -2580,14 +2598,7 @@ instances.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
-<span>324</span>
-<span>325</span>
-<span>326</span>
-<span>327</span>
-<span>328</span>
-<span>329</span>
-<span>330</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>330</span>
 <span>331</span>
 <span>332</span>
 <span>333</span>
@@ -2604,7 +2615,14 @@ instances.</p>
 <span>344</span>
 <span>345</span>
 <span>346</span>
-<span>347</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="nb">slice</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve a specific instance or a set of instances using indexing.</span>
 <span></span>
@@ -2637,15 +2655,15 @@ instances.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.__len__">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">__len__</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__len__</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">__len__</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">int</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return the number of instances.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>443</span>
-<span>444</span>
-<span>445</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>450</span>
+<span>451</span>
+<span>452</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the number of instances."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">bboxes</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2656,7 +2674,7 @@ instances.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.add_padding">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">add_padding</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">add_padding</span><span class="p">(</span><span class="n">padw</span><span class="p">,</span> <span class="n">padh</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">add_padding</span><span class="p">(</span><span class="n">padw</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">padh</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Add padding to coordinates.</p>
@@ -2707,21 +2725,21 @@ instances.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
-<span>308</span>
-<span>309</span>
-<span>310</span>
-<span>311</span>
-<span>312</span>
-<span>313</span>
-<span>314</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>314</span>
 <span>315</span>
 <span>316</span>
 <span>317</span>
 <span>318</span>
 <span>319</span>
 <span>320</span>
-<span>321</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_padding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">padw</span><span class="p">,</span> <span class="n">padh</span><span class="p">):</span>
+<span>321</span>
+<span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span>
+<span>328</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_padding</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">padw</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">padh</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add padding to coordinates.</span>
 <span></span>
@@ -2744,7 +2762,7 @@ instances.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.clip">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">clip</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">clip</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">clip</span><span class="p">(</span><span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Clip coordinates to stay within image boundaries.</p>
@@ -2795,14 +2813,7 @@ instances.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>385</span>
-<span>386</span>
-<span>387</span>
-<span>388</span>
-<span>389</span>
-<span>390</span>
-<span>391</span>
-<span>392</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>392</span>
 <span>393</span>
 <span>394</span>
 <span>395</span>
@@ -2820,7 +2831,14 @@ instances.</p>
 <span>407</span>
 <span>408</span>
 <span>409</span>
-<span>410</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clip coordinates to stay within image boundaries.</span>
 <span></span>
@@ -2935,14 +2953,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>447</span>
-<span>448</span>
-<span>449</span>
-<span>450</span>
-<span>451</span>
-<span>452</span>
-<span>453</span>
-<span>454</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>454</span>
 <span>455</span>
 <span>456</span>
 <span>457</span>
@@ -2980,7 +2991,14 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>489</span>
 <span>490</span>
 <span>491</span>
-<span>492</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
+<span>492</span>
+<span>493</span>
+<span>494</span>
+<span>495</span>
+<span>496</span>
+<span>497</span>
+<span>498</span>
+<span>499</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">concatenate</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">instances_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="s2">"Instances"</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="s2">"Instances"</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Concatenate a list of Instances objects into a single Instances object.</span>
@@ -3034,7 +3052,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.convert_bbox">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">convert_bbox</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">convert_bbox</span><span class="p">(</span><span class="nb">format</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">convert_bbox</span><span class="p">(</span><span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert bounding box format.</p>
@@ -3069,14 +3087,14 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>239</span>
-<span>240</span>
-<span>241</span>
-<span>242</span>
-<span>243</span>
-<span>244</span>
-<span>245</span>
-<span>246</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_bbox</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">format</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box format.</span>
 <span></span>
@@ -3092,7 +3110,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.denormalize">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">denormalize</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">denormalize</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">denormalize</span><span class="p">(</span><span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert normalized coordinates to absolute coordinates.</p>
@@ -3143,14 +3161,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>271</span>
-<span>272</span>
-<span>273</span>
-<span>274</span>
-<span>275</span>
-<span>276</span>
-<span>277</span>
-<span>278</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>278</span>
 <span>279</span>
 <span>280</span>
 <span>281</span>
@@ -3159,7 +3170,14 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>284</span>
 <span>285</span>
 <span>286</span>
-<span>287</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">denormalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>287</span>
+<span>288</span>
+<span>289</span>
+<span>290</span>
+<span>291</span>
+<span>292</span>
+<span>293</span>
+<span>294</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">denormalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert normalized coordinates to absolute coordinates.</span>
 <span></span>
@@ -3184,7 +3202,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.fliplr">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">fliplr</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">fliplr</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">fliplr</span><span class="p">(</span><span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Flip coordinates horizontally.</p>
@@ -3219,14 +3237,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>367</span>
-<span>368</span>
-<span>369</span>
-<span>370</span>
-<span>371</span>
-<span>372</span>
-<span>373</span>
-<span>374</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>374</span>
 <span>375</span>
 <span>376</span>
 <span>377</span>
@@ -3235,7 +3246,14 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>380</span>
 <span>381</span>
 <span>382</span>
-<span>383</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fliplr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">):</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fliplr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Flip coordinates horizontally.</span>
 <span></span>
@@ -3260,7 +3278,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.flipud">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">flipud</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">flipud</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">flipud</span><span class="p">(</span><span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Flip coordinates vertically.</p>
@@ -3295,14 +3313,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>349</span>
-<span>350</span>
-<span>351</span>
-<span>352</span>
-<span>353</span>
-<span>354</span>
-<span>355</span>
-<span>356</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>356</span>
 <span>357</span>
 <span>358</span>
 <span>359</span>
@@ -3311,7 +3322,14 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>362</span>
 <span>363</span>
 <span>364</span>
-<span>365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">flipud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">flipud</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Flip coordinates vertically.</span>
 <span></span>
@@ -3336,7 +3354,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.normalize">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">normalize</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">normalize</span><span class="p">(</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">normalize</span><span class="p">(</span><span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert absolute coordinates to normalized coordinates.</p>
@@ -3387,14 +3405,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>289</span>
-<span>290</span>
-<span>291</span>
-<span>292</span>
-<span>293</span>
-<span>294</span>
-<span>295</span>
-<span>296</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>296</span>
 <span>297</span>
 <span>298</span>
 <span>299</span>
@@ -3403,7 +3414,14 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>302</span>
 <span>303</span>
 <span>304</span>
-<span>305</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">):</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
+<span>308</span>
+<span>309</span>
+<span>310</span>
+<span>311</span>
+<span>312</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">normalize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert absolute coordinates to normalized coordinates.</span>
 <span></span>
@@ -3428,7 +3446,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.remove_zero_area_boxes">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">remove_zero_area_boxes</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">remove_zero_area_boxes</span><span class="p">()</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">remove_zero_area_boxes</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Remove zero-area boxes, i.e. after clipping some boxes may have zero width or height.</p>
@@ -3455,21 +3473,21 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>412</span>
-<span>413</span>
-<span>414</span>
-<span>415</span>
-<span>416</span>
-<span>417</span>
-<span>418</span>
-<span>419</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>419</span>
 <span>420</span>
 <span>421</span>
 <span>422</span>
 <span>423</span>
 <span>424</span>
 <span>425</span>
-<span>426</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_zero_area_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_zero_area_boxes</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Remove zero-area boxes, i.e. after clipping some boxes may have zero width or height.</span>
 <span></span>
@@ -3492,7 +3510,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.scale">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">scale</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">scale</span><span class="p">(</span><span class="n">scale_w</span><span class="p">,</span> <span class="n">scale_h</span><span class="p">,</span> <span class="n">bbox_only</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">scale</span><span class="p">(</span><span class="n">scale_w</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">scale_h</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bbox_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Scale coordinates by given factors.</p>
@@ -3559,14 +3577,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>253</span>
-<span>254</span>
-<span>255</span>
-<span>256</span>
-<span>257</span>
-<span>258</span>
-<span>259</span>
-<span>260</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>260</span>
 <span>261</span>
 <span>262</span>
 <span>263</span>
@@ -3575,7 +3586,14 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <span>266</span>
 <span>267</span>
 <span>268</span>
-<span>269</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale_w</span><span class="p">,</span> <span class="n">scale_h</span><span class="p">,</span> <span class="n">bbox_only</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">scale_w</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">scale_h</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">bbox_only</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Scale coordinates by given factors.</span>
 <span></span>
@@ -3600,7 +3618,7 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.instance.Instances.update">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update</span><span class="p">(</span><span class="n">bboxes</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">,</span> <span class="n">segments</span><span class="p">:</span> <span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">:</span> <span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Update instance variables.</p>
@@ -3667,20 +3685,20 @@ boxes, whether keypoints are present, and if the coordinates are normalized.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/instance.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>428</span>
-<span>429</span>
-<span>430</span>
-<span>431</span>
-<span>432</span>
-<span>433</span>
-<span>434</span>
-<span>435</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>435</span>
 <span>436</span>
 <span>437</span>
 <span>438</span>
 <span>439</span>
 <span>440</span>
-<span>441</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">segments</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span>
+<span>445</span>
+<span>446</span>
+<span>447</span>
+<span>448</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">segments</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">keypoints</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Update instance variables.</span>
 <span></span>

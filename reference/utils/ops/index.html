@@ -3226,11 +3226,11 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 <span></span><span class="sd">    Clip bounding boxes to image boundaries.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        boxes (torch.Tensor | numpy.ndarray): Bounding boxes to clip.</span>
+<span></span><span class="sd">        boxes (torch.Tensor | np.ndarray): Bounding boxes to clip.</span>
 <span></span><span class="sd">        shape (tuple): Image shape as (height, width).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (torch.Tensor | numpy.ndarray): Clipped bounding boxes.</span>
+<span></span><span class="sd">        (torch.Tensor | np.ndarray): Clipped bounding boxes.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>  <span class="c1"># faster individually (WARNING: inplace .clamp_() Apple MPS bug)</span>
 <span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x1</span>
@@ -3343,11 +3343,11 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 <span></span><span class="sd">    Clip line coordinates to image boundaries.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        coords (torch.Tensor | numpy.ndarray): Line coordinates to clip.</span>
+<span></span><span class="sd">        coords (torch.Tensor | np.ndarray): Line coordinates to clip.</span>
 <span></span><span class="sd">        shape (tuple): Image shape as (height, width).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (torch.Tensor | numpy.ndarray): Clipped coordinates.</span>
+<span></span><span class="sd">        (torch.Tensor | np.ndarray): Clipped coordinates.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>  <span class="c1"># faster individually (WARNING: inplace .clamp_() Apple MPS bug)</span>
 <span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x</span>
@@ -4442,10 +4442,10 @@ Rotation values are in radians from 0 to pi/2.</p>
 <span></span><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xy1, xy2, xy3, xy4] to [xywh, rotation] format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        x (numpy.ndarray | torch.Tensor): Input box corners with shape (N, 8) in [xy1, xy2, xy3, xy4] format.</span>
+<span></span><span class="sd">        x (np.ndarray | torch.Tensor): Input box corners with shape (N, 8) in [xy1, xy2, xy3, xy4] format.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (numpy.ndarray | torch.Tensor): Converted data in [cx, cy, w, h, rotation] format with shape (N, 5).</span>
+<span></span><span class="sd">        (np.ndarray | torch.Tensor): Converted data in [cx, cy, w, h, rotation] format with shape (N, 5).</span>
 <span></span><span class="sd">            Rotation values are in radians from 0 to pi/2.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">is_torch</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span>
@@ -4556,11 +4556,11 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span></span><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xywh, rotation] to [xy1, xy2, xy3, xy4] format.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        x (numpy.ndarray | torch.Tensor): Boxes in [cx, cy, w, h, rotation] format with shape (N, 5) or (B, N, 5).</span>
+<span></span><span class="sd">        x (np.ndarray | torch.Tensor): Boxes in [cx, cy, w, h, rotation] format with shape (N, 5) or (B, N, 5).</span>
 <span></span><span class="sd">            Rotation values should be in radians from 0 to pi/2.</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
-<span></span><span class="sd">        (numpy.ndarray | torch.Tensor): Converted corner points with shape (N, 4, 2) or (B, N, 4, 2).</span>
+<span></span><span class="sd">        (np.ndarray | torch.Tensor): Converted corner points with shape (N, 4, 2) or (B, N, 4, 2).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">cos</span><span class="p">,</span> <span class="n">sin</span><span class="p">,</span> <span class="n">cat</span><span class="p">,</span> <span class="n">stack</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>        <span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">cos</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">sin</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">)</span>
