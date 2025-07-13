@@ -1032,13 +1032,13 @@
 <span></span><span class="c1"># parent</span>
 <span></span><span class="c1"># ├── ultralytics</span>
 <span></span><span class="c1"># └── datasets</span>
-<span></span><span class="c1">#     └── VisDrone  ← downloads here (2.3 GB)</span>
+<span></span><span class="c1">#     └── VisDrone ← downloads here (2.3 GB)</span>
 <span></span>
 <span></span><span class="c1"># Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]</span>
 <span></span><span class="nt">path</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VisDrone</span><span class="w"> </span><span class="c1"># dataset root dir</span>
-<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VisDrone2019-DET-train/images</span><span class="w"> </span><span class="c1"># train images (relative to 'path')  6471 images</span>
-<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VisDrone2019-DET-val/images</span><span class="w"> </span><span class="c1"># val images (relative to 'path')  548 images</span>
-<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">VisDrone2019-DET-test-dev/images</span><span class="w"> </span><span class="c1"># test images (optional)  1610 images</span>
+<span></span><span class="nt">train</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/train</span><span class="w"> </span><span class="c1"># train images (relative to 'path') 6471 images</span>
+<span></span><span class="nt">val</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/val</span><span class="w"> </span><span class="c1"># val images (relative to 'path') 548 images</span>
+<span></span><span class="nt">test</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">images/test</span><span class="w"> </span><span class="c1"># test-dev images (optional) 1610 images</span>
 <span></span>
 <span></span><span class="c1"># Classes</span>
 <span></span><span class="nt">names</span><span class="p">:</span>
@@ -1057,53 +1057,60 @@
 <span></span><span class="nt">download</span><span class="p">:</span><span class="w"> </span><span class="p p-Indicator">|</span>
 <span></span><span class="w">  </span><span class="no">import os</span>
 <span></span><span class="w">  </span><span class="no">from pathlib import Path</span>
+<span></span><span class="w">  </span><span class="no">import shutil</span>
 <span></span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
 <span></span>
 <span></span>
-<span></span><span class="w">  </span><span class="no">def visdrone2yolo(dir):</span>
-<span></span><span class="w">      </span><span class="no">"""Convert VisDrone annotations to YOLO format, creating label files with normalized bounding box coordinates."""</span>
+<span></span><span class="w">  </span><span class="no">def visdrone2yolo(dir, split, source_name=None):</span>
+<span></span><span class="w">      </span><span class="no">"""Convert VisDrone annotations to YOLO format with images/{split} and labels/{split} structure."""</span>
 <span></span><span class="w">      </span><span class="no">from PIL import Image</span>
 <span></span><span class="w">      </span><span class="no">from tqdm import tqdm</span>
 <span></span>
-<span></span><span class="w">      </span><span class="no">def convert_box(size, box):</span>
-<span></span><span class="w">          </span><span class="no"># Convert VisDrone box to YOLO xywh box</span>
-<span></span><span class="w">          </span><span class="no">dw = 1.0 / size[0]</span>
-<span></span><span class="w">          </span><span class="no">dh = 1.0 / size[1]</span>
-<span></span><span class="w">          </span><span class="no">return (box[0] + box[2] / 2) * dw, (box[1] + box[3] / 2) * dh, box[2] * dw, box[3] * dh</span>
+<span></span><span class="w">      </span><span class="no">source_dir = dir / (source_name or f"VisDrone2019-DET-{split}")</span>
+<span></span><span class="w">      </span><span class="no">images_dir = dir / "images" / split</span>
+<span></span><span class="w">      </span><span class="no">labels_dir = dir / "labels" / split</span>
+<span></span><span class="w">      </span><span class="no">labels_dir.mkdir(parents=True, exist_ok=True)</span>
 <span></span>
-<span></span><span class="w">      </span><span class="no">(dir / "labels").mkdir(parents=True, exist_ok=True)  # make labels directory</span>
-<span></span><span class="w">      </span><span class="no">pbar = tqdm((dir / "annotations").glob("*.txt"), desc=f"Converting {dir}")</span>
-<span></span><span class="w">      </span><span class="no">for f in pbar:</span>
-<span></span><span class="w">          </span><span class="no">img_size = Image.open((dir / "images" / f.name).with_suffix(".jpg")).size</span>
+<span></span><span class="w">      </span><span class="no"># Move images to new structure</span>
+<span></span><span class="w">      </span><span class="no">if (source_images_dir := source_dir / "images").exists():</span>
+<span></span><span class="w">          </span><span class="no">images_dir.mkdir(parents=True, exist_ok=True)</span>
+<span></span><span class="w">          </span><span class="no">for img in source_images_dir.glob("*.jpg"):</span>
+<span></span><span class="w">              </span><span class="no">img.rename(images_dir / img.name)</span>
+<span></span>
+<span></span><span class="w">      </span><span class="no">for f in tqdm((source_dir / "annotations").glob("*.txt"), desc=f"Converting {split}"):</span>
+<span></span><span class="w">          </span><span class="no">img_size = Image.open(images_dir / f.with_suffix(".jpg").name).size</span>
+<span></span><span class="w">          </span><span class="no">dw, dh = 1.0 / img_size[0], 1.0 / img_size[1]</span>
 <span></span><span class="w">          </span><span class="no">lines = []</span>
-<span></span><span class="w">          </span><span class="no">with open(f, encoding="utf-8") as file:  # read annotation.txt</span>
+<span></span>
+<span></span><span class="w">          </span><span class="no">with open(f, encoding="utf-8") as file:</span>
 <span></span><span class="w">              </span><span class="no">for row in [x.split(",") for x in file.read().strip().splitlines()]:</span>
-<span></span><span class="w">                  </span><span class="no">if row[4] == "0":  # VisDrone 'ignored regions' class 0</span>
-<span></span><span class="w">                      </span><span class="no">continue</span>
-<span></span><span class="w">                  </span><span class="no">cls = int(row[5]) - 1</span>
-<span></span><span class="w">                  </span><span class="no">box = convert_box(img_size, tuple(map(int, row[:4])))</span>
-<span></span><span class="w">                  </span><span class="no">lines.append(f"{cls} {' '.join(f'{x:.6f}' for x in box)}\n")</span>
+<span></span><span class="w">                  </span><span class="no">if row[4] != "0":  # Skip ignored regions</span>
+<span></span><span class="w">                      </span><span class="no">x, y, w, h = map(int, row[:4])</span>
+<span></span><span class="w">                      </span><span class="no">cls = int(row[5]) - 1</span>
+<span></span><span class="w">                      </span><span class="no"># Convert to YOLO format</span>
+<span></span><span class="w">                      </span><span class="no">x_center, y_center = (x + w / 2) * dw, (y + h / 2) * dh</span>
+<span></span><span class="w">                      </span><span class="no">w_norm, h_norm = w * dw, h * dh</span>
+<span></span><span class="w">                      </span><span class="no">lines.append(f"{cls} {x_center:.6f} {y_center:.6f} {w_norm:.6f} {h_norm:.6f}\n")</span>
 <span></span>
-<span></span><span class="w">          </span><span class="no">label_file = str(f).replace(f"{os.sep}annotations{os.sep}", f"{os.sep}labels{os.sep}")</span>
-<span></span><span class="w">          </span><span class="no">with open(label_file, "w", encoding="utf-8") as fl:</span>
-<span></span><span class="w">                </span><span class="no">fl.writelines(lines)</span>
+<span></span><span class="w">          </span><span class="no">(labels_dir / f.name).write_text("".join(lines), encoding="utf-8")</span>
 <span></span>
 <span></span>
-<span></span>
-<span></span><span class="w">  </span><span class="no"># Download</span>
+<span></span><span class="w">  </span><span class="no"># Download (ignores test-challenge split)</span>
 <span></span><span class="w">  </span><span class="no">dir = Path(yaml["path"])  # dataset root dir</span>
 <span></span><span class="w">  </span><span class="no">urls = [</span>
 <span></span><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-train.zip",</span>
 <span></span><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-val.zip",</span>
 <span></span><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-dev.zip",</span>
-<span></span><span class="w">      </span><span class="no">"https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-challenge.zip",</span>
+<span></span><span class="w">      </span><span class="no"># "https://github.com/ultralytics/assets/releases/download/v0.0.0/VisDrone2019-DET-test-challenge.zip",</span>
 <span></span><span class="w">  </span><span class="no">]</span>
 <span></span><span class="w">  </span><span class="no">download(urls, dir=dir, curl=True, threads=4)</span>
 <span></span>
 <span></span><span class="w">  </span><span class="no"># Convert</span>
-<span></span><span class="w">  </span><span class="no">for d in "VisDrone2019-DET-train", "VisDrone2019-DET-val", "VisDrone2019-DET-test-dev":</span>
-<span></span><span class="w">      </span><span class="no">visdrone2yolo(dir / d)  # convert VisDrone annotations to YOLO labels</span>
+<span></span><span class="w">  </span><span class="no">splits = {"VisDrone2019-DET-train": "train", "VisDrone2019-DET-val": "val", "VisDrone2019-DET-test-dev": "test"}</span>
+<span></span><span class="w">  </span><span class="no">for folder, split in splits.items():</span>
+<span></span><span class="w">      </span><span class="no">visdrone2yolo(dir, split, folder)  # convert VisDrone annotations to YOLO labels</span>
+<span></span><span class="w">      </span><span class="no">shutil.rmtree(dir / folder)  # cleanup original directory</span>
 </code></pre></div>
 </div>
 <h2 id="usage">Usage</h2>
