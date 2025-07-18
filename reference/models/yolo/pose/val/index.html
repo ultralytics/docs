@@ -1687,11 +1687,11 @@ due to a known bug with pose models.</p>
 <p>Evaluate object detection model using COCO JSON format.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>289</span>
-<span>290</span>
-<span>291</span>
-<span>292</span>
-<span>293</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Evaluate object detection model using COCO JSON format."""</span>
 <span></span>    <span class="n">anno_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span> <span class="o">/</span> <span class="s2">"annotations/person_keypoints_val2017.json"</span>  <span class="c1"># annotations</span>
 <span></span>    <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
@@ -1949,7 +1949,7 @@ is skipped and continues to the next one. The keypoints are extracted from the
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.pose.val.PoseValidator.pred_to_json">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">pred_to_json</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">pred_to_json</span><span class="p">(</span><span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">pred_to_json</span><span class="p">(</span><span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Convert YOLO predictions to COCO JSON format.</p>
@@ -1985,14 +1985,14 @@ and 'keypoints' tensors.</p>
 </tr>
 <tr class="doc-section-item">
 <td>
-<code>filename</code>
+<code>pbatch</code>
 </td>
 <td>
-<code><span title="str">str</span></code>
+<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Path to the image file for which predictions are being processed.</p>
+<p>Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</p>
 </div>
 </td>
 <td>
@@ -2009,42 +2009,32 @@ before saving to the JSON dictionary.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>252</span>
-<span>253</span>
-<span>254</span>
-<span>255</span>
-<span>256</span>
-<span>257</span>
-<span>258</span>
-<span>259</span>
-<span>260</span>
-<span>261</span>
-<span>262</span>
-<span>263</span>
-<span>264</span>
-<span>265</span>
-<span>266</span>
-<span>267</span>
-<span>268</span>
-<span>269</span>
-<span>270</span>
-<span>271</span>
-<span>272</span>
-<span>273</span>
-<span>274</span>
-<span>275</span>
-<span>276</span>
-<span>277</span>
-<span>278</span>
-<span>279</span>
-<span>280</span>
-<span>281</span>
-<span>282</span>
-<span>283</span>
-<span>284</span>
-<span>285</span>
-<span>286</span>
-<span>287</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert YOLO predictions to COCO JSON format.</span>
 <span></span>
@@ -2054,32 +2044,22 @@ before saving to the JSON dictionary.</p>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        predn (Dict[str, torch.Tensor]): Prediction dictionary containing 'bboxes', 'conf', 'cls',</span>
 <span></span><span class="sd">            and 'keypoints' tensors.</span>
-<span></span><span class="sd">        filename (str): Path to the image file for which predictions are being processed.</span>
+<span></span><span class="sd">        pbatch (Dict[str, Any]): Batch dictionary containing 'imgsz', 'ori_shape', 'ratio_pad', and 'im_file'.</span>
 <span></span>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        The method extracts the image ID from the filename stem (either as an integer if numeric, or as a string),</span>
 <span></span><span class="sd">        converts bounding boxes from xyxy to xywh format, and adjusts coordinates from center to top-left corner</span>
 <span></span><span class="sd">        before saving to the JSON dictionary.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">stem</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="o">.</span><span class="n">stem</span>
-<span></span>    <span class="n">image_id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">stem</span><span class="p">)</span> <span class="k">if</span> <span class="n">stem</span><span class="o">.</span><span class="n">isnumeric</span><span class="p">()</span> <span class="k">else</span> <span class="n">stem</span>
-<span></span>    <span class="n">box</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">xyxy2xywh</span><span class="p">(</span><span class="n">predn</span><span class="p">[</span><span class="s2">"bboxes"</span><span class="p">])</span>  <span class="c1"># xywh</span>
-<span></span>    <span class="n">box</span><span class="p">[:,</span> <span class="p">:</span><span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">box</span><span class="p">[:,</span> <span class="mi">2</span><span class="p">:]</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># xy center to top-left corner</span>
-<span></span>    <span class="k">for</span> <span class="n">b</span><span class="p">,</span> <span class="n">s</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span>
-<span></span>        <span class="n">box</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span></span>        <span class="n">predn</span><span class="p">[</span><span class="s2">"conf"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span></span>        <span class="n">predn</span><span class="p">[</span><span class="s2">"cls"</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span></span>        <span class="n">predn</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span>
-<span></span>    <span class="p">):</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
-<span></span>            <span class="p">{</span>
-<span></span>                <span class="s2">"image_id"</span><span class="p">:</span> <span class="n">image_id</span><span class="p">,</span>
-<span></span>                <span class="s2">"category_id"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">class_map</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">c</span><span class="p">)],</span>
-<span></span>                <span class="s2">"bbox"</span><span class="p">:</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">b</span><span class="p">],</span>
-<span></span>                <span class="s2">"keypoints"</span><span class="p">:</span> <span class="n">k</span><span class="p">,</span>
-<span></span>                <span class="s2">"score"</span><span class="p">:</span> <span class="nb">round</span><span class="p">(</span><span class="n">s</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span>
-<span></span>            <span class="p">}</span>
-<span></span>        <span class="p">)</span>
+<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">pred_to_json</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">)</span>
+<span></span>    <span class="n">kpts</span> <span class="o">=</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_coords</span><span class="p">(</span>
+<span></span>        <span class="n">pbatch</span><span class="p">[</span><span class="s2">"imgsz"</span><span class="p">],</span>
+<span></span>        <span class="n">predn</span><span class="p">[</span><span class="s2">"keypoints"</span><span class="p">]</span><span class="o">.</span><span class="n">clone</span><span class="p">(),</span>
+<span></span>        <span class="n">pbatch</span><span class="p">[</span><span class="s2">"ori_shape"</span><span class="p">],</span>
+<span></span>        <span class="n">ratio_pad</span><span class="o">=</span><span class="n">pbatch</span><span class="p">[</span><span class="s2">"ratio_pad"</span><span class="p">],</span>
+<span></span>    <span class="p">)</span>
+<span></span>    <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">kpts</span><span class="o">.</span><span class="n">flatten</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">()):</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">jdict</span><span class="p">[</span><span class="o">-</span><span class="nb">len</span><span class="p">(</span><span class="n">kpts</span><span class="p">)</span> <span class="o">+</span> <span class="n">i</span><span class="p">][</span><span class="s2">"keypoints"</span><span class="p">]</span> <span class="o">=</span> <span class="n">k</span>  <span class="c1"># keypoints</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -2204,29 +2184,29 @@ normalized (x, y, visibility) values for each point.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/pose/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>228</span>
-<span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
-<span>235</span>
-<span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span>
-<span>241</span>
-<span>242</span>
-<span>243</span>
-<span>244</span>
-<span>245</span>
-<span>246</span>
-<span>247</span>
-<span>248</span>
-<span>249</span>
-<span>250</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span>
+<span>220</span>
+<span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save YOLO pose detections to a text file in normalized coordinates.</span>
 <span></span>
