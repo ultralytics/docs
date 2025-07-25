@@ -160,6 +160,7 @@ jobs:
               grep -F -v -f /tmp/timeout_pages.txt | \
               cat -s | \
               sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g' | \
+              sed 's/Rejected status code (this depends on your "accept" configuration): //g' | \
               awk '{printf "%s\\n", $0}')
 
             # Cleanup
