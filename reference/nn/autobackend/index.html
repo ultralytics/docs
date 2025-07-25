@@ -2192,7 +2192,9 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>607</span>
 <span>608</span>
 <span>609</span>
-<span>610</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span>610</span>
+<span>611</span>
+<span>612</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">weights</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
@@ -2374,11 +2376,13 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>
 <span></span>        <span class="c1"># OpenVINO inference modes are 'LATENCY', 'THROUGHPUT' (not recommended), or 'CUMULATIVE_THROUGHPUT'</span>
 <span></span>        <span class="n">inference_mode</span> <span class="o">=</span> <span class="s2">"CUMULATIVE_THROUGHPUT"</span> <span class="k">if</span> <span class="n">batch</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="s2">"LATENCY"</span>
-<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Using OpenVINO </span><span class="si">{</span><span class="n">inference_mode</span><span class="si">}</span><span class="s2"> mode for batch=</span><span class="si">{</span><span class="n">batch</span><span class="si">}</span><span class="s2"> inference..."</span><span class="p">)</span>
 <span></span>        <span class="n">ov_compiled_model</span> <span class="o">=</span> <span class="n">core</span><span class="o">.</span><span class="n">compile_model</span><span class="p">(</span>
 <span></span>            <span class="n">ov_model</span><span class="p">,</span>
 <span></span>            <span class="n">device_name</span><span class="o">=</span><span class="n">device_name</span><span class="p">,</span>
 <span></span>            <span class="n">config</span><span class="o">=</span><span class="p">{</span><span class="s2">"PERFORMANCE_HINT"</span><span class="p">:</span> <span class="n">inference_mode</span><span class="p">},</span>
+<span></span>        <span class="p">)</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<span></span>            <span class="sa">f</span><span class="s2">"Using OpenVINO </span><span class="si">{</span><span class="n">inference_mode</span><span class="si">}</span><span class="s2"> mode for batch=</span><span class="si">{</span><span class="n">batch</span><span class="si">}</span><span class="s2"> inference on </span><span class="si">{</span><span class="s1">', '</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ov_compiled_model</span><span class="o">.</span><span class="n">get_property</span><span class="p">(</span><span class="s1">'EXECUTION_DEVICES'</span><span class="p">))</span><span class="si">}</span><span class="s2">..."</span>
 <span></span>        <span class="p">)</span>
 <span></span>        <span class="n">input_name</span> <span class="o">=</span> <span class="n">ov_compiled_model</span><span class="o">.</span><span class="n">input</span><span class="p">()</span><span class="o">.</span><span class="n">get_any_name</span><span class="p">()</span>
 <span></span>        <span class="n">metadata</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">parent</span> <span class="o">/</span> <span class="s2">"metadata.yaml"</span>
@@ -2802,9 +2806,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>612</span>
-<span>613</span>
-<span>614</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>614</span>
 <span>615</span>
 <span>616</span>
 <span>617</span>
@@ -3024,7 +3026,9 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>831</span>
 <span>832</span>
 <span>833</span>
-<span>834</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>834</span>
+<span>835</span>
+<span>836</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">augment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -3311,9 +3315,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>836</span>
-<span>837</span>
-<span>838</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>838</span>
 <span>839</span>
 <span>840</span>
 <span>841</span>
@@ -3321,7 +3323,9 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>843</span>
 <span>844</span>
 <span>845</span>
-<span>846</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>846</span>
+<span>847</span>
+<span>848</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a numpy array to a tensor.</span>
 <span></span>
@@ -3375,9 +3379,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>848</span>
-<span>849</span>
-<span>850</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>850</span>
 <span>851</span>
 <span>852</span>
 <span>853</span>
@@ -3388,7 +3390,9 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>858</span>
 <span>859</span>
 <span>860</span>
-<span>861</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>861</span>
+<span>862</span>
+<span>863</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Warm up the model by running one forward pass with a dummy input.</span>
 <span></span>
