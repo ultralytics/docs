@@ -161,7 +161,7 @@ jobs:
               grep -F -v -f /tmp/timeout_pages.txt | \
               cat -s | \
               sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g' | \
-              sed 's/Rejected status code (this depends on your "accept" configuration): //g' | \
+              sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code \(this depends on your "accept" configuration\):[[:space:]]*/ | /g' | \
               awk '{printf "%s\\n", $0}')
 
             # Also show the same cleaned output in the Actions summary (matches Slack)
