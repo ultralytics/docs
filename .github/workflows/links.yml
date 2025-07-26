@@ -121,7 +121,7 @@ jobs:
         with:
           timeout_minutes: 60
           retry_delay_seconds: 900
-          retries: 3
+          retries: 0
           run: |
             # Count successfully downloaded files
             downloaded_files=$(find ${{ matrix.website }} -type f | wc -l)
@@ -148,8 +148,8 @@ jobs:
             --root-dir "$(pwd)/${{ matrix.website }}" \
             './${{ matrix.website }}/**/*.html' | tee -a summary.txt
 
-            # Add the summary to GitHub step summary
-            cat summary.txt >> $GITHUB_STEP_SUMMARY
+            # Remove raw append; we'll print the cleaned version instead
+            # cat summary.txt >> $GITHUB_STEP_SUMMARY   # CHANGED: removed
 
             # Simple two-pass approach to remove timeout entries completely
             # First pass: identify page names followed by TIMEOUT and create a pattern file
@@ -157,11 +157,14 @@ jobs:
 
             # Second pass: remove TIMEOUT lines, pages that had timeouts, and squeeze blank lines
             ESCAPED_SUMMARY=$(grep -v "^\[TIMEOUT\]" summary.txt | \
-              grep -F -v -f /tmp/timeout_pages.txt | \
+              grep -F -v -f /tmp/timeout_pages.txt | tr -d '\r' | \
+              sed -E 's/[[:space:]]*\|[[:space:]]*Rejected status code[^:]*:[[:space:]]*/ | /g' | \
               cat -s | \
               sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g' | \
-              sed 's/Rejected status code (this depends on your "accept" configuration): //g' | \
               awk '{printf "%s\\n", $0}')
+
+            # Show the same cleaned output in the Actions summary (matches Slack)
+            printf "%b" "$ESCAPED_SUMMARY" >> "$GITHUB_STEP_SUMMARY"
 
             # Cleanup
             rm -f /tmp/timeout_pages.txt
