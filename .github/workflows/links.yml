@@ -145,7 +145,6 @@ jobs:
             --header "Accept: */*" \
             --header "Accept-Language: *" \
             --header "Accept-Encoding: *" \
-            --mode plain \
             --root-dir "$(pwd)/${{ matrix.website }}" \
             './${{ matrix.website }}/**/*.html' | tee -a summary.txt
 
@@ -164,8 +163,8 @@ jobs:
               sed 's/\[//g; s/\]//g; s/\.html//g; s/"/\\"/g' | \
               awk '{printf "%s\\n", $0}')
 
-            # Also show the same cleaned output in the Actions summary (matches Slack)
-            printf "%b" "$ESCAPED_SUMMARY" >> "$GITHUB_STEP_SUMMARY"   # CHANGED
+            # Show the same cleaned output in the Actions summary (matches Slack)
+            printf "%b" "$ESCAPED_SUMMARY" >> "$GITHUB_STEP_SUMMARY"
 
             # Cleanup
             rm -f /tmp/timeout_pages.txt
