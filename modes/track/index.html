@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Discover efficient, flexible, and customizable multi-object tracking with Ultralytics YOLO. Learn to track real-time video streams with ease." name="description"/>
+<meta content="Ultralytics" name="author"/>
+<link href="https://docs.ultralytics.com/modes/track/" rel="canonical"/>
+<link href="../export/" rel="prev"/>
+<link href="../benchmark/" rel="next"/>
+<link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.16" name="generator"/>
+<title>Multi-Object Tracking with Ultralytics YOLO - Ultralytics YOLO Docs</title>
+<link href="../../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<meta content="Track" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="multi-object tracking, Ultralytics YOLO, video analytics, real-time tracking, object detection, AI, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/modes/track" property="og:url"/><meta content="Track" property="og:title"/><meta content="Discover efficient, flexible, and customizable multi-object tracking with Ultralytics YOLO. Learn to track real-time video streams with ease." property="og:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/multi-object-tracking-examples.avif" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/modes/track" property="twitter:url"/><meta content="Track" property="twitter:title"/><meta content="Discover efficient, flexible, and customizable multi-object tracking with Ultralytics YOLO. Learn to track real-time video streams with ease." property="twitter:description"/><meta content="https://github.com/ultralytics/docs/releases/download/0/multi-object-tracking-examples.avif" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": ["Article", "FAQPage"], "headline": "Track", "image": ["https://github.com/ultralytics/docs/releases/download/0/multi-object-tracking-examples.avif"], "datePublished": "2023-11-12 02:49:37 +0100", "dateModified": "2025-06-22 19:21:22 +0100", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Discover efficient, flexible, and customizable multi-object tracking with Ultralytics YOLO. Learn to track real-time video streams with ease.", "mainEntity": [{"@type": "Question", "name": "What is Multi-Object Tracking and how does Ultralytics YOLO support it?", "acceptedAnswer": {"@type": "Answer", "text": "Multi-object tracking in video analytics involves both identifying objects and maintaining a unique ID for each detected object across video frames. Ultralytics YOLO supports this by providing real-time tracking along with object IDs, facilitating tasks such as security surveillance and sports analytics. The system uses trackers like BoT-SORT and ByteTrack, which can be configured via YAML files."}}, {"@type": "Question", "name": "How do I configure a custom tracker for Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "You can configure a custom tracker by copying an existing tracker configuration file (e.g., custom_tracker.yaml) from the Ultralytics tracker configuration directory and modifying parameters as needed, except for the tracker_type. Use this file in your tracking model like so:"}}, {"@type": "Question", "name": "How can I run object tracking on multiple video streams simultaneously?", "acceptedAnswer": {"@type": "Answer", "text": "To run object tracking on multiple video streams simultaneously, you can use Python's threading module. Each thread will handle a separate video stream. Here's an example of how you can set this up:"}}, {"@type": "Question", "name": "What are the real-world applications of multi-object tracking with Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "Multi-object tracking with Ultralytics YOLO has numerous applications, including: These applications benefit from Ultralytics YOLO's ability to process high-frame-rate videos in real time with exceptional accuracy."}}, {"@type": "Question", "name": "How can I visualize object tracks over multiple video frames with Ultralytics YOLO?", "acceptedAnswer": {"@type": "Answer", "text": "To visualize object tracks over multiple video frames, you can use the YOLO model's tracking features along with OpenCV to draw the paths of detected objects. Here's an example script that demonstrates this: This script will plot the tracking lines showing the movement paths of the tracked objects over time, providing valuable insights into object behavior and patterns."}}]}</script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#multi-object-tracking-with-ultralytics-yolo">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+<aside class="md-banner">
+<div class="md-banner__inner md-grid md-typeset">
+<div class="banner-wrapper">
+<div class="banner-content-wrapper" onclick="window.open('https://docs.ultralytics.com/models/yolo11/')">
+<p>Introducing</p>
+<img alt="Ultralytics YOLO11" height="40" loading="lazy" src="https://assets-global.website-files.com/646dd1f1a3703e451ba81ecc/67d044caa316aa50fba40a08_Ultralytics_YOLO11_Logotype_Reverse.svg"/>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="https://www.ultralytics.com/" title="Ultralytics YOLO Docs">
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Ultralytics YOLO Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+              Track
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Select language" class="md-header__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="/" hreflang="en">
+              🇬🇧 English
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/zh/" hreflang="zh">
+              🇨🇳 简体中文
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ko/" hreflang="ko">
+              🇰🇷 한국어
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ja/" hreflang="ja">
+              🇯🇵 日本語
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ru/" hreflang="ru">
+              🇷🇺 Русский
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/de/" hreflang="de">
+              🇩🇪 Deutsch
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/fr/" hreflang="fr">
+              🇫🇷 Français
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/es/" hreflang="es">
+              🇪🇸 Español
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/pt/" hreflang="pt">
+              🇵🇹 Português
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/it/" hreflang="it">
+              🇮🇹 Italiano
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/tr/" hreflang="tr">
+              🇹🇷 Türkçe
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/vi/" hreflang="vi">
+              🇻🇳 Tiếng Việt
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ar/" hreflang="ar">
+              🇸🇦 العربية
+            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor"></path></svg>
+</div>
+<div class="md-source__repository">
+    ultralytics/ultralytics
+  </div>
+</a>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
+  Home
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../quickstart/">
+  Quickstart
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../">
+  Modes
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../tasks/">
+  Tasks
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../models/">
+  Models
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../datasets/">
+  Datasets
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../solutions/">
+  Solutions 🚀
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../guides/">
+  Guides
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../integrations/">
+  Integrations
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hub/">
+  HUB
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../reference/cfg/__init__/">
+  Reference
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../help/">
+  Help
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="https://www.ultralytics.com/" title="Ultralytics YOLO Docs">
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+</a>
+    Ultralytics YOLO Docs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor"></path></svg>
+</div>
+<div class="md-source__repository">
+    ultralytics/ultralytics
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../quickstart/">
+<span class="md-ellipsis">
+    Quickstart
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Modes
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../tasks/">
+<span class="md-ellipsis">
+    Tasks
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            Tasks
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/detect/">
+<span class="md-ellipsis">
+    Detect
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/segment/">
+<span class="md-ellipsis">
+    Segment
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/classify/">
+<span class="md-ellipsis">
+    Classify
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/pose/">
+<span class="md-ellipsis">
+    Pose
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../tasks/obb/">
+<span class="md-ellipsis">
+    OBB
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_7" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    Modes
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_7" id="__nav_4_7_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_7">
+<span class="md-nav__icon md-icon"></span>
+            Modes
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../train/">
+<span class="md-ellipsis">
+    Train
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../val/">
+<span class="md-ellipsis">
+    Val
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../predict/">
+<span class="md-ellipsis">
+    Predict
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../export/">
+<span class="md-ellipsis">
+    Export
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    Track
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    Track
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-choose-ultralytics-yolo-for-object-tracking">
+<span class="md-ellipsis">
+      Why Choose Ultralytics YOLO for Object Tracking?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-world-applications">
+<span class="md-ellipsis">
+      Real-world Applications
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#features-at-a-glance">
+<span class="md-ellipsis">
+      Features at a Glance
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#available-trackers">
+<span class="md-ellipsis">
+      Available Trackers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tracking">
+<span class="md-ellipsis">
+      Tracking
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration">
+<span class="md-ellipsis">
+      Configuration
+    </span>
+</a>
+<nav aria-label="Configuration" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tracking-arguments">
+<span class="md-ellipsis">
+      Tracking Arguments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tracker-selection">
+<span class="md-ellipsis">
+      Tracker Selection
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tracker-arguments">
+<span class="md-ellipsis">
+      Tracker Arguments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enabling-re-identification-reid">
+<span class="md-ellipsis">
+      Enabling Re-Identification (ReID)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python-examples">
+<span class="md-ellipsis">
+      Python Examples
+    </span>
+</a>
+<nav aria-label="Python Examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#persisting-tracks-loop">
+<span class="md-ellipsis">
+      Persisting Tracks Loop
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#plotting-tracks-over-time">
+<span class="md-ellipsis">
+      Plotting Tracks Over Time
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multithreaded-tracking">
+<span class="md-ellipsis">
+      Multithreaded Tracking
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contribute-new-trackers">
+<span class="md-ellipsis">
+      Contribute New Trackers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-multi-object-tracking-and-how-does-ultralytics-yolo-support-it">
+<span class="md-ellipsis">
+      What is Multi-Object Tracking and how does Ultralytics YOLO support it?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-configure-a-custom-tracker-for-ultralytics-yolo">
+<span class="md-ellipsis">
+      How do I configure a custom tracker for Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-run-object-tracking-on-multiple-video-streams-simultaneously">
+<span class="md-ellipsis">
+      How can I run object tracking on multiple video streams simultaneously?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-real-world-applications-of-multi-object-tracking-with-ultralytics-yolo">
+<span class="md-ellipsis">
+      What are the real-world applications of multi-object tracking with Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-visualize-object-tracks-over-multiple-video-frames-with-ultralytics-yolo">
+<span class="md-ellipsis">
+      How can I visualize object tracks over multiple video frames with Ultralytics YOLO?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../benchmark/">
+<span class="md-ellipsis">
+    Benchmark
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../models/">
+<span class="md-ellipsis">
+    Models
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../datasets/">
+<span class="md-ellipsis">
+    Datasets
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../solutions/">
+<span class="md-ellipsis">
+    Solutions 🚀
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../guides/">
+<span class="md-ellipsis">
+    Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../integrations/">
+<span class="md-ellipsis">
+    Integrations
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../hub/">
+<span class="md-ellipsis">
+    HUB
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../reference/cfg/__init__/">
+<span class="md-ellipsis">
+    Reference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../help/">
+<span class="md-ellipsis">
+    Help
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#why-choose-ultralytics-yolo-for-object-tracking">
+<span class="md-ellipsis">
+      Why Choose Ultralytics YOLO for Object Tracking?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#real-world-applications">
+<span class="md-ellipsis">
+      Real-world Applications
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#features-at-a-glance">
+<span class="md-ellipsis">
+      Features at a Glance
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#available-trackers">
+<span class="md-ellipsis">
+      Available Trackers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tracking">
+<span class="md-ellipsis">
+      Tracking
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#configuration">
+<span class="md-ellipsis">
+      Configuration
+    </span>
+</a>
+<nav aria-label="Configuration" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tracking-arguments">
+<span class="md-ellipsis">
+      Tracking Arguments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tracker-selection">
+<span class="md-ellipsis">
+      Tracker Selection
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tracker-arguments">
+<span class="md-ellipsis">
+      Tracker Arguments
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#enabling-re-identification-reid">
+<span class="md-ellipsis">
+      Enabling Re-Identification (ReID)
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#python-examples">
+<span class="md-ellipsis">
+      Python Examples
+    </span>
+</a>
+<nav aria-label="Python Examples" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#persisting-tracks-loop">
+<span class="md-ellipsis">
+      Persisting Tracks Loop
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#plotting-tracks-over-time">
+<span class="md-ellipsis">
+      Plotting Tracks Over Time
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#multithreaded-tracking">
+<span class="md-ellipsis">
+      Multithreaded Tracking
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#contribute-new-trackers">
+<span class="md-ellipsis">
+      Contribute New Trackers
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#faq">
+<span class="md-ellipsis">
+      FAQ
+    </span>
+</a>
+<nav aria-label="FAQ" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-is-multi-object-tracking-and-how-does-ultralytics-yolo-support-it">
+<span class="md-ellipsis">
+      What is Multi-Object Tracking and how does Ultralytics YOLO support it?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-do-i-configure-a-custom-tracker-for-ultralytics-yolo">
+<span class="md-ellipsis">
+      How do I configure a custom tracker for Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-run-object-tracking-on-multiple-video-streams-simultaneously">
+<span class="md-ellipsis">
+      How can I run object tracking on multiple video streams simultaneously?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#what-are-the-real-world-applications-of-multi-object-tracking-with-ultralytics-yolo">
+<span class="md-ellipsis">
+      What are the real-world applications of multi-object tracking with Ultralytics YOLO?
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#how-can-i-visualize-object-tracks-over-multiple-video-frames-with-ultralytics-yolo">
+<span class="md-ellipsis">
+      How can I visualize object tracks over multiple video frames with Ultralytics YOLO?
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/modes/track.md" rel="edit" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+</a><a class="md-content__button md-icon" href="javascript:void(0)" onclick="copyMarkdownForLLM(this); return false;" title="Copy page in Markdown format"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></a>
+<h1 id="multi-object-tracking-with-ultralytics-yolo">Multi-Object Tracking with Ultralytics YOLO</h1>
+<p><img alt="Multi-object tracking examples" src="https://github.com/ultralytics/docs/releases/download/0/multi-object-tracking-examples.avif" width="1024"/></p>
+<p>Object tracking in the realm of video analytics is a critical task that not only identifies the location and class of objects within the frame but also maintains a unique ID for each detected object as the video progresses. The applications are limitless—ranging from surveillance and security to real-time sports analytics.</p>
+<h2 id="why-choose-ultralytics-yolo-for-object-tracking">Why Choose Ultralytics YOLO for Object Tracking?</h2>
+<p>The output from Ultralytics trackers is consistent with standard <a href="https://www.ultralytics.com/glossary/object-detection">object detection</a> but has the added value of object IDs. This makes it easy to track objects in video streams and perform subsequent analytics. Here's why you should consider using Ultralytics YOLO for your object tracking needs:</p>
+<ul>
+<li><strong>Efficiency:</strong> Process video streams in real-time without compromising <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a>.</li>
+<li><strong>Flexibility:</strong> Supports multiple tracking algorithms and configurations.</li>
+<li><strong>Ease of Use:</strong> Simple Python API and CLI options for quick integration and deployment.</li>
+<li><strong>Customizability:</strong> Easy to use with custom trained YOLO models, allowing integration into domain-specific applications.</li>
+</ul>
+<p align="center">
+<br/>
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen="" frameborder="0" height="405" loading="lazy" src="https://www.youtube.com/embed/hHyHmOtmEgs?si=VNZtXmm45Nb9s-N-" title="YouTube video player" width="720">
+</iframe>
+<br/>
+<strong>Watch:</strong> Object Detection and Tracking with Ultralytics YOLO.
+</p>
+<h2 id="real-world-applications">Real-world Applications</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Transportation</th>
+<th style="text-align: center;">Retail</th>
+<th style="text-align: center;">Aquaculture</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><img alt="Vehicle Tracking" src="https://github.com/RizwanMunawar/ultralytics/assets/62513924/ee6e6038-383b-4f21-ac29-b2a1c7d386ab"/></td>
+<td style="text-align: center;"><img alt="People Tracking" src="https://github.com/RizwanMunawar/ultralytics/assets/62513924/93bb4ee2-77a0-4e4e-8eb6-eb8f527f0527"/></td>
+<td style="text-align: center;"><img alt="Fish Tracking" src="https://github.com/RizwanMunawar/ultralytics/assets/62513924/a5146d0f-bfa8-4e0a-b7df-3c1446cd8142"/></td>
+</tr>
+<tr>
+<td style="text-align: center;">Vehicle Tracking</td>
+<td style="text-align: center;">People Tracking</td>
+<td style="text-align: center;">Fish Tracking</td>
+</tr>
+</tbody>
+</table>
+<h2 id="features-at-a-glance">Features at a Glance</h2>
+<p>Ultralytics YOLO extends its object detection features to provide robust and versatile object tracking:</p>
+<ul>
+<li><strong>Real-Time Tracking:</strong> Seamlessly track objects in high-frame-rate videos.</li>
+<li><strong>Multiple Tracker Support:</strong> Choose from a variety of established tracking algorithms.</li>
+<li><strong>Customizable Tracker Configurations:</strong> Tailor the tracking algorithm to meet specific requirements by adjusting various parameters.</li>
+</ul>
+<h2 id="available-trackers">Available Trackers</h2>
+<p>Ultralytics YOLO supports the following tracking algorithms. They can be enabled by passing the relevant YAML configuration file such as <code>tracker=tracker_type.yaml</code>:</p>
+<ul>
+<li><a href="https://github.com/NirAharon/BoT-SORT">BoT-SORT</a> - Use <code>botsort.yaml</code> to enable this tracker.</li>
+<li><a href="https://github.com/FoundationVision/ByteTrack">ByteTrack</a> - Use <code>bytetrack.yaml</code> to enable this tracker.</li>
+</ul>
+<p>The default tracker is BoT-SORT.</p>
+<h2 id="tracking">Tracking</h2>
+<p>To run the tracker on video streams, use a trained Detect, Segment or Pose model such as YOLO11n, YOLO11n-seg and YOLO11n-pose.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio"/><input id="__tabbed_1_2" name="__tabbed_1" type="radio"/><div class="tabbed-labels"><label for="__tabbed_1_1">Python</label><label for="__tabbed_1_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load an official or custom model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>  <span class="c1"># Load an official Detect model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-seg.pt"</span><span class="p">)</span>  <span class="c1"># Load an official Segment model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-pose.pt"</span><span class="p">)</span>  <span class="c1"># Load an official Pose model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"path/to/best.pt"</span><span class="p">)</span>  <span class="c1"># Load a custom trained model</span>
+<span></span>
+<span></span><span class="c1"># Perform tracking with the model</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># Tracking with default tracker</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">tracker</span><span class="o">=</span><span class="s2">"bytetrack.yaml"</span><span class="p">)</span>  <span class="c1"># with ByteTrack</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Perform tracking with various models using the command line interface</span>
+<span></span>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="w">      </span><span class="c1"># Official Detect model</span>
+<span></span>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-seg.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="w">  </span><span class="c1"># Official Segment model</span>
+<span></span>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n-pose.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="w"> </span><span class="c1"># Official Pose model</span>
+<span></span>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="w"> </span><span class="c1"># Custom trained model</span>
+<span></span>
+<span></span><span class="c1"># Track using ByteTrack tracker</span>
+<span></span>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>path/to/best.pt<span class="w"> </span><span class="nv">tracker</span><span class="o">=</span><span class="s2">"bytetrack.yaml"</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>As can be seen in the above usage, tracking is available for all Detect, Segment and Pose models run on videos or streaming sources.</p>
+<h2 id="configuration">Configuration</h2>
+<h3 id="tracking-arguments">Tracking Arguments</h3>
+<p>Tracking configuration shares properties with Predict mode, such as <code>conf</code>, <code>iou</code>, and <code>show</code>. For further configurations, refer to the <a href="../predict/#inference-arguments">Predict</a> model page.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:2"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio"/><input id="__tabbed_2_2" name="__tabbed_2" type="radio"/><div class="tabbed-labels"><label for="__tabbed_2_1">Python</label><label for="__tabbed_2_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Configure the tracking parameters and run the tracker</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">conf</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span> <span class="n">iou</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">show</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Configure tracking parameters and run the tracker using the command line interface</span>
+<span></span>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="w"> </span><span class="nv">conf</span><span class="o">=</span><span class="m">0</span>.3,<span class="w"> </span><span class="nv">iou</span><span class="o">=</span><span class="m">0</span>.5<span class="w"> </span>show
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h3 id="tracker-selection">Tracker Selection</h3>
+<p>Ultralytics also allows you to use a modified tracker configuration file. To do this, simply make a copy of a tracker config file (for example, <code>custom_tracker.yaml</code>) from <a href="https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/trackers">ultralytics/cfg/trackers</a> and modify any configurations (except the <code>tracker_type</code>) as per your needs.</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio"/><input id="__tabbed_3_2" name="__tabbed_3" type="radio"/><div class="tabbed-labels"><label for="__tabbed_3_1">Python</label><label for="__tabbed_3_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the model and run the tracker with a custom configuration file</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">tracker</span><span class="o">=</span><span class="s2">"custom_tracker.yaml"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="c1"># Load the model and run the tracker with a custom configuration file using the command line interface</span>
+<span></span>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="w"> </span><span class="nv">tracker</span><span class="o">=</span><span class="s1">'custom_tracker.yaml'</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<p>Refer to <a href="#tracker-arguments">Tracker Arguments</a> section for a detailed description of each parameter.</p>
+<h3 id="tracker-arguments">Tracker Arguments</h3>
+<p>Some tracking behaviors can be fine-tuned by editing the YAML configuration files specific to each tracking algorithm. These files define parameters like thresholds, buffers, and matching logic:</p>
+<ul>
+<li><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/trackers/botsort.yaml"><code>botsort.yaml</code></a></li>
+<li><a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/trackers/bytetrack.yaml"><code>bytetrack.yaml</code></a></li>
+</ul>
+<p>The following table provides a description of each parameter:</p>
+<div class="admonition warning">
+<p class="admonition-title">Tracker Threshold Information</p>
+<p>If object confidence score will be low, i.e lower than <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/trackers/bytetrack.yaml#L5"><code>track_high_thresh</code></a>, then there will be no tracks successfully returned and updated.</p>
+</div>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Valid Values or Ranges</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tracker_type</code></td>
+<td><code>botsort</code>, <code>bytetrack</code></td>
+<td>Specifies the tracker type. Options are <code>botsort</code> or <code>bytetrack</code>.</td>
+</tr>
+<tr>
+<td><code>track_high_thresh</code></td>
+<td><code>0.0-1.0</code></td>
+<td>Threshold for the first association during tracking used. Affects how confidently a detection is matched to an existing track.</td>
+</tr>
+<tr>
+<td><code>track_low_thresh</code></td>
+<td><code>0.0-1.0</code></td>
+<td>Threshold for the second association during tracking. Used when the first association fails, with more lenient criteria.</td>
+</tr>
+<tr>
+<td><code>new_track_thresh</code></td>
+<td><code>0.0-1.0</code></td>
+<td>Threshold to initialize a new track if the detection does not match any existing tracks. Controls when a new object is considered to appear.</td>
+</tr>
+<tr>
+<td><code>track_buffer</code></td>
+<td><code>&gt;=0</code></td>
+<td>Buffer used to indicate the number of frames lost tracks should be kept alive before getting removed. Higher value means more tolerance for occlusion.</td>
+</tr>
+<tr>
+<td><code>match_thresh</code></td>
+<td><code>0.0-1.0</code></td>
+<td>Threshold for matching tracks. Higher values makes the matching more lenient.</td>
+</tr>
+<tr>
+<td><code>fuse_score</code></td>
+<td><code>True</code>, <code>False</code></td>
+<td>Determines whether to fuse confidence scores with IoU distances before matching. Helps balance spatial and confidence information when associating.</td>
+</tr>
+<tr>
+<td><code>gmc_method</code></td>
+<td><code>orb</code>, <code>sift</code>, <code>ecc</code>, <code>sparseOptFlow</code>, <code>None</code></td>
+<td>Method used for global motion compensation. Helps account for camera movement to improve tracking.</td>
+</tr>
+<tr>
+<td><code>proximity_thresh</code></td>
+<td><code>0.0-1.0</code></td>
+<td>Minimum IoU required for a valid match with ReID (Re-identification). Ensures spatial closeness before using appearance cues.</td>
+</tr>
+<tr>
+<td><code>appearance_thresh</code></td>
+<td><code>0.0-1.0</code></td>
+<td>Minimum appearance similarity required for ReID. Sets how visually similar two detections must be to be linked.</td>
+</tr>
+<tr>
+<td><code>with_reid</code></td>
+<td><code>True</code>, <code>False</code></td>
+<td>Indicates whether to use ReID. Enables appearance-based matching for better tracking across occlusions. Only supported by BoTSORT.</td>
+</tr>
+<tr>
+<td><code>model</code></td>
+<td><code>auto</code>, <code>yolo11[nsmlx]-cls.pt</code></td>
+<td>Specifies the model to use. Defaults to <code>auto</code>, which uses native features if the detector is YOLO, otherwise uses <code>yolo11n-cls.pt</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="enabling-re-identification-reid">Enabling Re-Identification (ReID)</h3>
+<p>By default, ReID is turned off to minimize performance overhead. Enabling it is simple—just set <code>with_reid: True</code> in the <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/cfg/trackers/botsort.yaml">tracker configuration</a>. You can also customize the <code>model</code> used for ReID, allowing you to trade off accuracy and speed depending on your use case:</p>
+<ul>
+<li><strong>Native features (<code>model: auto</code>)</strong>: This leverages features directly from the YOLO detector for ReID, adding minimal overhead. It's ideal when you need some level of ReID without significantly impacting performance. If the detector doesn't support native features, it automatically falls back to using <code>yolo11n-cls.pt</code>.</li>
+<li><strong>YOLO classification models</strong>: You can explicitly set a classification model (e.g. <code>yolo11n-cls.pt</code>) for ReID feature extraction. This provides more discriminative embeddings, but introduces additional latency due to the extra inference step.</li>
+</ul>
+<p>For better performance, especially when using a separate classification model for ReID, you can export it to a faster backend like TensorRT:</p>
+<div class="admonition example">
+<p class="admonition-title">Exporting a ReID model to TensorRT</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">torch</span><span class="w"> </span><span class="kn">import</span> <span class="n">nn</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the classification model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n-cls.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Add average pooling layer</span>
+<span></span><span class="n">head</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<span></span><span class="n">pool</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Sequential</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">AdaptiveAvgPool2d</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)),</span> <span class="n">nn</span><span class="o">.</span><span class="n">Flatten</span><span class="p">(</span><span class="n">start_dim</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span>
+<span></span><span class="n">pool</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">pool</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">head</span><span class="o">.</span><span class="n">f</span><span class="p">,</span> <span class="n">head</span><span class="o">.</span><span class="n">i</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">model</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pool</span>
+<span></span>
+<span></span><span class="c1"># Export to TensorRT</span>
+<span></span><span class="n">model</span><span class="o">.</span><span class="n">export</span><span class="p">(</span><span class="nb">format</span><span class="o">=</span><span class="s2">"engine"</span><span class="p">,</span> <span class="n">half</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">dynamic</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">32</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<p>Once exported, you can point to the TensorRT model path in your tracker config, and it will be used for ReID during tracking.</p>
+<h2 id="python-examples">Python Examples</h2>
+<h3 id="persisting-tracks-loop">Persisting Tracks Loop</h3>
+<p>Here is a Python script using <a href="https://www.ultralytics.com/glossary/opencv">OpenCV</a> (<code>cv2</code>) and YOLO11 to run object tracking on video frames. This script still assumes you have already installed the necessary packages (<code>opencv-python</code> and <code>ultralytics</code>). The <code>persist=True</code> argument tells the tracker that the current image or frame is the next in a sequence and to expect tracks from the previous image in the current image.</p>
+<div class="admonition example">
+<p class="admonition-title">Streaming for-loop with tracking</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the YOLO11 model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Open the video file</span>
+<span></span><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/video.mp4"</span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Loop through the video frames</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="c1"># Read a frame from the video</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="c1"># Run YOLO11 tracking on the frame, persisting tracks between frames</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="c1"># Visualize the results on the frame</span>
+<span></span>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span></span>
+<span></span>        <span class="c1"># Display the annotated frame</span>
+<span></span>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLO11 Tracking"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="c1"># Break the loop if 'q' is pressed</span>
+<span></span>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<span></span>            <span class="k">break</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="c1"># Break the loop if the end of the video is reached</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span><span class="c1"># Release the video capture object and close the display window</span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<p>Please note the change from <code>model(frame)</code> to <code>model.track(frame)</code>, which enables object tracking instead of simple detection. This modified script will run the tracker on each frame of the video, visualize the results, and display them in a window. The loop can be exited by pressing 'q'.</p>
+<h3 id="plotting-tracks-over-time">Plotting Tracks Over Time</h3>
+<p>Visualizing object tracks over consecutive frames can provide valuable insights into the movement patterns and behavior of detected objects within a video. With Ultralytics YOLO11, plotting these tracks is a seamless and efficient process.</p>
+<p>In the following example, we demonstrate how to utilize YOLO11's tracking capabilities to plot the movement of detected objects across multiple video frames. This script involves opening a video file, reading it frame by frame, and utilizing the YOLO model to identify and track various objects. By retaining the center points of the detected bounding boxes and connecting them, we can draw lines that represent the paths followed by the tracked objects.</p>
+<div class="admonition example">
+<p class="admonition-title">Plotting tracks over multiple video frames</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Load the YOLO11 model</span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Open the video file</span>
+<span></span><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/video.mp4"</span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+<span></span>
+<span></span><span class="c1"># Store the track history</span>
+<span></span><span class="n">track_history</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[])</span>
+<span></span>
+<span></span><span class="c1"># Loop through the video frames</span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="c1"># Read a frame from the video</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="c1"># Run YOLO11 tracking on the frame, persisting tracks between frames</span>
+<span></span>        <span class="n">result</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>
+<span></span>        <span class="c1"># Get the boxes and track IDs</span>
+<span></span>        <span class="k">if</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span> <span class="ow">and</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">is_track</span><span class="p">:</span>
+<span></span>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywh</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<span></span>            <span class="n">track_ids</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>
+<span></span>            <span class="c1"># Visualize the result on the frame</span>
+<span></span>            <span class="n">frame</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span></span>
+<span></span>            <span class="c1"># Plot the tracks</span>
+<span></span>            <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">track_id</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">track_ids</span><span class="p">):</span>
+<span></span>                <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">box</span>
+<span></span>                <span class="n">track</span> <span class="o">=</span> <span class="n">track_history</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>
+<span></span>                <span class="n">track</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>  <span class="c1"># x, y center point</span>
+<span></span>                <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">track</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>  <span class="c1"># retain 30 tracks for 30 frames</span>
+<span></span>                    <span class="n">track</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span></span>
+<span></span>                <span class="c1"># Draw the tracking lines</span>
+<span></span>                <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">track</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span></span>                <span class="n">cv2</span><span class="o">.</span><span class="n">polylines</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="p">[</span><span class="n">points</span><span class="p">],</span> <span class="n">isClosed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="c1"># Display the annotated frame</span>
+<span></span>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLO11 Tracking"</span><span class="p">,</span> <span class="n">frame</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="c1"># Break the loop if 'q' is pressed</span>
+<span></span>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<span></span>            <span class="k">break</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="c1"># Break the loop if the end of the video is reached</span>
+<span></span>        <span class="k">break</span>
+<span></span>
+<span></span><span class="c1"># Release the video capture object and close the display window</span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<h3 id="multithreaded-tracking">Multithreaded Tracking</h3>
+<p>Multithreaded tracking provides the capability to run object tracking on multiple video streams simultaneously. This is particularly useful when handling multiple video inputs, such as from multiple surveillance cameras, where concurrent processing can greatly enhance efficiency and performance.</p>
+<p>In the provided Python script, we make use of Python's <code>threading</code> module to run multiple instances of the tracker concurrently. Each thread is responsible for running the tracker on one video file, and all the threads run simultaneously in the background.</p>
+<p>To ensure that each thread receives the correct parameters (the video file, the model to use and the file index), we define a function <code>run_tracker_in_thread</code> that accepts these parameters and contains the main tracking loop. This function reads the video frame by frame, runs the tracker, and displays the results.</p>
+<p>Two different models are used in this example: <code>yolo11n.pt</code> and <code>yolo11n-seg.pt</code>, each tracking objects in a different video file. The video files are specified in <code>SOURCES</code>.</p>
+<p>The <code>daemon=True</code> parameter in <code>threading.Thread</code> means that these threads will be closed as soon as the main program finishes. We then start the threads with <code>start()</code> and use <code>join()</code> to make the main thread wait until both tracker threads have finished.</p>
+<p>Finally, after all threads have completed their task, the windows displaying the results are closed using <code>cv2.destroyAllWindows()</code>.</p>
+<div class="admonition example">
+<p class="admonition-title">Multithreaded tracking implementation</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Define model names and video sources</span>
+<span></span><span class="n">MODEL_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="s2">"yolo11n-seg.pt"</span><span class="p">]</span>
+<span></span><span class="n">SOURCES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"path/to/video.mp4"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">]</span>  <span class="c1"># local video, 0 for webcam</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_tracker_in_thread</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Run YOLO tracker in its own thread for concurrent processing.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        model_name (str): The YOLO11 model object.</span>
+<span></span><span class="sd">        filename (str): The path to the video file or the identifier for the webcam/external camera source.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<span></span>        <span class="k">pass</span>
+<span></span>
+<span></span>
+<span></span><span class="c1"># Create and start tracker threads using a for loop</span>
+<span></span><span class="n">tracker_threads</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span><span class="k">for</span> <span class="n">video_file</span><span class="p">,</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">SOURCES</span><span class="p">,</span> <span class="n">MODEL_NAMES</span><span class="p">):</span>
+<span></span>    <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run_tracker_in_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">video_file</span><span class="p">),</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>    <span class="n">tracker_threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
+<span></span>    <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Wait for all tracker threads to finish</span>
+<span></span><span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">tracker_threads</span><span class="p">:</span>
+<span></span>    <span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Clean up and close windows</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<p>This example can easily be extended to handle more video files and models by creating more threads and applying the same methodology.</p>
+<h2 id="contribute-new-trackers">Contribute New Trackers</h2>
+<p>Are you proficient in multi-object tracking and have successfully implemented or adapted a tracking algorithm with Ultralytics YOLO? We invite you to contribute to our Trackers section in <a href="https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/trackers">ultralytics/cfg/trackers</a>! Your real-world applications and solutions could be invaluable for users working on tracking tasks.</p>
+<p>By contributing to this section, you help expand the scope of tracking solutions available within the Ultralytics YOLO framework, adding another layer of functionality and utility for the community.</p>
+<p>To initiate your contribution, please refer to our <a href="../../help/contributing/">Contributing Guide</a> for comprehensive instructions on submitting a Pull Request (PR) 🛠️. We are excited to see what you bring to the table!</p>
+<p>Together, let's enhance the tracking capabilities of the Ultralytics YOLO ecosystem 🙏!</p>
+<h2 id="faq">FAQ</h2>
+<h3 id="what-is-multi-object-tracking-and-how-does-ultralytics-yolo-support-it">What is Multi-Object Tracking and how does Ultralytics YOLO support it?</h3>
+<p>Multi-object tracking in video analytics involves both identifying objects and maintaining a unique ID for each detected object across video frames. Ultralytics YOLO supports this by providing real-time tracking along with object IDs, facilitating tasks such as security surveillance and sports analytics. The system uses trackers like <a href="https://github.com/NirAharon/BoT-SORT">BoT-SORT</a> and <a href="https://github.com/FoundationVision/ByteTrack">ByteTrack</a>, which can be configured via YAML files.</p>
+<h3 id="how-do-i-configure-a-custom-tracker-for-ultralytics-yolo">How do I configure a custom tracker for Ultralytics YOLO?</h3>
+<p>You can configure a custom tracker by copying an existing tracker configuration file (e.g., <code>custom_tracker.yaml</code>) from the <a href="https://github.com/ultralytics/ultralytics/tree/main/ultralytics/cfg/trackers">Ultralytics tracker configuration directory</a> and modifying parameters as needed, except for the <code>tracker_type</code>. Use this file in your tracking model like so:</p>
+<div class="admonition example">
+<p class="admonition-title">Example</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio"/><input id="__tabbed_4_2" name="__tabbed_4" type="radio"/><div class="tabbed-labels"><label for="__tabbed_4_1">Python</label><label for="__tabbed_4_2">CLI</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="p">,</span> <span class="n">tracker</span><span class="o">=</span><span class="s2">"custom_tracker.yaml"</span><span class="p">)</span>
+</code></pre></div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code><span></span>yolo<span class="w"> </span>track<span class="w"> </span><span class="nv">model</span><span class="o">=</span>yolo11n.pt<span class="w"> </span><span class="nv">source</span><span class="o">=</span><span class="s2">"https://youtu.be/LNwODJXcvt4"</span><span class="w"> </span><span class="nv">tracker</span><span class="o">=</span><span class="s1">'custom_tracker.yaml'</span>
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<h3 id="how-can-i-run-object-tracking-on-multiple-video-streams-simultaneously">How can I run object tracking on multiple video streams simultaneously?</h3>
+<p>To run object tracking on multiple video streams simultaneously, you can use Python's <code>threading</code> module. Each thread will handle a separate video stream. Here's an example of how you can set this up:</p>
+<div class="admonition example">
+<p class="admonition-title">Multithreaded Tracking</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">threading</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="c1"># Define model names and video sources</span>
+<span></span><span class="n">MODEL_NAMES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="s2">"yolo11n-seg.pt"</span><span class="p">]</span>
+<span></span><span class="n">SOURCES</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"path/to/video.mp4"</span><span class="p">,</span> <span class="s2">"0"</span><span class="p">]</span>  <span class="c1"># local video, 0 for webcam</span>
+<span></span>
+<span></span>
+<span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_tracker_in_thread</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Run YOLO tracker in its own thread for concurrent processing.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        model_name (str): The YOLO11 model object.</span>
+<span></span><span class="sd">        filename (str): The path to the video file or the identifier for the webcam/external camera source.</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model_name</span><span class="p">)</span>
+<span></span>    <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>    <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+<span></span>        <span class="k">pass</span>
+<span></span>
+<span></span>
+<span></span><span class="c1"># Create and start tracker threads using a for loop</span>
+<span></span><span class="n">tracker_threads</span> <span class="o">=</span> <span class="p">[]</span>
+<span></span><span class="k">for</span> <span class="n">video_file</span><span class="p">,</span> <span class="n">model_name</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">SOURCES</span><span class="p">,</span> <span class="n">MODEL_NAMES</span><span class="p">):</span>
+<span></span>    <span class="n">thread</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Thread</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">run_tracker_in_thread</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">model_name</span><span class="p">,</span> <span class="n">video_file</span><span class="p">),</span> <span class="n">daemon</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>    <span class="n">tracker_threads</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">thread</span><span class="p">)</span>
+<span></span>    <span class="n">thread</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Wait for all tracker threads to finish</span>
+<span></span><span class="k">for</span> <span class="n">thread</span> <span class="ow">in</span> <span class="n">tracker_threads</span><span class="p">:</span>
+<span></span>    <span class="n">thread</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+<span></span>
+<span></span><span class="c1"># Clean up and close windows</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<h3 id="what-are-the-real-world-applications-of-multi-object-tracking-with-ultralytics-yolo">What are the real-world applications of multi-object tracking with Ultralytics YOLO?</h3>
+<p>Multi-object tracking with Ultralytics YOLO has numerous applications, including:</p>
+<ul>
+<li><strong>Transportation:</strong> Vehicle tracking for traffic management and <a href="https://www.ultralytics.com/blog/ai-in-self-driving-cars">autonomous driving</a>.</li>
+<li><strong>Retail:</strong> People tracking for in-store analytics and security.</li>
+<li><strong>Aquaculture:</strong> Fish tracking for monitoring aquatic environments.</li>
+<li><strong>Sports Analytics:</strong> Tracking players and equipment for performance analysis.</li>
+<li><strong>Security Systems:</strong> <a href="https://www.ultralytics.com/blog/security-alarm-system-projects-with-ultralytics-yolov8">Monitoring suspicious activities</a> and creating <a href="https://docs.ultralytics.com/guides/security-alarm-system/">security alarms</a>.</li>
+</ul>
+<p>These applications benefit from Ultralytics YOLO's ability to process high-frame-rate videos in real time with exceptional accuracy.</p>
+<h3 id="how-can-i-visualize-object-tracks-over-multiple-video-frames-with-ultralytics-yolo">How can I visualize object tracks over multiple video frames with Ultralytics YOLO?</h3>
+<p>To visualize object tracks over multiple video frames, you can use the YOLO model's tracking features along with OpenCV to draw the paths of detected objects. Here's an example script that demonstrates this:</p>
+<div class="admonition example">
+<p class="admonition-title">Plotting tracks over multiple video frames</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">collections</span><span class="w"> </span><span class="kn">import</span> <span class="n">defaultdict</span>
+<span></span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">cv2</span>
+<span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span></span>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
+<span></span>
+<span></span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
+<span></span><span class="n">video_path</span> <span class="o">=</span> <span class="s2">"path/to/video.mp4"</span>
+<span></span><span class="n">cap</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">VideoCapture</span><span class="p">(</span><span class="n">video_path</span><span class="p">)</span>
+<span></span><span class="n">track_history</span> <span class="o">=</span> <span class="n">defaultdict</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[])</span>
+<span></span>
+<span></span><span class="k">while</span> <span class="n">cap</span><span class="o">.</span><span class="n">isOpened</span><span class="p">():</span>
+<span></span>    <span class="n">success</span><span class="p">,</span> <span class="n">frame</span> <span class="o">=</span> <span class="n">cap</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+<span></span>    <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
+<span></span>        <span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">track</span><span class="p">(</span><span class="n">frame</span><span class="p">,</span> <span class="n">persist</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>        <span class="n">boxes</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xywh</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span>
+<span></span>        <span class="n">track_ids</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">id</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+<span></span>        <span class="n">annotated_frame</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+<span></span>        <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="n">track_id</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">track_ids</span><span class="p">):</span>
+<span></span>            <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span> <span class="o">=</span> <span class="n">box</span>
+<span></span>            <span class="n">track</span> <span class="o">=</span> <span class="n">track_history</span><span class="p">[</span><span class="n">track_id</span><span class="p">]</span>
+<span></span>            <span class="n">track</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)))</span>
+<span></span>            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">track</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+<span></span>                <span class="n">track</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span></span>            <span class="n">points</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">hstack</span><span class="p">(</span><span class="n">track</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span></span>            <span class="n">cv2</span><span class="o">.</span><span class="n">polylines</span><span class="p">(</span><span class="n">annotated_frame</span><span class="p">,</span> <span class="p">[</span><span class="n">points</span><span class="p">],</span> <span class="n">isClosed</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="p">(</span><span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span></span>        <span class="n">cv2</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="s2">"YOLO11 Tracking"</span><span class="p">,</span> <span class="n">annotated_frame</span><span class="p">)</span>
+<span></span>        <span class="k">if</span> <span class="n">cv2</span><span class="o">.</span><span class="n">waitKey</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;</span> <span class="mh">0xFF</span> <span class="o">==</span> <span class="nb">ord</span><span class="p">(</span><span class="s2">"q"</span><span class="p">):</span>
+<span></span>            <span class="k">break</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">break</span>
+<span></span><span class="n">cap</span><span class="o">.</span><span class="n">release</span><span class="p">()</span>
+<span></span><span class="n">cv2</span><span class="o">.</span><span class="n">destroyAllWindows</span><span class="p">()</span>
+</code></pre></div>
+</div>
+<p>This script will plot the tracking lines showing the movement paths of the tracked objects over time, providing valuable insights into object behavior and patterns.</p>
+<br/><br/>
+<div class="git-info">
+<div class="dates-container">
+<span class="date-item" title="This page was first created on November 12, 2023">
+<span class="hover-item">📅</span> Created 1 year ago
+    </span>
+<span class="date-item" title="This page was last updated on June 22, 2025">
+<span class="hover-item">✏️</span> Updated 1 month ago
+    </span>
+</div>
+<div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (22 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/Y-T-G" title="Y-T-G (2 changes)">
+<img alt="Y-T-G" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/32206511?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/UltralyticsAssistant" title="UltralyticsAssistant (2 changes)">
+<img alt="UltralyticsAssistant" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/135830346?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/Laughing-q" title="Laughing-q (1 change)">
+<img alt="Laughing-q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/61612323?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/ankanpy" title="ankanpy (1 change)">
+<img alt="ankanpy" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/79740115?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/MatthewNoyce" title="MatthewNoyce (1 change)">
+<img alt="MatthewNoyce" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/131261051?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
+<img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/IvorZhu331" title="IvorZhu331 (1 change)">
+<img alt="IvorZhu331" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/130829914?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/Burhan-Q" title="Burhan-Q (1 change)">
+<img alt="Burhan-Q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62214284?v=4&amp;s=96"/>
+</a>
+</div></div><div class="share-buttons">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/modes/track', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<i class="fa-brands fa-x-twitter"></i> Tweet
+    </button>
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/modes/track', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<i class="fa-brands fa-linkedin-in"></i> Share
+    </button>
+</div>
+<br/>
+<h2 id="__comments">Comments</h2>
+<div id="giscus-container"></div>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: Export" class="md-footer__link md-footer__link--prev" href="../export/">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                Export
+              </div>
+</div>
+</a>
+<a aria-label="Next: Benchmark" class="md-footer__link md-footer__link--next" href="../benchmark/">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                Benchmark
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+<a href="https://www.ultralytics.com/" target="_blank">© 2025 Ultralytics Inc.</a> All rights reserved.
+    </div>
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ultralytics" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/ultralytics/" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://x.com/ultralytics" rel="noopener" target="_blank" title="x.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://youtube.com/ultralytics?sub_confirmation=1" rel="noopener" target="_blank" title="youtube.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://hub.docker.com/r/ultralytics/ultralytics/" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://pypi.org/project/ultralytics/" rel="noopener" target="_blank" title="pypi.org">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://discord.com/invite/ultralytics" rel="noopener" target="_blank" title="discord.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://reddit.com/r/ultralytics" rel="noopener" target="_blank" title="reddit.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 256C0 114.6 114.6 0 256 0s256 114.6 256 256-114.6 256-256 256H37.1c-13.7 0-20.5-16.5-10.9-26.2L75 437C28.7 390.7 0 326.7 0 256m349.6-102.4c23.6 0 42.7-19.1 42.7-42.7s-19.1-42.7-42.7-42.7c-20.6 0-37.8 14.6-41.8 34-34.5 3.7-61.4 33-61.4 68.4v.2c-37.5 1.6-71.8 12.3-99 29.1-10.1-7.8-22.8-12.5-36.5-12.5-33 0-59.8 26.8-59.8 59.8 0 24 14.1 44.6 34.4 54.1 2 69.4 77.6 125.2 170.6 125.2s168.7-55.9 170.6-125.3c20.2-9.6 34.1-30.2 34.1-54 0-33-26.8-59.8-59.8-59.8-13.7 0-26.3 4.6-36.4 12.4-27.4-17-62.1-27.7-100-29.1v-.2c0-25.4 18.9-46.5 43.4-49.9 4.4 18.8 21.3 32.8 41.5 32.8zm-172.5 93.3c16.7 0 29.5 17.6 28.5 39.3s-13.5 29.6-30.3 29.6-31.4-8.8-30.4-30.5S160.3 247 177 247zm190.1 38.3c1 21.7-13.7 30.5-30.4 30.5s-29.3-7.9-30.3-29.6 11.8-39.3 28.5-39.3 31.2 16.6 32.1 38.3zm-48.1 56.7c-10.3 24.6-34.6 41.9-63 41.9s-52.7-17.3-63-41.9c-1.2-2.9.8-6.2 3.9-6.5 18.4-1.9 38.3-2.9 59.1-2.9s40.7 1 59.1 2.9c3.1.3 5.1 3.6 3.9 6.5" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://weixin.qq.com/r/mp/LxckPDfEgWr_rXNf90I9" rel="noopener" target="_blank" title="weixin.qq.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154m-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4m-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2M563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4m-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6m107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6" fill="currentColor"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+<script src="../../javascript/extra.js"></script>
+<script src="../../javascript/giscus.js"></script>
+<script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+<script src="../../javascript/tablesort.js"></script>
+<script>
+                    async function copyMarkdownForLLM(button) {
+                        const editBtn = document.querySelector('a[title="Edit this page"]');
+                        if (!editBtn) return;
+                        const originalHTML = button.innerHTML;
+                        const checkIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41L9 16.17z"></path></svg>';
+                        // Handle both /blob/ and /tree/ in GitHub URLs
+                        let rawUrl = editBtn.href.replace('github.com', 'raw.githubusercontent.com');
+                        // Remove /blob/ or /tree/ from the URL
+                        rawUrl = rawUrl.replace('/blob/', '/').replace('/tree/', '/');
+                        try {
+                            const response = await fetch(rawUrl);
+                            let markdown = await response.text();
+                            // Remove YAML front matter if present
+                            if (markdown.startsWith('---')) {
+                                const frontMatterEnd = markdown.indexOf('\n---\n', 3);
+                                if (frontMatterEnd !== -1) {
+                                    markdown = markdown.substring(frontMatterEnd + 5).trim();
+                                }
+                            }
+                            const title = document.querySelector('h1')?.textContent || document.title;
+                            const content = `# ${title}\n\nSource: ${window.location.href}\n\n---\n\n${markdown}`;
+                            await navigator.clipboard.writeText(content);
+                            button.innerHTML = checkIcon + ' Copied!';
+                            setTimeout(() => { button.innerHTML = originalHTML; }, 2000);
+                        } catch (err) {
+                            button.innerHTML = '❌ Failed';
+                            setTimeout(() => { button.innerHTML = originalHTML; }, 2000);
+                        }
+                    }
+                    </script></body>
+</html>
