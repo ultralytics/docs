@@ -1,0 +1,2347 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Explore Ultralytics' Parking Management solution leveraging YOLO for efficient parking zone monitoring and management." name="description"/>
+<meta content="Ultralytics" name="author"/>
+<link href="https://docs.ultralytics.com/reference/solutions/parking_management.html" rel="canonical"/>
+<link href="object_cropper.html" rel="prev"/>
+<link href="queue_management.html" rel="next"/>
+<link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.16" name="generator"/>
+<title>Reference for ultralytics/solutions/parking_management.py</title>
+<link href="../../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../assets/_mkdocstrings.css" rel="stylesheet"/>
+<link href="../../stylesheets/style.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-2M5EHKC0BH"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-2M5EHKC0BH",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-2M5EHKC0BH",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+<script>"undefined"!=typeof __md_analytics&&__md_analytics()</script>
+<meta content="parking_management" name="title"/><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet"/><meta content="Ultralytics, YOLO, parking management, computer vision, parking monitoring, AI solutions, machine learning" name="keywords"/><meta content="website" property="og:type"/><meta content="https://docs.ultralytics.com/reference/solutions/parking_management.html" property="og:url"/><meta content="parking_management" property="og:title"/><meta content="Explore Ultralytics' Parking Management solution leveraging YOLO for efficient parking zone monitoring and management." property="og:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="og:image"/><meta content="summary_large_image" property="twitter:card"/><meta content="https://docs.ultralytics.com/reference/solutions/parking_management.html" property="twitter:url"/><meta content="parking_management" property="twitter:title"/><meta content="Explore Ultralytics' Parking Management solution leveraging YOLO for efficient parking zone monitoring and management." property="twitter:description"/><meta content="https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png" property="twitter:image"/><script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "parking_management", "image": ["https://raw.githubusercontent.com/ultralytics/assets/main/yolov8/banner-yolov8.png"], "datePublished": "2024-04-29 13:58:12 +0500", "dateModified": "2024-09-11 18:30:13 +0200", "author": [{"@type": "Organization", "name": "Ultralytics", "url": "https://ultralytics.com/"}], "abstract": "Explore Ultralytics' Parking Management solution leveraging YOLO for efficient parking zone monitoring and management."}</script></head>
+<body data-md-color-accent="indigo" data-md-color-primary="indigo" data-md-color-scheme="default" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#reference-for-ultralyticssolutionsparking_managementpy">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+<aside class="md-banner">
+<div class="md-banner__inner md-grid md-typeset">
+<div class="banner-wrapper">
+<div class="banner-content-wrapper" onclick="window.open('https://docs.ultralytics.com/models/yolo11/')">
+<p>Introducing</p>
+<img alt="Ultralytics YOLO11" height="40" loading="lazy" src="https://assets-global.website-files.com/646dd1f1a3703e451ba81ecc/67d044caa316aa50fba40a08_Ultralytics_YOLO11_Logotype_Reverse.svg"/>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Ultralytics YOLO Docs" class="md-header__button md-logo" data-md-component="logo" href="https://www.ultralytics.com/" title="Ultralytics YOLO Docs">
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Ultralytics YOLO Docs
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+              parking_management
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9zM20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12zm-9.15 3.96h2.3L12 9z"></path></svg>
+</label>
+<input aria-label="Switch to system preference" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-primary="black" data-md-color-scheme="slate" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_2" hidden="" title="Switch to system preference">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="indigo" data-md-color-media="(prefers-color-scheme: light)" data-md-color-primary="indigo" data-md-color-scheme="default" id="__palette_2" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Select language" class="md-header__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="/" hreflang="en">
+              🇬🇧 English
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/zh/" hreflang="zh">
+              🇨🇳 简体中文
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ko/" hreflang="ko">
+              🇰🇷 한국어
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ja/" hreflang="ja">
+              🇯🇵 日本語
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ru/" hreflang="ru">
+              🇷🇺 Русский
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/de/" hreflang="de">
+              🇩🇪 Deutsch
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/fr/" hreflang="fr">
+              🇫🇷 Français
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/es/" hreflang="es">
+              🇪🇸 Español
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/pt/" hreflang="pt">
+              🇵🇹 Português
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/it/" hreflang="it">
+              🇮🇹 Italiano
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/tr/" hreflang="tr">
+              🇹🇷 Türkçe
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/vi/" hreflang="vi">
+              🇻🇳 Tiếng Việt
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="/ar/" hreflang="ar">
+              🇸🇦 العربية
+            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="md-header__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor"></path></svg>
+</div>
+<div class="md-source__repository">
+    ultralytics/ultralytics
+  </div>
+</a>
+</div>
+</nav>
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../index.html">
+  Home
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../quickstart.html">
+  Quickstart
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../modes/index.html">
+  Modes
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../tasks/index.html">
+  Tasks
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../models/index.html">
+  Models
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../datasets/index.html">
+  Datasets
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../solutions/index.html">
+  Solutions 🚀
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../guides/index.html">
+  Guides
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../integrations/index.html">
+  Integrations
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../hub/index.html">
+  HUB
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../cfg/__init__.html">
+  Reference
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../help/index.html">
+  Help
+        </a>
+</li>
+</ul>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Ultralytics YOLO Docs" class="md-nav__button md-logo" data-md-component="logo" href="https://www.ultralytics.com/" title="Ultralytics YOLO Docs">
+<img alt="logo" src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg"/>
+</a>
+    Ultralytics YOLO Docs
+  </label>
+<div class="md-nav__source">
+<a class="md-source" data-md-component="source" href="https://github.com/ultralytics/ultralytics" title="Go to repository">
+<div class="md-source__icon md-icon">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor"></path></svg>
+</div>
+<div class="md-source__repository">
+    ultralytics/ultralytics
+  </div>
+</a>
+</div>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../index.html">
+<span class="md-ellipsis">
+    Home
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../quickstart.html">
+<span class="md-ellipsis">
+    Quickstart
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../modes/index.html">
+<span class="md-ellipsis">
+    Modes
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../tasks/index.html">
+<span class="md-ellipsis">
+    Tasks
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../models/index.html">
+<span class="md-ellipsis">
+    Models
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../datasets/index.html">
+<span class="md-ellipsis">
+    Datasets
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../solutions/index.html">
+<span class="md-ellipsis">
+    Solutions 🚀
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../guides/index.html">
+<span class="md-ellipsis">
+    Guides
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../integrations/index.html">
+<span class="md-ellipsis">
+    Integrations
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../hub/index.html">
+<span class="md-ellipsis">
+    HUB
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_11" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11" id="__nav_11_label" tabindex="">
+<span class="md-ellipsis">
+    Reference
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_11_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_11">
+<span class="md-nav__icon md-icon"></span>
+            Reference
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_1" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_1" id="__nav_11_1_label" tabindex="">
+<span class="md-ellipsis">
+    cfg
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_1">
+<span class="md-nav__icon md-icon"></span>
+            cfg
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../cfg/__init__.html">
+<span class="md-ellipsis">
+    __init__
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_2" id="__nav_11_2_label" tabindex="">
+<span class="md-ellipsis">
+    data
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_2">
+<span class="md-nav__icon md-icon"></span>
+            data
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/annotator.html">
+<span class="md-ellipsis">
+    annotator
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/augment.html">
+<span class="md-ellipsis">
+    augment
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/base.html">
+<span class="md-ellipsis">
+    base
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/build.html">
+<span class="md-ellipsis">
+    build
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/converter.html">
+<span class="md-ellipsis">
+    converter
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/dataset.html">
+<span class="md-ellipsis">
+    dataset
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/loaders.html">
+<span class="md-ellipsis">
+    loaders
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/split.html">
+<span class="md-ellipsis">
+    split
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/split_dota.html">
+<span class="md-ellipsis">
+    split_dota
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../data/utils.html">
+<span class="md-ellipsis">
+    utils
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_3" id="__nav_11_3_label" tabindex="">
+<span class="md-ellipsis">
+    engine
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_3">
+<span class="md-nav__icon md-icon"></span>
+            engine
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../engine/exporter.html">
+<span class="md-ellipsis">
+    exporter
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../engine/model.html">
+<span class="md-ellipsis">
+    model
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../engine/predictor.html">
+<span class="md-ellipsis">
+    predictor
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../engine/results.html">
+<span class="md-ellipsis">
+    results
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../engine/trainer.html">
+<span class="md-ellipsis">
+    trainer
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../engine/tuner.html">
+<span class="md-ellipsis">
+    tuner
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../engine/validator.html">
+<span class="md-ellipsis">
+    validator
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_4" id="__nav_11_4_label" tabindex="">
+<span class="md-ellipsis">
+    hub
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_4">
+<span class="md-nav__icon md-icon"></span>
+            hub
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hub/__init__.html">
+<span class="md-ellipsis">
+    __init__
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hub/auth.html">
+<span class="md-ellipsis">
+    auth
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../hub/google/__init__.html">
+<span class="md-ellipsis">
+    google
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hub/session.html">
+<span class="md-ellipsis">
+    session
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../hub/utils.html">
+<span class="md-ellipsis">
+    utils
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_5" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_5" id="__nav_11_5_label" tabindex="">
+<span class="md-ellipsis">
+    models
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_5">
+<span class="md-nav__icon md-icon"></span>
+            models
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../models/fastsam/model.html">
+<span class="md-ellipsis">
+    fastsam
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../models/nas/model.html">
+<span class="md-ellipsis">
+    nas
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../models/rtdetr/model.html">
+<span class="md-ellipsis">
+    rtdetr
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../models/sam/amg.html">
+<span class="md-ellipsis">
+    sam
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../models/utils/loss.html">
+<span class="md-ellipsis">
+    utils
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../models/yolo/classify/predict.html">
+<span class="md-ellipsis">
+    yolo
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_6" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_6" id="__nav_11_6_label" tabindex="">
+<span class="md-ellipsis">
+    nn
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_6_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_6">
+<span class="md-nav__icon md-icon"></span>
+            nn
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../nn/autobackend.html">
+<span class="md-ellipsis">
+    autobackend
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../nn/modules/activation.html">
+<span class="md-ellipsis">
+    modules
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../nn/tasks.html">
+<span class="md-ellipsis">
+    tasks
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../nn/text_model.html">
+<span class="md-ellipsis">
+    text_model
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_11_7" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_7" id="__nav_11_7_label" tabindex="">
+<span class="md-ellipsis">
+    solutions
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_11_7_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_7">
+<span class="md-nav__icon md-icon"></span>
+            solutions
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="ai_gym.html">
+<span class="md-ellipsis">
+    ai_gym
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="analytics.html">
+<span class="md-ellipsis">
+    analytics
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="config.html">
+<span class="md-ellipsis">
+    config
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="distance_calculation.html">
+<span class="md-ellipsis">
+    distance_calculation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="heatmap.html">
+<span class="md-ellipsis">
+    heatmap
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="instance_segmentation.html">
+<span class="md-ellipsis">
+    instance_segmentation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="object_blurrer.html">
+<span class="md-ellipsis">
+    object_blurrer
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="object_counter.html">
+<span class="md-ellipsis">
+    object_counter
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="object_cropper.html">
+<span class="md-ellipsis">
+    object_cropper
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    parking_management
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="parking_management.html">
+<span class="md-ellipsis">
+    parking_management
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> ParkingPtsSelection
+    </span>
+</a>
+<nav aria-label=" ParkingPtsSelection" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.draw_box">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> draw_box
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.initialize_properties">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> initialize_properties
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.on_canvas_click">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> on_canvas_click
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.redraw_canvas">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> redraw_canvas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.remove_last_bounding_box">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> remove_last_bounding_box
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.save_to_json">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> save_to_json
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.upload_image">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> upload_image
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingManagement">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> ParkingManagement
+    </span>
+</a>
+<nav aria-label=" ParkingManagement" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingManagement.process">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> process
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="queue_management.html">
+<span class="md-ellipsis">
+    queue_management
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="region_counter.html">
+<span class="md-ellipsis">
+    region_counter
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="security_alarm.html">
+<span class="md-ellipsis">
+    security_alarm
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="similarity_search.html">
+<span class="md-ellipsis">
+    similarity_search
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="solutions.html">
+<span class="md-ellipsis">
+    solutions
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="speed_estimation.html">
+<span class="md-ellipsis">
+    speed_estimation
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="streamlit_inference.html">
+<span class="md-ellipsis">
+    streamlit_inference
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="trackzone.html">
+<span class="md-ellipsis">
+    trackzone
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="vision_eye.html">
+<span class="md-ellipsis">
+    vision_eye
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_8" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_8" id="__nav_11_8_label" tabindex="">
+<span class="md-ellipsis">
+    trackers
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_8">
+<span class="md-nav__icon md-icon"></span>
+            trackers
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../trackers/basetrack.html">
+<span class="md-ellipsis">
+    basetrack
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../trackers/bot_sort.html">
+<span class="md-ellipsis">
+    bot_sort
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../trackers/byte_tracker.html">
+<span class="md-ellipsis">
+    byte_tracker
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../trackers/track.html">
+<span class="md-ellipsis">
+    track
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../trackers/utils/gmc.html">
+<span class="md-ellipsis">
+    utils
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_11_9" type="checkbox"/>
+<label class="md-nav__link" for="__nav_11_9" id="__nav_11_9_label" tabindex="">
+<span class="md-ellipsis">
+    utils
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_11_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_11_9">
+<span class="md-nav__icon md-icon"></span>
+            utils
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/__init__.html">
+<span class="md-ellipsis">
+    __init__
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/autobatch.html">
+<span class="md-ellipsis">
+    autobatch
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/autodevice.html">
+<span class="md-ellipsis">
+    autodevice
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/benchmarks.html">
+<span class="md-ellipsis">
+    benchmarks
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../utils/callbacks/base.html">
+<span class="md-ellipsis">
+    callbacks
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/checks.html">
+<span class="md-ellipsis">
+    checks
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/dist.html">
+<span class="md-ellipsis">
+    dist
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/downloads.html">
+<span class="md-ellipsis">
+    downloads
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/errors.html">
+<span class="md-ellipsis">
+    errors
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/export.html">
+<span class="md-ellipsis">
+    export
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/files.html">
+<span class="md-ellipsis">
+    files
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/instance.html">
+<span class="md-ellipsis">
+    instance
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/loss.html">
+<span class="md-ellipsis">
+    loss
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/metrics.html">
+<span class="md-ellipsis">
+    metrics
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/ops.html">
+<span class="md-ellipsis">
+    ops
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/patches.html">
+<span class="md-ellipsis">
+    patches
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/plotting.html">
+<span class="md-ellipsis">
+    plotting
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/tal.html">
+<span class="md-ellipsis">
+    tal
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/torch_utils.html">
+<span class="md-ellipsis">
+    torch_utils
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/triton.html">
+<span class="md-ellipsis">
+    triton
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../utils/tuner.html">
+<span class="md-ellipsis">
+    tuner
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--pruned md-nav__item--nested">
+<a class="md-nav__link" href="../../help/index.html">
+<span class="md-ellipsis">
+    Help
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> ParkingPtsSelection
+    </span>
+</a>
+<nav aria-label=" ParkingPtsSelection" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.draw_box">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> draw_box
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.initialize_properties">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> initialize_properties
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.on_canvas_click">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> on_canvas_click
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.redraw_canvas">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> redraw_canvas
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.remove_last_bounding_box">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> remove_last_bounding_box
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.save_to_json">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> save_to_json
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.upload_image">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> upload_image
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingManagement">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-class"></code> ParkingManagement
+    </span>
+</a>
+<nav aria-label=" ParkingManagement" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ultralytics.solutions.parking_management.ParkingManagement.process">
+<span class="md-ellipsis">
+<code class="doc-symbol doc-symbol-toc doc-symbol-method"></code> process
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<a class="md-content__button md-icon" href="https://github.com/ultralytics/ultralytics/tree/main/docs/en/reference/solutions/parking_management.md" rel="edit" title="Edit this page">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"></path></svg>
+</a><a class="md-content__button md-icon" href="javascript:void(0)" onclick="copyMarkdownForLLM(this); return false;" title="Copy page in Markdown format"><svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19,21H8V7H19M19,5H8A2,2 0 0,0 6,7V21A2,2 0 0,0 8,23H19A2,2 0 0,0 21,21V7A2,2 0 0,0 19,5M16,1H4A2,2 0 0,0 2,3V17H4V3H16V1Z"></path></svg></a>
+<h1 id="reference-for-ultralyticssolutionsparking_managementpy">Reference for <code>ultralytics/solutions/parking_management.py</code></h1>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This file is available at <a href="https://github.com/ultralytics/ultralytics/blob/main/ultralytics/solutions/parking_management.py">https://github.com/ultralytics/ultralytics/blob/main/ultralytics/solutions/parking_management.py</a>. If you spot a problem please help fix it by <a href="https://docs.ultralytics.com/help/contributing/">contributing</a> a <a href="https://github.com/ultralytics/ultralytics/edit/main/ultralytics/solutions/parking_management.py">Pull Request</a> 🛠️. Thank you 🙏!</p>
+</div>
+<p><br/></p>
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.solutions.parking_management.ParkingPtsSelection</span>
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">ParkingPtsSelection</span><span class="p">()</span>
+</code></pre></div>
+<div class="doc doc-contents first">
+<p>A class for selecting and managing parking zone points on images using a Tkinter-based UI.</p>
+<p>This class provides functionality to upload an image, select points to define parking zones, and save the
+selected points to a JSON file. It uses Tkinter for the graphical user interface.</p>
+<p><span class="doc-section-title">Attributes:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.tk">tk</span></code></td>
+<td>
+<code><span title="module">module</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The Tkinter module for GUI operations.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.filedialog">filedialog</span></code></td>
+<td>
+<code><span title="module">module</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Tkinter's filedialog module for file selection operations.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.messagebox">messagebox</span></code></td>
+<td>
+<code><span title="module">module</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Tkinter's messagebox module for displaying message boxes.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.master">master</span></code></td>
+<td>
+<code><span title="tk.Tk">Tk</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The main Tkinter window.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.canvas">canvas</span></code></td>
+<td>
+<code><span title="tk.Canvas">Canvas</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The canvas widget for displaying the image and drawing bounding boxes.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.image">image</span></code></td>
+<td>
+<code><span title="PIL.Image.Image">Image</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The uploaded image.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.canvas_image">canvas_image</span></code></td>
+<td>
+<code><span title="ImageTk.PhotoImage">PhotoImage</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The image displayed on the canvas.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.rg_data">rg_data</span></code></td>
+<td>
+<code><span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>List of bounding boxes, each defined by 4 points.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.current_box">current_box</span></code></td>
+<td>
+<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Temporary storage for the points of the current bounding box.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.imgw">imgw</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Original width of the uploaded image.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.imgh">imgh</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Original height of the uploaded image.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.canvas_max_width">canvas_max_width</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum width of the canvas.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingPtsSelection.canvas_max_height">canvas_max_height</span></code></td>
+<td>
+<code><span title="int">int</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Maximum height of the canvas.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.initialize_properties" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;initialize_properties&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.parking_management.ParkingPtsSelection.initialize_properties&lt;/code&gt;)'>initialize_properties</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Initialize properties for image, canvas, bounding boxes, and dimensions.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.upload_image" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;upload_image&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.parking_management.ParkingPtsSelection.upload_image&lt;/code&gt;)'>upload_image</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Upload and display an image on the canvas, resizing it to fit within specified dimensions.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.on_canvas_click" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;on_canvas_click&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.parking_management.ParkingPtsSelection.on_canvas_click&lt;/code&gt;)'>on_canvas_click</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Handle mouse clicks to add points for bounding boxes on the canvas.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.draw_box" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;draw_box&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.parking_management.ParkingPtsSelection.draw_box&lt;/code&gt;)'>draw_box</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Draw a bounding box on the canvas using the provided coordinates.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.remove_last_bounding_box" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;remove_last_bounding_box&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.parking_management.ParkingPtsSelection.remove_last_bounding_box&lt;/code&gt;)'>remove_last_bounding_box</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Remove the last bounding box from the list and redraw the canvas.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.redraw_canvas" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;redraw_canvas&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.parking_management.ParkingPtsSelection.redraw_canvas&lt;/code&gt;)'>redraw_canvas</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Redraw the canvas with the image and all bounding boxes.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.parking_management.ParkingPtsSelection.save_to_json" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;save_to_json&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.parking_management.ParkingPtsSelection.save_to_json&lt;/code&gt;)'>save_to_json</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Save the selected parking zone points to a JSON file with scaled coordinates.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parking_selector</span> <span class="o">=</span> <span class="n">ParkingPtsSelection</span><span class="p">()</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="c1"># Use the GUI to upload an image, select parking zones, and save the data</span>
+</code></pre></div>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 50</span>
+<span> 51</span>
+<span> 52</span>
+<span> 53</span>
+<span> 54</span>
+<span> 55</span>
+<span> 56</span>
+<span> 57</span>
+<span> 58</span>
+<span> 59</span>
+<span> 60</span>
+<span> 61</span>
+<span> 62</span>
+<span> 63</span>
+<span> 64</span>
+<span> 65</span>
+<span> 66</span>
+<span> 67</span>
+<span> 68</span>
+<span> 69</span>
+<span> 70</span>
+<span> 71</span>
+<span> 72</span>
+<span> 73</span>
+<span> 74</span>
+<span> 75</span>
+<span> 76</span>
+<span> 77</span>
+<span> 78</span>
+<span> 79</span>
+<span> 80</span>
+<span> 81</span>
+<span> 82</span>
+<span> 83</span>
+<span> 84</span>
+<span> 85</span>
+<span> 86</span>
+<span> 87</span>
+<span> 88</span>
+<span> 89</span>
+<span> 90</span>
+<span> 91</span>
+<span> 92</span>
+<span> 93</span>
+<span> 94</span>
+<span> 95</span>
+<span> 96</span>
+<span> 97</span>
+<span> 98</span>
+<span> 99</span>
+<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize the ParkingPtsSelection class, setting up UI and properties for parking zone point selection."""</span>
+<span></span>    <span class="k">try</span><span class="p">:</span>  <span class="c1"># Check if tkinter is installed</span>
+<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">tk</span>
+<span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">tkinter</span><span class="w"> </span><span class="kn">import</span> <span class="n">filedialog</span><span class="p">,</span> <span class="n">messagebox</span>
+<span></span>    <span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>  <span class="c1"># Display error with recommendations</span>
+<span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">platform</span>
+<span></span>
+<span></span>        <span class="n">install_cmd</span> <span class="o">=</span> <span class="p">{</span>
+<span></span>            <span class="s2">"Linux"</span><span class="p">:</span> <span class="s2">"sudo apt install python3-tk (Debian/Ubuntu) | sudo dnf install python3-tkinter (Fedora) | "</span>
+<span></span>            <span class="s2">"sudo pacman -S tk (Arch)"</span><span class="p">,</span>
+<span></span>            <span class="s2">"Windows"</span><span class="p">:</span> <span class="s2">"reinstall Python and enable the checkbox `tcl/tk and IDLE` on **Optional Features** during installation"</span><span class="p">,</span>
+<span></span>            <span class="s2">"Darwin"</span><span class="p">:</span> <span class="s2">"reinstall Python from https://www.python.org/downloads/macos/ or `brew install python-tk`"</span><span class="p">,</span>
+<span></span>        <span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">platform</span><span class="o">.</span><span class="n">system</span><span class="p">(),</span> <span class="s2">"Unknown OS. Check your Python installation."</span><span class="p">)</span>
+<span></span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">" Tkinter is not configured or supported. Potential fix: </span><span class="si">{</span><span class="n">install_cmd</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="k">return</span>
+<span></span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">check_imshow</span><span class="p">(</span><span class="n">warn</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span></span>        <span class="k">return</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">filedialog</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">messagebox</span> <span class="o">=</span> <span class="n">tk</span><span class="p">,</span> <span class="n">filedialog</span><span class="p">,</span> <span class="n">messagebox</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">master</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">Tk</span><span class="p">()</span>  <span class="c1"># Reference to the main application window</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">"Ultralytics Parking Zones Points Selector"</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">resizable</span><span class="p">(</span><span class="kc">False</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">Canvas</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="p">,</span> <span class="n">bg</span><span class="o">=</span><span class="s2">"white"</span><span class="p">)</span>  <span class="c1"># Canvas widget for displaying images</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">BOTTOM</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Variable to store the loaded image</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas_image</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Reference to the image displayed on the canvas</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas_max_width</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Maximum allowed width for the canvas</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas_max_height</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Maximum allowed height for the canvas</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Data for region annotation management</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">current_box</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Stores the currently selected bounding box</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">imgh</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Height of the current image</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">imgw</span> <span class="o">=</span> <span class="kc">None</span>  <span class="c1"># Width of the current image</span>
+<span></span>
+<span></span>    <span class="c1"># Button frame with buttons</span>
+<span></span>    <span class="n">button_frame</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">Frame</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="p">)</span>
+<span></span>    <span class="n">button_frame</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">TOP</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="k">for</span> <span class="n">text</span><span class="p">,</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="p">[</span>
+<span></span>        <span class="p">(</span><span class="s2">"Upload Image"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">upload_image</span><span class="p">),</span>
+<span></span>        <span class="p">(</span><span class="s2">"Remove Last BBox"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">remove_last_bounding_box</span><span class="p">),</span>
+<span></span>        <span class="p">(</span><span class="s2">"Save"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_to_json</span><span class="p">),</span>
+<span></span>    <span class="p">]:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">Button</span><span class="p">(</span><span class="n">button_frame</span><span class="p">,</span> <span class="n">text</span><span class="o">=</span><span class="n">text</span><span class="p">,</span> <span class="n">command</span><span class="o">=</span><span class="n">cmd</span><span class="p">)</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="n">side</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">LEFT</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">initialize_properties</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">master</span><span class="o">.</span><span class="n">mainloop</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.draw_box">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">draw_box</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">draw_box</span><span class="p">(</span><span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Draw a bounding box on the canvas using the provided coordinates.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>144</span>
+<span>145</span>
+<span>146</span>
+<span>147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">draw_box</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">box</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Draw a bounding box on the canvas using the provided coordinates."""</span>
+<span></span>    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">4</span><span class="p">):</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_line</span><span class="p">(</span><span class="n">box</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="n">box</span><span class="p">[(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">%</span> <span class="mi">4</span><span class="p">],</span> <span class="n">fill</span><span class="o">=</span><span class="s2">"blue"</span><span class="p">,</span> <span class="n">width</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.initialize_properties">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">initialize_properties</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">initialize_properties</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Initialize properties for image, canvas, bounding boxes, and dimensions.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>102</span>
+<span>103</span>
+<span>104</span>
+<span>105</span>
+<span>106</span>
+<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">initialize_properties</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize properties for image, canvas, bounding boxes, and dimensions."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_image</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_box</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[]</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">imgw</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgh</span> <span class="o">=</span> <span class="mi">0</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas_max_width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas_max_height</span> <span class="o">=</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.on_canvas_click">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">on_canvas_click</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_canvas_click</span><span class="p">(</span><span class="n">event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Handle mouse clicks to add points for bounding boxes on the canvas.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span>
+<span>140</span>
+<span>141</span>
+<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_canvas_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Handle mouse clicks to add points for bounding boxes on the canvas."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">current_box</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">event</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_oval</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n">event</span><span class="o">.</span><span class="n">y</span> <span class="o">+</span> <span class="mi">3</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
+<span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_box</span><span class="p">)</span> <span class="o">==</span> <span class="mi">4</span><span class="p">:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_box</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">draw_box</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">current_box</span><span class="p">)</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">current_box</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.redraw_canvas">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">redraw_canvas</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">redraw_canvas</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Redraw the canvas with the image and all bounding boxes.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>157</span>
+<span>158</span>
+<span>159</span>
+<span>160</span>
+<span>161</span>
+<span>162</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">redraw_canvas</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Redraw the canvas with the image and all bounding boxes."""</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="s2">"all"</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_image</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">NW</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_image</span><span class="p">)</span>
+<span></span>    <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="p">:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">draw_box</span><span class="p">(</span><span class="n">box</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.remove_last_bounding_box">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">remove_last_bounding_box</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">remove_last_bounding_box</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Remove the last bounding box from the list and redraw the canvas.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>149</span>
+<span>150</span>
+<span>151</span>
+<span>152</span>
+<span>153</span>
+<span>154</span>
+<span>155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_last_bounding_box</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Remove the last bounding box from the list and redraw the canvas."""</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="p">:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">messagebox</span><span class="o">.</span><span class="n">showwarning</span><span class="p">(</span><span class="s2">"Warning"</span><span class="p">,</span> <span class="s2">"No bounding boxes to remove."</span><span class="p">)</span>
+<span></span>        <span class="k">return</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">redraw_canvas</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.save_to_json">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save_to_json</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_to_json</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Save the selected parking zone points to a JSON file with scaled coordinates.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>164</span>
+<span>165</span>
+<span>166</span>
+<span>167</span>
+<span>168</span>
+<span>169</span>
+<span>170</span>
+<span>171</span>
+<span>172</span>
+<span>173</span>
+<span>174</span>
+<span>175</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Save the selected parking zone points to a JSON file with scaled coordinates."""</span>
+<span></span>    <span class="n">scale_w</span><span class="p">,</span> <span class="n">scale_h</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgw</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">winfo_width</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgh</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">winfo_height</span><span class="p">()</span>
+<span></span>    <span class="n">data</span> <span class="o">=</span> <span class="p">[{</span><span class="s2">"points"</span><span class="p">:</span> <span class="p">[(</span><span class="nb">int</span><span class="p">(</span><span class="n">x</span> <span class="o">*</span> <span class="n">scale_w</span><span class="p">),</span> <span class="nb">int</span><span class="p">(</span><span class="n">y</span> <span class="o">*</span> <span class="n">scale_h</span><span class="p">))</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">box</span><span class="p">]}</span> <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="p">]</span>
+<span></span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">io</span><span class="w"> </span><span class="kn">import</span> <span class="n">StringIO</span>  <span class="c1"># Function level import, as it's only required to store coordinates</span>
+<span></span>
+<span></span>    <span class="n">write_buffer</span> <span class="o">=</span> <span class="n">StringIO</span><span class="p">()</span>
+<span></span>    <span class="n">json</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">write_buffer</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span>
+<span></span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">"bounding_boxes.json"</span><span class="p">,</span> <span class="s2">"w"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span></span>        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">write_buffer</span><span class="o">.</span><span class="n">getvalue</span><span class="p">())</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">messagebox</span><span class="o">.</span><span class="n">showinfo</span><span class="p">(</span><span class="s2">"Success"</span><span class="p">,</span> <span class="s2">"Bounding boxes saved to bounding_boxes.json"</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingPtsSelection.upload_image">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">upload_image</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">upload_image</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Upload and display an image on the canvas, resizing it to fit within specified dimensions.</p>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">upload_image</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Upload and display an image on the canvas, resizing it to fit within specified dimensions."""</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">PIL</span><span class="w"> </span><span class="kn">import</span> <span class="n">Image</span><span class="p">,</span> <span class="n">ImageTk</span>  <span class="c1"># Scoped import because ImageTk requires tkinter package</span>
+<span></span>
+<span></span>    <span class="n">file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">filedialog</span><span class="o">.</span><span class="n">askopenfilename</span><span class="p">(</span><span class="n">filetypes</span><span class="o">=</span><span class="p">[(</span><span class="s2">"Image Files"</span><span class="p">,</span> <span class="s2">"*.png *.jpg *.jpeg"</span><span class="p">)])</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="n">file</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">"No image selected."</span><span class="p">)</span>
+<span></span>        <span class="k">return</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">imgw</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgh</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">size</span>
+<span></span>    <span class="n">aspect_ratio</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgw</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgh</span>
+<span></span>    <span class="n">canvas_width</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>        <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_max_width</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgw</span><span class="p">)</span> <span class="k">if</span> <span class="n">aspect_ratio</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_max_height</span> <span class="o">*</span> <span class="n">aspect_ratio</span><span class="p">)</span>
+<span></span>    <span class="p">)</span>
+<span></span>    <span class="n">canvas_height</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>        <span class="nb">min</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_max_height</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgh</span><span class="p">)</span> <span class="k">if</span> <span class="n">aspect_ratio</span> <span class="o">&lt;=</span> <span class="mi">1</span> <span class="k">else</span> <span class="nb">int</span><span class="p">(</span><span class="n">canvas_width</span> <span class="o">/</span> <span class="n">aspect_ratio</span><span class="p">)</span>
+<span></span>    <span class="p">)</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">config</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="n">canvas_width</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="n">canvas_height</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas_image</span> <span class="o">=</span> <span class="n">ImageTk</span><span class="o">.</span><span class="n">PhotoImage</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image</span><span class="o">.</span><span class="n">resize</span><span class="p">((</span><span class="n">canvas_width</span><span class="p">,</span> <span class="n">canvas_height</span><span class="p">)))</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">create_image</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">anchor</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">tk</span><span class="o">.</span><span class="n">NW</span><span class="p">,</span> <span class="n">image</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">canvas_image</span><span class="p">)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">canvas</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="s2">"&lt;Button-1&gt;"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">on_canvas_click</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">rg_data</span><span class="o">.</span><span class="n">clear</span><span class="p">(),</span> <span class="bp">self</span><span class="o">.</span><span class="n">current_box</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div><p><br/><br/><hr/><br/></p>
+<div class="doc doc-object doc-class">
+<h2 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingManagement">
+<code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.solutions.parking_management.ParkingManagement</span>
+</h2>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">ParkingManagement</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span>
+</code></pre></div>
+<div class="doc doc-contents first">
+<p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" href="solutions.html#ultralytics.solutions.solutions.BaseSolution" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.BaseSolution&lt;/span&gt;'>BaseSolution</a></code></p>
+<p>Manages parking occupancy and availability using YOLO model for real-time monitoring and visualization.</p>
+<p>This class extends BaseSolution to provide functionality for parking lot management, including detection of
+occupied spaces, visualization of parking regions, and display of occupancy statistics.</p>
+<p><span class="doc-section-title">Attributes:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingManagement.json_file">json_file</span></code></td>
+<td>
+<code><span title="str">str</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Path to the JSON file containing parking region details.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingManagement.json">json</span></code></td>
+<td>
+<code><span title="typing.List">List</span>[<span title="Dict">Dict</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Loaded JSON data containing parking region information.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingManagement.pr_info">pr_info</span></code></td>
+<td>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Dictionary storing parking information (Occupancy and Available spaces).</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingManagement.arc">arc</span></code></td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>RGB color tuple for available region visualization.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingManagement.occ">occ</span></code></td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>RGB color tuple for occupied region visualization.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.solutions.parking_management.ParkingManagement.dc">dc</span></code></td>
+<td>
+<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>RGB color tuple for centroid visualization of detected objects.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Methods:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td><code><a class="autorefs autorefs-internal" href="#ultralytics.solutions.parking_management.ParkingManagement.process" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-method"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-function-name"&gt;process&lt;/span&gt; (&lt;code&gt;ultralytics.solutions.parking_management.ParkingManagement.process&lt;/code&gt;)'>process</a></code></td>
+<td>
+<div class="doc-md-description">
+<p>Process the input image for parking lot management and visualization.</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.solutions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ParkingManagement</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parking_manager</span> <span class="o">=</span> <span class="n">ParkingManagement</span><span class="p">(</span><span class="n">model</span><span class="o">=</span><span class="s2">"yolo11n.pt"</span><span class="p">,</span> <span class="n">json_file</span><span class="o">=</span><span class="s2">"parking_regions.json"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Occupied spaces: </span><span class="si">{</span><span class="n">parking_manager</span><span class="o">.</span><span class="n">pr_info</span><span class="p">[</span><span class="s1">'Occupancy'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Available spaces: </span><span class="si">{</span><span class="n">parking_manager</span><span class="o">.</span><span class="n">pr_info</span><span class="p">[</span><span class="s1">'Available'</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+</code></pre></div>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>203</span>
+<span>204</span>
+<span>205</span>
+<span>206</span>
+<span>207</span>
+<span>208</span>
+<span>209</span>
+<span>210</span>
+<span>211</span>
+<span>212</span>
+<span>213</span>
+<span>214</span>
+<span>215</span>
+<span>216</span>
+<span>217</span>
+<span>218</span>
+<span>219</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""Initialize the parking management system with a YOLO model and visualization settings."""</span>
+<span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">json_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"json_file"</span><span class="p">]</span>  <span class="c1"># Load parking regions JSON data</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">json_file</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"json_file argument missing. Parking region details required."</span><span class="p">)</span>
+<span></span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">"❌ Json file path can not be empty"</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">json_file</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">json</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pr_info</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Occupancy"</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s2">"Available"</span><span class="p">:</span> <span class="mi">0</span><span class="p">}</span>  <span class="c1"># Dictionary for parking information</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">arc</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>  <span class="c1"># Available region color</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">occ</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># Occupied region color</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">dc</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">189</span><span class="p">)</span>  <span class="c1"># Centroid color for each box</span>
+</code></pre></div></td></tr></table></div>
+</details>
+<div class="doc doc-children">
+<div class="doc doc-object doc-function">
+<h3 class="doc doc-heading" id="ultralytics.solutions.parking_management.ParkingManagement.process">
+<code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">process</span>
+</h3>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">process</span><span class="p">(</span><span class="n">im0</span><span class="p">:</span> <span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span>
+</code></pre></div>
+<div class="doc doc-contents">
+<p>Process the input image for parking lot management and visualization.</p>
+<p>This function analyzes the input image, extracts tracks, and determines the occupancy status of parking
+regions defined in the JSON file. It annotates the image with occupied and available parking spots,
+and updates the parking information.</p>
+<p><span class="doc-section-title">Parameters:</span></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Type</th>
+<th>Description</th>
+<th>Default</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code>im0</code>
+</td>
+<td>
+<code><span title="numpy.ndarray">ndarray</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>The input inference image.</p>
+</div>
+</td>
+<td>
+<em>required</em>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Returns:</span></p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="doc-section-item">
+<td>
+<code><a class="autorefs autorefs-internal" href="solutions.html#ultralytics.solutions.solutions.SolutionResults" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.solutions.solutions.SolutionResults&lt;/span&gt;'>SolutionResults</a></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Contains processed image <code>plot_im</code>, 'filled_slots' (number of occupied parking slots),
+'available_slots' (number of available parking slots), and 'total_tracks' (total number of tracked objects).</p>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+<p><span class="doc-section-title">Examples:</span></p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">parking_manager</span> <span class="o">=</span> <span class="n">ParkingManagement</span><span class="p">(</span><span class="n">json_file</span><span class="o">=</span><span class="s2">"parking_regions.json"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="s2">"parking_lot.jpg"</span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">results</span> <span class="o">=</span> <span class="n">parking_manager</span><span class="o">.</span><span class="n">process</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+</code></pre></div>
+<details class="quote">
+<summary>Source code in <code>ultralytics/solutions/parking_management.py</code></summary>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>221</span>
+<span>222</span>
+<span>223</span>
+<span>224</span>
+<span>225</span>
+<span>226</span>
+<span>227</span>
+<span>228</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span>
+<span>233</span>
+<span>234</span>
+<span>235</span>
+<span>236</span>
+<span>237</span>
+<span>238</span>
+<span>239</span>
+<span>240</span>
+<span>241</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span>
+<span>246</span>
+<span>247</span>
+<span>248</span>
+<span>249</span>
+<span>250</span>
+<span>251</span>
+<span>252</span>
+<span>253</span>
+<span>254</span>
+<span>255</span>
+<span>256</span>
+<span>257</span>
+<span>258</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span>
+<span>263</span>
+<span>264</span>
+<span>265</span>
+<span>266</span>
+<span>267</span>
+<span>268</span>
+<span>269</span>
+<span>270</span>
+<span>271</span>
+<span>272</span>
+<span>273</span>
+<span>274</span>
+<span>275</span>
+<span>276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
+<span></span><span class="w">    </span><span class="sd">"""</span>
+<span></span><span class="sd">    Process the input image for parking lot management and visualization.</span>
+<span></span>
+<span></span><span class="sd">    This function analyzes the input image, extracts tracks, and determines the occupancy status of parking</span>
+<span></span><span class="sd">    regions defined in the JSON file. It annotates the image with occupied and available parking spots,</span>
+<span></span><span class="sd">    and updates the parking information.</span>
+<span></span>
+<span></span><span class="sd">    Args:</span>
+<span></span><span class="sd">        im0 (np.ndarray): The input inference image.</span>
+<span></span>
+<span></span><span class="sd">    Returns:</span>
+<span></span><span class="sd">        (SolutionResults): Contains processed image `plot_im`, 'filled_slots' (number of occupied parking slots),</span>
+<span></span><span class="sd">            'available_slots' (number of available parking slots), and 'total_tracks' (total number of tracked objects).</span>
+<span></span>
+<span></span><span class="sd">    Examples:</span>
+<span></span><span class="sd">        &gt;&gt;&gt; parking_manager = ParkingManagement(json_file="parking_regions.json")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; image = cv2.imread("parking_lot.jpg")</span>
+<span></span><span class="sd">        &gt;&gt;&gt; results = parking_manager.process(image)</span>
+<span></span><span class="sd">    """</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">extract_tracks</span><span class="p">(</span><span class="n">im0</span><span class="p">)</span>  <span class="c1"># Extract tracks from im0</span>
+<span></span>    <span class="n">es</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">json</span><span class="p">),</span> <span class="mi">0</span>  <span class="c1"># Empty slots, filled slots</span>
+<span></span>    <span class="n">annotator</span> <span class="o">=</span> <span class="n">SolutionAnnotator</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">line_width</span><span class="p">)</span>  <span class="c1"># Initialize annotator</span>
+<span></span>
+<span></span>    <span class="k">for</span> <span class="n">region</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">json</span><span class="p">:</span>
+<span></span>        <span class="c1"># Convert points to a NumPy array with the correct dtype and reshape properly</span>
+<span></span>        <span class="n">pts_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">region</span><span class="p">[</span><span class="s2">"points"</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">((</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+<span></span>        <span class="n">rg_occupied</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Occupied region initialization</span>
+<span></span>        <span class="k">for</span> <span class="n">box</span><span class="p">,</span> <span class="bp">cls</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">clss</span><span class="p">):</span>
+<span></span>            <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">int</span><span class="p">((</span><span class="n">box</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">box</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+<span></span>            <span class="n">dist</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">pointPolygonTest</span><span class="p">(</span><span class="n">pts_array</span><span class="p">,</span> <span class="p">(</span><span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">),</span> <span class="kc">False</span><span class="p">)</span>
+<span></span>            <span class="k">if</span> <span class="n">dist</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>                <span class="c1"># cv2.circle(im0, (xc, yc), radius=self.line_width * 4, color=self.dc, thickness=-1)</span>
+<span></span>                <span class="n">annotator</span><span class="o">.</span><span class="n">display_objects_labels</span><span class="p">(</span>
+<span></span>                    <span class="n">im0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">cls</span><span class="p">)],</span> <span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="mi">10</span>
+<span></span>                <span class="p">)</span>
+<span></span>                <span class="n">rg_occupied</span> <span class="o">=</span> <span class="kc">True</span>
+<span></span>                <span class="k">break</span>
+<span></span>        <span class="n">fs</span><span class="p">,</span> <span class="n">es</span> <span class="o">=</span> <span class="p">(</span><span class="n">fs</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">es</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="k">if</span> <span class="n">rg_occupied</span> <span class="k">else</span> <span class="p">(</span><span class="n">fs</span><span class="p">,</span> <span class="n">es</span><span class="p">)</span>
+<span></span>        <span class="c1"># Plot regions</span>
+<span></span>        <span class="n">cv2</span><span class="o">.</span><span class="n">polylines</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="p">[</span><span class="n">pts_array</span><span class="p">],</span> <span class="n">isClosed</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">occ</span> <span class="k">if</span> <span class="n">rg_occupied</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">arc</span><span class="p">,</span> <span class="n">thickness</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pr_info</span><span class="p">[</span><span class="s2">"Occupancy"</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">pr_info</span><span class="p">[</span><span class="s2">"Available"</span><span class="p">]</span> <span class="o">=</span> <span class="n">fs</span><span class="p">,</span> <span class="n">es</span>
+<span></span>
+<span></span>    <span class="n">annotator</span><span class="o">.</span><span class="n">display_analytics</span><span class="p">(</span><span class="n">im0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pr_info</span><span class="p">,</span> <span class="p">(</span><span class="mi">104</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">17</span><span class="p">),</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="mi">10</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="n">plot_im</span> <span class="o">=</span> <span class="n">annotator</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">display_output</span><span class="p">(</span><span class="n">plot_im</span><span class="p">)</span>  <span class="c1"># Display output with base class function</span>
+<span></span>
+<span></span>    <span class="c1"># Return SolutionResults</span>
+<span></span>    <span class="k">return</span> <span class="n">SolutionResults</span><span class="p">(</span>
+<span></span>        <span class="n">plot_im</span><span class="o">=</span><span class="n">plot_im</span><span class="p">,</span>
+<span></span>        <span class="n">filled_slots</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pr_info</span><span class="p">[</span><span class="s2">"Occupancy"</span><span class="p">],</span>
+<span></span>        <span class="n">available_slots</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">pr_info</span><span class="p">[</span><span class="s2">"Available"</span><span class="p">],</span>
+<span></span>        <span class="n">total_tracks</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">track_ids</span><span class="p">),</span>
+<span></span>    <span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+</details>
+</div>
+</div>
+</div>
+</div>
+</div><p><br/><br/></p>
+<br/><br/>
+<div class="git-info">
+<div class="dates-container">
+<span class="date-item" title="This page was first created on April 29, 2024">
+<span class="hover-item">📅</span> Created 1 year ago
+    </span>
+<span class="date-item" title="This page was last updated on September 11, 2024">
+<span class="hover-item">✏️</span> Updated 10 months ago
+    </span>
+</div>
+<div class="authors-container">
+<a class="author-link" href="https://github.com/glenn-jocher" title="glenn-jocher (3 changes)">
+<img alt="glenn-jocher" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/26833433?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/jk4e" title="jk4e (1 change)">
+<img alt="jk4e" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/116908874?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/Burhan-Q" title="Burhan-Q (1 change)">
+<img alt="Burhan-Q" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62214284?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/lakshanthad" title="lakshanthad (1 change)">
+<img alt="lakshanthad" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/20147381?v=4&amp;s=96"/>
+</a>
+<a class="author-link" href="https://github.com/RizwanMunawar" title="RizwanMunawar (1 change)">
+<img alt="RizwanMunawar" class="hover-item" loading="lazy" src="https://avatars.githubusercontent.com/u/62513924?v=4&amp;s=96"/>
+</a>
+</div></div><div class="share-buttons">
+<button class="share-button hover-item" onclick="window.open('https://twitter.com/intent/tweet?url=https://docs.ultralytics.com/reference/solutions/parking_management.html', 'TwitterShare', 'width=550,height=680,menubar=no,toolbar=no'); return false;">
+<i class="fa-brands fa-x-twitter"></i> Tweet
+    </button>
+<button class="share-button hover-item linkedin" onclick="window.open('https://www.linkedin.com/shareArticle?url=https://docs.ultralytics.com/reference/solutions/parking_management.html', 'LinkedinShare', 'width=550,height=730,menubar=no,toolbar=no'); return false;">
+<i class="fa-brands fa-linkedin-in"></i> Share
+    </button>
+</div>
+<br/>
+</article>
+</div>
+<script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var labels=set.querySelector(".tabbed-labels");for(var tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<nav aria-label="Footer" class="md-footer__inner md-grid">
+<a aria-label="Previous: object_cropper" class="md-footer__link md-footer__link--prev" href="object_cropper.html">
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</div>
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Previous
+              </span>
+<div class="md-ellipsis">
+                object_cropper
+              </div>
+</div>
+</a>
+<a aria-label="Next: queue_management" class="md-footer__link md-footer__link--next" href="queue_management.html">
+<div class="md-footer__title">
+<span class="md-footer__direction">
+                Next
+              </span>
+<div class="md-ellipsis">
+                queue_management
+              </div>
+</div>
+<div class="md-footer__button md-icon">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"></path></svg>
+</div>
+</a>
+</nav>
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+<div class="md-copyright__highlight">
+<a href="https://www.ultralytics.com/" target="_blank">© 2025 Ultralytics Inc.</a> All rights reserved.
+    </div>
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/ultralytics" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://www.linkedin.com/company/ultralytics/" rel="noopener" target="_blank" title="www.linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://x.com/ultralytics" rel="noopener" target="_blank" title="x.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://youtube.com/ultralytics?sub_confirmation=1" rel="noopener" target="_blank" title="youtube.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M549.7 124.1c-6.2-23.7-24.8-42.3-48.3-48.6C458.9 64 288.1 64 288.1 64S117.3 64 74.7 75.5c-23.5 6.3-42 24.9-48.3 48.6C15 167 15 256.4 15 256.4s0 89.4 11.4 132.3c6.3 23.6 24.8 41.5 48.3 47.8C117.3 448 288.1 448 288.1 448s170.8 0 213.4-11.5c23.5-6.3 42-24.2 48.3-47.8 11.4-42.9 11.4-132.3 11.4-132.3s0-89.4-11.4-132.3zM232.2 337.6V175.2l142.7 81.2z" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://hub.docker.com/r/ultralytics/ultralytics/" rel="noopener" target="_blank" title="hub.docker.com">
+<svg viewbox="0 0 640 512" xmlns="http://www.w3.org/2000/svg"><path d="M349.9 236.3h-66.1v-59.4h66.1zm0-204.3h-66.1v60.7h66.1zm78.2 144.8H362v59.4h66.1zm-156.3-72.1h-66.1v60.1h66.1zm78.1 0h-66.1v60.1h66.1zm276.8 100c-14.4-9.7-47.6-13.2-73.1-8.4-3.3-24-16.7-44.9-41.1-63.7l-14-9.3-9.3 14c-18.4 27.8-23.4 73.6-3.7 103.8-8.7 4.7-25.8 11.1-48.4 10.7H2.4c-8.7 50.8 5.8 116.8 44 162.1 37.1 43.9 92.7 66.2 165.4 66.2 157.4 0 273.9-72.5 328.4-204.2 21.4.4 67.6.1 91.3-45.2 1.5-2.5 6.6-13.2 8.5-17.1zm-511.1-27.9h-66v59.4h66.1v-59.4zm78.1 0h-66.1v59.4h66.1zm78.1 0h-66.1v59.4h66.1zm-78.1-72.1h-66.1v60.1h66.1z" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://pypi.org/project/ultralytics/" rel="noopener" target="_blank" title="pypi.org">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><path d="M439.8 200.5c-7.7-30.9-22.3-54.2-53.4-54.2h-40.1v47.4c0 36.8-31.2 67.8-66.8 67.8H172.7c-29.2 0-53.4 25-53.4 54.3v101.8c0 29 25.2 46 53.4 54.3 33.8 9.9 66.3 11.7 106.8 0 26.9-7.8 53.4-23.5 53.4-54.3v-40.7H226.2v-13.6h160.2c31.1 0 42.6-21.7 53.4-54.2 11.2-33.5 10.7-65.7 0-108.6M286.2 444.7a20.4 20.4 0 1 1 0-40.7 20.4 20.4 0 1 1 0 40.7M167.8 248.1h106.8c29.7 0 53.4-24.5 53.4-54.3V91.9c0-29-24.4-50.7-53.4-55.6-35.8-5.9-74.7-5.6-106.8.1-45.2 8-53.4 24.7-53.4 55.6v40.7h106.9v13.6h-147c-31.1 0-58.3 18.7-66.8 54.2-9.8 40.7-10.2 66.1 0 108.6 7.6 31.6 25.7 54.2 56.8 54.2H101v-48.8c0-35.3 30.5-66.4 66.8-66.4m-6.6-183.4a20.4 20.4 0 1 1 0 40.8 20.4 20.4 0 1 1 0-40.8" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://discord.com/invite/ultralytics" rel="noopener" target="_blank" title="discord.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M492.5 69.8c-.2-.3-.4-.6-.8-.7-38.1-17.5-78.4-30-119.7-37.1-.4-.1-.8 0-1.1.1s-.6.4-.8.8c-5.5 9.9-10.5 20.2-14.9 30.6-44.6-6.8-89.9-6.8-134.4 0-4.5-10.5-9.5-20.7-15.1-30.6-.2-.3-.5-.6-.8-.8s-.7-.2-1.1-.2C162.5 39 122.2 51.5 84.1 69c-.3.1-.6.4-.8.7C7.1 183.5-13.8 294.6-3.6 404.2c0 .3.1.5.2.8s.3.4.5.6c44.4 32.9 94 58 146.8 74.2.4.1.8.1 1.1 0s.7-.4.9-.7c11.3-15.4 21.4-31.8 30-48.8.1-.2.2-.5.2-.8s0-.5-.1-.8-.2-.5-.4-.6-.4-.3-.7-.4c-15.8-6.1-31.2-13.4-45.9-21.9-.3-.2-.5-.4-.7-.6s-.3-.6-.3-.9 0-.6.2-.9.3-.5.6-.7c3.1-2.3 6.2-4.7 9.1-7.1.3-.2.6-.4.9-.4s.7 0 1 .1c96.2 43.9 200.4 43.9 295.5 0 .3-.1.7-.2 1-.2s.7.2.9.4c2.9 2.4 6 4.9 9.1 7.2.2.2.4.4.6.7s.2.6.2.9-.1.6-.3.9-.4.5-.6.6c-14.7 8.6-30 15.9-45.9 21.8-.2.1-.5.2-.7.4s-.3.4-.4.7-.1.5-.1.8.1.5.2.8c8.8 17 18.8 33.3 30 48.8.2.3.6.6.9.7s.8.1 1.1 0c52.9-16.2 102.6-41.3 147.1-74.2.2-.2.4-.4.5-.6s.2-.5.2-.8c12.3-126.8-20.5-236.9-86.9-334.5zm-302 267.7c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.4 59.2-52.8 59.2m195.4 0c-29 0-52.8-26.6-52.8-59.2s23.4-59.2 52.8-59.2c29.7 0 53.3 26.8 52.8 59.2 0 32.7-23.2 59.2-52.8 59.2" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://reddit.com/r/ultralytics" rel="noopener" target="_blank" title="reddit.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><path d="M0 256C0 114.6 114.6 0 256 0s256 114.6 256 256-114.6 256-256 256H37.1c-13.7 0-20.5-16.5-10.9-26.2L75 437C28.7 390.7 0 326.7 0 256m349.6-102.4c23.6 0 42.7-19.1 42.7-42.7s-19.1-42.7-42.7-42.7c-20.6 0-37.8 14.6-41.8 34-34.5 3.7-61.4 33-61.4 68.4v.2c-37.5 1.6-71.8 12.3-99 29.1-10.1-7.8-22.8-12.5-36.5-12.5-33 0-59.8 26.8-59.8 59.8 0 24 14.1 44.6 34.4 54.1 2 69.4 77.6 125.2 170.6 125.2s168.7-55.9 170.6-125.3c20.2-9.6 34.1-30.2 34.1-54 0-33-26.8-59.8-59.8-59.8-13.7 0-26.3 4.6-36.4 12.4-27.4-17-62.1-27.7-100-29.1v-.2c0-25.4 18.9-46.5 43.4-49.9 4.4 18.8 21.3 32.8 41.5 32.8zm-172.5 93.3c16.7 0 29.5 17.6 28.5 39.3s-13.5 29.6-30.3 29.6-31.4-8.8-30.4-30.5S160.3 247 177 247zm190.1 38.3c1 21.7-13.7 30.5-30.4 30.5s-29.3-7.9-30.3-29.6 11.8-39.3 28.5-39.3 31.2 16.6 32.1 38.3zm-48.1 56.7c-10.3 24.6-34.6 41.9-63 41.9s-52.7-17.3-63-41.9c-1.2-2.9.8-6.2 3.9-6.5 18.4-1.9 38.3-2.9 59.1-2.9s40.7 1 59.1 2.9c3.1.3 5.1 3.6 3.9 6.5" fill="currentColor"></path></svg>
+</a>
+<a class="md-social__link" href="https://weixin.qq.com/r/mp/LxckPDfEgWr_rXNf90I9" rel="noopener" target="_blank" title="weixin.qq.com">
+<svg viewbox="0 0 576 512" xmlns="http://www.w3.org/2000/svg"><path d="M385.2 167.6c6.4 0 12.6.3 18.8 1.1C387.4 90.3 303.3 32 207.7 32 100.5 32 13 104.8 13 197.4c0 53.4 29.3 97.5 77.9 131.6l-19.3 58.6 68-34.1c24.4 4.8 43.8 9.7 68.2 9.7 6.2 0 12.1-.3 18.3-.8-4-12.9-6.2-26.6-6.2-40.8-.1-84.9 72.9-154 165.3-154m-104.5-52.9c14.5 0 24.2 9.7 24.2 24.4 0 14.5-9.7 24.2-24.2 24.2-14.8 0-29.3-9.7-29.3-24.2.1-14.7 14.6-24.4 29.3-24.4m-136.4 48.6c-14.5 0-29.3-9.7-29.3-24.2 0-14.8 14.8-24.4 29.3-24.4 14.8 0 24.4 9.7 24.4 24.4 0 14.6-9.6 24.2-24.4 24.2M563 319.4c0-77.9-77.9-141.3-165.4-141.3-92.7 0-165.4 63.4-165.4 141.3S305 460.7 397.6 460.7c19.3 0 38.9-5.1 58.6-9.9l53.4 29.3-14.8-48.6C534 402.1 563 363.2 563 319.4m-219.1-24.5c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.8 0 24.4 9.7 24.4 19.3 0 10-9.7 19.6-24.4 19.6m107.1 0c-9.7 0-19.3-9.7-19.3-19.6 0-9.7 9.7-19.3 19.3-19.3 14.5 0 24.4 9.7 24.4 19.3.1 10-9.9 19.6-24.4 19.6" fill="currentColor"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-progress" data-md-component="progress" role="progressbar"></div>
+<script id="__config" type="application/json">{"base": "../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.50899def.min.js"></script>
+<script src="../../javascript/extra.js"></script>
+<script src="../../javascript/giscus.js"></script>
+<script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
+<script src="../../javascript/tablesort.js"></script>
+<script>
+                    async function copyMarkdownForLLM(button) {
+                        const editBtn = document.querySelector('a[title="Edit this page"]');
+                        if (!editBtn) return;
+                        const originalHTML = button.innerHTML;
+                        const checkIcon = '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19L21 7l-1.41-1.41L9 16.17z"></path></svg>';
+                        // Handle both /blob/ and /tree/ in GitHub URLs
+                        let rawUrl = editBtn.href.replace('github.com', 'raw.githubusercontent.com');
+                        // Remove /blob/ or /tree/ from the URL
+                        rawUrl = rawUrl.replace('/blob/', '/').replace('/tree/', '/');
+                        try {
+                            const response = await fetch(rawUrl);
+                            let markdown = await response.text();
+                            // Remove YAML front matter if present
+                            if (markdown.startsWith('---')) {
+                                const frontMatterEnd = markdown.indexOf('\n---\n', 3);
+                                if (frontMatterEnd !== -1) {
+                                    markdown = markdown.substring(frontMatterEnd + 5).trim();
+                                }
+                            }
+                            const title = document.querySelector('h1')?.textContent || document.title;
+                            const content = `# ${title}\n\nSource: ${window.location.href}\n\n---\n\n${markdown}`;
+                            await navigator.clipboard.writeText(content);
+                            button.innerHTML = checkIcon + ' Copied!';
+                            setTimeout(() => { button.innerHTML = originalHTML; }, 2000);
+                        } catch (err) {
+                            button.innerHTML = '❌ Failed';
+                            setTimeout(() => { button.innerHTML = originalHTML; }, 2000);
+                        }
+                    }
+                    </script></body>
+</html>
