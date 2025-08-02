@@ -1609,7 +1609,8 @@
 <span>110</span>
 <span>111</span>
 <span>112</span>
-<span>113</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>113</span>
+<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Report model information and metrics to logger at the end of an epoch."""</span>
 <span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
 <span></span>        <span class="c1"># Report epoch time and validation metrics</span>
@@ -1617,7 +1618,8 @@
 <span></span>            <span class="n">title</span><span class="o">=</span><span class="s2">"Epoch Time"</span><span class="p">,</span> <span class="n">series</span><span class="o">=</span><span class="s2">"Epoch Time"</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch_time</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span>
 <span></span>        <span class="p">)</span>
 <span></span>        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">trainer</span><span class="o">.</span><span class="n">metrics</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span></span>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span><span class="s2">"val"</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
+<span></span>            <span class="n">title</span> <span class="o">=</span> <span class="n">k</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/"</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>            <span class="n">task</span><span class="o">.</span><span class="n">get_logger</span><span class="p">()</span><span class="o">.</span><span class="n">report_scalar</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">iteration</span><span class="o">=</span><span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="n">trainer</span><span class="o">.</span><span class="n">epoch</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
 <span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.torch_utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">model_info_for_loggers</span>
 <span></span>
@@ -1637,11 +1639,11 @@
 <p>Log validation results including labels and predictions.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>116</span>
-<span>117</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>117</span>
 <span>118</span>
 <span>119</span>
-<span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>120</span>
+<span>121</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_end</span><span class="p">(</span><span class="n">validator</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log validation results including labels and predictions."""</span>
 <span></span>    <span class="k">if</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
 <span></span>        <span class="c1"># Log validation labels and predictions</span>
@@ -1660,8 +1662,7 @@
 <p>Log final model and training results on training completion.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/clearml.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>123</span>
-<span>124</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>124</span>
 <span>125</span>
 <span>126</span>
 <span>127</span>
@@ -1677,7 +1678,8 @@
 <span>137</span>
 <span>138</span>
 <span>139</span>
-<span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>140</span>
+<span>141</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Log final model and training results on training completion."""</span>
 <span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">:=</span> <span class="n">Task</span><span class="o">.</span><span class="n">current_task</span><span class="p">():</span>
 <span></span>        <span class="c1"># Log final results, confusion matrix and PR plots</span>
