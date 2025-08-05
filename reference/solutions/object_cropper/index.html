@@ -1424,7 +1424,8 @@ image.</p>
 <span>89</span>
 <span>90</span>
 <span>91</span>
-<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
+<span>92</span>
+<span>93</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SolutionResults</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Crop detected objects from the input image and save them as separate images.</span>
 <span></span>
@@ -1450,6 +1451,7 @@ image.</p>
 <span></span>            <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">CFG</span><span class="p">[</span><span class="s2">"device"</span><span class="p">],</span>
 <span></span>            <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>        <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">clss</span> <span class="o">=</span> <span class="n">results</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># required for logging only.</span>
 <span></span>
 <span></span>    <span class="k">for</span> <span class="n">box</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">boxes</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">crop_idx</span> <span class="o">+=</span> <span class="mi">1</span>
