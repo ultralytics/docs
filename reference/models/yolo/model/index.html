@@ -2508,8 +2508,7 @@ loaded based on the task.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>363</span>
-<span>364</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>364</span>
 <span>365</span>
 <span>366</span>
 <span>367</span>
@@ -2585,7 +2584,8 @@ loaded based on the task.</p>
 <span>437</span>
 <span>438</span>
 <span>439</span>
-<span>440</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
+<span>440</span>
+<span>441</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">predict</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">source</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2738,7 +2738,8 @@ loaded based on the task.</p>
 <span>331</span>
 <span>332</span>
 <span>333</span>
-<span>334</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">embeddings</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>334</span>
+<span>335</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">classes</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">embeddings</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set the model's class names and embeddings for detection.</span>
 <span></span>
@@ -2747,6 +2748,7 @@ loaded based on the task.</p>
 <span></span><span class="sd">        embeddings (torch.Tensor): Embeddings corresponding to the classes.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">,</span> <span class="n">YOLOEModel</span><span class="p">)</span>
+<span></span>    <span class="k">assert</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">is_fused</span><span class="p">(),</span> <span class="s2">"Model was fused during inference. set_classes() can no longer be used."</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">classes</span><span class="p">,</span> <span class="n">embeddings</span><span class="p">)</span>
 <span></span>    <span class="c1"># Verify no background class is present</span>
 <span></span>    <span class="k">assert</span> <span class="s2">" "</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">classes</span>
@@ -2997,8 +2999,7 @@ classification tasks. The model must be an instance of YOLOEModel.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/model.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>336</span>
-<span>337</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>337</span>
 <span>338</span>
 <span>339</span>
 <span>340</span>
@@ -3022,7 +3023,8 @@ classification tasks. The model must be an instance of YOLOEModel.</p>
 <span>358</span>
 <span>359</span>
 <span>360</span>
-<span>361</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
+<span>361</span>
+<span>362</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">val</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">validator</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">load_vp</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
