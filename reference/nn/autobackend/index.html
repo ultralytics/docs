@@ -2581,7 +2581,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>    <span class="c1"># NCNN</span>
 <span></span>    <span class="k">elif</span> <span class="n">ncnn</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Loading </span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2"> for NCNN inference..."</span><span class="p">)</span>
-<span></span>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"git+https://github.com/Tencent/ncnn.git"</span> <span class="k">if</span> <span class="n">ARM64</span> <span class="k">else</span> <span class="s2">"ncnn"</span><span class="p">)</span>  <span class="c1"># requires NCNN</span>
+<span></span>        <span class="n">check_requirements</span><span class="p">(</span><span class="s2">"git+https://github.com/Tencent/ncnn.git"</span> <span class="k">if</span> <span class="n">ARM64</span> <span class="k">else</span> <span class="s2">"ncnn"</span><span class="p">,</span> <span class="n">cmds</span><span class="o">=</span><span class="s2">"--no-deps"</span><span class="p">)</span>
 <span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">ncnn</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pyncnn</span>
 <span></span>
 <span></span>        <span class="n">net</span> <span class="o">=</span> <span class="n">pyncnn</span><span class="o">.</span><span class="n">Net</span><span class="p">()</span>
