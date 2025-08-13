@@ -3652,7 +3652,10 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <span>987</span>
 <span>988</span>
 <span>989</span>
-<span>990</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>990</span>
+<span>991</span>
+<span>992</span>
+<span>993</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Ultralytics entrypoint function for parsing and executing command-line arguments.</span>
 <span></span>
@@ -3785,7 +3788,10 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <span></span>
 <span></span>        <span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">task</span><span class="o">=</span><span class="n">task</span><span class="p">)</span>
-<span></span>
+<span></span>        <span class="k">if</span> <span class="s2">"yoloe"</span> <span class="ow">in</span> <span class="n">stem</span> <span class="ow">or</span> <span class="s2">"world"</span> <span class="ow">in</span> <span class="n">stem</span><span class="p">:</span>
+<span></span>            <span class="n">cls_list</span> <span class="o">=</span> <span class="n">overrides</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"classes"</span><span class="p">,</span> <span class="n">DEFAULT_CFG</span><span class="o">.</span><span class="n">classes</span><span class="p">)</span>
+<span></span>            <span class="k">if</span> <span class="n">cls_list</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cls_list</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+<span></span>                <span class="n">model</span><span class="o">.</span><span class="n">set_classes</span><span class="p">(</span><span class="n">cls_list</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">))</span>  <span class="c1"># convert "person, bus" -&gt; ['person', ' bus'].</span>
 <span></span>    <span class="c1"># Task Update</span>
 <span></span>    <span class="k">if</span> <span class="n">task</span> <span class="o">!=</span> <span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="n">task</span><span class="p">:</span>
@@ -3852,10 +3858,7 @@ to create a custom configuration file based on the default settings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 994</span>
-<span> 995</span>
-<span> 996</span>
-<span> 997</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 997</span>
 <span> 998</span>
 <span> 999</span>
 <span>1000</span>
@@ -3878,7 +3881,10 @@ to create a custom configuration file based on the default settings.</p>
 <span>1017</span>
 <span>1018</span>
 <span>1019</span>
-<span>1020</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">copy_default_cfg</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1020</span>
+<span>1021</span>
+<span>1022</span>
+<span>1023</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">copy_default_cfg</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Copy the default configuration file and create a new one with '_copy' appended to its name.</span>
 <span></span>
