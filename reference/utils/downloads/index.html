@@ -9,7 +9,7 @@
 <link href="../dist/" rel="prev"/>
 <link href="../errors/" rel="next"/>
 <link href="https://raw.githubusercontent.com/ultralytics/assets/refs/heads/main/logo/favicon-yolo.png" rel="icon"/>
-<meta content="mkdocs-1.6.1, mkdocs-material-9.6.16" name="generator"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.6.17" name="generator"/>
 <title>Reference for ultralytics/utils/downloads.py - Ultralytics YOLO Docs</title>
 <link href="../../../assets/stylesheets/main.7e37652d.min.css" rel="stylesheet"/>
 <link href="../../../assets/stylesheets/palette.06af60db.min.css" rel="stylesheet"/>
@@ -3375,7 +3375,9 @@ a successful download.</p>
 <span>520</span>
 <span>521</span>
 <span>522</span>
-<span>523</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span>
+<span>523</span>
+<span>524</span>
+<span>525</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span>
 <span></span>    <span class="n">url</span><span class="p">,</span>
 <span></span>    <span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span>
 <span></span>    <span class="n">unzip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
@@ -3405,7 +3407,9 @@ a successful download.</p>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="nb">dir</span><span class="p">)</span>
 <span></span>    <span class="nb">dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># make directory</span>
+<span></span>    <span class="n">urls</span> <span class="o">=</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">))</span> <span class="k">else</span> <span class="n">url</span>
 <span></span>    <span class="k">if</span> <span class="n">threads</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+<span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Downloading </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">urls</span><span class="p">)</span><span class="si">}</span><span class="s2"> file(s) with </span><span class="si">{</span><span class="n">threads</span><span class="si">}</span><span class="s2"> threads to </span><span class="si">{</span><span class="nb">dir</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
 <span></span>        <span class="k">with</span> <span class="n">ThreadPool</span><span class="p">(</span><span class="n">threads</span><span class="p">)</span> <span class="k">as</span> <span class="n">pool</span><span class="p">:</span>
 <span></span>            <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span>
 <span></span>                <span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">safe_download</span><span class="p">(</span>
@@ -3416,14 +3420,14 @@ a successful download.</p>
 <span></span>                    <span class="n">curl</span><span class="o">=</span><span class="n">curl</span><span class="p">,</span>
 <span></span>                    <span class="n">retry</span><span class="o">=</span><span class="n">retry</span><span class="p">,</span>
 <span></span>                    <span class="n">exist_ok</span><span class="o">=</span><span class="n">exist_ok</span><span class="p">,</span>
-<span></span>                    <span class="n">progress</span><span class="o">=</span><span class="n">threads</span> <span class="o">&lt;=</span> <span class="mi">1</span><span class="p">,</span>
+<span></span>                    <span class="n">progress</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span></span>                <span class="p">),</span>
-<span></span>                <span class="nb">zip</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">repeat</span><span class="p">(</span><span class="nb">dir</span><span class="p">)),</span>
+<span></span>                <span class="nb">zip</span><span class="p">(</span><span class="n">urls</span><span class="p">,</span> <span class="n">repeat</span><span class="p">(</span><span class="nb">dir</span><span class="p">)),</span>
 <span></span>            <span class="p">)</span>
 <span></span>            <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 <span></span>            <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
-<span></span>        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="p">[</span><span class="n">url</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">))</span> <span class="k">else</span> <span class="n">url</span><span class="p">:</span>
+<span></span>        <span class="k">for</span> <span class="n">u</span> <span class="ow">in</span> <span class="n">urls</span><span class="p">:</span>
 <span></span>            <span class="n">safe_download</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">u</span><span class="p">,</span> <span class="nb">dir</span><span class="o">=</span><span class="nb">dir</span><span class="p">,</span> <span class="n">unzip</span><span class="o">=</span><span class="n">unzip</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="n">delete</span><span class="p">,</span> <span class="n">curl</span><span class="o">=</span><span class="n">curl</span><span class="p">,</span> <span class="n">retry</span><span class="o">=</span><span class="n">retry</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="n">exist_ok</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -3548,8 +3552,8 @@ a successful download.</p>
 <div class="md-dialog__inner md-typeset"></div>
 </div>
 <div class="md-progress" data-md-component="progress" role="progressbar"></div>
-<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.d50fe291.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../../assets/javascripts/bundle.50899def.min.js"></script>
+<script id="__config" type="application/json">{"base": "../../..", "features": ["content.action.edit", "content.code.annotate", "content.code.copy", "content.tooltips", "toc.follow", "navigation.top", "navigation.tabs", "navigation.tabs.sticky", "navigation.prune", "navigation.footer", "navigation.tracking", "navigation.instant", "navigation.instant.progress", "navigation.indexes", "navigation.sections", "content.tabs.link"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../assets/javascripts/bundle.92b07e13.min.js"></script>
 <script src="../../../javascript/extra.js"></script>
 <script src="../../../javascript/giscus.js"></script>
 <script src="https://unpkg.com/tablesort@5.3.0/dist/tablesort.min.js"></script>
