@@ -2583,7 +2583,11 @@ shape (B, N).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/encoders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>307</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>303</span>
+<span>304</span>
+<span>305</span>
+<span>306</span>
+<span>307</span>
 <span>308</span>
 <span>309</span>
 <span>310</span>
@@ -2659,7 +2663,11 @@ shape (B, N).</p>
 <span></span><span class="sd">        torch.Size([1, 7, 256]) torch.Size([1, 256, 64, 64])</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">bs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_batch_size</span><span class="p">(</span><span class="n">points</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">masks</span><span class="p">)</span>
-<span></span>    <span class="n">sparse_embeddings</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">((</span><span class="n">bs</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_dim</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_device</span><span class="p">())</span>
+<span></span>    <span class="n">sparse_embeddings</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">empty</span><span class="p">(</span>
+<span></span>        <span class="p">(</span><span class="n">bs</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">embed_dim</span><span class="p">),</span>
+<span></span>        <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">point_embeddings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+<span></span>        <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">point_embeddings</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">weight</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">points</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="n">coords</span><span class="p">,</span> <span class="n">labels</span> <span class="o">=</span> <span class="n">points</span>
 <span></span>        <span class="n">point_embeddings</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_embed_points</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">labels</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="p">(</span><span class="n">boxes</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">))</span>
@@ -3892,7 +3900,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <span></span>        <span class="n">lateral_features</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">convs</span><span class="p">[</span><span class="n">n</span> <span class="o">-</span> <span class="n">i</span><span class="p">](</span><span class="n">x</span><span class="p">)</span>
 <span></span>        <span class="k">if</span> <span class="n">i</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">fpn_top_down_levels</span> <span class="ow">and</span> <span class="n">prev_features</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>            <span class="n">top_down_features</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span>
-<span></span>                <span class="n">prev_features</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
+<span></span>                <span class="n">prev_features</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">dtype</span><span class="o">=</span><span class="n">x</span><span class="o">.</span><span class="n">dtype</span><span class="p">),</span>
 <span></span>                <span class="n">scale_factor</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
 <span></span>                <span class="n">mode</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">fpn_interp_model</span><span class="p">,</span>
 <span></span>                <span class="n">align_corners</span><span class="o">=</span><span class="p">(</span><span class="kc">None</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">fpn_interp_model</span> <span class="o">==</span> <span class="s2">"nearest"</span> <span class="k">else</span> <span class="kc">False</span><span class="p">),</span>

@@ -3303,15 +3303,15 @@ during evaluation.</p>
 <p>Process image batch through encoder to extract multi-level features for SAM model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>626</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>624</span>
+<span>625</span>
+<span>626</span>
 <span>627</span>
 <span>628</span>
 <span>629</span>
 <span>630</span>
 <span>631</span>
-<span>632</span>
-<span>633</span>
-<span>634</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<span>632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process image batch through encoder to extract multi-level features for SAM model."""</span>
 <span></span>    <span class="n">backbone_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">img_batch</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_high_res_features_in_sam</span><span class="p">:</span>
@@ -3334,9 +3334,9 @@ during evaluation.</p>
 <p>Set binarize for VideoPredictor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1029</span>
-<span>1030</span>
-<span>1031</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1026</span>
+<span>1027</span>
+<span>1028</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set binarize for VideoPredictor."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">binarize_mask_from_pts_for_mem_enc</span> <span class="o">=</span> <span class="n">binarize</span>
 </code></pre></div></td></tr></table></div>
@@ -3353,11 +3353,11 @@ during evaluation.</p>
 <p>Set image size to make model compatible with different image sizes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1033</span>
-<span>1034</span>
-<span>1035</span>
-<span>1036</span>
-<span>1037</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1030</span>
+<span>1031</span>
+<span>1032</span>
+<span>1033</span>
+<span>1034</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
@@ -3389,63 +3389,63 @@ during evaluation.</p>
 <p>Perform a single tracking step, updating object masks and memory features based on current frame inputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 944</span>
-<span> 945</span>
-<span> 946</span>
-<span> 947</span>
-<span> 948</span>
-<span> 949</span>
-<span> 950</span>
-<span> 951</span>
-<span> 952</span>
-<span> 953</span>
-<span> 954</span>
-<span> 955</span>
-<span> 956</span>
-<span> 957</span>
-<span> 958</span>
-<span> 959</span>
-<span> 960</span>
-<span> 961</span>
-<span> 962</span>
-<span> 963</span>
-<span> 964</span>
-<span> 965</span>
-<span> 966</span>
-<span> 967</span>
-<span> 968</span>
-<span> 969</span>
-<span> 970</span>
-<span> 971</span>
-<span> 972</span>
-<span> 973</span>
-<span> 974</span>
-<span> 975</span>
-<span> 976</span>
-<span> 977</span>
-<span> 978</span>
-<span> 979</span>
-<span> 980</span>
-<span> 981</span>
-<span> 982</span>
-<span> 983</span>
-<span> 984</span>
-<span> 985</span>
-<span> 986</span>
-<span> 987</span>
-<span> 988</span>
-<span> 989</span>
-<span> 990</span>
-<span> 991</span>
-<span> 992</span>
-<span> 993</span>
-<span> 994</span>
-<span> 995</span>
-<span> 996</span>
-<span> 997</span>
-<span> 998</span>
-<span> 999</span>
-<span>1000</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>941</span>
+<span>942</span>
+<span>943</span>
+<span>944</span>
+<span>945</span>
+<span>946</span>
+<span>947</span>
+<span>948</span>
+<span>949</span>
+<span>950</span>
+<span>951</span>
+<span>952</span>
+<span>953</span>
+<span>954</span>
+<span>955</span>
+<span>956</span>
+<span>957</span>
+<span>958</span>
+<span>959</span>
+<span>960</span>
+<span>961</span>
+<span>962</span>
+<span>963</span>
+<span>964</span>
+<span>965</span>
+<span>966</span>
+<span>967</span>
+<span>968</span>
+<span>969</span>
+<span>970</span>
+<span>971</span>
+<span>972</span>
+<span>973</span>
+<span>974</span>
+<span>975</span>
+<span>976</span>
+<span>977</span>
+<span>978</span>
+<span>979</span>
+<span>980</span>
+<span>981</span>
+<span>982</span>
+<span>983</span>
+<span>984</span>
+<span>985</span>
+<span>986</span>
+<span>987</span>
+<span>988</span>
+<span>989</span>
+<span>990</span>
+<span>991</span>
+<span>992</span>
+<span>993</span>
+<span>994</span>
+<span>995</span>
+<span>996</span>
+<span>997</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">frame_idx</span><span class="p">,</span>
 <span></span>    <span class="n">is_init_cond_frame</span><span class="p">,</span>

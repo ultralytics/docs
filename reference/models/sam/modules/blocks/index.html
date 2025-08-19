@@ -4629,11 +4629,17 @@ particularly useful for transformer-based models that require position informati
 <span>864</span>
 <span>865</span>
 <span>866</span>
-<span>867</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>867</span>
+<span>868</span>
+<span>869</span>
+<span>870</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Generate positional encoding for a grid using random spatial frequencies."""</span>
 <span></span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">size</span>
-<span></span>    <span class="n">device</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">positional_encoding_gaussian_matrix</span><span class="o">.</span><span class="n">device</span>
-<span></span>    <span class="n">grid</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">((</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
+<span></span>    <span class="n">grid</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
+<span></span>        <span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">),</span>
+<span></span>        <span class="n">device</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">positional_encoding_gaussian_matrix</span><span class="o">.</span><span class="n">device</span><span class="p">,</span>
+<span></span>        <span class="n">dtype</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">positional_encoding_gaussian_matrix</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span>
+<span></span>    <span class="p">)</span>
 <span></span>    <span class="n">y_embed</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
 <span></span>    <span class="n">x_embed</span> <span class="o">=</span> <span class="n">grid</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> <span class="o">-</span> <span class="mf">0.5</span>
 <span></span>    <span class="n">y_embed</span> <span class="o">=</span> <span class="n">y_embed</span> <span class="o">/</span> <span class="n">h</span>
@@ -4657,17 +4663,17 @@ particularly useful for transformer-based models that require position informati
 <p>Positionally encode input coordinates, normalizing them to [0,1] based on the given image size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>869</span>
-<span>870</span>
-<span>871</span>
-<span>872</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>872</span>
 <span>873</span>
-<span>874</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_with_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords_input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">image_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>874</span>
+<span>875</span>
+<span>876</span>
+<span>877</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_with_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords_input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">image_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Positionally encode input coordinates, normalizing them to [0,1] based on the given image size."""</span>
 <span></span>    <span class="n">coords</span> <span class="o">=</span> <span class="n">coords_input</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
 <span></span>    <span class="n">coords</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span></span>    <span class="n">coords</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-<span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pe_encoding</span><span class="p">(</span><span class="n">coords</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">))</span>  <span class="c1"># B x N x C</span>
+<span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_pe_encoding</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>  <span class="c1"># B x N x C</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -4978,10 +4984,7 @@ for use in vision transformer architectures.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>904</span>
-<span>905</span>
-<span>906</span>
-<span>907</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>907</span>
 <span>908</span>
 <span>909</span>
 <span>910</span>
@@ -5031,7 +5034,10 @@ for use in vision transformer architectures.</p>
 <span>954</span>
 <span>955</span>
 <span>956</span>
-<span>957</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>957</span>
+<span>958</span>
+<span>959</span>
+<span>960</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -5098,10 +5104,7 @@ for use in vision transformer architectures.</p>
 <p>Process input through transformer block with optional windowed self-attention and residual connection.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>959</span>
-<span>960</span>
-<span>961</span>
-<span>962</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>962</span>
 <span>963</span>
 <span>964</span>
 <span>965</span>
@@ -5113,7 +5116,10 @@ for use in vision transformer architectures.</p>
 <span>971</span>
 <span>972</span>
 <span>973</span>
-<span>974</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>974</span>
+<span>975</span>
+<span>976</span>
+<span>977</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Process input through transformer block with optional windowed self-attention and residual connection."""</span>
 <span></span>    <span class="n">shortcut</span> <span class="o">=</span> <span class="n">x</span>
 <span></span>    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">norm1</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
@@ -5392,10 +5398,7 @@ Required if use_rel_pos is True.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1005</span>
-<span>1006</span>
-<span>1007</span>
-<span>1008</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1008</span>
 <span>1009</span>
 <span>1010</span>
 <span>1011</span>
@@ -5436,7 +5439,10 @@ Required if use_rel_pos is True.</p>
 <span>1046</span>
 <span>1047</span>
 <span>1048</span>
-<span>1049</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1049</span>
+<span>1050</span>
+<span>1051</span>
+<span>1052</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">8</span><span class="p">,</span>
@@ -5494,10 +5500,7 @@ Required if use_rel_pos is True.</p>
 <p>Apply multi-head attention with optional relative positional encoding to input tensor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1051</span>
-<span>1052</span>
-<span>1053</span>
-<span>1054</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1054</span>
 <span>1055</span>
 <span>1056</span>
 <span>1057</span>
@@ -5509,7 +5512,10 @@ Required if use_rel_pos is True.</p>
 <span>1063</span>
 <span>1064</span>
 <span>1065</span>
-<span>1066</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>1066</span>
+<span>1067</span>
+<span>1068</span>
+<span>1069</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Apply multi-head attention with optional relative positional encoding to input tensor."""</span>
 <span></span>    <span class="n">B</span><span class="p">,</span> <span class="n">H</span><span class="p">,</span> <span class="n">W</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span>
 <span></span>    <span class="c1"># qkv with shape (3, B, nHead, H * W, C)</span>
@@ -5704,10 +5710,7 @@ image data into a suitable format for subsequent transformer blocks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1091</span>
-<span>1092</span>
-<span>1093</span>
-<span>1094</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1094</span>
 <span>1095</span>
 <span>1096</span>
 <span>1097</span>
@@ -5734,7 +5737,10 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <span>1118</span>
 <span>1119</span>
 <span>1120</span>
-<span>1121</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1121</span>
+<span>1122</span>
+<span>1123</span>
+<span>1124</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
 <span></span>    <span class="n">stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
@@ -5778,9 +5784,9 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <p>Compute patch embedding by applying convolution and transposing resulting tensor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/blocks.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1123</span>
-<span>1124</span>
-<span>1125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1126</span>
+<span>1127</span>
+<span>1128</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Compute patch embedding by applying convolution and transposing resulting tensor."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">proj</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>  <span class="c1"># B C H W -&gt; B H W C</span>
 </code></pre></div></td></tr></table></div>
