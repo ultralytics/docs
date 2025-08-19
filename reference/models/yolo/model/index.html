@@ -2359,7 +2359,7 @@ that the model is an instance of YOLOEModel.</p>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">visual_prompts</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
 <span></span>    <span class="n">refer_image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">predictor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">predictor</span><span class="o">=</span><span class="n">yolo</span><span class="o">.</span><span class="n">yoloe</span><span class="o">.</span><span class="n">YOLOEVPDetectPredictor</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
@@ -2457,7 +2457,7 @@ loaded based on the task.</p>
 </div>
 </td>
 <td>
-<code>None</code>
+<code><a class="autorefs autorefs-internal" href="../yoloe/predict/#ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.models.yolo.yoloe.predict.YOLOEVPDetectPredictor&lt;/span&gt; (&lt;code&gt;ultralytics.models.yolo.yoloe.YOLOEVPDetectPredictor&lt;/code&gt;)'>YOLOEVPDetectPredictor</a></code>
 </td>
 </tr>
 <tr class="doc-section-item">
@@ -2591,7 +2591,7 @@ loaded based on the task.</p>
 <span></span>    <span class="n">stream</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">visual_prompts</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">List</span><span class="p">]</span> <span class="o">=</span> <span class="p">{},</span>
 <span></span>    <span class="n">refer_image</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">predictor</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">predictor</span><span class="o">=</span><span class="n">yolo</span><span class="o">.</span><span class="n">yoloe</span><span class="o">.</span><span class="n">YOLOEVPDetectPredictor</span><span class="p">,</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -2627,8 +2627,8 @@ loaded based on the task.</p>
 <span></span>            <span class="sa">f</span><span class="s2">"Expected equal number of bounding boxes and classes, but got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">visual_prompts</span><span class="p">[</span><span class="s1">'bboxes'</span><span class="p">])</span><span class="si">}</span><span class="s2"> and "</span>
 <span></span>            <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">visual_prompts</span><span class="p">[</span><span class="s1">'cls'</span><span class="p">])</span><span class="si">}</span><span class="s2"> respectively"</span>
 <span></span>        <span class="p">)</span>
-<span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">,</span> <span class="n">yolo</span><span class="o">.</span><span class="n">yoloe</span><span class="o">.</span><span class="n">YOLOEVPDetectPredictor</span><span class="p">):</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="p">(</span><span class="n">predictor</span> <span class="ow">or</span> <span class="n">yolo</span><span class="o">.</span><span class="n">yoloe</span><span class="o">.</span><span class="n">YOLOEVPDetectPredictor</span><span class="p">)(</span>
+<span></span>        <span class="k">if</span> <span class="nb">type</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">predictor</span><span class="p">)</span> <span class="ow">is</span> <span class="ow">not</span> <span class="n">predictor</span><span class="p">:</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">predictor</span> <span class="o">=</span> <span class="n">predictor</span><span class="p">(</span>
 <span></span>                <span class="n">overrides</span><span class="o">=</span><span class="p">{</span>
 <span></span>                    <span class="s2">"task"</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">task</span><span class="p">,</span>
 <span></span>                    <span class="s2">"mode"</span><span class="p">:</span> <span class="s2">"predict"</span><span class="p">,</span>
