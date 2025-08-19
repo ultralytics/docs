@@ -2924,7 +2924,8 @@ single image files, video files, and lists of image and video paths.</p>
 <span>395</span>
 <span>396</span>
 <span>397</span>
-<span>398</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+<span>398</span>
+<span>399</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">vid_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize dataloader for images and videos, supporting various input formats.</span>
 <span></span>
@@ -2935,9 +2936,10 @@ single image files, video files, and lists of image and video paths.</p>
 <span></span><span class="sd">        channels (int): Number of image channels (1 for grayscale, 3 for RGB).</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">parent</span> <span class="o">=</span> <span class="kc">None</span>
-<span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">".txt"</span><span class="p">:</span>  <span class="c1"># *.txt file with img/vid/dir on each line</span>
-<span></span>        <span class="n">parent</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span>
-<span></span>        <span class="n">path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span>  <span class="c1"># list of sources</span>
+<span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">".txt"</span><span class="p">,</span> <span class="s2">".csv"</span><span class="p">}:</span>  <span class="c1"># txt/csv file with source paths</span>
+<span></span>        <span class="n">parent</span><span class="p">,</span> <span class="n">content</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">parent</span><span class="p">,</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">read_text</span><span class="p">()</span>
+<span></span>        <span class="n">path</span> <span class="o">=</span> <span class="n">content</span><span class="o">.</span><span class="n">splitlines</span><span class="p">()</span> <span class="k">if</span> <span class="n">Path</span><span class="p">(</span><span class="n">path</span><span class="p">)</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">".txt"</span> <span class="k">else</span> <span class="n">content</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">)</span>  <span class="c1"># list of sources</span>
+<span></span>        <span class="n">path</span> <span class="o">=</span> <span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">path</span><span class="p">]</span>
 <span></span>    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">path</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="p">(</span><span class="nb">list</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">))</span> <span class="k">else</span> <span class="p">[</span><span class="n">path</span><span class="p">]:</span>
 <span></span>        <span class="n">a</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">p</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">())</span>  <span class="c1"># do not use .resolve() https://github.com/ultralytics/ultralytics/issues/2912</span>
@@ -2989,10 +2991,10 @@ single image files, video files, and lists of image and video paths.</p>
 <p>Iterate through image/video files, yielding source paths, images, and metadata.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>400</span>
-<span>401</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>401</span>
 <span>402</span>
-<span>403</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>403</span>
+<span>404</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Iterate through image/video files, yielding source paths, images, and metadata."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span>
@@ -3010,9 +3012,9 @@ single image files, video files, and lists of image and video paths.</p>
 <p>Return the number of files (images and videos) in the dataset.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>484</span>
-<span>485</span>
-<span>486</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>485</span>
+<span>486</span>
+<span>487</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the number of files (images and videos) in the dataset."""</span>
 <span></span>    <span class="k">return</span> <span class="n">math</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nf</span> <span class="o">/</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span><span class="p">)</span>  <span class="c1"># number of batches</span>
 </code></pre></div></td></tr></table></div>
@@ -3029,8 +3031,7 @@ single image files, video files, and lists of image and video paths.</p>
 <p>Return the next batch of images or video frames with their paths and metadata.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>405</span>
-<span>406</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>406</span>
 <span>407</span>
 <span>408</span>
 <span>409</span>
@@ -3097,7 +3098,8 @@ single image files, video files, and lists of image and video paths.</p>
 <span>470</span>
 <span>471</span>
 <span>472</span>
-<span>473</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span>473</span>
+<span>474</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the next batch of images or video frames with their paths and metadata."""</span>
 <span></span>    <span class="n">paths</span><span class="p">,</span> <span class="n">imgs</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="p">[],</span> <span class="p">[],</span> <span class="p">[]</span>
 <span></span>    <span class="k">while</span> <span class="nb">len</span><span class="p">(</span><span class="n">imgs</span><span class="p">)</span> <span class="o">&lt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span><span class="p">:</span>
@@ -3315,8 +3317,7 @@ validation and format conversion to ensure that the images are in the required f
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>516</span>
-<span>517</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>517</span>
 <span>518</span>
 <span>519</span>
 <span>520</span>
@@ -3330,7 +3331,8 @@ validation and format conversion to ensure that the images are in the required f
 <span>528</span>
 <span>529</span>
 <span>530</span>
-<span>531</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
+<span>531</span>
+<span>532</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span> <span class="n">List</span><span class="p">],</span> <span class="n">channels</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a loader for PIL and Numpy images, converting inputs to a standardized format.</span>
 <span></span>
@@ -3359,10 +3361,10 @@ validation and format conversion to ensure that the images are in the required f
 <p>Iterate through PIL/numpy images, yielding paths, raw images, and metadata for processing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>557</span>
-<span>558</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>558</span>
 <span>559</span>
-<span>560</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>560</span>
+<span>561</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Iterate through PIL/numpy images, yielding paths, raw images, and metadata for processing."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span>
@@ -3380,9 +3382,9 @@ validation and format conversion to ensure that the images are in the required f
 <p>Return the length of the 'im0' attribute, representing the number of loaded images.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>546</span>
-<span>547</span>
-<span>548</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>547</span>
+<span>548</span>
+<span>549</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the length of the 'im0' attribute, representing the number of loaded images."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im0</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3399,12 +3401,12 @@ validation and format conversion to ensure that the images are in the required f
 <p>Return the next batch of images, paths, and metadata for processing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>550</span>
-<span>551</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>551</span>
 <span>552</span>
 <span>553</span>
 <span>554</span>
-<span>555</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span>555</span>
+<span>556</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the next batch of images, paths, and metadata for processing."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>  <span class="c1"># loop only once as it's batch inference</span>
 <span></span>        <span class="k">raise</span> <span class="ne">StopIteration</span>
@@ -3540,8 +3542,7 @@ further processing in object detection pipelines.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>587</span>
-<span>588</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>588</span>
 <span>589</span>
 <span>590</span>
 <span>591</span>
@@ -3550,7 +3551,8 @@ further processing in object detection pipelines.</p>
 <span>594</span>
 <span>595</span>
 <span>596</span>
-<span>597</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>597</span>
+<span>598</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im0</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize LoadTensor object for processing torch.Tensor image data.</span>
 <span></span>
@@ -3574,10 +3576,10 @@ further processing in object detection pipelines.</p>
 <p>Yield an iterator object for iterating through tensor image data.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>621</span>
-<span>622</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>622</span>
 <span>623</span>
-<span>624</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>624</span>
+<span>625</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Yield an iterator object for iterating through tensor image data."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span>
@@ -3595,9 +3597,9 @@ further processing in object detection pipelines.</p>
 <p>Return the batch size of the tensor input.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>633</span>
-<span>634</span>
-<span>635</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>634</span>
+<span>635</span>
+<span>636</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the batch size of the tensor input."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">bs</span>
 </code></pre></div></td></tr></table></div>
@@ -3614,12 +3616,12 @@ further processing in object detection pipelines.</p>
 <p>Yield the next batch of tensor images and metadata for processing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>626</span>
-<span>627</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>627</span>
 <span>628</span>
 <span>629</span>
 <span>630</span>
-<span>631</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
+<span>631</span>
+<span>632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Yield the next batch of tensor images and metadata for processing."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">count</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
 <span></span>        <span class="k">raise</span> <span class="ne">StopIteration</span>
@@ -3642,8 +3644,7 @@ further processing in object detection pipelines.</p>
 <p>Merge a list of sources into a list of numpy arrays or PIL images for Ultralytics prediction.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>638</span>
-<span>639</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>639</span>
 <span>640</span>
 <span>641</span>
 <span>642</span>
@@ -3656,7 +3657,8 @@ further processing in object detection pipelines.</p>
 <span>649</span>
 <span>650</span>
 <span>651</span>
-<span>652</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autocast_list</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
+<span>652</span>
+<span>653</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">autocast_list</span><span class="p">(</span><span class="n">source</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Merge a list of sources into a list of numpy arrays or PIL images for Ultralytics prediction."""</span>
 <span></span>    <span class="n">files</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">im</span> <span class="ow">in</span> <span class="n">source</span><span class="p">:</span>
@@ -3765,8 +3767,7 @@ further processing in object detection pipelines.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/data/loaders.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>655</span>
-<span>656</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>656</span>
 <span>657</span>
 <span>658</span>
 <span>659</span>
@@ -3814,7 +3815,8 @@ further processing in object detection pipelines.</p>
 <span>701</span>
 <span>702</span>
 <span>703</span>
-<span>704</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_best_youtube_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pytube"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span>704</span>
+<span>705</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_best_youtube_url</span><span class="p">(</span><span class="n">url</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">method</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"pytube"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve the URL of the best quality MP4 video stream from a given YouTube video.</span>
 <span></span>
