@@ -1019,9 +1019,9 @@
 </tr>
 <tr>
 <td><code>imgsz</code></td>
-<td><code>int</code> or <code>list</code></td>
+<td><code>int</code></td>
 <td><code>640</code></td>
-<td>Target image size for training. All images are resized to this dimension before being fed into the model. Affects model <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> and computational complexity.</td>
+<td>Target image size for training. Images are resized to squares with sides equal to the specified value (if <code>rect=False</code>), preserving aspect ratio for YOLO models but not RTDETR. Affects model <a href="https://www.ultralytics.com/glossary/accuracy">accuracy</a> and computational complexity.</td>
 </tr>
 <tr>
 <td><code>save</code></td>
@@ -1111,7 +1111,7 @@
 <td><code>rect</code></td>
 <td><code>bool</code></td>
 <td><code>False</code></td>
-<td>Enables rectangular training, optimizing batch composition for minimal padding. Can improve efficiency and speed but may affect model accuracy.</td>
+<td>Enables minimum padding strategy—images in a batch are minimally padded to reach a common size, with the longest side equal to <code>imgsz</code>. Can improve efficiency and speed but may affect model accuracy.</td>
 </tr>
 <tr>
 <td><code>multi_scale</code></td>
