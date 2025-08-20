@@ -2582,10 +2582,10 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <p>Update self.im from a numpy array.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>503</span>
-<span>504</span>
-<span>505</span>
-<span>506</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>511</span>
+<span>512</span>
+<span>513</span>
+<span>514</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update self.im from a numpy array."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">im</span> <span class="o">=</span> <span class="n">im</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">im</span><span class="p">,</span> <span class="n">Image</span><span class="o">.</span><span class="n">Image</span><span class="p">)</span> <span class="k">else</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">im</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">draw</span> <span class="o">=</span> <span class="n">ImageDraw</span><span class="o">.</span><span class="n">Draw</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">)</span>
@@ -2682,15 +2682,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>527</span>
-<span>528</span>
-<span>529</span>
-<span>530</span>
-<span>531</span>
-<span>532</span>
-<span>533</span>
-<span>534</span>
-<span>535</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>535</span>
 <span>536</span>
 <span>537</span>
 <span>538</span>
@@ -2704,7 +2696,15 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <span>546</span>
 <span>547</span>
 <span>548</span>
-<span>549</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>549</span>
+<span>550</span>
+<span>551</span>
+<span>552</span>
+<span>553</span>
+<span>554</span>
+<span>555</span>
+<span>556</span>
+<span>557</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_bbox_dimension</span><span class="p">(</span><span class="n">bbox</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">tuple</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Calculate the dimensions and area of a bounding box.</span>
@@ -2998,15 +2998,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>400</span>
-<span>401</span>
-<span>402</span>
-<span>403</span>
-<span>404</span>
-<span>405</span>
-<span>406</span>
-<span>407</span>
-<span>408</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>408</span>
 <span>409</span>
 <span>410</span>
 <span>411</span>
@@ -3064,7 +3056,15 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <span>463</span>
 <span>464</span>
 <span>465</span>
-<span>466</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kpts</span><span class="p">(</span>
+<span>466</span>
+<span>467</span>
+<span>468</span>
+<span>469</span>
+<span>470</span>
+<span>471</span>
+<span>472</span>
+<span>473</span>
+<span>474</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kpts</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">kpts</span><span class="p">,</span>
 <span></span>    <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span>
@@ -3139,7 +3139,13 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <h3 class="doc doc-heading" id="ultralytics.utils.plotting.Annotator.masks">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">masks</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">im_gpu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">retina_masks</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">masks</span><span class="p">(</span>
+<span></span>    <span class="n">masks</span><span class="p">,</span>
+<span></span>    <span class="n">colors</span><span class="p">,</span>
+<span></span>    <span class="n">im_gpu</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
+<span></span>    <span class="n">retina_masks</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Plot masks on image.</p>
@@ -3159,11 +3165,11 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <code>masks</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code><span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span></code>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Predicted masks on cuda, shape: [n, h, w]</p>
+<p>Predicted masks with shape: [n, h, w]</p>
 </div>
 </td>
 <td>
@@ -3191,7 +3197,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <code>im_gpu</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span></code>
+<code><span title="torch.Tensor">Tensor</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3199,7 +3205,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 </div>
 </td>
 <td>
-<em>required</em>
+<code>None</code>
 </td>
 </tr>
 <tr class="doc-section-item">
@@ -3272,38 +3278,54 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <span>395</span>
 <span>396</span>
 <span>397</span>
-<span>398</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">im_gpu</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">retina_masks</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">masks</span><span class="p">,</span> <span class="n">colors</span><span class="p">,</span> <span class="n">im_gpu</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">retina_masks</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot masks on image.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        masks (torch.Tensor): Predicted masks on cuda, shape: [n, h, w]</span>
+<span></span><span class="sd">        masks (torch.Tensor | np.ndarray): Predicted masks with shape: [n, h, w]</span>
 <span></span><span class="sd">        colors (List[List[int]]): Colors for predicted masks, [[r, g, b] * n]</span>
-<span></span><span class="sd">        im_gpu (torch.Tensor): Image is in cuda, shape: [3, h, w], range: [0, 1]</span>
+<span></span><span class="sd">        im_gpu (torch.Tensor | None): Image is in cuda, shape: [3, h, w], range: [0, 1]</span>
 <span></span><span class="sd">        alpha (float, optional): Mask transparency: 0.0 fully transparent, 1.0 opaque.</span>
 <span></span><span class="sd">        retina_masks (bool, optional): Whether to use high resolution masks or not.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pil</span><span class="p">:</span>
 <span></span>        <span class="c1"># Convert to numpy first</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">)</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-<span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span>
-<span></span>    <span class="k">if</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">device</span> <span class="o">!=</span> <span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
-<span></span>        <span class="n">im_gpu</span> <span class="o">=</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-<span></span>    <span class="n">colors</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>  <span class="c1"># shape(n,3)</span>
-<span></span>    <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># shape(n,1,1,3)</span>
-<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># shape(n,h,w,1)</span>
-<span></span>    <span class="n">masks_color</span> <span class="o">=</span> <span class="n">masks</span> <span class="o">*</span> <span class="p">(</span><span class="n">colors</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">)</span>  <span class="c1"># shape(n,h,w,3)</span>
+<span></span>    <span class="k">if</span> <span class="n">im_gpu</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+<span></span>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">),</span> <span class="s2">"`masks` must be a np.ndarray if `im_gpu` is not provided."</span>
+<span></span>        <span class="n">overlay</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span></span>        <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">mask</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">masks</span><span class="p">):</span>
+<span></span>            <span class="n">overlay</span><span class="p">[</span><span class="n">mask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)]</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">addWeighted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">,</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">,</span> <span class="n">overlay</span><span class="p">,</span> <span class="n">alpha</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span></span>    <span class="k">else</span><span class="p">:</span>
+<span></span>        <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">),</span> <span class="s2">"`masks` must be a torch.Tensor if `im_gpu` is provided."</span>
+<span></span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span> <span class="o">*</span> <span class="mi">255</span>
+<span></span>        <span class="k">if</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">device</span> <span class="o">!=</span> <span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">:</span>
+<span></span>            <span class="n">im_gpu</span> <span class="o">=</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
+<span></span>        <span class="n">colors</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="n">colors</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">masks</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="o">/</span> <span class="mf">255.0</span>  <span class="c1"># shape(n,3)</span>
+<span></span>        <span class="n">colors</span> <span class="o">=</span> <span class="n">colors</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">]</span>  <span class="c1"># shape(n,1,1,3)</span>
+<span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">unsqueeze</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>  <span class="c1"># shape(n,h,w,1)</span>
+<span></span>        <span class="n">masks_color</span> <span class="o">=</span> <span class="n">masks</span> <span class="o">*</span> <span class="p">(</span><span class="n">colors</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">)</span>  <span class="c1"># shape(n,h,w,3)</span>
 <span></span>
-<span></span>    <span class="n">inv_alpha_masks</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">masks</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># shape(n,h,w,1)</span>
-<span></span>    <span class="n">mcs</span> <span class="o">=</span> <span class="n">masks_color</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># shape(n,h,w,3)</span>
+<span></span>        <span class="n">inv_alpha_masks</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">masks</span> <span class="o">*</span> <span class="n">alpha</span><span class="p">)</span><span class="o">.</span><span class="n">cumprod</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>  <span class="c1"># shape(n,h,w,1)</span>
+<span></span>        <span class="n">mcs</span> <span class="o">=</span> <span class="n">masks_color</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>  <span class="c1"># shape(n,h,w,3)</span>
 <span></span>
-<span></span>    <span class="n">im_gpu</span> <span class="o">=</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># flip channel</span>
-<span></span>    <span class="n">im_gpu</span> <span class="o">=</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>  <span class="c1"># shape(h,w,3)</span>
-<span></span>    <span class="n">im_gpu</span> <span class="o">=</span> <span class="n">im_gpu</span> <span class="o">*</span> <span class="n">inv_alpha_masks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">mcs</span>
-<span></span>    <span class="n">im_mask</span> <span class="o">=</span> <span class="n">im_gpu</span> <span class="o">*</span> <span class="mi">255</span>
-<span></span>    <span class="n">im_mask_np</span> <span class="o">=</span> <span class="n">im_mask</span><span class="o">.</span><span class="n">byte</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">im_mask_np</span> <span class="k">if</span> <span class="n">retina_masks</span> <span class="k">else</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_image</span><span class="p">(</span><span class="n">im_mask_np</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+<span></span>        <span class="n">im_gpu</span> <span class="o">=</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">dims</span><span class="o">=</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># flip channel</span>
+<span></span>        <span class="n">im_gpu</span> <span class="o">=</span> <span class="n">im_gpu</span><span class="o">.</span><span class="n">permute</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span>  <span class="c1"># shape(h,w,3)</span>
+<span></span>        <span class="n">im_gpu</span> <span class="o">=</span> <span class="n">im_gpu</span> <span class="o">*</span> <span class="n">inv_alpha_masks</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">mcs</span>
+<span></span>        <span class="n">im_mask</span> <span class="o">=</span> <span class="n">im_gpu</span> <span class="o">*</span> <span class="mi">255</span>
+<span></span>        <span class="n">im_mask_np</span> <span class="o">=</span> <span class="n">im_mask</span><span class="o">.</span><span class="n">byte</span><span class="p">()</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">[:]</span> <span class="o">=</span> <span class="n">im_mask_np</span> <span class="k">if</span> <span class="n">retina_masks</span> <span class="k">else</span> <span class="n">ops</span><span class="o">.</span><span class="n">scale_image</span><span class="p">(</span><span class="n">im_mask_np</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pil</span><span class="p">:</span>
 <span></span>        <span class="c1"># Convert im back to PIL and update draw</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">)</span>
@@ -3321,9 +3343,9 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <p>Add rectangle to image (PIL-only).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>468</span>
-<span>469</span>
-<span>470</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rectangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">outline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>476</span>
+<span>477</span>
+<span>478</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">rectangle</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">fill</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">outline</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Add rectangle to image (PIL-only)."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">draw</span><span class="o">.</span><span class="n">rectangle</span><span class="p">(</span><span class="n">xy</span><span class="p">,</span> <span class="n">fill</span><span class="p">,</span> <span class="n">outline</span><span class="p">,</span> <span class="n">width</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3340,9 +3362,9 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <p>Return annotated image as array.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>508</span>
-<span>509</span>
-<span>510</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>516</span>
+<span>517</span>
+<span>518</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">result</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return annotated image as array."""</span>
 <span></span>    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3359,9 +3381,9 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <p>Save the annotated image to 'filename'.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>523</span>
-<span>524</span>
-<span>525</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"image.jpg"</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>531</span>
+<span>532</span>
+<span>533</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filename</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"image.jpg"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Save the annotated image to 'filename'."""</span>
 <span></span>    <span class="n">cv2</span><span class="o">.</span><span class="n">imwrite</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">))</span>
 </code></pre></div></td></tr></table></div>
@@ -3378,16 +3400,16 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <p>Show the annotated image.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>512</span>
-<span>513</span>
-<span>514</span>
-<span>515</span>
-<span>516</span>
-<span>517</span>
-<span>518</span>
-<span>519</span>
-<span>520</span>
-<span>521</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>520</span>
+<span>521</span>
+<span>522</span>
+<span>523</span>
+<span>524</span>
+<span>525</span>
+<span>526</span>
+<span>527</span>
+<span>528</span>
+<span>529</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">show</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Show the annotated image."""</span>
 <span></span>    <span class="n">im</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">asarray</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">im</span><span class="p">)[</span><span class="o">...</span><span class="p">,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># Convert numpy array to PIL Image with RGB to BGR</span>
 <span></span>    <span class="k">if</span> <span class="n">IS_COLAB</span> <span class="ow">or</span> <span class="n">IS_KAGGLE</span><span class="p">:</span>  <span class="c1"># can not use IS_JUPYTER as will run for all ipython environments</span>
@@ -3510,15 +3532,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>472</span>
-<span>473</span>
-<span>474</span>
-<span>475</span>
-<span>476</span>
-<span>477</span>
-<span>478</span>
-<span>479</span>
-<span>480</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>480</span>
 <span>481</span>
 <span>482</span>
 <span>483</span>
@@ -3539,7 +3553,15 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <span>498</span>
 <span>499</span>
 <span>500</span>
-<span>501</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">anchor</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"top"</span><span class="p">,</span> <span class="n">box_color</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">()):</span>
+<span>501</span>
+<span>502</span>
+<span>503</span>
+<span>504</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span>
+<span>509</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">text</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xy</span><span class="p">,</span> <span class="n">text</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">txt_color</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">),</span> <span class="n">anchor</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"top"</span><span class="p">,</span> <span class="n">box_color</span><span class="p">:</span> <span class="nb">tuple</span> <span class="o">=</span> <span class="p">()):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add text to an image using PIL or cv2.</span>
 <span></span>
@@ -3679,15 +3701,7 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>552</span>
-<span>553</span>
-<span>554</span>
-<span>555</span>
-<span>556</span>
-<span>557</span>
-<span>558</span>
-<span>559</span>
-<span>560</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>560</span>
 <span>561</span>
 <span>562</span>
 <span>563</span>
@@ -3748,7 +3762,15 @@ Please use the official Ultralytics colors for all marketing materials.</p>
 <span>618</span>
 <span>619</span>
 <span>620</span>
-<span>621</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@TryExcept</span><span class="p">()</span>  <span class="c1"># known issue https://github.com/ultralytics/yolov5/issues/5395</span>
+<span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span>
+<span>626</span>
+<span>627</span>
+<span>628</span>
+<span>629</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@TryExcept</span><span class="p">()</span>  <span class="c1"># known issue https://github.com/ultralytics/yolov5/issues/5395</span>
 <span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_labels</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">names</span><span class="o">=</span><span class="p">(),</span> <span class="n">save_dir</span><span class="o">=</span><span class="n">Path</span><span class="p">(</span><span class="s2">""</span><span class="p">),</span> <span class="n">on_plot</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -4012,15 +4034,7 @@ adjustments to the bounding box.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>624</span>
-<span>625</span>
-<span>626</span>
-<span>627</span>
-<span>628</span>
-<span>629</span>
-<span>630</span>
-<span>631</span>
-<span>632</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>632</span>
 <span>633</span>
 <span>634</span>
 <span>635</span>
@@ -4064,7 +4078,15 @@ adjustments to the bounding box.</p>
 <span>673</span>
 <span>674</span>
 <span>675</span>
-<span>676</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_box</span><span class="p">(</span>
+<span>676</span>
+<span>677</span>
+<span>678</span>
+<span>679</span>
+<span>680</span>
+<span>681</span>
+<span>682</span>
+<span>683</span>
+<span>684</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_box</span><span class="p">(</span>
 <span></span>    <span class="n">xyxy</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">,</span>
 <span></span>    <span class="n">file</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"im.jpg"</span><span class="p">),</span>
@@ -4343,15 +4365,7 @@ convert tensor inputs to numpy arrays for processing.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>679</span>
-<span>680</span>
-<span>681</span>
-<span>682</span>
-<span>683</span>
-<span>684</span>
-<span>685</span>
-<span>686</span>
-<span>687</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>687</span>
 <span>688</span>
 <span>689</span>
 <span>690</span>
@@ -4508,7 +4522,15 @@ convert tensor inputs to numpy arrays for processing.</p>
 <span>841</span>
 <span>842</span>
 <span>843</span>
-<span>844</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@threaded</span>
+<span>844</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+<span>848</span>
+<span>849</span>
+<span>850</span>
+<span>851</span>
+<span>852</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@threaded</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_images</span><span class="p">(</span>
 <span></span>    <span class="n">labels</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span>
 <span></span>    <span class="n">images</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">),</span>
@@ -4809,15 +4831,7 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>847</span>
-<span>848</span>
-<span>849</span>
-<span>850</span>
-<span>851</span>
-<span>852</span>
-<span>853</span>
-<span>854</span>
-<span>855</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>855</span>
 <span>856</span>
 <span>857</span>
 <span>858</span>
@@ -4874,7 +4888,15 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <span>909</span>
 <span>910</span>
 <span>911</span>
-<span>912</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
+<span>912</span>
+<span>913</span>
+<span>914</span>
+<span>915</span>
+<span>916</span>
+<span>917</span>
+<span>918</span>
+<span>919</span>
+<span>920</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@plt_settings</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_results</span><span class="p">(</span>
 <span></span>    <span class="n">file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"path/to/results.csv"</span><span class="p">,</span>
 <span></span>    <span class="nb">dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
@@ -5075,15 +5097,7 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>915</span>
-<span>916</span>
-<span>917</span>
-<span>918</span>
-<span>919</span>
-<span>920</span>
-<span>921</span>
-<span>922</span>
-<span>923</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>923</span>
 <span>924</span>
 <span>925</span>
 <span>926</span>
@@ -5105,7 +5119,15 @@ pose estimation, and classification. Plots are saved as 'results.png' in the dir
 <span>942</span>
 <span>943</span>
 <span>944</span>
-<span>945</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_color_scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"viridis"</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">):</span>
+<span>945</span>
+<span>946</span>
+<span>947</span>
+<span>948</span>
+<span>949</span>
+<span>950</span>
+<span>951</span>
+<span>952</span>
+<span>953</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_color_scatter</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">f</span><span class="p">,</span> <span class="n">bins</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cmap</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"viridis"</span><span class="p">,</span> <span class="n">alpha</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.8</span><span class="p">,</span> <span class="n">edgecolors</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"none"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot a scatter plot with points colored based on a 2D histogram.</span>
 <span></span>
@@ -5183,15 +5205,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 948</span>
-<span> 949</span>
-<span> 950</span>
-<span> 951</span>
-<span> 952</span>
-<span> 953</span>
-<span> 954</span>
-<span> 955</span>
-<span> 956</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 956</span>
 <span> 957</span>
 <span> 958</span>
 <span> 959</span>
@@ -5236,7 +5250,15 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span> 998</span>
 <span> 999</span>
 <span>1000</span>
-<span>1001</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tune_results.csv"</span><span class="p">):</span>
+<span>1001</span>
+<span>1002</span>
+<span>1003</span>
+<span>1004</span>
+<span>1005</span>
+<span>1006</span>
+<span>1007</span>
+<span>1008</span>
+<span>1009</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_tune_results</span><span class="p">(</span><span class="n">csv_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"tune_results.csv"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot the evolution results stored in a 'tune_results.csv' file. The function generates a scatter plot for each key</span>
 <span></span><span class="sd">    in the CSV, color-coded based on fitness scores. The best-performing configurations are highlighted on the plots.</span>
@@ -5403,15 +5425,7 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/plotting.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1004</span>
-<span>1005</span>
-<span>1006</span>
-<span>1007</span>
-<span>1008</span>
-<span>1009</span>
-<span>1010</span>
-<span>1011</span>
-<span>1012</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1012</span>
 <span>1013</span>
 <span>1014</span>
 <span>1015</span>
@@ -5436,7 +5450,15 @@ in the CSV, color-coded based on fitness scores. The best-performing configurati
 <span>1034</span>
 <span>1035</span>
 <span>1036</span>
-<span>1037</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">feature_visualization</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">module_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"runs/detect/exp"</span><span class="p">)):</span>
+<span>1037</span>
+<span>1038</span>
+<span>1039</span>
+<span>1040</span>
+<span>1041</span>
+<span>1042</span>
+<span>1043</span>
+<span>1044</span>
+<span>1045</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">feature_visualization</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">module_type</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">stage</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="n">save_dir</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="s2">"runs/detect/exp"</span><span class="p">)):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Visualize feature maps of a given model module during inference.</span>
 <span></span>
