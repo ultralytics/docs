@@ -3357,11 +3357,13 @@ during evaluation.</p>
 <span>1031</span>
 <span>1032</span>
 <span>1033</span>
-<span>1034</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<span>1034</span>
+<span>1035</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">image_embedding_size</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span> <span class="o">//</span> <span class="mi">16</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">imgsz</span><span class="p">]</span>  <span class="c1"># fixed ViT patch size of 16</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_image_embedding_size</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">backbone_stride</span>  <span class="c1"># update image embedding size</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
