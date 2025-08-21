@@ -1225,6 +1225,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/logger/">
+<span class="md-ellipsis">
+    logger
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../utils/loss/">
 <span class="md-ellipsis">
     loss
@@ -2068,7 +2075,9 @@ and various training utilities. It supports both single-GPU and multi-GPU distri
 <span>173</span>
 <span>174</span>
 <span>175</span>
-<span>176</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>176</span>
+<span>177</span>
+<span>178</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the BaseTrainer class.</span>
 <span></span>
@@ -2135,6 +2144,8 @@ and various training utilities. It supports both single-GPU and multi-GPU distri
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">_callbacks</span> <span class="ow">or</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">get_default_callbacks</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
 <span></span>        <span class="n">callbacks</span><span class="o">.</span><span class="n">add_integration_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span></span>        <span class="c1"># Start console logging immediately at trainer initialization</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s2">"on_pretrain_routine_start"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">
@@ -2148,9 +2159,9 @@ and various training utilities. It supports both single-GPU and multi-GPU distri
 <p>Append the given callback to the event's callback list.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>178</span>
-<span>179</span>
-<span>180</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>180</span>
+<span>181</span>
+<span>182</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Append the given callback to the event's callback list."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">callback</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3054,10 +3065,10 @@ name is 'auto'.</p>
 <p>Run all existing callbacks associated with a particular event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>186</span>
-<span>187</span>
-<span>188</span>
-<span>189</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>188</span>
+<span>189</span>
+<span>190</span>
+<span>191</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">run_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run all existing callbacks associated with a particular event."""</span>
 <span></span>    <span class="k">for</span> <span class="n">callback</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">event</span><span class="p">,</span> <span class="p">[]):</span>
 <span></span>        <span class="n">callback</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
@@ -3181,9 +3192,9 @@ name is 'auto'.</p>
 <p>Override the existing callbacks with the given callback for the specified event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>182</span>
-<span>183</span>
-<span>184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>184</span>
+<span>185</span>
+<span>186</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_callback</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">callback</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Override the existing callbacks with the given callback for the specified event."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span><span class="p">[</span><span class="n">event</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">callback</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -3291,9 +3302,7 @@ name is 'auto'.</p>
 <p>Allow device='', device=None on Multi-GPU systems to default to device=0.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>191</span>
-<span>192</span>
-<span>193</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>193</span>
 <span>194</span>
 <span>195</span>
 <span>196</span>
@@ -3327,7 +3336,9 @@ name is 'auto'.</p>
 <span>224</span>
 <span>225</span>
 <span>226</span>
-<span>227</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>227</span>
+<span>228</span>
+<span>229</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Allow device='', device=None on Multi-GPU systems to default to device=0."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="p">):</span>  <span class="c1"># i.e. device='0' or device='0,1,2,3'</span>
 <span></span>        <span class="n">world_size</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">device</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">","</span><span class="p">))</span>

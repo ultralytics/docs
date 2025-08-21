@@ -1206,6 +1206,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../platform/">
+<span class="md-ellipsis">
+    platform
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../raytune/">
 <span class="md-ellipsis">
     raytune
@@ -1275,6 +1282,13 @@
 <a class="md-nav__link" href="../../instance/">
 <span class="md-ellipsis">
     instance
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../logger/">
+<span class="md-ellipsis">
+    logger
   </span>
 </a>
 </li>
@@ -2209,7 +2223,8 @@ The type of instance determines which callbacks are loaded.</p>
 <span>231</span>
 <span>232</span>
 <span>233</span>
-<span>234</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_integration_callbacks</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
+<span>234</span>
+<span>235</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_integration_callbacks</span><span class="p">(</span><span class="n">instance</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add integration callbacks to the instance's callbacks dictionary.</span>
 <span></span>
@@ -2227,10 +2242,11 @@ The type of instance determines which callbacks are loaded.</p>
 <span></span><span class="sd">        &gt;&gt;&gt; trainer = BaseTrainer()</span>
 <span></span><span class="sd">        &gt;&gt;&gt; add_integration_callbacks(trainer)</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="c1"># Load HUB callbacks</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">.hub</span><span class="w"> </span><span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">hub_cb</span>
+<span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">.platform</span><span class="w"> </span><span class="kn">import</span> <span class="n">callbacks</span> <span class="k">as</span> <span class="n">platform_cb</span>
 <span></span>
-<span></span>    <span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">hub_cb</span><span class="p">]</span>
+<span></span>    <span class="c1"># Load Ultralytics callbacks</span>
+<span></span>    <span class="n">callbacks_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">hub_cb</span><span class="p">,</span> <span class="n">platform_cb</span><span class="p">]</span>
 <span></span>
 <span></span>    <span class="c1"># Load training callbacks</span>
 <span></span>    <span class="k">if</span> <span class="s2">"Trainer"</span> <span class="ow">in</span> <span class="n">instance</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="p">:</span>

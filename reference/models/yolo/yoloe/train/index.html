@@ -1259,6 +1259,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../../../utils/logger/">
+<span class="md-ellipsis">
+    logger
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../../../utils/loss/">
 <span class="md-ellipsis">
     loss
@@ -2093,7 +2100,9 @@ fine-tuning on new datasets while preserving pretrained features.</p>
 <span>173</span>
 <span>174</span>
 <span>175</span>
-<span>176</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>176</span>
+<span>177</span>
+<span>178</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the BaseTrainer class.</span>
 <span></span>
@@ -2160,6 +2169,8 @@ fine-tuning on new datasets while preserving pretrained features.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">_callbacks</span> <span class="ow">or</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">get_default_callbacks</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
 <span></span>        <span class="n">callbacks</span><span class="o">.</span><span class="n">add_integration_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span></span>        <span class="c1"># Start console logging immediately at trainer initialization</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">run_callbacks</span><span class="p">(</span><span class="s2">"on_pretrain_routine_start"</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 <div class="doc doc-children">

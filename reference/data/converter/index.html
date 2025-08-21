@@ -513,17 +513,6 @@
 <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> convert_ndjson_to_yolo
     </span>
 </a>
-<nav aria-label=" convert_ndjson_to_yolo" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.data.converter.convert_ndjson_to_yolo--use-with-yolo-training">
-<span class="md-ellipsis">
-      Use with YOLO training
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -1099,6 +1088,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../../utils/logger/">
+<span class="md-ellipsis">
+    logger
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../../utils/loss/">
 <span class="md-ellipsis">
     loss
@@ -1265,17 +1261,6 @@
 <code class="doc-symbol doc-symbol-toc doc-symbol-function"></code> convert_ndjson_to_yolo
     </span>
 </a>
-<nav aria-label=" convert_ndjson_to_yolo" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#ultralytics.data.converter.convert_ndjson_to_yolo--use-with-yolo-training">
-<span class="md-ellipsis">
-      Use with YOLO training
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -3612,7 +3597,7 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 <p>Convert with custom output directory:</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">yaml_path</span> <span class="o">=</span> <span class="n">convert_ndjson_to_yolo</span><span class="p">(</span><span class="s2">"dataset.ndjson"</span><span class="p">,</span> <span class="n">output_path</span><span class="o">=</span><span class="s2">"./converted_datasets"</span><span class="p">)</span>
 </code></pre></div>
-<h3 id="ultralytics.data.converter.convert_ndjson_to_yolo--use-with-yolo-training">Use with YOLO training</h3>
+<p>Use with YOLO training</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">train</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="s2">"https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8-ndjson.ndjson"</span><span class="p">)</span>
@@ -3725,7 +3710,8 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 <span>864</span>
 <span>865</span>
 <span>866</span>
-<span>867</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">convert_ndjson_to_yolo</span><span class="p">(</span><span class="n">ndjson_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">output_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span>867</span>
+<span>868</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">convert_ndjson_to_yolo</span><span class="p">(</span><span class="n">ndjson_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span> <span class="n">output_path</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert NDJSON dataset format to Ultralytics YOLO11 dataset structure.</span>
 <span></span>
@@ -3753,7 +3739,7 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 <span></span><span class="sd">        Convert with custom output directory:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; yaml_path = convert_ndjson_to_yolo("dataset.ndjson", output_path="./converted_datasets")</span>
 <span></span>
-<span></span><span class="sd">        # Use with YOLO training</span>
+<span></span><span class="sd">        Use with YOLO training</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics import YOLO</span>
 <span></span><span class="sd">        &gt;&gt;&gt; model = YOLO("yolo11n.pt")</span>
 <span></span><span class="sd">        &gt;&gt;&gt; model.train(data="https://github.com/ultralytics/assets/releases/download/v0.0.0/coco8-ndjson.ndjson")</span>
@@ -3774,6 +3760,7 @@ will be saved. If None, uses the parent directory of the NDJSON file. Defaults t
 <span></span>    <span class="n">dataset_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span></span>    <span class="n">data_yaml</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dataset_record</span><span class="p">)</span>
 <span></span>    <span class="n">data_yaml</span><span class="p">[</span><span class="s2">"names"</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dataset_record</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"class_names"</span><span class="p">,</span> <span class="p">{})</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+<span></span>    <span class="n">data_yaml</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"class_names"</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="k">for</span> <span class="n">split</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">splits</span><span class="p">):</span>
 <span></span>        <span class="p">(</span><span class="n">dataset_dir</span> <span class="o">/</span> <span class="s2">"images"</span> <span class="o">/</span> <span class="n">split</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
