@@ -2336,6 +2336,7 @@ explicitly set.</p>
 <ul>
 <li>The progress bar is disabled if VERBOSE is False or if 'disable' is explicitly set to True in kwargs.</li>
 <li>The default bar format is set to TQDM_BAR_FORMAT unless overridden in kwargs.</li>
+<li>In GitHub Actions, progress bars only update at completion to keep CI logs clean.</li>
 </ul>
 </details>
 <p><span class="doc-section-title">Examples:</span></p>
@@ -2367,7 +2368,10 @@ explicitly set.</p>
 <span>180</span>
 <span>181</span>
 <span>182</span>
-<span>183</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>183</span>
+<span>184</span>
+<span>185</span>
+<span>186</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a custom TQDM progress bar with Ultralytics-specific settings.</span>
 <span></span>
@@ -2378,6 +2382,7 @@ explicitly set.</p>
 <span></span><span class="sd">    Notes:</span>
 <span></span><span class="sd">        - The progress bar is disabled if VERBOSE is False or if 'disable' is explicitly set to True in kwargs.</span>
 <span></span><span class="sd">        - The default bar format is set to TQDM_BAR_FORMAT unless overridden in kwargs.</span>
+<span></span><span class="sd">        - In GitHub Actions, progress bars only update at completion to keep CI logs clean.</span>
 <span></span>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; from ultralytics.utils import TQDM</span>
@@ -2386,6 +2391,8 @@ explicitly set.</p>
 <span></span><span class="sd">        ...     pass</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="n">tqdm</span><span class="o">.</span><span class="n">TqdmExperimentalWarning</span><span class="p">)</span>  <span class="c1"># suppress tqdm.rich warning</span>
+<span></span>    <span class="k">if</span> <span class="n">is_github_action_running</span><span class="p">():</span>
+<span></span>        <span class="n">kwargs</span><span class="p">[</span><span class="s2">"mininterval"</span><span class="p">]</span> <span class="o">=</span> <span class="mi">60</span>  <span class="c1"># only update every 60 seconds</span>
 <span></span>    <span class="n">kwargs</span><span class="p">[</span><span class="s2">"disable"</span><span class="p">]</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">VERBOSE</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"disable"</span><span class="p">,</span> <span class="kc">False</span><span class="p">)</span> <span class="ow">or</span> <span class="n">LOGGER</span><span class="o">.</span><span class="n">getEffectiveLevel</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">20</span>
 <span></span>    <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s2">"bar_format"</span><span class="p">,</span> <span class="n">TQDM_BAR_FORMAT</span><span class="p">)</span>  <span class="c1"># override default value if passed</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -2402,9 +2409,9 @@ explicitly set.</p>
 <p>Return self as iterator to satisfy Iterable interface.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>185</span>
-<span>186</span>
-<span>187</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>188</span>
+<span>189</span>
+<span>190</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return self as iterator to satisfy Iterable interface."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__iter__</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -2575,10 +2582,7 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>234</span>
 <span>235</span>
 <span>236</span>
 <span>237</span>
@@ -2586,7 +2590,10 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 <span>239</span>
 <span>240</span>
 <span>241</span>
-<span>242</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span>242</span>
+<span>243</span>
+<span>244</span>
+<span>245</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Export results to CSV string format.</span>
 <span></span>
@@ -2678,10 +2685,7 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>219</span>
 <span>220</span>
 <span>221</span>
 <span>222</span>
@@ -2691,7 +2695,10 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 <span>226</span>
 <span>227</span>
 <span>228</span>
-<span>229</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span>229</span>
+<span>230</span>
+<span>231</span>
+<span>232</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_df</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Create a pandas DataFrame from the prediction results summary or validation metrics.</span>
 <span></span>
@@ -2801,10 +2808,7 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>261</span>
-<span>262</span>
-<span>263</span>
-<span>264</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>264</span>
 <span>265</span>
 <span>266</span>
 <span>267</span>
@@ -2814,7 +2818,10 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 <span>271</span>
 <span>272</span>
 <span>273</span>
-<span>274</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>274</span>
+<span>275</span>
+<span>276</span>
+<span>277</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_html</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Export results to HTML table format.</span>
 <span></span>
@@ -2908,10 +2915,7 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>281</span>
-<span>282</span>
-<span>283</span>
-<span>284</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>284</span>
 <span>285</span>
 <span>286</span>
 <span>287</span>
@@ -2919,7 +2923,10 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 <span>289</span>
 <span>290</span>
 <span>291</span>
-<span>292</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span>292</span>
+<span>293</span>
+<span>294</span>
+<span>295</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Export results to JSON format.</span>
 <span></span>
@@ -3022,10 +3029,7 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>294</span>
-<span>295</span>
-<span>296</span>
-<span>297</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>297</span>
 <span>298</span>
 <span>299</span>
 <span>300</span>
@@ -3065,7 +3069,10 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 <span>334</span>
 <span>335</span>
 <span>336</span>
-<span>337</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_sql</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">table_name</span><span class="o">=</span><span class="s2">"results"</span><span class="p">,</span> <span class="n">db_path</span><span class="o">=</span><span class="s2">"results.db"</span><span class="p">):</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_sql</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">table_name</span><span class="o">=</span><span class="s2">"results"</span><span class="p">,</span> <span class="n">db_path</span><span class="o">=</span><span class="s2">"results.db"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save results to an SQLite database.</span>
 <span></span>
@@ -3193,10 +3200,7 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>244</span>
-<span>245</span>
-<span>246</span>
-<span>247</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>247</span>
 <span>248</span>
 <span>249</span>
 <span>250</span>
@@ -3208,7 +3212,10 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 <span>256</span>
 <span>257</span>
 <span>258</span>
-<span>259</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<span>259</span>
+<span>260</span>
+<span>261</span>
+<span>262</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">to_xml</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Export results to XML format.</span>
 <span></span>
@@ -3238,10 +3245,10 @@ DataFrame, CSV, XML, HTML, JSON and SQLite (SQL).</p>
 <p>Deprecated version of to_json().</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>276</span>
-<span>277</span>
-<span>278</span>
-<span>279</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>279</span>
+<span>280</span>
+<span>281</span>
+<span>282</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tojson</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">decimals</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Deprecated version of to_json()."""</span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s2">"'result.tojson()' is deprecated, replace with 'result.to_json()'."</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">to_json</span><span class="p">(</span><span class="n">normalize</span><span class="p">,</span> <span class="n">decimals</span><span class="p">)</span>
@@ -3325,10 +3332,10 @@ y: 'hello'</p>
 <p>Provide a custom attribute access error message with helpful information.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>388</span>
-<span>389</span>
-<span>390</span>
-<span>391</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Provide a custom attribute access error message with helpful information."""</span>
 <span></span>    <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 <span></span>    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span><span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">' object has no attribute '</span><span class="si">{</span><span class="n">attr</span><span class="si">}</span><span class="s2">'. See valid attributes below.</span><span class="se">\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="vm">__doc__</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -3346,9 +3353,9 @@ y: 'hello'</p>
 <p>Return a machine-readable string representation of the object.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>384</span>
-<span>385</span>
-<span>386</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>387</span>
+<span>388</span>
+<span>389</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a machine-readable string representation of the object."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="fm">__str__</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -3365,10 +3372,7 @@ y: 'hello'</p>
 <p>Return a human-readable string representation of the object.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>370</span>
-<span>371</span>
-<span>372</span>
-<span>373</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>373</span>
 <span>374</span>
 <span>375</span>
 <span>376</span>
@@ -3377,7 +3381,10 @@ y: 'hello'</p>
 <span>379</span>
 <span>380</span>
 <span>381</span>
-<span>382</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a human-readable string representation of the object."""</span>
 <span></span>    <span class="n">attr</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
@@ -3483,17 +3490,17 @@ and iterable format compared to a standard dictionary.</p>
 <p>Provide a custom attribute access error message with helpful information.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>437</span>
-<span>438</span>
-<span>439</span>
-<span>440</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>440</span>
 <span>441</span>
 <span>442</span>
 <span>443</span>
 <span>444</span>
 <span>445</span>
 <span>446</span>
-<span>447</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
+<span>447</span>
+<span>448</span>
+<span>449</span>
+<span>450</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__getattr__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">attr</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Provide a custom attribute access error message with helpful information."""</span>
 <span></span>    <span class="n">name</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span>
 <span></span>    <span class="k">raise</span> <span class="ne">AttributeError</span><span class="p">(</span>
@@ -3518,9 +3525,9 @@ and iterable format compared to a standard dictionary.</p>
 <p>Return an iterator of key-value pairs from the namespace's attributes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>429</span>
-<span>430</span>
-<span>431</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>432</span>
+<span>433</span>
+<span>434</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return an iterator of key-value pairs from the namespace's attributes."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">iter</span><span class="p">(</span><span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
@@ -3537,9 +3544,9 @@ and iterable format compared to a standard dictionary.</p>
 <p>Return a human-readable string representation of the object.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>433</span>
-<span>434</span>
-<span>435</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>436</span>
+<span>437</span>
+<span>438</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a human-readable string representation of the object."""</span>
 <span></span>    <span class="k">return</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">vars</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
 </code></pre></div></td></tr></table></div>
@@ -3556,9 +3563,9 @@ and iterable format compared to a standard dictionary.</p>
 <p>Return the value of the specified key if it exists; otherwise, return the default value.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>449</span>
-<span>450</span>
-<span>451</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>452</span>
+<span>453</span>
+<span>454</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return the value of the specified key if it exists; otherwise, return the default value."""</span>
 <span></span>    <span class="k">return</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">default</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -3609,9 +3616,9 @@ only one thread at a time will be able to execute the function.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>608</span>
-<span>609</span>
-<span>610</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>611</span>
+<span>612</span>
+<span>613</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the decorator class with a threading lock."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">lock</span> <span class="o">=</span> <span class="n">threading</span><span class="o">.</span><span class="n">Lock</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -3627,17 +3634,17 @@ only one thread at a time will be able to execute the function.</p>
 <p>Run thread-safe execution of function or method.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>612</span>
-<span>613</span>
-<span>614</span>
-<span>615</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>615</span>
 <span>616</span>
 <span>617</span>
 <span>618</span>
 <span>619</span>
 <span>620</span>
 <span>621</span>
-<span>622</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
+<span>625</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Run thread-safe execution of function or method."""</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">wraps</span>
 <span></span>
@@ -3736,10 +3743,7 @@ issues automatically.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>662</span>
-<span>663</span>
-<span>664</span>
-<span>665</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>665</span>
 <span>666</span>
 <span>667</span>
 <span>668</span>
@@ -3747,7 +3751,10 @@ issues automatically.</p>
 <span>670</span>
 <span>671</span>
 <span>672</span>
-<span>673</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>673</span>
+<span>674</span>
+<span>675</span>
+<span>676</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize with optimal YAML implementation (C-based when available)."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">yaml</span>
 <span></span>
@@ -3841,10 +3848,7 @@ issues automatically.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>705</span>
-<span>706</span>
-<span>707</span>
-<span>708</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>708</span>
 <span>709</span>
 <span>710</span>
 <span>711</span>
@@ -3874,7 +3878,10 @@ issues automatically.</p>
 <span>735</span>
 <span>736</span>
 <span>737</span>
-<span>738</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
+<span>738</span>
+<span>739</span>
+<span>740</span>
+<span>741</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">load</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"data.yaml"</span><span class="p">,</span> <span class="n">append_filename</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load YAML file to Python object with robust error handling.</span>
@@ -3954,10 +3961,7 @@ issues automatically.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>740</span>
-<span>741</span>
-<span>742</span>
-<span>743</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>743</span>
 <span>744</span>
 <span>745</span>
 <span>746</span>
@@ -3970,7 +3974,10 @@ issues automatically.</p>
 <span>753</span>
 <span>754</span>
 <span>755</span>
-<span>756</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
+<span>756</span>
+<span>757</span>
+<span>758</span>
+<span>759</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">print</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">yaml_file</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Pretty print YAML file or object to console.</span>
@@ -4065,10 +4072,7 @@ issues automatically.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>675</span>
-<span>676</span>
-<span>677</span>
-<span>678</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>678</span>
 <span>679</span>
 <span>680</span>
 <span>681</span>
@@ -4093,7 +4097,10 @@ issues automatically.</p>
 <span>700</span>
 <span>701</span>
 <span>702</span>
-<span>703</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
+<span>703</span>
+<span>704</span>
+<span>705</span>
+<span>706</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@classmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">save</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="s2">"data.yaml"</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save Python object as YAML file.</span>
@@ -4189,10 +4196,10 @@ It allows code to continue execution even when exceptions occur, which is useful
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1164</span>
-<span>1165</span>
-<span>1166</span>
-<span>1167</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1167</span>
+<span>1168</span>
+<span>1169</span>
+<span>1170</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">msg</span><span class="o">=</span><span class="s2">""</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize TryExcept class with optional message and verbosity settings."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">msg</span> <span class="o">=</span> <span class="n">msg</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="o">=</span> <span class="n">verbose</span>
@@ -4209,9 +4216,9 @@ It allows code to continue execution even when exceptions occur, which is useful
 <p>Execute when entering TryExcept context, initialize instance.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1169</span>
-<span>1170</span>
-<span>1171</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1172</span>
+<span>1173</span>
+<span>1174</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Execute when entering TryExcept context, initialize instance."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -4228,11 +4235,11 @@ It allows code to continue execution even when exceptions occur, which is useful
 <p>Define behavior when exiting a 'with' block, print error message if necessary.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1173</span>
-<span>1174</span>
-<span>1175</span>
-<span>1176</span>
-<span>1177</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1176</span>
+<span>1177</span>
+<span>1178</span>
+<span>1179</span>
+<span>1180</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exc_type</span><span class="p">,</span> <span class="n">value</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Define behavior when exiting a 'with' block, print error message if necessary."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">verbose</span> <span class="ow">and</span> <span class="n">value</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="si">}{</span><span class="s1">': '</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="bp">self</span><span class="o">.</span><span class="n">msg</span><span class="w"> </span><span class="k">else</span><span class="w"> </span><span class="s1">''</span><span class="si">}{</span><span class="n">value</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
@@ -4300,11 +4307,11 @@ operations or other unreliable processes.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1200</span>
-<span>1201</span>
-<span>1202</span>
-<span>1203</span>
-<span>1204</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1203</span>
+<span>1204</span>
+<span>1205</span>
+<span>1206</span>
+<span>1207</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">delay</span><span class="o">=</span><span class="mi">2</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize Retry class with specified number of retries and delay."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">times</span> <span class="o">=</span> <span class="n">times</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">delay</span> <span class="o">=</span> <span class="n">delay</span>
@@ -4322,10 +4329,7 @@ operations or other unreliable processes.</p>
 <p>Decorator implementation for Retry with exponential backoff.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1206</span>
-<span>1207</span>
-<span>1208</span>
-<span>1209</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1209</span>
 <span>1210</span>
 <span>1211</span>
 <span>1212</span>
@@ -4338,7 +4342,10 @@ operations or other unreliable processes.</p>
 <span>1219</span>
 <span>1220</span>
 <span>1221</span>
-<span>1222</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
+<span>1222</span>
+<span>1223</span>
+<span>1224</span>
+<span>1225</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Decorator implementation for Retry with exponential backoff."""</span>
 <span></span>
 <span></span>    <span class="k">def</span><span class="w"> </span><span class="nf">wrapped_func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
@@ -4478,12 +4485,12 @@ modified. It ensures thread-safe operations using a lock and handles JSON serial
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1359</span>
-<span>1360</span>
-<span>1361</span>
-<span>1362</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1362</span>
 <span>1363</span>
-<span>1364</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"data.json"</span><span class="p">):</span>
+<span>1364</span>
+<span>1365</span>
+<span>1366</span>
+<span>1367</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"data.json"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a JSONDict object with a specified file path for JSON persistence."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">file_path</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
@@ -4502,11 +4509,11 @@ modified. It ensures thread-safe operations using a lock and handles JSON serial
 <p>Remove an item and update the persistent storage.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1399</span>
-<span>1400</span>
-<span>1401</span>
-<span>1402</span>
-<span>1403</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1402</span>
+<span>1403</span>
+<span>1404</span>
+<span>1405</span>
+<span>1406</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__delitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Remove an item and update the persistent storage."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__delitem__</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
@@ -4525,11 +4532,11 @@ modified. It ensures thread-safe operations using a lock and handles JSON serial
 <p>Store a key-value pair and persist to disk.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1393</span>
-<span>1394</span>
-<span>1395</span>
-<span>1396</span>
-<span>1397</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1396</span>
+<span>1397</span>
+<span>1398</span>
+<span>1399</span>
+<span>1400</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Store a key-value pair and persist to disk."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__setitem__</span><span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">)</span>
@@ -4548,10 +4555,10 @@ modified. It ensures thread-safe operations using a lock and handles JSON serial
 <p>Return a pretty-printed JSON string representation of the dictionary.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1405</span>
-<span>1406</span>
-<span>1407</span>
-<span>1408</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1408</span>
+<span>1409</span>
+<span>1410</span>
+<span>1411</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__str__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a pretty-printed JSON string representation of the dictionary."""</span>
 <span></span>    <span class="n">contents</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="nb">dict</span><span class="p">(</span><span class="bp">self</span><span class="p">),</span> <span class="n">indent</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_json_default</span><span class="p">)</span>
 <span></span>    <span class="k">return</span> <span class="sa">f</span><span class="s1">'JSONDict("</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">file_path</span><span class="si">}</span><span class="s1">"):</span><span class="se">\n</span><span class="si">{</span><span class="n">contents</span><span class="si">}</span><span class="s1">'</span>
@@ -4569,11 +4576,11 @@ modified. It ensures thread-safe operations using a lock and handles JSON serial
 <p>Clear all entries and update the persistent storage.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1416</span>
-<span>1417</span>
-<span>1418</span>
-<span>1419</span>
-<span>1420</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1419</span>
+<span>1420</span>
+<span>1421</span>
+<span>1422</span>
+<span>1423</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Clear all entries and update the persistent storage."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
@@ -4592,11 +4599,11 @@ modified. It ensures thread-safe operations using a lock and handles JSON serial
 <p>Update the dictionary and persist changes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1410</span>
-<span>1411</span>
-<span>1412</span>
-<span>1413</span>
-<span>1414</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1413</span>
+<span>1414</span>
+<span>1415</span>
+<span>1416</span>
+<span>1417</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update the dictionary and persist changes."""</span>
 <span></span>    <span class="k">with</span> <span class="bp">self</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
 <span></span>        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
@@ -4721,10 +4728,7 @@ include directories for datasets, weights, and runs, as well as various integrat
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1450</span>
-<span>1451</span>
-<span>1452</span>
-<span>1453</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1453</span>
 <span>1454</span>
 <span>1455</span>
 <span>1456</span>
@@ -4768,7 +4772,10 @@ include directories for datasets, weights, and runs, as well as various integrat
 <span>1494</span>
 <span>1495</span>
 <span>1496</span>
-<span>1497</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
+<span>1497</span>
+<span>1498</span>
+<span>1499</span>
+<span>1500</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="o">=</span><span class="n">SETTINGS_FILE</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s2">"0.0.6"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the SettingsManager with default settings and load user settings."""</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">hashlib</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">uuid</span>
@@ -4829,9 +4836,9 @@ include directories for datasets, weights, and runs, as well as various integrat
 <p>Update one key: value pair.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1519</span>
-<span>1520</span>
-<span>1521</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1522</span>
+<span>1523</span>
+<span>1524</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__setitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update one key: value pair."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="n">key</span><span class="p">:</span> <span class="n">value</span><span class="p">})</span>
 </code></pre></div></td></tr></table></div>
@@ -4848,10 +4855,10 @@ include directories for datasets, weights, and runs, as well as various integrat
 <p>Reset the settings to default and save them.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1538</span>
-<span>1539</span>
-<span>1540</span>
-<span>1541</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1541</span>
+<span>1542</span>
+<span>1543</span>
+<span>1544</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the settings to default and save them."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">defaults</span><span class="p">)</span>
@@ -4869,10 +4876,7 @@ include directories for datasets, weights, and runs, as well as various integrat
 <p>Update settings, validating keys and types.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1523</span>
-<span>1524</span>
-<span>1525</span>
-<span>1526</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1526</span>
 <span>1527</span>
 <span>1528</span>
 <span>1529</span>
@@ -4882,7 +4886,10 @@ include directories for datasets, weights, and runs, as well as various integrat
 <span>1533</span>
 <span>1534</span>
 <span>1535</span>
-<span>1536</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>1536</span>
+<span>1537</span>
+<span>1538</span>
+<span>1539</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update settings, validating keys and types."""</span>
 <span></span>    <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">args</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
@@ -4991,10 +4998,7 @@ include directories for datasets, weights, and runs, as well as various integrat
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>454</span>
-<span>455</span>
-<span>456</span>
-<span>457</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>457</span>
 <span>458</span>
 <span>459</span>
 <span>460</span>
@@ -5042,7 +5046,10 @@ include directories for datasets, weights, and runs, as well as various integrat
 <span>502</span>
 <span>503</span>
 <span>504</span>
-<span>505</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_settings</span><span class="p">(</span><span class="n">rcparams</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">"Agg"</span><span class="p">):</span>
+<span>505</span>
+<span>506</span>
+<span>507</span>
+<span>508</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plt_settings</span><span class="p">(</span><span class="n">rcparams</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">backend</span><span class="o">=</span><span class="s2">"Agg"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Decorator to temporarily set rc parameters and the backend for a plotting function.</span>
 <span></span>
@@ -5191,10 +5198,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>508</span>
-<span>509</span>
-<span>510</span>
-<span>511</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>511</span>
 <span>512</span>
 <span>513</span>
 <span>514</span>
@@ -5260,7 +5264,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>574</span>
 <span>575</span>
 <span>576</span>
-<span>577</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_logging</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"LOGGING_NAME"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>577</span>
+<span>578</span>
+<span>579</span>
+<span>580</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_logging</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">"LOGGING_NAME"</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set up logging with UTF-8 encoding and configurable verbosity.</span>
 <span></span>
@@ -5344,9 +5351,9 @@ environments where UTF-8 encoding might not be the default.</p>
 <p>Return platform-dependent emoji-safe version of string.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>586</span>
-<span>587</span>
-<span>588</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">emojis</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>589</span>
+<span>590</span>
+<span>591</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">emojis</span><span class="p">(</span><span class="n">string</span><span class="o">=</span><span class="s2">""</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Return platform-dependent emoji-safe version of string."""</span>
 <span></span>    <span class="k">return</span> <span class="n">string</span><span class="o">.</span><span class="n">encode</span><span class="p">()</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s2">"ascii"</span><span class="p">,</span> <span class="s2">"ignore"</span><span class="p">)</span> <span class="k">if</span> <span class="n">WINDOWS</span> <span class="k">else</span> <span class="n">string</span>
 </code></pre></div></td></tr></table></div>
@@ -5384,14 +5391,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>765</span>
-<span>766</span>
-<span>767</span>
-<span>768</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>768</span>
 <span>769</span>
 <span>770</span>
 <span>771</span>
-<span>772</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_device_model</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>772</span>
+<span>773</span>
+<span>774</span>
+<span>775</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_device_model</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Read the device model information from the system and cache it for quick access.</span>
 <span></span>
@@ -5434,10 +5441,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>775</span>
-<span>776</span>
-<span>777</span>
-<span>778</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>778</span>
 <span>779</span>
 <span>780</span>
 <span>781</span>
@@ -5445,7 +5449,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>783</span>
 <span>784</span>
 <span>785</span>
-<span>786</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_ubuntu</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>786</span>
+<span>787</span>
+<span>788</span>
+<span>789</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_ubuntu</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the OS is Ubuntu.</span>
 <span></span>
@@ -5492,14 +5499,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>789</span>
-<span>790</span>
-<span>791</span>
-<span>792</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>792</span>
 <span>793</span>
 <span>794</span>
 <span>795</span>
-<span>796</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_colab</span><span class="p">():</span>
+<span>796</span>
+<span>797</span>
+<span>798</span>
+<span>799</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_colab</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the current script is running inside a Google Colab notebook.</span>
 <span></span>
@@ -5542,14 +5549,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>799</span>
-<span>800</span>
-<span>801</span>
-<span>802</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>802</span>
 <span>803</span>
 <span>804</span>
 <span>805</span>
-<span>806</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_kaggle</span><span class="p">():</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_kaggle</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the current script is running inside a Kaggle kernel.</span>
 <span></span>
@@ -5599,10 +5606,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>809</span>
-<span>810</span>
-<span>811</span>
-<span>812</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>812</span>
 <span>813</span>
 <span>814</span>
 <span>815</span>
@@ -5610,7 +5614,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>817</span>
 <span>818</span>
 <span>819</span>
-<span>820</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_jupyter</span><span class="p">():</span>
+<span>820</span>
+<span>821</span>
+<span>822</span>
+<span>823</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_jupyter</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the current script is running inside a Jupyter Notebook.</span>
 <span></span>
@@ -5657,14 +5664,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>823</span>
-<span>824</span>
-<span>825</span>
-<span>826</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>826</span>
 <span>827</span>
 <span>828</span>
 <span>829</span>
-<span>830</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_runpod</span><span class="p">():</span>
+<span>830</span>
+<span>831</span>
+<span>832</span>
+<span>833</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_runpod</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if the current script is running inside a RunPod container.</span>
 <span></span>
@@ -5707,17 +5714,17 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>833</span>
-<span>834</span>
-<span>835</span>
-<span>836</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>836</span>
 <span>837</span>
 <span>838</span>
 <span>839</span>
 <span>840</span>
 <span>841</span>
 <span>842</span>
-<span>843</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_docker</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>843</span>
+<span>844</span>
+<span>845</span>
+<span>846</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_docker</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine if the script is running inside a Docker container.</span>
 <span></span>
@@ -5763,14 +5770,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>846</span>
-<span>847</span>
-<span>848</span>
-<span>849</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>849</span>
 <span>850</span>
 <span>851</span>
 <span>852</span>
-<span>853</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_raspberrypi</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>853</span>
+<span>854</span>
+<span>855</span>
+<span>856</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_raspberrypi</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine if the Python environment is running on a Raspberry Pi.</span>
 <span></span>
@@ -5813,14 +5820,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>856</span>
-<span>857</span>
-<span>858</span>
-<span>859</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>859</span>
 <span>860</span>
 <span>861</span>
 <span>862</span>
-<span>863</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_jetson</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>863</span>
+<span>864</span>
+<span>865</span>
+<span>866</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_jetson</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine if the Python environment is running on an NVIDIA Jetson device.</span>
 <span></span>
@@ -5863,10 +5870,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>866</span>
-<span>867</span>
-<span>868</span>
-<span>869</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>869</span>
 <span>870</span>
 <span>871</span>
 <span>872</span>
@@ -5878,7 +5882,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>878</span>
 <span>879</span>
 <span>880</span>
-<span>881</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_online</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>881</span>
+<span>882</span>
+<span>883</span>
+<span>884</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_online</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check internet connectivity by attempting to connect to a known online host.</span>
 <span></span>
@@ -5958,10 +5965,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>884</span>
-<span>885</span>
-<span>886</span>
-<span>887</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>887</span>
 <span>888</span>
 <span>889</span>
 <span>890</span>
@@ -5974,7 +5978,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>897</span>
 <span>898</span>
 <span>899</span>
-<span>900</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_pip_package</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="vm">__name__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>900</span>
+<span>901</span>
+<span>902</span>
+<span>903</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_pip_package</span><span class="p">(</span><span class="n">filepath</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="vm">__name__</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine if the file at the given filepath is part of a pip package.</span>
 <span></span>
@@ -6055,17 +6062,17 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>903</span>
-<span>904</span>
-<span>905</span>
-<span>906</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>906</span>
 <span>907</span>
 <span>908</span>
 <span>909</span>
 <span>910</span>
 <span>911</span>
 <span>912</span>
-<span>913</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_dir_writeable</span><span class="p">(</span><span class="n">dir_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>913</span>
+<span>914</span>
+<span>915</span>
+<span>916</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_dir_writeable</span><span class="p">(</span><span class="n">dir_path</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check if a directory is writeable.</span>
 <span></span>
@@ -6111,14 +6118,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>916</span>
-<span>917</span>
-<span>918</span>
-<span>919</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>919</span>
 <span>920</span>
 <span>921</span>
 <span>922</span>
-<span>923</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_pytest_running</span><span class="p">():</span>
+<span>923</span>
+<span>924</span>
+<span>925</span>
+<span>926</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_pytest_running</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine whether pytest is currently running or not.</span>
 <span></span>
@@ -6161,14 +6168,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>926</span>
-<span>927</span>
-<span>928</span>
-<span>929</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>929</span>
 <span>930</span>
 <span>931</span>
 <span>932</span>
-<span>933</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_github_action_running</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>933</span>
+<span>934</span>
+<span>935</span>
+<span>936</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_github_action_running</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine if the current environment is a GitHub Actions runner.</span>
 <span></span>
@@ -6211,16 +6218,16 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>936</span>
-<span>937</span>
-<span>938</span>
-<span>939</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>939</span>
 <span>940</span>
 <span>941</span>
 <span>942</span>
 <span>943</span>
 <span>944</span>
-<span>945</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_dir</span><span class="p">():</span>
+<span>945</span>
+<span>946</span>
+<span>947</span>
+<span>948</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_dir</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine whether the current file is part of a git repository and if so, return the repository root directory.</span>
 <span></span>
@@ -6265,14 +6272,14 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>948</span>
-<span>949</span>
-<span>950</span>
-<span>951</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>951</span>
 <span>952</span>
 <span>953</span>
 <span>954</span>
-<span>955</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_git_dir</span><span class="p">():</span>
+<span>955</span>
+<span>956</span>
+<span>957</span>
+<span>958</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">is_git_dir</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine whether the current file is part of a git repository.</span>
 <span></span>
@@ -6315,10 +6322,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>958</span>
-<span>959</span>
-<span>960</span>
-<span>961</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>961</span>
 <span>962</span>
 <span>963</span>
 <span>964</span>
@@ -6327,7 +6331,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>967</span>
 <span>968</span>
 <span>969</span>
-<span>970</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_origin_url</span><span class="p">():</span>
+<span>970</span>
+<span>971</span>
+<span>972</span>
+<span>973</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_origin_url</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve the origin URL of a git repository.</span>
 <span></span>
@@ -6375,10 +6382,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>973</span>
-<span>974</span>
-<span>975</span>
-<span>976</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>976</span>
 <span>977</span>
 <span>978</span>
 <span>979</span>
@@ -6387,7 +6391,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>982</span>
 <span>983</span>
 <span>984</span>
-<span>985</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_branch</span><span class="p">():</span>
+<span>985</span>
+<span>986</span>
+<span>987</span>
+<span>988</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_git_branch</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return the current git branch name. If not in a git repository, return None.</span>
 <span></span>
@@ -6464,18 +6471,18 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>988</span>
-<span>989</span>
-<span>990</span>
-<span>991</span>
-<span>992</span>
-<span>993</span>
-<span>994</span>
-<span>995</span>
-<span>996</span>
-<span>997</span>
-<span>998</span>
-<span>999</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_default_args</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 991</span>
+<span> 992</span>
+<span> 993</span>
+<span> 994</span>
+<span> 995</span>
+<span> 996</span>
+<span> 997</span>
+<span> 998</span>
+<span> 999</span>
+<span>1000</span>
+<span>1001</span>
+<span>1002</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_default_args</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return a dictionary of default arguments for a function.</span>
 <span></span>
@@ -6522,10 +6529,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1002</span>
-<span>1003</span>
-<span>1004</span>
-<span>1005</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1005</span>
 <span>1006</span>
 <span>1007</span>
 <span>1008</span>
@@ -6534,7 +6538,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>1011</span>
 <span>1012</span>
 <span>1013</span>
-<span>1014</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_ubuntu_version</span><span class="p">():</span>
+<span>1014</span>
+<span>1015</span>
+<span>1016</span>
+<span>1017</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_ubuntu_version</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve the Ubuntu version if the OS is Ubuntu.</span>
 <span></span>
@@ -6611,10 +6618,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1017</span>
-<span>1018</span>
-<span>1019</span>
-<span>1020</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1020</span>
 <span>1021</span>
 <span>1022</span>
 <span>1023</span>
@@ -6641,7 +6645,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>1044</span>
 <span>1045</span>
 <span>1046</span>
-<span>1047</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_user_config_dir</span><span class="p">(</span><span class="n">sub_dir</span><span class="o">=</span><span class="s2">"Ultralytics"</span><span class="p">):</span>
+<span>1047</span>
+<span>1048</span>
+<span>1049</span>
+<span>1050</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_user_config_dir</span><span class="p">(</span><span class="n">sub_dir</span><span class="o">=</span><span class="s2">"Ultralytics"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return the appropriate config directory based on the environment operating system.</span>
 <span></span>
@@ -6760,10 +6767,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1066</span>
-<span>1067</span>
-<span>1068</span>
-<span>1069</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1069</span>
 <span>1070</span>
 <span>1071</span>
 <span>1072</span>
@@ -6813,7 +6817,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>1116</span>
 <span>1117</span>
 <span>1118</span>
-<span>1119</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">colorstr</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">):</span>
+<span>1119</span>
+<span>1120</span>
+<span>1121</span>
+<span>1122</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">colorstr</span><span class="p">(</span><span class="o">*</span><span class="nb">input</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sa">r</span><span class="sd">"""</span>
 <span></span><span class="sd">    Color a string based on the provided color and style arguments using ANSI escape codes.</span>
 <span></span>
@@ -6935,10 +6942,7 @@ environments where UTF-8 encoding might not be the default.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1122</span>
-<span>1123</span>
-<span>1124</span>
-<span>1125</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1125</span>
 <span>1126</span>
 <span>1127</span>
 <span>1128</span>
@@ -6950,7 +6954,10 @@ environments where UTF-8 encoding might not be the default.</p>
 <span>1134</span>
 <span>1135</span>
 <span>1136</span>
-<span>1137</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_colorstr</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
+<span>1137</span>
+<span>1138</span>
+<span>1139</span>
+<span>1140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_colorstr</span><span class="p">(</span><span class="n">input_string</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Remove ANSI escape codes from a string, effectively un-coloring it.</span>
 <span></span>
@@ -7041,10 +7048,7 @@ which is removed from kwargs before calling the function.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1225</span>
-<span>1226</span>
-<span>1227</span>
-<span>1228</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1228</span>
 <span>1229</span>
 <span>1230</span>
 <span>1231</span>
@@ -7073,7 +7077,10 @@ which is removed from kwargs before calling the function.</p>
 <span>1254</span>
 <span>1255</span>
 <span>1256</span>
-<span>1257</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
+<span>1257</span>
+<span>1258</span>
+<span>1259</span>
+<span>1260</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">threaded</span><span class="p">(</span><span class="n">func</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Multi-thread a target function by default and return the thread or function result.</span>
 <span></span>
@@ -7131,10 +7138,7 @@ settings.</p>
     - CLI used to run package (checked with 'yolo' as the name of the main CLI command)</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1260</span>
-<span>1261</span>
-<span>1262</span>
-<span>1263</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1263</span>
 <span>1264</span>
 <span>1265</span>
 <span>1266</span>
@@ -7198,7 +7202,10 @@ settings.</p>
 <span>1324</span>
 <span>1325</span>
 <span>1326</span>
-<span>1327</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_sentry</span><span class="p">():</span>
+<span>1327</span>
+<span>1328</span>
+<span>1329</span>
+<span>1330</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_sentry</span><span class="p">():</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Sentry SDK for error tracking and reporting.</span>
 <span></span>
@@ -7280,12 +7287,12 @@ settings.</p>
 <p>Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1544</span>
-<span>1545</span>
-<span>1546</span>
-<span>1547</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1547</span>
 <span>1548</span>
-<span>1549</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1549</span>
+<span>1550</span>
+<span>1551</span>
+<span>1552</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">deprecation_warn</span><span class="p">(</span><span class="n">arg</span><span class="p">,</span> <span class="n">new_arg</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Issue a deprecation warning when a deprecated argument is used, suggesting an updated argument."""</span>
 <span></span>    <span class="n">msg</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">arg</span><span class="si">}</span><span class="s2">' is deprecated and will be removed in in the future."</span>
 <span></span>    <span class="k">if</span> <span class="n">new_arg</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -7305,10 +7312,10 @@ settings.</p>
 <p>Strip auth from URL, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; <a href="https://url.com/file.txt">https://url.com/file.txt</a>.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1552</span>
-<span>1553</span>
-<span>1554</span>
-<span>1555</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1555</span>
+<span>1556</span>
+<span>1557</span>
+<span>1558</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Strip auth from URL, i.e. https://url.com/file.txt?auth -&gt; https://url.com/file.txt."""</span>
 <span></span>    <span class="n">url</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">as_posix</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s2">":/"</span><span class="p">,</span> <span class="s2">"://"</span><span class="p">)</span>  <span class="c1"># Pathlib turns :// -&gt; :/, as_posix() for Windows</span>
 <span></span>    <span class="k">return</span> <span class="n">unquote</span><span class="p">(</span><span class="n">url</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"?"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># '%2F' to '/', split https://url.com/file.txt?auth</span>
@@ -7326,9 +7333,9 @@ settings.</p>
 <p>Convert URL to filename, i.e. <a href="https://url.com/file.txt?auth">https://url.com/file.txt?auth</a> -&gt; file.txt.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1558</span>
-<span>1559</span>
-<span>1560</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1561</span>
+<span>1562</span>
+<span>1563</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">url2file</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Convert URL to filename, i.e. https://url.com/file.txt?auth -&gt; file.txt."""</span>
 <span></span>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">clean_url</span><span class="p">(</span><span class="n">url</span><span class="p">))</span><span class="o">.</span><span class="n">name</span>
 </code></pre></div></td></tr></table></div>
@@ -7345,13 +7352,13 @@ settings.</p>
 <p>Display a message to install Ultralytics-Snippets for VS Code if not already installed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1563</span>
-<span>1564</span>
-<span>1565</span>
-<span>1566</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1566</span>
 <span>1567</span>
 <span>1568</span>
-<span>1569</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>1569</span>
+<span>1570</span>
+<span>1571</span>
+<span>1572</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">vscode_msg</span><span class="p">(</span><span class="n">ext</span><span class="o">=</span><span class="s2">"ultralytics.ultralytics-snippets"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Display a message to install Ultralytics-Snippets for VS Code if not already installed."""</span>
 <span></span>    <span class="n">path</span> <span class="o">=</span> <span class="p">(</span><span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="k">if</span> <span class="n">WINDOWS</span> <span class="k">else</span> <span class="n">USER_CONFIG_DIR</span><span class="o">.</span><span class="n">parents</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="s2">".vscode/extensions"</span>
 <span></span>    <span class="n">obs_file</span> <span class="o">=</span> <span class="n">path</span> <span class="o">/</span> <span class="s2">".obsolete"</span>  <span class="c1"># file tracks uninstalled extensions, while source directory remains</span>
