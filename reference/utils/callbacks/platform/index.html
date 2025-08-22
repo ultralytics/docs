@@ -1354,9 +1354,9 @@
 <span>12</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_pretrain_routine_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize and start console logging immediately at the very beginning."""</span>
 <span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}:</span>
-<span></span>        <span class="c1"># Create and start logger immediately before any other output</span>
-<span></span>        <span class="n">trainer</span><span class="o">.</span><span class="n">platform_logger</span> <span class="o">=</span> <span class="n">ConsoleLogger</span><span class="p">(</span><span class="n">DEFAULT_LOG_PATH</span><span class="p">)</span>
-<span></span>        <span class="n">trainer</span><span class="o">.</span><span class="n">platform_logger</span><span class="o">.</span><span class="n">start_capture</span><span class="p">()</span>
+<span></span>        <span class="n">trainer</span><span class="o">.</span><span class="n">system_logger</span> <span class="o">=</span> <span class="n">SystemLogger</span><span class="p">()</span>
+<span></span>        <span class="n">trainer</span><span class="o">.</span><span class="n">console_logger</span> <span class="o">=</span> <span class="n">ConsoleLogger</span><span class="p">(</span><span class="n">DEFAULT_LOG_PATH</span><span class="p">)</span>
+<span></span>        <span class="n">trainer</span><span class="o">.</span><span class="n">console_logger</span><span class="o">.</span><span class="n">start_capture</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1387,14 +1387,18 @@
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
-<p>Handle end of training epoch event.</p>
+<p>Handle end of training epoch event and collect system metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/platform.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>20</span>
 <span>21</span>
-<span>22</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Handle end of training epoch event."""</span>
-<span></span>    <span class="k">pass</span>
+<span>22</span>
+<span>23</span>
+<span>24</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_fit_epoch_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<span></span><span class="w">    </span><span class="sd">"""Handle end of training epoch event and collect system metrics."""</span>
+<span></span>    <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">"system_logger"</span><span class="p">):</span>
+<span></span>        <span class="n">system_metrics</span> <span class="o">=</span> <span class="n">trainer</span><span class="o">.</span><span class="n">system_logger</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>
+<span></span>        <span class="nb">print</span><span class="p">(</span><span class="n">system_metrics</span><span class="p">)</span>  <span class="c1"># for debug</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -1409,9 +1413,9 @@
 <p>Handle model checkpoint save event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/platform.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>25</span>
-<span>26</span>
-<span>27</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_model_save</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>27</span>
+<span>28</span>
+<span>29</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_model_save</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Handle model checkpoint save event."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -1428,12 +1432,12 @@
 <p>Stop console capture and finalize logs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/platform.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>30</span>
-<span>31</span>
-<span>32</span>
-<span>33</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>32</span>
+<span>33</span>
+<span>34</span>
+<span>35</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_end</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Stop console capture and finalize logs."""</span>
-<span></span>    <span class="k">if</span> <span class="n">logger</span> <span class="o">:=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">"platform_logger"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+<span></span>    <span class="k">if</span> <span class="n">logger</span> <span class="o">:=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">trainer</span><span class="p">,</span> <span class="s2">"console_logger"</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
 <span></span>        <span class="n">logger</span><span class="o">.</span><span class="n">stop_capture</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1449,9 +1453,9 @@
 <p>Handle training start event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/platform.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>36</span>
-<span>37</span>
-<span>38</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
+<span>39</span>
+<span>40</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_train_start</span><span class="p">(</span><span class="n">trainer</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Handle training start event."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -1468,9 +1472,9 @@
 <p>Handle validation start event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/platform.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>41</span>
-<span>42</span>
-<span>43</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_start</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>43</span>
+<span>44</span>
+<span>45</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_val_start</span><span class="p">(</span><span class="n">validator</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Handle validation start event."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -1487,9 +1491,9 @@
 <p>Handle prediction start event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/platform.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>46</span>
-<span>47</span>
-<span>48</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>48</span>
+<span>49</span>
+<span>50</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_predict_start</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Handle prediction start event."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
@@ -1506,9 +1510,9 @@
 <p>Handle model export start event.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/callbacks/platform.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>51</span>
-<span>52</span>
-<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_export_start</span><span class="p">(</span><span class="n">exporter</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
+<span>54</span>
+<span>55</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">on_export_start</span><span class="p">(</span><span class="n">exporter</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Handle model export start event."""</span>
 <span></span>    <span class="k">pass</span>
 </code></pre></div></td></tr></table></div>
