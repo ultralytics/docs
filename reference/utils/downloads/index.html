@@ -2680,12 +2680,7 @@ a successful download.</p>
 <span>390</span>
 <span>391</span>
 <span>392</span>
-<span>393</span>
-<span>394</span>
-<span>395</span>
-<span>396</span>
-<span>397</span>
-<span>398</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_download</span><span class="p">(</span>
+<span>393</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">safe_download</span><span class="p">(</span>
 <span></span>    <span class="n">url</span><span class="p">,</span>
 <span></span>    <span class="n">file</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="nb">dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
@@ -2741,7 +2736,6 @@ a successful download.</p>
 <span></span>        <span class="n">check_disk_space</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">path</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">parent</span><span class="p">)</span>
 <span></span>        <span class="n">curl_installed</span> <span class="o">=</span> <span class="n">shutil</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="s2">"curl"</span><span class="p">)</span>
 <span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">retry</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-<span></span>            <span class="n">success</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>            <span class="k">try</span><span class="p">:</span>
 <span></span>                <span class="k">if</span> <span class="p">(</span><span class="n">curl</span> <span class="ow">or</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">)</span> <span class="ow">and</span> <span class="n">curl_installed</span><span class="p">:</span>  <span class="c1"># curl download with retry, continue</span>
 <span></span>                    <span class="n">s</span> <span class="o">=</span> <span class="s2">"sS"</span> <span class="o">*</span> <span class="p">(</span><span class="ow">not</span> <span class="n">progress</span><span class="p">)</span>  <span class="c1"># silent</span>
@@ -2773,18 +2767,14 @@ a successful download.</p>
 <span></span>                                <span class="sa">f</span><span class="s2">"Partial download: </span><span class="si">{</span><span class="n">file_size</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">expected_size</span><span class="si">}</span><span class="s2"> bytes (</span><span class="si">{</span><span class="n">file_size</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">expected_size</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="si">:</span><span class="s2">.1f</span><span class="si">}</span><span class="s2">%)"</span>
 <span></span>                            <span class="p">)</span>
 <span></span>                        <span class="k">else</span><span class="p">:</span>
-<span></span>                            <span class="n">success</span> <span class="o">=</span> <span class="kc">True</span>
+<span></span>                            <span class="k">break</span>  <span class="c1"># success</span>
+<span></span>                    <span class="n">f</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>  <span class="c1"># remove partial downloads</span>
 <span></span>            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span></span>                <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">is_online</span><span class="p">():</span>
 <span></span>                    <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">emojis</span><span class="p">(</span><span class="sa">f</span><span class="s2">"❌  Download failure for </span><span class="si">{</span><span class="n">uri</span><span class="si">}</span><span class="s2">. Environment is not online."</span><span class="p">))</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 <span></span>                <span class="k">elif</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="n">retry</span><span class="p">:</span>
 <span></span>                    <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">emojis</span><span class="p">(</span><span class="sa">f</span><span class="s2">"❌  Download failure for </span><span class="si">{</span><span class="n">uri</span><span class="si">}</span><span class="s2">. Retry limit reached."</span><span class="p">))</span> <span class="kn">from</span><span class="w"> </span><span class="nn">e</span>
 <span></span>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Download failure, retrying </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">retry</span><span class="si">}</span><span class="s2"> </span><span class="si">{</span><span class="n">uri</span><span class="si">}</span><span class="s2">..."</span><span class="p">)</span>
-<span></span>
-<span></span>            <span class="k">if</span> <span class="n">success</span><span class="p">:</span>
-<span></span>                <span class="k">break</span>
-<span></span>            <span class="k">elif</span> <span class="n">f</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
-<span></span>                <span class="n">f</span><span class="o">.</span><span class="n">unlink</span><span class="p">()</span>  <span class="c1"># cleanup failed/partial file</span>
 <span></span>
 <span></span>    <span class="k">if</span> <span class="n">unzip</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="n">f</span><span class="o">.</span><span class="n">suffix</span> <span class="ow">in</span> <span class="p">{</span><span class="s2">""</span><span class="p">,</span> <span class="s2">".zip"</span><span class="p">,</span> <span class="s2">".tar"</span><span class="p">,</span> <span class="s2">".gz"</span><span class="p">}:</span>
 <span></span>        <span class="kn">from</span><span class="w"> </span><span class="nn">zipfile</span><span class="w"> </span><span class="kn">import</span> <span class="n">is_zipfile</span>
@@ -2913,7 +2903,12 @@ a successful download.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>401</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
 <span>402</span>
 <span>403</span>
 <span>404</span>
@@ -2942,12 +2937,7 @@ a successful download.</p>
 <span>427</span>
 <span>428</span>
 <span>429</span>
-<span>430</span>
-<span>431</span>
-<span>432</span>
-<span>433</span>
-<span>434</span>
-<span>435</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_github_assets</span><span class="p">(</span>
+<span>430</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_github_assets</span><span class="p">(</span>
 <span></span>    <span class="n">repo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ultralytics/assets"</span><span class="p">,</span>
 <span></span>    <span class="n">version</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"latest"</span><span class="p">,</span>
 <span></span>    <span class="n">retry</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -3099,7 +3089,12 @@ a successful download.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>438</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>433</span>
+<span>434</span>
+<span>435</span>
+<span>436</span>
+<span>437</span>
+<span>438</span>
 <span>439</span>
 <span>440</span>
 <span>441</span>
@@ -3142,12 +3137,7 @@ a successful download.</p>
 <span>478</span>
 <span>479</span>
 <span>480</span>
-<span>481</span>
-<span>482</span>
-<span>483</span>
-<span>484</span>
-<span>485</span>
-<span>486</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_download_asset</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">repo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ultralytics/assets"</span><span class="p">,</span> <span class="n">release</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"v8.3.0"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>481</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">attempt_download_asset</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">repo</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"ultralytics/assets"</span><span class="p">,</span> <span class="n">release</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"v8.3.0"</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Attempt to download a file from GitHub release assets if it is not found locally.</span>
 <span></span>
@@ -3364,7 +3354,12 @@ a successful download.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/downloads.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>489</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>484</span>
+<span>485</span>
+<span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span>
 <span>490</span>
 <span>491</span>
 <span>492</span>
@@ -3410,12 +3405,7 @@ a successful download.</p>
 <span>532</span>
 <span>533</span>
 <span>534</span>
-<span>535</span>
-<span>536</span>
-<span>537</span>
-<span>538</span>
-<span>539</span>
-<span>540</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span>
+<span>535</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">download</span><span class="p">(</span>
 <span></span>    <span class="n">url</span><span class="p">,</span>
 <span></span>    <span class="nb">dir</span><span class="o">=</span><span class="n">Path</span><span class="o">.</span><span class="n">cwd</span><span class="p">(),</span>
 <span></span>    <span class="n">unzip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
