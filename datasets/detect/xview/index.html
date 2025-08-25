@@ -1154,8 +1154,8 @@
 <span></span>
 <span></span><span class="w">  </span><span class="no">import numpy as np</span>
 <span></span><span class="w">  </span><span class="no">from PIL import Image</span>
-<span></span><span class="w">  </span><span class="no">from tqdm import tqdm</span>
 <span></span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.utils import TQDM</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.data.utils import autosplit</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.ops import xyxy2xywhn</span>
 <span></span>
@@ -1179,7 +1179,7 @@
 <span></span><span class="w">                           </span><span class="no">47, 48, 49, -1, 50, 51, -1, 52, -1, -1, -1, 53, 54, -1, 55, -1, -1, 56, -1, 57, -1, 58, 59]</span>
 <span></span>
 <span></span><span class="w">      </span><span class="no">shapes = {}</span>
-<span></span><span class="w">      </span><span class="no">for feature in tqdm(data["features"], desc=f"Converting {fname}"):</span>
+<span></span><span class="w">      </span><span class="no">for feature in TQDM(data["features"], desc=f"Converting {fname}"):</span>
 <span></span><span class="w">          </span><span class="no">p = feature["properties"]</span>
 <span></span><span class="w">          </span><span class="no">if p["bounds_imcoords"]:</span>
 <span></span><span class="w">              </span><span class="no">id = p["image_id"]</span>

@@ -1110,6 +1110,13 @@
 </a>
 </li>
 <li class="md-nav__item">
+<a class="md-nav__link" href="../tqdm/">
+<span class="md-ellipsis">
+    tqdm
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
 <a class="md-nav__link" href="../triton/">
 <span class="md-ellipsis">
     triton
@@ -1440,7 +1447,7 @@ deduplication to reduce noise from repetitive console output.</p>
 <span></span>    <span class="c1"># State tracking</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">last_line</span> <span class="o">=</span> <span class="s2">""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">last_time</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">last_progress_line</span> <span class="o">=</span> <span class="s2">""</span>  <span class="c1"># Track 100% progress lines separately</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">last_progress_line</span> <span class="o">=</span> <span class="s2">""</span>  <span class="c1"># Track last progress line for deduplication</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">last_was_progress</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># Track if last line was a progress bar</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -1620,13 +1627,13 @@ training performance monitoring and analysis.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/logger.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>262</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>261</span>
+<span>262</span>
 <span>263</span>
 <span>264</span>
 <span>265</span>
 <span>266</span>
-<span>267</span>
-<span>268</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>267</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the system logger."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">nvidia_initialized</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_init_nvidia</span><span class="p">()</span>
@@ -1702,7 +1709,8 @@ network I/O statistics, and GPU metrics (if available). Example output:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/logger.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>281</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>280</span>
+<span>281</span>
 <span>282</span>
 <span>283</span>
 <span>284</span>
@@ -1763,8 +1771,7 @@ network I/O statistics, and GPU metrics (if available). Example output:</p>
 <span>339</span>
 <span>340</span>
 <span>341</span>
-<span>342</span>
-<span>343</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>342</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Get current system metrics.</span>
 <span></span>

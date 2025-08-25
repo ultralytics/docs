@@ -1430,8 +1430,8 @@
 <span></span><span class="w">  </span><span class="no">from pathlib import Path</span>
 <span></span>
 <span></span><span class="w">  </span><span class="no">import numpy as np</span>
-<span></span><span class="w">  </span><span class="no">from tqdm import tqdm</span>
 <span></span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.utils import TQDM</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.checks import check_requirements</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.ops import xyxy2xywhn</span>
@@ -1462,7 +1462,7 @@
 <span></span><span class="w">          </span><span class="no">download([f"{url}images/v2/patch{i}.tar.gz" for i in range(16, patches)], dir=images, curl=True, threads=8)</span>
 <span></span>
 <span></span><span class="w">      </span><span class="no"># Move</span>
-<span></span><span class="w">      </span><span class="no">for f in tqdm(images.rglob("*.jpg"), desc=f"Moving {split} images"):</span>
+<span></span><span class="w">      </span><span class="no">for f in TQDM(images.rglob("*.jpg"), desc=f"Moving {split} images"):</span>
 <span></span><span class="w">          </span><span class="no">f.rename(images / f.name)  # move to /images/{split}</span>
 <span></span>
 <span></span><span class="w">      </span><span class="no"># Labels</span>
@@ -1471,7 +1471,7 @@
 <span></span><span class="w">      </span><span class="no">for cid, cat in enumerate(names):</span>
 <span></span><span class="w">          </span><span class="no">catIds = coco.getCatIds(catNms=[cat])</span>
 <span></span><span class="w">          </span><span class="no">imgIds = coco.getImgIds(catIds=catIds)</span>
-<span></span><span class="w">          </span><span class="no">for im in tqdm(coco.loadImgs(imgIds), desc=f"Class {cid + 1}/{len(names)} {cat}"):</span>
+<span></span><span class="w">          </span><span class="no">for im in TQDM(coco.loadImgs(imgIds), desc=f"Class {cid + 1}/{len(names)} {cat}"):</span>
 <span></span><span class="w">              </span><span class="no">width, height = im["width"], im["height"]</span>
 <span></span><span class="w">              </span><span class="no">path = Path(im["file_name"])  # image filename</span>
 <span></span><span class="w">              </span><span class="no">try:</span>

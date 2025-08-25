@@ -1091,8 +1091,8 @@
 <span></span>
 <span></span><span class="w">  </span><span class="no">import numpy as np</span>
 <span></span><span class="w">  </span><span class="no">import pandas as pd</span>
-<span></span><span class="w">  </span><span class="no">from tqdm import tqdm</span>
 <span></span>
+<span></span><span class="w">  </span><span class="no">from ultralytics.utils import TQDM</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.ops import xyxy2xywh</span>
 <span></span>
@@ -1115,7 +1115,7 @@
 <span></span><span class="w">      </span><span class="no">images, unique_images = x[:, 0], np.unique(x[:, 0])</span>
 <span></span><span class="w">      </span><span class="no">with open((dir / d).with_suffix(".txt").__str__().replace("annotations_", ""), "w", encoding="utf-8") as f:</span>
 <span></span><span class="w">          </span><span class="no">f.writelines(f"./images/{s}\n" for s in unique_images)</span>
-<span></span><span class="w">      </span><span class="no">for im in tqdm(unique_images, desc=f"Converting {dir / d}"):</span>
+<span></span><span class="w">      </span><span class="no">for im in TQDM(unique_images, desc=f"Converting {dir / d}"):</span>
 <span></span><span class="w">          </span><span class="no">cls = 0  # single-class dataset</span>
 <span></span><span class="w">          </span><span class="no">with open((dir / "labels" / im).with_suffix(".txt"), "a", encoding="utf-8") as f:</span>
 <span></span><span class="w">              </span><span class="no">for r in x[images == im]:</span>
