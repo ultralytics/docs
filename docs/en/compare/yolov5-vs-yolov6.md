@@ -21,7 +21,7 @@ Choosing the optimal object detection model is critical for successful computer 
 **GitHub**: <https://github.com/ultralytics/yolov5>  
 **Docs**: <https://docs.ultralytics.com/models/yolov5/>
 
-[Ultralytics YOLOv5](https://docs.ultralytics.com/models/yolov5/) is a single-stage object detection model, renowned for its speed, ease of use, and adaptability. Developed by Ultralytics, it represents a significant step in making high-performance [object detection](https://docs.ultralytics.com/tasks/detect/) accessible. Built entirely in [PyTorch](https://pytorch.org/), YOLOv5 features a [CSPDarknet53](https://paperswithcode.com/method/cspdarknet53) backbone and a PANet neck for efficient feature extraction and fusion. Its architecture is highly modular, allowing for easy scaling across different model sizes (n, s, m, l, x) to meet diverse performance requirements.
+[Ultralytics YOLOv5](https://docs.ultralytics.com/models/yolov5/) is a single-stage object detection model, renowned for its speed, ease of use, and adaptability. Developed by Ultralytics, it represents a significant step in making high-performance [object detection](https://docs.ultralytics.com/tasks/detect/) accessible. Built entirely in [PyTorch](https://pytorch.org/), YOLOv5 features a [CSPDarknet53](https://huggingface.co/papers/trending) backbone and a PANet neck for efficient feature extraction and fusion. Its architecture is highly modular, allowing for easy scaling across different model sizes (n, s, m, l, x) to meet diverse performance requirements.
 
 ### Strengths of YOLOv5
 

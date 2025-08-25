@@ -52,7 +52,7 @@ YOLOv6 introduced architectural modifications like an efficient, reparameterizab
 - **GitHub**: [https://github.com/ultralytics/yolov5](https://github.com/ultralytics/yolov5)
 - **Documentation**: [https://docs.ultralytics.com/models/yolov5/](https://docs.ultralytics.com/models/yolov5/)
 
-Built entirely in [PyTorch](https://pytorch.org/), YOLOv5 features a [CSPDarknet53](https://paperswithcode.com/methods) backbone and a PANet neck for efficient feature extraction and fusion. Its architecture is highly modular, allowing for easy scaling across different model sizes (n, s, m, l, x) to meet diverse performance requirements.
+Built entirely in [PyTorch](https://pytorch.org/), YOLOv5 features a [CSPDarknet53](https://huggingface.co/papers/trending) backbone and a PANet neck for efficient feature extraction and fusion. Its architecture is highly modular, allowing for easy scaling across different model sizes (n, s, m, l, x) to meet diverse performance requirements.
 
 ### Strengths of YOLOv5
 
