@@ -1090,7 +1090,7 @@
 <span></span><span class="w">  </span><span class="no">from pathlib import Path</span>
 <span></span>
 <span></span><span class="w">  </span><span class="no">import numpy as np</span>
-<span></span><span class="w">  </span><span class="no">import pandas as pd</span>
+<span></span><span class="w">  </span><span class="no">import polars as pl</span>
 <span></span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils import TQDM</span>
 <span></span><span class="w">  </span><span class="no">from ultralytics.utils.downloads import download</span>
@@ -1111,7 +1111,7 @@
 <span></span><span class="w">  </span><span class="no"># Convert labels</span>
 <span></span><span class="w">  </span><span class="no">names = "image", "x1", "y1", "x2", "y2", "class", "image_width", "image_height"  # column names</span>
 <span></span><span class="w">  </span><span class="no">for d in "annotations_train.csv", "annotations_val.csv", "annotations_test.csv":</span>
-<span></span><span class="w">      </span><span class="no">x = pd.read_csv(dir / "annotations" / d, names=names).values  # annotations</span>
+<span></span><span class="w">      </span><span class="no">x = pl.read_csv(dir / "annotations" / d, names=names).to_numpy()  # annotations</span>
 <span></span><span class="w">      </span><span class="no">images, unique_images = x[:, 0], np.unique(x[:, 0])</span>
 <span></span><span class="w">      </span><span class="no">with open((dir / d).with_suffix(".txt").__str__().replace("annotations_", ""), "w", encoding="utf-8") as f:</span>
 <span></span><span class="w">          </span><span class="no">f.writelines(f"./images/{s}\n" for s in unique_images)</span>

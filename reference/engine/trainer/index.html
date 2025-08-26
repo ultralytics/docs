@@ -2981,7 +2981,7 @@ name is 'auto'.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">read_results_csv</span><span class="p">()</span>
 </code></pre></div>
 <div class="doc doc-contents">
-<p>Read results.csv into a dictionary using pandas.</p>
+<p>Read results.csv into a dictionary using polars.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/trainer.py</code></summary>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>542</span>
@@ -2989,10 +2989,10 @@ name is 'auto'.</p>
 <span>544</span>
 <span>545</span>
 <span>546</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">read_results_csv</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-<span></span><span class="w">    </span><span class="sd">"""Read results.csv into a dictionary using pandas."""</span>
-<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
+<span></span><span class="w">    </span><span class="sd">"""Read results.csv into a dictionary using polars."""</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">polars</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pl</span>  <span class="c1"># scope for faster 'import ultralytics'</span>
 <span></span>
-<span></span>    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">orient</span><span class="o">=</span><span class="s2">"list"</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">pl</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">csv</span><span class="p">)</span><span class="o">.</span><span class="n">to_dict</span><span class="p">(</span><span class="n">as_series</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
