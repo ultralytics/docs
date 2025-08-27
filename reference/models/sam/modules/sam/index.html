@@ -3405,7 +3405,8 @@ during evaluation.</p>
 <p>Perform a single tracking step, updating object masks and memory features based on current frame inputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>941</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>940</span>
+<span>941</span>
 <span>942</span>
 <span>943</span>
 <span>944</span>
@@ -3483,7 +3484,8 @@ during evaluation.</p>
 <span></span>    <span class="n">prev_sam_mask_logits</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform a single tracking step, updating object masks and memory features based on current frame inputs."""</span>
-<span></span>    <span class="n">current_out</span><span class="p">,</span> <span class="n">sam_outputs</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_track_step</span><span class="p">(</span>
+<span></span>    <span class="n">current_out</span> <span class="o">=</span> <span class="p">{}</span>
+<span></span>    <span class="n">sam_outputs</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_track_step</span><span class="p">(</span>
 <span></span>        <span class="n">frame_idx</span><span class="p">,</span>
 <span></span>        <span class="n">is_init_cond_frame</span><span class="p">,</span>
 <span></span>        <span class="n">current_vision_feats</span><span class="p">,</span>
