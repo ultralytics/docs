@@ -1972,10 +1972,10 @@ and dynamic description updates.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">initial</span> <span class="o">=</span> <span class="n">initial</span>
 <span></span>
 <span></span>    <span class="c1"># Set bar format based on whether we have a total</span>
-<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">bar_format</span> <span class="o">=</span> <span class="n">bar_format</span> <span class="ow">or</span> <span class="s2">"</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{percentage:3.0f}</span><span class="s2">% </span><span class="si">{bar}</span><span class="s2"> </span><span class="si">{n_fmt}</span><span class="s2">/</span><span class="si">{total_fmt}</span><span class="s2"> </span><span class="si">{rate_fmt}</span><span class="s2"> </span><span class="si">{elapsed}</span><span class="s2">"</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span><span class="p">:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">bar_format</span> <span class="o">=</span> <span class="n">bar_format</span> <span class="ow">or</span> <span class="s2">"</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{percent:.0f}</span><span class="s2">% </span><span class="si">{bar}</span><span class="s2"> </span><span class="si">{n}</span><span class="s2">/</span><span class="si">{total}</span><span class="s2"> </span><span class="si">{rate}</span><span class="s2"> </span><span class="si">{elapsed}</span><span class="s2">&lt;</span><span class="si">{remaining}</span><span class="s2">"</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
-<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">bar_format</span> <span class="o">=</span> <span class="n">bar_format</span> <span class="ow">or</span> <span class="s2">"</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{bar}</span><span class="s2"> </span><span class="si">{n_fmt}</span><span class="s2"> </span><span class="si">{rate_fmt}</span><span class="s2"> </span><span class="si">{elapsed}</span><span class="s2">"</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">bar_format</span> <span class="o">=</span> <span class="n">bar_format</span> <span class="ow">or</span> <span class="s2">"</span><span class="si">{desc}</span><span class="s2">: </span><span class="si">{bar}</span><span class="s2"> </span><span class="si">{n}</span><span class="s2"> </span><span class="si">{rate}</span><span class="s2"> </span><span class="si">{elapsed}</span><span class="s2">"</span>
 <span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">file</span> <span class="o">=</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
 <span></span>
@@ -1988,7 +1988,7 @@ and dynamic description updates.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">closed</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>
 <span></span>    <span class="c1"># Display initial bar if we have total and not disabled</span>
-<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">disable</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">noninteractive</span><span class="p">:</span>
+<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">disable</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">total</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">noninteractive</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_display</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -2003,12 +2003,12 @@ and dynamic description updates.</p>
 <p>Destructor to ensure cleanup.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>362</span>
-<span>363</span>
-<span>364</span>
-<span>365</span>
-<span>366</span>
-<span>367</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__del__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Destructor to ensure cleanup."""</span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -2028,9 +2028,9 @@ and dynamic description updates.</p>
 <p>Enter context manager.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>342</span>
-<span>343</span>
-<span>344</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TQDM</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>353</span>
+<span>354</span>
+<span>355</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__enter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">TQDM</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Enter context manager."""</span>
 <span></span>    <span class="k">return</span> <span class="bp">self</span>
 </code></pre></div></td></tr></table></div>
@@ -2047,9 +2047,9 @@ and dynamic description updates.</p>
 <p>Exit context manager and close progress bar.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>346</span>
-<span>347</span>
-<span>348</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>357</span>
+<span>358</span>
+<span>359</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__exit__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Exit context manager and close progress bar."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </code></pre></div></td></tr></table></div>
@@ -2066,17 +2066,17 @@ and dynamic description updates.</p>
 <p>Iterate over the wrapped iterable with progress updates.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>350</span>
-<span>351</span>
-<span>352</span>
-<span>353</span>
-<span>354</span>
-<span>355</span>
-<span>356</span>
-<span>357</span>
-<span>358</span>
-<span>359</span>
-<span>360</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Iterate over the wrapped iterable with progress updates."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">iterable</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
 <span></span>        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span><span class="s2">"'NoneType' object is not iterable"</span><span class="p">)</span>
@@ -2101,14 +2101,14 @@ and dynamic description updates.</p>
 <p>Clear progress bar.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>374</span>
-<span>375</span>
-<span>376</span>
-<span>377</span>
-<span>378</span>
-<span>379</span>
-<span>380</span>
-<span>381</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clear</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Clear progress bar."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">disable</span><span class="p">:</span>
 <span></span>        <span class="k">try</span><span class="p">:</span>
@@ -2130,18 +2130,7 @@ and dynamic description updates.</p>
 <p>Close progress bar.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>318</span>
-<span>319</span>
-<span>320</span>
-<span>321</span>
-<span>322</span>
-<span>323</span>
-<span>324</span>
-<span>325</span>
-<span>326</span>
-<span>327</span>
-<span>328</span>
-<span>329</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>329</span>
 <span>330</span>
 <span>331</span>
 <span>332</span>
@@ -2152,7 +2141,18 @@ and dynamic description updates.</p>
 <span>337</span>
 <span>338</span>
 <span>339</span>
-<span>340</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">close</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Close progress bar."""</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
 <span></span>        <span class="k">return</span>
@@ -2189,10 +2189,10 @@ and dynamic description updates.</p>
 <p>Refresh display.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>369</span>
-<span>370</span>
-<span>371</span>
-<span>372</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">refresh</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Refresh display."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">disable</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_display</span><span class="p">()</span>
@@ -2210,11 +2210,11 @@ and dynamic description updates.</p>
 <p>Set description.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>305</span>
-<span>306</span>
-<span>307</span>
-<span>308</span>
-<span>309</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>316</span>
+<span>317</span>
+<span>318</span>
+<span>319</span>
+<span>320</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_description</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">desc</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Set description."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">desc</span> <span class="o">=</span> <span class="n">desc</span> <span class="ow">or</span> <span class="s2">""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">disable</span><span class="p">:</span>
@@ -2233,12 +2233,12 @@ and dynamic description updates.</p>
 <p>Set postfix (appends to description).</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>311</span>
-<span>312</span>
-<span>313</span>
-<span>314</span>
-<span>315</span>
-<span>316</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_postfix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>322</span>
+<span>323</span>
+<span>324</span>
+<span>325</span>
+<span>326</span>
+<span>327</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_postfix</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Set postfix (appends to description)."""</span>
 <span></span>    <span class="k">if</span> <span class="n">kwargs</span><span class="p">:</span>
 <span></span>        <span class="n">postfix</span> <span class="o">=</span> <span class="s2">", "</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">"</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
@@ -2258,11 +2258,11 @@ and dynamic description updates.</p>
 <p>Update progress by n steps.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>299</span>
-<span>300</span>
-<span>301</span>
-<span>302</span>
-<span>303</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>310</span>
+<span>311</span>
+<span>312</span>
+<span>313</span>
+<span>314</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Update progress by n steps."""</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">disable</span> <span class="ow">and</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">closed</span><span class="p">:</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">n</span> <span class="o">+=</span> <span class="n">n</span>
@@ -2284,15 +2284,15 @@ and dynamic description updates.</p>
 <p>Static method to write without breaking progress bar.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/tqdm.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>383</span>
-<span>384</span>
-<span>385</span>
-<span>386</span>
-<span>387</span>
-<span>388</span>
-<span>389</span>
-<span>390</span>
-<span>391</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">write</span><span class="p">(</span><span class="n">s</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">file</span><span class="p">:</span> <span class="n">IO</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">end</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Static method to write without breaking progress bar."""</span>
 <span></span>    <span class="n">file</span> <span class="o">=</span> <span class="n">file</span> <span class="ow">or</span> <span class="n">sys</span><span class="o">.</span><span class="n">stdout</span>
