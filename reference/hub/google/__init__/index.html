@@ -1287,7 +1287,9 @@ geographical location, tier classification, and network latency.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>33</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>31</span>
+<span>32</span>
+<span>33</span>
 <span>34</span>
 <span>35</span>
 <span>36</span>
@@ -1326,9 +1328,7 @@ geographical location, tier classification, and network latency.</p>
 <span>69</span>
 <span>70</span>
 <span>71</span>
-<span>72</span>
-<span>73</span>
-<span>74</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the GCPRegions class with predefined Google Cloud Platform regions and their details."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">regions</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"asia-east1"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"Taiwan"</span><span class="p">,</span> <span class="s2">"China"</span><span class="p">),</span>
@@ -1605,9 +1605,9 @@ latency statistics. Each tuple contains (region, mean_latency, std_dev, min_late
 <p>Return a list of GCP regions classified as tier 1 based on predefined criteria.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>76</span>
-<span>77</span>
-<span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier1</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>74</span>
+<span>75</span>
+<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier1</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a list of GCP regions classified as tier 1 based on predefined criteria."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">region</span> <span class="k">for</span> <span class="n">region</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -1624,9 +1624,9 @@ latency statistics. Each tuple contains (region, mean_latency, std_dev, min_late
 <p>Return a list of GCP regions classified as tier 2 based on predefined criteria.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>80</span>
-<span>81</span>
-<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>78</span>
+<span>79</span>
+<span>80</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a list of GCP regions classified as tier 2 based on predefined criteria."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">region</span> <span class="k">for</span> <span class="n">region</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>

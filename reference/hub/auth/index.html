@@ -1365,7 +1365,9 @@ authentication.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/auth.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>41</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>39</span>
+<span>40</span>
+<span>41</span>
 <span>42</span>
 <span>43</span>
 <span>44</span>
@@ -1406,9 +1408,7 @@ authentication.</p>
 <span>79</span>
 <span>80</span>
 <span>81</span>
-<span>82</span>
-<span>83</span>
-<span>84</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">api_key</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span> <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize Auth class and authenticate user.</span>
 <span></span>
@@ -1563,7 +1563,9 @@ authentication.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/auth.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>106</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>104</span>
+<span>105</span>
+<span>106</span>
 <span>107</span>
 <span>108</span>
 <span>109</span>
@@ -1587,6 +1589,8 @@ authentication.</p>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (bool): True if authentication is successful, False otherwise.</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>  <span class="c1"># scoped as slow import</span>
+<span></span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="k">if</span> <span class="n">header</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_auth_header</span><span class="p">():</span>
 <span></span>            <span class="n">r</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">HUB_API_ROOT</span><span class="si">}</span><span class="s2">/v1/auth"</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">header</span><span class="p">)</span>
@@ -1718,7 +1722,9 @@ authentication.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/auth.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 86</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 84</span>
+<span> 85</span>
+<span> 86</span>
 <span> 87</span>
 <span> 88</span>
 <span> 89</span>
@@ -1734,9 +1740,7 @@ authentication.</p>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
-<span>102</span>
-<span>103</span>
-<span>104</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">request_api_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_attempts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span>102</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">request_api_key</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">max_attempts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Prompt the user to input their API key.</span>
 <span></span>

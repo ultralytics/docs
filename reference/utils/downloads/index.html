@@ -2318,7 +2318,7 @@ If a path is not provided, the function will use the parent directory of the zip
 <span></span><span class="sd">        &gt;&gt;&gt; link = "https://drive.google.com/file/d/1cqT-cJgANNrhIHCrEufUYhQ4RqiWG_lJ/view?usp=drive_link"</span>
 <span></span><span class="sd">        &gt;&gt;&gt; url, filename = get_google_drive_file_info(link)</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>  <span class="c1"># slow import</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>  <span class="c1"># scoped as slow import</span>
 <span></span>
 <span></span>    <span class="n">file_id</span> <span class="o">=</span> <span class="n">link</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/d/"</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">"/view"</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>    <span class="n">drive_url</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"https://drive.google.com/uc?export=download&amp;id=</span><span class="si">{</span><span class="n">file_id</span><span class="si">}</span><span class="s2">"</span>
@@ -2969,7 +2969,7 @@ a successful download.</p>
 <span></span><span class="sd">    Examples:</span>
 <span></span><span class="sd">        &gt;&gt;&gt; tag, assets = get_github_assets(repo="ultralytics/assets", version="latest")</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>  <span class="c1"># slow import</span>
+<span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>  <span class="c1"># scoped as slow import</span>
 <span></span>
 <span></span>    <span class="k">if</span> <span class="n">version</span> <span class="o">!=</span> <span class="s2">"latest"</span><span class="p">:</span>
 <span></span>        <span class="n">version</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">"tags/</span><span class="si">{</span><span class="n">version</span><span class="si">}</span><span class="s2">"</span>  <span class="c1"># i.e. tags/v6.2</span>
