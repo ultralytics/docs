@@ -2190,9 +2190,7 @@ Supports both xyxy and xywh box formats.</p>
 <span>135</span>
 <span>136</span>
 <span>137</span>
-<span>138</span>
-<span>139</span>
-<span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_boxes</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">xywh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>138</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_boxes</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">xywh</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale bounding boxes from one image shape to another.</span>
 <span></span>
@@ -2212,20 +2210,18 @@ Supports both xyxy and xywh box formats.</p>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">if</span> <span class="n">ratio_pad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># calculate from img0_shape</span>
 <span></span>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
-<span></span>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span>
-<span></span>            <span class="nb">round</span><span class="p">((</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
-<span></span>            <span class="nb">round</span><span class="p">((</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">),</span>
-<span></span>        <span class="p">)</span>  <span class="c1"># wh padding</span>
+<span></span>        <span class="n">pad_x</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)</span>
+<span></span>        <span class="n">pad_y</span> <span class="o">=</span> <span class="nb">round</span><span class="p">((</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="n">gain</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-<span></span>        <span class="n">pad</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span></span>        <span class="n">pad_x</span><span class="p">,</span> <span class="n">pad_y</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span></span>
 <span></span>    <span class="k">if</span> <span class="n">padding</span><span class="p">:</span>
-<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># x padding</span>
-<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># y padding</span>
+<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad_x</span>  <span class="c1"># x padding</span>
+<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad_y</span>  <span class="c1"># y padding</span>
 <span></span>        <span class="k">if</span> <span class="ow">not</span> <span class="n">xywh</span><span class="p">:</span>
-<span></span>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># x padding</span>
-<span></span>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># y padding</span>
+<span></span>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad_x</span>  <span class="c1"># x padding</span>
+<span></span>            <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-=</span> <span class="n">pad_y</span>  <span class="c1"># y padding</span>
 <span></span>    <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
 <span></span>    <span class="k">return</span> <span class="n">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">)</span>
 </code></pre></div></td></tr></table></div>
@@ -2308,7 +2304,9 @@ Supports both xyxy and xywh box formats.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>143</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>141</span>
+<span>142</span>
+<span>143</span>
 <span>144</span>
 <span>145</span>
 <span>146</span>
@@ -2319,9 +2317,7 @@ Supports both xyxy and xywh box formats.</p>
 <span>151</span>
 <span>152</span>
 <span>153</span>
-<span>154</span>
-<span>155</span>
-<span>156</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_divisible</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
+<span>154</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">make_divisible</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">divisor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return the nearest number that is divisible by the given divisor.</span>
 <span></span>
@@ -2447,7 +2443,9 @@ Supports both xyxy and xywh box formats.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>159</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>157</span>
+<span>158</span>
+<span>159</span>
 <span>160</span>
 <span>161</span>
 <span>162</span>
@@ -2475,9 +2473,7 @@ Supports both xyxy and xywh box formats.</p>
 <span>184</span>
 <span>185</span>
 <span>186</span>
-<span>187</span>
-<span>188</span>
-<span>189</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">nms_rotated</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.45</span><span class="p">,</span> <span class="n">use_triu</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>187</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">nms_rotated</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">threshold</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.45</span><span class="p">,</span> <span class="n">use_triu</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform NMS on oriented bounding boxes using probiou and fast-nms.</span>
 <span></span>
@@ -2843,7 +2839,9 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>192</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>190</span>
+<span>191</span>
+<span>192</span>
 <span>193</span>
 <span>194</span>
 <span>195</span>
@@ -2987,9 +2985,7 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 <span>333</span>
 <span>334</span>
 <span>335</span>
-<span>336</span>
-<span>337</span>
-<span>338</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">non_max_suppression</span><span class="p">(</span>
+<span>336</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">non_max_suppression</span><span class="p">(</span>
 <span></span>    <span class="n">prediction</span><span class="p">,</span>
 <span></span>    <span class="n">conf_thres</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
 <span></span>    <span class="n">iou_thres</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.45</span><span class="p">,</span>
@@ -3184,7 +3180,7 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Image shape as (height, width).</p>
+<p>Image shape as HWC or HW (supports both).</p>
 </div>
 </td>
 <td>
@@ -3216,7 +3212,9 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>341</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>339</span>
+<span>340</span>
+<span>341</span>
 <span>342</span>
 <span>343</span>
 <span>344</span>
@@ -3234,26 +3232,26 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 <span>356</span>
 <span>357</span>
 <span>358</span>
-<span>359</span>
-<span>360</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span>359</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clip_boxes</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clip bounding boxes to image boundaries.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        boxes (torch.Tensor | np.ndarray): Bounding boxes to clip.</span>
-<span></span><span class="sd">        shape (tuple): Image shape as (height, width).</span>
+<span></span><span class="sd">        shape (tuple): Image shape as HWC or HW (supports both).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor | np.ndarray): Clipped bounding boxes.</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># supports both HWC or HW shapes</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">boxes</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>  <span class="c1"># faster individually (WARNING: inplace .clamp_() Apple MPS bug)</span>
-<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x1</span>
-<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># y1</span>
-<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x2</span>
-<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># y2</span>
+<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>  <span class="c1"># x1</span>
+<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>  <span class="c1"># y1</span>
+<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>  <span class="c1"># x2</span>
+<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>  <span class="c1"># y2</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>  <span class="c1"># np.array (faster grouped)</span>
-<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x1, x2</span>
-<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># y1, y2</span>
+<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>  <span class="c1"># x1, x2</span>
+<span></span>        <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span> <span class="o">=</span> <span class="n">boxes</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">]]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>  <span class="c1"># y1, y2</span>
 <span></span>    <span class="k">return</span> <span class="n">boxes</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -3303,7 +3301,7 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Image shape as (height, width).</p>
+<p>Image shape as HWC or HW (supports both).</p>
 </div>
 </td>
 <td>
@@ -3335,7 +3333,8 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>363</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>362</span>
+<span>363</span>
 <span>364</span>
 <span>365</span>
 <span>366</span>
@@ -3358,17 +3357,18 @@ containing (x1, y1, x2, y2, confidence, class, mask1, mask2, ...).</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        coords (torch.Tensor | np.ndarray): Line coordinates to clip.</span>
-<span></span><span class="sd">        shape (tuple): Image shape as (height, width).</span>
+<span></span><span class="sd">        shape (tuple): Image shape as HWC or HW (supports both).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor | np.ndarray): Clipped coordinates.</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># supports both HWC or HW shapes</span>
 <span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>  <span class="c1"># faster individually (WARNING: inplace .clamp_() Apple MPS bug)</span>
-<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x</span>
-<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># y</span>
+<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>  <span class="c1"># x</span>
+<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clamp</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>  <span class="c1"># y</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>  <span class="c1"># np.array (faster grouped)</span>
-<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># x</span>
-<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>  <span class="c1"># y</span>
+<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>  <span class="c1"># x</span>
+<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>  <span class="c1"># y</span>
 <span></span>    <span class="k">return</span> <span class="n">coords</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -3420,7 +3420,7 @@ that was applied during preprocessing.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Original image shape as (height, width).</p>
+<p>Original image shape as HWC or HW (supports both).</p>
 </div>
 </td>
 <td>
@@ -3506,7 +3506,9 @@ that was applied during preprocessing.</p>
 <span>418</span>
 <span>419</span>
 <span>420</span>
-<span>421</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_image</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">im0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>421</span>
+<span>422</span>
+<span>423</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_image</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">im0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale masks to original image size.</span>
 <span></span>
@@ -3515,32 +3517,34 @@ that was applied during preprocessing.</p>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        masks (np.ndarray): Resized and padded masks with shape [H, W, N] or [H, W, 3].</span>
-<span></span><span class="sd">        im0_shape (tuple): Original image shape as (height, width).</span>
+<span></span><span class="sd">        im0_shape (tuple): Original image shape as HWC or HW (supports both).</span>
 <span></span><span class="sd">        ratio_pad (tuple, optional): Ratio and padding values as ((ratio_h, ratio_w), (pad_h, pad_w)).</span>
 <span></span>
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (np.ndarray): Rescaled masks with shape [H, W, N] matching original image dimensions.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="c1"># Rescale coordinates (xyxy) from im1_shape to im0_shape</span>
-<span></span>    <span class="n">im1_shape</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span>
-<span></span>    <span class="k">if</span> <span class="n">im1_shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="n">im0_shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]:</span>
+<span></span>    <span class="n">im0_h</span><span class="p">,</span> <span class="n">im0_w</span> <span class="o">=</span> <span class="n">im0_shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># supports both HWC or HW shapes</span>
+<span></span>    <span class="n">im1_h</span><span class="p">,</span> <span class="n">im1_w</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span>
+<span></span>    <span class="k">if</span> <span class="n">im1_h</span> <span class="o">==</span> <span class="n">im0_h</span> <span class="ow">and</span> <span class="n">im1_w</span> <span class="o">==</span> <span class="n">im0_w</span><span class="p">:</span>
 <span></span>        <span class="k">return</span> <span class="n">masks</span>
+<span></span>
 <span></span>    <span class="k">if</span> <span class="n">ratio_pad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># calculate from im0_shape</span>
-<span></span>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">im1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">im0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">im1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">im0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
-<span></span>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">im1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">im0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">im1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">im0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># wh padding</span>
+<span></span>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">im1_h</span> <span class="o">/</span> <span class="n">im0_h</span><span class="p">,</span> <span class="n">im1_w</span> <span class="o">/</span> <span class="n">im0_w</span><span class="p">)</span>  <span class="c1"># gain  = old / new</span>
+<span></span>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">im1_w</span> <span class="o">-</span> <span class="n">im0_w</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">im1_h</span> <span class="o">-</span> <span class="n">im0_h</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># wh padding</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="n">pad</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
 <span></span>
-<span></span>    <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)))</span>
-<span></span>    <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="p">(</span>
-<span></span>        <span class="n">im1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)),</span>
-<span></span>        <span class="n">im1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)),</span>
-<span></span>    <span class="p">)</span>
+<span></span>    <span class="n">pad_w</span><span class="p">,</span> <span class="n">pad_h</span> <span class="o">=</span> <span class="n">pad</span>
+<span></span>    <span class="n">top</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad_h</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">))</span>
+<span></span>    <span class="n">left</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad_w</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">))</span>
+<span></span>    <span class="n">bottom</span> <span class="o">=</span> <span class="n">im1_h</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad_h</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">))</span>
+<span></span>    <span class="n">right</span> <span class="o">=</span> <span class="n">im1_w</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad_w</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">))</span>
 <span></span>
 <span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">:</span>
 <span></span>        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">'"len of masks shape" should be 2 or 3, but got </span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 <span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="n">top</span><span class="p">:</span><span class="n">bottom</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span><span class="n">right</span><span class="p">]</span>
-<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="p">(</span><span class="n">im0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">im0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span>
+<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">resize</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="p">(</span><span class="n">im0_w</span><span class="p">,</span> <span class="n">im0_h</span><span class="p">))</span>
 <span></span>    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
 <span></span>        <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span>
 <span></span>
@@ -3610,9 +3614,7 @@ top-left corner and (x2, y2) is the bottom-right corner.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>424</span>
-<span>425</span>
-<span>426</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>426</span>
 <span>427</span>
 <span>428</span>
 <span>429</span>
@@ -3627,7 +3629,10 @@ top-left corner and (x2, y2) is the bottom-right corner.</p>
 <span>438</span>
 <span>439</span>
 <span>440</span>
-<span>441</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>441</span>
+<span>442</span>
+<span>443</span>
+<span>444</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height) format where (x1, y1) is the</span>
 <span></span><span class="sd">    top-left corner and (x2, y2) is the bottom-right corner.</span>
@@ -3640,10 +3645,11 @@ top-left corner and (x2, y2) is the bottom-right corner.</p>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"input shape last dimension expected 4 but input shape is </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span>
 <span></span>    <span class="n">y</span> <span class="o">=</span> <span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># faster than clone/copy</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># x center</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># y center</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>  <span class="c1"># width</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>  <span class="c1"># height</span>
+<span></span>    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># x center</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">y1</span> <span class="o">+</span> <span class="n">y2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># y center</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span>  <span class="c1"># width</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span>  <span class="c1"># height</span>
 <span></span>    <span class="k">return</span> <span class="n">y</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -3710,10 +3716,7 @@ top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channel
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>444</span>
-<span>445</span>
-<span>446</span>
-<span>447</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>447</span>
 <span>448</span>
 <span>449</span>
 <span>450</span>
@@ -3727,7 +3730,10 @@ top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channel
 <span>458</span>
 <span>459</span>
 <span>460</span>
-<span>461</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>461</span>
+<span>462</span>
+<span>463</span>
+<span>464</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x, y, width, height) format to (x1, y1, x2, y2) format where (x1, y1) is the</span>
 <span></span><span class="sd">    top-left corner and (x2, y2) is the bottom-right corner. Note: ops per 2 channels faster than per channel.</span>
@@ -3874,10 +3880,7 @@ x1,y1 is the top-left corner, x2,y2 is the bottom-right corner of the bounding b
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>464</span>
-<span>465</span>
-<span>466</span>
-<span>467</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>467</span>
 <span>468</span>
 <span>469</span>
 <span>470</span>
@@ -3895,7 +3898,12 @@ x1,y1 is the top-left corner, x2,y2 is the bottom-right corner of the bounding b
 <span>482</span>
 <span>483</span>
 <span>484</span>
-<span>485</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhn2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">padw</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padh</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
+<span>485</span>
+<span>486</span>
+<span>487</span>
+<span>488</span>
+<span>489</span>
+<span>490</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhn2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">padw</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">padh</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert normalized bounding box coordinates to pixel coordinates.</span>
 <span></span>
@@ -3912,10 +3920,12 @@ x1,y1 is the top-left corner, x2,y2 is the bottom-right corner of the bounding b
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"input shape last dimension expected 4 but input shape is </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span>
 <span></span>    <span class="n">y</span> <span class="o">=</span> <span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># faster than clone/copy</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">padw</span>  <span class="c1"># top left x</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">padh</span>  <span class="c1"># top left y</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">padw</span>  <span class="c1"># bottom right x</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">padh</span>  <span class="c1"># bottom right y</span>
+<span></span>    <span class="n">xc</span><span class="p">,</span> <span class="n">yc</span><span class="p">,</span> <span class="n">xw</span><span class="p">,</span> <span class="n">xh</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span></span>    <span class="n">half_w</span><span class="p">,</span> <span class="n">half_h</span> <span class="o">=</span> <span class="n">xw</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="n">xh</span> <span class="o">/</span> <span class="mi">2</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="n">xc</span> <span class="o">-</span> <span class="n">half_w</span><span class="p">)</span> <span class="o">+</span> <span class="n">padw</span>  <span class="c1"># top left x</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">yc</span> <span class="o">-</span> <span class="n">half_h</span><span class="p">)</span> <span class="o">+</span> <span class="n">padh</span>  <span class="c1"># top left y</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">w</span> <span class="o">*</span> <span class="p">(</span><span class="n">xc</span> <span class="o">+</span> <span class="n">half_w</span><span class="p">)</span> <span class="o">+</span> <span class="n">padw</span>  <span class="c1"># bottom right x</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="n">h</span> <span class="o">*</span> <span class="p">(</span><span class="n">yc</span> <span class="o">+</span> <span class="n">half_h</span><span class="p">)</span> <span class="o">+</span> <span class="n">padh</span>  <span class="c1"># bottom right y</span>
 <span></span>    <span class="k">return</span> <span class="n">y</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4046,12 +4056,7 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>488</span>
-<span>489</span>
-<span>490</span>
-<span>491</span>
-<span>492</span>
-<span>493</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>493</span>
 <span>494</span>
 <span>495</span>
 <span>496</span>
@@ -4069,7 +4074,13 @@ width and height are normalized to image dimensions.</p>
 <span>508</span>
 <span>509</span>
 <span>510</span>
-<span>511</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywhn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">clip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
+<span>511</span>
+<span>512</span>
+<span>513</span>
+<span>514</span>
+<span>515</span>
+<span>516</span>
+<span>517</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2xywhn</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">w</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">h</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">640</span><span class="p">,</span> <span class="n">clip</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">eps</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box coordinates from (x1, y1, x2, y2) format to (x, y, width, height, normalized) format. x, y,</span>
 <span></span><span class="sd">    width and height are normalized to image dimensions.</span>
@@ -4088,10 +4099,11 @@ width and height are normalized to image dimensions.</p>
 <span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">clip_boxes</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="p">(</span><span class="n">h</span> <span class="o">-</span> <span class="n">eps</span><span class="p">,</span> <span class="n">w</span> <span class="o">-</span> <span class="n">eps</span><span class="p">))</span>
 <span></span>    <span class="k">assert</span> <span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="mi">4</span><span class="p">,</span> <span class="sa">f</span><span class="s2">"input shape last dimension expected 4 but input shape is </span><span class="si">{</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="si">}</span><span class="s2">"</span>
 <span></span>    <span class="n">y</span> <span class="o">=</span> <span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>  <span class="c1"># faster than clone/copy</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span>  <span class="c1"># x center</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">h</span>  <span class="c1"># y center</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span> <span class="o">/</span> <span class="n">w</span>  <span class="c1"># width</span>
-<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">-</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span> <span class="o">/</span> <span class="n">h</span>  <span class="c1"># height</span>
+<span></span>    <span class="n">x1</span><span class="p">,</span> <span class="n">y1</span><span class="p">,</span> <span class="n">x2</span><span class="p">,</span> <span class="n">y2</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">x1</span> <span class="o">+</span> <span class="n">x2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span>  <span class="c1"># x center</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="p">((</span><span class="n">y1</span> <span class="o">+</span> <span class="n">y2</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span> <span class="o">/</span> <span class="n">h</span>  <span class="c1"># y center</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">x2</span> <span class="o">-</span> <span class="n">x1</span><span class="p">)</span> <span class="o">/</span> <span class="n">w</span>  <span class="c1"># width</span>
+<span></span>    <span class="n">y</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">y2</span> <span class="o">-</span> <span class="n">y1</span><span class="p">)</span> <span class="o">/</span> <span class="n">h</span>  <span class="c1"># height</span>
 <span></span>    <span class="k">return</span> <span class="n">y</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -4157,20 +4169,20 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>514</span>
-<span>515</span>
-<span>516</span>
-<span>517</span>
-<span>518</span>
-<span>519</span>
-<span>520</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>520</span>
 <span>521</span>
 <span>522</span>
 <span>523</span>
 <span>524</span>
 <span>525</span>
 <span>526</span>
-<span>527</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>527</span>
+<span>528</span>
+<span>529</span>
+<span>530</span>
+<span>531</span>
+<span>532</span>
+<span>533</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywh2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box format from [x, y, w, h] to [x1, y1, w, h] where x1, y1 are top-left coordinates.</span>
 <span></span>
@@ -4248,20 +4260,20 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>530</span>
-<span>531</span>
-<span>532</span>
-<span>533</span>
-<span>534</span>
-<span>535</span>
-<span>536</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>536</span>
 <span>537</span>
 <span>538</span>
 <span>539</span>
 <span>540</span>
 <span>541</span>
 <span>542</span>
-<span>543</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>543</span>
+<span>544</span>
+<span>545</span>
+<span>546</span>
+<span>547</span>
+<span>548</span>
+<span>549</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxy2ltwh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding boxes from [x1, y1, x2, y2] to [x1, y1, w, h] format.</span>
 <span></span>
@@ -4339,20 +4351,20 @@ width and height are normalized to image dimensions.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>546</span>
-<span>547</span>
-<span>548</span>
-<span>549</span>
-<span>550</span>
-<span>551</span>
-<span>552</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>552</span>
 <span>553</span>
 <span>554</span>
 <span>555</span>
 <span>556</span>
 <span>557</span>
 <span>558</span>
-<span>559</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>559</span>
+<span>560</span>
+<span>561</span>
+<span>562</span>
+<span>563</span>
+<span>564</span>
+<span>565</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xywh</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding boxes from [x1, y1, w, h] to [x, y, w, h] where xy1=top-left, xy=center.</span>
 <span></span>
@@ -4431,13 +4443,7 @@ Rotation values are in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>562</span>
-<span>563</span>
-<span>564</span>
-<span>565</span>
-<span>566</span>
-<span>567</span>
-<span>568</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>568</span>
 <span>569</span>
 <span>570</span>
 <span>571</span>
@@ -4451,7 +4457,13 @@ Rotation values are in radians from 0 to pi/2.</p>
 <span>579</span>
 <span>580</span>
 <span>581</span>
-<span>582</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>582</span>
+<span>583</span>
+<span>584</span>
+<span>585</span>
+<span>586</span>
+<span>587</span>
+<span>588</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xyxyxyxy2xywhr</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xy1, xy2, xy3, xy4] to [xywh, rotation] format.</span>
 <span></span>
@@ -4537,13 +4549,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>585</span>
-<span>586</span>
-<span>587</span>
-<span>588</span>
-<span>589</span>
-<span>590</span>
-<span>591</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>591</span>
 <span>592</span>
 <span>593</span>
 <span>594</span>
@@ -4565,7 +4571,13 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>610</span>
 <span>611</span>
 <span>612</span>
-<span>613</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>613</span>
+<span>614</span>
+<span>615</span>
+<span>616</span>
+<span>617</span>
+<span>618</span>
+<span>619</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">xywhr2xyxyxyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert batched Oriented Bounding Boxes (OBB) from [xywh, rotation] to [xy1, xy2, xy3, xy4] format.</span>
 <span></span>
@@ -4658,20 +4670,20 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>616</span>
-<span>617</span>
-<span>618</span>
-<span>619</span>
-<span>620</span>
-<span>621</span>
-<span>622</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>622</span>
 <span>623</span>
 <span>624</span>
 <span>625</span>
 <span>626</span>
 <span>627</span>
 <span>628</span>
-<span>629</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<span>629</span>
+<span>630</span>
+<span>631</span>
+<span>632</span>
+<span>633</span>
+<span>634</span>
+<span>635</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">ltwh2xyxy</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert bounding box from [x1, y1, w, h] to [x1, y1, x2, y2] where xy1=top-left, xy2=bottom-right.</span>
 <span></span>
@@ -4749,13 +4761,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>632</span>
-<span>633</span>
-<span>634</span>
-<span>635</span>
-<span>636</span>
-<span>637</span>
-<span>638</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>638</span>
 <span>639</span>
 <span>640</span>
 <span>641</span>
@@ -4763,7 +4769,13 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>643</span>
 <span>644</span>
 <span>645</span>
-<span>646</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">segments2boxes</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
+<span>646</span>
+<span>647</span>
+<span>648</span>
+<span>649</span>
+<span>650</span>
+<span>651</span>
+<span>652</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">segments2boxes</span><span class="p">(</span><span class="n">segments</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert segment labels to box labels, i.e. (cls, xy1, xy2, ...) to (cls, xywh).</span>
 <span></span>
@@ -4858,13 +4870,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>649</span>
-<span>650</span>
-<span>651</span>
-<span>652</span>
-<span>653</span>
-<span>654</span>
-<span>655</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>655</span>
 <span>656</span>
 <span>657</span>
 <span>658</span>
@@ -4879,7 +4885,13 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>667</span>
 <span>668</span>
 <span>669</span>
-<span>670</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
+<span>670</span>
+<span>671</span>
+<span>672</span>
+<span>673</span>
+<span>674</span>
+<span>675</span>
+<span>676</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">resample_segments</span><span class="p">(</span><span class="n">segments</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1000</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Resample segments to n points each using linear interpolation.</span>
 <span></span>
@@ -4981,13 +4993,7 @@ Rotation values should be in radians from 0 to pi/2.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>673</span>
-<span>674</span>
-<span>675</span>
-<span>676</span>
-<span>677</span>
-<span>678</span>
-<span>679</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>679</span>
 <span>680</span>
 <span>681</span>
 <span>682</span>
@@ -4997,7 +5003,13 @@ Rotation values should be in radians from 0 to pi/2.</p>
 <span>686</span>
 <span>687</span>
 <span>688</span>
-<span>689</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
+<span>689</span>
+<span>690</span>
+<span>691</span>
+<span>692</span>
+<span>693</span>
+<span>694</span>
+<span>695</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">crop_mask</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">boxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Crop masks to bounding box regions.</span>
 <span></span>
@@ -5143,13 +5155,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>692</span>
-<span>693</span>
-<span>694</span>
-<span>695</span>
-<span>696</span>
-<span>697</span>
-<span>698</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>698</span>
 <span>699</span>
 <span>700</span>
 <span>701</span>
@@ -5173,7 +5179,13 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>719</span>
 <span>720</span>
 <span>721</span>
-<span>722</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>722</span>
+<span>723</span>
+<span>724</span>
+<span>725</span>
+<span>726</span>
+<span>727</span>
+<span>728</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">upsample</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply masks to bounding boxes using mask head output.</span>
 <span></span>
@@ -5316,13 +5328,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>725</span>
-<span>726</span>
-<span>727</span>
-<span>728</span>
-<span>729</span>
-<span>730</span>
-<span>731</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>731</span>
 <span>732</span>
 <span>733</span>
 <span>734</span>
@@ -5333,7 +5339,13 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>739</span>
 <span>740</span>
 <span>741</span>
-<span>742</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
+<span>742</span>
+<span>743</span>
+<span>744</span>
+<span>745</span>
+<span>746</span>
+<span>747</span>
+<span>748</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">process_mask_native</span><span class="p">(</span><span class="n">protos</span><span class="p">,</span> <span class="n">masks_in</span><span class="p">,</span> <span class="n">bboxes</span><span class="p">,</span> <span class="n">shape</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply masks to bounding boxes using mask head output with native upsampling.</span>
 <span></span>
@@ -5447,13 +5459,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>745</span>
-<span>746</span>
-<span>747</span>
-<span>748</span>
-<span>749</span>
-<span>750</span>
-<span>751</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>751</span>
 <span>752</span>
 <span>753</span>
 <span>754</span>
@@ -5473,7 +5479,9 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>768</span>
 <span>769</span>
 <span>770</span>
-<span>771</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>771</span>
+<span>772</span>
+<span>773</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_masks</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale segment masks to target shape.</span>
 <span></span>
@@ -5487,19 +5495,15 @@ are the height and width of the input image. The mask is applied to the bounding
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">mh</span><span class="p">,</span> <span class="n">mw</span> <span class="o">=</span> <span class="n">masks</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span>
 <span></span>    <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">mh</span> <span class="o">/</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">mw</span> <span class="o">/</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
-<span></span>    <span class="n">pad</span> <span class="o">=</span> <span class="p">[</span><span class="n">mw</span> <span class="o">-</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">,</span> <span class="n">mh</span> <span class="o">-</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">]</span>  <span class="c1"># wh padding</span>
+<span></span>    <span class="n">pad_w</span> <span class="o">=</span> <span class="n">mw</span> <span class="o">-</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span>
+<span></span>    <span class="n">pad_h</span> <span class="o">=</span> <span class="n">mh</span> <span class="o">-</span> <span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span>
 <span></span>    <span class="k">if</span> <span class="n">padding</span><span class="p">:</span>
-<span></span>        <span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
-<span></span>        <span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="mi">2</span>
-<span></span>    <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)))</span> <span class="k">if</span> <span class="n">padding</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>  <span class="c1"># y, x</span>
-<span></span>    <span class="n">bottom</span><span class="p">,</span> <span class="n">right</span> <span class="o">=</span> <span class="p">(</span>
-<span></span>        <span class="n">mh</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)),</span>
-<span></span>        <span class="n">mw</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">)),</span>
-<span></span>    <span class="p">)</span>
-<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">masks</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">top</span><span class="p">:</span><span class="n">bottom</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span><span class="n">right</span><span class="p">]</span>
-<span></span>
-<span></span>    <span class="n">masks</span> <span class="o">=</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">shape</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># NCHW</span>
-<span></span>    <span class="k">return</span> <span class="n">masks</span>
+<span></span>        <span class="n">pad_w</span> <span class="o">/=</span> <span class="mi">2</span>
+<span></span>        <span class="n">pad_h</span> <span class="o">/=</span> <span class="mi">2</span>
+<span></span>    <span class="n">top</span><span class="p">,</span> <span class="n">left</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad_h</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)),</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad_w</span> <span class="o">-</span> <span class="mf">0.1</span><span class="p">)))</span> <span class="k">if</span> <span class="n">padding</span> <span class="k">else</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span></span>    <span class="n">bottom</span> <span class="o">=</span> <span class="n">mh</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad_h</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">))</span>
+<span></span>    <span class="n">right</span> <span class="o">=</span> <span class="n">mw</span> <span class="o">-</span> <span class="nb">int</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">pad_w</span> <span class="o">+</span> <span class="mf">0.1</span><span class="p">))</span>
+<span></span>    <span class="k">return</span> <span class="n">F</span><span class="o">.</span><span class="n">interpolate</span><span class="p">(</span><span class="n">masks</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="n">top</span><span class="p">:</span><span class="n">bottom</span><span class="p">,</span> <span class="n">left</span><span class="p">:</span><span class="n">right</span><span class="p">],</span> <span class="n">shape</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">"bilinear"</span><span class="p">,</span> <span class="n">align_corners</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>  <span class="c1"># NCHW masks</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
@@ -5539,7 +5543,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </td>
 <td>
 <div class="doc-md-description">
-<p>Shape of the source image.</p>
+<p>Source image shape as HWC or HW (supports both).</p>
 </div>
 </td>
 <td>
@@ -5571,7 +5575,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </td>
 <td>
 <div class="doc-md-description">
-<p>Shape of the target image.</p>
+<p>Image 0 shape as HWC or HW (supports both).</p>
 </div>
 </td>
 <td>
@@ -5651,9 +5655,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>774</span>
-<span>775</span>
-<span>776</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>776</span>
 <span>777</span>
 <span>778</span>
 <span>779</span>
@@ -5682,14 +5684,18 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>802</span>
 <span>803</span>
 <span>804</span>
-<span>805</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<span>805</span>
+<span>806</span>
+<span>807</span>
+<span>808</span>
+<span>809</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_coords</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">,</span> <span class="n">ratio_pad</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">padding</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Rescale segment coordinates from img1_shape to img0_shape.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        img1_shape (tuple): Shape of the source image.</span>
+<span></span><span class="sd">        img1_shape (tuple): Source image shape as HWC or HW (supports both).</span>
 <span></span><span class="sd">        coords (torch.Tensor): Coordinates to scale with shape (N, 2).</span>
-<span></span><span class="sd">        img0_shape (tuple): Shape of the target image.</span>
+<span></span><span class="sd">        img0_shape (tuple): Image 0 shape as HWC or HW (supports both).</span>
 <span></span><span class="sd">        ratio_pad (tuple, optional): Ratio and padding values as ((ratio_h, ratio_w), (pad_h, pad_w)).</span>
 <span></span><span class="sd">        normalize (bool): Whether to normalize coordinates to range [0, 1].</span>
 <span></span><span class="sd">        padding (bool): Whether coordinates are based on YOLO-style augmented images with padding.</span>
@@ -5697,9 +5703,11 @@ are the height and width of the input image. The mask is applied to the bounding
 <span></span><span class="sd">    Returns:</span>
 <span></span><span class="sd">        (torch.Tensor): Scaled coordinates.</span>
 <span></span><span class="sd">    """</span>
+<span></span>    <span class="n">img0_h</span><span class="p">,</span> <span class="n">img0_w</span> <span class="o">=</span> <span class="n">img0_shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># supports both HWC or HW shapes</span>
 <span></span>    <span class="k">if</span> <span class="n">ratio_pad</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># calculate from img0_shape</span>
-<span></span>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>  <span class="c1"># gain  = old / new</span>
-<span></span>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">img1_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># wh padding</span>
+<span></span>        <span class="n">img1_h</span><span class="p">,</span> <span class="n">img1_w</span> <span class="o">=</span> <span class="n">img1_shape</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span>  <span class="c1"># supports both HWC or HW shapes</span>
+<span></span>        <span class="n">gain</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">img1_h</span> <span class="o">/</span> <span class="n">img0_h</span><span class="p">,</span> <span class="n">img1_w</span> <span class="o">/</span> <span class="n">img0_w</span><span class="p">)</span>  <span class="c1"># gain  = old / new</span>
+<span></span>        <span class="n">pad</span> <span class="o">=</span> <span class="p">(</span><span class="n">img1_w</span> <span class="o">-</span> <span class="n">img0_w</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="p">(</span><span class="n">img1_h</span> <span class="o">-</span> <span class="n">img0_h</span> <span class="o">*</span> <span class="n">gain</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span>  <span class="c1"># wh padding</span>
 <span></span>    <span class="k">else</span><span class="p">:</span>
 <span></span>        <span class="n">gain</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
 <span></span>        <span class="n">pad</span> <span class="o">=</span> <span class="n">ratio_pad</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -5711,8 +5719,8 @@ are the height and width of the input image. The mask is applied to the bounding
 <span></span>    <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">gain</span>
 <span></span>    <span class="n">coords</span> <span class="o">=</span> <span class="n">clip_coords</span><span class="p">(</span><span class="n">coords</span><span class="p">,</span> <span class="n">img0_shape</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="n">normalize</span><span class="p">:</span>
-<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>  <span class="c1"># width</span>
-<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img0_shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>  <span class="c1"># height</span>
+<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img0_w</span>  <span class="c1"># width</span>
+<span></span>        <span class="n">coords</span><span class="p">[</span><span class="o">...</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="o">/=</span> <span class="n">img0_h</span>  <span class="c1"># height</span>
 <span></span>    <span class="k">return</span> <span class="n">coords</span>
 </code></pre></div></td></tr></table></div>
 </details>
@@ -5778,11 +5786,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>808</span>
-<span>809</span>
-<span>810</span>
-<span>811</span>
-<span>812</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>812</span>
 <span>813</span>
 <span>814</span>
 <span>815</span>
@@ -5794,7 +5798,11 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>821</span>
 <span>822</span>
 <span>823</span>
-<span>824</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
+<span>824</span>
+<span>825</span>
+<span>826</span>
+<span>827</span>
+<span>828</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">regularize_rboxes</span><span class="p">(</span><span class="n">rboxes</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Regularize rotated bounding boxes to range [0, pi/2].</span>
 <span></span>
@@ -5891,11 +5899,7 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>827</span>
-<span>828</span>
-<span>829</span>
-<span>830</span>
-<span>831</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>831</span>
 <span>832</span>
 <span>833</span>
 <span>834</span>
@@ -5919,7 +5923,11 @@ are the height and width of the input image. The mask is applied to the bounding
 <span>852</span>
 <span>853</span>
 <span>854</span>
-<span>855</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"all"</span><span class="p">):</span>
+<span>855</span>
+<span>856</span>
+<span>857</span>
+<span>858</span>
+<span>859</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">masks2segments</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">strategy</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"all"</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert masks to segments using contour detection.</span>
 <span></span>
@@ -6012,17 +6020,17 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>858</span>
-<span>859</span>
-<span>860</span>
-<span>861</span>
-<span>862</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>862</span>
 <span>863</span>
 <span>864</span>
 <span>865</span>
 <span>866</span>
 <span>867</span>
-<span>868</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
+<span>868</span>
+<span>869</span>
+<span>870</span>
+<span>871</span>
+<span>872</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">convert_torch2numpy_batch</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a batch of FP32 torch tensors to NumPy uint8 arrays, changing from BCHW to BHWC layout.</span>
 <span></span>
@@ -6097,17 +6105,17 @@ are the height and width of the input image. The mask is applied to the bounding
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>871</span>
-<span>872</span>
-<span>873</span>
-<span>874</span>
-<span>875</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>875</span>
 <span>876</span>
 <span>877</span>
 <span>878</span>
 <span>879</span>
 <span>880</span>
-<span>881</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+<span>881</span>
+<span>882</span>
+<span>883</span>
+<span>884</span>
+<span>885</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">clean_str</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Clean a string by replacing special characters with '_' character.</span>
 <span></span>
@@ -6132,11 +6140,11 @@ are the height and width of the input image. The mask is applied to the bounding
 <p>Create empty torch.Tensor or np.ndarray with same shape as input and float32 dtype.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/ops.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>884</span>
-<span>885</span>
-<span>886</span>
-<span>887</span>
-<span>888</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>888</span>
+<span>889</span>
+<span>890</span>
+<span>891</span>
+<span>892</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Create empty torch.Tensor or np.ndarray with same shape as input and float32 dtype."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span>
 <span></span>        <span class="n">torch</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">empty_like</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">)</span>
