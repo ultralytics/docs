@@ -1410,8 +1410,7 @@ directory based on the input data path.</p>
 <span>63</span>
 <span>64</span>
 <span>65</span>
-<span>66</span>
-<span>67</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">auto_annotate</span><span class="p">(</span>
+<span>66</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">auto_annotate</span><span class="p">(</span>
 <span></span>    <span class="n">data</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">],</span>
 <span></span>    <span class="n">det_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"yolo11x.pt"</span><span class="p">,</span>
 <span></span>    <span class="n">sam_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sam_b.pt"</span><span class="p">,</span>
@@ -1459,8 +1458,7 @@ directory based on the input data path.</p>
 <span></span>    <span class="p">)</span>
 <span></span>
 <span></span>    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">det_results</span><span class="p">:</span>
-<span></span>        <span class="n">class_ids</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>  <span class="c1"># Extract class IDs from detection results</span>
-<span></span>        <span class="k">if</span> <span class="n">class_ids</span><span class="p">:</span>
+<span></span>        <span class="k">if</span> <span class="n">class_ids</span> <span class="o">:=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">cls</span><span class="o">.</span><span class="n">int</span><span class="p">()</span><span class="o">.</span><span class="n">tolist</span><span class="p">():</span>  <span class="c1"># Extract class IDs from detection results</span>
 <span></span>            <span class="n">boxes</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">boxes</span><span class="o">.</span><span class="n">xyxy</span>  <span class="c1"># Boxes object for bbox outputs</span>
 <span></span>            <span class="n">sam_results</span> <span class="o">=</span> <span class="n">sam_model</span><span class="p">(</span><span class="n">result</span><span class="o">.</span><span class="n">orig_img</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="n">boxes</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">)</span>
 <span></span>            <span class="n">segments</span> <span class="o">=</span> <span class="n">sam_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">masks</span><span class="o">.</span><span class="n">xyn</span>

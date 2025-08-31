@@ -7441,8 +7441,7 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <span>2033</span>
 <span>2034</span>
 <span>2035</span>
-<span>2036</span>
-<span>2037</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
+<span>2036</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">obj_idx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">point</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -7467,7 +7466,6 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <span></span><span class="sd">        current_out (Dict[str, Any]): A dictionary containing the current output with mask predictions and object pointers.</span>
 <span></span><span class="sd">            Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res', 'obj_ptr', 'object_score_logits'.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="n">current_out</span> <span class="o">=</span> <span class="p">{}</span>
 <span></span>    <span class="k">if</span> <span class="n">mask</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">use_mask_input_as_output_without_sam</span><span class="p">:</span>
 <span></span>        <span class="c1"># When use_mask_input_as_output_without_sam=True, we directly output the mask input</span>
 <span></span>        <span class="c1"># (see it as a GT mask) without using a SAM prompt encoder + mask decoder.</span>
@@ -7478,7 +7476,7 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <span></span>        <span class="c1"># fused the visual feature with previous memory features in the memory bank</span>
 <span></span>        <span class="n">pix_feat_with_mem</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_prepare_memory_conditioned_features</span><span class="p">(</span><span class="n">obj_idx</span><span class="p">)</span>
 <span></span>        <span class="c1"># calculate the first feature if adding obj_idx exists(means adding prompts)</span>
-<span></span>        <span class="n">pix_feat_with_mem</span> <span class="o">=</span> <span class="n">pix_feat_with_mem</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">obj_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pix_feat_with_mem</span>
+<span></span>        <span class="n">pix_feat_with_mem</span> <span class="o">=</span> <span class="n">pix_feat_with_mem</span><span class="p">[:</span><span class="mi">1</span><span class="p">]</span> <span class="k">if</span> <span class="n">obj_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="n">pix_feat_with_mem</span>
 <span></span>        <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">low_res_masks</span><span class="p">,</span> <span class="n">high_res_masks</span><span class="p">,</span> <span class="n">obj_ptr</span><span class="p">,</span> <span class="n">object_score_logits</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">_forward_sam_heads</span><span class="p">(</span>
 <span></span>            <span class="n">backbone_features</span><span class="o">=</span><span class="n">pix_feat_with_mem</span><span class="p">,</span>
 <span></span>            <span class="n">point_inputs</span><span class="o">=</span><span class="p">{</span><span class="s2">"point_coords"</span><span class="p">:</span> <span class="n">point</span><span class="p">,</span> <span class="s2">"point_labels"</span><span class="p">:</span> <span class="n">label</span><span class="p">}</span> <span class="k">if</span> <span class="n">obj_idx</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">None</span><span class="p">,</span>
@@ -7486,12 +7484,12 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <span></span>            <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
 <span></span>            <span class="n">high_res_features</span><span class="o">=</span><span class="p">[</span><span class="n">feat</span><span class="p">[:</span> <span class="n">pix_feat_with_mem</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span> <span class="k">for</span> <span class="n">feat</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">high_res_features</span><span class="p">],</span>
 <span></span>        <span class="p">)</span>
-<span></span>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks"</span><span class="p">]</span> <span class="o">=</span> <span class="n">low_res_masks</span>
-<span></span>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"pred_masks_high_res"</span><span class="p">]</span> <span class="o">=</span> <span class="n">high_res_masks</span>
-<span></span>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"obj_ptr"</span><span class="p">]</span> <span class="o">=</span> <span class="n">obj_ptr</span>
-<span></span>    <span class="n">current_out</span><span class="p">[</span><span class="s2">"object_score_logits"</span><span class="p">]</span> <span class="o">=</span> <span class="n">object_score_logits</span>
-<span></span>
-<span></span>    <span class="k">return</span> <span class="n">current_out</span>
+<span></span>    <span class="k">return</span> <span class="p">{</span>
+<span></span>        <span class="s2">"pred_masks"</span><span class="p">:</span> <span class="n">low_res_masks</span><span class="p">,</span>
+<span></span>        <span class="s2">"pred_masks_high_res"</span><span class="p">:</span> <span class="n">high_res_masks</span><span class="p">,</span>
+<span></span>        <span class="s2">"obj_ptr"</span><span class="p">:</span> <span class="n">obj_ptr</span><span class="p">,</span>
+<span></span>        <span class="s2">"object_score_logits"</span><span class="p">:</span> <span class="n">object_score_logits</span><span class="p">,</span>
+<span></span>    <span class="p">}</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>

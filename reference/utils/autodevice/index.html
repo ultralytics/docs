@@ -1405,7 +1405,8 @@ initialization and by <code>refresh_stats()</code>. Keys include: 'index', 'name
 <p>Print GPU status in a compact table format using current stats.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>114</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>113</span>
+<span>114</span>
 <span>115</span>
 <span>116</span>
 <span>117</span>
@@ -1424,8 +1425,7 @@ initialization and by <code>refresh_stats()</code>. Keys include: 'index', 'name
 <span>130</span>
 <span>131</span>
 <span>132</span>
-<span>133</span>
-<span>134</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>133</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">print_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Print GPU status in a compact table format using current stats."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">refresh_stats</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span><span class="p">:</span>
@@ -1471,8 +1471,7 @@ initialization and by <code>refresh_stats()</code>. Keys include: 'index', 'name
 <span>81</span>
 <span>82</span>
 <span>83</span>
-<span>84</span>
-<span>85</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">refresh_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>84</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">refresh_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Refresh the internal gpu_stats list by querying NVML."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span> <span class="o">=</span> <span class="p">[]</span>
 <span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">nvml_available</span> <span class="ow">or</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="p">:</span>
@@ -1480,8 +1479,7 @@ initialization and by <code>refresh_stats()</code>. Keys include: 'index', 'name
 <span></span>
 <span></span>    <span class="k">try</span><span class="p">:</span>
 <span></span>        <span class="n">device_count</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pynvml</span><span class="o">.</span><span class="n">nvmlDeviceGetCount</span><span class="p">()</span>
-<span></span>        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">device_count</span><span class="p">):</span>
-<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_device_stats</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_get_device_stats</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">device_count</span><span class="p">))</span>
 <span></span>    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span></span>        <span class="n">LOGGER</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Error during device query: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">gpu_stats</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1588,7 +1586,8 @@ Returns basic CUDA indices if NVML fails. Empty list if no GPUs found.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/autodevice.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>136</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>135</span>
+<span>136</span>
 <span>137</span>
 <span>138</span>
 <span>139</span>
@@ -1638,8 +1637,7 @@ Returns basic CUDA indices if NVML fails. Empty list if no GPUs found.</p>
 <span>183</span>
 <span>184</span>
 <span>185</span>
-<span>186</span>
-<span>187</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_idle_gpu</span><span class="p">(</span>
+<span>186</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_idle_gpu</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">count</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">min_memory_fraction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">min_util_fraction</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -1731,7 +1729,7 @@ Returns basic CUDA indices if NVML fails. Empty list if no GPUs found.</p>
 <div class="git-info">
 <div class="dates-container">
 <span class="date-item" title="This page was first created on May 03, 2025">
-<span class="hover-item">📅</span> Created 3 months ago
+<span class="hover-item">📅</span> Created 4 months ago
     </span>
 <span class="date-item" title="This page was last updated on August 25, 2025">
 <span class="hover-item">✏️</span> Updated 6 days ago

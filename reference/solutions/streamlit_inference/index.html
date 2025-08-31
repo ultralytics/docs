@@ -1557,8 +1557,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <p>Configure the model and load selected classes for inference.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>151</span>
-<span>152</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>152</span>
 <span>153</span>
 <span>154</span>
 <span>155</span>
@@ -1590,7 +1589,8 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>181</span>
 <span>182</span>
 <span>183</span>
-<span>184</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>184</span>
+<span>185</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">configure</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Configure the model and load selected classes for inference."""</span>
 <span></span>    <span class="c1"># Add dropdown menu for model selection</span>
 <span></span>    <span class="n">M_ORD</span><span class="p">,</span> <span class="n">T_ORD</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"yolo11n"</span><span class="p">,</span> <span class="s2">"yolo11s"</span><span class="p">,</span> <span class="s2">"yolo11m"</span><span class="p">,</span> <span class="s2">"yolo11l"</span><span class="p">,</span> <span class="s2">"yolo11x"</span><span class="p">],</span> <span class="p">[</span><span class="s2">""</span><span class="p">,</span> <span class="s2">"-seg"</span><span class="p">,</span> <span class="s2">"-pose"</span><span class="p">,</span> <span class="s2">"-obb"</span><span class="p">,</span> <span class="s2">"-cls"</span><span class="p">]</span>
@@ -1638,8 +1638,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <p>Perform inference on uploaded images.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>186</span>
-<span>187</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>187</span>
 <span>188</span>
 <span>189</span>
 <span>190</span>
@@ -1657,9 +1656,10 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>202</span>
 <span>203</span>
 <span>204</span>
-<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">image_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>205</span>
+<span>206</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">image_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform inference on uploaded images."""</span>
-<span></span>    <span class="k">for</span> <span class="n">idx</span><span class="p">,</span> <span class="n">img_info</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">img_file_names</span><span class="p">):</span>
+<span></span>    <span class="k">for</span> <span class="n">img_info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">img_file_names</span><span class="p">:</span>
 <span></span>        <span class="n">img_path</span> <span class="o">=</span> <span class="n">img_info</span><span class="p">[</span><span class="s2">"path"</span><span class="p">]</span>
 <span></span>        <span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imread</span><span class="p">(</span><span class="n">img_path</span><span class="p">)</span>  <span class="c1"># Load and display the original image</span>
 <span></span>        <span class="k">if</span> <span class="n">image</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
@@ -1691,8 +1691,7 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <p>Perform real-time object detection inference on video or webcam feed.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/streamlit_inference.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
-<span>208</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>208</span>
 <span>209</span>
 <span>210</span>
 <span>211</span>
@@ -1736,7 +1735,8 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>249</span>
 <span>250</span>
 <span>251</span>
-<span>252</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>252</span>
+<span>253</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Perform real-time object detection inference on video or webcam feed."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">web_ui</span><span class="p">()</span>  <span class="c1"># Initialize the web interface</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sidebar</span><span class="p">()</span>  <span class="c1"># Create the sidebar</span>
@@ -1875,7 +1875,8 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span>146</span>
 <span>147</span>
 <span>148</span>
-<span>149</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">source_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>149</span>
+<span>150</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">source_upload</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Handle video file uploads through the Streamlit interface."""</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.data.utils</span><span class="w"> </span><span class="kn">import</span> <span class="n">IMG_FORMATS</span><span class="p">,</span> <span class="n">VID_FORMATS</span>  <span class="c1"># scope import</span>
 <span></span>
@@ -1892,8 +1893,9 @@ real-time inference using Streamlit and Ultralytics YOLO models.</p>
 <span></span>    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">source</span> <span class="o">==</span> <span class="s2">"image"</span><span class="p">:</span>
 <span></span>        <span class="kn">import</span><span class="w"> </span><span class="nn">tempfile</span>  <span class="c1"># scope import</span>
 <span></span>
-<span></span>        <span class="n">imgfiles</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">file_uploader</span><span class="p">(</span><span class="s2">"Upload Image Files"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">IMG_FORMATS</span><span class="p">,</span> <span class="n">accept_multiple_files</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span></span>        <span class="k">if</span> <span class="n">imgfiles</span><span class="p">:</span>
+<span></span>        <span class="k">if</span> <span class="n">imgfiles</span> <span class="o">:=</span> <span class="bp">self</span><span class="o">.</span><span class="n">st</span><span class="o">.</span><span class="n">sidebar</span><span class="o">.</span><span class="n">file_uploader</span><span class="p">(</span>
+<span></span>            <span class="s2">"Upload Image Files"</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">IMG_FORMATS</span><span class="p">,</span> <span class="n">accept_multiple_files</span><span class="o">=</span><span class="kc">True</span>
+<span></span>        <span class="p">):</span>
 <span></span>            <span class="k">for</span> <span class="n">imgfile</span> <span class="ow">in</span> <span class="n">imgfiles</span><span class="p">:</span>  <span class="c1"># Save each uploaded image to a temporary file</span>
 <span></span>                <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="sa">f</span><span class="s2">".</span><span class="si">{</span><span class="n">imgfile</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span> <span class="k">as</span> <span class="n">tf</span><span class="p">:</span>
 <span></span>                    <span class="n">tf</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">imgfile</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
