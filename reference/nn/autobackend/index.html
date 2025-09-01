@@ -1235,7 +1235,7 @@
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.nn.autobackend.AutoBackend</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">AutoBackend</span><span class="p">(</span>
-<span></span>    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">Module</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
+<span></span>    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Module</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
 <span></span>    <span class="n">device</span><span class="p">:</span> <span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">),</span>
 <span></span>    <span class="n">dnn</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -1609,7 +1609,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <code>model</code>
 </td>
 <td>
-<code><span title="str">str</span> | <span title="List">List</span>[<span title="str">str</span>] | <span title="torch.nn.Module">Module</span></code>
+<code><span title="str">str</span> | <span title="torch.nn.Module">Module</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2190,14 +2190,10 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>603</span>
 <span>604</span>
 <span>605</span>
-<span>606</span>
-<span>607</span>
-<span>608</span>
-<span>609</span>
-<span>610</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
+<span>606</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@torch</span><span class="o">.</span><span class="n">no_grad</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
+<span></span>    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">=</span> <span class="s2">"yolo11n.pt"</span><span class="p">,</span>
 <span></span>    <span class="n">device</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">device</span><span class="p">(</span><span class="s2">"cpu"</span><span class="p">),</span>
 <span></span>    <span class="n">dnn</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">data</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
@@ -2209,7 +2205,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span><span class="sd">    Initialize the AutoBackend for inference.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        model (str | List[str] | torch.nn.Module): Path to the model weights file or a module instance.</span>
+<span></span><span class="sd">        model (str | torch.nn.Module): Path to the model weights file or a module instance.</span>
 <span></span><span class="sd">        device (torch.device): Device to run the model on.</span>
 <span></span><span class="sd">        dnn (bool): Use OpenCV DNN module for ONNX inference.</span>
 <span></span><span class="sd">        data (str | Path, optional): Path to the additional data.yaml file containing class names.</span>
@@ -2218,7 +2214,6 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span><span class="sd">        verbose (bool): Enable verbose logging.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-<span></span>    <span class="n">w</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">model</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="n">nn_module</span> <span class="o">=</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span>
 <span></span>    <span class="p">(</span>
 <span></span>        <span class="n">pt</span><span class="p">,</span>
@@ -2238,7 +2233,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>        <span class="n">imx</span><span class="p">,</span>
 <span></span>        <span class="n">rknn</span><span class="p">,</span>
 <span></span>        <span class="n">triton</span><span class="p">,</span>
-<span></span>    <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model_type</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span></span>    <span class="p">)</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_model_type</span><span class="p">(</span><span class="s2">""</span> <span class="k">if</span> <span class="n">nn_module</span> <span class="k">else</span> <span class="n">model</span><span class="p">)</span>
 <span></span>    <span class="n">fp16</span> <span class="o">&amp;=</span> <span class="n">pt</span> <span class="ow">or</span> <span class="n">jit</span> <span class="ow">or</span> <span class="n">onnx</span> <span class="ow">or</span> <span class="n">xml</span> <span class="ow">or</span> <span class="n">engine</span> <span class="ow">or</span> <span class="n">nn_module</span> <span class="ow">or</span> <span class="n">triton</span>  <span class="c1"># FP16</span>
 <span></span>    <span class="n">nhwc</span> <span class="o">=</span> <span class="n">coreml</span> <span class="ow">or</span> <span class="n">saved_model</span> <span class="ow">or</span> <span class="n">pb</span> <span class="ow">or</span> <span class="n">tflite</span> <span class="ow">or</span> <span class="n">edgetpu</span> <span class="ow">or</span> <span class="n">rknn</span>  <span class="c1"># BHWC formats (vs torch BCWH)</span>
 <span></span>    <span class="n">stride</span><span class="p">,</span> <span class="n">ch</span> <span class="o">=</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">3</span>  <span class="c1"># default stride and channels</span>
@@ -2252,8 +2247,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>        <span class="n">cuda</span> <span class="o">=</span> <span class="kc">False</span>
 <span></span>
 <span></span>    <span class="c1"># Download if not local</span>
-<span></span>    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">pt</span> <span class="ow">or</span> <span class="n">triton</span> <span class="ow">or</span> <span class="n">nn_module</span><span class="p">):</span>
-<span></span>        <span class="n">w</span> <span class="o">=</span> <span class="n">attempt_download_asset</span><span class="p">(</span><span class="n">w</span><span class="p">)</span>
+<span></span>    <span class="n">w</span> <span class="o">=</span> <span class="n">attempt_download_asset</span><span class="p">(</span><span class="n">model</span><span class="p">)</span> <span class="k">if</span> <span class="n">pt</span> <span class="k">else</span> <span class="n">model</span>  <span class="c1"># weights path</span>
 <span></span>
 <span></span>    <span class="c1"># PyTorch (in-memory or file)</span>
 <span></span>    <span class="k">if</span> <span class="n">nn_module</span> <span class="ow">or</span> <span class="n">pt</span><span class="p">:</span>
@@ -2266,11 +2260,9 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>                <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">fuse</span><span class="p">(</span><span class="n">verbose</span><span class="o">=</span><span class="n">verbose</span><span class="p">)</span>
 <span></span>            <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
 <span></span>        <span class="k">else</span><span class="p">:</span>  <span class="c1"># pt file</span>
-<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.nn.tasks</span><span class="w"> </span><span class="kn">import</span> <span class="n">attempt_load_weights</span>
+<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.nn.tasks</span><span class="w"> </span><span class="kn">import</span> <span class="n">attempt_load_one_weight</span>
 <span></span>
-<span></span>            <span class="n">model</span> <span class="o">=</span> <span class="n">attempt_load_weights</span><span class="p">(</span>
-<span></span>                <span class="n">model</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="k">else</span> <span class="n">w</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="n">fuse</span>
-<span></span>            <span class="p">)</span>
+<span></span>            <span class="n">model</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">attempt_load_one_weight</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">device</span><span class="o">=</span><span class="n">device</span><span class="p">,</span> <span class="n">fuse</span><span class="o">=</span><span class="n">fuse</span><span class="p">)</span>  <span class="c1"># load model, ckpt</span>
 <span></span>
 <span></span>        <span class="c1"># Common PyTorch model processing</span>
 <span></span>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s2">"kpt_shape"</span><span class="p">):</span>
@@ -2543,7 +2535,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>
 <span></span>    <span class="c1"># TF.js</span>
 <span></span>    <span class="k">elif</span> <span class="n">tfjs</span><span class="p">:</span>
-<span></span>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"YOLOv8 TF.js inference is not currently supported."</span><span class="p">)</span>
+<span></span>        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">"Ultralytics TF.js inference is not currently supported."</span><span class="p">)</span>
 <span></span>
 <span></span>    <span class="c1"># PaddlePaddle</span>
 <span></span>    <span class="k">elif</span> <span class="n">paddle</span><span class="p">:</span>
@@ -2802,7 +2794,11 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>612</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>608</span>
+<span>609</span>
+<span>610</span>
+<span>611</span>
+<span>612</span>
 <span>613</span>
 <span>614</span>
 <span>615</span>
@@ -3020,11 +3016,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>827</span>
 <span>828</span>
 <span>829</span>
-<span>830</span>
-<span>831</span>
-<span>832</span>
-<span>833</span>
-<span>834</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>830</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">augment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -3311,17 +3303,17 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>836</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>832</span>
+<span>833</span>
+<span>834</span>
+<span>835</span>
+<span>836</span>
 <span>837</span>
 <span>838</span>
 <span>839</span>
 <span>840</span>
 <span>841</span>
-<span>842</span>
-<span>843</span>
-<span>844</span>
-<span>845</span>
-<span>846</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>842</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a numpy array to a tensor.</span>
 <span></span>
@@ -3375,18 +3367,18 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>848</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>844</span>
+<span>845</span>
+<span>846</span>
+<span>847</span>
+<span>848</span>
 <span>849</span>
 <span>850</span>
 <span>851</span>
 <span>852</span>
 <span>853</span>
 <span>854</span>
-<span>855</span>
-<span>856</span>
-<span>857</span>
-<span>858</span>
-<span>859</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>855</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Warm up the model by running one forward pass with a dummy input.</span>
 <span></span>
