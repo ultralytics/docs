@@ -1356,7 +1356,7 @@
 <span></span>    <span class="n">transformer_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">transformer</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">num_multimask_outputs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">iou_head_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
 <span></span>    <span class="n">iou_head_hidden_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
 <span></span><span class="p">)</span>
@@ -1576,7 +1576,7 @@ generate mask predictions along with their quality scores.</p>
 <code>activation</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1679,7 +1679,7 @@ generate mask predictions along with their quality scores.</p>
 <span></span>    <span class="n">transformer_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">transformer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">num_multimask_outputs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">iou_head_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
 <span></span>    <span class="n">iou_head_hidden_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1734,7 +1734,7 @@ generate mask predictions along with their quality scores.</p>
 <span></span>    <span class="n">sparse_prompt_embeddings</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">dense_prompt_embeddings</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">multimask_output</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Predict masks given image and prompt embeddings.</p>
@@ -1923,7 +1923,7 @@ generate mask predictions along with their quality scores.</p>
 <span></span>    <span class="n">sparse_prompt_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">dense_prompt_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">multimask_output</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Predict masks given image and prompt embeddings.</span>
 <span></span>
@@ -1973,7 +1973,7 @@ generate mask predictions along with their quality scores.</p>
 <span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">sparse_prompt_embeddings</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">dense_prompt_embeddings</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Predict masks and quality scores using image and prompt embeddings via transformer architecture.</p>
@@ -2022,7 +2022,7 @@ generate mask predictions along with their quality scores.</p>
 <span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">sparse_prompt_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">dense_prompt_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Predict masks and quality scores using image and prompt embeddings via transformer architecture."""</span>
 <span></span>    <span class="c1"># Concatenate output tokens</span>
 <span></span>    <span class="n">output_tokens</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cat</span><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">iou_token</span><span class="o">.</span><span class="n">weight</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">mask_tokens</span><span class="o">.</span><span class="n">weight</span><span class="p">],</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
@@ -2043,7 +2043,7 @@ generate mask predictions along with their quality scores.</p>
 <span></span>    <span class="c1"># Upscale mask embeddings and predict masks using the mask tokens</span>
 <span></span>    <span class="n">src</span> <span class="o">=</span> <span class="n">src</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">b</span><span class="p">,</span> <span class="n">c</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">)</span>
 <span></span>    <span class="n">upscaled_embedding</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_upscaling</span><span class="p">(</span><span class="n">src</span><span class="p">)</span>
-<span></span>    <span class="n">hyper_in_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+<span></span>    <span class="n">hyper_in_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">output_hypernetworks_mlps</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">mask_tokens_out</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="p">:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_mask_tokens</span><span class="p">)</span>
 <span></span>    <span class="p">]</span>
 <span></span>    <span class="n">hyper_in</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">hyper_in_list</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -2069,7 +2069,7 @@ generate mask predictions along with their quality scores.</p>
 <span></span>    <span class="n">transformer_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">transformer</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">num_multimask_outputs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">iou_head_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
 <span></span>    <span class="n">iou_head_hidden_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
 <span></span>    <span class="n">use_high_res_features</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2428,7 +2428,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <code>activation</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2704,7 +2704,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span></span>    <span class="n">transformer_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">transformer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">num_multimask_outputs</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">iou_head_depth</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
 <span></span>    <span class="n">iou_head_hidden_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
 <span></span>    <span class="n">use_high_res_features</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -2805,8 +2805,8 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span></span>    <span class="n">dense_prompt_embeddings</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">multimask_output</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
 <span></span>    <span class="n">repeat_image</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-<span></span>    <span class="n">high_res_features</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span>    <span class="n">high_res_features</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Predict masks given image and prompt embeddings.</p>
@@ -2922,7 +2922,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <code>high_res_features</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>] | None</code>
+<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3073,8 +3073,8 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span></span>    <span class="n">dense_prompt_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">multimask_output</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
 <span></span>    <span class="n">repeat_image</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-<span></span>    <span class="n">high_res_features</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span>    <span class="n">high_res_features</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Predict masks given image and prompt embeddings.</span>
 <span></span>
@@ -3147,8 +3147,8 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span></span>    <span class="n">sparse_prompt_embeddings</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">dense_prompt_embeddings</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">repeat_image</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-<span></span>    <span class="n">high_res_features</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span>    <span class="n">high_res_features</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Predict instance segmentation masks from image and prompt embeddings using a transformer.</p>
@@ -3230,8 +3230,8 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span></span>    <span class="n">sparse_prompt_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">dense_prompt_embeddings</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">repeat_image</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span>
-<span></span>    <span class="n">high_res_features</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span>    <span class="n">high_res_features</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Predict instance segmentation masks from image and prompt embeddings using a transformer."""</span>
 <span></span>    <span class="c1"># Concatenate output tokens</span>
 <span></span>    <span class="n">s</span> <span class="o">=</span> <span class="mi">0</span>
@@ -3276,7 +3276,7 @@ high-resolution feature processing, dynamic multimask output, and object score p
 <span></span>        <span class="n">upscaled_embedding</span> <span class="o">=</span> <span class="n">act1</span><span class="p">(</span><span class="n">ln1</span><span class="p">(</span><span class="n">dc1</span><span class="p">(</span><span class="n">src</span><span class="p">)</span> <span class="o">+</span> <span class="n">feat_s1</span><span class="p">))</span>
 <span></span>        <span class="n">upscaled_embedding</span> <span class="o">=</span> <span class="n">act2</span><span class="p">(</span><span class="n">dc2</span><span class="p">(</span><span class="n">upscaled_embedding</span><span class="p">)</span> <span class="o">+</span> <span class="n">feat_s0</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="n">hyper_in_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+<span></span>    <span class="n">hyper_in_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">output_hypernetworks_mlps</span><span class="p">[</span><span class="n">i</span><span class="p">](</span><span class="n">mask_tokens_out</span><span class="p">[:,</span> <span class="n">i</span><span class="p">,</span> <span class="p">:])</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_mask_tokens</span><span class="p">)</span>
 <span></span>    <span class="p">]</span>
 <span></span>    <span class="n">hyper_in</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">stack</span><span class="p">(</span><span class="n">hyper_in_list</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>

@@ -1554,9 +1554,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>38</span>
-<span>39</span>
-<span>40</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>40</span>
 <span>41</span>
 <span>42</span>
 <span>43</span>
@@ -1567,7 +1565,9 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span>48</span>
 <span>49</span>
 <span>50</span>
-<span>51</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>51</span>
+<span>52</span>
+<span>53</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dataloader</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize SegmentationValidator and set task to 'segment', metrics to SegmentMetrics.</span>
 <span></span>
@@ -1588,21 +1588,21 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.val.SegmentationValidator.eval_json">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">eval_json</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">eval_json</span><span class="p">(</span><span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">eval_json</span><span class="p">(</span><span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return COCO-style instance segmentation evaluation metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>247</span>
-<span>248</span>
-<span>249</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>249</span>
 <span>250</span>
 <span>251</span>
 <span>252</span>
 <span>253</span>
 <span>254</span>
-<span>255</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>255</span>
+<span>256</span>
+<span>257</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">eval_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">stats</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return COCO-style instance segmentation evaluation metrics."""</span>
 <span></span>    <span class="n">pred_json</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">save_dir</span> <span class="o">/</span> <span class="s2">"predictions.json"</span>  <span class="c1"># predictions</span>
 <span></span>    <span class="n">anno_json</span> <span class="o">=</span> <span class="p">(</span>
@@ -1625,9 +1625,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <p>Return a formatted description of evaluation metrics.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>80</span>
-<span>81</span>
-<span>82</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>82</span>
 <span>83</span>
 <span>84</span>
 <span>85</span>
@@ -1639,7 +1637,9 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span>91</span>
 <span>92</span>
 <span>93</span>
-<span>94</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span>94</span>
+<span>95</span>
+<span>96</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_desc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a formatted description of evaluation metrics."""</span>
 <span></span>    <span class="k">return</span> <span class="p">(</span><span class="s2">"</span><span class="si">%22s</span><span class="s2">"</span> <span class="o">+</span> <span class="s2">"</span><span class="si">%11s</span><span class="s2">"</span> <span class="o">*</span> <span class="mi">10</span><span class="p">)</span> <span class="o">%</span> <span class="p">(</span>
 <span></span>        <span class="s2">"Class"</span><span class="p">,</span>
@@ -1697,9 +1697,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>67</span>
-<span>68</span>
-<span>69</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>69</span>
 <span>70</span>
 <span>71</span>
 <span>72</span>
@@ -1708,7 +1706,9 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span>75</span>
 <span>76</span>
 <span>77</span>
-<span>78</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>78</span>
+<span>79</span>
+<span>80</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_metrics</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize metrics and select mask processing function based on save_json flag.</span>
 <span></span>
@@ -1729,7 +1729,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">plot_predictions</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">plot_predictions</span><span class="p">(</span>
-<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span>
+<span></span>    <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">preds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -1750,7 +1750,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1766,7 +1766,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="List">List</span>[<span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1797,9 +1797,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>177</span>
-<span>178</span>
-<span>179</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>179</span>
 <span>180</span>
 <span>181</span>
 <span>182</span>
@@ -1811,7 +1809,9 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span>188</span>
 <span>189</span>
 <span>190</span>
-<span>191</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>191</span>
+<span>192</span>
+<span>193</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_predictions</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">preds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span> <span class="n">ni</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Plot batch predictions with masks and bounding boxes.</span>
 <span></span>
@@ -1834,7 +1834,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.val.SegmentationValidator.postprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">postprocess</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">postprocess</span><span class="p">(</span><span class="n">preds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Post-process YOLO predictions and return output detections with proto.</p>
@@ -1854,7 +1854,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1878,7 +1878,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
+<code><span title="list">list</span>[<span title="dict">dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1890,9 +1890,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 96</span>
-<span> 97</span>
-<span> 98</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 98</span>
 <span> 99</span>
 <span>100</span>
 <span>101</span>
@@ -1914,7 +1912,9 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span>117</span>
 <span>118</span>
 <span>119</span>
-<span>120</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
+<span>120</span>
+<span>121</span>
+<span>122</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Post-process YOLO predictions and return output detections with proto.</span>
 <span></span>
@@ -1947,7 +1947,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.val.SegmentationValidator.pred_to_json">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">pred_to_json</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">pred_to_json</span><span class="p">(</span><span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">pred_to_json</span><span class="p">(</span><span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Save one JSON result for COCO evaluation.</p>
@@ -1967,7 +1967,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>predn</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1983,7 +1983,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>pbatch</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1998,9 +1998,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>213</span>
-<span>214</span>
-<span>215</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>215</span>
 <span>216</span>
 <span>217</span>
 <span>218</span>
@@ -2019,7 +2017,9 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span>231</span>
 <span>232</span>
 <span>233</span>
-<span>234</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>234</span>
+<span>235</span>
+<span>236</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pred_to_json</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save one JSON result for COCO evaluation.</span>
 <span></span>
@@ -2049,7 +2049,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.yolo.segment.val.SegmentationValidator.preprocess">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">preprocess</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">preprocess</span><span class="p">(</span><span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Preprocess batch of images for YOLO segmentation validation.</p>
@@ -2069,7 +2069,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>batch</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2093,7 +2093,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2105,9 +2105,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>53</span>
-<span>54</span>
-<span>55</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>55</span>
 <span>56</span>
 <span>57</span>
 <span>58</span>
@@ -2117,7 +2115,9 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span>62</span>
 <span>63</span>
 <span>64</span>
-<span>65</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span>65</span>
+<span>66</span>
+<span>67</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">batch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Preprocess batch of images for YOLO segmentation validation.</span>
 <span></span>
@@ -2139,7 +2139,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">save_one_txt</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">save_one_txt</span><span class="p">(</span>
-<span></span>    <span class="n">predn</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span>
+<span></span>    <span class="n">predn</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -2192,7 +2192,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code>shape</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2223,9 +2223,7 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>193</span>
-<span>194</span>
-<span>195</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>195</span>
 <span>196</span>
 <span>197</span>
 <span>198</span>
@@ -2241,7 +2239,9 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <span>208</span>
 <span>209</span>
 <span>210</span>
-<span>211</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>211</span>
+<span>212</span>
+<span>213</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">save_one_txt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">save_conf</span><span class="p">:</span> <span class="nb">bool</span><span class="p">,</span> <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">file</span><span class="p">:</span> <span class="n">Path</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Save YOLO detections to a txt file in normalized coordinates in a specific format.</span>
 <span></span>
@@ -2269,23 +2269,23 @@ to compute metrics such as mAP for both detection and segmentation tasks.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">scale_preds</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">scale_preds</span><span class="p">(</span>
-<span></span>    <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span>    <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Scales predictions to the original image size.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/yolo/segment/val.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>236</span>
-<span>237</span>
-<span>238</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>238</span>
 <span>239</span>
 <span>240</span>
 <span>241</span>
 <span>242</span>
 <span>243</span>
 <span>244</span>
-<span>245</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>245</span>
+<span>246</span>
+<span>247</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">scale_preds</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">predn</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span> <span class="n">pbatch</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Scales predictions to the original image size."""</span>
 <span></span>    <span class="k">return</span> <span class="p">{</span>
 <span></span>        <span class="o">**</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">scale_preds</span><span class="p">(</span><span class="n">predn</span><span class="p">,</span> <span class="n">pbatch</span><span class="p">),</span>

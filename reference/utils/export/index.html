@@ -1175,9 +1175,9 @@
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">opset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span>
-<span></span>    <span class="n">input_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"images"</span><span class="p">],</span>
-<span></span>    <span class="n">output_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"output0"</span><span class="p">],</span>
-<span></span>    <span class="n">dynamic</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">input_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"images"</span><span class="p">],</span>
+<span></span>    <span class="n">output_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"output0"</span><span class="p">],</span>
+<span></span>    <span class="n">dynamic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1262,7 +1262,7 @@
 <code>input_names</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="str">str</span>]</code>
+<code><span title="List">List</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1278,7 +1278,7 @@
 <code>output_names</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="str">str</span>]</code>
+<code><span title="List">List</span>[<span title="str">str</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1294,7 +1294,7 @@
 <code>dynamic</code>
 </td>
 <td>
-<code><span title="bool">bool</span> | <span title="typing.Dict">Dict</span></code>
+<code><span title="bool">bool</span> | <span title="Dict">Dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1313,8 +1313,7 @@
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>12</span>
-<span>13</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>13</span>
 <span>14</span>
 <span>15</span>
 <span>16</span>
@@ -1347,14 +1346,15 @@
 <span>43</span>
 <span>44</span>
 <span>45</span>
-<span>46</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_onnx</span><span class="p">(</span>
+<span>46</span>
+<span>47</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_onnx</span><span class="p">(</span>
 <span></span>    <span class="n">torch_model</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
 <span></span>    <span class="n">opset</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">14</span><span class="p">,</span>
-<span></span>    <span class="n">input_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"images"</span><span class="p">],</span>
-<span></span>    <span class="n">output_names</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"output0"</span><span class="p">],</span>
-<span></span>    <span class="n">dynamic</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="nb">bool</span><span class="p">,</span> <span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+<span></span>    <span class="n">input_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"images"</span><span class="p">],</span>
+<span></span>    <span class="n">output_names</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"output0"</span><span class="p">],</span>
+<span></span>    <span class="n">dynamic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Export a PyTorch model to ONNX format.</span>
@@ -1392,15 +1392,15 @@
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">export_engine</span><span class="p">(</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<span></span>    <span class="n">engine_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">workspace</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">engine_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">workspace</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">half</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">int8</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">dynamic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span>
-<span></span>    <span class="n">dla</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span>
+<span></span>    <span class="n">dla</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
@@ -1519,7 +1519,7 @@
 <code>shape</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1567,7 +1567,7 @@
 <code>metadata</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span></code>
+<code><span title="Dict">Dict</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1651,8 +1651,7 @@ Metadata is serialized and written to the engine file if provided.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/utils/export.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 49</span>
-<span> 50</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 50</span>
 <span> 51</span>
 <span> 52</span>
 <span> 53</span>
@@ -1838,17 +1837,18 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span>233</span>
 <span>234</span>
 <span>235</span>
-<span>236</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_engine</span><span class="p">(</span>
+<span>236</span>
+<span>237</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">export_engine</span><span class="p">(</span>
 <span></span>    <span class="n">onnx_file</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-<span></span>    <span class="n">engine_file</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">workspace</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">engine_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">workspace</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">half</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">int8</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">dynamic</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">shape</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span>
-<span></span>    <span class="n">dla</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">shape</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">),</span>
+<span></span>    <span class="n">dla</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">dataset</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">metadata</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">metadata</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">prefix</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -1988,7 +1988,7 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span></span><span class="w">                </span><span class="sd">"""Get the batch size to use for calibration."""</span>
 <span></span>                <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">batch</span> <span class="ow">or</span> <span class="mi">1</span>
 <span></span>
-<span></span>            <span class="k">def</span><span class="w"> </span><span class="nf">get_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]:</span>
+<span></span>            <span class="k">def</span><span class="w"> </span><span class="nf">get_batch</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">names</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">                </span><span class="sd">"""Get the next batch to use for calibration, as a list of device memory pointers."""</span>
 <span></span>                <span class="k">try</span><span class="p">:</span>
 <span></span>                    <span class="n">im0s</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data_iter</span><span class="p">)[</span><span class="s2">"img"</span><span class="p">]</span> <span class="o">/</span> <span class="mf">255.0</span>
@@ -1998,7 +1998,7 @@ Metadata is serialized and written to the engine file if provided.</p>
 <span></span>                    <span class="c1"># Return None to signal to TensorRT there is no calibration data remaining</span>
 <span></span>                    <span class="k">return</span> <span class="kc">None</span>
 <span></span>
-<span></span>            <span class="k">def</span><span class="w"> </span><span class="nf">read_calibration_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">bytes</span><span class="p">]:</span>
+<span></span>            <span class="k">def</span><span class="w"> </span><span class="nf">read_calibration_cache</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bytes</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">                </span><span class="sd">"""Use existing cache instead of calibrating again, otherwise, implicitly return None."""</span>
 <span></span>                <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">suffix</span> <span class="o">==</span> <span class="s2">".cache"</span><span class="p">:</span>
 <span></span>                    <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">cache</span><span class="o">.</span><span class="n">read_bytes</span><span class="p">()</span>

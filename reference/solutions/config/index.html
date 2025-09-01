@@ -1182,22 +1182,22 @@
 </span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">SolutionConfig</span><span class="p">(</span>
-<span></span>    <span class="n">source</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">model</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">classes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">source</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">classes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">show_conf</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">show_labels</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">region</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">colormap</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_DEEPGREEN</span><span class="p">,</span>
+<span></span>    <span class="n">region</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">colormap</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">COLORMAP_DEEPGREEN</span><span class="p">,</span>
 <span></span>    <span class="n">show_in</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">show_out</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">up_angle</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">145.0</span><span class="p">,</span>
 <span></span>    <span class="n">down_angle</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">90</span><span class="p">,</span>
-<span></span>    <span class="n">kpts</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])(),</span>
+<span></span>    <span class="n">kpts</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">])(),</span>
 <span></span>    <span class="n">analytics_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"line"</span><span class="p">,</span>
-<span></span>    <span class="n">figsize</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.8</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">),</span>
+<span></span>    <span class="n">figsize</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="p">(</span><span class="mf">12.8</span><span class="p">,</span> <span class="mf">7.2</span><span class="p">),</span>
 <span></span>    <span class="n">blur_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span>
-<span></span>    <span class="n">vision_point</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+<span></span>    <span class="n">vision_point</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
 <span></span>    <span class="n">crop_dir</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"cropped-detections"</span><span class="p">,</span>
 <span></span>    <span class="n">json_file</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">line_width</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
@@ -1209,7 +1209,7 @@
 <span></span>    <span class="n">show</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">iou</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.7</span><span class="p">,</span>
 <span></span>    <span class="n">conf</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.25</span><span class="p">,</span>
-<span></span>    <span class="n">device</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">device</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">max_det</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">300</span><span class="p">,</span>
 <span></span>    <span class="n">half</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">tracker</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"botsort.yaml"</span><span class="p">,</span>
@@ -1257,7 +1257,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.classes">classes</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1290,7 +1290,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.region">region</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
+<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1356,7 +1356,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.kpts">kpts</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1378,7 +1378,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.figsize">figsize</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1400,7 +1400,7 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.solutions.config.SolutionConfig.vision_point">vision_point</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1633,16 +1633,16 @@ It leverages Python <code>dataclass</code> for clear, type-safe, and maintainabl
 <p>Update configuration parameters with new values provided as keyword arguments.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/solutions/config.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 97</span>
-<span> 98</span>
-<span> 99</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 99</span>
 <span>100</span>
 <span>101</span>
 <span>102</span>
 <span>103</span>
 <span>104</span>
 <span>105</span>
-<span>106</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
+<span>106</span>
+<span>107</span>
+<span>108</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">update</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">:</span> <span class="n">Any</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Update configuration parameters with new values provided as keyword arguments."""</span>
 <span></span>    <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 <span></span>        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>

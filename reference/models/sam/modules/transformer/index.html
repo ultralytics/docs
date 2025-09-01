@@ -1365,7 +1365,7 @@
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
 <span></span>    <span class="n">attention_downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
@@ -1572,7 +1572,7 @@ cloud processing.</p>
 <code>activation</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1603,8 +1603,7 @@ cloud processing.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>41</span>
-<span>42</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>42</span>
 <span>43</span>
 <span>44</span>
 <span>45</span>
@@ -1643,13 +1642,14 @@ cloud processing.</p>
 <span>78</span>
 <span>79</span>
 <span>80</span>
-<span>81</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>81</span>
+<span>82</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">depth</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
 <span></span>    <span class="n">attention_downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -1693,7 +1693,7 @@ cloud processing.</p>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="n">image_embedding</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">image_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">point_embedding</span><span class="p">:</span> <span class="n">Tensor</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Process image and point embeddings through the Two-Way Transformer.</p>
@@ -1791,8 +1791,7 @@ cloud processing.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 83</span>
-<span> 84</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 84</span>
 <span> 85</span>
 <span> 86</span>
 <span> 87</span>
@@ -1833,12 +1832,13 @@ cloud processing.</p>
 <span>122</span>
 <span>123</span>
 <span>124</span>
-<span>125</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>125</span>
+<span>126</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_embedding</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">image_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">point_embedding</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process image and point embeddings through the Two-Way Transformer.</span>
 <span></span>
@@ -1891,7 +1891,7 @@ cloud processing.</p>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2048</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
 <span></span>    <span class="n">attention_downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span>    <span class="n">skip_first_layer_pe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span>
@@ -2109,7 +2109,7 @@ of dense inputs to sparse inputs.</p>
 <code>activation</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2156,8 +2156,7 @@ of dense inputs to sparse inputs.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>160</span>
-<span>161</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>161</span>
 <span>162</span>
 <span>163</span>
 <span>164</span>
@@ -2193,12 +2192,13 @@ of dense inputs to sparse inputs.</p>
 <span>194</span>
 <span>195</span>
 <span>196</span>
-<span>197</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>197</span>
+<span>198</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2048</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
 <span></span>    <span class="n">attention_downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span>    <span class="n">skip_first_layer_pe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -2240,7 +2240,7 @@ of dense inputs to sparse inputs.</p>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="n">queries</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">:</span> <span class="n">Tensor</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Apply two-way attention to process query and key embeddings in a transformer block.</p>
@@ -2354,8 +2354,7 @@ of dense inputs to sparse inputs.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>199</span>
-<span>200</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>200</span>
 <span>201</span>
 <span>202</span>
 <span>203</span>
@@ -2398,9 +2397,10 @@ of dense inputs to sparse inputs.</p>
 <span>240</span>
 <span>241</span>
 <span>242</span>
-<span>243</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>243</span>
+<span>244</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span> <span class="n">queries</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">keys</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">query_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">key_pe</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply two-way attention to process query and key embeddings in a transformer block.</span>
 <span></span>
@@ -2710,8 +2710,7 @@ dimension of queries, keys, and values.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>277</span>
-<span>278</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>278</span>
 <span>279</span>
 <span>280</span>
 <span>281</span>
@@ -2739,7 +2738,8 @@ dimension of queries, keys, and values.</p>
 <span>303</span>
 <span>304</span>
 <span>305</span>
-<span>306</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>306</span>
+<span>307</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
@@ -2864,8 +2864,7 @@ dimension of queries, keys, and values.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/transformer.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>322</span>
-<span>323</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>323</span>
 <span>324</span>
 <span>325</span>
 <span>326</span>
@@ -2895,7 +2894,8 @@ dimension of queries, keys, and values.</p>
 <span>350</span>
 <span>351</span>
 <span>352</span>
-<span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>353</span>
+<span>354</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">q</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">k</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Apply multi-head attention to query, key, and value tensors with optional downsampling.</span>
 <span></span>

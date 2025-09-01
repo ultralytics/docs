@@ -1892,7 +1892,7 @@
 <span></span>    <span class="n">stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
 <span></span>    <span class="n">padding</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <span></span>    <span class="n">total_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1991,7 +1991,7 @@ activation functions for downsampling and embedding masks.</p>
 <span></span>    <span class="n">stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">4</span><span class="p">,</span>
 <span></span>    <span class="n">padding</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <span></span>    <span class="n">total_stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">16</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a mask downsampler module for progressive downsampling and channel expansion."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -2446,7 +2446,7 @@ flexibility in feature extraction.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">Fuser</span><span class="p">(</span>
 <span></span>    <span class="n">layer</span><span class="p">:</span> <span class="n">Module</span><span class="p">,</span>
 <span></span>    <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">dim</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">input_projection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
@@ -2626,7 +2626,7 @@ flexibility in feature extraction.</p>
 <span>251</span>
 <span>252</span>
 <span>253</span>
-<span>254</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">input_projection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
+<span>254</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">layer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="n">num_layers</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">input_projection</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Fuser module for feature fusion through multiple layers.</span>
 <span></span>
@@ -2690,7 +2690,7 @@ flexibility in feature extraction.</p>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2048</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
 <span></span>    <span class="n">attention_downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span>    <span class="n">skip_first_layer_pe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span>
@@ -2905,7 +2905,7 @@ from dense to sparse inputs.</p>
 <code>activation</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2994,7 +2994,7 @@ from dense to sparse inputs.</p>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2048</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
 <span></span>    <span class="n">attention_downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span>    <span class="n">skip_first_layer_pe</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
@@ -3036,7 +3036,7 @@ from dense to sparse inputs.</p>
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
 <span></span>    <span class="n">attention_downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
@@ -3245,7 +3245,7 @@ It is designed for tasks like object detection, image segmentation, and point cl
 <code>activation</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3339,7 +3339,7 @@ It is designed for tasks like object detection, image segmentation, and point cl
 <span></span>    <span class="n">embedding_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">ReLU</span><span class="p">,</span>
 <span></span>    <span class="n">attention_downsample_rate</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">2</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
@@ -3394,7 +3394,7 @@ It is designed for tasks like object detection, image segmentation, and point cl
 <span></span>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
 <span></span>    <span class="n">rope_theta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10000.0</span><span class="p">,</span>
 <span></span>    <span class="n">rope_k_repeat</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">feat_sizes</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
+<span></span>    <span class="n">feat_sizes</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
@@ -3498,7 +3498,7 @@ the positional awareness of the attention mechanism.</p>
 <span></span>    <span class="o">*</span><span class="n">args</span><span class="p">,</span>
 <span></span>    <span class="n">rope_theta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10000.0</span><span class="p">,</span>
 <span></span>    <span class="n">rope_k_repeat</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">feat_sizes</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>  <span class="c1"># [w, h] for stride 16 feats at 512 resolution</span>
+<span></span>    <span class="n">feat_sizes</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">),</span>  <span class="c1"># [w, h] for stride 16 feats at 512 resolution</span>
 <span></span>    <span class="o">**</span><span class="n">kwargs</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize RoPEAttention with rotary position encoding for enhanced positional awareness."""</span>
@@ -3865,9 +3865,9 @@ capture multiscale information in visual tasks.</p>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span>
 <span></span>    <span class="n">drop_path</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Module</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"LayerNorm"</span><span class="p">,</span>
-<span></span>    <span class="n">q_stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="n">Module</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"LayerNorm"</span><span class="p">,</span>
+<span></span>    <span class="n">q_stride</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
@@ -3945,7 +3945,7 @@ designed for use in vision transformer architectures.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.blocks.MultiScaleBlock.q_stride">q_stride</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4091,9 +4091,9 @@ designed for use in vision transformer architectures.</p>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span>
 <span></span>    <span class="n">drop_path</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
-<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">,</span> <span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"LayerNorm"</span><span class="p">,</span>
-<span></span>    <span class="n">q_stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Module</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"LayerNorm"</span><span class="p">,</span>
+<span></span>    <span class="n">q_stride</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize a multiscale attention block with window partitioning and optional query pooling."""</span>
@@ -4226,7 +4226,7 @@ designed for use in vision transformer architectures.</p>
 <span></span>    <span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">temperature</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span>
 <span></span>    <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -4378,7 +4378,7 @@ transformer-based models for computer vision tasks.</p>
 <span></span>    <span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">temperature</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">,</span>
 <span></span>    <span class="n">normalize</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize sinusoidal position embeddings for 2D image inputs."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
@@ -4532,7 +4532,7 @@ transformer-based models for computer vision tasks.</p>
 <h2 class="doc doc-heading" id="ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom">
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom</span>
 </h2>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">PositionEmbeddingRandom</span><span class="p">(</span><span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">PositionEmbeddingRandom</span><span class="p">(</span><span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
 <p class="doc doc-class-bases">
@@ -4616,7 +4616,7 @@ particularly useful for transformer-based models that require position informati
 <span>842</span>
 <span>843</span>
 <span>844</span>
-<span>845</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>845</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">num_pos_feats</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">64</span><span class="p">,</span> <span class="n">scale</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize random spatial frequency position embedding for transformers."""</span>
 <span></span>    <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
 <span></span>    <span class="k">if</span> <span class="n">scale</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">scale</span> <span class="o">&lt;=</span> <span class="mf">0.0</span><span class="p">:</span>
@@ -4633,7 +4633,7 @@ particularly useful for transformer-based models that require position informati
 <h3 class="doc doc-heading" id="ultralytics.models.sam.modules.blocks.PositionEmbeddingRandom.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Generate positional encoding for a grid using random spatial frequencies.</p>
@@ -4653,7 +4653,7 @@ particularly useful for transformer-based models that require position informati
 <span>867</span>
 <span>868</span>
 <span>869</span>
-<span>870</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>870</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Generate positional encoding for a grid using random spatial frequencies."""</span>
 <span></span>    <span class="n">h</span><span class="p">,</span> <span class="n">w</span> <span class="o">=</span> <span class="n">size</span>
 <span></span>    <span class="n">grid</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span>
@@ -4677,7 +4677,7 @@ particularly useful for transformer-based models that require position informati
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward_with_coords</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward_with_coords</span><span class="p">(</span>
-<span></span>    <span class="n">coords_input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">image_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
+<span></span>    <span class="n">coords_input</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span> <span class="n">image_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -4689,7 +4689,7 @@ particularly useful for transformer-based models that require position informati
 <span>874</span>
 <span>875</span>
 <span>876</span>
-<span>877</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_with_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords_input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">image_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>877</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_with_coords</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords_input</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">image_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""Positionally encode input coordinates, normalizing them to [0,1] based on the given image size."""</span>
 <span></span>    <span class="n">coords</span> <span class="o">=</span> <span class="n">coords_input</span><span class="o">.</span><span class="n">clone</span><span class="p">()</span>
 <span></span>    <span class="n">coords</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">coords</span><span class="p">[:,</span> <span class="p">:,</span> <span class="mi">0</span><span class="p">]</span> <span class="o">/</span> <span class="n">image_size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
@@ -4711,12 +4711,12 @@ particularly useful for transformer-based models that require position informati
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span>
 <span></span>    <span class="n">qkv_bias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span>
-<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span>
+<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">use_rel_pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_zero_init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span></span>    <span class="n">input_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">input_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -4903,7 +4903,7 @@ for use in vision transformer architectures.</p>
 <code>norm_layer</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4919,7 +4919,7 @@ for use in vision transformer architectures.</p>
 <code>act_layer</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4983,7 +4983,7 @@ for use in vision transformer architectures.</p>
 <code>input_size</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5064,12 +5064,12 @@ for use in vision transformer architectures.</p>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
 <span></span>    <span class="n">mlp_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span>
 <span></span>    <span class="n">qkv_bias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span>
-<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span>
+<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">use_rel_pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_zero_init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span></span>    <span class="n">input_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">input_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a transformer block with optional window attention and relative positional embeddings.</span>
@@ -5173,7 +5173,7 @@ for use in vision transformer architectures.</p>
 <span></span>    <span class="n">qkv_bias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">use_rel_pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_zero_init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">input_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">input_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -5396,7 +5396,7 @@ specifically for vision tasks in transformer models.</p>
 <code>input_size</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5470,7 +5470,7 @@ Required if use_rel_pos is True.</p>
 <span></span>    <span class="n">qkv_bias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">use_rel_pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_zero_init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">input_size</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">input_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a Relative Position Attention module for transformer-based architectures.</span>
@@ -5564,9 +5564,9 @@ Required if use_rel_pos is True.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-class"></code> <span class="doc doc-object-name doc-class-name">ultralytics.models.sam.modules.blocks.PatchEmbed</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">PatchEmbed</span><span class="p">(</span>
-<span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
-<span></span>    <span class="n">stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
-<span></span>    <span class="n">padding</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+<span></span>    <span class="n">stride</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+<span></span>    <span class="n">padding</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
 <span></span>    <span class="n">in_chans</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
 <span></span>    <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">768</span><span class="p">,</span>
 <span></span><span class="p">)</span>
@@ -5645,7 +5645,7 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <code>kernel_size</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5661,7 +5661,7 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <code>stride</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5677,7 +5677,7 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <code>padding</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5763,9 +5763,9 @@ image data into a suitable format for subsequent transformer blocks.</p>
 <span>1123</span>
 <span>1124</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
-<span></span>    <span class="n">stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
-<span></span>    <span class="n">padding</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+<span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+<span></span>    <span class="n">stride</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">),</span>
+<span></span>    <span class="n">padding</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
 <span></span>    <span class="n">in_chans</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
 <span></span>    <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">768</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>

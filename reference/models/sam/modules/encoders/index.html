@@ -1492,13 +1492,13 @@
 <span></span>    <span class="n">mlp_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span>
 <span></span>    <span class="n">out_chans</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
 <span></span>    <span class="n">qkv_bias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span>
-<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span>
+<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">use_abs_pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">use_rel_pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_zero_init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span></span>    <span class="n">global_attn_indexes</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
+<span></span>    <span class="n">global_attn_indexes</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1760,7 +1760,7 @@ encoded representation through a neck module.</p>
 <code>norm_layer</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1776,7 +1776,7 @@ encoded representation through a neck module.</p>
 <code>act_layer</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1856,7 +1856,7 @@ encoded representation through a neck module.</p>
 <code>global_attn_indexes</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1981,13 +1981,13 @@ encoded representation through a neck module.</p>
 <span></span>    <span class="n">mlp_ratio</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">4.0</span><span class="p">,</span>
 <span></span>    <span class="n">out_chans</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">256</span><span class="p">,</span>
 <span></span>    <span class="n">qkv_bias</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
-<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span>
-<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">norm_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LayerNorm</span><span class="p">,</span>
+<span></span>    <span class="n">act_layer</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span>    <span class="n">use_abs_pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">use_rel_pos</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_zero_init</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span>
 <span></span>    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
-<span></span>    <span class="n">global_attn_indexes</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
+<span></span>    <span class="n">global_attn_indexes</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(),</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an ImageEncoderViT instance for encoding images using Vision Transformer architecture.</span>
@@ -2026,7 +2026,7 @@ encoded representation through a neck module.</p>
 <span></span>        <span class="n">embed_dim</span><span class="o">=</span><span class="n">embed_dim</span><span class="p">,</span>
 <span></span>    <span class="p">)</span>
 <span></span>
-<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed</span><span class="p">:</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="k">if</span> <span class="n">use_abs_pos</span><span class="p">:</span>
 <span></span>        <span class="c1"># Initialize absolute positional embedding with pretrain image size</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">pos_embed</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">img_size</span> <span class="o">//</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">img_size</span> <span class="o">//</span> <span class="n">patch_size</span><span class="p">,</span> <span class="n">embed_dim</span><span class="p">))</span>
@@ -2115,10 +2115,10 @@ encoded representation through a neck module.</p>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">PromptEncoder</span><span class="p">(</span>
 <span></span>    <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">image_embedding_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
-<span></span>    <span class="n">input_image_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">image_embedding_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">input_image_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
 <span></span>    <span class="n">mask_in_chans</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -2149,7 +2149,7 @@ encoded representation through a neck module.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.input_image_size">input_image_size</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2160,7 +2160,7 @@ encoded representation through a neck module.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.image_embedding_size">image_embedding_size</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2215,7 +2215,7 @@ encoded representation through a neck module.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.PromptEncoder.mask_input_size">mask_input_size</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2315,7 +2315,7 @@ encoded representation through a neck module.</p>
 <code>image_embedding_size</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2331,7 +2331,7 @@ encoded representation through a neck module.</p>
 <code>input_image_size</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2363,7 +2363,7 @@ encoded representation through a neck module.</p>
 <code>activation</code>
 </td>
 <td>
-<code><span title="typing.Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
+<code><span title="Type">Type</span>[<span title="torch.nn.Module">Module</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2438,10 +2438,10 @@ encoded representation through a neck module.</p>
 <span>236</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">embed_dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">image_embedding_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
-<span></span>    <span class="n">input_image_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">image_embedding_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">input_image_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
 <span></span>    <span class="n">mask_in_chans</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="n">Type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
+<span></span>    <span class="n">activation</span><span class="p">:</span> <span class="nb">type</span><span class="p">[</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">]</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">GELU</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the PromptEncoder module for encoding various types of prompts.</span>
@@ -2492,10 +2492,10 @@ encoded representation through a neck module.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span>
-<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]],</span>
-<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span>
-<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">],</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span>    <span class="n">points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Embed different types of prompts, returning both sparse and dense embeddings.</p>
@@ -2515,7 +2515,7 @@ encoded representation through a neck module.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>] | None</code>
+<code><span title="Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2656,10 +2656,10 @@ shape (B, N).</p>
 <span>352</span>
 <span>353</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]],</span>
-<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
-<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">],</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span>    <span class="n">points</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">boxes</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Embed different types of prompts, returning both sparse and dense embeddings.</span>
 <span></span>
@@ -3360,13 +3360,13 @@ and positional encoding generation. It can optionally discard the lowest resolut
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">FpnNeck</span><span class="p">(</span>
 <span></span>    <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">backbone_channel_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">backbone_channel_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
 <span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span></span>    <span class="n">stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span></span>    <span class="n">padding</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <span></span>    <span class="n">fpn_interp_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"bilinear"</span><span class="p">,</span>
 <span></span>    <span class="n">fuse_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sum"</span><span class="p">,</span>
-<span></span>    <span class="n">fpn_top_down_levels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">fpn_top_down_levels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -3410,7 +3410,7 @@ similar to ViT positional embedding interpolation.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.FpnNeck.backbone_channel_list">backbone_channel_list</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3443,7 +3443,7 @@ similar to ViT positional embedding interpolation.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.FpnNeck.fpn_top_down_levels">fpn_top_down_levels</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3514,7 +3514,7 @@ similar to ViT positional embedding interpolation.</p>
 <code>backbone_channel_list</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3610,7 +3610,7 @@ similar to ViT positional embedding interpolation.</p>
 <code>fpn_top_down_levels</code>
 </td>
 <td>
-<code><span title="typing.Optional">Optional</span>[<span title="typing.List">List</span>[<span title="int">int</span>]]</code>
+<code><span title="Optional">Optional</span>[<span title="List">List</span>[<span title="int">int</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3694,13 +3694,13 @@ similar to ViT positional embedding interpolation.</p>
 <span>603</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">d_model</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">backbone_channel_list</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">backbone_channel_list</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">],</span>
 <span></span>    <span class="n">kernel_size</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span></span>    <span class="n">stride</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span></span>    <span class="n">padding</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span>
 <span></span>    <span class="n">fpn_interp_model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"bilinear"</span><span class="p">,</span>
 <span></span>    <span class="n">fuse_type</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"sum"</span><span class="p">,</span>
-<span></span>    <span class="n">fpn_top_down_levels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">fpn_top_down_levels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize a modified Feature Pyramid Network (FPN) neck.</span>
@@ -3760,7 +3760,7 @@ similar to ViT positional embedding interpolation.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.sam.modules.encoders.FpnNeck.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">xs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">Tensor</span><span class="p">])</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform forward pass through the Feature Pyramid Network (FPN) neck.</p>
@@ -3782,7 +3782,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <code>xs</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3806,7 +3806,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <tbody>
 <tr class="doc-section-item">
 <td><code>out</code></td> <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3817,7 +3817,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 </tr>
 <tr class="doc-section-item">
 <td><code>pos</code></td> <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3886,7 +3886,7 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <span>652</span>
 <span>653</span>
 <span>654</span>
-<span>655</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xs</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
+<span>655</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">xs</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform forward pass through the Feature Pyramid Network (FPN) neck.</span>
 <span></span>
@@ -3953,13 +3953,13 @@ and top-down feature fusion. It generates output feature maps and corresponding 
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span></span>    <span class="n">drop_path_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>
 <span></span>    <span class="n">q_pool</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-<span></span>    <span class="n">q_stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
-<span></span>    <span class="n">stages</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+<span></span>    <span class="n">q_stride</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>
+<span></span>    <span class="n">stages</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
 <span></span>    <span class="n">dim_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
 <span></span>    <span class="n">head_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>
-<span></span>    <span class="n">window_pos_embed_bkg_spatial_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
-<span></span>    <span class="n">window_spec</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
-<span></span>    <span class="n">global_att_blocks</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
+<span></span>    <span class="n">window_pos_embed_bkg_spatial_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
+<span></span>    <span class="n">window_spec</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span>
+<span></span>    <span class="n">global_att_blocks</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span>
 <span></span>    <span class="n">return_interm_layers</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
@@ -3983,7 +3983,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.window_spec">window_spec</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3994,7 +3994,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.q_stride">q_stride</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4005,7 +4005,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.stage_ends">stage_ends</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4016,7 +4016,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.q_pool_blocks">q_pool_blocks</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4049,7 +4049,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.global_att_blocks">global_att_blocks</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4060,7 +4060,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.window_pos_embed_bkg_spatial_size">window_pos_embed_bkg_spatial_size</span></code></td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4104,7 +4104,7 @@ with optional pooling and global attention mechanisms.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.modules.encoders.Hiera.channel_list">channel_list</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4231,7 +4231,7 @@ pooling and global attention mechanisms.</p>
 <code>q_stride</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4247,7 +4247,7 @@ pooling and global attention mechanisms.</p>
 <code>stages</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4295,7 +4295,7 @@ pooling and global attention mechanisms.</p>
 <code>window_pos_embed_bkg_spatial_size</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4311,7 +4311,7 @@ pooling and global attention mechanisms.</p>
 <code>window_spec</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4327,7 +4327,7 @@ pooling and global attention mechanisms.</p>
 <code>global_att_blocks</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, ...]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4486,20 +4486,20 @@ pooling and global attention mechanisms.</p>
 <span></span>    <span class="n">num_heads</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>  <span class="c1"># initial number of heads</span>
 <span></span>    <span class="n">drop_path_rate</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="c1"># stochastic depth</span>
 <span></span>    <span class="n">q_pool</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># number of q_pool stages</span>
-<span></span>    <span class="n">q_stride</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># downsample stride bet. stages</span>
-<span></span>    <span class="n">stages</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>  <span class="c1"># blocks per stage</span>
+<span></span>    <span class="n">q_stride</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span>  <span class="c1"># downsample stride bet. stages</span>
+<span></span>    <span class="n">stages</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>  <span class="c1"># blocks per stage</span>
 <span></span>    <span class="n">dim_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1"># dim_mul factor at stage shift</span>
 <span></span>    <span class="n">head_mul</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span>  <span class="c1"># head_mul factor at stage shift</span>
-<span></span>    <span class="n">window_pos_embed_bkg_spatial_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
+<span></span>    <span class="n">window_pos_embed_bkg_spatial_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">14</span><span class="p">),</span>
 <span></span>    <span class="c1"># window size per stage, when not using global att.</span>
-<span></span>    <span class="n">window_spec</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>    <span class="n">window_spec</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>        <span class="mi">8</span><span class="p">,</span>
 <span></span>        <span class="mi">4</span><span class="p">,</span>
 <span></span>        <span class="mi">14</span><span class="p">,</span>
 <span></span>        <span class="mi">7</span><span class="p">,</span>
 <span></span>    <span class="p">),</span>
 <span></span>    <span class="c1"># global attn in these blocks</span>
-<span></span>    <span class="n">global_att_blocks</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
+<span></span>    <span class="n">global_att_blocks</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span>
 <span></span>        <span class="mi">12</span><span class="p">,</span>
 <span></span>        <span class="mi">16</span><span class="p">,</span>
 <span></span>        <span class="mi">20</span><span class="p">,</span>
@@ -4603,7 +4603,7 @@ pooling and global attention mechanisms.</p>
 <h3 class="doc doc-heading" id="ultralytics.models.sam.modules.encoders.Hiera.forward">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">forward</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">forward</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform forward pass through Hiera model, extracting multiscale features from input images.</p>
@@ -4647,7 +4647,7 @@ pooling and global attention mechanisms.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4702,7 +4702,7 @@ is True, otherwise contains only the final output.</p>
 <span>848</span>
 <span>849</span>
 <span>850</span>
-<span>851</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>851</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform forward pass through Hiera model, extracting multiscale features from input images.</span>
 <span></span>

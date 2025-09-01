@@ -1241,7 +1241,7 @@ geographical location, tier classification, and network latency.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.hub.google.GCPRegions.regions">regions</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="str">str</span>, <span title="str">str</span>]]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="str">str</span>, <span title="str">str</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1294,8 +1294,7 @@ geographical location, tier classification, and network latency.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>31</span>
-<span>32</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>32</span>
 <span>33</span>
 <span>34</span>
 <span>35</span>
@@ -1335,7 +1334,8 @@ geographical location, tier classification, and network latency.</p>
 <span>69</span>
 <span>70</span>
 <span>71</span>
-<span>72</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>72</span>
+<span>73</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Initialize the GCPRegions class with predefined Google Cloud Platform regions and their details."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">regions</span> <span class="o">=</span> <span class="p">{</span>
 <span></span>        <span class="s2">"asia-east1"</span><span class="p">:</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">"Taiwan"</span><span class="p">,</span> <span class="s2">"China"</span><span class="p">),</span>
@@ -1387,9 +1387,9 @@ geographical location, tier classification, and network latency.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">lowest_latency</span><span class="p">(</span>
 <span></span>    <span class="n">top</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span></span>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">tier</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">attempts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Determine the GCP regions with the lowest latency based on ping tests.</p>
@@ -1481,7 +1481,7 @@ geographical location, tier classification, and network latency.</p>
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<span title="typing.Tuple">Tuple</span>[<span title="str">str</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]]</code>
+<code><span title="List">List</span>[<span title="Tuple">Tuple</span>[<span title="str">str</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>, <span title="float">float</span>]]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1499,8 +1499,7 @@ latency statistics. Each tuple contains (region, mean_latency, std_dev, min_late
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>121</span>
-<span>122</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>122</span>
 <span>123</span>
 <span>124</span>
 <span>125</span>
@@ -1548,13 +1547,14 @@ latency statistics. Each tuple contains (region, mean_latency, std_dev, min_late
 <span>167</span>
 <span>168</span>
 <span>169</span>
-<span>170</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lowest_latency</span><span class="p">(</span>
+<span>170</span>
+<span>171</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">lowest_latency</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">top</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
 <span></span>    <span class="n">verbose</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span>    <span class="n">tier</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">tier</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">attempts</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">,</span> <span class="nb">float</span><span class="p">]]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Determine the GCP regions with the lowest latency based on ping tests.</span>
 <span></span>
@@ -1606,15 +1606,15 @@ latency statistics. Each tuple contains (region, mean_latency, std_dev, min_late
 <h3 class="doc doc-heading" id="ultralytics.hub.google.GCPRegions.tier1">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">tier1</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tier1</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tier1</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a list of GCP regions classified as tier 1 based on predefined criteria.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>74</span>
-<span>75</span>
-<span>76</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier1</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>75</span>
+<span>76</span>
+<span>77</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier1</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a list of GCP regions classified as tier 1 based on predefined criteria."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">region</span> <span class="k">for</span> <span class="n">region</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>
@@ -1625,15 +1625,15 @@ latency statistics. Each tuple contains (region, mean_latency, std_dev, min_late
 <h3 class="doc doc-heading" id="ultralytics.hub.google.GCPRegions.tier2">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">tier2</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tier2</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">tier2</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Return a list of GCP regions classified as tier 2 based on predefined criteria.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/hub/google/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>78</span>
-<span>79</span>
-<span>80</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>79</span>
+<span>80</span>
+<span>81</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">tier2</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Return a list of GCP regions classified as tier 2 based on predefined criteria."""</span>
 <span></span>    <span class="k">return</span> <span class="p">[</span><span class="n">region</span> <span class="k">for</span> <span class="n">region</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">regions</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">2</span><span class="p">]</span>
 </code></pre></div></td></tr></table></div>

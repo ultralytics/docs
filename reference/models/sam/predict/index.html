@@ -1772,7 +1772,7 @@ fine-grained control over segmentation results.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.Predictor.prompts">prompts</span></code></td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2019,9 +2019,7 @@ for optimal results.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 81</span>
-<span> 82</span>
-<span> 83</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 83</span>
 <span> 84</span>
 <span> 85</span>
 <span> 86</span>
@@ -2045,7 +2043,9 @@ for optimal results.</p>
 <span>104</span>
 <span>105</span>
 <span>106</span>
-<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>107</span>
+<span>108</span>
+<span>109</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Predictor with configuration, overrides, and callbacks.</span>
 <span></span>
@@ -2177,7 +2177,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <code>point_grids</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>] | None</code>
+<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2334,9 +2334,7 @@ and real-time performance capabilities. It can optionally work on image crops fo
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>327</span>
-<span>328</span>
-<span>329</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>329</span>
 <span>330</span>
 <span>331</span>
 <span>332</span>
@@ -2444,7 +2442,9 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <span>434</span>
 <span>435</span>
 <span>436</span>
-<span>437</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span>
+<span>437</span>
+<span>438</span>
+<span>439</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">generate</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">,</span>
 <span></span>    <span class="n">crop_n_layers</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
@@ -2569,13 +2569,13 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <p>Extract image features using the SAM model's image encoder for subsequent mask prediction.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>589</span>
-<span>590</span>
-<span>591</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>591</span>
 <span>592</span>
 <span>593</span>
 <span>594</span>
-<span>595</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>595</span>
+<span>596</span>
+<span>597</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Extract image features using the SAM model's image encoder for subsequent mask prediction."""</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span>
 <span></span>        <span class="sa">f</span><span class="s2">"SAM models only support square image size, but got </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="si">}</span><span class="s2">."</span>
@@ -2596,11 +2596,11 @@ and real-time performance capabilities. It can optionally work on image crops fo
 <p>Retrieve or build the Segment Anything Model (SAM) for image segmentation tasks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>472</span>
-<span>473</span>
-<span>474</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>474</span>
 <span>475</span>
-<span>476</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>476</span>
+<span>477</span>
+<span>478</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Retrieve or build the Segment Anything Model (SAM) for image segmentation tasks."""</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_sam</span>  <span class="c1"># slow import</span>
 <span></span>
@@ -2660,7 +2660,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2676,7 +2676,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2692,7 +2692,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2808,9 +2808,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>169</span>
-<span>170</span>
-<span>171</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>171</span>
 <span>172</span>
 <span>173</span>
 <span>174</span>
@@ -2844,7 +2842,9 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <span>202</span>
 <span>203</span>
 <span>204</span>
-<span>205</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>205</span>
+<span>206</span>
+<span>207</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform image segmentation inference based on the given input cues, using the currently loaded image.</span>
 <span></span>
@@ -2918,7 +2918,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>features</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span> | <span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="torch.Tensor">Tensor</span> | <span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2934,7 +2934,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>src_shape</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2950,7 +2950,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>dst_shape</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2966,7 +2966,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="float">float</span>]] | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2982,7 +2982,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="float">float</span>]] | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2998,7 +2998,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span>[<span title="int">int</span>] | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span>[<span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3014,7 +3014,7 @@ encoder, and mask decoder for real-time and promptable segmentation tasks.</p>
 <code>masks</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | None</code>
+<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="numpy.ndarray">ndarray</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3083,9 +3083,7 @@ Each box is in xyxy format with additional columns for score and class.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>658</span>
-<span>659</span>
-<span>660</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>660</span>
 <span>661</span>
 <span>662</span>
 <span>663</span>
@@ -3128,7 +3126,9 @@ Each box is in xyxy format with additional columns for score and class.</p>
 <span>700</span>
 <span>701</span>
 <span>702</span>
-<span>703</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>703</span>
+<span>704</span>
+<span>705</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference_features</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">features</span><span class="p">,</span>
@@ -3239,7 +3239,7 @@ predictions. It leverages SAM's advanced architecture for real-time, promptable 
 <code>orig_imgs</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="torch.Tensor">Tensor</span></code>
+<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>] | <span title="torch.Tensor">Tensor</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3263,7 +3263,7 @@ predictions. It leverages SAM's advanced architecture for real-time, promptable 
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<a class="autorefs autorefs-internal" href="../../../engine/results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>]</code>
+<code><span title="List">List</span>[<a class="autorefs autorefs-internal" href="../../../engine/results/#ultralytics.engine.results.Results" title='&lt;code class="doc-symbol doc-symbol-heading doc-symbol-class"&gt;&lt;/code&gt;            &lt;span class="doc doc-object-name doc-class-name"&gt;ultralytics.engine.results.Results&lt;/span&gt;'>Results</a>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3281,9 +3281,7 @@ metadata for each processed image.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>478</span>
-<span>479</span>
-<span>480</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>480</span>
 <span>481</span>
 <span>482</span>
 <span>483</span>
@@ -3332,7 +3330,9 @@ metadata for each processed image.</p>
 <span>526</span>
 <span>527</span>
 <span>528</span>
-<span>529</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<span>529</span>
+<span>530</span>
+<span>531</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Post-process SAM's inference outputs to generate object detection masks and bounding boxes.</span>
 <span></span>
@@ -3414,7 +3414,7 @@ Currently, batched inference is not supported; hence the list length should be 1
 <code>im</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3438,7 +3438,7 @@ Currently, batched inference is not supported; hence the list length should be 1
 <tbody>
 <tr class="doc-section-item">
 <td>
-<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3478,9 +3478,7 @@ Currently, batched inference is not supported; hence the list length should be 1
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>142</span>
-<span>143</span>
-<span>144</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>144</span>
 <span>145</span>
 <span>146</span>
 <span>147</span>
@@ -3503,7 +3501,9 @@ Currently, batched inference is not supported; hence the list length should be 1
 <span>164</span>
 <span>165</span>
 <span>166</span>
-<span>167</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>167</span>
+<span>168</span>
+<span>169</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">pre_transform</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform initial transformations on the input image for preprocessing.</span>
 <span></span>
@@ -3559,7 +3559,7 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 <code>im</code>
 </td>
 <td>
-<code><span title="torch.Tensor">Tensor</span> | <span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="torch.Tensor">Tensor</span> | <span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3600,9 +3600,7 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>109</span>
-<span>110</span>
-<span>111</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>111</span>
 <span>112</span>
 <span>113</span>
 <span>114</span>
@@ -3631,7 +3629,9 @@ torch.Tensor and list of np.ndarray as input formats.</p>
 <span>137</span>
 <span>138</span>
 <span>139</span>
-<span>140</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>140</span>
+<span>141</span>
+<span>142</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">preprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Preprocess the input image for model inference.</span>
 <span></span>
@@ -3716,7 +3716,7 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3732,7 +3732,7 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <code>points</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3748,7 +3748,7 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <code>labels</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span> | None</code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3832,9 +3832,7 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>207</span>
-<span>208</span>
-<span>209</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>209</span>
 <span>210</span>
 <span>211</span>
 <span>212</span>
@@ -3860,7 +3858,9 @@ It processes various input prompts such as bounding boxes, points, and masks to 
 <span>232</span>
 <span>233</span>
 <span>234</span>
-<span>235</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prompt_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span>235</span>
+<span>236</span>
+<span>237</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">prompt_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">multimask_output</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform image segmentation inference based on input cues using SAM's specialized architecture.</span>
 <span></span>
@@ -3991,7 +3991,7 @@ this will be removed.</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>keep</code></td> <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4009,9 +4009,7 @@ this will be removed.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>606</span>
-<span>607</span>
-<span>608</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>608</span>
 <span>609</span>
 <span>610</span>
 <span>611</span>
@@ -4059,7 +4057,9 @@ this will be removed.</p>
 <span>653</span>
 <span>654</span>
 <span>655</span>
-<span>656</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>656</span>
+<span>657</span>
+<span>658</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">remove_small_regions</span><span class="p">(</span><span class="n">masks</span><span class="p">,</span> <span class="n">min_area</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">nms_thresh</span><span class="o">=</span><span class="mf">0.7</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Remove small disconnected regions and holes from segmentation masks.</span>
@@ -4124,10 +4124,10 @@ this will be removed.</p>
 <p>Reset the current image and its features, clearing them for subsequent inference.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>601</span>
-<span>602</span>
-<span>603</span>
-<span>604</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>603</span>
+<span>604</span>
+<span>605</span>
+<span>606</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reset_image</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Reset the current image and its features, clearing them for subsequent inference."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">im</span> <span class="o">=</span> <span class="kc">None</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">features</span> <span class="o">=</span> <span class="kc">None</span>
@@ -4211,9 +4211,7 @@ an image read by cv2.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>556</span>
-<span>557</span>
-<span>558</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>558</span>
 <span>559</span>
 <span>560</span>
 <span>561</span>
@@ -4242,7 +4240,9 @@ an image read by cv2.</p>
 <span>584</span>
 <span>585</span>
 <span>586</span>
-<span>587</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+<span>587</span>
+<span>588</span>
+<span>589</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Preprocess and set a single image for inference.</span>
 <span></span>
@@ -4288,9 +4288,9 @@ an image read by cv2.</p>
 <p>Set prompts for subsequent inference operations.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>597</span>
-<span>598</span>
-<span>599</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>599</span>
+<span>600</span>
+<span>601</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_prompts</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">prompts</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set prompts for subsequent inference operations."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prompts</span> <span class="o">=</span> <span class="n">prompts</span>
 </code></pre></div></td></tr></table></div>
@@ -4358,9 +4358,7 @@ parameters for image normalization and other Ultralytics compatibility settings.
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>439</span>
-<span>440</span>
-<span>441</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>441</span>
 <span>442</span>
 <span>443</span>
 <span>444</span>
@@ -4389,7 +4387,9 @@ parameters for image normalization and other Ultralytics compatibility settings.
 <span>467</span>
 <span>468</span>
 <span>469</span>
-<span>470</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+<span>470</span>
+<span>471</span>
+<span>472</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">verbose</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Segment Anything Model (SAM) for inference.</span>
 <span></span>
@@ -4481,9 +4481,7 @@ directory path, URL, or other supported source types.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>531</span>
-<span>532</span>
-<span>533</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>533</span>
 <span>534</span>
 <span>535</span>
 <span>536</span>
@@ -4504,7 +4502,9 @@ directory path, URL, or other supported source types.</p>
 <span>551</span>
 <span>552</span>
 <span>553</span>
-<span>554</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
+<span>554</span>
+<span>555</span>
+<span>556</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">setup_source</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">source</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Set up the data source for inference.</span>
 <span></span>
@@ -4561,7 +4561,7 @@ prompt-based inference.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.SAM2Predictor._bb_feat_sizes">_bb_feat_sizes</span></code></td>
 <td>
-<code><span title="typing.List">List</span>[<span title="tuple">tuple</span>]</code>
+<code><span title="List">List</span>[<span title="tuple">tuple</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4616,7 +4616,7 @@ prompt-based inference.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.models.sam.predict.SAM2Predictor.prompts">prompts</span></code></td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -4678,9 +4678,7 @@ prompt-based inference.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 81</span>
-<span> 82</span>
-<span> 83</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 83</span>
 <span> 84</span>
 <span> 85</span>
 <span> 86</span>
@@ -4704,7 +4702,9 @@ prompt-based inference.</p>
 <span>104</span>
 <span>105</span>
 <span>106</span>
-<span>107</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>107</span>
+<span>108</span>
+<span>109</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Predictor with configuration, overrides, and callbacks.</span>
 <span></span>
@@ -4744,9 +4744,7 @@ prompt-based inference.</p>
 <p>Extract image features from the SAM image encoder for subsequent processing.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>813</span>
-<span>814</span>
-<span>815</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>815</span>
 <span>816</span>
 <span>817</span>
 <span>818</span>
@@ -4759,7 +4757,9 @@ prompt-based inference.</p>
 <span>825</span>
 <span>826</span>
 <span>827</span>
-<span>828</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
+<span>828</span>
+<span>829</span>
+<span>830</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Extract image features from the SAM image encoder for subsequent processing."""</span>
 <span></span>    <span class="k">assert</span> <span class="nb">isinstance</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">,</span> <span class="p">(</span><span class="nb">tuple</span><span class="p">,</span> <span class="nb">list</span><span class="p">))</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="p">(</span>
 <span></span>        <span class="sa">f</span><span class="s2">"SAM 2 models only support square image size, but got </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">imgsz</span><span class="si">}</span><span class="s2">."</span>
@@ -4789,11 +4789,11 @@ prompt-based inference.</p>
 <p>Retrieve and initialize the Segment Anything Model 2 (SAM2) for image segmentation tasks.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>742</span>
-<span>743</span>
-<span>744</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>744</span>
 <span>745</span>
-<span>746</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>746</span>
+<span>747</span>
+<span>748</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Retrieve and initialize the Segment Anything Model 2 (SAM2) for image segmentation tasks."""</span>
 <span></span>    <span class="kn">from</span><span class="w"> </span><span class="nn">.build</span><span class="w"> </span><span class="kn">import</span> <span class="n">build_sam</span>  <span class="c1"># slow import</span>
 <span></span>
@@ -4877,9 +4877,7 @@ and preprocesses the image for feature extraction. It supports setting only one 
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>781</span>
-<span>782</span>
-<span>783</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>783</span>
 <span>784</span>
 <span>785</span>
 <span>786</span>
@@ -4907,7 +4905,9 @@ and preprocesses the image for feature extraction. It supports setting only one 
 <span>808</span>
 <span>809</span>
 <span>810</span>
-<span>811</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
+<span>811</span>
+<span>812</span>
+<span>813</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">image</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Preprocess and set a single image for inference using the SAM2 model.</span>
 <span></span>
@@ -5176,9 +5176,7 @@ that control the behavior of the predictor.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>919</span>
-<span>920</span>
-<span>921</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>921</span>
 <span>922</span>
 <span>923</span>
 <span>924</span>
@@ -5199,7 +5197,9 @@ that control the behavior of the predictor.</p>
 <span>939</span>
 <span>940</span>
 <span>941</span>
-<span>942</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>942</span>
+<span>943</span>
+<span>944</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">cfg</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">overrides</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">_callbacks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the predictor with configuration and optional overrides.</span>
 <span></span>
@@ -5393,9 +5393,7 @@ based on the provided prompts and the existing state.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1055</span>
-<span>1056</span>
-<span>1057</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1057</span>
 <span>1058</span>
 <span>1059</span>
 <span>1060</span>
@@ -5493,7 +5491,9 @@ based on the provided prompts and the existing state.</p>
 <span>1152</span>
 <span>1153</span>
 <span>1154</span>
-<span>1155</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1155</span>
+<span>1156</span>
+<span>1157</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_new_prompts</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">obj_id</span><span class="p">,</span>
@@ -5682,7 +5682,7 @@ based on the provided prompts and the existing state.</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>feat_sizes</code></td> <td>
-<code><span title="typing.List">List</span>[<span title="tuple">tuple</span>]</code>
+<code><span title="List">List</span>[<span title="tuple">tuple</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5701,9 +5701,7 @@ based on the provided prompts and the existing state.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1276</span>
-<span>1277</span>
-<span>1278</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1278</span>
 <span>1279</span>
 <span>1280</span>
 <span>1281</span>
@@ -5727,7 +5725,9 @@ based on the provided prompts and the existing state.</p>
 <span>1299</span>
 <span>1300</span>
 <span>1301</span>
-<span>1302</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+<span>1302</span>
+<span>1303</span>
+<span>1304</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">batch</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Extract and process image features using SAM2's image encoder for subsequent segmentation tasks.</span>
 <span></span>
@@ -5772,16 +5772,16 @@ based on the provided prompts and the existing state.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>944</span>
-<span>945</span>
-<span>946</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>946</span>
 <span>947</span>
 <span>948</span>
 <span>949</span>
 <span>950</span>
 <span>951</span>
 <span>952</span>
-<span>953</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span>953</span>
+<span>954</span>
+<span>955</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_model</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Retrieve and configure the model with binarization enabled.</span>
 <span></span>
@@ -5837,7 +5837,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span></code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5853,7 +5853,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <code>points</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span></code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5869,7 +5869,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <code>labels</code>
 </td>
 <td>
-<code><span title="numpy.ndarray">ndarray</span> | <span title="typing.List">List</span></code>
+<code><span title="numpy.ndarray">ndarray</span> | <span title="List">List</span></code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -5931,9 +5931,7 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 955</span>
-<span> 956</span>
-<span> 957</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 957</span>
 <span> 958</span>
 <span> 959</span>
 <span> 960</span>
@@ -6002,7 +6000,9 @@ mask decoder for real-time and promptable segmentation tasks.</p>
 <span>1023</span>
 <span>1024</span>
 <span>1025</span>
-<span>1026</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+<span>1026</span>
+<span>1027</span>
+<span>1028</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">im</span><span class="p">,</span> <span class="n">bboxes</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">points</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">masks</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform image segmentation inference based on the given input cues, using the currently loaded image. This</span>
 <span></span><span class="sd">    method leverages SAM's (Segment Anything Model) architecture consisting of image encoder, prompt encoder, and</span>
@@ -6123,9 +6123,7 @@ inputs, outputs, and other metadata relevant to the tracking process.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1228</span>
-<span>1229</span>
-<span>1230</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1230</span>
 <span>1231</span>
 <span>1232</span>
 <span>1233</span>
@@ -6169,7 +6167,9 @@ inputs, outputs, and other metadata relevant to the tracking process.</p>
 <span>1271</span>
 <span>1272</span>
 <span>1273</span>
-<span>1274</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
+<span>1274</span>
+<span>1275</span>
+<span>1276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@staticmethod</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_state</span><span class="p">(</span><span class="n">predictor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize an inference state for the predictor.</span>
@@ -6247,7 +6247,7 @@ the masks do not overlap, which can be useful for certain applications.</p>
 <code>preds</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="torch.Tensor">Tensor</span>, <span title="torch.Tensor">Tensor</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6279,7 +6279,7 @@ the masks do not overlap, which can be useful for certain applications.</p>
 <code>orig_imgs</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
+<code><span title="List">List</span>[<span title="numpy.ndarray">ndarray</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6319,9 +6319,7 @@ the masks do not overlap, which can be useful for certain applications.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1028</span>
-<span>1029</span>
-<span>1030</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1030</span>
 <span>1031</span>
 <span>1032</span>
 <span>1033</span>
@@ -6344,7 +6342,9 @@ the masks do not overlap, which can be useful for certain applications.</p>
 <span>1050</span>
 <span>1051</span>
 <span>1052</span>
-<span>1053</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
+<span>1053</span>
+<span>1054</span>
+<span>1055</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">postprocess</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">preds</span><span class="p">,</span> <span class="n">img</span><span class="p">,</span> <span class="n">orig_imgs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Post-process the predictions to apply non-overlapping constraints if required.</span>
 <span></span>
@@ -6388,9 +6388,7 @@ Additionally, it clears non-conditioning memory around input frames and ensures 
 with the provided inputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1157</span>
-<span>1158</span>
-<span>1159</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1159</span>
 <span>1160</span>
 <span>1161</span>
 <span>1162</span>
@@ -6457,7 +6455,9 @@ with the provided inputs.</p>
 <span>1223</span>
 <span>1224</span>
 <span>1225</span>
-<span>1226</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1226</span>
+<span>1227</span>
+<span>1228</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">propagate_in_video_preflight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Prepare inference_state and consolidate temporary outputs before tracking.</span>
@@ -6540,9 +6540,9 @@ with the provided inputs.</p>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">SAM2DynamicInteractivePredictor</span><span class="p">(</span>
 <span></span>    <span class="n">cfg</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="p">,</span>
-<span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">max_obj_num</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-<span></span>    <span class="n">_callbacks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -6690,7 +6690,7 @@ specified overrides</p>
 <code>cfg</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6706,7 +6706,7 @@ specified overrides</p>
 <code>overrides</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6738,7 +6738,7 @@ specified overrides</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -6760,9 +6760,7 @@ specified overrides</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1717</span>
-<span>1718</span>
-<span>1719</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1719</span>
 <span>1720</span>
 <span>1721</span>
 <span>1722</span>
@@ -6800,12 +6798,14 @@ specified overrides</p>
 <span>1754</span>
 <span>1755</span>
 <span>1756</span>
-<span>1757</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>1757</span>
+<span>1758</span>
+<span>1759</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">cfg</span><span class="p">:</span> <span class="n">Any</span> <span class="o">=</span> <span class="n">DEFAULT_CFG</span><span class="p">,</span>
-<span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">max_obj_num</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">3</span><span class="p">,</span>
-<span></span>    <span class="n">_callbacks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the predictor with configuration and optional overrides.</span>
@@ -6848,7 +6848,7 @@ specified overrides</p>
 <h3 class="doc doc-heading" id="ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor.get_im_features">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_im_features</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_im_features</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_im_features</span><span class="p">(</span><span class="n">img</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Initialize the image state by processing the input image and extracting features.</p>
@@ -6883,9 +6883,7 @@ specified overrides</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1827</span>
-<span>1828</span>
-<span>1829</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1829</span>
 <span>1830</span>
 <span>1831</span>
 <span>1832</span>
@@ -6898,7 +6896,9 @@ specified overrides</p>
 <span>1839</span>
 <span>1840</span>
 <span>1841</span>
-<span>1842</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1842</span>
+<span>1843</span>
+<span>1844</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_im_features</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the image state by processing the input image and extracting features.</span>
 <span></span>
@@ -6922,16 +6922,14 @@ specified overrides</p>
 <h3 class="doc doc-heading" id="ultralytics.models.sam.predict.SAM2DynamicInteractivePredictor.get_maskmem_enc">
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">get_maskmem_enc</span>
 </h3>
-<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_maskmem_enc</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">get_maskmem_enc</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Get the memory and positional encoding from the memory, which is used to condition the current image
 features.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1961</span>
-<span>1962</span>
-<span>1963</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1963</span>
 <span>1964</span>
 <span>1965</span>
 <span>1966</span>
@@ -6942,7 +6940,9 @@ features.</p>
 <span>1971</span>
 <span>1972</span>
 <span>1973</span>
-<span>1974</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_maskmem_enc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span>1974</span>
+<span>1975</span>
+<span>1976</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_maskmem_enc</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""Get the memory and positional encoding from the memory, which is used to condition the current image</span>
 <span></span><span class="sd">    features.</span>
 <span></span><span class="sd">    """</span>
@@ -6965,14 +6965,14 @@ features.</p>
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">inference</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">inference</span><span class="p">(</span>
-<span></span>    <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">],</span>
-<span></span>    <span class="n">bboxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">img</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">bboxes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">points</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">update_memory</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Perform inference on a single image with optional bounding boxes, masks, points and object IDs.
@@ -7012,7 +7012,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>bboxes</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="float">float</span>]] | None</code>
+<code><span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7028,7 +7028,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>masks</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span>] | None</code>
+<code><span title="List">List</span>[<span title="torch.Tensor">Tensor</span> | <span title="numpy.ndarray">ndarray</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7044,7 +7044,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>points</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="typing.List">List</span>[<span title="float">float</span>]] | None</code>
+<code><span title="List">List</span>[<span title="List">List</span>[<span title="float">float</span>]] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7060,7 +7060,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>labels</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>] | None</code>
+<code><span title="List">List</span>[<span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7076,7 +7076,7 @@ When update_memory is False, it will only run inference on the provided image wi
 <code>obj_ids</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>] | None</code>
+<code><span title="List">List</span>[<span title="int">int</span>] | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7138,9 +7138,7 @@ When update_memory is False, it will only run inference on the provided image wi
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1759</span>
-<span>1760</span>
-<span>1761</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1761</span>
 <span>1762</span>
 <span>1763</span>
 <span>1764</span>
@@ -7204,17 +7202,19 @@ When update_memory is False, it will only run inference on the provided image wi
 <span>1822</span>
 <span>1823</span>
 <span>1824</span>
-<span>1825</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1825</span>
+<span>1826</span>
+<span>1827</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">inference</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">img</span><span class="p">:</span> <span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">],</span>
-<span></span>    <span class="n">bboxes</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Union</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">img</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">,</span>
+<span></span>    <span class="n">bboxes</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">points</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span>    <span class="n">update_memory</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Perform inference on a single image with optional bounding boxes, masks, points and object IDs.</span>
 <span></span><span class="sd">    It has two modes: one is to run inference on a single image without updating the memory,</span>
@@ -7280,11 +7280,11 @@ When update_memory is False, it will only run inference on the provided image wi
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">track_step</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">track_step</span><span class="p">(</span>
-<span></span>    <span class="n">obj_idx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">point</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+<span></span>    <span class="n">obj_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">point</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">mask</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Tracking step for the current image state to predict masks.</p>
@@ -7380,7 +7380,7 @@ SAM processing with memory-conditioned features.</p>
 <tbody>
 <tr class="doc-section-item">
 <td><code>current_out</code></td> <td>
-<code><span title="typing.Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7393,9 +7393,7 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1988</span>
-<span>1989</span>
-<span>1990</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1990</span>
 <span>1991</span>
 <span>1992</span>
 <span>1993</span>
@@ -7441,13 +7439,15 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <span>2033</span>
 <span>2034</span>
 <span>2035</span>
-<span>2036</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
+<span>2036</span>
+<span>2037</span>
+<span>2038</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">obj_idx</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">point</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">label</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">mask</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
+<span></span>    <span class="n">obj_idx</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">point</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">label</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">mask</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Tracking step for the current image state to predict masks.</span>
 <span></span>
@@ -7499,10 +7499,10 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <code class="doc-symbol doc-symbol-heading doc-symbol-method"></code> <span class="doc doc-object-name doc-function-name">update_memory</span>
 </h3>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">update_memory</span><span class="p">(</span>
-<span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span>
 </code></pre></div>
 <div class="doc doc-contents">
@@ -7523,7 +7523,7 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <code>obj_ids</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="int">int</span>]</code>
+<code><span title="List">List</span>[<span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -7586,9 +7586,7 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/predict.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1844</span>
-<span>1845</span>
-<span>1846</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1846</span>
 <span>1847</span>
 <span>1848</span>
 <span>1849</span>
@@ -7666,13 +7664,15 @@ Keys include 'point_inputs', 'mask_inputs', 'pred_masks', 'pred_masks_high_res',
 <span>1921</span>
 <span>1922</span>
 <span>1923</span>
-<span>1924</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
+<span>1924</span>
+<span>1925</span>
+<span>1926</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="nd">@smart_inference_mode</span><span class="p">()</span>
 <span></span><span class="k">def</span><span class="w"> </span><span class="nf">update_memory</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
-<span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
-<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">obj_ids</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">points</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">labels</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span></span>    <span class="n">masks</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Append the imgState to the memory_bank and update the memory for the model.</span>

@@ -1398,8 +1398,8 @@
 <span></span>    <span class="n">image_encoder</span><span class="p">:</span> <span class="n">ImageEncoderViT</span><span class="p">,</span>
 <span></span>    <span class="n">prompt_encoder</span><span class="p">:</span> <span class="n">PromptEncoder</span><span class="p">,</span>
 <span></span>    <span class="n">mask_decoder</span><span class="p">:</span> <span class="n">MaskDecoder</span><span class="p">,</span>
-<span></span>    <span class="n">pixel_mean</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">),</span>
-<span></span>    <span class="n">pixel_std</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">),</span>
+<span></span>    <span class="n">pixel_mean</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">),</span>
+<span></span>    <span class="n">pixel_std</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">),</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1580,7 +1580,7 @@ and input prompts.</p>
 <code>pixel_mean</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
+<code><span title="List">List</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1596,7 +1596,7 @@ and input prompts.</p>
 <code>pixel_std</code>
 </td>
 <td>
-<code><span title="typing.List">List</span>[<span title="float">float</span>]</code>
+<code><span title="List">List</span>[<span title="float">float</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1622,7 +1622,10 @@ and input prompts.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>59</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>56</span>
+<span>57</span>
+<span>58</span>
+<span>59</span>
 <span>60</span>
 <span>61</span>
 <span>62</span>
@@ -1652,16 +1655,13 @@ and input prompts.</p>
 <span>86</span>
 <span>87</span>
 <span>88</span>
-<span>89</span>
-<span>90</span>
-<span>91</span>
-<span>92</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>89</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_encoder</span><span class="p">:</span> <span class="n">ImageEncoderViT</span><span class="p">,</span>
 <span></span>    <span class="n">prompt_encoder</span><span class="p">:</span> <span class="n">PromptEncoder</span><span class="p">,</span>
 <span></span>    <span class="n">mask_decoder</span><span class="p">:</span> <span class="n">MaskDecoder</span><span class="p">,</span>
-<span></span>    <span class="n">pixel_mean</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">),</span>
-<span></span>    <span class="n">pixel_std</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">),</span>
+<span></span>    <span class="n">pixel_mean</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">123.675</span><span class="p">,</span> <span class="mf">116.28</span><span class="p">,</span> <span class="mf">103.53</span><span class="p">),</span>
+<span></span>    <span class="n">pixel_std</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">float</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mf">58.395</span><span class="p">,</span> <span class="mf">57.12</span><span class="p">,</span> <span class="mf">57.375</span><span class="p">),</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the SAMModel class to predict object masks from an image and input prompts.</span>
@@ -1702,13 +1702,13 @@ and input prompts.</p>
 <p>Set image size to make model compatible with different image sizes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 94</span>
-<span> 95</span>
-<span> 96</span>
-<span> 97</span>
-<span> 98</span>
-<span> 99</span>
-<span>100</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>91</span>
+<span>92</span>
+<span>93</span>
+<span>94</span>
+<span>95</span>
+<span>96</span>
+<span>97</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">,</span> <span class="s2">"set_imgsz"</span><span class="p">):</span>
 <span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="o">.</span><span class="n">set_imgsz</span><span class="p">(</span><span class="n">imgsz</span><span class="p">)</span>
@@ -2894,7 +2894,10 @@ during evaluation.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>176</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>173</span>
+<span>174</span>
+<span>175</span>
+<span>176</span>
 <span>177</span>
 <span>178</span>
 <span>179</span>
@@ -3080,10 +3083,7 @@ during evaluation.</p>
 <span>359</span>
 <span>360</span>
 <span>361</span>
-<span>362</span>
-<span>363</span>
-<span>364</span>
-<span>365</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
+<span>362</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">image_encoder</span><span class="p">,</span>
 <span></span>    <span class="n">memory_attention</span><span class="p">,</span>
@@ -3299,12 +3299,12 @@ during evaluation.</p>
 <p>Process image and prompt inputs to generate object masks and scores in video sequences.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>372</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
 <span>373</span>
-<span>374</span>
-<span>375</span>
-<span>376</span>
-<span>377</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+<span>374</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process image and prompt inputs to generate object masks and scores in video sequences."""</span>
 <span></span>    <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span>
 <span></span>        <span class="s2">"Please use the corresponding methods in SAM2VideoPredictor for inference."</span>
@@ -3324,15 +3324,15 @@ during evaluation.</p>
 <p>Process image batch through encoder to extract multi-level features for SAM model.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>624</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>621</span>
+<span>622</span>
+<span>623</span>
+<span>624</span>
 <span>625</span>
 <span>626</span>
 <span>627</span>
 <span>628</span>
-<span>629</span>
-<span>630</span>
-<span>631</span>
-<span>632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<span>629</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward_image</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">img_batch</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Process image batch through encoder to extract multi-level features for SAM model."""</span>
 <span></span>    <span class="n">backbone_out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">image_encoder</span><span class="p">(</span><span class="n">img_batch</span><span class="p">)</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">use_high_res_features_in_sam</span><span class="p">:</span>
@@ -3355,9 +3355,9 @@ during evaluation.</p>
 <p>Set binarize for VideoPredictor.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1027</span>
-<span>1028</span>
-<span>1029</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1024</span>
+<span>1025</span>
+<span>1026</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_binarize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">binarize</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set binarize for VideoPredictor."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">binarize_mask_from_pts_for_mem_enc</span> <span class="o">=</span> <span class="n">binarize</span>
 </code></pre></div></td></tr></table></div>
@@ -3374,12 +3374,12 @@ during evaluation.</p>
 <p>Set image size to make model compatible with different image sizes.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1031</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1028</span>
+<span>1029</span>
+<span>1030</span>
+<span>1031</span>
 <span>1032</span>
-<span>1033</span>
-<span>1034</span>
-<span>1035</span>
-<span>1036</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
+<span>1033</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">set_imgsz</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""Set image size to make model compatible with different image sizes."""</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">image_size</span> <span class="o">=</span> <span class="n">imgsz</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">sam_prompt_encoder</span><span class="o">.</span><span class="n">input_image_size</span> <span class="o">=</span> <span class="n">imgsz</span>
@@ -3412,7 +3412,10 @@ during evaluation.</p>
 <p>Perform a single tracking step, updating object masks and memory features based on current frame inputs.</p>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/sam.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>940</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>937</span>
+<span>938</span>
+<span>939</span>
+<span>940</span>
 <span>941</span>
 <span>942</span>
 <span>943</span>
@@ -3467,10 +3470,7 @@ during evaluation.</p>
 <span>992</span>
 <span>993</span>
 <span>994</span>
-<span>995</span>
-<span>996</span>
-<span>997</span>
-<span>998</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
+<span>995</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">track_step</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">frame_idx</span><span class="p">,</span>
 <span></span>    <span class="n">is_init_cond_frame</span><span class="p">,</span>

@@ -1393,7 +1393,7 @@
 <code class="doc-symbol doc-symbol-heading doc-symbol-function"></code> <span class="doc doc-object-name doc-function-name">ultralytics.models.sam.modules.utils.select_closest_cond_frames</span>
 </h2>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">select_closest_cond_frames</span><span class="p">(</span>
-<span></span>    <span class="n">frame_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cond_frame_outputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">max_cond_frame_num</span><span class="p">:</span> <span class="nb">int</span>
+<span></span>    <span class="n">frame_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cond_frame_outputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">max_cond_frame_num</span><span class="p">:</span> <span class="nb">int</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -1430,7 +1430,7 @@
 <code>cond_frame_outputs</code>
 </td>
 <td>
-<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1470,7 +1470,7 @@
 <tbody>
 <tr class="doc-section-item">
 <td><code>selected_outputs</code></td> <td>
-<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1480,7 +1480,7 @@
 </tr>
 <tr class="doc-section-item">
 <td><code>unselected_outputs</code></td> <td>
-<code><span title="typing.Dict">Dict</span>[<span title="int">int</span>, <span title="typing.Any">Any</span>]</code>
+<code><span title="Dict">Dict</span>[<span title="int">int</span>, <span title="typing.Any">Any</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1502,9 +1502,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 9</span>
-<span>10</span>
-<span>11</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>11</span>
 <span>12</span>
 <span>13</span>
 <span>14</span>
@@ -1552,7 +1550,9 @@
 <span>56</span>
 <span>57</span>
 <span>58</span>
-<span>59</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_closest_cond_frames</span><span class="p">(</span><span class="n">frame_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cond_frame_outputs</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">max_cond_frame_num</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span>59</span>
+<span>60</span>
+<span>61</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">select_closest_cond_frames</span><span class="p">(</span><span class="n">frame_idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">cond_frame_outputs</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">max_cond_frame_num</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Select the closest conditioning frames to a given frame index.</span>
 <span></span>
@@ -1705,9 +1705,7 @@
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>62</span>
-<span>63</span>
-<span>64</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>64</span>
 <span>65</span>
 <span>66</span>
 <span>67</span>
@@ -1729,7 +1727,9 @@
 <span>83</span>
 <span>84</span>
 <span>85</span>
-<span>86</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_1d_sine_pe</span><span class="p">(</span><span class="n">pos_inds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
+<span>86</span>
+<span>87</span>
+<span>88</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_1d_sine_pe</span><span class="p">(</span><span class="n">pos_inds</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">temperature</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mi">10000</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Generate 1D sinusoidal positional embeddings for given positions and dimensions.</span>
 <span></span>
@@ -1853,9 +1853,7 @@ and corresponding x and y coordinate tensors.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 89</span>
-<span> 90</span>
-<span> 91</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 91</span>
 <span> 92</span>
 <span> 93</span>
 <span> 94</span>
@@ -1878,7 +1876,9 @@ and corresponding x and y coordinate tensors.</p>
 <span>111</span>
 <span>112</span>
 <span>113</span>
-<span>114</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_t_xy</span><span class="p">(</span><span class="n">end_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_y</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span>114</span>
+<span>115</span>
+<span>116</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">init_t_xy</span><span class="p">(</span><span class="n">end_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_y</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize 1D and 2D coordinate tensors for a grid of specified dimensions.</span>
 <span></span>
@@ -2024,9 +2024,7 @@ using separate frequency components for the x and y dimensions.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>117</span>
-<span>118</span>
-<span>119</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>119</span>
 <span>120</span>
 <span>121</span>
 <span>122</span>
@@ -2054,7 +2052,9 @@ using separate frequency components for the x and y dimensions.</p>
 <span>144</span>
 <span>145</span>
 <span>146</span>
-<span>147</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_axial_cis</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">theta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10000.0</span><span class="p">):</span>
+<span>147</span>
+<span>148</span>
+<span>149</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">compute_axial_cis</span><span class="p">(</span><span class="n">dim</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_x</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">end_y</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">theta</span><span class="p">:</span> <span class="nb">float</span> <span class="o">=</span> <span class="mf">10000.0</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Compute axial complex exponential positional encodings for 2D spatial positions in a grid.</span>
 <span></span>
@@ -2188,9 +2188,7 @@ This function is typically used in positional encoding operations.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>150</span>
-<span>151</span>
-<span>152</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>152</span>
 <span>153</span>
 <span>154</span>
 <span>155</span>
@@ -2209,7 +2207,9 @@ This function is typically used in positional encoding operations.</p>
 <span>168</span>
 <span>169</span>
 <span>170</span>
-<span>171</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reshape_for_broadcast</span><span class="p">(</span><span class="n">freqs_cis</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+<span>171</span>
+<span>172</span>
+<span>173</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">reshape_for_broadcast</span><span class="p">(</span><span class="n">freqs_cis</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Reshape frequency tensor for broadcasting with input tensor.</span>
 <span></span>
@@ -2366,9 +2366,7 @@ to match key sequence length.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>174</span>
-<span>175</span>
-<span>176</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>176</span>
 <span>177</span>
 <span>178</span>
 <span>179</span>
@@ -2409,7 +2407,9 @@ to match key sequence length.</p>
 <span>214</span>
 <span>215</span>
 <span>216</span>
-<span>217</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_rotary_enc</span><span class="p">(</span>
+<span>217</span>
+<span>218</span>
+<span>219</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">apply_rotary_enc</span><span class="p">(</span>
 <span></span>    <span class="n">xq</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">xk</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">freqs_cis</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
@@ -2531,7 +2531,7 @@ to match key sequence length.</p>
 </tr>
 <tr class="doc-section-item">
 <td><code>padded_h_w</code></td> <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2549,9 +2549,7 @@ to match key sequence length.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>220</span>
-<span>221</span>
-<span>222</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>222</span>
 <span>223</span>
 <span>224</span>
 <span>225</span>
@@ -2577,7 +2575,9 @@ to match key sequence length.</p>
 <span>245</span>
 <span>246</span>
 <span>247</span>
-<span>248</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">window_partition</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
+<span>248</span>
+<span>249</span>
+<span>250</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">window_partition</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Partition input tensor into non-overlapping windows with padding if needed.</span>
 <span></span>
@@ -2617,8 +2617,8 @@ to match key sequence length.</p>
 <div class="doc-signature highlight"><pre><span></span><code><span></span><span class="nf">window_unpartition</span><span class="p">(</span>
 <span></span>    <span class="n">windows</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span>
-<span></span>    <span class="n">pad_hw</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
-<span></span>    <span class="n">hw</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">pad_hw</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">hw</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
 <span></span><span class="p">)</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -2675,7 +2675,7 @@ the size of each window, and C is the number of channels.</p>
 <code>pad_hw</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2691,7 +2691,7 @@ the size of each window, and C is the number of channels.</p>
 <code>hw</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -2736,9 +2736,7 @@ are the original height and width, and C is the number of channels.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>251</span>
-<span>252</span>
-<span>253</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>253</span>
 <span>254</span>
 <span>255</span>
 <span>256</span>
@@ -2771,7 +2769,9 @@ are the original height and width, and C is the number of channels.</p>
 <span>283</span>
 <span>284</span>
 <span>285</span>
-<span>286</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">window_unpartition</span><span class="p">(</span><span class="n">windows</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">pad_hw</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">hw</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
+<span>286</span>
+<span>287</span>
+<span>288</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">window_unpartition</span><span class="p">(</span><span class="n">windows</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span> <span class="n">window_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">pad_hw</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span> <span class="n">hw</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Unpartition windowed sequences into original sequences and remove padding.</span>
 <span></span>
@@ -2912,9 +2912,7 @@ k_size, C).</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>289</span>
-<span>290</span>
-<span>291</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>291</span>
 <span>292</span>
 <span>293</span>
 <span>294</span>
@@ -2951,7 +2949,9 @@ k_size, C).</p>
 <span>325</span>
 <span>326</span>
 <span>327</span>
-<span>328</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_rel_pos</span><span class="p">(</span><span class="n">q_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">rel_pos</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>328</span>
+<span>329</span>
+<span>330</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_rel_pos</span><span class="p">(</span><span class="n">q_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">k_size</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">rel_pos</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Extract relative positional embeddings based on query and key sizes.</span>
 <span></span>
@@ -3004,8 +3004,8 @@ k_size, C).</p>
 <span></span>    <span class="n">q</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_h</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_w</span><span class="p">:</span> <span class="n">Tensor</span><span class="p">,</span>
-<span></span>    <span class="n">q_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
-<span></span>    <span class="n">k_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">q_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">k_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span>
 </code></pre></div>
 <div class="doc doc-contents first">
@@ -3093,7 +3093,7 @@ positions.</p>
 <code>q_size</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3109,7 +3109,7 @@ positions.</p>
 <code>k_size</code>
 </td>
 <td>
-<code><span title="typing.Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
+<code><span title="Tuple">Tuple</span>[<span title="int">int</span>, <span title="int">int</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -3161,9 +3161,7 @@ positions.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/models/sam/modules/utils.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>331</span>
-<span>332</span>
-<span>333</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>333</span>
 <span>334</span>
 <span>335</span>
 <span>336</span>
@@ -3216,13 +3214,15 @@ positions.</p>
 <span>383</span>
 <span>384</span>
 <span>385</span>
-<span>386</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_decomposed_rel_pos</span><span class="p">(</span>
+<span>386</span>
+<span>387</span>
+<span>388</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">add_decomposed_rel_pos</span><span class="p">(</span>
 <span></span>    <span class="n">attn</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">q</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_h</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">rel_pos_w</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
-<span></span>    <span class="n">q_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
-<span></span>    <span class="n">k_size</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">q_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
+<span></span>    <span class="n">k_size</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">],</span>
 <span></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Add decomposed Relative Positional Embeddings to the attention map.</span>
