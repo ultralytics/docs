@@ -1190,7 +1190,8 @@
 <div class="doc doc-contents first">
 <p>A class for hyperparameter tuning of YOLO models.</p>
 <p>The class evolves YOLO model hyperparameters over a given number of iterations by mutating them according to the
-search space and retraining the model to evaluate their performance.</p>
+search space and retraining the model to evaluate their performance. Supports both local CSV storage and
+distributed MongoDB Atlas coordination for multi-machine hyperparameter optimization.</p>
 <p><span class="doc-section-title">Attributes:</span></p>
 <table>
 <thead>
@@ -1204,7 +1205,7 @@ search space and retraining the model to evaluate their performance.</p>
 <tr class="doc-section-item">
 <td><code><span title="ultralytics.engine.tuner.Tuner.space">space</span></code></td>
 <td>
-<code><span title="Dict">Dict</span>[<span title="str">str</span>, <span title="tuple">tuple</span>]</code>
+<code><span title="dict">dict</span>[<span title="str">str</span>, <span title="tuple">tuple</span>]</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1267,6 +1268,28 @@ search space and retraining the model to evaluate their performance.</p>
 </div>
 </td>
 </tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.engine.tuner.Tuner.mongodb">mongodb</span></code></td>
+<td>
+<code><span title="MongoClient">MongoClient</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>Optional MongoDB client for distributed tuning.</p>
+</div>
+</td>
+</tr>
+<tr class="doc-section-item">
+<td><code><span title="ultralytics.engine.tuner.Tuner.collection">collection</span></code></td>
+<td>
+<code><span title="Collection">Collection</span></code>
+</td>
+<td>
+<div class="doc-md-description">
+<p>MongoDB collection for storing tuning results.</p>
+</div>
+</td>
+</tr>
 </tbody>
 </table>
 <p><span class="doc-section-title">Methods:</span></p>
@@ -1301,11 +1324,26 @@ search space and retraining the model to evaluate their performance.</p>
 <div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics</span><span class="w"> </span><span class="kn">import</span> <span class="n">YOLO</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span> <span class="o">=</span> <span class="n">YOLO</span><span class="p">(</span><span class="s2">"yolo11n.pt"</span><span class="p">)</span>
 <span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span>
-<span></span><span class="gp">... </span>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span> <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">optimizer</span><span class="o">=</span><span class="s2">"AdamW"</span><span class="p">,</span> <span class="n">plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">val</span><span class="o">=</span><span class="kc">False</span>
-<span></span><span class="gp">... </span><span class="p">)</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">plots</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">save</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">val</span><span class="o">=</span><span class="kc">False</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">)</span>
 </code></pre></div>
-<p>Tune with custom search space.</p>
-<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">space</span><span class="o">=</span><span class="p">{</span><span class="n">key1</span><span class="p">:</span> <span class="n">val1</span><span class="p">,</span> <span class="n">key2</span><span class="p">:</span> <span class="n">val2</span><span class="p">})</span>  <span class="c1"># custom search space dictionary</span>
+<p>Tune with distributed MongoDB Atlas coordination across multiple machines:</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">data</span><span class="o">=</span><span class="s2">"coco8.yaml"</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">epochs</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">iterations</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">mongodb_uri</span><span class="o">=</span><span class="s2">"mongodb+srv://user:pass@cluster.mongodb.net/"</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">mongodb_db</span><span class="o">=</span><span class="s2">"ultralytics"</span><span class="p">,</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span>    <span class="n">mongodb_collection</span><span class="o">=</span><span class="s2">"tune_results"</span>
+<span></span><span class="gp">&gt;&gt;&gt; </span><span class="p">)</span>
+</code></pre></div>
+<p>Tune with custom search space:</p>
+<div class="highlight"><pre><span></span><code><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">model</span><span class="o">.</span><span class="n">tune</span><span class="p">(</span><span class="n">space</span><span class="o">=</span><span class="p">{</span><span class="s2">"lr0"</span><span class="p">:</span> <span class="p">(</span><span class="mf">1e-5</span><span class="p">,</span> <span class="mf">1e-1</span><span class="p">),</span> <span class="s2">"momentum"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.6</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">)})</span>
 </code></pre></div>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
@@ -1339,7 +1377,7 @@ search space and retraining the model to evaluate their performance.</p>
 <code>_callbacks</code>
 </td>
 <td>
-<code><span title="List">List</span></code>
+<code><span title="list">list</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1354,27 +1392,7 @@ search space and retraining the model to evaluate their performance.</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/tuner.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 63</span>
-<span> 64</span>
-<span> 65</span>
-<span> 66</span>
-<span> 67</span>
-<span> 68</span>
-<span> 69</span>
-<span> 70</span>
-<span> 71</span>
-<span> 72</span>
-<span> 73</span>
-<span> 74</span>
-<span> 75</span>
-<span> 76</span>
-<span> 77</span>
-<span> 78</span>
-<span> 79</span>
-<span> 80</span>
-<span> 81</span>
-<span> 82</span>
-<span> 83</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 83</span>
 <span> 84</span>
 <span> 85</span>
 <span> 86</span>
@@ -1400,13 +1418,43 @@ search space and retraining the model to evaluate their performance.</p>
 <span>106</span>
 <span>107</span>
 <span>108</span>
-<span>109</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+<span>109</span>
+<span>110</span>
+<span>111</span>
+<span>112</span>
+<span>113</span>
+<span>114</span>
+<span>115</span>
+<span>116</span>
+<span>117</span>
+<span>118</span>
+<span>119</span>
+<span>120</span>
+<span>121</span>
+<span>122</span>
+<span>123</span>
+<span>124</span>
+<span>125</span>
+<span>126</span>
+<span>127</span>
+<span>128</span>
+<span>129</span>
+<span>130</span>
+<span>131</span>
+<span>132</span>
+<span>133</span>
+<span>134</span>
+<span>135</span>
+<span>136</span>
+<span>137</span>
+<span>138</span>
+<span>139</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="n">DEFAULT_CFG</span><span class="p">,</span> <span class="n">_callbacks</span><span class="p">:</span> <span class="nb">list</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Initialize the Tuner with configurations.</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
 <span></span><span class="sd">        args (dict): Configuration for hyperparameter evolution.</span>
-<span></span><span class="sd">        _callbacks (List, optional): Callback functions to be executed during tuning.</span>
+<span></span><span class="sd">        _callbacks (list | None, optional): Callback functions to be executed during tuning.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">space</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"space"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{</span>  <span class="c1"># key: (min, max, gain(optional))</span>
 <span></span>        <span class="c1"># 'optimizer': tune.choice(['SGD', 'Adam', 'AdamW', 'NAdam', 'RAdam', 'RMSProp']),</span>
@@ -1435,6 +1483,10 @@ search space and retraining the model to evaluate their performance.</p>
 <span></span>        <span class="s2">"cutmix"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>  <span class="c1"># image cutmix (probability)</span>
 <span></span>        <span class="s2">"copy_paste"</span><span class="p">:</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span>  <span class="c1"># segment copy-paste (probability)</span>
 <span></span>    <span class="p">}</span>
+<span></span>    <span class="n">mongodb_uri</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"mongodb_uri"</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+<span></span>    <span class="n">mongodb_db</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"mongodb_db"</span><span class="p">,</span> <span class="s2">"ultralytics"</span><span class="p">)</span>
+<span></span>    <span class="n">mongodb_collection</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">"mongodb_collection"</span><span class="p">,</span> <span class="s2">"tuner_results"</span><span class="p">)</span>
+<span></span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span> <span class="o">=</span> <span class="n">get_cfg</span><span class="p">(</span><span class="n">overrides</span><span class="o">=</span><span class="n">args</span><span class="p">)</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">exist_ok</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">resume</span>  <span class="c1"># resume w/ same tune_dir</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">tune_dir</span> <span class="o">=</span> <span class="n">get_save_dir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="s2">"tune"</span><span class="p">)</span>
@@ -1443,6 +1495,12 @@ search space and retraining the model to evaluate their performance.</p>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">callbacks</span> <span class="o">=</span> <span class="n">_callbacks</span> <span class="ow">or</span> <span class="n">callbacks</span><span class="o">.</span><span class="n">get_default_callbacks</span><span class="p">()</span>
 <span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">prefix</span> <span class="o">=</span> <span class="n">colorstr</span><span class="p">(</span><span class="s2">"Tuner: "</span><span class="p">)</span>
 <span></span>    <span class="n">callbacks</span><span class="o">.</span><span class="n">add_integration_callbacks</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># MongoDB Atlas support (optional)</span>
+<span></span>    <span class="bp">self</span><span class="o">.</span><span class="n">mongodb</span> <span class="o">=</span> <span class="kc">None</span>
+<span></span>    <span class="k">if</span> <span class="n">mongodb_uri</span><span class="p">:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_init_mongodb</span><span class="p">(</span><span class="n">mongodb_uri</span><span class="p">,</span> <span class="n">mongodb_db</span><span class="p">,</span> <span class="n">mongodb_collection</span><span class="p">)</span>
+<span></span>
 <span></span>    <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
 <span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Initialized Tuner instance with 'tune_dir=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tune_dir</span><span class="si">}</span><span class="s2">'</span><span class="se">\n</span><span class="s2">"</span>
 <span></span>        <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="si">}</span><span class="s2">💡 Learn about tuning at https://docs.ultralytics.com/guides/hyperparameter-tuning"</span>
@@ -1458,13 +1516,12 @@ search space and retraining the model to evaluate their performance.</p>
 </code></pre></div>
 <div class="doc doc-contents">
 <p>Execute the hyperparameter evolution process when the Tuner instance is called.</p>
-<p>This method iterates through the number of iterations, performing the following steps in each iteration:</p>
-<ol>
-<li>Load the existing hyperparameters or initialize new ones.</li>
-<li>Mutate the hyperparameters using the <code>_mutate</code> method.</li>
-<li>Train a YOLO model with the mutated hyperparameters.</li>
-<li>Log the fitness score and mutated hyperparameters to a CSV file.</li>
-</ol>
+<p>This method iterates through the specified number of iterations, performing the following steps:
+1. Sync MongoDB results to CSV (if using distributed mode)
+2. Mutate hyperparameters using the best previous results or defaults
+3. Train a YOLO model with the mutated hyperparameters
+4. Log fitness scores and hyperparameters to MongoDB and/or CSV
+5. Track the best performing configuration across all iterations</p>
 <p><span class="doc-section-title">Parameters:</span></p>
 <table>
 <thead>
@@ -1481,7 +1538,7 @@ search space and retraining the model to evaluate their performance.</p>
 <code>model</code>
 </td>
 <td>
-<code><span title="Model">Model</span></code>
+<code><span title="Model">Model</span> | None</code>
 </td>
 <td>
 <div class="doc-md-description">
@@ -1517,7 +1574,7 @@ search space and retraining the model to evaluate their performance.</p>
 </td>
 <td>
 <div class="doc-md-description">
-<p>Whether to delete iteration weights to reduce storage space used during tuning.</p>
+<p>Whether to delete iteration weights to reduce storage space during tuning.</p>
 </div>
 </td>
 <td>
@@ -1526,124 +1583,132 @@ search space and retraining the model to evaluate their performance.</p>
 </tr>
 </tbody>
 </table>
-<details class="note" open="">
-<summary>Note</summary>
-<p>The method utilizes the <code>self.tune_csv</code> Path object to read and log hyperparameters and fitness scores.
-Ensure this path is set correctly in the Tuner instance.</p>
-</details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/engine/tuner.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>159</span>
-<span>160</span>
-<span>161</span>
-<span>162</span>
-<span>163</span>
-<span>164</span>
-<span>165</span>
-<span>166</span>
-<span>167</span>
-<span>168</span>
-<span>169</span>
-<span>170</span>
-<span>171</span>
-<span>172</span>
-<span>173</span>
-<span>174</span>
-<span>175</span>
-<span>176</span>
-<span>177</span>
-<span>178</span>
-<span>179</span>
-<span>180</span>
-<span>181</span>
-<span>182</span>
-<span>183</span>
-<span>184</span>
-<span>185</span>
-<span>186</span>
-<span>187</span>
-<span>188</span>
-<span>189</span>
-<span>190</span>
-<span>191</span>
-<span>192</span>
-<span>193</span>
-<span>194</span>
-<span>195</span>
-<span>196</span>
-<span>197</span>
-<span>198</span>
-<span>199</span>
-<span>200</span>
-<span>201</span>
-<span>202</span>
-<span>203</span>
-<span>204</span>
-<span>205</span>
-<span>206</span>
-<span>207</span>
-<span>208</span>
-<span>209</span>
-<span>210</span>
-<span>211</span>
-<span>212</span>
-<span>213</span>
-<span>214</span>
-<span>215</span>
-<span>216</span>
-<span>217</span>
-<span>218</span>
-<span>219</span>
-<span>220</span>
-<span>221</span>
-<span>222</span>
-<span>223</span>
-<span>224</span>
-<span>225</span>
-<span>226</span>
-<span>227</span>
-<span>228</span>
-<span>229</span>
-<span>230</span>
-<span>231</span>
-<span>232</span>
-<span>233</span>
-<span>234</span>
-<span>235</span>
-<span>236</span>
-<span>237</span>
-<span>238</span>
-<span>239</span>
-<span>240</span>
-<span>241</span>
-<span>242</span>
-<span>243</span>
-<span>244</span>
-<span>245</span>
-<span>246</span>
-<span>247</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cleanup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>334</span>
+<span>335</span>
+<span>336</span>
+<span>337</span>
+<span>338</span>
+<span>339</span>
+<span>340</span>
+<span>341</span>
+<span>342</span>
+<span>343</span>
+<span>344</span>
+<span>345</span>
+<span>346</span>
+<span>347</span>
+<span>348</span>
+<span>349</span>
+<span>350</span>
+<span>351</span>
+<span>352</span>
+<span>353</span>
+<span>354</span>
+<span>355</span>
+<span>356</span>
+<span>357</span>
+<span>358</span>
+<span>359</span>
+<span>360</span>
+<span>361</span>
+<span>362</span>
+<span>363</span>
+<span>364</span>
+<span>365</span>
+<span>366</span>
+<span>367</span>
+<span>368</span>
+<span>369</span>
+<span>370</span>
+<span>371</span>
+<span>372</span>
+<span>373</span>
+<span>374</span>
+<span>375</span>
+<span>376</span>
+<span>377</span>
+<span>378</span>
+<span>379</span>
+<span>380</span>
+<span>381</span>
+<span>382</span>
+<span>383</span>
+<span>384</span>
+<span>385</span>
+<span>386</span>
+<span>387</span>
+<span>388</span>
+<span>389</span>
+<span>390</span>
+<span>391</span>
+<span>392</span>
+<span>393</span>
+<span>394</span>
+<span>395</span>
+<span>396</span>
+<span>397</span>
+<span>398</span>
+<span>399</span>
+<span>400</span>
+<span>401</span>
+<span>402</span>
+<span>403</span>
+<span>404</span>
+<span>405</span>
+<span>406</span>
+<span>407</span>
+<span>408</span>
+<span>409</span>
+<span>410</span>
+<span>411</span>
+<span>412</span>
+<span>413</span>
+<span>414</span>
+<span>415</span>
+<span>416</span>
+<span>417</span>
+<span>418</span>
+<span>419</span>
+<span>420</span>
+<span>421</span>
+<span>422</span>
+<span>423</span>
+<span>424</span>
+<span>425</span>
+<span>426</span>
+<span>427</span>
+<span>428</span>
+<span>429</span>
+<span>430</span>
+<span>431</span>
+<span>432</span>
+<span>433</span>
+<span>434</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">cleanup</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">):</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Execute the hyperparameter evolution process when the Tuner instance is called.</span>
 <span></span>
-<span></span><span class="sd">    This method iterates through the number of iterations, performing the following steps in each iteration:</span>
-<span></span>
-<span></span><span class="sd">    1. Load the existing hyperparameters or initialize new ones.</span>
-<span></span><span class="sd">    2. Mutate the hyperparameters using the `_mutate` method.</span>
-<span></span><span class="sd">    3. Train a YOLO model with the mutated hyperparameters.</span>
-<span></span><span class="sd">    4. Log the fitness score and mutated hyperparameters to a CSV file.</span>
+<span></span><span class="sd">    This method iterates through the specified number of iterations, performing the following steps:</span>
+<span></span><span class="sd">    1. Sync MongoDB results to CSV (if using distributed mode)</span>
+<span></span><span class="sd">    2. Mutate hyperparameters using the best previous results or defaults</span>
+<span></span><span class="sd">    3. Train a YOLO model with the mutated hyperparameters</span>
+<span></span><span class="sd">    4. Log fitness scores and hyperparameters to MongoDB and/or CSV</span>
+<span></span><span class="sd">    5. Track the best performing configuration across all iterations</span>
 <span></span>
 <span></span><span class="sd">    Args:</span>
-<span></span><span class="sd">        model (Model): A pre-initialized YOLO model to be used for training.</span>
+<span></span><span class="sd">        model (Model | None, optional): A pre-initialized YOLO model to be used for training.</span>
 <span></span><span class="sd">        iterations (int): The number of generations to run the evolution for.</span>
-<span></span><span class="sd">        cleanup (bool): Whether to delete iteration weights to reduce storage space used during tuning.</span>
-<span></span>
-<span></span><span class="sd">    Note:</span>
-<span></span><span class="sd">        The method utilizes the `self.tune_csv` Path object to read and log hyperparameters and fitness scores.</span>
-<span></span><span class="sd">        Ensure this path is set correctly in the Tuner instance.</span>
+<span></span><span class="sd">        cleanup (bool): Whether to delete iteration weights to reduce storage space during tuning.</span>
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="n">t0</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
 <span></span>    <span class="n">best_save_dir</span><span class="p">,</span> <span class="n">best_metrics</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span>
 <span></span>    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tune_dir</span> <span class="o">/</span> <span class="s2">"weights"</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>
+<span></span>    <span class="c1"># Sync MongoDB to CSV at startup for proper resume logic</span>
+<span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mongodb</span><span class="p">:</span>
+<span></span>        <span class="bp">self</span><span class="o">.</span><span class="n">_sync_mongodb_to_csv</span><span class="p">()</span>
+<span></span>
 <span></span>    <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
 <span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1670,12 +1735,23 @@ Ensure this path is set correctly in the Tuner instance.</p>
 <span></span>        <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
 <span></span>            <span class="n">LOGGER</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="sa">f</span><span class="s2">"training failure for hyperparameter tuning iteration </span><span class="si">{</span><span class="n">i</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1</span><span class="si">}</span><span class="se">\n</span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 <span></span>
-<span></span>        <span class="c1"># Save results and mutated_hyp to CSV</span>
+<span></span>        <span class="c1"># Save results - MongoDB takes precedence</span>
 <span></span>        <span class="n">fitness</span> <span class="o">=</span> <span class="n">metrics</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"fitness"</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-<span></span>        <span class="n">log_row</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">fitness</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">mutated_hyp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
-<span></span>        <span class="n">headers</span> <span class="o">=</span> <span class="s2">""</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="p">(</span><span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">"fitness"</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
-<span></span>        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-<span></span>            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">headers</span> <span class="o">+</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">log_row</span><span class="p">))</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span></span>        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mongodb</span><span class="p">:</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">_save_to_mongodb</span><span class="p">(</span><span class="n">fitness</span><span class="p">,</span> <span class="n">mutated_hyp</span><span class="p">,</span> <span class="n">metrics</span><span class="p">,</span> <span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+<span></span>            <span class="bp">self</span><span class="o">.</span><span class="n">_sync_mongodb_to_csv</span><span class="p">()</span>
+<span></span>            <span class="n">total_mongo_iterations</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">collection</span><span class="o">.</span><span class="n">count_documents</span><span class="p">({})</span>
+<span></span>            <span class="k">if</span> <span class="n">total_mongo_iterations</span> <span class="o">&gt;=</span> <span class="n">iterations</span><span class="p">:</span>
+<span></span>                <span class="n">LOGGER</span><span class="o">.</span><span class="n">info</span><span class="p">(</span>
+<span></span>                    <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">prefix</span><span class="si">}</span><span class="s2">Target iterations (</span><span class="si">{</span><span class="n">iterations</span><span class="si">}</span><span class="s2">) reached in MongoDB (</span><span class="si">{</span><span class="n">total_mongo_iterations</span><span class="si">}</span><span class="s2">). Stopping."</span>
+<span></span>                <span class="p">)</span>
+<span></span>                <span class="k">break</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="c1"># Save to CSV only if no MongoDB</span>
+<span></span>            <span class="n">log_row</span> <span class="o">=</span> <span class="p">[</span><span class="nb">round</span><span class="p">(</span><span class="n">fitness</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span> <span class="o">+</span> <span class="p">[</span><span class="n">mutated_hyp</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">keys</span><span class="p">()]</span>
+<span></span>            <span class="n">headers</span> <span class="o">=</span> <span class="s2">""</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="o">.</span><span class="n">exists</span><span class="p">()</span> <span class="k">else</span> <span class="p">(</span><span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="s2">"fitness"</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">space</span><span class="o">.</span><span class="n">keys</span><span class="p">()))</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+<span></span>            <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="p">,</span> <span class="s2">"a"</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s2">"utf-8"</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+<span></span>                <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">headers</span> <span class="o">+</span> <span class="s2">","</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">log_row</span><span class="p">))</span> <span class="o">+</span> <span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
 <span></span>
 <span></span>        <span class="c1"># Get best results</span>
 <span></span>        <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="p">,</span> <span class="n">ndmin</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s2">","</span><span class="p">,</span> <span class="n">skiprows</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -1691,7 +1767,7 @@ Ensure this path is set correctly in the Tuner instance.</p>
 <span></span>            <span class="n">shutil</span><span class="o">.</span><span class="n">rmtree</span><span class="p">(</span><span class="n">weights_dir</span><span class="p">,</span> <span class="n">ignore_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># remove iteration weights/ dir to reduce storage space</span>
 <span></span>
 <span></span>        <span class="c1"># Plot tune results</span>
-<span></span>        <span class="n">plot_tune_results</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="p">)</span>
+<span></span>        <span class="n">plot_tune_results</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">tune_csv</span><span class="p">))</span>
 <span></span>
 <span></span>        <span class="c1"># Save and print tune results</span>
 <span></span>        <span class="n">header</span> <span class="o">=</span> <span class="p">(</span>
