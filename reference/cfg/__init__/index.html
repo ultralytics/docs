@@ -2023,7 +2023,7 @@ or the 'args.mode'.</p>
 <span></span>        <span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="ow">or</span> <span class="n">args</span><span class="o">.</span><span class="n">name</span> <span class="ow">or</span> <span class="sa">f</span><span class="s2">"</span><span class="si">{</span><span class="n">args</span><span class="o">.</span><span class="n">mode</span><span class="si">}</span><span class="s2">"</span>
 <span></span>        <span class="n">save_dir</span> <span class="o">=</span> <span class="n">increment_path</span><span class="p">(</span><span class="n">Path</span><span class="p">(</span><span class="n">project</span><span class="p">)</span> <span class="o">/</span> <span class="n">name</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="n">args</span><span class="o">.</span><span class="n">exist_ok</span> <span class="k">if</span> <span class="n">RANK</span> <span class="ow">in</span> <span class="p">{</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">}</span> <span class="k">else</span> <span class="kc">True</span><span class="p">)</span>
 <span></span>
-<span></span>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span>
+<span></span>    <span class="k">return</span> <span class="n">Path</span><span class="p">(</span><span class="n">save_dir</span><span class="p">)</span><span class="o">.</span><span class="n">resolve</span><span class="p">()</span>  <span class="c1"># resolve to display full path in console</span>
 </code></pre></div></td></tr></table></div>
 </details>
 </div>
