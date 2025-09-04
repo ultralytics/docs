@@ -1422,9 +1422,7 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>242</span>
-<span>243</span>
-<span>244</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>244</span>
 <span>245</span>
 <span>246</span>
 <span>247</span>
@@ -1454,7 +1452,9 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 <span>271</span>
 <span>272</span>
 <span>273</span>
-<span>274</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cfg2dict</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">SimpleNamespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span>274</span>
+<span>275</span>
+<span>276</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">cfg2dict</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">SimpleNamespace</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a configuration object to a dictionary.</span>
 <span></span>
@@ -1482,7 +1482,7 @@ a string, a dictionary, or a SimpleNamespace object.</p>
 <span></span><span class="sd">        - If cfg is a SimpleNamespace object, it's converted to a dictionary using vars().</span>
 <span></span><span class="sd">        - If cfg is already a dictionary, it's returned unchanged.</span>
 <span></span><span class="sd">    """</span>
-<span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">,</span> <span class="n">Path</span><span class="p">)):</span>
+<span></span>    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">STR_OR_PATH</span><span class="p">):</span>
 <span></span>        <span class="n">cfg</span> <span class="o">=</span> <span class="n">YAML</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>  <span class="c1"># load dict</span>
 <span></span>    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">,</span> <span class="n">SimpleNamespace</span><span class="p">):</span>
 <span></span>        <span class="n">cfg</span> <span class="o">=</span> <span class="nb">vars</span><span class="p">(</span><span class="n">cfg</span><span class="p">)</span>  <span class="c1"># convert to dict</span>
@@ -1585,9 +1585,7 @@ SimpleNamespace object.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>277</span>
-<span>278</span>
-<span>279</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>279</span>
 <span>280</span>
 <span>281</span>
 <span>282</span>
@@ -1630,7 +1628,9 @@ SimpleNamespace object.</p>
 <span>319</span>
 <span>320</span>
 <span>321</span>
-<span>322</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">SimpleNamespace</span> <span class="o">=</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimpleNamespace</span><span class="p">:</span>
+<span>322</span>
+<span>323</span>
+<span>324</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="nb">str</span> <span class="o">|</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">dict</span> <span class="o">|</span> <span class="n">SimpleNamespace</span> <span class="o">=</span> <span class="n">DEFAULT_CFG_DICT</span><span class="p">,</span> <span class="n">overrides</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">SimpleNamespace</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Load and merge configuration data from a file or dictionary, with optional overrides.</span>
 <span></span>
@@ -1665,7 +1665,7 @@ SimpleNamespace object.</p>
 <span></span>
 <span></span>    <span class="c1"># Special handling for numeric project/name</span>
 <span></span>    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="s2">"project"</span><span class="p">,</span> <span class="s2">"name"</span><span class="p">:</span>
-<span></span>        <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">cfg</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+<span></span>        <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">cfg</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">k</span><span class="p">],</span> <span class="n">FLOAT_OR_INT</span><span class="p">):</span>
 <span></span>            <span class="n">cfg</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cfg</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
 <span></span>    <span class="k">if</span> <span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"name"</span><span class="p">)</span> <span class="o">==</span> <span class="s2">"model"</span><span class="p">:</span>  <span class="c1"># assign model to 'name' arg</span>
 <span></span>        <span class="n">cfg</span><span class="p">[</span><span class="s2">"name"</span><span class="p">]</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cfg</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"model"</span><span class="p">,</span> <span class="s2">""</span><span class="p">))</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s2">"."</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
@@ -1757,9 +1757,7 @@ them if necessary. It checks for specific key types defined in global variables 
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>325</span>
-<span>326</span>
-<span>327</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>327</span>
 <span>328</span>
 <span>329</span>
 <span>330</span>
@@ -1816,7 +1814,9 @@ them if necessary. It checks for specific key types defined in global variables 
 <span>381</span>
 <span>382</span>
 <span>383</span>
-<span>384</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">hard</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>384</span>
+<span>385</span>
+<span>386</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_cfg</span><span class="p">(</span><span class="n">cfg</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">hard</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check configuration argument types and values for the Ultralytics library.</span>
 <span></span>
@@ -1846,7 +1846,7 @@ them if necessary. It checks for specific key types defined in global variables 
 <span></span><span class="sd">    """</span>
 <span></span>    <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">cfg</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
 <span></span>        <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>  <span class="c1"># None values may be from optional args</span>
-<span></span>            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">CFG_FLOAT_KEYS</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+<span></span>            <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">CFG_FLOAT_KEYS</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">FLOAT_OR_INT</span><span class="p">):</span>
 <span></span>                <span class="k">if</span> <span class="n">hard</span><span class="p">:</span>
 <span></span>                    <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
 <span></span>                        <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">' is of invalid type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">. "</span>
@@ -1854,7 +1854,7 @@ them if necessary. It checks for specific key types defined in global variables 
 <span></span>                    <span class="p">)</span>
 <span></span>                <span class="n">cfg</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 <span></span>            <span class="k">elif</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">CFG_FRACTION_KEYS</span><span class="p">:</span>
-<span></span>                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">)):</span>
+<span></span>                <span class="k">if</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="n">FLOAT_OR_INT</span><span class="p">):</span>
 <span></span>                    <span class="k">if</span> <span class="n">hard</span><span class="p">:</span>
 <span></span>                        <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
 <span></span>                            <span class="sa">f</span><span class="s2">"'</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2">=</span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="s2">' is of invalid type </span><span class="si">{</span><span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s2">. "</span>
@@ -1965,9 +1965,7 @@ or the 'args.mode'.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>387</span>
-<span>388</span>
-<span>389</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>389</span>
 <span>390</span>
 <span>391</span>
 <span>392</span>
@@ -1994,7 +1992,9 @@ or the 'args.mode'.</p>
 <span>413</span>
 <span>414</span>
 <span>415</span>
-<span>416</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_save_dir</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">SimpleNamespace</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
+<span>416</span>
+<span>417</span>
+<span>418</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">get_save_dir</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="n">SimpleNamespace</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Path</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Return the directory path for saving outputs, derived from arguments or default settings.</span>
 <span></span>
@@ -2100,9 +2100,7 @@ equivalents. It also handles value conversions where necessary, such as invertin
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>419</span>
-<span>420</span>
-<span>421</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>421</span>
 <span>422</span>
 <span>423</span>
 <span>424</span>
@@ -2141,7 +2139,9 @@ equivalents. It also handles value conversions where necessary, such as invertin
 <span>457</span>
 <span>458</span>
 <span>459</span>
-<span>460</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_handle_deprecation</span><span class="p">(</span><span class="n">custom</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
+<span>460</span>
+<span>461</span>
+<span>462</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">_handle_deprecation</span><span class="p">(</span><span class="n">custom</span><span class="p">:</span> <span class="nb">dict</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">dict</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Handle deprecated configuration keys by mapping them to current equivalents with deprecation warnings.</span>
 <span></span>
@@ -2296,9 +2296,7 @@ messages for mismatched keys.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>463</span>
-<span>464</span>
-<span>465</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>465</span>
 <span>466</span>
 <span>467</span>
 <span>468</span>
@@ -2333,7 +2331,9 @@ messages for mismatched keys.</p>
 <span>497</span>
 <span>498</span>
 <span>499</span>
-<span>500</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_dict_alignment</span><span class="p">(</span><span class="n">base</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="ne">Exception</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>500</span>
+<span>501</span>
+<span>502</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">check_dict_alignment</span><span class="p">(</span><span class="n">base</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">custom</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">e</span><span class="p">:</span> <span class="ne">Exception</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Check alignment between custom and base configuration dictionaries, handling deprecated keys and providing error</span>
 <span></span><span class="sd">    messages for mismatched keys.</span>
@@ -2449,9 +2449,7 @@ messages for mismatched keys.</p>
 </code></pre></div>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>503</span>
-<span>504</span>
-<span>505</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>505</span>
 <span>506</span>
 <span>507</span>
 <span>508</span>
@@ -2505,7 +2503,9 @@ messages for mismatched keys.</p>
 <span>556</span>
 <span>557</span>
 <span>558</span>
-<span>559</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
+<span>559</span>
+<span>560</span>
+<span>561</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">merge_equals_args</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">]:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Merge arguments around isolated '=' in a list of strings and join fragments with brackets.</span>
 <span></span>
@@ -2618,9 +2618,7 @@ or 'logout'. For 'login', an optional second argument can be the API key.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>562</span>
-<span>563</span>
-<span>564</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>564</span>
 <span>565</span>
 <span>566</span>
 <span>567</span>
@@ -2645,7 +2643,9 @@ or 'logout'. For 'login', an optional second argument can be the API key.</p>
 <span>586</span>
 <span>587</span>
 <span>588</span>
-<span>589</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>589</span>
+<span>590</span>
+<span>591</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_hub</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Handle Ultralytics HUB command-line interface (CLI) commands for authentication.</span>
 <span></span>
@@ -2734,9 +2734,7 @@ called when executing a script with arguments related to YOLO settings managemen
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>592</span>
-<span>593</span>
-<span>594</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>594</span>
 <span>595</span>
 <span>596</span>
 <span>597</span>
@@ -2774,7 +2772,9 @@ called when executing a script with arguments related to YOLO settings managemen
 <span>629</span>
 <span>630</span>
 <span>631</span>
-<span>632</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>632</span>
+<span>633</span>
+<span>634</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_settings</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Handle YOLO settings command-line interface (CLI) commands.</span>
 <span></span>
@@ -2885,9 +2885,7 @@ and other configuration parameters.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>635</span>
-<span>636</span>
-<span>637</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>637</span>
 <span>638</span>
 <span>639</span>
 <span>640</span>
@@ -2994,7 +2992,9 @@ and other configuration parameters.</p>
 <span>741</span>
 <span>742</span>
 <span>743</span>
-<span>744</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_solutions</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>744</span>
+<span>745</span>
+<span>746</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">handle_yolo_solutions</span><span class="p">(</span><span class="n">args</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Process YOLO solutions arguments and run the specified computer vision solutions pipeline.</span>
 <span></span>
@@ -3216,9 +3216,7 @@ and other configuration parameters.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>747</span>
-<span>748</span>
-<span>749</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>749</span>
 <span>750</span>
 <span>751</span>
 <span>752</span>
@@ -3247,7 +3245,9 @@ and other configuration parameters.</p>
 <span>775</span>
 <span>776</span>
 <span>777</span>
-<span>778</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_key_value_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"key=value"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
+<span>778</span>
+<span>779</span>
+<span>780</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">parse_key_value_pair</span><span class="p">(</span><span class="n">pair</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">"key=value"</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">tuple</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Parse a key-value pair string into separate key and value components.</span>
 <span></span>
@@ -3366,9 +3366,7 @@ is applicable.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>781</span>
-<span>782</span>
-<span>783</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>783</span>
 <span>784</span>
 <span>785</span>
 <span>786</span>
@@ -3408,7 +3406,9 @@ is applicable.</p>
 <span>820</span>
 <span>821</span>
 <span>822</span>
-<span>823</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
+<span>823</span>
+<span>824</span>
+<span>825</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">smart_value</span><span class="p">(</span><span class="n">v</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Any</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a string representation of a value to its appropriate Python type.</span>
 <span></span>
@@ -3514,9 +3514,7 @@ executing the corresponding tasks such as training, validation, prediction, expo
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>826</span>
-<span>827</span>
-<span>828</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>828</span>
 <span>829</span>
 <span>830</span>
 <span>831</span>
@@ -3683,7 +3681,9 @@ executing the corresponding tasks such as training, validation, prediction, expo
 <span>992</span>
 <span>993</span>
 <span>994</span>
-<span>995</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>995</span>
+<span>996</span>
+<span>997</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">entrypoint</span><span class="p">(</span><span class="n">debug</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">""</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Ultralytics entrypoint function for parsing and executing command-line arguments.</span>
 <span></span>
@@ -3886,9 +3886,7 @@ to create a custom configuration file based on the default settings.</p>
 </details>
 <details class="quote">
 <summary>Source code in <code>ultralytics/cfg/__init__.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span> 999</span>
-<span>1000</span>
-<span>1001</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>1001</span>
 <span>1002</span>
 <span>1003</span>
 <span>1004</span>
@@ -3912,7 +3910,9 @@ to create a custom configuration file based on the default settings.</p>
 <span>1022</span>
 <span>1023</span>
 <span>1024</span>
-<span>1025</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">copy_default_cfg</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>1025</span>
+<span>1026</span>
+<span>1027</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">copy_default_cfg</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Copy the default configuration file and create a new one with '_copy' appended to its name.</span>
 <span></span>
