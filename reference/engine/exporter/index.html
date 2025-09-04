@@ -3497,7 +3497,7 @@ process for each supported format.</p>
 <span></span><span class="w">    </span><span class="sd">"""Export YOLO model to ONNX format."""</span>
 <span></span>    <span class="n">requirements</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"onnx&gt;=1.12.0"</span><span class="p">]</span>
 <span></span>    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">args</span><span class="o">.</span><span class="n">simplify</span><span class="p">:</span>
-<span></span>        <span class="n">requirements</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"onnxslim&gt;=0.1.65"</span><span class="p">,</span> <span class="s2">"onnxruntime"</span> <span class="o">+</span> <span class="p">(</span><span class="s2">"-gpu"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)]</span>
+<span></span>        <span class="n">requirements</span> <span class="o">+=</span> <span class="p">[</span><span class="s2">"onnxslim==0.1.65"</span><span class="p">,</span> <span class="s2">"onnxruntime"</span> <span class="o">+</span> <span class="p">(</span><span class="s2">"-gpu"</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s2">""</span><span class="p">)]</span>
 <span></span>    <span class="n">check_requirements</span><span class="p">(</span><span class="n">requirements</span><span class="p">)</span>
 <span></span>    <span class="kn">import</span><span class="w"> </span><span class="nn">onnx</span>  <span class="c1"># noqa</span>
 <span></span>
@@ -3996,7 +3996,7 @@ process for each supported format.</p>
 <span></span>            <span class="s2">"ai-edge-litert&gt;=1.2.0,&lt;1.4.0"</span><span class="p">,</span>  <span class="c1"># required by 'onnx2tf' package</span>
 <span></span>            <span class="s2">"onnx&gt;=1.12.0"</span><span class="p">,</span>
 <span></span>            <span class="s2">"onnx2tf&gt;=1.26.3"</span><span class="p">,</span>
-<span></span>            <span class="s2">"onnxslim&gt;=0.1.65"</span><span class="p">,</span>
+<span></span>            <span class="s2">"onnxslim==0.1.65"</span><span class="p">,</span>
 <span></span>            <span class="s2">"onnxruntime-gpu"</span> <span class="k">if</span> <span class="n">cuda</span> <span class="k">else</span> <span class="s2">"onnxruntime"</span><span class="p">,</span>
 <span></span>            <span class="s2">"protobuf&gt;=5"</span><span class="p">,</span>
 <span></span>        <span class="p">),</span>
