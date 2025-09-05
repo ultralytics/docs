@@ -3020,10 +3020,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>824</span>
 <span>825</span>
 <span>826</span>
-<span>827</span>
-<span>828</span>
-<span>829</span>
-<span>830</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
+<span>827</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">forward</span><span class="p">(</span>
 <span></span>    <span class="bp">self</span><span class="p">,</span>
 <span></span>    <span class="n">im</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">,</span>
 <span></span>    <span class="n">augment</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
@@ -3142,17 +3139,14 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span></span>        <span class="n">im_pil</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">fromarray</span><span class="p">((</span><span class="n">im</span> <span class="o">*</span> <span class="mi">255</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s2">"uint8"</span><span class="p">))</span>
 <span></span>        <span class="c1"># im = im.resize((192, 320), Image.BILINEAR)</span>
 <span></span>        <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">predict</span><span class="p">({</span><span class="s2">"image"</span><span class="p">:</span> <span class="n">im_pil</span><span class="p">})</span>  <span class="c1"># coordinates are xywh normalized</span>
-<span></span>        <span class="k">if</span> <span class="s2">"confidence"</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>
-<span></span>            <span class="k">raise</span> <span class="ne">TypeError</span><span class="p">(</span>
-<span></span>                <span class="s2">"Ultralytics only supports inference of non-pipelined CoreML models exported with "</span>
-<span></span>                <span class="sa">f</span><span class="s2">"'nms=False', but 'model=</span><span class="si">{</span><span class="n">w</span><span class="si">}</span><span class="s2">' has an NMS pipeline created by an 'nms=True' export."</span>
-<span></span>            <span class="p">)</span>
-<span></span>            <span class="c1"># TODO: CoreML NMS inference handling</span>
-<span></span>            <span class="c1"># from ultralytics.utils.ops import xywh2xyxy</span>
-<span></span>            <span class="c1"># box = xywh2xyxy(y['coordinates'] * [[w, h, w, h]])  # xyxy pixels</span>
-<span></span>            <span class="c1"># conf, cls = y['confidence'].max(1), y['confidence'].argmax(1).astype(np.float32)</span>
-<span></span>            <span class="c1"># y = np.concatenate((box, conf.reshape(-1, 1), cls.reshape(-1, 1)), 1)</span>
-<span></span>        <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+<span></span>        <span class="k">if</span> <span class="s2">"confidence"</span> <span class="ow">in</span> <span class="n">y</span><span class="p">:</span>  <span class="c1"># NMS included</span>
+<span></span>            <span class="kn">from</span><span class="w"> </span><span class="nn">ultralytics.utils.ops</span><span class="w"> </span><span class="kn">import</span> <span class="n">xywh2xyxy</span>
+<span></span>
+<span></span>            <span class="n">box</span> <span class="o">=</span> <span class="n">xywh2xyxy</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="s2">"coordinates"</span><span class="p">]</span> <span class="o">*</span> <span class="p">[[</span><span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">]])</span>  <span class="c1"># xyxy pixels</span>
+<span></span>            <span class="bp">cls</span> <span class="o">=</span> <span class="n">y</span><span class="p">[</span><span class="s2">"confidence"</span><span class="p">]</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span></span>            <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">box</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">take_along_axis</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="s2">"confidence"</span><span class="p">],</span> <span class="bp">cls</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span> <span class="bp">cls</span><span class="p">),</span> <span class="mi">1</span><span class="p">)[</span><span class="kc">None</span><span class="p">]</span>
+<span></span>        <span class="k">else</span><span class="p">:</span>
+<span></span>            <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">y</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
 <span></span>        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">!=</span> <span class="mi">4</span><span class="p">:</span>  <span class="c1"># segmentation model</span>
 <span></span>            <span class="n">y</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">reversed</span><span class="p">(</span><span class="n">y</span><span class="p">))</span>  <span class="c1"># reversed for segmentation models (pred, proto)</span>
 <span></span>
@@ -3310,17 +3304,17 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>832</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>829</span>
+<span>830</span>
+<span>831</span>
+<span>832</span>
 <span>833</span>
 <span>834</span>
 <span>835</span>
 <span>836</span>
 <span>837</span>
 <span>838</span>
-<span>839</span>
-<span>840</span>
-<span>841</span>
-<span>842</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
+<span>839</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">from_numpy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">x</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">ndarray</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Convert a numpy array to a tensor.</span>
 <span></span>
@@ -3374,7 +3368,10 @@ range of formats, each with specific naming conventions as outlined below:</p>
 </table>
 <details class="quote">
 <summary>Source code in <code>ultralytics/nn/autobackend.py</code></summary>
-<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>844</span>
+<div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span>841</span>
+<span>842</span>
+<span>843</span>
+<span>844</span>
 <span>845</span>
 <span>846</span>
 <span>847</span>
@@ -3382,10 +3379,7 @@ range of formats, each with specific naming conventions as outlined below:</p>
 <span>849</span>
 <span>850</span>
 <span>851</span>
-<span>852</span>
-<span>853</span>
-<span>854</span>
-<span>855</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span>852</span></pre></div></td><td class="code"><div><pre><span></span><code><span></span><span class="k">def</span><span class="w"> </span><span class="nf">warmup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">imgsz</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">640</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 <span></span><span class="w">    </span><span class="sd">"""</span>
 <span></span><span class="sd">    Warm up the model by running one forward pass with a dummy input.</span>
 <span></span>
